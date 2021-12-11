@@ -7,12 +7,18 @@
 
 #import "AppDelegate.h"
 
+AppDelegate *appDelegate;
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
 
+-(instancetype)init{
+    if (self = [super init]) {
+        appDelegate = self;
+    }return self;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
