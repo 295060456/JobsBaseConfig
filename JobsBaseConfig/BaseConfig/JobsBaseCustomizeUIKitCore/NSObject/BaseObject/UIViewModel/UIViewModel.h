@@ -49,6 +49,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 图片和背景颜色
 @property(nonatomic,strong)UIImage *image;//图片
 @property(nonatomic,strong)UIImage *bgImage;//背景图片
+@property(nonatomic,strong)NSString *imageURLString;//图片URL(字符串形式)
+@property(nonatomic,strong)NSString *bgImageURLString;//背景图片URL(字符串形式)
 @property(nonatomic,strong)UIColor *bgCor;//背景颜色
 /// Size
 @property(nonatomic,assign)CGFloat cornerRadius;//圆切角
