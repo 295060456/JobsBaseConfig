@@ -10,7 +10,7 @@
 
 #pragma mark —— JobsMixFunc
 #import "ZBNetworking.h"/// 网络请求
-#import "NoticePopupView.h"
+#import "JobsNoticePopupView.h"
 #import "JobsHotLabel.h"
 #import "JobsPageView.h"
 #import "JobsBitsMonitor.h"

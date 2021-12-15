@@ -5,15 +5,15 @@
 //  Created by Jobs on 2020/10/26.
 //
 
-#import "NoticePopupView.h"
+#import "JobsNoticePopupView.h"
 
-@interface NoticePopupView ()
+@interface JobsNoticePopupView ()
 
 @property(nonatomic,strong)UIImageView *imageView;
 
 @end
 
-@implementation NoticePopupView
+@implementation JobsNoticePopupView
 
 -(instancetype)init{
     if (self = [super init]) {
@@ -33,6 +33,21 @@
     if (!_imageView) {
         _imageView = UIImageView.new;
         _imageView.image = KIMG(@"登录弹窗");
+        
+        {// A
+            _imageView.userInteractionEnabled = YES;
+            _imageView.target = self;
+            _imageView.numberOfTouchesRequired = 1;
+            _imageView.numberOfTapsRequired = 1;
+            _imageView.tapGR.enabled = YES;
+            @jobs_weakify(self)
+            _imageView.callbackBlock = ^(id weakSelf, id arg, UIGestureRecognizer *data3) {
+                @jobs_strongify(self)
+                NSLog(@"%@",self.popupView);
+                [self.popupView tf_hide];
+            };
+        }
+        
         [self addSubview:_imageView];
         [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self);

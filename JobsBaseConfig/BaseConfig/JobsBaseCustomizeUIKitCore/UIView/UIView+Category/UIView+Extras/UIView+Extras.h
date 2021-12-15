@@ -33,6 +33,8 @@ typedef NS_OPTIONS(NSUInteger, UIBorderSideType) {
 };
 
 @interface UIView (Extras)
+
+@property(nonatomic,assign)BOOL visible;
 /// 指定描边
 /// @param view 作用view
 /// @param color 作用颜色

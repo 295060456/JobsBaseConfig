@@ -31,6 +31,8 @@
 #import "UIViewModel.h"
 
 #pragma mark —— Category
+/// 本地弹出View
+#import "NSObject+Popup.h"
 /// 本地推送通知封装
 #import "NSObject+UserNotifications.h"
 /// App更改图标

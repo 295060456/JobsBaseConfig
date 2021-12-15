@@ -10,6 +10,7 @@
 #import "AppToolsProtocol.h"
 #import "AppDelegate.h"
 #import "AppInternationalizationVC.h"
+#import "NSObject+UserInfo.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

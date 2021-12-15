@@ -13,6 +13,10 @@ static const void *leftButtonEventBlockKey = &leftButtonEventBlockKey;
 static const void *rightButtonEventBlockKey = &rightButtonEventBlockKey;
 
 @implementation UIView (Extras)
+
+static char *UIView_Extras_visible = "UIView_Extras_visible";
+@dynamic visible;
+
 /// 指定描边
 /// @param view 作用view
 /// @param color 作用颜色
@@ -248,6 +252,20 @@ static const void *rightButtonEventBlockKey = &rightButtonEventBlockKey;
 
 -(void)keyboardWillShow:(NSNotification *)notification {}
 -(void)keyboardWillHide:(NSNotification *)notification {}
+#pragma mark —— @property(nonatomic,assign)BOOL visible;
+-(BOOL)visible{
+    BOOL Visible = [objc_getAssociatedObject(self, UIView_Extras_visible) boolValue];
+    return Visible;
+}
+
+-(void)setVisible:(BOOL)visible{
+    self.hidden = !visible;
+    self.alpha = visible;
+    objc_setAssociatedObject(self,
+                             UIView_Extras_visible,
+                             [NSNumber numberWithBool:visible],
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 
 @end
 

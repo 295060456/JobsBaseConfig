@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3D7B119D710C9C618D2AC77A /* Pods_JobsBaseConfigTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20FB9CD4F8E4FEB096B1D897 /* Pods_JobsBaseConfigTests.framework */; };
+		843B529E276A20DF00034688 /* NSObject+Popup.m in Sources */ = {isa = PBXBuildFile; fileRef = 843B529C276A20DE00034688 /* NSObject+Popup.m */; };
+		843B5316276A21E100034688 /* 登录弹窗@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 843B5314276A21E100034688 /* 登录弹窗@3x.png */; };
+		843B5317276A21E100034688 /* JobsNoticePopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 843B5315276A21E100034688 /* JobsNoticePopupView.m */; };
 		844B02122764C8EE00B0513D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B02112764C8EE00B0513D /* AppDelegate.m */; };
 		844B02152764C8EE00B0513D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B02142764C8EE00B0513D /* SceneDelegate.m */; };
 		844B02182764C8EE00B0513D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B02172764C8EE00B0513D /* ViewController.m */; };
@@ -99,9 +102,6 @@
 		844B08812764CF4800B0513D /* XHLaunchAdConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B08322764CF4800B0513D /* XHLaunchAdConfiguration.m */; };
 		844B08822764CF4800B0513D /* XHLaunchAdCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B08342764CF4800B0513D /* XHLaunchAdCache.m */; };
 		844B08832764CF4800B0513D /* XHLaunchAdImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B08362764CF4800B0513D /* XHLaunchAdImageManager.m */; };
-		844B0D1C2764DBBD00B0513D /* UBLGuideVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B09EF2764DBB800B0513D /* UBLGuideVC.m */; };
-		844B0D1D2764DBBD00B0513D /* KSGuideManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B09F02764DBB800B0513D /* KSGuideManager.m */; };
-		844B0D1E2764DBBD00B0513D /* UBLGuide.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B09F12764DBB800B0513D /* UBLGuide.m */; };
 		844B0D1F2764DBBD00B0513D /* ImageCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B09F42764DBB800B0513D /* ImageCodeView.m */; };
 		844B0D202764DBBD00B0513D /* JobsBitsMonitorSuspendLab.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B09F82764DBB800B0513D /* JobsBitsMonitorSuspendLab.m */; };
 		844B0D212764DBBD00B0513D /* JobsBitsMonitorCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B09FA2764DBB800B0513D /* JobsBitsMonitorCore.m */; };
@@ -154,7 +154,6 @@
 		844B0D502764DBBD00B0513D /* NSString+ZBUTF8Encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B0A592764DBB900B0513D /* NSString+ZBUTF8Encoding.m */; };
 		844B0D512764DBBD00B0513D /* CustomZFPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B0A602764DBB900B0513D /* CustomZFPlayerControlView.m */; };
 		844B0D522764DBBD00B0513D /* ZFCustomControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B0A642764DBB900B0513D /* ZFCustomControlView.m */; };
-		844B0D532764DBBD00B0513D /* NoticePopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B0A662764DBB900B0513D /* NoticePopupView.m */; };
 		844B0D542764DBBD00B0513D /* JobsImageNumberViewCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B0A6A2764DBB900B0513D /* JobsImageNumberViewCVCell.m */; };
 		844B0D552764DBBD00B0513D /* JobsImageNumberView.md in Resources */ = {isa = PBXBuildFile; fileRef = 844B0A6C2764DBB900B0513D /* JobsImageNumberView.md */; };
 		844B0D562764DBBD00B0513D /* JobsImageNumberView.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B0A6D2764DBB900B0513D /* JobsImageNumberView.png */; };
@@ -426,6 +425,11 @@
 		20FB9CD4F8E4FEB096B1D897 /* Pods_JobsBaseConfigTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JobsBaseConfigTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		662164F9ADE29B9A82CFA5FB /* Pods-JobsBaseConfigUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobsBaseConfigUITests.release.xcconfig"; path = "Target Support Files/Pods-JobsBaseConfigUITests/Pods-JobsBaseConfigUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7EB78C57967124ED900E9C4C /* Pods-JobsBaseConfig.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobsBaseConfig.debug.xcconfig"; path = "Target Support Files/Pods-JobsBaseConfig/Pods-JobsBaseConfig.debug.xcconfig"; sourceTree = "<group>"; };
+		843B529C276A20DE00034688 /* NSObject+Popup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Popup.m"; sourceTree = "<group>"; };
+		843B529D276A20DE00034688 /* NSObject+Popup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Popup.h"; sourceTree = "<group>"; };
+		843B5313276A21E100034688 /* JobsNoticePopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsNoticePopupView.h; sourceTree = "<group>"; };
+		843B5314276A21E100034688 /* 登录弹窗@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录弹窗@3x.png"; sourceTree = "<group>"; };
+		843B5315276A21E100034688 /* JobsNoticePopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsNoticePopupView.m; sourceTree = "<group>"; };
 		844B020D2764C8EE00B0513D /* JobsBaseConfig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobsBaseConfig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		844B02102764C8EE00B0513D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		844B02112764C8EE00B0513D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -593,12 +597,6 @@
 		844B08372764CF4800B0513D /* XHLaunchAdConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHLaunchAdConst.h; sourceTree = "<group>"; };
 		844B08852764CFC500B0513D /* DDPods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDPods.h; sourceTree = "<group>"; };
 		844B08862764CFC500B0513D /* DDPodsManual.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDPodsManual.h; sourceTree = "<group>"; };
-		844B09EC2764DBB800B0513D /* UBLGuideVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UBLGuideVC.h; sourceTree = "<group>"; };
-		844B09ED2764DBB800B0513D /* UBLGuide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UBLGuide.h; sourceTree = "<group>"; };
-		844B09EE2764DBB800B0513D /* KSGuideManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSGuideManager.h; sourceTree = "<group>"; };
-		844B09EF2764DBB800B0513D /* UBLGuideVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UBLGuideVC.m; sourceTree = "<group>"; };
-		844B09F02764DBB800B0513D /* KSGuideManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSGuideManager.m; sourceTree = "<group>"; };
-		844B09F12764DBB800B0513D /* UBLGuide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UBLGuide.m; sourceTree = "<group>"; };
 		844B09F32764DBB800B0513D /* ImageCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCodeView.h; sourceTree = "<group>"; };
 		844B09F42764DBB800B0513D /* ImageCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCodeView.m; sourceTree = "<group>"; };
 		844B09F72764DBB800B0513D /* JobsBitsMonitorSuspendLab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBitsMonitorSuspendLab.h; sourceTree = "<group>"; };
@@ -685,8 +683,6 @@
 		844B0A612764DBB900B0513D /* CustomZFPlayerControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomZFPlayerControlView.h; sourceTree = "<group>"; };
 		844B0A632764DBB900B0513D /* ZFCustomControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFCustomControlView.h; sourceTree = "<group>"; };
 		844B0A642764DBB900B0513D /* ZFCustomControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFCustomControlView.m; sourceTree = "<group>"; };
-		844B0A662764DBB900B0513D /* NoticePopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticePopupView.m; sourceTree = "<group>"; };
-		844B0A672764DBB900B0513D /* NoticePopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticePopupView.h; sourceTree = "<group>"; };
 		844B0A692764DBB900B0513D /* JobsImageNumberView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsImageNumberView.h; sourceTree = "<group>"; };
 		844B0A6A2764DBB900B0513D /* JobsImageNumberViewCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsImageNumberViewCVCell.m; sourceTree = "<group>"; };
 		844B0A6C2764DBB900B0513D /* JobsImageNumberView.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = JobsImageNumberView.md; sourceTree = "<group>"; };
@@ -1203,6 +1199,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		843B529B276A20DE00034688 /* NSObject+Popup */ = {
+			isa = PBXGroup;
+			children = (
+				843B529D276A20DE00034688 /* NSObject+Popup.h */,
+				843B529C276A20DE00034688 /* NSObject+Popup.m */,
+			);
+			path = "NSObject+Popup";
+			sourceTree = "<group>";
+		};
 		844B02042764C8EE00B0513D = {
 			isa = PBXGroup;
 			children = (
@@ -1689,12 +1694,11 @@
 		844B09EA2764DBB800B0513D /* JobsMixFunc */ = {
 			isa = PBXGroup;
 			children = (
-				844B09EB2764DBB800B0513D /* GuidePage */,
+				844B0A4B2764DBB900B0513D /* JobsMixFunc.h */,
 				844B09F22764DBB800B0513D /* 图形验证码 */,
 				844B09F52764DBB800B0513D /* JobsBitsMonitor */,
 				844B09FD2764DBB800B0513D /* 深度拓展系统UITabBar全家桶 */,
 				844B0A432764DBB900B0513D /* 分享控件 */,
-				844B0A4B2764DBB900B0513D /* JobsMixFunc.h */,
 				844B0A4C2764DBB900B0513D /* JobsHotLabel */,
 				844B0A4F2764DBB900B0513D /* 网络请求 */,
 				844B0A5E2764DBB900B0513D /* 播放器控制层 */,
@@ -1705,19 +1709,6 @@
 				844B0A992764DBB900B0513D /* 手势滑动返回 */,
 			);
 			path = JobsMixFunc;
-			sourceTree = "<group>";
-		};
-		844B09EB2764DBB800B0513D /* GuidePage */ = {
-			isa = PBXGroup;
-			children = (
-				844B09EC2764DBB800B0513D /* UBLGuideVC.h */,
-				844B09ED2764DBB800B0513D /* UBLGuide.h */,
-				844B09EE2764DBB800B0513D /* KSGuideManager.h */,
-				844B09EF2764DBB800B0513D /* UBLGuideVC.m */,
-				844B09F02764DBB800B0513D /* KSGuideManager.m */,
-				844B09F12764DBB800B0513D /* UBLGuide.m */,
-			);
-			path = GuidePage;
 			sourceTree = "<group>";
 		};
 		844B09F22764DBB800B0513D /* 图形验证码 */ = {
@@ -2033,8 +2024,9 @@
 		844B0A652764DBB900B0513D /* 广告或者公示弹出框 */ = {
 			isa = PBXGroup;
 			children = (
-				844B0A662764DBB900B0513D /* NoticePopupView.m */,
-				844B0A672764DBB900B0513D /* NoticePopupView.h */,
+				843B5314276A21E100034688 /* 登录弹窗@3x.png */,
+				843B5313276A21E100034688 /* JobsNoticePopupView.h */,
+				843B5315276A21E100034688 /* JobsNoticePopupView.m */,
 			);
 			path = "广告或者公示弹出框";
 			sourceTree = "<group>";
@@ -3942,6 +3934,7 @@
 		844B10472764E09B00B0513D /* NSObject+Category */ = {
 			isa = PBXGroup;
 			children = (
+				843B529B276A20DE00034688 /* NSObject+Popup */,
 				844B10732764E09B00B0513D /* NSObject+AFNReachability */,
 				844B10542764E09B00B0513D /* NSObject+Alert */,
 				844B12782764E37A00B0513D /* NSObject+AppTools */,
@@ -4617,6 +4610,7 @@
 				844B0D5A2764DBBD00B0513D /* 9@3x.png in Resources */,
 				844B02232764C8F000B0513D /* LaunchScreen.storyboard in Resources */,
 				844B12802764E37A00B0513D /* 此类主要封装一些本App常用的、可以替换资源的函数调用或者是鉴权机制.md in Resources */,
+				843B5316276A21E100034688 /* 登录弹窗@3x.png in Resources */,
 				844B113E2764E09C00B0513D /* TableViewAnimationKit.md in Resources */,
 				844B08632764CF4800B0513D /* 蓝牙@2x.png in Resources */,
 				844B0D5C2764DBBD00B0513D /* 5@2x.png in Resources */,
@@ -4892,7 +4886,6 @@
 				844B113F2764E09C00B0513D /* UITableView+XSAnimationKit.m in Sources */,
 				844B0E532764DE1A00B0513D /* DDResponseModel.m in Sources */,
 				844B083B2764CF4800B0513D /* JXCategoryTitleBackgroundCell.m in Sources */,
-				844B0D1C2764DBBD00B0513D /* UBLGuideVC.m in Sources */,
 				844B0D202764DBBD00B0513D /* JobsBitsMonitorSuspendLab.m in Sources */,
 				844B110B2764E09C00B0513D /* UIFont+Extras.m in Sources */,
 				844B11732764E09C00B0513D /* NSObject+NTESVerifyCode.m in Sources */,
@@ -4916,6 +4909,7 @@
 				844B10F92764E09C00B0513D /* BaseView.m in Sources */,
 				844B11012764E09C00B0513D /* UIView+BackgroundLabel.m in Sources */,
 				844B11192764E09C00B0513D /* BaseImageView.m in Sources */,
+				843B529E276A20DF00034688 /* NSObject+Popup.m in Sources */,
 				844B0D242764DBBD00B0513D /* JobsTabBarControllerConfig.m in Sources */,
 				844B083A2764CF4800B0513D /* JXCategoryTitleBackgroundCellModel.m in Sources */,
 				844B07A42764CB4A00B0513D /* NotificationManager.m in Sources */,
@@ -4948,7 +4942,6 @@
 				844B118D2764E09C00B0513D /* NSObject+DefConfig.m in Sources */,
 				844B10FD2764E09C00B0513D /* UIView+Gesture.m in Sources */,
 				844B10F32764E09C00B0513D /* IrregularBtn.m in Sources */,
-				844B0D1D2764DBBD00B0513D /* KSGuideManager.m in Sources */,
 				844B08512764CF4800B0513D /* ECPrivacyCheckContacts.m in Sources */,
 				844B118F2764E09C00B0513D /* UITextField+Extend.m in Sources */,
 				844B10E62764E09B00B0513D /* UIButton+ImageTitleSpacing.m in Sources */,
@@ -5025,7 +5018,6 @@
 				844B11242764E09C00B0513D /* NSString+FilteringSpecialCharacters.m in Sources */,
 				844B118B2764E09C00B0513D /* NSObject+WHToast.m in Sources */,
 				844B0D512764DBBD00B0513D /* CustomZFPlayerControlView.m in Sources */,
-				844B0D532764DBBD00B0513D /* NoticePopupView.m in Sources */,
 				844B0D3E2764DBBD00B0513D /* JobsPullListAutoSizeView.m in Sources */,
 				844B10DC2764E09B00B0513D /* UITableViewCell+BaseCellProtocol.m in Sources */,
 				844B112A2764E09C00B0513D /* UIViewController+XLBubbleTransition.m in Sources */,
@@ -5034,7 +5026,6 @@
 				844B11942764E09C00B0513D /* ZYTextField+HistoryDataList.m in Sources */,
 				844B10D92764E09B00B0513D /* UIImage+Overlay.m in Sources */,
 				844B11572764E09C00B0513D /* NSCache+Extra.m in Sources */,
-				844B0D1E2764DBBD00B0513D /* UBLGuide.m in Sources */,
 				844B11832764E09C00B0513D /* NSObject+IDFA.m in Sources */,
 				844B112D2764E09C00B0513D /* UIViewController+Lottie.m in Sources */,
 				844B08532764CF4800B0513D /* ECPrivacyCheckReminders.m in Sources */,
@@ -5089,6 +5080,7 @@
 				844B02122764C8EE00B0513D /* AppDelegate.m in Sources */,
 				844B111F2764E09C00B0513D /* NSString+JudgeNull.m in Sources */,
 				844B021E2764C8EE00B0513D /* JobsBaseConfig.xcdatamodeld in Sources */,
+				843B5317276A21E100034688 /* JobsNoticePopupView.m in Sources */,
 				844B11272764E09C00B0513D /* UIViewController+JXCategoryListContentViewDelegate.m in Sources */,
 				844B11772764E09C00B0513D /* NSObject+Shake.m in Sources */,
 				846547952769DABF003EC0B5 /* NSObject+UserNotifications.m in Sources */,

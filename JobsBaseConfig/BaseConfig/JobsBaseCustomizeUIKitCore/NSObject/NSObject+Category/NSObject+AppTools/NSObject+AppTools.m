@@ -90,23 +90,11 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
 }
 
 -(UIImage *)defaultHeaderImage{
-    if ([NSObject isLogin]) {
+    if (self.isLogin) {
         return KIMG(@"default_avatar_white");
     }else{
         return KIMG(@"未登录默认头像（灰）");
     }
-}
-
--(BOOL)isFristpostChannle{
-    NSString *frist = [NSUserDefaults.standardUserDefaults valueForKey:@"fristpostChannle"];
-    if([NSString isNullString:frist]) {
-        return YES;
-    }return NO;
-}
-
-+(void)completeFristpostChannle {
-    [NSUserDefaults.standardUserDefaults setValue:@"fristpostChannle"
-                                           forKey:@"fristpostChannle"];
 }
 /// 强制展现页面，本类如果是VC则用本类推，否则用JobsTabbarVC来推
 /// @param toPushVC 需要进行展现的页面
@@ -122,6 +110,27 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
         NSLog(@"%@强制展现页面%@失败,携带的参数%@",viewController,toPushVC,requestParams);
         [WHToast toastErrMsg:@"强制展现页面失败,请检查控制台"];
     }
+}
+/// 判断是否是此版本App的首次启动
+-(BOOL)isAppFirstLaunch{
+    BOOL isFirstLaunch = [NSUserDefaults.standardUserDefaults boolForKey:@"AppFirstLaunch"];
+    if (!isFirstLaunch) {
+        [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"AppFirstLaunch"];
+        [NSUserDefaults.standardUserDefaults synchronize];
+    }return !isFirstLaunch;
+}
+/// 判断是否是App今日的首次启动
+-(BOOL)isTodayAppFirstLaunch{
+    NSString *recordToday = [NSUserDefaults.standardUserDefaults valueForKey:@"TodayAppFirstLaunch"];
+    JobsTimeModel *timeModel = JobsTimeModel.new;
+    NSString *today = [NSString stringWithFormat:@"%ld-%ld-%ld-%ld",timeModel.currentEra,timeModel.currentYear,timeModel.currentMonth,timeModel.currentDay];
+    if ([recordToday isEqualToString:today]) {
+        NSLog(@"今天已经启动过");
+    }else{
+        NSLog(@"今天第一次启动");
+        [NSUserDefaults.standardUserDefaults setValue:today forKey:@"TodayAppFirstLaunch"];
+        [NSUserDefaults.standardUserDefaults synchronize];//
+    }return ![recordToday isEqualToString:today];
 }
 
 @end
