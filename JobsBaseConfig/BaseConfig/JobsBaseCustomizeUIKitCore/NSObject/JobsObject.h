@@ -21,6 +21,8 @@
 #import "JobsMonitorNetwoking.h"
 /// 设备信息
 #import "CurrentDeviceModel.h"
+/// SockeIO
+//#import "JobsSocketIOTools.h"
 /// TouchID
 #import "TouchID.h"
 /// 移除系统自带的UITabBarButton
@@ -29,12 +31,10 @@
 #import "UIViewModel.h"
 
 #pragma mark —— Category
-/// URL
-#import "NSObject+URLManager.h"
-/// 用户信息
-#import "NSObject+UserInfo.h"
-/// 一些封装的方法
-#import "NSObject+AppTools.h"
+/// 本地推送通知封装
+#import "NSObject+UserNotifications.h"
+/// App更改图标
+#import "NSObject+ChangeAppicon.h"
 /// 正则表达式鉴定
 #import "NSObject+RegularExpression.h"
 /// 关于本机IP
@@ -80,6 +80,5 @@
 #import "NSObject+AFNReachability.h"
 ///【对FileFolderHandleTool的二次封装】 存数据，储存成功返回地址
 #import "NSObject+DataSave.h"
-
 
 #endif /* JobsObject_h */
