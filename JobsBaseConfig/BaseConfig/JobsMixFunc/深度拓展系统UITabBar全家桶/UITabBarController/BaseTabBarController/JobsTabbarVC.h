@@ -58,7 +58,6 @@ UIGestureRecognizerDelegate
 >
 // UI
 @property(nonatomic,strong)JobsTabBar *myTabBar;//myTabBar.humpOffsetY 凸起的高度自定义，默认值30  offsetHeight
-@property(nonatomic,strong)JobsSuspendBtn *suspendBtn;//单个VC里面的旋转按钮,当在旋转的时候不能被拖动
 // Data
 @property(nonatomic,assign)NSInteger firstUI_selectedIndex;//初始显示第一个
 @property(nonatomic,strong)NSMutableArray <UIViewController *>*childMutArr;//子控制器

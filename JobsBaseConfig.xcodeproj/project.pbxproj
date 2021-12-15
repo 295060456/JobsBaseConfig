@@ -11,6 +11,8 @@
 		843B529E276A20DF00034688 /* NSObject+Popup.m in Sources */ = {isa = PBXBuildFile; fileRef = 843B529C276A20DE00034688 /* NSObject+Popup.m */; };
 		843B5316276A21E100034688 /* 登录弹窗@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 843B5314276A21E100034688 /* 登录弹窗@3x.png */; };
 		843B5317276A21E100034688 /* JobsNoticePopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 843B5315276A21E100034688 /* JobsNoticePopupView.m */; };
+		843B540A276A2A1900034688 /* 旋转.png in Resources */ = {isa = PBXBuildFile; fileRef = 843B5408276A2A1900034688 /* 旋转.png */; };
+		843B540B276A2A1900034688 /* UIViewController+SuspendBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 843B5409276A2A1900034688 /* UIViewController+SuspendBtn.m */; };
 		844B02122764C8EE00B0513D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B02112764C8EE00B0513D /* AppDelegate.m */; };
 		844B02152764C8EE00B0513D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B02142764C8EE00B0513D /* SceneDelegate.m */; };
 		844B02182764C8EE00B0513D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B02172764C8EE00B0513D /* ViewController.m */; };
@@ -430,6 +432,9 @@
 		843B5313276A21E100034688 /* JobsNoticePopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsNoticePopupView.h; sourceTree = "<group>"; };
 		843B5314276A21E100034688 /* 登录弹窗@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "登录弹窗@3x.png"; sourceTree = "<group>"; };
 		843B5315276A21E100034688 /* JobsNoticePopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsNoticePopupView.m; sourceTree = "<group>"; };
+		843B5407276A2A1900034688 /* UIViewController+SuspendBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SuspendBtn.h"; sourceTree = "<group>"; };
+		843B5408276A2A1900034688 /* 旋转.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "旋转.png"; sourceTree = "<group>"; };
+		843B5409276A2A1900034688 /* UIViewController+SuspendBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SuspendBtn.m"; sourceTree = "<group>"; };
 		844B020D2764C8EE00B0513D /* JobsBaseConfig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobsBaseConfig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		844B02102764C8EE00B0513D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		844B02112764C8EE00B0513D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -1206,6 +1211,16 @@
 				843B529C276A20DE00034688 /* NSObject+Popup.m */,
 			);
 			path = "NSObject+Popup";
+			sourceTree = "<group>";
+		};
+		843B5406276A2A1900034688 /* UIViewController+SuspendBtn */ = {
+			isa = PBXGroup;
+			children = (
+				843B5408276A2A1900034688 /* 旋转.png */,
+				843B5407276A2A1900034688 /* UIViewController+SuspendBtn.h */,
+				843B5409276A2A1900034688 /* UIViewController+SuspendBtn.m */,
+			);
+			path = "UIViewController+SuspendBtn";
 			sourceTree = "<group>";
 		};
 		844B02042764C8EE00B0513D = {
@@ -3154,8 +3169,8 @@
 		844B0F5F2764E09A00B0513D /* UIViewController+Category */ = {
 			isa = PBXGroup;
 			children = (
-				844B0F602764E09A00B0513D /* UIViewController+JXCategory */,
 				844B0F672764E09A00B0513D /* UIViewController+Category.h */,
+				844B0F602764E09A00B0513D /* UIViewController+JXCategory */,
 				844B0F682764E09A00B0513D /* UIViewController+XLBubbleTransition */,
 				844B0F6E2764E09A00B0513D /* UIViewController+Others */,
 				844B0F8D2764E09A00B0513D /* UIViewController+MJRefresh */,
@@ -3205,16 +3220,17 @@
 		844B0F6E2764E09A00B0513D /* UIViewController+Others */ = {
 			isa = PBXGroup;
 			children = (
+				844B0F782764E09A00B0513D /* UIViewController+BackBtn */,
+				844B0F872764E09A00B0513D /* UIViewController+BaseNavigationBar */,
+				844B0F812764E09A00B0513D /* UIViewController+BaseVC */,
+				844B0F8A2764E09A00B0513D /* UIViewController+BRPickerView */,
 				844B0F6F2764E09A00B0513D /* UIViewController+BWShareView */,
+				844B0F7B2764E09A00B0513D /* UIViewController+EmptyData */,
+				844B0F842764E09A00B0513D /* UIViewController+GifImageView */,
 				844B0F722764E09A00B0513D /* UIViewController+JPImageresizerView */,
 				844B0F752764E09A00B0513D /* UIViewController+Lottie */,
-				844B0F782764E09A00B0513D /* UIViewController+BackBtn */,
-				844B0F7B2764E09A00B0513D /* UIViewController+EmptyData */,
 				844B0F7E2764E09A00B0513D /* UIViewController+Shake */,
-				844B0F812764E09A00B0513D /* UIViewController+BaseVC */,
-				844B0F842764E09A00B0513D /* UIViewController+GifImageView */,
-				844B0F872764E09A00B0513D /* UIViewController+BaseNavigationBar */,
-				844B0F8A2764E09A00B0513D /* UIViewController+BRPickerView */,
+				843B5406276A2A1900034688 /* UIViewController+SuspendBtn */,
 			);
 			path = "UIViewController+Others";
 			sourceTree = "<group>";
@@ -4719,6 +4735,7 @@
 				844B11982764E09C00B0513D /* App国际化.md in Resources */,
 				844B08732764CF4800B0513D /* ECPrivacyCheckTools不用pod管理的情况说明.md in Resources */,
 				844B0D3A2764DBBD00B0513D /* tab_message_animate.json in Resources */,
+				843B540A276A2A1900034688 /* 旋转.png in Resources */,
 				844B08592764CF4800B0513D /* 健康@2x.png in Resources */,
 				844B11112764E09C00B0513D /* iOS 获取手机型号、系统版本.png in Resources */,
 				844B08602764CF4800B0513D /* 通讯录@2x.png in Resources */,
@@ -4919,6 +4936,7 @@
 				844B110C2764E09C00B0513D /* NSMutableDictionary+Ordered.m in Sources */,
 				844B083C2764CF4800B0513D /* JXCategoryTitleBackgroundView.m in Sources */,
 				844B0D4B2764DBBD00B0513D /* JobsHotLabel.m in Sources */,
+				843B540B276A2A1900034688 /* UIViewController+SuspendBtn.m in Sources */,
 				844B08792764CF4800B0513D /* XHLaunchAdButton.m in Sources */,
 				844B11632764E09C00B0513D /* UIViewModel.m in Sources */,
 				844B11202764E09C00B0513D /* NSString+Statistics.m in Sources */,

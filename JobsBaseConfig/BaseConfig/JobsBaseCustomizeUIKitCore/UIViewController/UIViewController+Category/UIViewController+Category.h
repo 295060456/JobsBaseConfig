@@ -30,5 +30,6 @@
 #import "UIViewController+BaseNavigationBar.h"
 #import "UIViewController+BRPickerView.h"
 #import "UIViewController+Lottie.h"
+#import "UIViewController+SuspendBtn.h"
 
 #endif /* UIViewController_Category_h */

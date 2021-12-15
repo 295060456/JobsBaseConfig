@@ -315,24 +315,6 @@ shouldSelectViewController:(UIViewController *)viewController {
     }return _myTabBar;
 }
 
--(JobsSuspendBtn *)suspendBtn{
-    if (!_suspendBtn) {
-        _suspendBtn = JobsSuspendBtn.new;
-        [_suspendBtn setImage:KIMG(@"旋转")
-                     forState:UIControlStateNormal];
-        _suspendBtn.isAllowDrag = NO;//悬浮效果必须要的参数
-        BtnClickEvent(_suspendBtn, [self.suspendBtn startRotateAnimation];);
-        self.view.vc = weak_self;
-        [self.view addSubview:_suspendBtn];
-        _suspendBtn.frame = CGRectMake(KWidth(80),
-                                       KWidth(100),
-                                       KWidth(50),
-                                       KWidth(50));
-        [UIView cornerCutToCircleWithView:_suspendBtn
-                          andCornerRadius:KWidth(25)];
-    }return _suspendBtn;
-}
-
 -(NSMutableArray<UIView *> *)UITabBarButtonMutArr{
     if (!_UITabBarButtonMutArr) {
         _UITabBarButtonMutArr = NSMutableArray.array;
