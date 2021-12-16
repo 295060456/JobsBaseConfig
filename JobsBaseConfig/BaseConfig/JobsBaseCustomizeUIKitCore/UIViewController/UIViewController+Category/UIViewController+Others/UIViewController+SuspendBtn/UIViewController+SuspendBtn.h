@@ -20,3 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+/**
+ 
+   【 使用示例】
+    suspendBtn按钮点击事件集成了点击旋转的动效
+    [self.suspendBtn stopRotateAnimation];
+ 
+ */

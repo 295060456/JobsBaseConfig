@@ -23,39 +23,50 @@
  @param tableView : the tableView to show animation
  */
 +(void)showWithAnimationType:(XSTableViewAnimationType)animationType
-                    tableView:(nonnull UITableView *)tableView;
-+(void)moveAnimationWithTableView:(nonnull UITableView *)tableView
-                   animationBlock:(nullable NoResultBlock)animationBlock
-                  completionBlock:(nullable MKDataBlock)completionBlock;
-+(void)moveSpringAnimationWithTableView:(nonnull UITableView *)tableView
-                         animationBlock:(nullable NoResultBlock)animationBlock
-                        completionBlock:(nullable MKDataBlock)completionBlock;
-+(void)alphaAnimationWithTableView:(nonnull UITableView *)tableView
-                    animationBlock:(nullable NoResultBlock)animationBlock
-                   completionBlock:(nullable MKDataBlock)completionBlock;
-+(void)fallAnimationWithTableView:(nonnull UITableView *)tableView
-                   animationBlock:(nullable NoResultBlock)animationBlock
-                  completionBlock:(nullable MKDataBlock)completionBlock;
-+(void)shakeAnimationWithTableView:(nonnull UITableView *)tableView
-                    animationBlock:(nullable NoResultBlock)animationBlock
-                   completionBlock:(nullable MKDataBlock)completionBlock;
-+(void)overTurnAnimationWithTableView:(nonnull UITableView *)tableView
-                       animationBlock:(nullable NoResultBlock)animationBlock
-                      completionBlock:(nullable MKDataBlock)completionBlock;
-+(void)toTopAnimationWithTableView:(nonnull UITableView *)tableView
-                    animationBlock:(nullable NoResultBlock)animationBlock
-                   completionBlock:(nullable MKDataBlock)completionBlock;
-+(void)springListAnimationWithTableView:(nonnull UITableView *)tableView
-                         animationBlock:(nullable NoResultBlock)animationBlock
-                        completionBlock:(nullable MKDataBlock)completionBlock;
-+(void)shrinkToTopAnimationWithTableView:(nonnull UITableView *)tableView
-                          animationBlock:(nullable NoResultBlock)animationBlock;
-+(void)layDownAnimationWithTableView:(nonnull UITableView *)tableView
-                      animationBlock:(nullable NoResultBlock)animationBlock
-                     completionBlock:(nullable MKDataBlock)completionBlock;
-+(void)roteAnimationWithTableView:(nonnull UITableView *)tableView
-                   animationBlock:(nullable NoResultBlock)animationBlock
-                  completionBlock:(nullable MKDataBlock)completionBlock;
+                   tableView:(nonnull UITableView *)tableView;
+#pragma mark —— moveAnimation
++(void)moveAnimWithTableView:(nonnull UITableView *)tableView
+              animationBlock:(nullable NoResultBlock)animationBlock
+             completionBlock:(nullable MKDataBlock)completionBlock;
+#pragma mark —— moveSpringAnimation
++(void)moveSpringAnim:(nonnull UITableView *)tableView
+       animationBlock:(nullable NoResultBlock)animationBlock
+      completionBlock:(nullable MKDataBlock)completionBlock;
+#pragma mark —— alphaAnimation
++(void)alphaAnim:(nonnull UITableView *)tableView
+  animationBlock:(nullable NoResultBlock)animationBlock
+ completionBlock:(nullable MKDataBlock)completionBlock;
+#pragma mark —— fallAnimation
++(void)fallAnim:(nonnull UITableView *)tableView
+ animationBlock:(nullable NoResultBlock)animationBlock
+completionBlock:(nullable MKDataBlock)completionBlock;
+#pragma mark —— shakeAnimation
++(void)shakeAnim:(nonnull UITableView *)tableView
+  animationBlock:(nullable NoResultBlock)animationBlock
+ completionBlock:(nullable MKDataBlock)completionBlock;
+#pragma mark —— overTurnAnimation
++(void)overTurnAnim:(nonnull UITableView *)tableView
+     animationBlock:(nullable NoResultBlock)animationBlock
+    completionBlock:(nullable MKDataBlock)completionBlock;
+#pragma mark —— toTopAnimation
++(void)toTopAnim:(nonnull UITableView *)tableView
+  animationBlock:(nullable NoResultBlock)animationBlock
+ completionBlock:(nullable MKDataBlock)completionBlock;
+#pragma mark —— springListAnimation
++(void)springListAnim:(nonnull UITableView *)tableView
+       animationBlock:(nullable NoResultBlock)animationBlock
+      completionBlock:(nullable MKDataBlock)completionBlock;
+#pragma mark —— shrinkToTopAnimation
++(void)shrinkToTopAnim:(nonnull UITableView *)tableView
+        animationBlock:(nullable NoResultBlock)animationBlock;
+#pragma mark —— layDownAnimation
++(void)layDownAnim:(nonnull UITableView *)tableView
+    animationBlock:(nullable NoResultBlock)animationBlock
+   completionBlock:(nullable MKDataBlock)completionBlock;
+#pragma mark —— roteAnimation
++(void)roteAnim:(nonnull UITableView *)tableView
+ animationBlock:(nullable NoResultBlock)animationBlock
+completionBlock:(nullable MKDataBlock)completionBlock;
 
 
 @end

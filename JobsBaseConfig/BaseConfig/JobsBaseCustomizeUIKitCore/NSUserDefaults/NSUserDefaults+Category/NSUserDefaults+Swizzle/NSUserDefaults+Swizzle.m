@@ -90,7 +90,7 @@
     [NSUserDefaults.standardUserDefaults synchronize];// 强制让它存了立即写磁盘
 }
 
--(nullable id)swizzleBoolForKey:(NSString *_Nonnull)key{
+-(BOOL)swizzleBoolForKey:(NSString *_Nonnull)key{
     // TODO 可以接入加解密的模块
     return [self swizzleBoolForKey:key];
 }

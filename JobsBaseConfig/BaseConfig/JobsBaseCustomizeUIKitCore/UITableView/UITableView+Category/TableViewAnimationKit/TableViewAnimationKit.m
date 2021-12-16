@@ -8,8 +8,8 @@
 
 #import "TableViewAnimationKit.h"
 
-#define XS_SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
-#define XS_SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
+#define XS_SCREEN_WIDTH UIScreen.mainScreen.bounds.size.width
+#define XS_SCREEN_HEIGHT UIScreen.mainScreen.bounds.size.height
 
 @interface TableViewAnimationKit ()
 
@@ -34,11 +34,17 @@
         }
     }free(methodlist);
 }
+#pragma mark —— moveAnimation
++(void)moveAnimationWithTableView:(nonnull UITableView *)tableView{
+    [self moveAnimWithTableView:tableView
+                 animationBlock:nil
+                completionBlock:nil];
+}
 
-+(void)moveAnimationWithTableView:(nonnull UITableView *)tableView
-                   animationBlock:(nullable NoResultBlock)animationBlock
-                  completionBlock:(nullable MKDataBlock)completionBlock{
-    
++(void)moveAnimWithTableView:(nonnull UITableView *)tableView
+              animationBlock:(nullable NoResultBlock)animationBlock
+             completionBlock:(nullable MKDataBlock)completionBlock{
+
     NSArray *cells = tableView.visibleCells;
     for (int i = 0; i < cells.count; i++) {
         CGFloat totalTime = 0.3;
@@ -57,10 +63,16 @@
         }];
     }
 }
+#pragma mark —— moveSpringAnimation
++(void)moveSpringAnimationWithTableView:(nonnull UITableView *)tableView{
+    [self moveSpringAnim:tableView
+          animationBlock:nil
+         completionBlock:nil];
+}
 
-+(void)moveSpringAnimationWithTableView:(nonnull UITableView *)tableView
-                         animationBlock:(nullable NoResultBlock)animationBlock
-                        completionBlock:(nullable MKDataBlock)completionBlock{
++(void)moveSpringAnim:(nonnull UITableView *)tableView
+       animationBlock:(nullable NoResultBlock)animationBlock
+      completionBlock:(nullable MKDataBlock)completionBlock{
     NSArray *cells = tableView.visibleCells;
     for (int i = 0; i < cells.count; i++) {
         CGFloat totalTime = 0.4;
@@ -81,10 +93,16 @@
         }];
     }
 }
+#pragma mark —— alphaAnimation
++(void)alphaAnimationWithTableView:(nonnull UITableView *)tableView{
+    [self alphaAnim:tableView
+     animationBlock:nil
+    completionBlock:nil];
+}
 
-+(void)alphaAnimationWithTableView:(nonnull UITableView *)tableView
-                    animationBlock:(nullable NoResultBlock)animationBlock
-                   completionBlock:(nullable MKDataBlock)completionBlock{
++(void)alphaAnim:(nonnull UITableView *)tableView
+  animationBlock:(nullable NoResultBlock)animationBlock
+ completionBlock:(nullable MKDataBlock)completionBlock{
     NSArray *cells = tableView.visibleCells;
     for (int i = 0; i < cells.count; i++) {
         UITableViewCell *cell = [tableView.visibleCells objectAtIndex:i];
@@ -102,10 +120,16 @@
         }];
     }
 }
+#pragma mark —— fallAnimation
++(void)fallAnimationWithTableView:(nonnull UITableView *)tableView{
+    [self fallAnim:tableView
+    animationBlock:nil
+   completionBlock:nil];
+}
 
-+(void)fallAnimationWithTableView:(nonnull UITableView *)tableView
-                   animationBlock:(nullable NoResultBlock)animationBlock
-                  completionBlock:(nullable MKDataBlock)completionBlock{
++(void)fallAnim:(nonnull UITableView *)tableView
+ animationBlock:(nullable NoResultBlock)animationBlock
+    completionBlock:(nullable MKDataBlock)completionBlock{
     NSArray *cells = tableView.visibleCells;
     NSTimeInterval totalTime = 0.8;
     for (int i = 0; i < cells.count; i++) {
@@ -124,10 +148,16 @@
         }];
     }
 }
+#pragma mark —— shakeAnimation
++(void)shakeAnimationWithTableView:(nonnull UITableView *)tableView{
+    [self shakeAnim:tableView
+     animationBlock:nil
+    completionBlock:nil];
+}
 
-+(void)shakeAnimationWithTableView:(nonnull UITableView *)tableView
-                    animationBlock:(nullable NoResultBlock)animationBlock
-                   completionBlock:(nullable MKDataBlock)completionBlock{
++(void)shakeAnim:(nonnull UITableView *)tableView
+  animationBlock:(nullable NoResultBlock)animationBlock
+ completionBlock:(nullable MKDataBlock)completionBlock{
     NSArray *cells = tableView.visibleCells;
     for (int i = 0; i < cells.count; i++) {
         UITableViewCell *cell = [cells objectAtIndex:i];
@@ -151,10 +181,16 @@
         }];
     }
 }
+#pragma mark —— overTurnAnimation
++(void)overTurnAnimationWithTableView:(nonnull UITableView *)tableView{
+    [self overTurnAnim:tableView
+        animationBlock:nil
+       completionBlock:nil];
+}
 
-+(void)overTurnAnimationWithTableView:(nonnull UITableView *)tableView
-                       animationBlock:(nullable NoResultBlock)animationBlock
-                      completionBlock:(nullable MKDataBlock)completionBlock{
++(void)overTurnAnim:(nonnull UITableView *)tableView
+     animationBlock:(nullable NoResultBlock)animationBlock
+    completionBlock:(nullable MKDataBlock)completionBlock{
     NSArray *cells = tableView.visibleCells;
     for (int i = 0; i < cells.count; i++) {
         UITableViewCell *cell = [cells objectAtIndex:i];
@@ -175,10 +211,16 @@
         }];
     }
 }
+#pragma mark —— toTopAnimation
++(void)toTopAnimationWithTableView:(nonnull UITableView *)tableView{
+    [self toTopAnim:tableView
+     animationBlock:nil
+    completionBlock:nil];
+}
 
-+(void)toTopAnimationWithTableView:(nonnull UITableView *)tableView
-                    animationBlock:(nullable NoResultBlock)animationBlock
-                   completionBlock:(nullable MKDataBlock)completionBlock{
++(void)toTopAnim:(nonnull UITableView *)tableView
+  animationBlock:(nullable NoResultBlock)animationBlock
+ completionBlock:(nullable MKDataBlock)completionBlock{
     NSArray *cells = tableView.visibleCells;
     NSTimeInterval totalTime = 0.8;
     for (int i = 0; i < cells.count; i++) {
@@ -197,10 +239,16 @@
         }];
     }
 }
+#pragma mark —— springListAnimation
++(void)springListAnimationWithTableView:(nonnull UITableView *)tableView{
+    [self springListAnim:tableView
+          animationBlock:nil
+         completionBlock:nil];
+}
 
-+(void)springListAnimationWithTableView:(nonnull UITableView *)tableView
-                         animationBlock:(nullable NoResultBlock)animationBlock
-                        completionBlock:(nullable MKDataBlock)completionBlock{
++(void)springListAnim:(nonnull UITableView *)tableView
+       animationBlock:(nullable NoResultBlock)animationBlock
+      completionBlock:(nullable MKDataBlock)completionBlock{
     NSArray *cells = tableView.visibleCells;
     for (int i = 0; i < cells.count; i++) {
         UITableViewCell *cell = [cells objectAtIndex:i];
@@ -223,9 +271,13 @@
         }];
     }
 }
+#pragma mark —— shrinkToTopAnimation
++(void)shrinkToTopAnimationWithTableView:(nonnull UITableView *)tableView{
+    [self shrinkToTopAnim:tableView animationBlock:nil];
+}
 
-+(void)shrinkToTopAnimationWithTableView:(nonnull UITableView *)tableView
-                          animationBlock:(nullable NoResultBlock)animationBlock{
++(void)shrinkToTopAnim:(nonnull UITableView *)tableView
+        animationBlock:(nullable NoResultBlock)animationBlock{
     NSArray *cells = tableView.visibleCells;
     for (int i = 0; i < cells.count; i++) {
         UITableViewCell *cell = [cells objectAtIndex:i];
@@ -240,10 +292,16 @@
         }];
     }
 }
+#pragma mark —— layDownAnimation
++(void)layDownAnimationWithTableView:(nonnull UITableView *)tableView{
+    [self layDownAnim:tableView
+       animationBlock:nil
+      completionBlock:nil];
+}
 
-+(void)layDownAnimationWithTableView:(nonnull UITableView *)tableView
-                      animationBlock:(nullable NoResultBlock)animationBlock
-                     completionBlock:(nullable MKDataBlock)completionBlock{
++(void)layDownAnim:(nonnull UITableView *)tableView
+    animationBlock:(nullable NoResultBlock)animationBlock
+   completionBlock:(nullable MKDataBlock)completionBlock{
     NSArray *cells = tableView.visibleCells;
     NSMutableArray *rectArr = NSMutableArray.array;
     for (int i = 0; i < cells.count; i++) {
@@ -271,10 +329,16 @@
         }];
     }
 }
+#pragma mark —— roteAnimation
++(void)roteAnimationWithTableView:(nonnull UITableView *)tableView{
+    [self roteAnim:tableView
+    animationBlock:nil
+   completionBlock:nil];
+}
 
-+(void)roteAnimationWithTableView:(nonnull UITableView *)tableView
-                   animationBlock:(nullable NoResultBlock)animationBlock
-                  completionBlock:(nullable MKDataBlock)completionBlock{
++(void)roteAnim:(nonnull UITableView *)tableView
+ animationBlock:(nullable NoResultBlock)animationBlock
+    completionBlock:(nullable MKDataBlock)completionBlock{
     NSArray *cells = tableView.visibleCells;
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.y"];
     animation.fromValue = @(-M_PI);
