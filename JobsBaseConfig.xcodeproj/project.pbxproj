@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3D7B119D710C9C618D2AC77A /* Pods_JobsBaseConfigTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20FB9CD4F8E4FEB096B1D897 /* Pods_JobsBaseConfigTests.framework */; };
-		842D2640276C941F003B6C8E /* JobsBaseConfigNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D263F276C941F003B6C8E /* JobsBaseConfigNotificationManager.m */; };
+		842D299C276C9547003B6C8E /* JobsBaseConfigNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D299B276C9547003B6C8E /* JobsBaseConfigNotificationManager.m */; };
 		843B529E276A20DF00034688 /* NSObject+Popup.m in Sources */ = {isa = PBXBuildFile; fileRef = 843B529C276A20DE00034688 /* NSObject+Popup.m */; };
 		843B5316276A21E100034688 /* 登录弹窗@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 843B5314276A21E100034688 /* 登录弹窗@3x.png */; };
 		843B5317276A21E100034688 /* JobsNoticePopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 843B5315276A21E100034688 /* JobsNoticePopupView.m */; };
@@ -445,8 +445,8 @@
 		842D2264276C80A8003B6C8E /* BaseCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCellProtocol.h; sourceTree = "<group>"; };
 		842D2265276C80A8003B6C8E /* BaseViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewProtocol.h; sourceTree = "<group>"; };
 		842D2266276C80A8003B6C8E /* BaseProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseProtocol.h; sourceTree = "<group>"; };
-		842D263E276C941F003B6C8E /* JobsBaseConfigNotificationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsBaseConfigNotificationManager.h; sourceTree = "<group>"; };
-		842D263F276C941F003B6C8E /* JobsBaseConfigNotificationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsBaseConfigNotificationManager.m; sourceTree = "<group>"; };
+		842D299A276C9547003B6C8E /* JobsBaseConfigNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBaseConfigNotificationManager.h; sourceTree = "<group>"; };
+		842D299B276C9547003B6C8E /* JobsBaseConfigNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsBaseConfigNotificationManager.m; sourceTree = "<group>"; };
 		843B529C276A20DE00034688 /* NSObject+Popup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Popup.m"; sourceTree = "<group>"; };
 		843B529D276A20DE00034688 /* NSObject+Popup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Popup.h"; sourceTree = "<group>"; };
 		843B5313276A21E100034688 /* JobsNoticePopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsNoticePopupView.h; sourceTree = "<group>"; };
@@ -1457,20 +1457,20 @@
 		844B07822764CB4A00B0513D /* 各项全局定义 */ = {
 			isa = PBXGroup;
 			children = (
-				844B07832764CB4A00B0513D /* NotificationManager */,
+				844B07832764CB4A00B0513D /* JobsBaseConfigNotificationManager */,
 				844B07862764CB4A00B0513D /* 各项宏定义 */,
 				844B07A02764CB4A00B0513D /* 其他的一些全局定义文件 */,
 			);
 			path = "各项全局定义";
 			sourceTree = "<group>";
 		};
-		844B07832764CB4A00B0513D /* NotificationManager */ = {
+		844B07832764CB4A00B0513D /* JobsBaseConfigNotificationManager */ = {
 			isa = PBXGroup;
 			children = (
-				842D263E276C941F003B6C8E /* JobsBaseConfigNotificationManager.h */,
-				842D263F276C941F003B6C8E /* JobsBaseConfigNotificationManager.m */,
+				842D299A276C9547003B6C8E /* JobsBaseConfigNotificationManager.h */,
+				842D299B276C9547003B6C8E /* JobsBaseConfigNotificationManager.m */,
 			);
-			path = NotificationManager;
+			path = JobsBaseConfigNotificationManager;
 			sourceTree = "<group>";
 		};
 		844B07862764CB4A00B0513D /* 各项宏定义 */ = {
@@ -5010,6 +5010,7 @@
 				844B11212764E09C00B0513D /* NSString+Decoration.m in Sources */,
 				844B08412764CF4800B0513D /* ZWPullMenuModel.m in Sources */,
 				844B11842764E09C00B0513D /* NSObject+DeviceID.m in Sources */,
+				842D299C276C9547003B6C8E /* JobsBaseConfigNotificationManager.m in Sources */,
 				844B08782764CF4800B0513D /* XHLaunchAdView.m in Sources */,
 				844B110A2764E09C00B0513D /* UIView+Extras.m in Sources */,
 				844B10DB2764E09B00B0513D /* UILabel+Measure.m in Sources */,
@@ -5124,7 +5125,6 @@
 				844B117C2764E09C00B0513D /* NSObject+Notification.m in Sources */,
 				844B10E52764E09B00B0513D /* UIButton+UI.m in Sources */,
 				844B0D492764DBBD00B0513D /* BWItemCollectionViewCell.m in Sources */,
-				842D2640276C941F003B6C8E /* JobsBaseConfigNotificationManager.m in Sources */,
 				844B116D2764E09C00B0513D /* JobsTimeModel.m in Sources */,
 				844B10D82764E09B00B0513D /* UIImage+Tailor.m in Sources */,
 				844B11172764E09C00B0513D /* UICollectionViewCell+Default.m in Sources */,
