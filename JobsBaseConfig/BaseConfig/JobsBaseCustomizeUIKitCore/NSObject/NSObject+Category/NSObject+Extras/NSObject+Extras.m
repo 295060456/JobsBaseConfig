@@ -11,14 +11,19 @@
 @implementation NSObject (Extras)
 
 static char *NSObject_Extras_indexPath = "NSObject_Extras_indexPath";
-static char *NSObject_Extras_currentPage = "NSObject_Extras_currentPage";
-static char *NSObject_Extras_pageSize = "NSObject_Extras_pageSize";
-static char *NSObject_Extras_index = "NSObject_Extras_index";
-
 @dynamic _indexPath;
+
+static char *NSObject_Extras_currentPage = "NSObject_Extras_currentPage";
 @dynamic _currentPage;
+
+static char *NSObject_Extras_pageSize = "NSObject_Extras_pageSize";
 @dynamic _pageSize;
+
+static char *NSObject_Extras_index = "NSObject_Extras_index";
 @dynamic _index;
+
+static char *NSObject_Extras_viewModel = "NSObject_Extras_viewModel";
+@dynamic viewModel;
 
 #pragma mark —— 宏
 /// App 国际化相关系统宏二次封装 + 设置缺省值
@@ -650,6 +655,24 @@ static void selectorImp(id self,
     objc_setAssociatedObject(self,
                              NSObject_Extras_index,
                              [NSNumber numberWithInteger:_index],
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,strong)UIViewModel *viewModel;
+-(UIViewModel *)viewModel{
+    UIViewModel *ViewModel = objc_getAssociatedObject(self, NSObject_Extras_viewModel);
+    if (!ViewModel) {
+        ViewModel = UIViewModel.new;
+        objc_setAssociatedObject(self,
+                                 NSObject_Extras_viewModel,
+                                 ViewModel,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return ViewModel;
+}
+
+-(void)setViewModel:(UIViewModel *)viewModel{
+    objc_setAssociatedObject(self,
+                             NSObject_Extras_viewModel,
+                             viewModel,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 

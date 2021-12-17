@@ -8,13 +8,14 @@
 #ifndef JobsBaseProtocolHeader_h
 #define JobsBaseProtocolHeader_h
 
+#import "FoundationProtocol.h"
+#import "AppToolsProtocol.h"
 #import "BaseProtocol.h"
-#import "BaseViewControllerProtocol.h"
-#import "BaseCellProtocol.h"
+
 #import "BaseViewProtocol.h"
+#import "BaseCellProtocol.h"
 #import "BaseTableViewHeaderFooterViewProtocol.h"
 #import "BaseButtonProtocol.h"
-
-#import "AppToolsProtocol.h"
+#import "BaseViewControllerProtocol.h"
 
 #endif /* JobsBaseProtocolHeader_h */

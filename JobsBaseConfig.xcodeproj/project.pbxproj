@@ -438,15 +438,16 @@
 		7EB78C57967124ED900E9C4C /* Pods-JobsBaseConfig.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobsBaseConfig.debug.xcconfig"; path = "Target Support Files/Pods-JobsBaseConfig/Pods-JobsBaseConfig.debug.xcconfig"; sourceTree = "<group>"; };
 		842D225D276C80A8003B6C8E /* JobsBaseProtocolHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBaseProtocolHeader.h; sourceTree = "<group>"; };
 		842D225E276C80A8003B6C8E /* BaseProtocol.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = BaseProtocol.md; sourceTree = "<group>"; };
-		842D2260276C80A8003B6C8E /* BaseTableViewHeaderFooterViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewHeaderFooterViewProtocol.h; sourceTree = "<group>"; };
-		842D2261276C80A8003B6C8E /* BaseViewControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewControllerProtocol.h; sourceTree = "<group>"; };
-		842D2262276C80A8003B6C8E /* AppToolsProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppToolsProtocol.h; sourceTree = "<group>"; };
-		842D2263276C80A8003B6C8E /* BaseButtonProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseButtonProtocol.h; sourceTree = "<group>"; };
-		842D2264276C80A8003B6C8E /* BaseCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCellProtocol.h; sourceTree = "<group>"; };
-		842D2265276C80A8003B6C8E /* BaseViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewProtocol.h; sourceTree = "<group>"; };
-		842D2266276C80A8003B6C8E /* BaseProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseProtocol.h; sourceTree = "<group>"; };
 		842D299A276C9547003B6C8E /* JobsBaseConfigNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBaseConfigNotificationManager.h; sourceTree = "<group>"; };
 		842D299B276C9547003B6C8E /* JobsBaseConfigNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsBaseConfigNotificationManager.m; sourceTree = "<group>"; };
+		842D3452276CB1B3003B6C8E /* BaseTableViewHeaderFooterViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTableViewHeaderFooterViewProtocol.h; sourceTree = "<group>"; };
+		842D3453276CB1B3003B6C8E /* BaseCellProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseCellProtocol.h; sourceTree = "<group>"; };
+		842D3454276CB1B4003B6C8E /* BaseButtonProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseButtonProtocol.h; sourceTree = "<group>"; };
+		842D3455276CB1B4003B6C8E /* BaseViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewProtocol.h; sourceTree = "<group>"; };
+		842D3456276CB1B4003B6C8E /* FoundationProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoundationProtocol.h; sourceTree = "<group>"; };
+		842D3457276CB1B4003B6C8E /* BaseViewControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewControllerProtocol.h; sourceTree = "<group>"; };
+		842D3458276CB1B4003B6C8E /* BaseProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseProtocol.h; sourceTree = "<group>"; };
+		842D3459276CB1B4003B6C8E /* AppToolsProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppToolsProtocol.h; sourceTree = "<group>"; };
 		843B529C276A20DE00034688 /* NSObject+Popup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Popup.m"; sourceTree = "<group>"; };
 		843B529D276A20DE00034688 /* NSObject+Popup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Popup.h"; sourceTree = "<group>"; };
 		843B5313276A21E100034688 /* JobsNoticePopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsNoticePopupView.h; sourceTree = "<group>"; };
@@ -1232,13 +1233,14 @@
 		842D225F276C80A8003B6C8E /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				842D2260276C80A8003B6C8E /* BaseTableViewHeaderFooterViewProtocol.h */,
-				842D2261276C80A8003B6C8E /* BaseViewControllerProtocol.h */,
-				842D2262276C80A8003B6C8E /* AppToolsProtocol.h */,
-				842D2263276C80A8003B6C8E /* BaseButtonProtocol.h */,
-				842D2264276C80A8003B6C8E /* BaseCellProtocol.h */,
-				842D2265276C80A8003B6C8E /* BaseViewProtocol.h */,
-				842D2266276C80A8003B6C8E /* BaseProtocol.h */,
+				842D3459276CB1B4003B6C8E /* AppToolsProtocol.h */,
+				842D3454276CB1B4003B6C8E /* BaseButtonProtocol.h */,
+				842D3453276CB1B3003B6C8E /* BaseCellProtocol.h */,
+				842D3458276CB1B4003B6C8E /* BaseProtocol.h */,
+				842D3452276CB1B3003B6C8E /* BaseTableViewHeaderFooterViewProtocol.h */,
+				842D3457276CB1B4003B6C8E /* BaseViewControllerProtocol.h */,
+				842D3455276CB1B4003B6C8E /* BaseViewProtocol.h */,
+				842D3456276CB1B4003B6C8E /* FoundationProtocol.h */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";

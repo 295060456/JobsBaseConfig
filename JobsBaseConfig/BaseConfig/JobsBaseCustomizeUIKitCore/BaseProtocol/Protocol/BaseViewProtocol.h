@@ -6,16 +6,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BaseProtocol.h"
-#import "UIViewModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol BaseViewProtocol <BaseProtocol>
+@protocol BaseViewProtocol <NSObject>
 
 @optional
 
-@property(nonatomic,strong)NSString *internationalizationKEY;/// 国际化的key
 @property(nonatomic,assign)BOOL visible;
 
 @property(nonatomic,assign)CGSize viewSize;
@@ -34,9 +31,9 @@ NS_ASSUME_NONNULL_BEGIN
 //具体由子类进行复写【数据Frame】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 +(CGRect)viewFrameWithModel:(id _Nullable)model;
 //数据（字符串）定宽
-+(CGFloat)widthByData:(UIViewModel *_Nonnull)data;
++(CGFloat)widthByData:(id _Nonnull)data;
 //数据（字符串）定高
-+(CGFloat)heightByData:(UIViewModel *_Nonnull)data;
++(CGFloat)heightByData:(id _Nonnull)data;
 ///下拉刷新 （子类要进行覆写）
 -(void)pullToRefresh;
 ///上拉加载更多 （子类要进行覆写）

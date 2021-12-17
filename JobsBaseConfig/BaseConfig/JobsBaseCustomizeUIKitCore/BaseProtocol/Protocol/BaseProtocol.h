@@ -6,15 +6,20 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "UIViewModel.h"
+#import "FoundationProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
-/// 所有协议的基类
-@protocol BaseProtocol <NSObject>
+
+@protocol BaseProtocol <FoundationProtocol>
 
 @optional
-
-@property(nonatomic,strong)UIViewModel *viewModel;
+/// 数据📚
+@property(nonatomic,strong)NSString *internationalizationKEY;/// 国际化的key
+/// 标记📌
+@property(nonatomic,strong,nullable)NSIndexPath * __block _indexPath;//CollectionView、TableView等的序列号
+@property(nonatomic,assign)NSInteger __block _index;
+@property(nonatomic,assign)NSInteger __block _currentPage;//网路请求分页数据的时候的当前页码
+@property(nonatomic,assign)NSInteger __block _pageSize;
 
 -(void)languageSwitchNotificationWithSelector:(SEL)aSelector;//在View上,target = self（view）,省略
 /// 更改UITabBarItem的标题

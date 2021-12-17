@@ -7,6 +7,8 @@
 
 #import <UIKit/UIKit.h>
 #import <objc/runtime.h>
+
+#import "FoundationProtocol.h"
 #import "BaseViewControllerProtocol.h"
 #import "AABlock.h"
 #import "MacroDef_Func.h"
@@ -39,7 +41,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIViewController (BaseVC)<BaseViewControllerProtocol>
+@interface UIViewController (BaseVC)
+<
+BaseViewControllerProtocol
+,FoundationProtocol
+>
 
 #pragma mark —— present
 /// 简洁版强制present展现一个控制器页面【不需要正向传参】
