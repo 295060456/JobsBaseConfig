@@ -100,6 +100,8 @@ typedef void (^callback)(id _Nullable weakSelf, id _Nullable arg);
 -(void)forceComingToPushVC:(UIViewController *_Nonnull)toPushVC
              requestParams:(id _Nullable)requestParams;
 #pragma mark —— 功能性的
+/// 依据View上铆定的internationalizationKEY来全局更改文字以适配国际化
+-(void)languageSwitch;
 /// 打印请求体
 +(void)printRequestMessage:(NSURLSessionDataTask *_Nonnull)task;
 /// 判断是否是此版本App的首次启动

@@ -1,12 +1,12 @@
 //
-//  JobsBaseProtocol.h
+//  JobsBaseProtocolHeader.h
 //  Casino
 //
-//  Created by Jobs on 2021/12/9.
+//  Created by Jobs on 2021/12/17.
 //
 
-#ifndef JobsBaseProtocol_h
-#define JobsBaseProtocol_h
+#ifndef JobsBaseProtocolHeader_h
+#define JobsBaseProtocolHeader_h
 
 #import "BaseProtocol.h"
 #import "BaseViewControllerProtocol.h"
@@ -17,4 +17,4 @@
 
 #import "AppToolsProtocol.h"
 
-#endif /* JobsBaseProtocol_h */
+#endif /* JobsBaseProtocolHeader_h */

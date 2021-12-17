@@ -436,6 +436,15 @@
 		20FB9CD4F8E4FEB096B1D897 /* Pods_JobsBaseConfigTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JobsBaseConfigTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		662164F9ADE29B9A82CFA5FB /* Pods-JobsBaseConfigUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobsBaseConfigUITests.release.xcconfig"; path = "Target Support Files/Pods-JobsBaseConfigUITests/Pods-JobsBaseConfigUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7EB78C57967124ED900E9C4C /* Pods-JobsBaseConfig.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobsBaseConfig.debug.xcconfig"; path = "Target Support Files/Pods-JobsBaseConfig/Pods-JobsBaseConfig.debug.xcconfig"; sourceTree = "<group>"; };
+		842D225D276C80A8003B6C8E /* JobsBaseProtocolHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBaseProtocolHeader.h; sourceTree = "<group>"; };
+		842D225E276C80A8003B6C8E /* BaseProtocol.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = BaseProtocol.md; sourceTree = "<group>"; };
+		842D2260276C80A8003B6C8E /* BaseTableViewHeaderFooterViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewHeaderFooterViewProtocol.h; sourceTree = "<group>"; };
+		842D2261276C80A8003B6C8E /* BaseViewControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewControllerProtocol.h; sourceTree = "<group>"; };
+		842D2262276C80A8003B6C8E /* AppToolsProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppToolsProtocol.h; sourceTree = "<group>"; };
+		842D2263276C80A8003B6C8E /* BaseButtonProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseButtonProtocol.h; sourceTree = "<group>"; };
+		842D2264276C80A8003B6C8E /* BaseCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCellProtocol.h; sourceTree = "<group>"; };
+		842D2265276C80A8003B6C8E /* BaseViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewProtocol.h; sourceTree = "<group>"; };
+		842D2266276C80A8003B6C8E /* BaseProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseProtocol.h; sourceTree = "<group>"; };
 		843B529C276A20DE00034688 /* NSObject+Popup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Popup.m"; sourceTree = "<group>"; };
 		843B529D276A20DE00034688 /* NSObject+Popup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Popup.h"; sourceTree = "<group>"; };
 		843B5313276A21E100034688 /* JobsNoticePopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsNoticePopupView.h; sourceTree = "<group>"; };
@@ -1137,14 +1146,6 @@
 		844B10A02764E09B00B0513D /* NSObject+CallBackInfoByBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+CallBackInfoByBlock.h"; sourceTree = "<group>"; };
 		844B10A12764E09B00B0513D /* NSObject+CallBackInfoByBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CallBackInfoByBlock.m"; sourceTree = "<group>"; };
 		844B10A22764E09B00B0513D /* JobsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsObject.h; sourceTree = "<group>"; };
-		844B10A42764E09B00B0513D /* BaseTableViewHeaderFooterViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewHeaderFooterViewProtocol.h; sourceTree = "<group>"; };
-		844B10A52764E09B00B0513D /* JobsBaseProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBaseProtocol.h; sourceTree = "<group>"; };
-		844B10A62764E09B00B0513D /* BaseViewControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewControllerProtocol.h; sourceTree = "<group>"; };
-		844B10A72764E09B00B0513D /* AppToolsProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppToolsProtocol.h; sourceTree = "<group>"; };
-		844B10A82764E09B00B0513D /* BaseButtonProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseButtonProtocol.h; sourceTree = "<group>"; };
-		844B10A92764E09B00B0513D /* BaseCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCellProtocol.h; sourceTree = "<group>"; };
-		844B10AA2764E09B00B0513D /* BaseViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewProtocol.h; sourceTree = "<group>"; };
-		844B10AB2764E09B00B0513D /* BaseProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseProtocol.h; sourceTree = "<group>"; };
 		844B10AF2764E09B00B0513D /* UITextField+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Extend.h"; sourceTree = "<group>"; };
 		844B10B02764E09B00B0513D /* UITextField+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Extend.m"; sourceTree = "<group>"; };
 		844B10B12764E09B00B0513D /* JobsTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsTextField.h; sourceTree = "<group>"; };
@@ -1226,6 +1227,20 @@
 				949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		842D225F276C80A8003B6C8E /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				842D2260276C80A8003B6C8E /* BaseTableViewHeaderFooterViewProtocol.h */,
+				842D2261276C80A8003B6C8E /* BaseViewControllerProtocol.h */,
+				842D2262276C80A8003B6C8E /* AppToolsProtocol.h */,
+				842D2263276C80A8003B6C8E /* BaseButtonProtocol.h */,
+				842D2264276C80A8003B6C8E /* BaseCellProtocol.h */,
+				842D2265276C80A8003B6C8E /* BaseViewProtocol.h */,
+				842D2266276C80A8003B6C8E /* BaseProtocol.h */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		843B529B276A20DE00034688 /* NSObject+Popup */ = {
@@ -4375,14 +4390,9 @@
 		844B10A32764E09B00B0513D /* BaseProtocol */ = {
 			isa = PBXGroup;
 			children = (
-				844B10A42764E09B00B0513D /* BaseTableViewHeaderFooterViewProtocol.h */,
-				844B10A52764E09B00B0513D /* JobsBaseProtocol.h */,
-				844B10A62764E09B00B0513D /* BaseViewControllerProtocol.h */,
-				844B10A72764E09B00B0513D /* AppToolsProtocol.h */,
-				844B10A82764E09B00B0513D /* BaseButtonProtocol.h */,
-				844B10A92764E09B00B0513D /* BaseCellProtocol.h */,
-				844B10AA2764E09B00B0513D /* BaseViewProtocol.h */,
-				844B10AB2764E09B00B0513D /* BaseProtocol.h */,
+				842D225E276C80A8003B6C8E /* BaseProtocol.md */,
+				842D225D276C80A8003B6C8E /* JobsBaseProtocolHeader.h */,
+				842D225F276C80A8003B6C8E /* Protocol */,
 			);
 			path = BaseProtocol;
 			sourceTree = "<group>";

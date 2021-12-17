@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "BaseProtocol.h"
+#import "BaseViewProtocol.h"
 #import "AABlock.h"
 
 #if __has_include(<SPAlertController/SPAlertController.h>)
@@ -29,7 +29,7 @@ typedef enum : NSUInteger {
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol BaseViewControllerProtocol <BaseProtocol>
+@protocol BaseViewControllerProtocol <BaseViewProtocol>
 
 @optional
 /// UI

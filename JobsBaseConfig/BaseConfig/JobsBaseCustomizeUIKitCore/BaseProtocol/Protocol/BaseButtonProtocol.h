@@ -6,11 +6,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BaseProtocol.h"
+#import "BaseViewProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol BaseButtonProtocol <BaseProtocol>
+@protocol BaseButtonProtocol <BaseViewProtocol>
 
 @optional
 

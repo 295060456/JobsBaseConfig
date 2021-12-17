@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @optional
 
+@property(nonatomic,strong)NSString *internationalizationKEY;/// 国际化的key
+@property(nonatomic,assign)BOOL visible;
+
 @property(nonatomic,assign)CGSize viewSize;
 @property(nonatomic,assign)CGRect viewRect;
 @property(nonatomic,assign)CGFloat viewWidth;

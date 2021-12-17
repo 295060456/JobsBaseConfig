@@ -98,6 +98,31 @@ static char *NSObject_Extras_index = "NSObject_Extras_index";
     }
 }
 #pragma mark —— 功能性的
+/// 依据View上铆定的internationalizationKEY来全局更改文字以适配国际化
+-(void)languageSwitch{
+    UIView *v = nil;
+    if ([self isKindOfClass:UIViewController.class]) {
+        UIViewController *viewController = (UIViewController *)self;
+        v = viewController.view;
+    }else if ([self isKindOfClass:UIView.class]){
+        UIView *viewer = (UIView *)self;
+        v = viewer;
+    }else{}
+    
+    if (v) {
+        for (UIView *view in v.subviews) {
+            if (![NSString isNullString:view.internationalizationKEY]) {
+                if ([view isKindOfClass:UILabel.class]) {
+                    UILabel *lab = (UILabel *)view;
+                    lab.text = Internationalization(view.internationalizationKEY);
+                }else if ([view isKindOfClass:UIButton.class]){
+                    UIButton *btn = (UIButton *)view;
+                    [btn normalTitle:Internationalization(view.internationalizationKEY)];
+                }else{}
+            }
+        }
+    }
+}
 /// 打印请求体
 +(void)printRequestMessage:(NSURLSessionDataTask *_Nonnull)task{
     if (task) {
