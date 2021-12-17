@@ -19,10 +19,133 @@ static char *NSObject_Extras_index = "NSObject_Extras_index";
 @dynamic _currentPage;
 @dynamic _pageSize;
 @dynamic _index;
+
+#pragma mark —— 宏
+/// App 国际化相关系统宏二次封装 + 设置缺省值
++(NSString *_Nullable)localStringWithKey:(nonnull NSString *)key{
+    return NSLocalizedString(key, nil);
+}
+
++(NSString *_Nullable)localizedString:(nonnull NSString *)key
+                            fromTable:(nullable NSString *)tableName{
+    return NSLocalizedStringFromTable(key,
+                                      tableName,
+                                      nil);
+}
+
++(NSString *_Nullable)localizedString:(nonnull NSString *)key
+                            fromTable:(nullable NSString *)tableName
+                             inBundle:(nullable NSBundle *)bundle{
+    return NSLocalizedStringFromTableInBundle(key,
+                                              tableName,
+                                              bundle ? : NSBundle.mainBundle,
+                                              nil);
+}
+
++(NSString *_Nullable)localizedString:(nonnull NSString *)key
+                            fromTable:(nullable NSString *)tableName
+                             inBundle:(nullable NSBundle *)bundle
+                         defaultValue:(nullable NSString *)defaultValue{
+    return NSLocalizedStringWithDefaultValue(key,
+                                             tableName,
+                                             bundle ? : NSBundle.mainBundle,
+                                             defaultValue,
+                                             nil);
+}
+#pragma mark —— ViewController
+-(UIViewController *_Nullable)getCurrentViewController{
+    return [self getCurrentViewControllerFromRootVC:getMainWindow().rootViewController];;
+}
+
+-(UIViewController *_Nullable)getCurrentViewControllerFromRootVC:(UIViewController *_Nullable)rootVC{
+    UIViewController *currentVC;
+    if ([rootVC presentedViewController]) {
+        // 视图是被presented出来的
+        rootVC = [rootVC presentedViewController];
+    }
+
+    if ([rootVC isKindOfClass:UITabBarController.class]) {
+        // 根视图为UITabBarController
+        currentVC = [self getCurrentViewControllerFromRootVC:[(UITabBarController *)rootVC selectedViewController]];
+    } else if ([rootVC isKindOfClass:UINavigationController.class]){
+        // 根视图为UINavigationController
+        currentVC = [self getCurrentViewControllerFromRootVC:[(UINavigationController *)rootVC visibleViewController]];
+    } else {
+        // 根视图为非导航类
+        currentVC = rootVC;
+    }return currentVC;
+}
+/**
+    【强制展现页面】
+    1、本类如果是ViewController则用本类推；
+    2、否则用向下遍历用最近的ViewController来推；
+    3、如果想用AppDelegate的自定义TabbarVC：
+        extern AppDelegate *appDelegate;
+        (UIViewController *)appDelegate.tabBarVC;
+ 
+    @param toPushVC 需要进行展现的页面
+    @param requestParams 正向推页面传递的参数
+ */
+-(void)forceComingToPushVC:(UIViewController *_Nonnull)toPushVC
+             requestParams:(id _Nullable)requestParams{
+    UIViewController *viewController = [self isKindOfClass:UIViewController.class] ? (UIViewController *)self : self.getCurrentViewController;
+    if (viewController) {
+        [viewController comingToPushVC:toPushVC
+                         requestParams:requestParams];
+    }else{
+        NSLog(@"%@强制展现页面%@失败,携带的参数%@",viewController,toPushVC,requestParams);
+        [WHToast toastErrMsg:@"强制展现页面失败,请检查控制台"];
+    }
+}
+#pragma mark —— 功能性的
+/// 打印请求体
++(void)printRequestMessage:(NSURLSessionDataTask *_Nonnull)task{
+    if (task) {
+        // 请求URL
+        NSLog(@"请求URL:%@\n",task.originalRequest.URL);
+        
+        // 请求方式
+        NSLog(@"请求方式:%@\n",task.originalRequest.HTTPMethod);
+        
+        // 请求头信息
+        NSLog(@"请求头信息:%@\n",task.originalRequest.allHTTPHeaderFields);
+        
+        // 请求正文信息
+        NSLog(@"请求正文信息:%@\n",[[NSString alloc] initWithData:task.originalRequest.HTTPBody encoding:NSUTF8StringEncoding]);
+        
+    //    // 请求响应时间
+    //    NSTimeInterval time = [[NSDate date] timeIntervalSinceDate:NSDate.date];
+    //    NSLog(@"请求响应时间:%@\n",@(time));
+    //    NSLog(@"\n请求URL:%@\n请求方式:%@\n请求头信息:%@\n请求正文信息:%@\n请求响应时间:%@\n",task.originalRequest.URL,task.originalRequest.HTTPMethod,task.originalRequest.allHTTPHeaderFields,[[NSString alloc] initWithData:task.originalRequest.HTTPBody encoding:NSUTF8StringEncoding],@(time));
+    }else{
+        NSLog(@"NSURLSessionDataTask *task 为空,请检查");
+    }
+}
+/// 判断是否是此版本App的首次启动
+-(BOOL)isAppFirstLaunch{
+    BOOL isFirstLaunch = [NSUserDefaults.standardUserDefaults boolForKey:@"AppFirstLaunch"];
+    if (!isFirstLaunch) {
+        [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"AppFirstLaunch"];
+        [NSUserDefaults.standardUserDefaults synchronize];
+    }return !isFirstLaunch;
+}
+/// 判断是否是App今日的首次启动
+-(BOOL)isTodayAppFirstLaunch{
+    NSString *recordToday = [NSUserDefaults.standardUserDefaults valueForKey:@"TodayAppFirstLaunch"];
+    JobsTimeModel *timeModel = JobsTimeModel.new;
+    NSString *today = [NSString stringWithFormat:@"%ld-%ld-%ld-%ld",timeModel.currentEra,timeModel.currentYear,timeModel.currentMonth,timeModel.currentDay];
+    if ([recordToday isEqualToString:today]) {
+        NSLog(@"今天已经启动过");
+    }else{
+        NSLog(@"今天第一次启动");
+        [NSUserDefaults.standardUserDefaults setValue:today forKey:@"TodayAppFirstLaunch"];
+        [NSUserDefaults.standardUserDefaults synchronize];//
+    }return ![recordToday isEqualToString:today];
+}
 /// 震动特效反馈
 +(void)feedbackGenerator{
     if (@available(iOS 10.0, *)) {
-        UIImpactFeedbackGenerator *generator = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleMedium];
+        UIImpactFeedbackGenerator *generator = [UIImpactFeedbackGenerator.alloc initWithStyle:UIImpactFeedbackStyleMedium];
         [generator prepare];
         [generator impactOccurred];
     } else {
@@ -44,29 +167,10 @@ static char *NSObject_Extras_index = "NSObject_Extras_index";
 }
 /// iOS 限制自动锁屏 lockSwitch:YES(关闭自动锁屏)
 +(void)autoLockedScreen:(BOOL)lockSwitch{
-    [[UIApplication sharedApplication] setIdleTimerDisabled:lockSwitch];
-}
-/// 打印请求体
-+(void)printRequestMessage:(NSURLSessionDataTask *)task{
-    // 请求URL
-    NSLog(@"请求URL:%@\n",task.originalRequest.URL);
-    
-    // 请求方式
-    NSLog(@"请求方式:%@\n",task.originalRequest.HTTPMethod);
-    
-    // 请求头信息
-    NSLog(@"请求头信息:%@\n",task.originalRequest.allHTTPHeaderFields);
-    
-    // 请求正文信息
-    NSLog(@"请求正文信息:%@\n",[[NSString alloc] initWithData:task.originalRequest.HTTPBody encoding:NSUTF8StringEncoding]);
-    
-//    // 请求响应时间
-//    NSTimeInterval time = [[NSDate date] timeIntervalSinceDate:NSDate.date];
-//    NSLog(@"请求响应时间:%@\n",@(time));
-//    NSLog(@"\n请求URL:%@\n请求方式:%@\n请求头信息:%@\n请求正文信息:%@\n请求响应时间:%@\n",task.originalRequest.URL,task.originalRequest.HTTPMethod,task.originalRequest.allHTTPHeaderFields,[[NSString alloc] initWithData:task.originalRequest.HTTPBody encoding:NSUTF8StringEncoding],@(time));
+    [UIApplication.sharedApplication setIdleTimerDisabled:lockSwitch];
 }
 
-+(void)savePic:(GKPhotoBrowser *)browser{
++(void)savePic:(GKPhotoBrowser *_Nonnull)browser{
     if (browser) {
         GKPhoto *photo = browser.photos[browser.currentIndex];
         
@@ -107,56 +211,100 @@ static char *NSObject_Extras_index = "NSObject_Extras_index";
         NSLog(@"GKPhotoBrowser * 为空");
     }
 }
-
-- (UIViewController *_Nullable)getCurrentViewController{
-    return [self getCurrentViewControllerFromRootVC:getMainWindow().rootViewController];;
-}
-
-- (UIViewController *_Nullable)getCurrentViewControllerFromRootVC:(UIViewController *_Nullable)rootVC{
-    UIViewController *currentVC;
-    if ([rootVC presentedViewController]) {
-        // 视图是被presented出来的
-        rootVC = [rootVC presentedViewController];
+/// 将基本数据类型（先统一默认视作浮点数）转化为图片进行显示。使用前提，图片的名字命令为0~9，方便进行映射
+/// @param inputData 需要进行转换映射的基本数据类型数据
+/// @param bitNum 如果操作对象是浮点数，那么小数点后需要保留的位数
+-(nonnull NSMutableArray <UIImage *>*)translateToArr:(CGFloat)inputData
+                                   saveBitAfterPoint:(NSInteger)bitNum{
+    
+    if ([self isFloat:inputData] && !bitNum) {
+        bitNum = 2;//默认保存小数点后2位
     }
 
-    if ([rootVC isKindOfClass:UITabBarController.class]) {
-        // 根视图为UITabBarController
-        currentVC = [self getCurrentViewControllerFromRootVC:[(UITabBarController *)rootVC selectedViewController]];
-    } else if ([rootVC isKindOfClass:UINavigationController.class]){
-        // 根视图为UINavigationController
-        currentVC = [self getCurrentViewControllerFromRootVC:[(UINavigationController *)rootVC visibleViewController]];
-    } else {
-        // 根视图为非导航类
-        currentVC = rootVC;
-    }return currentVC;
-}
-/// 用block来代替selector
-SEL selectorBlocks(void (^block)(id _Nullable weakSelf, id _Nullable arg),
-                   id target){
-    if (!block) {
-        [NSException raise:@"block can not be nil"
-                    format:@"%@ selectorBlock error", target];
+    NSString *format = [@"%." stringByAppendingString:[NSString stringWithFormat:@"%ldf",bitNum]];
+    NSString *str = [NSString stringWithFormat:format,inputData];
+    
+    NSMutableArray <NSString *>*resultMutArr = NSMutableArray.array;// For test
+    NSMutableArray <UIImage *>*resultIMGMutArr = NSMutableArray.array;
+    
+    NSUInteger len = str.length;
+    unichar buffer[len + 1];
+    [str getCharacters:buffer
+                 range:NSMakeRange(0, len)];
+    
+    for(int i = 0; i < len; i++) {
+        NSLog(@"%C", buffer[i]);
+        NSString *temp = [NSString stringWithFormat:@"%C",buffer[i]];
+        [resultMutArr addObject:temp];
+        // 数字映射图片
+        if ([temp isEqualToString:@"."]) {
+            temp = @"小数点";
+        }
+        [resultIMGMutArr addObject:KIMG(temp)];
     }
-    NSString *selName = [NSString stringWithFormat:@"selector_%p:", block];
-    SEL sel = NSSelectorFromString(selName);
-    class_addMethod([target class],
-                    sel,
-                    (IMP)selectorImp,
-                    "v@:@");
-    objc_setAssociatedObject(target,
-                             sel,
-                             block,
-                             OBJC_ASSOCIATION_COPY_NONATOMIC);
-    return sel;
+    NSLog(@"resultMutArr【For Test】 = %@",resultMutArr);
+    return resultIMGMutArr;
 }
-
-static void selectorImp(id self,
-                        SEL _cmd,
-                        id arg) {
-    callback block = objc_getAssociatedObject(self, _cmd);
-    __weak typeof(self) weakSelf = self;
-    if (block) {
-        block(weakSelf, arg);
+/// 读取本地的plist文件到内存  【 plist ——> NSDictionary * 】
+/// @param fileName Plist文件名
+-(nullable NSDictionary *)readLocalPlistWithFileName:(nullable NSString *)fileName{
+    NSString *filePath = getPathForResource(nil,
+                                            fileName,
+                                            nil,
+                                            @"plist");
+    
+    if ([FileFolderHandleTool isExistsAtPath:filePath]) {
+        return [[NSDictionary alloc] initWithContentsOfFile:filePath];
+    }return nil;
+}
+/// 监听程序被杀死前的时刻，进行一些需要异步的操作：磁盘读写、网络请求...
+-(void)terminalCheck:(MKDataBlock _Nullable)checkBlock{
+    [NSNotificationCenter.defaultCenter addObserver:self
+                                           selector:selectorBlocks(^(id  _Nullable weakSelf,
+                                                                     id  _Nullable arg) {
+        //进行埋点操作
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            NSLog(@"我只执行一次");
+            // 在这里写遗言：最后希望去完成的事情
+            if (checkBlock) {
+                checkBlock(@1);
+            }
+            [NSThread sleepForTimeInterval:60];
+            NSLog(@"程序被杀死");
+        });
+    }, self)
+                                               name:@"UIApplicationWillTerminateNotification"
+                                             object:nil];
+}
+/// Object转换为NSData
++(NSData *_Nullable)transformToData:(id _Nullable)object{
+    if ([object isKindOfClass:NSString.class]) {
+        NSString *string = (NSString *)object;
+        return [string dataUsingEncoding:NSUTF8StringEncoding];
+    }else if ([object isKindOfClass:NSArray.class]){
+        NSArray *array = (NSArray *)object;
+        NSError *err = nil;
+        /*
+         *  object 要归档的对象图的根
+         *  requiresSecureCoding 一个布尔值，指示是否所有编码对象都必须符合 NSSecureCoding
+         *  error 返回时，是编码时发生的错误，或者nil没有发生错误
+         */
+        if (@available(iOS 11.0, *)) {
+            return [NSKeyedArchiver archivedDataWithRootObject:array
+                                         requiringSecureCoding:YES
+                                                         error:&err];
+        } else {
+            SuppressWdeprecatedDeclarationsWarning(return [NSKeyedArchiver archivedDataWithRootObject:array]);
+        }
+    }else if ([object isKindOfClass:NSDictionary.class]){
+        NSDictionary *dictionary = (NSDictionary *)object;
+        NSError *err = nil;
+        return [NSJSONSerialization dataWithJSONObject:dictionary
+                                               options:NSJSONWritingPrettyPrinted
+                                                 error:&err];
+    }else{
+        return nil;
     }
 }
 /// 获取当前设备可用内存
@@ -184,37 +332,30 @@ static void selectorImp(id self,
         return NSNotFound;
     }return taskInfo.resident_size/1024.0/1024.0;
 }
-/// App 国际化相关系统宏二次封装 + 设置缺省值
-+(NSString *_Nullable)localStringWithKey:(nonnull NSString *)key{
-    return NSLocalizedString(key, nil);
+#pragma mark —— 数字
+/// 获取任意数字最高位数字
+-(NSInteger)getTopDigit:(NSInteger)number{
+    // makes sure you really get the digit!
+    number = labs(number);// abs()
+    if (number < 10){
+        return number;
+    }return [self getTopDigit:((number - (number % 10)) / 10)];
 }
-
-+(NSString *_Nullable)localizedString:(nonnull NSString *)key
-                            fromTable:(nullable NSString *)tableName{
-    return NSLocalizedStringFromTable(key,
-                                      tableName,
-                                      nil);
+/// 判断任意给定的一个整型是多少位数
+-(NSInteger)bitNum:(NSInteger)number{
+    NSInteger count = 0;
+    while(number != 0){
+        number /= 10;
+        count++;
+    }
+    printf("数字是 %ld 位数。", (long)count);
+    return count;
 }
-
-+(NSString *_Nullable)localizedString:(nonnull NSString *)key
-                            fromTable:(nullable NSString *)tableName
-                             inBundle:(nullable NSBundle *)bundle{
-    return NSLocalizedStringFromTableInBundle(key,
-                                              tableName,
-                                              bundle ? : NSBundle.mainBundle,
-                                              nil);
+/// 判断任意数字是否为小数
+-(BOOL)isFloat:(CGFloat)num{
+    return num - (int)num;
 }
-
-+(NSString *_Nullable)localizedString:(nonnull NSString *)key
-                            fromTable:(nullable NSString *)tableName
-                             inBundle:(nullable NSBundle *)bundle
-                         defaultValue:(nullable NSString *)defaultValue{
-    return NSLocalizedStringWithDefaultValue(key,
-                                             tableName,
-                                             bundle ? : NSBundle.mainBundle,
-                                             defaultValue,
-                                             nil);
-}
+#pragma mark —— 键盘⌨️
 /// 加入键盘通知的监听者
 -(void)keyboard{
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -227,8 +368,8 @@ static void selectorImp(id self,
                                                  name:UIKeyboardDidChangeFrameNotification
                                                object:nil];
 }
-//键盘 弹出 和 收回 走这个方法
--(void)keyboardWillChangeFrameNotification:(NSNotification *)notification{
+/// 键盘 弹出 和 收回 走这个方法
+-(void)keyboardWillChangeFrameNotification:(NSNotification *_Nullable)notification{
     NSDictionary *userInfo = notification.userInfo;
     CGRect beginFrame = [userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue];
     CGRect endFrame = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
@@ -244,9 +385,8 @@ static void selectorImp(id self,
     }
 }
 
--(void)keyboardDidChangeFrameNotification:(NSNotification *)notification{
-
-}
+-(void)keyboardDidChangeFrameNotification:(NSNotification *_Nullable)notification{}
+#pragma mark —— 刷新
 /// 停止刷新【可能还有数据的情况，状态为：MJRefreshStateIdle】
 -(void)endRefreshing:(UIScrollView *_Nonnull)targetScrollView{
     if ([targetScrollView isKindOfClass:UITableView.class]) {
@@ -297,70 +437,7 @@ static void selectorImp(id self,
     }
     contentView.mj_footer.hidden = !dataSource.count;
 }
-/// 转换为NSData
-+(NSData *_Nullable)transformToData:(id _Nullable)object{
-    if ([object isKindOfClass:NSString.class]) {
-        NSString *string = (NSString *)object;
-        return [string dataUsingEncoding:NSUTF8StringEncoding];
-    }else if ([object isKindOfClass:NSArray.class]){
-        NSArray *array = (NSArray *)object;
-        NSError *err = nil;
-        /*
-         *  object 要归档的对象图的根
-         *  requiresSecureCoding 一个布尔值，指示是否所有编码对象都必须符合 NSSecureCoding
-         *  error 返回时，是编码时发生的错误，或者nil没有发生错误
-         */
-        if (@available(iOS 11.0, *)) {
-            return [NSKeyedArchiver archivedDataWithRootObject:array
-                                         requiringSecureCoding:YES
-                                                         error:&err];
-        } else {
-            SuppressWdeprecatedDeclarationsWarning(return [NSKeyedArchiver archivedDataWithRootObject:array]);
-        }
-    }else if ([object isKindOfClass:NSDictionary.class]){
-        NSDictionary *dictionary = (NSDictionary *)object;
-        NSError *err = nil;
-        return [NSJSONSerialization dataWithJSONObject:dictionary
-                                               options:NSJSONWritingPrettyPrinted
-                                                 error:&err];
-    }else{
-        return nil;
-    }
-}
-/// 监听程序被杀死前的时刻，进行一些需要异步的操作：磁盘读写、网络请求...
--(void)terminalCheck:(MKDataBlock _Nullable)checkBlock{
-    [NSNotificationCenter.defaultCenter addObserver:self
-                                           selector:selectorBlocks(^(id  _Nullable weakSelf,
-                                                                     id  _Nullable arg) {
-        //进行埋点操作
-        static dispatch_once_t onceToken;
-        dispatch_once(&onceToken, ^{
-            NSLog(@"我只执行一次");
-            // 在这里写遗言：最后希望去完成的事情
-            if (checkBlock) {
-                checkBlock(@1);
-            }
-            [NSThread sleepForTimeInterval:60];
-            NSLog(@"程序被杀死");
-        });
-    }, self)
-                                               name:@"UIApplicationWillTerminateNotification"
-                                             object:nil];
-}
-/// 判断本程序是否存在某个类
-+(BOOL)judgementAppExistClassWithName:(nullable NSString *)className{
-    return NSClassFromString(className);
-}
-/// 判断某个实例对象是否存在某个【不带参数的方法】
-+(BOOL)judgementObj:(nonnull NSObject *)obj
-existMethodWithName:(nullable NSString *)methodName{
-    if (!obj || [NSString isNullString:methodName]) {
-        return NO;
-    }else{
-        SEL sel = NSSelectorFromString(methodName);
-        return [obj respondsToSelector:sel];
-    }
-}
+#pragma mark —— 参数 和 相关调用
 /// 如果某个实例对象存在某个【不带参数的方法】，则对其调用执行
 /// @param targetObj 靶点，方法在哪里
 /// @param methodName 不带参数的方法名
@@ -447,74 +524,50 @@ callingMethodWithName:(nullable NSString *)methodName{
         NSLog(@"result = %@",result);
     }
 }
-/// 读取本地的plist文件到内存  【 plist ——> NSDictionary * 】
-/// @param fileName Plist文件名
--(nullable NSDictionary *)readLocalPlistWithFileName:(nullable NSString *)fileName{
-    NSString *filePath = getPathForResource(nil,
-                                            fileName,
-                                            nil,
-                                            @"plist");
-    
-    if ([FileFolderHandleTool isExistsAtPath:filePath]) {
-        return [[NSDictionary alloc] initWithContentsOfFile:filePath];
-    }return nil;
+/// 判断本程序是否存在某个类
++(BOOL)judgementAppExistClassWithName:(nullable NSString *)className{
+    return NSClassFromString(className);
 }
-/// 将基本数据类型（先统一默认视作浮点数）转化为图片进行显示。使用前提，图片的名字命令为0~9，方便进行映射
-/// @param inputData 需要进行转换映射的基本数据类型数据
-/// @param bitNum 如果操作对象是浮点数，那么小数点后需要保留的位数
--(nonnull NSMutableArray <UIImage *>*)translateToArr:(CGFloat)inputData
-                                   saveBitAfterPoint:(NSInteger)bitNum{
-    
-    if ([self isFloat:inputData] && !bitNum) {
-        bitNum = 2;//默认保存小数点后2位
+/// 判断某个实例对象是否存在某个【不带参数的方法】
++(BOOL)judgementObj:(nonnull NSObject *)obj
+existMethodWithName:(nullable NSString *)methodName{
+    if (!obj || [NSString isNullString:methodName]) {
+        return NO;
+    }else{
+        SEL sel = NSSelectorFromString(methodName);
+        return [obj respondsToSelector:sel];
     }
+}
+/// 用block来代替selector
+SEL selectorBlocks(void (^_Nullable block)(id _Nullable weakSelf, id _Nullable arg),
+                   id target){
+    if (!block) {
+        [NSException raise:@"block can not be nil"
+                    format:@"%@ selectorBlock error", target];
+    }
+    NSString *selName = [NSString stringWithFormat:@"selector_%p:", block];
+    SEL sel = NSSelectorFromString(selName);
+    class_addMethod([target class],
+                    sel,
+                    (IMP)selectorImp,
+                    "v@:@");
+    objc_setAssociatedObject(target,
+                             sel,
+                             block,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+    return sel;
+}
 
-    NSString *format = [@"%." stringByAppendingString:[NSString stringWithFormat:@"%ldf",bitNum]];
-    NSString *str = [NSString stringWithFormat:format,inputData];
-    
-    NSMutableArray <NSString *>*resultMutArr = NSMutableArray.array;// For test
-    NSMutableArray <UIImage *>*resultIMGMutArr = NSMutableArray.array;
-    
-    NSUInteger len = str.length;
-    unichar buffer[len + 1];
-    [str getCharacters:buffer
-                 range:NSMakeRange(0, len)];
-    
-    for(int i = 0; i < len; i++) {
-        NSLog(@"%C", buffer[i]);
-        NSString *temp = [NSString stringWithFormat:@"%C",buffer[i]];
-        [resultMutArr addObject:temp];
-        // 数字映射图片
-        if ([temp isEqualToString:@"."]) {
-            temp = @"小数点";
-        }
-        [resultIMGMutArr addObject:KIMG(temp)];
+static void selectorImp(id self,
+                        SEL _cmd,
+                        id arg) {
+    callback block = objc_getAssociatedObject(self, _cmd);
+    __weak typeof(self) weakSelf = self;
+    if (block) {
+        block(weakSelf, arg);
     }
-    NSLog(@"resultMutArr【For Test】 = %@",resultMutArr);
-    return resultIMGMutArr;
 }
-// 获取任意数字最高位数字
--(NSInteger)getTopDigit:(NSInteger)number{
-    // makes sure you really get the digit!
-    number = labs(number);// abs()
-    if (number < 10){
-        return number;
-    }return [self getTopDigit:((number - (number % 10)) / 10)];
-}
-// 判断任意给定的一个整型是多少位数
--(NSInteger)bitNum:(NSInteger)number{
-    NSInteger count = 0;
-    while(number != 0){
-        number /= 10;
-        count++;
-    }
-    printf("数字是 %ld 位数。", (long)count);
-    return count;
-}
-// 判断任意数字是否为小数
--(BOOL)isFloat:(CGFloat)num{
-    return num - (int)num;
-}
+#pragma mark —— 属性的Set | GET
 #pragma mark —— @property(nonatomic,strong)NSIndexPath *_indexPath;
 -(NSIndexPath *)_indexPath{
     return objc_getAssociatedObject(self, NSObject_Extras_indexPath);;

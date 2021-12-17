@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "AppInternationalizationVC.h"
 #import "NSObject+UserInfo.h"
+#import "NSObject+Extras.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

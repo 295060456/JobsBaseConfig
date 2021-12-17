@@ -20,15 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)forcedLogin;
 /// 默认头像👤
 -(UIImage *)defaultHeaderImage;
-/// 强制展现页面，本类如果是VC则用本类推，否则用JobsTabbarVC来推
-/// @param toPushVC 需要进行展现的页面
-/// @param requestParams 正向推页面传递的参数
--(void)forceComingToPushVC:(UIViewController *)toPushVC
-             requestParams:(id _Nullable)requestParams;
-/// 判断是否是此版本App的首次启动
--(BOOL)isAppFirstLaunch;
-/// 判断是否是App今日的首次启动
--(BOOL)isTodayAppFirstLaunch;
 
 @end
 

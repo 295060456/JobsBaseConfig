@@ -13,7 +13,7 @@
 
 @implementation BaseViewController
 // UI
-@synthesize rootVC = _rootVC;
+@synthesize fromVC = _fromVC;
 @synthesize bgImageView = _bgImageView;
 @synthesize alertController = _alertController;
 // Data

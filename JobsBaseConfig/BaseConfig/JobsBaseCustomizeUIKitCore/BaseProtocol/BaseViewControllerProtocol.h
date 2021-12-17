@@ -33,16 +33,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @optional
 /// UI
-@property(nonatomic,weak)UIViewController *rootVC;
-@property(nonatomic,strong)UIImageView *bgImageView;
-@property(nonatomic,strong)SPAlertController *alertController;
+@property(nonatomic,weak)UIViewController *fromVC;
+@property(nonatomic,strong,nullable)SPAlertController *alertController;
+@property(nonatomic,strong,nullable)UIImageView *bgImageView;
+@property(nonatomic,strong,nullable)UIImage *backgroundImage;// 仅在loadView中配置有效
 /// Data
-@property(nonatomic,strong)id requestParams;
-@property(nonatomic,strong)RACSignal *reqSignal;
+@property(nonatomic,strong,nullable)id requestParams;
+@property(nonatomic,strong,nullable)RACSignal *reqSignal;
 @property(nonatomic,assign)ComingStyle pushOrPresent;
 @property(nonatomic,assign)BOOL setupNavigationBarHidden;
 @property(nonatomic,assign)NSInteger __block currentPage;
-@property(nonatomic,copy)MKDataBlock viewControllerBlock;
+@property(nonatomic,copy,nullable)MKDataBlock viewControllerBlock;
 
 -(void)setGKNav;
 /*

@@ -71,45 +71,80 @@ typedef void (^callback)(id _Nullable weakSelf, id _Nullable arg);
 @property(nonatomic,assign)NSInteger __block _currentPage;//网路请求分页数据的时候的当前页码
 @property(nonatomic,assign)NSInteger __block _pageSize;
 
-///震动特效反馈
-+(void)feedbackGenerator;
-/*
- * 检测用户是否锁屏：根据屏幕光线来进行判定，而不是系统通知
- * 作用范围:在sceneDidEnterBackground（iOS 13及其以上版本有效） && applicationDidEnterBackground（iOS 13以下版本有效）
- * 调试是否进入后台，要断开于Xcode的连接，否则屏幕常亮
- */
-+(BOOL)didUserPressLockButton;
-/// iOS 限制自动锁屏 lockSwitch:YES(关闭自动锁屏)
-+(void)autoLockedScreen:(BOOL)lockSwitch;
-/// 打印请求体
-+(void)printRequestMessage:(NSURLSessionDataTask *_Nullable)task;
-/// 保存图片
-+(void)savePic:(GKPhotoBrowser *_Nullable)browser;
-/// 获取当前 UIViewController
-- (UIViewController *_Nullable)getCurrentViewController;//一般用这个
-- (UIViewController *_Nullable)getCurrentViewControllerFromRootVC:(UIViewController *_Nullable)rootVC;
-/// 用block来代替selector
-SEL _Nullable selectorBlocks(callback _Nonnull ,id _Nullable target);
-/// 获取当前设备可用内存
-+(double)availableMemory;
-/// 获取当前任务所占用内存
-+(double)usedMemory;
+#pragma mark —— 宏
 /// App 国际化相关系统宏二次封装 + 设置缺省值
 +(NSString *_Nullable)localStringWithKey:(nonnull NSString *)key;
-
 +(NSString *_Nullable)localizedString:(nonnull NSString *)key
                             fromTable:(nullable NSString *)tableName;
-
 +(NSString *_Nullable)localizedString:(nonnull NSString *)key
                             fromTable:(nullable NSString *)tableName
                              inBundle:(nullable NSBundle *)bundle;
-
 +(NSString *_Nullable)localizedString:(nonnull NSString *)key
                             fromTable:(nullable NSString *)tableName
                              inBundle:(nullable NSBundle *)bundle
                          defaultValue:(nullable NSString *)defaultValue;
+#pragma mark —— ViewController
+-(UIViewController *_Nullable)getCurrentViewController;
+-(UIViewController *_Nullable)getCurrentViewControllerFromRootVC:(UIViewController *_Nullable)rootVC;
+/**
+    【强制展现页面】
+    1、本类如果是ViewController则用本类推；
+    2、否则用向下遍历用最近的ViewController来推；
+    3、如果想用AppDelegate的自定义TabbarVC：
+        extern AppDelegate *appDelegate;
+        (UIViewController *)appDelegate.tabBarVC;
+ 
+    @param toPushVC 需要进行展现的页面
+    @param requestParams 正向推页面传递的参数
+ */
+-(void)forceComingToPushVC:(UIViewController *_Nonnull)toPushVC
+             requestParams:(id _Nullable)requestParams;
+#pragma mark —— 功能性的
+/// 打印请求体
++(void)printRequestMessage:(NSURLSessionDataTask *_Nonnull)task;
+/// 判断是否是此版本App的首次启动
+-(BOOL)isAppFirstLaunch;
+/// 判断是否是App今日的首次启动
+-(BOOL)isTodayAppFirstLaunch;
+/// 震动特效反馈
++(void)feedbackGenerator;
+/// 检测用户是否锁屏：根据屏幕光线来进行判定，而不是系统通知
++(BOOL)didUserPressLockButton;
+/// iOS 限制自动锁屏 lockSwitch:YES(关闭自动锁屏)
++(void)autoLockedScreen:(BOOL)lockSwitch;
+
++(void)savePic:(GKPhotoBrowser *_Nonnull)browser;
+/// 将基本数据类型（先统一默认视作浮点数）转化为图片进行显示。使用前提，图片的名字命令为0~9，方便进行映射
+/// @param inputData 需要进行转换映射的基本数据类型数据
+/// @param bitNum 如果操作对象是浮点数，那么小数点后需要保留的位数
+-(nonnull NSMutableArray <UIImage *>*)translateToArr:(CGFloat)inputData
+                                   saveBitAfterPoint:(NSInteger)bitNum;
+/// 读取本地的plist文件到内存  【 plist ——> NSDictionary * 】
+/// @param fileName Plist文件名
+-(nullable NSDictionary *)readLocalPlistWithFileName:(nullable NSString *)fileName;
+/// 监听程序被杀死前的时刻，进行一些需要异步的操作：磁盘读写、网络请求...
+-(void)terminalCheck:(MKDataBlock _Nullable)checkBlock;
+/// Object转换为NSData
++(NSData *_Nullable)transformToData:(id _Nullable)object;
+/// 获取当前设备可用内存
++(double)availableMemory;
+/// 获取当前任务所占用内存
++(double)usedMemory;
+#pragma mark —— 数字
+/// 获取任意数字最高位数字
+-(NSInteger)getTopDigit:(NSInteger)number;
+/// 判断任意给定的一个整型是多少位数
+-(NSInteger)bitNum:(NSInteger)number;
+/// 判断任意数字是否为小数
+-(BOOL)isFloat:(CGFloat)num;
+#pragma mark —— 键盘⌨️
 /// 加入键盘通知的监听者
 -(void)keyboard;
+/// 键盘 弹出 和 收回 走这个方法
+-(void)keyboardWillChangeFrameNotification:(NSNotification *_Nullable)notification;
+
+-(void)keyboardDidChangeFrameNotification:(NSNotification *_Nullable)notification;
+#pragma mark —— 刷新
 /// 停止刷新【可能还有数据的情况，状态为：MJRefreshStateIdle】
 -(void)endRefreshing:(UIScrollView *_Nonnull)targetScrollView;
 /// 停止刷新【没有数据的情况，状态为：MJRefreshStateNoMoreData】
@@ -117,15 +152,7 @@ SEL _Nullable selectorBlocks(callback _Nonnull ,id _Nullable target);
 /// 根据数据源【数组】是否有值进行判定：占位图 和 mj_footer 的显隐性
 -(void)dataSource:(NSArray *_Nonnull)dataSource
       contentView:(UIScrollView *_Nonnull)contentView;
-/// 转换为NSData
-+(NSData *_Nullable)transformToData:(id _Nullable)object;
-/// 监听程序被杀死前的时刻，进行一些需要异步的操作：磁盘读写、网络请求...
--(void)terminalCheck:(MKDataBlock _Nullable)checkBlock;
-/// 判断本程序是否存在某个类
-+(BOOL)judgementAppExistClassWithName:(nullable NSString *)className;
-/// 判断某个实例对象是否存在某个【不带参数的方法】
-+(BOOL)judgementObj:(nonnull NSObject *)obj
-existMethodWithName:(nullable NSString *)methodName;
+#pragma mark —— 参数 和 相关调用
 /// 如果某个实例对象存在某个【不带参数的方法】，则对其调用执行
 /// @param targetObj 靶点，方法在哪里
 /// @param methodName 不带参数的方法名
@@ -137,18 +164,21 @@ callingMethodWithName:(nullable NSString *)methodName;
 /// 使用 dispatch_once 来执行只需运行一次的线程安全代码
 /// @param methodName 需要执行的方法的方法名（不带参数）
 -(void)dispatchOnceInvokingWithMethodName:(nullable NSString *)methodName;
-
+/// NSInvocation的使用，方法多参数传递
+/// @param methodName 方法名
+/// @param targetObj 靶点，方法在哪里
+/// @param paramarrays 参数数组
 +(void)methodName:(NSString *_Nonnull)methodName
-        targetObj:(NSObject * _Nonnull)targetObj
+        targetObj:(id _Nonnull)targetObj
       paramarrays:(NSArray *_Nullable)paramarrays;
-/// 读取本地的plist文件到内存  【 plist ——> NSDictionary * 】
-/// @param fileName Plist文件名
--(nullable NSDictionary *)readLocalPlistWithFileName:(nullable NSString *)fileName;
-/// 将基本数据类型（先统一默认视作浮点数）转化为图片进行显示。使用前提，图片的名字命令为0~9，方便进行映射
-/// @param inputData 需要进行转换映射的基本数据类型数据
-/// @param bitNum 如果操作对象是浮点数，那么小数点后需要保留的位数
--(nonnull NSMutableArray <UIImage *>*)translateToArr:(CGFloat)inputData
-                                   saveBitAfterPoint:(NSInteger)bitNum;
+/// 判断本程序是否存在某个类
++(BOOL)judgementAppExistClassWithName:(nullable NSString *)className;
+/// 判断某个实例对象是否存在某个【不带参数的方法】
++(BOOL)judgementObj:(nonnull NSObject *)obj
+existMethodWithName:(nullable NSString *)methodName;
+/// 用block来代替selector
+SEL selectorBlocks(void (^ _Nullable block)(id _Nullable weakSelf, id _Nullable arg),
+                   id target);
 
 @end
 /**
