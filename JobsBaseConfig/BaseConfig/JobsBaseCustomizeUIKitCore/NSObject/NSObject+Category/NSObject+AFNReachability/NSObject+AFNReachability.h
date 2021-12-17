@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NotificationManager.h"
+#import "JobsBaseConfigNotificationManager.h"
 #import "AABlock.h"
 
 #if __has_include(<ReactiveObjC/RACmetamacros.h>)

@@ -9,8 +9,8 @@
 #define PrefixHeader_pch
 
 #pragma mark —— 各项全局定义
-/// NotificationManager
-#import "NotificationManager.h"
+/// JobsBaseConfigNotificationManager
+#import "JobsBaseConfigNotificationManager.h"
 /// 各项宏定义
 #import "MacroDef_App.h"
 #import "MacroDef_Cor.h"

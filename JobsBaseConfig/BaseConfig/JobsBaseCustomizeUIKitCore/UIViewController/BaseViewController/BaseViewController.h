@@ -9,7 +9,7 @@
 #import "BaseViewProtocol.h"
 #import "BaseViewControllerProtocol.h"
 #import "AABlock.h"
-#import "NotificationManager.h"
+#import "JobsBaseConfigNotificationManager.h"
 #import "MacroDef_Notification.h"
 
 #import "UIView+Category.h"

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3D7B119D710C9C618D2AC77A /* Pods_JobsBaseConfigTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20FB9CD4F8E4FEB096B1D897 /* Pods_JobsBaseConfigTests.framework */; };
+		842D2640276C941F003B6C8E /* JobsBaseConfigNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D263F276C941F003B6C8E /* JobsBaseConfigNotificationManager.m */; };
 		843B529E276A20DF00034688 /* NSObject+Popup.m in Sources */ = {isa = PBXBuildFile; fileRef = 843B529C276A20DE00034688 /* NSObject+Popup.m */; };
 		843B5316276A21E100034688 /* 登录弹窗@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 843B5314276A21E100034688 /* 登录弹窗@3x.png */; };
 		843B5317276A21E100034688 /* JobsNoticePopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 843B5315276A21E100034688 /* JobsNoticePopupView.m */; };
@@ -33,7 +34,6 @@
 		844B02302764C8F000B0513D /* JobsBaseConfigTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B022F2764C8F000B0513D /* JobsBaseConfigTests.m */; };
 		844B023A2764C8F000B0513D /* JobsBaseConfigUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B02392764C8F000B0513D /* JobsBaseConfigUITests.m */; };
 		844B023C2764C8F000B0513D /* JobsBaseConfigUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B023B2764C8F000B0513D /* JobsBaseConfigUITestsLaunchTests.m */; };
-		844B07A42764CB4A00B0513D /* NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B07842764CB4A00B0513D /* NotificationManager.m */; };
 		844B07A52764CB4A00B0513D /* 安全区域.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B07962764CB4A00B0513D /* 安全区域.png */; };
 		844B07A62764CB4A00B0513D /* iPhone尺寸.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B07982764CB4A00B0513D /* iPhone尺寸.png */; };
 		844B07A72764CB4A00B0513D /* iPad尺寸.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B07992764CB4A00B0513D /* iPad尺寸.png */; };
@@ -445,6 +445,8 @@
 		842D2264276C80A8003B6C8E /* BaseCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCellProtocol.h; sourceTree = "<group>"; };
 		842D2265276C80A8003B6C8E /* BaseViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewProtocol.h; sourceTree = "<group>"; };
 		842D2266276C80A8003B6C8E /* BaseProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseProtocol.h; sourceTree = "<group>"; };
+		842D263E276C941F003B6C8E /* JobsBaseConfigNotificationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsBaseConfigNotificationManager.h; sourceTree = "<group>"; };
+		842D263F276C941F003B6C8E /* JobsBaseConfigNotificationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsBaseConfigNotificationManager.m; sourceTree = "<group>"; };
 		843B529C276A20DE00034688 /* NSObject+Popup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Popup.m"; sourceTree = "<group>"; };
 		843B529D276A20DE00034688 /* NSObject+Popup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Popup.h"; sourceTree = "<group>"; };
 		843B5313276A21E100034688 /* JobsNoticePopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsNoticePopupView.h; sourceTree = "<group>"; };
@@ -486,8 +488,6 @@
 		844B02352764C8F000B0513D /* JobsBaseConfigUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JobsBaseConfigUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		844B02392764C8F000B0513D /* JobsBaseConfigUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsBaseConfigUITests.m; sourceTree = "<group>"; };
 		844B023B2764C8F000B0513D /* JobsBaseConfigUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsBaseConfigUITestsLaunchTests.m; sourceTree = "<group>"; };
-		844B07842764CB4A00B0513D /* NotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationManager.m; sourceTree = "<group>"; };
-		844B07852764CB4A00B0513D /* NotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationManager.h; sourceTree = "<group>"; };
 		844B07882764CB4A00B0513D /* MacroDef_Cor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDef_Cor.h; sourceTree = "<group>"; };
 		844B078A2764CB4A00B0513D /* MacroDef_String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDef_String.h; sourceTree = "<group>"; };
 		844B078B2764CB4A00B0513D /* MacroDef_Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDef_Singleton.h; sourceTree = "<group>"; };
@@ -1467,8 +1467,8 @@
 		844B07832764CB4A00B0513D /* NotificationManager */ = {
 			isa = PBXGroup;
 			children = (
-				844B07852764CB4A00B0513D /* NotificationManager.h */,
-				844B07842764CB4A00B0513D /* NotificationManager.m */,
+				842D263E276C941F003B6C8E /* JobsBaseConfigNotificationManager.h */,
+				842D263F276C941F003B6C8E /* JobsBaseConfigNotificationManager.m */,
 			);
 			path = NotificationManager;
 			sourceTree = "<group>";
@@ -5054,7 +5054,6 @@
 				843B529E276A20DF00034688 /* NSObject+Popup.m in Sources */,
 				844B0D242764DBBD00B0513D /* JobsTabBarControllerConfig.m in Sources */,
 				844B083A2764CF4800B0513D /* JXCategoryTitleBackgroundCellModel.m in Sources */,
-				844B07A42764CB4A00B0513D /* NotificationManager.m in Sources */,
 				844B0D442764DBBD00B0513D /* UITabBar+TLAnimation.m in Sources */,
 				844B11902764E09C00B0513D /* HQTextField.m in Sources */,
 				844B113B2764E09C00B0513D /* UINavigationController+SafeTransition.m in Sources */,
@@ -5125,6 +5124,7 @@
 				844B117C2764E09C00B0513D /* NSObject+Notification.m in Sources */,
 				844B10E52764E09B00B0513D /* UIButton+UI.m in Sources */,
 				844B0D492764DBBD00B0513D /* BWItemCollectionViewCell.m in Sources */,
+				842D2640276C941F003B6C8E /* JobsBaseConfigNotificationManager.m in Sources */,
 				844B116D2764E09C00B0513D /* JobsTimeModel.m in Sources */,
 				844B10D82764E09B00B0513D /* UIImage+Tailor.m in Sources */,
 				844B11172764E09C00B0513D /* UICollectionViewCell+Default.m in Sources */,
