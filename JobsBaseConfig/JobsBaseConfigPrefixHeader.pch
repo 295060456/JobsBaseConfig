@@ -1,12 +1,12 @@
 //
-//  PrefixHeader.pch
+//  JobsBaseConfigPrefixHeader.pch
 //  JobsBaseConfig
 //
-//  Created by Jobs on 2021/12/11.
+//  Created by Jobs on 2021/12/18.
 //
 
-#ifndef PrefixHeader_pch
-#define PrefixHeader_pch
+#ifndef JobsBaseConfigPrefixHeader_pch
+#define JobsBaseConfigPrefixHeader_pch
 
 #pragma mark —— 各项全局定义
 /// JobsBaseConfigNotificationManager
@@ -31,4 +31,4 @@
 /// 数据模型层
 #import "DAO.h"
 
-#endif /* PrefixHeader_pch */
+#endif /* JobsBaseConfigPrefixHeader_pch */

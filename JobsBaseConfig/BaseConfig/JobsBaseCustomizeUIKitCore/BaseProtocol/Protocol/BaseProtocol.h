@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)languageSwitchNotificationWithSelector:(SEL)aSelector;//在View上,target = self（view）,省略
 /// 更改UITabBarItem的标题
-+(void)changeTabBarItemTitle:(NSIndexPath *)indexPath;//NSObject (AppTools)
+-(void)changeTabBarItemTitle:(NSIndexPath *)indexPath;//NSObject (AppTools)
 #pragma mark —— iOS 通知
 ///【监听所有通知】
 -(void)monitorNotification:(nonnull NSString *)notificationName

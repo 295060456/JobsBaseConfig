@@ -85,7 +85,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     }
     
     [NSObject setAppLanguageAtIndexPath:indexPath byNotificationName:nil];// 设置App语言环境并发送全局通知LanguageSwitchNotification
-    [NSObject changeTabBarItemTitle:indexPath];//【App语言国际化】更改UITabBarItem的标题
+    [self changeTabBarItemTitle:indexPath];//【App语言国际化】更改UITabBarItem的标题
     
     [self refreshAndBack];// 刷新本界面，且2秒后退出
 }

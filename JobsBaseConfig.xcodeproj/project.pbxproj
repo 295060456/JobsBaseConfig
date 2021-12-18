@@ -404,6 +404,7 @@
 		844B12812764E37A00B0513D /* NSObject+UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B127E2764E37A00B0513D /* NSObject+UserInfo.m */; };
 		844B12852764E5BB00B0513D /* NSObject+URLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B12832764E5BB00B0513D /* NSObject+URLManager.m */; };
 		844B12892764E5C200B0513D /* URLManagerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B12872764E5C200B0513D /* URLManagerModel.m */; };
+		845A0949276DAA0D008E75A5 /* NSObject+Association.m in Sources */ = {isa = PBXBuildFile; fileRef = 845A0946276DAA0D008E75A5 /* NSObject+Association.m */; };
 		846547942769DABF003EC0B5 /* NSObject+UNUserNotificationCenterDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 846547902769DABF003EC0B5 /* NSObject+UNUserNotificationCenterDelegate.m */; };
 		846547952769DABF003EC0B5 /* NSObject+UserNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = 846547932769DABF003EC0B5 /* NSObject+UserNotifications.m */; };
 		8465479A2769DB12003EC0B5 /* NSObject+ChangeAppicon.m in Sources */ = {isa = PBXBuildFile; fileRef = 846547992769DB12003EC0B5 /* NSObject+ChangeAppicon.m */; };
@@ -511,7 +512,6 @@
 		844B07A12764CB4A00B0513D /* DefineStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefineStructure.h; sourceTree = "<group>"; };
 		844B07A22764CB4A00B0513D /* APIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIKey.h; sourceTree = "<group>"; };
 		844B07A32764CB4A00B0513D /* AABlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AABlock.h; sourceTree = "<group>"; };
-		844B07AB2764CBE800B0513D /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		844B07AE2764CF4700B0513D /* RAC_Define.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = RAC_Define.md; sourceTree = "<group>"; };
 		844B07AF2764CF4700B0513D /* RACEXTRuntimeExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RACEXTRuntimeExtensions.m; sourceTree = "<group>"; };
 		844B07B02764CF4700B0513D /* RACEXTScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACEXTScope.h; sourceTree = "<group>"; };
@@ -1181,6 +1181,10 @@
 		844B12842764E5BB00B0513D /* NSObject+URLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+URLManager.h"; sourceTree = "<group>"; };
 		844B12872764E5C200B0513D /* URLManagerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLManagerModel.m; sourceTree = "<group>"; };
 		844B12882764E5C200B0513D /* URLManagerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLManagerModel.h; sourceTree = "<group>"; };
+		845A0946276DAA0D008E75A5 /* NSObject+Association.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Association.m"; sourceTree = "<group>"; };
+		845A0947276DAA0D008E75A5 /* 如何理解iOS的Runtime？ - 掘金.mht */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "如何理解iOS的Runtime？ - 掘金.mht"; sourceTree = "<group>"; };
+		845A0948276DAA0D008E75A5 /* NSObject+Association.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Association.h"; sourceTree = "<group>"; };
+		845A0B1B276DAC99008E75A5 /* JobsBaseConfigPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsBaseConfigPrefixHeader.pch; sourceTree = "<group>"; };
 		8465454D2769A53A003EC0B5 /* 配置info.plist.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "配置info.plist.md"; sourceTree = "<group>"; };
 		8465478F2769DABF003EC0B5 /* NSObject+UNUserNotificationCenterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+UNUserNotificationCenterDelegate.h"; sourceTree = "<group>"; };
 		846547902769DABF003EC0B5 /* NSObject+UNUserNotificationCenterDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+UNUserNotificationCenterDelegate.m"; sourceTree = "<group>"; };
@@ -1376,7 +1380,7 @@
 		844B020F2764C8EE00B0513D /* JobsBaseConfig */ = {
 			isa = PBXGroup;
 			children = (
-				844B07AB2764CBE800B0513D /* PrefixHeader.pch */,
+				845A0B1B276DAC99008E75A5 /* JobsBaseConfigPrefixHeader.pch */,
 				8465454D2769A53A003EC0B5 /* 配置info.plist.md */,
 				844B02242764C8F000B0513D /* Info.plist */,
 				844B03342764CB0000B0513D /* BaseConfig */,
@@ -4078,6 +4082,7 @@
 		844B10472764E09B00B0513D /* NSObject+Category */ = {
 			isa = PBXGroup;
 			children = (
+				845A0945276DAA0D008E75A5 /* NSObject+Association */,
 				843B529B276A20DE00034688 /* NSObject+Popup */,
 				844B10732764E09B00B0513D /* NSObject+AFNReachability */,
 				844B10542764E09B00B0513D /* NSObject+Alert */,
@@ -4577,6 +4582,16 @@
 				844B12872764E5C200B0513D /* URLManagerModel.m */,
 			);
 			path = URLManagerModel;
+			sourceTree = "<group>";
+		};
+		845A0945276DAA0D008E75A5 /* NSObject+Association */ = {
+			isa = PBXGroup;
+			children = (
+				845A0947276DAA0D008E75A5 /* 如何理解iOS的Runtime？ - 掘金.mht */,
+				845A0948276DAA0D008E75A5 /* NSObject+Association.h */,
+				845A0946276DAA0D008E75A5 /* NSObject+Association.m */,
+			);
+			path = "NSObject+Association";
 			sourceTree = "<group>";
 		};
 		8465478E2769DABF003EC0B5 /* NSObject+UNUserNotificationCenterDelegate */ = {
@@ -5082,6 +5097,7 @@
 				844B111D2764E09C00B0513D /* NSString+Others.m in Sources */,
 				844B11332764E09C00B0513D /* UIViewController+BaseNavigationBar.m in Sources */,
 				844B087D2764CF4800B0513D /* XHLaunchAd.m in Sources */,
+				845A0949276DAA0D008E75A5 /* NSObject+Association.m in Sources */,
 				844B084E2764CF4800B0513D /* ECPrivacyCheckMotionAndFitness.m in Sources */,
 				844B11252764E09C00B0513D /* NSString+Replace.m in Sources */,
 				844B115F2764E09C00B0513D /* DispatchTimerManager.m in Sources */,
@@ -5432,7 +5448,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TG5S4Z66WU;
-				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/$(PROJECT_NAME)PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JobsBaseConfig/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -5465,7 +5481,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TG5S4Z66WU;
-				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/$(PROJECT_NAME)PrefixHeader.pch";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JobsBaseConfig/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

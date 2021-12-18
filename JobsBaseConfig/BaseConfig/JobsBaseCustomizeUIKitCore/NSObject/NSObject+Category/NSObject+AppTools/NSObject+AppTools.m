@@ -18,7 +18,7 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
     NotificationAdd(targetView, aSelector, LanguageSwitchNotification, nil);
 }
 /// 【App语言国际化】更改UITabBarItem的标题
-+(void)changeTabBarItemTitle:(NSIndexPath *)indexPath{
+-(void)changeTabBarItemTitle:(NSIndexPath *)indexPath{
     id appDelegate = getSysAppDelegate();
     if (!appDelegate) {
         extern AppDelegate *appDelegate;
@@ -35,35 +35,6 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
             UIViewController *vc = ad.tabBarVC.childMutArr[i];
             vc.tabBarItem.title = ad.tabBarTitleMutArr[i];
         }
-    }
-}
-/// 设置App语言环境
-+(void)setAppLanguageAtIndexPath:(nonnull NSIndexPath *)indexPath
-              byNotificationName:(nullable NSString *)NotificationName{
-    
-    if (!NotificationName) {
-        NotificationName = LanguageSwitchNotification;
-    }
-    
-    switch (indexPath.row) {
-        case 0:{
-            [CLLanguageManager setUserLanguage:@"en"];
-        }break;
-        case 1:{
-            [CLLanguageManager setUserLanguage:@"zh-Hans"];
-        }break;
-        case 2:{
-            [CLLanguageManager setUserLanguage:@"en"];
-        }break;
-            
-        default:
-            break;
-    }
-    /// 发通知，通知需要更改的地方进行修改
-    if (CLLanguageManager.userLanguage) {
-        NotificationPostOnMainThread(LanguageSwitchNotification, CLLanguageManager.userLanguage, nil);
-    }else{
-        NSLog(@"CLLanguageManager.userLanguage不存在");
     }
 }
 /// 接收通知并相应的方法【在分类或者基类中实现会屏蔽具体子类的相关实现】
