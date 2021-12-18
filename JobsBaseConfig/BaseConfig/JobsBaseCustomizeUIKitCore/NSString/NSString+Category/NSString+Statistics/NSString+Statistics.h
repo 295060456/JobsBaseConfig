@@ -30,9 +30,6 @@ NS_ASSUME_NONNULL_BEGIN
                                          calcLabelHeight_Width:(CalcLabelHeight_Width)calcLabelHeight_Width
                                                           font:(UIFont *_Nullable)font
                                   boundingRectWithHeight_Width:(CGFloat)Height_Width;
-/// 根据字体大小 和宽度 计算文字的高
--(float)textHitWithFont:(float)font
-                  width:(float)width;
 /*
     系统的length是不区分中文和英文的,中文一个字length也是1
     通过计算ASCII码来实现:

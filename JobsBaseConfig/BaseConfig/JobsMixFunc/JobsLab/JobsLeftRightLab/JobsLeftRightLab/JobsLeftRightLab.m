@@ -38,7 +38,12 @@
 }
 //具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 +(CGSize)viewSizeWithModel:(JobsLeftRightLabModel *_Nullable)model{
-    return CGSizeMake(KWidth(119) + model.space, KWidth(18));
+    CGFloat H = [model.upLabText getContentHeightOrWidthWithParagraphStyleLineSpacing:0
+                                                                calcLabelHeight_Width:CalcLabelHeight
+                                                                                 font:model.upLabFont
+                                                         boundingRectWithHeight_Width:(KWidth(119) + model.space)];
+    
+    return CGSizeMake(KWidth(119) + model.space, H);
 }
 
 -(void)textWidth{
@@ -52,8 +57,8 @@
                                                                                                          font:self.leftRightLabModel.downLabFont
                                                                                  boundingRectWithHeight_Width:[JobsLeftRightLab viewSizeWithModel:nil].height];
     
-    leftTextWidth = self.leftRightLabModel.rate == 0.5 ? : [JobsLeftRightLab viewSizeWithModel:nil].width * self.leftRightLabModel.rate;
-    rightTextWidth = self.leftRightLabModel.rate == 0.5 ? : [JobsLeftRightLab viewSizeWithModel:nil].width * (1 - self.leftRightLabModel.rate);
+    leftTextWidth = self.leftRightLabModel.rate == 0.5 ? leftTextWidth : [JobsLeftRightLab viewSizeWithModel:nil].width * self.leftRightLabModel.rate;
+    rightTextWidth = self.leftRightLabModel.rate == 0.5 ? rightTextWidth : [JobsLeftRightLab viewSizeWithModel:nil].width * (1 - self.leftRightLabModel.rate);
 }
 #pragma mark —— lazyLoad
 -(UIButton *)leftBtn{

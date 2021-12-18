@@ -70,7 +70,10 @@
 //        self.gk_navLineHidden = YES;
 //    }
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
-    NotificationAdd(self, @selector(languageSwitchNotification:), LanguageSwitchNotification, nil);
+    NotificationAdd(self,
+                    @selector(languageSwitchNotification:),
+                    LanguageSwitchNotification,
+                    nil);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -159,7 +162,6 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
 /// 接收通知并相应的方法【在分类或者基类中实现会屏蔽具体子类的相关实现】
 -(void)languageSwitchNotification:(nonnull NSNotification *)notification{
     NSLog(@"通知传递过来的 = %@",notification.object);
-    /// 需要在具体的子类进行实现，不能在基类实现 [self languageSwitch];
 }
 #pragma mark —— lazyLoad
 -(UIImageView *)bgImageView{

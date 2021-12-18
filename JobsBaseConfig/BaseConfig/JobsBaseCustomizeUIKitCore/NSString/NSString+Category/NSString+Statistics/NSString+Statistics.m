@@ -71,22 +71,6 @@
         return 0;
     }
 }
-/// 根据字体大小 和宽度 计算文字的高
--(float)textHitWithFont:(float)font
-                  width:(float)width{
-    if (!font) {
-        font = 14.0;
-    }
-
-    if (width == 0.0f) {
-        width = 20;
-    }
-    CGRect rect = [self boundingRectWithSize:CGSizeMake(width, MAXFLOAT)
-                                     options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
-                                  attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:font weight:UIFontWeightRegular]}
-                                     context:nil];
-    return rect.size.height;
-}
 /*
     系统的length是不区分中文和英文的,中文一个字length也是1
     通过计算ASCII码来实现:
