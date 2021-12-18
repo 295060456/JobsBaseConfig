@@ -7,7 +7,10 @@
 
 #import "JobsUpDownLab.h"
 
-@interface JobsUpDownLab ()
+@interface JobsUpDownLab (){
+    CGFloat leftTextHeight;
+    CGFloat rightTextHeight;
+}
 // UI
 @property(nonatomic,strong)UIButton *upBtn;// 用Button的目的是可以兼容承接图片
 @property(nonatomic,strong)UIButton *downBtn;// 用Button的目的是可以兼容承接图片
@@ -26,6 +29,7 @@
 //具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 -(void)richElementsInViewWithModel:(JobsUpDownLabModel *_Nullable)model{
     self.upDownLabModel = model;
+    [self textHeight];
     if (model) {
         [self.upBtn buttonAutoFontByWidth];
         [self.downBtn buttonAutoFontByWidth];
@@ -34,6 +38,21 @@
 //具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 +(CGSize)viewSizeWithModel:(JobsUpDownLabModel *_Nullable)model{
     return CGSizeMake(KWidth(37), KWidth(35) + model.space);
+}
+
+-(void)textHeight{
+    leftTextHeight = [self.upDownLabModel.upLabText getContentHeightOrWidthWithParagraphStyleLineSpacing:0
+                                                                                     calcLabelHeight_Width:CalcLabelHeight
+                                                                                                      font:self.upDownLabModel.upLabFont
+                                                                              boundingRectWithHeight_Width:[JobsUpDownLab viewSizeWithModel:nil].width];
+    
+    rightTextHeight = [self.upDownLabModel.downLabText getContentHeightOrWidthWithParagraphStyleLineSpacing:0
+                                                                                        calcLabelHeight_Width:CalcLabelHeight
+                                                                                                         font:self.upDownLabModel.downLabFont
+                                                                                 boundingRectWithHeight_Width:[JobsUpDownLab viewSizeWithModel:nil].width];
+    
+    leftTextHeight = self.upDownLabModel.rate == 0.5 ? : [JobsUpDownLab viewSizeWithModel:nil].height * self.upDownLabModel.rate;
+    rightTextHeight = self.upDownLabModel.rate == 0.5 ? : [JobsUpDownLab viewSizeWithModel:nil].height * (1 - self.upDownLabModel.rate);
 }
 #pragma mark —— lazyLoad
 -(UIButton *)upBtn{
@@ -49,10 +68,8 @@
         [self addSubview:_upBtn];
         [_upBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.left.right.equalTo(self);
-            make.height.mas_equalTo(self.viewSize.height * self.upDownLabModel.rate);
+            make.height.mas_equalTo(leftTextHeight);
         }];
-        [self layoutIfNeeded];
-        NSLog(@"");
     }return _upBtn;
 }
 
@@ -71,8 +88,6 @@
             make.top.equalTo(self.upBtn.mas_bottom).offset(self.upDownLabModel.space);
             make.bottom.left.right.equalTo(self);
         }];
-        [self layoutIfNeeded];
-        NSLog(@"");
     }return _downBtn;
 }
 

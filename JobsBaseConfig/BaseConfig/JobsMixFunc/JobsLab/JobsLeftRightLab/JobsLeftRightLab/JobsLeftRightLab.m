@@ -7,7 +7,10 @@
 
 #import "JobsLeftRightLab.h"
 
-@interface JobsLeftRightLab ()
+@interface JobsLeftRightLab (){
+    CGFloat leftTextWidth;
+    CGFloat rightTextWidth;
+}
 // UI
 @property(nonatomic,strong)UIButton *leftBtn;// 用Button的目的是可以兼容承接图片
 @property(nonatomic,strong)UIButton *rightBtn;// 用Button的目的是可以兼容承接图片
@@ -26,14 +29,31 @@
 //具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 -(void)richElementsInViewWithModel:(JobsLeftRightLabModel *_Nullable)model{
     self.leftRightLabModel = model;
+    [self textWidth];
     if (model) {
         [self.leftBtn buttonAutoFontByWidth];
         [self.rightBtn buttonAutoFontByWidth];
     }
+    
 }
 //具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 +(CGSize)viewSizeWithModel:(JobsLeftRightLabModel *_Nullable)model{
     return CGSizeMake(KWidth(119) + model.space, KWidth(18));
+}
+
+-(void)textWidth{
+    leftTextWidth = [self.leftRightLabModel.upLabText getContentHeightOrWidthWithParagraphStyleLineSpacing:0
+                                                                                     calcLabelHeight_Width:CalcLabelWidth
+                                                                                                      font:self.leftRightLabModel.upLabFont
+                                                                              boundingRectWithHeight_Width:[JobsLeftRightLab viewSizeWithModel:nil].height];
+    
+    rightTextWidth = [self.leftRightLabModel.downLabText getContentHeightOrWidthWithParagraphStyleLineSpacing:0
+                                                                                        calcLabelHeight_Width:CalcLabelWidth
+                                                                                                         font:self.leftRightLabModel.downLabFont
+                                                                                 boundingRectWithHeight_Width:[JobsLeftRightLab viewSizeWithModel:nil].height];
+    
+    leftTextWidth = self.leftRightLabModel.rate == 0.5 ? : [JobsLeftRightLab viewSizeWithModel:nil].width * self.leftRightLabModel.rate;
+    rightTextWidth = self.leftRightLabModel.rate == 0.5 ? : [JobsLeftRightLab viewSizeWithModel:nil].width * (1 - self.leftRightLabModel.rate);
 }
 #pragma mark —— lazyLoad
 -(UIButton *)leftBtn{
@@ -49,10 +69,8 @@
         [self addSubview:_leftBtn];
         [_leftBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.bottom.left.equalTo(self);
-            make.width.mas_equalTo([JobsLeftRightLab viewSizeWithModel:nil].width * self.leftRightLabModel.rate);
+            make.width.mas_equalTo(leftTextWidth);
         }];
-        [self layoutIfNeeded];
-        NSLog(@"");
     }return _leftBtn;
 }
 
@@ -71,8 +89,6 @@
             make.top.bottom.right.equalTo(self);
             make.left.equalTo(self.leftBtn.mas_right).offset(self.leftRightLabModel.space);
         }];
-        [self layoutIfNeeded];
-        NSLog(@"");
     }return _rightBtn;
 }
 

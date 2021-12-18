@@ -34,7 +34,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)NSLineBreakMode downLabLineBreakMode;
 @property(nonatomic,strong)NSAttributedString *downLabAttributedText;
 
-
 @end
 
 NS_ASSUME_NONNULL_END

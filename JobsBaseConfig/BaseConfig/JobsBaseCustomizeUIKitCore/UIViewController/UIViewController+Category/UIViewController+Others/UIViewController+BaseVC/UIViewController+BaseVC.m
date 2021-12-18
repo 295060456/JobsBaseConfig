@@ -73,6 +73,25 @@ static char *UIViewController_BaseVC_fromVC = "UIViewController_BaseVC_fromVC";
                            success:nil];
 }
 /**
+     推控制器的一种封装，可以适配App多语言化
+     
+     需要在具体的VC里面做如下配置：
+     -(void)loadView{
+         [super loadView];
+         if ([self.requestParams isKindOfClass:UIViewModel.class]) {
+             self.viewModel = (UIViewModel *)self.requestParams;
+         }
+     }
+ */
+-(void)comingToPushVC:(UIViewController *)viewController
+         withNavTitle:(NSString *)navTitle{
+    UIViewModel *viewModel = UIViewModel.new;
+    viewModel.text = navTitle;
+    viewModel.cls = viewController.class;
+    [self comingToPushVC:(UIViewController *)viewModel.cls.new
+           requestParams:viewModel];
+}
+/**
  ❤️【强制推控制器】❤️
  1、自定义是PUSH还是PRESENT展现控制器，如果自定义PUSH但是navigationController不存在，则换用PRESENT展现控制器
  2、定位于@implementation UINavigationController (SafeTransition)，交换系统的push方法，防止某些情况下系统资源紧张导致的多次推控制器
