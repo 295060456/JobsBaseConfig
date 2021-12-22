@@ -84,7 +84,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
         acell.accessoryType = acell == cell ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     }
     
-    [NSObject setAppLanguageAtIndexPath:indexPath byNotificationName:nil];// 设置App语言环境并发送全局通知LanguageSwitchNotification
+    [self setAppLanguageAtIndexPath:indexPath byNotificationName:nil];// 设置App语言环境并发送全局通知LanguageSwitchNotification
     [self changeTabBarItemTitle:indexPath];//【App语言国际化】更改UITabBarItem的标题
     
     [self refreshAndBack];// 刷新本界面，且2秒后退出
@@ -154,7 +154,7 @@ viewForHeaderInSection:(NSInteger)section{
 -(UITableView *)tableView{
     if (!_tableView) {
         _tableView = UITableView.new;
-        _tableView.backgroundColor = UIColor.lightGrayColor;
+        _tableView.backgroundColor = AppMainCor_02;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
 //        _tableView.scrollEnabled = NO;
         _tableView.showsVerticalScrollIndicator = NO;

@@ -28,6 +28,12 @@
     }
 }
 
+-(void)setCellBgImage:(UIImage *)bgImage{
+    self.backgroundImageView.image = bgImage;
+    self.backgroundColor = self.contentView.backgroundColor = UIColor.clearColor;
+    [self sendSubviewToBack:self.backgroundImageView];
+}
+
 +(CGFloat)cellHeightWithModel:(id _Nullable)model{
     return KWidth(44);
 }

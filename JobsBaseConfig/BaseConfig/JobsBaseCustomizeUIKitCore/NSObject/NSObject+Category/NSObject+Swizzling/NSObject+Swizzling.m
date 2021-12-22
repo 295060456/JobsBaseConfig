@@ -30,7 +30,7 @@
 }
 
 @end
-
+/// 不同类的方法交换
 void TYFFSwizzleMethod(Class originalCls,
                        SEL originalSelector,
                        Class swizzledCls,
@@ -50,5 +50,24 @@ void TYFFSwizzleMethod(Class originalCls,
                             method_getTypeEncoding(originalMethod));
     } else {
         method_exchangeImplementations(originalMethod, swizzledMethod);
+    }
+}
+/// 同一个类的方法交换
+void MethodSwizzle(Class c,
+                   SEL orig,
+                   SEL new) {
+    
+    Method origMethod = class_getInstanceMethod(c, orig);
+    Method newMethod = class_getInstanceMethod(c, new);
+    if (class_addMethod(c,
+                        orig,
+                        method_getImplementation(newMethod),
+                        method_getTypeEncoding(newMethod))) {
+        class_replaceMethod(c,
+                            new,
+                            method_getImplementation(origMethod),
+                            method_getTypeEncoding(origMethod));
+    } else {
+        method_exchangeImplementations(origMethod, newMethod);
     }
 }

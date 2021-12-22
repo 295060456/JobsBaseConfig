@@ -125,8 +125,6 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— #pragma mark —— @property(nonatomic,strong)NSMutableArray <NSString *>*tabBarTitleMutArr;
-
-
 -(NSMutableArray<NSString *> *)tabBarTitleMutArr{
     NSMutableArray *TabBarTitleMutArr = objc_getAssociatedObject(self, AppDelegate_Extra_tabBarTitleMutArr);
     if (!TabBarTitleMutArr) {
@@ -147,9 +145,10 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
 
 -(void)setTabBarTitleMutArr:(NSMutableArray<NSString *> *)tabBarTitleMutArr{
     objc_setAssociatedObject(self,
-                             AppDelegate_Extra_configMutArr,
+                             AppDelegate_Extra_tabBarTitleMutArr,
                              tabBarTitleMutArr,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
 }
 
 @end

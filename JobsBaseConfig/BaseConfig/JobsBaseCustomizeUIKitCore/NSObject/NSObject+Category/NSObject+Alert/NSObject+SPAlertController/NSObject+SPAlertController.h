@@ -252,7 +252,7 @@ NS_ASSUME_NONNULL_END
                               alertVCBlock:^(SPAlertController *data,
                                              NSMutableArray <SPAlertAction *>*data2) {
          
-         data.attributedMessage = [NSObject makeRichTextWithDataConfigMutArr:tempDataMutArr];
+         data.attributedMessage = [self richTextWithDataConfigMutArr:tempDataMutArr];
          
          for (SPAlertAction *alertAction in data2) {
              alertAction.titleColor = RGB_SAMECOLOR(75);

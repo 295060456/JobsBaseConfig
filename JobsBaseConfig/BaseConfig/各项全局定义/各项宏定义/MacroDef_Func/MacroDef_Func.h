@@ -98,16 +98,16 @@ static inline id getSysSceneDelegate(){
     }return sceneDelegate;
 }
 /// 定义一些默认值
-#ifndef DefaultValue
-#define DefaultValue 0
+#ifndef JobsDefaultValue
+#define JobsDefaultValue 0
 #endif
 
-#ifndef DefaultObj
-#define DefaultObj Nil
+#ifndef JobsDefaultObj
+#define JobsDefaultObj Nil
 #endif
 
-#ifndef DefaultSize
-#define DefaultSize CGSizeZero
+#ifndef JobsDefaultSize
+#define JobsDefaultSize CGSizeZero
 #endif
 /// 其他
 #ifndef ReuseIdentifier

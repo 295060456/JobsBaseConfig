@@ -76,7 +76,7 @@
 // 未用
 -(NSAttributedString *)titleRunningDefaultAttributedStr{
     if (!_titleRunningDefaultAttributedStr) {
-        _titleRunningDefaultAttributedStr = self.titleDefaultAttributedDataMutArr.count ? [NSObject richTextWithDataConfigMutArr:self.titleDefaultAttributedDataMutArr] : nil;
+        _titleRunningDefaultAttributedStr = self.titleDefaultAttributedDataMutArr.count ? [self richTextWithDataConfigMutArr:self.titleDefaultAttributedDataMutArr] : nil;
     }return _titleRunningDefaultAttributedStr;
 }
 
@@ -110,7 +110,7 @@
 
 -(NSAttributedString *)titleReadyPlayAttributedStr{
     if (!_titleReadyPlayAttributedStr) {
-        _titleReadyPlayAttributedStr = self.titleReadyPlayAttributedDataMutArr.count ? [NSObject richTextWithDataConfigMutArr:self.titleReadyPlayAttributedDataMutArr] : nil;
+        _titleReadyPlayAttributedStr = self.titleReadyPlayAttributedDataMutArr.count ? [self richTextWithDataConfigMutArr:self.titleReadyPlayAttributedDataMutArr] : nil;
     }return _titleReadyPlayAttributedStr;
 }
 
@@ -135,7 +135,7 @@
 
 -(NSAttributedString *)titleRunningAttributedStr{
     if (!_titleRunningAttributedStr) {
-        _titleRunningAttributedStr = self.titleRunningDataMutArr.count ? [NSObject richTextWithDataConfigMutArr:self.titleRunningDataMutArr] : self.titleReadyPlayAttributedStr;
+        _titleRunningAttributedStr = self.titleRunningDataMutArr.count ? [self richTextWithDataConfigMutArr:self.titleRunningDataMutArr] : self.titleReadyPlayAttributedStr;
     }return _titleRunningAttributedStr;
 }
 /// 计时器结束
@@ -158,7 +158,7 @@
 
 -(NSAttributedString *)titleEndAttributedStr{
     if (!_titleEndAttributedStr) {
-        _titleEndAttributedStr = self.titleEndDataMutArr.count ? [NSObject richTextWithDataConfigMutArr:self.titleEndDataMutArr] : self.titleReadyPlayAttributedStr;
+        _titleEndAttributedStr = self.titleEndDataMutArr.count ? [self richTextWithDataConfigMutArr:self.titleEndDataMutArr] : self.titleReadyPlayAttributedStr;
     }return _titleEndAttributedStr;
 }
 #pragma mark —— 次要关心的UI界面值

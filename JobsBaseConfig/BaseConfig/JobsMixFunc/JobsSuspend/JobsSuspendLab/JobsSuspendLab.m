@@ -19,6 +19,7 @@
         self.backgroundColor = self.backgroundColor ? :kBlackColor;
         self.text = [NSString ensureNonnullString:self.text
                                        ReplaceStr:Internationalization(@"No Data")];
+        self.internationalizationKEY = @"No Data";
         self.textAlignment = NSTextAlignmentCenter;
         [UIView cornerCutToCircleWithView:self
                           andCornerRadius:8];

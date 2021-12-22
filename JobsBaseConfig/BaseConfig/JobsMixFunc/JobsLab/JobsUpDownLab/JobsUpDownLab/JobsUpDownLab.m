@@ -31,28 +31,34 @@
     self.upDownLabModel = model;
     [self textHeight];
     if (model) {
+        [self.upBtn normalTitle:self.upDownLabModel.upLabText];
+        [self.downBtn normalTitle:self.upDownLabModel.downLabText];
         [self.upBtn buttonAutoFontByWidth];
         [self.downBtn buttonAutoFontByWidth];
     }
 }
 //具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 +(CGSize)viewSizeWithModel:(JobsUpDownLabModel *_Nullable)model{
-    return CGSizeMake(KWidth(37), KWidth(35) + model.space);
+    CGFloat w = [model.upLabText getContentHeightOrWidthWithParagraphStyleLineSpacing:0
+                                                                calcLabelHeight_Width:CalcLabelWidth
+                                                                                 font:model.upLabFont
+                                                         boundingRectWithHeight_Width:(KWidth(35) + model.space)];
+    return CGSizeMake(w, KWidth(35) + model.space);
 }
 
 -(void)textHeight{
     leftTextHeight = [self.upDownLabModel.upLabText getContentHeightOrWidthWithParagraphStyleLineSpacing:0
-                                                                                     calcLabelHeight_Width:CalcLabelHeight
-                                                                                                      font:self.upDownLabModel.upLabFont
-                                                                              boundingRectWithHeight_Width:[JobsUpDownLab viewSizeWithModel:nil].width];
+                                                                                   calcLabelHeight_Width:CalcLabelHeight
+                                                                                                    font:self.upDownLabModel.upLabFont
+                                                                            boundingRectWithHeight_Width:[JobsUpDownLab viewSizeWithModel:nil].width];
     
     rightTextHeight = [self.upDownLabModel.downLabText getContentHeightOrWidthWithParagraphStyleLineSpacing:0
-                                                                                        calcLabelHeight_Width:CalcLabelHeight
-                                                                                                         font:self.upDownLabModel.downLabFont
-                                                                                 boundingRectWithHeight_Width:[JobsUpDownLab viewSizeWithModel:nil].width];
+                                                                                      calcLabelHeight_Width:CalcLabelHeight
+                                                                                                       font:self.upDownLabModel.downLabFont
+                                                                               boundingRectWithHeight_Width:[JobsUpDownLab viewSizeWithModel:nil].width];
     
-    leftTextHeight = self.upDownLabModel.rate == 0.5 ? : [JobsUpDownLab viewSizeWithModel:nil].height * self.upDownLabModel.rate;
-    rightTextHeight = self.upDownLabModel.rate == 0.5 ? : [JobsUpDownLab viewSizeWithModel:nil].height * (1 - self.upDownLabModel.rate);
+    leftTextHeight = self.upDownLabModel.rate == 0.5 ? leftTextHeight : [JobsUpDownLab viewSizeWithModel:nil].height * self.upDownLabModel.rate;
+    rightTextHeight = self.upDownLabModel.rate == 0.5 ? rightTextHeight : [JobsUpDownLab viewSizeWithModel:nil].height * (1 - self.upDownLabModel.rate);
 }
 #pragma mark —— lazyLoad
 -(UIButton *)upBtn{

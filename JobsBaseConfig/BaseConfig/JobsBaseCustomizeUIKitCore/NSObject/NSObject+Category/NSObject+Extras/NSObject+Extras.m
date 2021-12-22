@@ -10,6 +10,9 @@
 
 @implementation NSObject (Extras)
 
+static char *NSObject_Extras_lastPoint = "NSObject_Extras_lastPoint";
+@dynamic lastPoint;
+
 static char *NSObject_Extras_indexPath = "NSObject_Extras_indexPath";
 @dynamic _indexPath;
 
@@ -24,6 +27,9 @@ static char *NSObject_Extras_index = "NSObject_Extras_index";
 
 static char *NSObject_Extras_viewModel = "NSObject_Extras_viewModel";
 @dynamic viewModel;
+
+static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internationalizationKEY";
+@dynamic internationalizationKEY;
 
 #pragma mark —— 宏
 /// App 国际化相关系统宏二次封装 + 设置缺省值
@@ -102,7 +108,154 @@ static char *NSObject_Extras_viewModel = "NSObject_Extras_viewModel";
         [WHToast toastErrMsg:@"强制展现页面失败,请检查控制台"];
     }
 }
+#pragma mark —— KVO
+/**
+ 
+ 在 self里面实现下列方法：实现监听
+ -(void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary*)change
+                       context:(void *)context{
+     if ([object isKindOfClass:UIScrollView.class]) {
+         UIScrollView *scrollView = (UIScrollView *)object;
+         CGPoint point = [((NSValue *)[scrollView valueForKey:@"contentOffset"]) CGPointValue];
+         NSLog(@"point.x = %f,point.y = %f",point.x,point.y);
+     }
+ }
+ */
+/// 添加监听【针对UIScrollView 的 ContentOffset 属性】
+-(void)monitorContentOffsetScrollView:(UIScrollView *_Nonnull)scrollView{
+    [scrollView addObserver:self
+                 forKeyPath:@"contentOffset"
+                    options:NSKeyValueObservingOptionNew
+                    context:nil];
+}
 #pragma mark —— 功能性的
+/**
+ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️
+ -(ScrollDirection)judgementScrollDirectionByPoint:(CGPoint)point;
+                    和
+ -(CGFloat)scrollOffsetByDirectionXPoint:(CGPoint)point；
+ -(CGFloat)scrollOffsetByDirectionYPoint:(CGPoint)point;
+                   互斥
+ * 因为 全局是用唯一变量lastPoint进行保存和判定
+ * 而不断地滚动会不断地对lastPoint这个值进行冲刷
+ * 而这两个方法都会依赖同一个lastPoint，所以会出现偏差
+ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️
+ */
+/// X 轴方向的偏移量
+-(CGFloat)scrollOffsetByDirectionXPoint:(CGPoint)point{
+    CGFloat f = self.lastPoint.x - point.x;
+    self.lastPoint = point;
+    return f;
+}
+/// Y 轴方向的偏移量
+-(CGFloat)scrollOffsetByDirectionYPoint:(CGPoint)point{
+    CGFloat f = self.lastPoint.y - point.y;
+    self.lastPoint = point;
+    return f;
+}
+/// 依据不断地传入的CGPoint *point，系统通过lastPoint来记录上一次的数据，两者进行比较，以此判断滑动的方向
+/// @param point 最新的point
+-(ScrollDirection)judgementScrollDirectionByPoint:(CGPoint)point{
+    ScrollDirection direction = ScrollDirectionNone;
+    if (self.lastPoint.x > point.x &&
+        self.lastPoint.y == point.y) {
+        NSLog(@"👉🏻");
+        direction = ScrollDirectionRight;
+    }else if (self.lastPoint.x < point.x &&
+              self.lastPoint.y == point.y){
+        NSLog(@"👈🏻");
+        direction = ScrollDirectionLeft;
+    }else if (self.lastPoint.x == point.x &&
+              self.lastPoint.y > point.y){
+        NSLog(@"👇🏻");
+        direction = ScrollDirectionDown;
+    }else if (self.lastPoint.x == point.x &&
+              self.lastPoint.y < point.y){
+        NSLog(@"👆🏻");
+        direction = ScrollDirectionUp;
+    }else if (self.lastPoint.x > point.x &&
+              self.lastPoint.y < point.y){
+        NSLog(@"👉🏻👆🏻");
+        direction = ScrollDirectionRight_UP;
+    }else if (self.lastPoint.x < point.x &&
+              self.lastPoint.y < point.y){
+        NSLog(@"👈🏻👆🏻");
+        direction = ScrollDirectionLeft_UP;
+    }else if (self.lastPoint.x > point.x &&
+              self.lastPoint.y > point.y){
+        NSLog(@"👉🏻👇🏻");
+        direction = ScrollDirectionRight_Down;
+    }else if (self.lastPoint.x < point.x &&
+              self.lastPoint.y > point.y){
+        NSLog(@"👈🏻👇🏻");
+        direction = ScrollDirectionLeft_Down;
+    }
+    self.lastPoint = point;
+    return direction;
+}
+/// 创建IndexPath坐标
+-(NSIndexPath *_Nonnull)myIndexPath:(JobsIndexPath)indexPath{
+    if (AvailableSysVersion(6.0)) {
+        return [NSIndexPath indexPathForItem:indexPath.rowOrItem inSection:indexPath.section];;
+    }else{
+        return [NSIndexPath indexPathForRow:indexPath.rowOrItem inSection:indexPath.section];
+    }
+}
+/// 点击任意一个view，下拉弹出与此View等宽，且与下底有一个motivateViewOffset距离的列表
+/// @param motivateFromView 点击的锚点View
+/// @param data 列表数据源
+/// @param motivateViewOffset 下拉列表和motivateFromView保持一个motivateViewOffset的距离
+/// @param finishBlock 点击列表以后的回调数据是UIViewModel类型
+-(JobsDropDownListView *_Nonnull)motivateFromView:(UIView * _Nonnull)motivateFromView
+                                             data:(NSMutableArray <UIViewModel *>* _Nullable)data
+                               motivateViewOffset:(CGFloat)motivateViewOffset
+                                      finishBlock:(MKDataBlock _Nullable)finishBlock{
+    
+    JobsDropDownListView *dropDownListView = JobsDropDownListView.new;
+    [dropDownListView actionViewBlock:^(id data) {
+        if ([motivateFromView isKindOfClass:UIButton.class]) {
+            UIButton *btn = (UIButton *)motivateFromView;
+            btn.selected = !btn.selected;
+        }
+        
+        if (finishBlock) finishBlock(data);
+        
+        [dropDownListView dropDownListViewDisappear];
+    }];
+    
+    dropDownListView.backgroundColor = kRedColor;
+
+    if (!data) {
+        data = NSMutableArray.array;
+        {
+            UIViewModel *viewModel = UIViewModel.new;
+            viewModel.text = @"111111111";
+            [data addObject:viewModel];
+        }
+        
+        {
+            UIViewModel *viewModel = UIViewModel.new;
+            viewModel.text = @"222222222";
+            [data addObject:viewModel];
+        }
+        
+        {
+            UIViewModel *viewModel = UIViewModel.new;
+            viewModel.text = @"333333333";
+            [data addObject:viewModel];
+        }
+    }
+    [dropDownListView richElementsInViewWithModel:data];
+    
+    dropDownListView.frame = CGRectMake(motivateFromView.x,
+                                        motivateFromView.y + motivateFromView.height + motivateViewOffset,
+                                        motivateFromView.width,
+                                        data.count * [BaseTableViewCell cellHeightWithModel:Nil]);
+    [getMainWindow() addSubview:dropDownListView];
+    return dropDownListView;
+}
 /// 依据View上铆定的internationalizationKEY来全局更改文字以适配国际化
 -(void)languageSwitch{
     UIView *v = nil;
@@ -362,6 +515,71 @@ static char *NSObject_Extras_viewModel = "NSObject_Extras_viewModel";
         return NSNotFound;
     }return taskInfo.resident_size/1024.0/1024.0;
 }
+#pragma mark —— 尺寸
+/*
+    参考资料：https://blog.csdn.net/www9500net_/article/details/52437987
+ */
+/// TableViewCell 相对于此TableView的frame【用indexPath】
+/// @param tableView 此TableView
+/// @param indexPath 用indexPath定位📌TableViewCell
+-(CGRect)tbvCellRectInTableView:(UITableView *_Nonnull)tableView
+                    atIndexPath:(NSIndexPath *_Nonnull)indexPath{
+    return [tableView rectForRowAtIndexPath:indexPath];
+}
+/// TableViewCell 相对于此TableView的frame【用TableViewCell】❤️
+-(CGRect)tableViewCell:(UITableViewCell *_Nonnull)tableViewCell
+      frameInTableView:(UITableView *_Nonnull)tableView{
+    NSIndexPath *indexPath = [tableView indexPathForCell:tableViewCell];
+    return [tableView rectForRowAtIndexPath:indexPath];
+}
+/// TableViewCell 相对于承接此tableView的父视图的frame【用indexPath】
+/// @param tableView 此TableView
+/// @param tbvSuperview 承接这个TableView的父容器View
+/// @param indexPath 用indexPath定位📌TableViewCell
+-(CGRect)tableView:(UITableView *_Nonnull)tableView
+      tbvSuperview:(UIView *_Nonnull)tbvSuperview
+   cellAtIndexPath:(NSIndexPath *_Nonnull)indexPath{
+    CGRect rectInTableView = [self tbvCellRectInTableView:tableView atIndexPath:indexPath];
+    return [tableView convertRect:rectInTableView toView:tbvSuperview];
+}
+/// TableViewCell 相对于承接此tableView的父视图的frame【用TableViewCell】❤️
+-(CGRect)tableView:(UITableView *_Nonnull)tableView
+      tbvSuperview:(UIView *_Nonnull)tbvSuperview
+     tableViewCell:(UITableViewCell *_Nonnull)tableViewCell{
+    CGRect rectInTableView = [self tableViewCell:tableViewCell frameInTableView:tableView];
+    return [tableView convertRect:rectInTableView toView:tbvSuperview];
+}
+/// 获取CollectionViewCell在当前collection的位置【用indexPath】
+/// @param collectionView 此CollectionView
+/// @param indexPath 用indexPath定位📌CollectionViewCell
+-(CGRect)frameInCollectionView:(UICollectionView *_Nonnull)collectionView
+               cellAtIndexPath:(NSIndexPath *_Nonnull)indexPath{
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    return [collectionView convertRect:cell.frame toView:collectionView];
+}
+/// 获取CollectionViewCell在当前collection的位置【用collectionViewCell】❤️
+-(CGRect)collectionViewCell:(UICollectionViewCell *_Nonnull)collectionViewCell
+      frameInCollectionView:(UICollectionView *_Nonnull)collectionView{
+    return [collectionView convertRect:collectionViewCell.frame toView:collectionView];
+}
+/// 获取CollectionViewCell在当前屏幕的位置【用indexPath】
+/// @param cvSuperview 承接这个CollectionView的父容器View
+/// @param collectionView  此CollectionView
+/// @param indexPath 用indexPath定位📌CollectionViewCell
+-(CGRect)frameInCVSuperview:(UIView *_Nonnull)cvSuperview
+             collectionView:(UICollectionView *_Nonnull)collectionView
+            cellAtIndexPath:(NSIndexPath *_Nonnull)indexPath{
+    CGRect cellInCollection = [self frameInCollectionView:collectionView
+                                          cellAtIndexPath:indexPath];
+    return [collectionView convertRect:cellInCollection toView:cvSuperview];
+}
+/// 获取CollectionViewCell在当前屏幕的位置【用collectionViewCell】❤️
+-(CGRect)frameInCVSuperview:(UIView *_Nonnull)cvSuperview
+             collectionView:(UICollectionView *_Nonnull)collectionView
+         collectionViewCell:(UICollectionViewCell *_Nonnull)collectionViewCell{
+    CGRect cellInCollection = [self collectionViewCell:collectionViewCell frameInCollectionView:collectionView];
+    return [collectionView convertRect:cellInCollection toView:cvSuperview];
+}
 #pragma mark —— 数字
 /// 获取任意数字最高位数字
 -(NSInteger)getTopDigit:(NSInteger)number{
@@ -388,15 +606,15 @@ static char *NSObject_Extras_viewModel = "NSObject_Extras_viewModel";
 #pragma mark —— 键盘⌨️
 /// 加入键盘通知的监听者
 -(void)keyboard{
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillChangeFrameNotification:)
-                                                 name:UIKeyboardWillChangeFrameNotification
-                                               object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self
+                                           selector:@selector(keyboardWillChangeFrameNotification:)
+                                               name:UIKeyboardWillChangeFrameNotification
+                                             object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardDidChangeFrameNotification:)
-                                                 name:UIKeyboardDidChangeFrameNotification
-                                               object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self
+                                           selector:@selector(keyboardDidChangeFrameNotification:)
+                                               name:UIKeyboardDidChangeFrameNotification
+                                             object:nil];
 }
 /// 键盘 弹出 和 收回 走这个方法
 -(void)keyboardWillChangeFrameNotification:(NSNotification *_Nullable)notification{
@@ -428,14 +646,9 @@ static char *NSObject_Extras_viewModel = "NSObject_Extras_viewModel";
     }else{}
     
     [targetScrollView tab_endAnimation];//里面实现了 [self.collectionView reloadData];
-    if (targetScrollView.mj_header.refreshing) {
-        [targetScrollView.mj_header endRefreshing];// 结束刷新
-    }
-    if (targetScrollView.mj_footer.refreshing) {
-        [targetScrollView.mj_footer endRefreshing];// 结束刷新
-    }else{
-        [targetScrollView.mj_footer resetNoMoreData];// 结束刷新
-    }
+    
+    [self endMJHeaderRefreshing:targetScrollView];
+    [self endMJFooterRefreshingWithMoreData:targetScrollView];
 }
 /// 停止刷新【没有数据的情况，状态为：MJRefreshStateNoMoreData】
 -(void)endRefreshingWithNoMoreData:(UIScrollView *_Nonnull)targetScrollView{
@@ -448,11 +661,28 @@ static char *NSObject_Extras_viewModel = "NSObject_Extras_viewModel";
     }else{}
     
     [targetScrollView tab_endAnimation];//里面实现了 [self.collectionView reloadData];
+
+    [self endMJHeaderRefreshing:targetScrollView];
+    [self endMJFooterRefreshingWithNoMoreData:targetScrollView];
+}
+/// 停止MJHeader的刷新
+-(void)endMJHeaderRefreshing:(UIScrollView *_Nonnull)targetScrollView{
     if (targetScrollView.mj_header.refreshing) {
         [targetScrollView.mj_header endRefreshing];// 结束刷新
     }
+}
+/// 停止MJFooter的刷新【没有数据的情况，状态为：MJRefreshStateNoMoreData】
+-(void)endMJFooterRefreshingWithNoMoreData:(UIScrollView *_Nonnull)targetScrollView{
     if (targetScrollView.mj_footer.refreshing) {
         [targetScrollView.mj_footer endRefreshingWithNoMoreData];// 结束刷新
+    }
+}
+/// 停止MJFooter刷新【可能还有数据的情况，状态为：MJRefreshStateIdle】
+-(void)endMJFooterRefreshingWithMoreData:(UIScrollView *_Nonnull)targetScrollView{
+    if (targetScrollView.mj_footer.refreshing) {
+        [targetScrollView.mj_footer endRefreshing];// 结束刷新
+    }else{
+        [targetScrollView.mj_footer resetNoMoreData];// 结束刷新
     }
 }
 /// 根据数据源【数组】是否有值进行判定：占位图 和 mj_footer 的显隐性
@@ -569,8 +799,8 @@ existMethodWithName:(nullable NSString *)methodName{
     }
 }
 /// 用block来代替selector
-SEL selectorBlocks(void (^_Nullable block)(id _Nullable weakSelf, id _Nullable arg),
-                   id target){
+SEL _Nullable selectorBlocks(void (^_Nullable block)(id _Nullable weakSelf, id _Nullable arg),
+                             id _Nullable target){
     if (!block) {
         [NSException raise:@"block can not be nil"
                     format:@"%@ selectorBlock error", target];
@@ -598,6 +828,19 @@ static void selectorImp(id self,
     }
 }
 #pragma mark —— 属性的Set | GET
+#pragma mark —— @property(nonatomic,assign)CGPoint lastPoint;
+-(CGPoint)lastPoint{
+    CGPoint LastPoint = [objc_getAssociatedObject(self,
+                                                  NSObject_Extras_lastPoint) CGPointValue];
+    return LastPoint;
+}
+
+-(void)setLastPoint:(CGPoint)lastPoint{
+    objc_setAssociatedObject(self,
+                             NSObject_Extras_lastPoint,
+                             [NSValue valueWithCGPoint:lastPoint],
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 #pragma mark —— @property(nonatomic,strong)NSIndexPath *_indexPath;
 -(NSIndexPath *)_indexPath{
     return objc_getAssociatedObject(self, NSObject_Extras_indexPath);;
@@ -673,6 +916,18 @@ static void selectorImp(id self,
     objc_setAssociatedObject(self,
                              NSObject_Extras_viewModel,
                              viewModel,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,strong)NSString *internationalizationKEY;/// 国际化的key
+-(NSString *)internationalizationKEY{
+    NSString *InternationalizationKEY = objc_getAssociatedObject(self, NSObject_Extras_internationalizationKEY);
+    return InternationalizationKEY;
+}
+
+-(void)setInternationalizationKEY:(NSString *)internationalizationKEY{
+    objc_setAssociatedObject(self,
+                             NSObject_Extras_internationalizationKEY,
+                             internationalizationKEY,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 

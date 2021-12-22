@@ -19,7 +19,6 @@ typedef NS_ENUM(NSUInteger, GLButtonEdgeInsetsStyle) {
     GLButtonEdgeInsetsStyleRight // image在右，label在左
 };
 
-
 @interface UIButton (ImageTitleSpacing)
 
 /**

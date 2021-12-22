@@ -32,10 +32,10 @@
                shadowWithOffsetX:5
                          offsetY:5
                     cornerRadius:8
-                    shadowOffset:DefaultSize
+                    shadowOffset:JobsDefaultSize
                    shadowOpacity:1
-                layerShadowColor:DefaultObj
-               layerShadowRadius:DefaultValue];
+                layerShadowColor:JobsDefaultObj
+               layerShadowRadius:JobsDefaultValue];
 }
 
 @end

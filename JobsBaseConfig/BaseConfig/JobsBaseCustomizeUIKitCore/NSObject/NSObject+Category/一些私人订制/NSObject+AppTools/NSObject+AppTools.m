@@ -30,10 +30,10 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
             [ad.tabBarTitleMutArr removeAllObjects];
             ad.tabBarTitleMutArr = nil;
         }
-        
-        for (int i = 0; i < ad.tabBarTitleMutArr.count; i ++) {
-            UIViewController *vc = ad.tabBarVC.childMutArr[i];
-            vc.tabBarItem.title = ad.tabBarTitleMutArr[i];
+
+        for (int i = 0; i < ad.configMutArr.count; i++) {
+            JobsTabBarControllerConfig *config = (JobsTabBarControllerConfig *)ad.configMutArr[i];
+            config.vc.tabBarItem.title = ad.tabBarTitleMutArr[i];
         }
     }
 }

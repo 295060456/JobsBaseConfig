@@ -8,7 +8,6 @@
 //
 
 #import "UITableView+WWFoldableTableView.h"
-#import <objc/runtime.h>
 
 @implementation UITableView (WWFoldableTableView)
 #pragma mark - init

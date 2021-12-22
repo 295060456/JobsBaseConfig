@@ -13,8 +13,9 @@
 #import "HQTextField.h"
 #import "JobsMagicTextField.h"
 #import "ZYTextField.h"
-#import "ZYTextField+HistoryDataList.h"
 #pragma mark —— Category
 #import "UITextField+Extend.h"
+#import "UITextField+Animation.h"
+#import "UITextField+Placeholder.h"
 
 #endif /* JobsTextField_h */

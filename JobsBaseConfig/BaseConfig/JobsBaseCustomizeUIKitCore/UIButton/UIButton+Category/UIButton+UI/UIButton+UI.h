@@ -10,7 +10,7 @@
 /// For RAC
 #define BtnClickEvent(button,action)\
 @jobs_weakify(self)\
-[[button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {\
+[[button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {\
     @jobs_strongify(self)\
     action\
 }];\

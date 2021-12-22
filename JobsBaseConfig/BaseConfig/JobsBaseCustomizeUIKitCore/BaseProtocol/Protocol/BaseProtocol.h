@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 数据📚
 @property(nonatomic,strong)NSString *internationalizationKEY;/// 国际化的key
 /// 标记📌
+@property(nonatomic,assign)CGPoint lastPoint;
 @property(nonatomic,strong,nullable)NSIndexPath * __block _indexPath;//CollectionView、TableView等的序列号
 @property(nonatomic,assign)NSInteger __block _index;
 @property(nonatomic,assign)NSInteger __block _currentPage;//网路请求分页数据的时候的当前页码

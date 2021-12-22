@@ -31,9 +31,6 @@ NS_ASSUME_NONNULL_BEGIN
 +(URLManagerModel *)wmOneKeyRecoverApiGET;
 /// 开游戏
 +(URLManagerModel *)wmOpenGamePOST;
-#pragma mark —— inteceptor-controller
-/// authorizationNopass GET / PUT / POST / DELETE / OPTIONS / HEAD / PATCH / TRACE
-+(URLManagerModel *)inteceptorControllerAuthorizationNopass;
 #pragma mark —— 代理中心
 /// 业绩查询
 +(URLManagerModel *)proxyCentreFindAchievementListGET;
@@ -56,12 +53,24 @@ NS_ASSUME_NONNULL_BEGIN
 +(URLManagerModel *)downloadStationGetAndroidDownloadUrlGET;
 /// Android最新版本检查
 +(URLManagerModel *)downloadStationGetAndroidNewestVersionGET;
+/// 获取文件服务器地址
++(URLManagerModel *)downloadStationGetFileServerUrlGET;
 /// 获取iOS最新下载链接
 +(URLManagerModel *)downloadStationGetIosDownloadUrlGET;
 /// iOS最新版本检查
 +(URLManagerModel *)downloadStationGetIosNewestVersionGET;
+/// 获取移动端logo
++(URLManagerModel *)downloadStationGetLogImageUrlAppGET;
+/// 获取PC端logo
++(URLManagerModel *)downloadStationGetLogImageUrlPcGET;
+/// 获取移动端登录注册页面logo
++(URLManagerModel *)downloadStationGetLoginRegisterLogImageUrlAppGET;
+/// 获取金钱符号
++(URLManagerModel *)downloadStationGetMoneySymbolGET;
 /// 推广域名
 +(URLManagerModel *)downloadStationGetSpreadUrlGET;
+/// 获取网站Icon
++(URLManagerModel *)downloadStationGetWebsiteIconGET;
 /// 网页版链接
 +(URLManagerModel *)downloadStationGetWebUrlGET;
 #pragma mark —— 洗码
@@ -69,6 +78,9 @@ NS_ASSUME_NONNULL_BEGIN
 +(URLManagerModel *)washCodeGetListGET;
 /// 用户领取洗码
 +(URLManagerModel *)washCodeReceiveWashCodeGET;
+#pragma mark —— 测试
+/// 批量发送分润MQ
++(URLManagerModel *)testSendMqGET;
 #pragma mark —— 用户中心
 /// 银行列表
 +(URLManagerModel *)bankcardBanklistGET;

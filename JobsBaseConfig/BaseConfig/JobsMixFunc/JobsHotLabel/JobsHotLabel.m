@@ -47,8 +47,40 @@ static dispatch_once_t dispatchOnce;
             btn.objBindingParams = vm.objBindingParams;
             [btn setTitle:vm.text
                  forState:UIControlStateNormal];
-            [btn setBackgroundImage:vm.bgImage
-                           forState:UIControlStateNormal];//直接赋值是不行的
+            
+            if ([btn.objBindingParams isKindOfClass:CasinoCustomerContactElementModel.class]) {
+                CasinoCustomerContactElementModel *customerContactElementModel = (CasinoCustomerContactElementModel *)btn.objBindingParams;
+                
+                UIImage *bgImg = nil;
+                switch (customerContactElementModel.customerMark) {
+                    case CustomerContactStyle_QQ:{
+                        bgImg = KIMG(@"service_qq");
+                    }break;
+                    case CustomerContactStyle_Skype:{
+                        bgImg = KIMG(@"service_skype");
+                    }break;
+                    case CustomerContactStyle_Telegram:{
+                        bgImg = KIMG(@"service_telegram");
+                    }break;
+                    case CustomerContactStyle_whatsApp:{
+                        bgImg = KIMG(@"service_meiqia");//???
+                    }break;
+                    case CustomerContactStyle_手机号码:{
+                        bgImg = KIMG(@"service_meiqia");//???
+                    }break;
+                    case CustomerContactStyle_onlineURL:{
+                        bgImg = KIMG(@"service_meiqia");//???
+                    }break;
+                        
+                    default:
+                        break;
+                }
+                
+                [btn sd_setBackgroundImageWithURL:[NSURL URLWithString:vm.bgImageURLString]
+                                         forState:UIControlStateNormal
+                                 placeholderImage:bgImg];
+            }
+        
             btn.titleLabel.font = vm.font;
             btn.titleLabel.textColor = vm.textCor;
 
@@ -70,10 +102,37 @@ static dispatch_once_t dispatchOnce;
             
             @weakify(self)
             [[btn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
-                @strongify(self)
-                [WHToast toastMsg:x.objBindingParams];
-                [NSObject openURL:x.objBindingParams];
-                
+                @strongify(self)                
+                if ([x.objBindingParams isKindOfClass:CasinoCustomerContactElementModel.class]) {
+                    CasinoCustomerContactElementModel *customerContactElementModel = (CasinoCustomerContactElementModel *)btn.objBindingParams;
+
+                    switch (customerContactElementModel.customerMark) {
+                        case CustomerContactStyle_QQ:{
+                            [NSObject openURL:[NSString stringWithFormat:@"mqq://im/chat?chat_type=wpa&uin=%@&version=1&src_type=web",customerContactElementModel.customer]];
+                        }break;
+                        case CustomerContactStyle_Skype:{
+                            [NSObject openURL:[NSString stringWithFormat:@"skype://%@?chat",customerContactElementModel.customer]];
+                        }break;
+                        case CustomerContactStyle_Telegram:{
+                            [NSObject openURL:[NSString stringWithFormat:@"https://t.me/%@",customerContactElementModel.customer]];
+                        }break;
+                        case CustomerContactStyle_whatsApp:{
+//                            [NSObject openURL:@""];
+                            [WHToast toastMsg:@"打开whatsApp未配置"];
+                        }break;
+                        case CustomerContactStyle_手机号码:{
+//                            [NSObject openURL:@""];
+                            [WHToast toastMsg:@"打开手机号码未配置"];
+                        }break;
+                        case CustomerContactStyle_onlineURL:{
+//                            [NSObject openURL:@""];
+                            [WHToast toastMsg:@"打开onlineURL未配置"];
+                        }break;
+
+                        default:
+                            break;
+                    }
+                }
                 if (self.viewBlock) {
                     self.viewBlock(x);//利用titleStr来进行判别
                 }

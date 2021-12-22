@@ -94,13 +94,13 @@ didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return [JobsImageNumberViewCVCell cellSizeWithModel:self.dataMutArr[indexPath.row]];
 }
-///每个item之间的间距 横（行）间距
+/// 定义的是元素垂直之间的间距
 - (CGFloat)collectionView:(UICollectionView *)collectionView
                    layout:(UICollectionViewLayout *)collectionViewLayout
 minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return 0;
 }
-///每个item之间的间距  列(纵)间距
+/// 定义的是元素水平之间的间距。Api自动计算一行的Cell个数，只有当间距小于此定义的最小值时才会换行，最小执行单元是Section（每个section里面的样式是统一的）
 - (CGFloat)collectionView:(UICollectionView *)collectionView
                    layout:(UICollectionViewLayout *)collectionViewLayout
 minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{

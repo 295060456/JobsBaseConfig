@@ -88,7 +88,7 @@ static char *UIViewController_BaseVC_fromVC = "UIViewController_BaseVC_fromVC";
     UIViewModel *viewModel = UIViewModel.new;
     viewModel.text = navTitle;
     viewModel.cls = viewController.class;
-    [self comingToPushVC:(UIViewController *)viewModel.cls.new
+    [self comingToPushVC:viewController
            requestParams:viewModel];
 }
 /**

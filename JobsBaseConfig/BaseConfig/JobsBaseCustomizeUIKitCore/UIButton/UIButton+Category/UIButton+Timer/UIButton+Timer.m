@@ -210,7 +210,7 @@ static char *UIButton_CountDownBtn_timerFinishBlock = "UIButton_CountDownBtn_tim
             default:
                 break;
         }
-        self.btnTimerConfig.titleRunningAttributedStr = [NSObject richTextWithDataConfigMutArr:tempDataMutArr];
+        self.btnTimerConfig.titleRunningAttributedStr = [self richTextWithDataConfigMutArr:tempDataMutArr];
     }
     
     [self setTitleRunning];// 核心方法

@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (RichText)
 
-+(NSMutableAttributedString *)richTextWithDataConfigMutArr:(NSArray <RichTextConfig *>*_Nonnull)richTextDataConfigMutArr;
+-(NSMutableAttributedString *)richTextWithDataConfigMutArr:(NSArray <RichTextConfig *>*_Nonnull)richTextDataConfigMutArr;
 
 @end
 
@@ -64,7 +64,7 @@ NS_ASSUME_NONNULL_END
      [dataMutArr addObject:config_02];
 
      // 设置整体的段落样式
-     NSMutableAttributedString *attributedString = [NSObject richTextWithDataConfigMutArr:dataMutArr];
+     NSMutableAttributedString *attributedString = [self richTextWithDataConfigMutArr:dataMutArr];
      NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
      paragraphStyle.alignment = NSTextAlignmentLeft;//文本对齐方式 左右对齐（两边对齐）
      [attributedString addAttribute:NSParagraphStyleAttributeName

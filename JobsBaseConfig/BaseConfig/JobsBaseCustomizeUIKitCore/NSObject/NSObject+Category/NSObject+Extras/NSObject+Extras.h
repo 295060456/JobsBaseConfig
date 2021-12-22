@@ -59,6 +59,26 @@
 #else
 #import "YYImage.h"
 #endif
+
+#import "JobsDropDownListView.h"
+
+typedef struct{
+    NSInteger rowOrItem;
+    NSInteger section;
+}JobsIndexPath;
+
+typedef NS_ENUM(NSInteger, ScrollDirection) {
+    ScrollDirectionNone = 0,
+    ScrollDirectionRight,// 右👉🏻
+    ScrollDirectionLeft,// 左👈🏻
+    ScrollDirectionUp,// 上面👆🏻
+    ScrollDirectionDown,// 下面👇🏻
+    
+    ScrollDirectionRight_UP,//右上👉🏻👆🏻
+    ScrollDirectionLeft_UP,//左上👈🏻👆🏻
+    ScrollDirectionRight_Down,//右下👉🏻👇🏻
+    ScrollDirectionLeft_Down,//左下👈🏻👇🏻
+};
 /**
  @param weakSelf 方便使用，用来打破循环引用。使用时需要改成实际类型，否则没有代码提示.
  @param arg 事件默认传递的对象，比如`NSNotification`，`UIButton`。
@@ -95,7 +115,54 @@ typedef void (^callback)(id _Nullable weakSelf, id _Nullable arg);
  */
 -(void)forceComingToPushVC:(UIViewController *_Nonnull)toPushVC
              requestParams:(id _Nullable)requestParams;
+#pragma mark —— KVO
+/**
+ 
+ 在 self里面实现下列方法：实现监听
+ -(void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary*)change
+                       context:(void *)context{
+     if ([object isKindOfClass:UIScrollView.class]) {
+         UIScrollView *scrollView = (UIScrollView *)object;
+         CGPoint point = [((NSValue *)[scrollView valueForKey:@"contentOffset"]) CGPointValue];
+         NSLog(@"point.x = %f,point.y = %f",point.x,point.y);
+     }
+ }
+ */
+/// 添加监听【针对UIScrollView 的 ContentOffset 属性】
+-(void)monitorContentOffsetScrollView:(UIScrollView *_Nonnull)scrollView;
 #pragma mark —— 功能性的
+/**
+ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️
+ -(ScrollDirection)judgementScrollDirectionByPoint:(CGPoint)point;
+                    和
+ -(CGFloat)scrollOffsetByDirectionXPoint:(CGPoint)point；
+ -(CGFloat)scrollOffsetByDirectionYPoint:(CGPoint)point;
+                   互斥
+ * 因为 全局是用唯一变量lastPoint进行保存和判定
+ * 而不断地滚动会不断地对lastPoint这个值进行冲刷
+ * 而这两个方法都会依赖同一个lastPoint，所以会出现偏差
+ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️
+ */
+/// X 轴方向的偏移量
+-(CGFloat)scrollOffsetByDirectionXPoint:(CGPoint)point;
+/// Y 轴方向的偏移量
+-(CGFloat)scrollOffsetByDirectionYPoint:(CGPoint)point;
+/// 依据不断地传入的CGPoint *point，系统通过lastPoint来记录上一次的数据，两者进行比较，以此判断滑动的方向
+/// @param point 最新的point
+-(ScrollDirection)judgementScrollDirectionByPoint:(CGPoint)point;
+/// 创建IndexPath坐标
+-(NSIndexPath *_Nonnull)myIndexPath:(JobsIndexPath)indexPath;
+/// 点击任意一个view，下拉弹出与此View等宽，且与下底有一个motivateViewOffset距离的列表
+/// @param motivateFromView 点击的锚点View
+/// @param data 列表数据源
+/// @param motivateViewOffset 下拉列表和motivateFromView保持一个motivateViewOffset的距离
+/// @param finishBlock 点击列表以后的回调数据是UIViewModel类型
+-(JobsDropDownListView *_Nonnull)motivateFromView:(UIView * _Nonnull)motivateFromView
+                                             data:(NSMutableArray <UIViewModel *>* _Nullable)data
+                               motivateViewOffset:(CGFloat)motivateViewOffset
+                                      finishBlock:(MKDataBlock _Nullable)finishBlock;
 /// 依据View上铆定的internationalizationKEY来全局更改文字以适配国际化
 -(void)languageSwitch;
 /// 打印请求体
@@ -128,6 +195,48 @@ typedef void (^callback)(id _Nullable weakSelf, id _Nullable arg);
 +(double)availableMemory;
 /// 获取当前任务所占用内存
 +(double)usedMemory;
+#pragma mark —— 尺寸
+/*
+    参考资料：https://blog.csdn.net/www9500net_/article/details/52437987
+ */
+/// TableViewCell 相对于此TableView的frame【用indexPath】
+/// @param tableView 此TableView
+/// @param indexPath 用indexPath定位📌TableViewCell
+-(CGRect)tbvCellRectInTableView:(UITableView *_Nonnull)tableView
+                    atIndexPath:(NSIndexPath *_Nonnull)indexPath;
+/// TableViewCell 相对于此TableView的frame【用TableViewCell】❤️
+-(CGRect)tableViewCell:(UITableViewCell *_Nonnull)tableViewCell
+      frameInTableView:(UITableView *_Nonnull)tableView;
+/// TableViewCell 相对于承接此tableView的父视图的frame【用indexPath】
+/// @param tableView 此TableView
+/// @param tbvSuperview 承接这个TableView的父容器View
+/// @param indexPath 用indexPath定位📌TableViewCell
+-(CGRect)tableView:(UITableView *_Nonnull)tableView
+      tbvSuperview:(UIView *_Nonnull)tbvSuperview
+   cellAtIndexPath:(NSIndexPath *_Nonnull)indexPath;
+/// TableViewCell 相对于承接此tableView的父视图的frame【用TableViewCell】❤️
+-(CGRect)tableView:(UITableView *_Nonnull)tableView
+      tbvSuperview:(UIView *_Nonnull)tbvSuperview
+     tableViewCell:(UITableViewCell *_Nonnull)tableViewCell;
+/// 获取CollectionViewCell在当前collection的位置【用indexPath】
+/// @param collectionView 此CollectionView
+/// @param indexPath 用indexPath定位📌CollectionViewCell
+-(CGRect)frameInCollectionView:(UICollectionView *_Nonnull)collectionView
+               cellAtIndexPath:(NSIndexPath *_Nonnull)indexPath;
+/// 获取CollectionViewCell在当前collection的位置【用collectionViewCell】❤️
+-(CGRect)collectionViewCell:(UICollectionViewCell *_Nonnull)collectionViewCell
+      frameInCollectionView:(UICollectionView *_Nonnull)collectionView;
+/// 获取CollectionViewCell在当前屏幕的位置【用indexPath】
+/// @param cvSuperview 承接这个CollectionView的父容器View
+/// @param collectionView  此CollectionView
+/// @param indexPath 用indexPath定位📌CollectionViewCell
+-(CGRect)frameInCVSuperview:(UIView *_Nonnull)cvSuperview
+             collectionView:(UICollectionView *_Nonnull)collectionView
+            cellAtIndexPath:(NSIndexPath *_Nonnull)indexPath;
+/// 获取CollectionViewCell在当前屏幕的位置【用collectionViewCell】❤️
+-(CGRect)frameInCVSuperview:(UIView *_Nonnull)cvSuperview
+             collectionView:(UICollectionView *_Nonnull)collectionView
+         collectionViewCell:(UICollectionViewCell *_Nonnull)collectionViewCell;
 #pragma mark —— 数字
 /// 获取任意数字最高位数字
 -(NSInteger)getTopDigit:(NSInteger)number;
@@ -147,6 +256,12 @@ typedef void (^callback)(id _Nullable weakSelf, id _Nullable arg);
 -(void)endRefreshing:(UIScrollView *_Nonnull)targetScrollView;
 /// 停止刷新【没有数据的情况，状态为：MJRefreshStateNoMoreData】
 -(void)endRefreshingWithNoMoreData:(UIScrollView *_Nonnull)targetScrollView;
+/// 停止MJHeader的刷新
+-(void)endMJHeaderRefreshing:(UIScrollView *_Nonnull)targetScrollView;
+/// 停止MJFooter的刷新【没有数据的情况，状态为：MJRefreshStateNoMoreData】
+-(void)endMJFooterRefreshingWithNoMoreData:(UIScrollView *_Nonnull)targetScrollView;
+/// 停止MJFooter刷新【可能还有数据的情况，状态为：MJRefreshStateIdle】
+-(void)endMJFooterRefreshingWithMoreData:(UIScrollView *_Nonnull)targetScrollView;
 /// 根据数据源【数组】是否有值进行判定：占位图 和 mj_footer 的显隐性
 -(void)dataSource:(NSArray *_Nonnull)dataSource
       contentView:(UIScrollView *_Nonnull)contentView;
@@ -175,8 +290,8 @@ callingMethodWithName:(nullable NSString *)methodName;
 +(BOOL)judgementObj:(nonnull NSObject *)obj
 existMethodWithName:(nullable NSString *)methodName;
 /// 用block来代替selector
-SEL selectorBlocks(void (^ _Nullable block)(id _Nullable weakSelf, id _Nullable arg),
-                   id target);
+SEL _Nullable selectorBlocks(void (^ _Nullable block)(id _Nullable weakSelf, id _Nullable arg),
+                                                                             id _Nullable target);
 
 @end
 /**

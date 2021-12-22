@@ -16,50 +16,33 @@
 
 @implementation JobsMagicTextField
 
-static dispatch_once_t dispatchOnce;
 -(void)dealloc{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 - (instancetype)init{
     if (self = [super init]) {
-        dispatchOnce = 0;
         self.placeholdAnimationable = YES;
+        self.placeHolderAlignment = PlaceHolderAlignmentLeft;
         self.clipsToBounds = NO;
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(changeEditing)
-                                                     name:UITextFieldTextDidChangeNotification
-                                                   object:nil];
+        [NSNotificationCenter.defaultCenter addObserver:self
+                                               selector:@selector(changeEditing)
+                                                   name:UITextFieldTextDidChangeNotification
+                                                 object:nil];
     }return self;
 }
 
--(void)drawRect:(CGRect)rect{
-    [super drawRect:rect];
-    dispatch_once(&dispatchOnce, ^{
-        self.placeholderAnimationLbl.alpha = 1;
-    });
-}
-
 -(void)changeEditing{
-    if (!self.placeholdAnimationable) {
-        if ([self.text isEqualToString:@""]) {
-            self.placeholderAnimationLbl.hidden = NO;
-        }else{
-            self.placeholderAnimationLbl.hidden = YES;
-        }
-    }else{
-        self.placeholderAnimationLbl.hidden = NO;
-    }
+    self.placeholderAnimationLbl.visible = self.placeholdAnimationable && ![self.text isEqualToString:@""];
 }
-
-- (BOOL)becomeFirstResponder{
-    self.placeholder = @"";
+/// ⚠️当一个TF1->TF2，先获得焦点再失去焦点
+/// 这个方法里面，正在获得、但还没有获得焦点，此时的self.isFirstResponder == NO
+-(BOOL)becomeFirstResponder{
     [self upAnimation];
     return [super becomeFirstResponder];
 }
-
-- (BOOL)resignFirstResponder{
-    self.placeholder = self.placeholderAnimationLbl.text;
+/// 这个方法里面，正在丢失、但还没有丢失焦点，此时的self.isFirstResponder == YES
+-(BOOL)resignFirstResponder{
     [self restoreAnimation];
     return [super resignFirstResponder];
 }
@@ -67,14 +50,21 @@ static dispatch_once_t dispatchOnce;
 -(void)upAnimation{
     if (self.placeholdAnimationable) {
         CGRect targetFrame = self.placeholderAnimationLbl.frame;
-        targetFrame.origin.y = - self.moveDistance;
+        targetFrame.origin.y = -self.moveDistance;
         @weakify(self)
-        [UIView animateWithDuration:.25
+        [UIView animateWithDuration:self.animationTime
                          animations:^{
             @strongify(self)
+            self.placeholderAnimationLbl.visible = YES;
             self.placeholderAnimationLbl.frame = targetFrame;
-            self.placeholderAnimationLbl.textColor = self.animationColor;
-            self.placeholderAnimationLbl.font = self.animationFont;
+            if (self.attributedPlaceholder && !self.placeholder) {
+                self.placeholderAnimationLbl.attributedText = self.attributedPlaceholder;
+            }else{
+                self.placeholderAnimationLbl.textColor = self.animationColor;
+                self.placeholderAnimationLbl.font = self.animationFont;
+                self.placeholderAnimationLbl.text = self.placeholder;
+                self.placeholder = @"";
+            }
         }];
     }
 }
@@ -88,20 +78,26 @@ static dispatch_once_t dispatchOnce;
         CGRect targetFrame = self.placeholderAnimationLbl.frame;
         targetFrame.origin.y = 0;
         @weakify(self)
-        [UIView animateWithDuration:.25
+        [UIView animateWithDuration:self.animationTime
                          animations:^{
             @strongify(self)
+            self.placeholderAnimationLbl.visible = NO;
             self.placeholderAnimationLbl.frame = targetFrame;
-            self.placeholderAnimationLbl.textColor = self.placeholderColor;
-            self.placeholderAnimationLbl.font = self.placeholderFont;
-            self.placeholderAnimationLbl.attributedText = self.attributedPlaceholder;
+            if (self.attributedPlaceholder && !self.placeholder) {
+                self.placeholderAnimationLbl.attributedText = self.attributedPlaceholder;
+            }else{
+                self.placeholder = self.placeholderAnimationLbl.text;
+                self.placeholderAnimationLbl.text = @"";
+                self.placeholderAnimationLbl.textColor = self.placeholderColor;
+                self.placeholderAnimationLbl.font = self.placeholderFont;
+            }
         }];
     }
 }
 
 -(void)setText:(NSString *)text{
     [super setText:text];
-    if (text.length > 0) {
+    if (text.length) {
         [self upAnimation];
     }else{
         [self restoreAnimation];
@@ -111,12 +107,19 @@ static dispatch_once_t dispatchOnce;
 -(UILabel *)placeholderAnimationLbl{
     if (!_placeholderAnimationLbl) {
         _placeholderAnimationLbl = UILabel.new;
-        _placeholderAnimationLbl.frame = CGRectMake(self.placeHolderOffset + self.leftViewOffsetX, self.y, self.width, self.height);
-        _placeholderAnimationLbl.textColor = [UIColor blueColor];//[UIColor lightGrayColor];
-        _placeholderAnimationLbl.textAlignment = NSTextAlignmentLeft;
-        _placeholderAnimationLbl.text = self.placeholder;
-        _placeholderAnimationLbl.attributedText = self.attributedPlaceholder;
-        _placeholderAnimationLbl.font = self.font;
+        _placeholderAnimationLbl.visible = YES;
+        _placeholderAnimationLbl.frame = CGRectMake(self.placeHolderOffset + self.leftViewOffsetX,
+                                                    self.y,
+                                                    self.width,
+                                                    self.height);
+        _placeholderAnimationLbl.backgroundColor = UIColor.clearColor;
+        _placeholderAnimationLbl.textAlignment = self.placeHolderAlignment;
+        if (self.attributedPlaceholder && !self.placeholder) {
+            _placeholderAnimationLbl.attributedText = self.attributedPlaceholder;
+        }else{
+            _placeholderAnimationLbl.text = self.placeholder;
+            _placeholderAnimationLbl.font = self.font;
+        }
         [self addSubview:_placeholderAnimationLbl];
     }return _placeholderAnimationLbl;
 }
@@ -133,16 +136,16 @@ static dispatch_once_t dispatchOnce;
     }return _animationFont;
 }
 
--(UIFont *)placeholderFont{
-    if (!_placeholderFont) {
-        _placeholderFont = self.font;
-    }return _placeholderFont;
-}
-
 -(CGFloat)moveDistance{
     if (_moveDistance == 0) {
         _moveDistance = self.frame.size.height / 2;
     }return _moveDistance;
+}
+    
+-(NSTimeInterval)animationTime{
+    if (!_animationTime) {
+        _animationTime = 0.25f;
+    }return _animationTime;
 }
 
 @end

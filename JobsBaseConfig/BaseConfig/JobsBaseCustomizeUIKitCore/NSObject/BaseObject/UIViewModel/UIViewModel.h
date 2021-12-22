@@ -69,6 +69,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)NSInteger item;
 /// 其他
 @property(nonatomic,strong)Class cls;//绑定的class
+@property(nonatomic,strong)id data;//绑定的数据源
 /// 【功能性】网易云盾回调数据
 @property(nonatomic,assign)BOOL ntesVerifyCodeFinishResult;
 @property(nonatomic,assign)NTESVerifyCodeManagerStyle ntesVerifyCodeManagerStyle;

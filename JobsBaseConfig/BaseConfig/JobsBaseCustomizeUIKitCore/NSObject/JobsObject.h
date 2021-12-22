@@ -19,8 +19,6 @@
 #import "JobsTimeModel.h"
 /// 网络监控
 #import "JobsMonitorNetwoking.h"
-/// 设备信息
-#import "CurrentDeviceModel.h"
 /// SockeIO
 //#import "JobsSocketIOTools.h"
 /// TouchID
@@ -33,6 +31,8 @@
 #pragma mark —— Category
 /// 关联对象
 //#import "NSObject+Association.h"
+/// 本机设备信息
+#import "NSObject+CurrentDevice.h"
 /// 本地弹出View
 #import "NSObject+Popup.h"
 /// 本地推送通知封装
@@ -84,5 +84,7 @@
 #import "NSObject+AFNReachability.h"
 ///【对FileFolderHandleTool的二次封装】 存数据，储存成功返回地址
 #import "NSObject+DataSave.h"
+/// UIScrollViewDelegate 协议
+#import "NSObject+UIScrollViewDelegate.h"
 
 #endif /* JobsObject_h */

@@ -1,50 +1,50 @@
 //
-//  CurrentDeviceModel.m
+//  NSObject+CurrentDevice.m
 //  Casino
 //
-//  Created by Jobs on 2021/12/3.
+//  Created by Jobs on 2021/12/20.
 //
 
-#import "CurrentDeviceModel.h"
+#import "NSObject+CurrentDevice.h"
 
-@implementation CurrentDeviceModel
-// App发布的版本号
+@implementation NSObject (CurrentDevice)
+/// App发布的版本号
 -(NSString *)appVersion{
     return [NSBundle.mainBundle.infoDictionary objectForKey:@"CFBundleShortVersionString"];
 }
-// BUILD 版本号
+/// BUILD 版本号
 -(NSString *)appBuildVersion{
     return [NSBundle.mainBundle.infoDictionary objectForKey:@"CFBundleVersion"];
 }
-// App名字
+/// App名字
 -(NSString *)appDisplayName{
     return [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleExecutable"];
 }
-// 当前语言
+/// 当前语言
 -(NSString *)localLanguage{
     return [NSLocale.preferredLanguages objectAtIndex:0];
 }
-// 当前国家
+/// 当前国家
 -(NSString *)localCountry{
     return [NSLocale.currentLocale objectForKey:NSLocaleCountryCode];
 }
-// 设备名称
+/// 设备名称
 -(NSString *)deviceName{
     return UIDevice.currentDevice.name;
 }
-// 设备类型
+/// 设备类型
 -(NSString *)deviceModel{
     return UIDevice.currentDevice.model;
 }
-// 本地化模式
+/// 本地化模式
 -(NSString *)deviceLocalizedModel{
     return UIDevice.currentDevice.localizedModel;
 }
-// 系统名字
+/// 系统名字
 -(NSString *)deviceSystemName{
     return UIDevice.currentDevice.systemName;
 }
-// 系统版本
+/// 系统版本
 -(NSString *)deviceSystemVersion{
     return UIDevice.currentDevice.systemVersion;
 }
@@ -60,11 +60,11 @@
 -(NSString *)idfv{
     return self.IDFV;
 }
-// 设备朝向
+/// 设备朝向
 -(UIDeviceOrientation )deviceOrientation{
     return UIDevice.currentDevice.orientation;
 }
-// 是否是Retina显示屏
+/// 是否是Retina显示屏
 -(BOOL)isRetina{
     return (UIScreen.mainScreen.scale >= 2.0);// 非Retain屏幕 1.0
 }

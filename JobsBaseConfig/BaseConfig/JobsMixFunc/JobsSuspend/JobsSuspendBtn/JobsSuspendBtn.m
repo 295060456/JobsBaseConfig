@@ -7,7 +7,6 @@
 //
 
 #import "JobsSuspendBtn.h"
-#import "UIView+SuspendView.h"
 
 @interface JobsSuspendBtn ()
 

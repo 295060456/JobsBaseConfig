@@ -7,7 +7,6 @@
 //
 
 #import "UITextField+Extend.h"
-#import <objc/runtime.h>
 
 @implementation UITextField (Extend)
 
@@ -33,7 +32,12 @@ static char *UITextField_Extend_customSysClearBtn = "UITextField_Extend_customSy
     UIButton *CustomSysClearBtn = objc_getAssociatedObject(self, UITextField_Extend_customSysClearBtn);
     if (!CustomSysClearBtn) {
         CustomSysClearBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        CustomSysClearBtn.adjustsImageWhenHighlighted = NO;
+        if (@available(iOS 15, *)) {
+//            'adjustsImageWhenHighlighted' is deprecated: first deprecated in iOS 15.0 - This property is ignored when using UIButtonConfiguration, you may customize to replicate this behavior via a configurationUpdateHandler
+        }else{
+            SuppressWdeprecatedDeclarationsWarning(CustomSysClearBtn.adjustsImageWhenHighlighted = NO;);
+        }
+        
         [CustomSysClearBtn setFrame:CGRectMake(0.0f,
                                                0.0f,
                                                15.0f,

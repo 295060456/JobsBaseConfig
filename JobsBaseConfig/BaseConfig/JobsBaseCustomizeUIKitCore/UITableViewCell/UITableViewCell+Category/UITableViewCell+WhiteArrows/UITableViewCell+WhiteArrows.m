@@ -7,16 +7,13 @@
 //
 
 #import "UITableViewCell+WhiteArrows.h"
-#import "UIView+Measure.h"
-#import "LoadingImage.h"
-#import <objc/runtime.h>
 
 @implementation UITableViewCell (WhiteArrows)
 
 static char *UITableViewCell_WhiteArrows_img = "UITableViewCell_WhiteArrows_img";
-static char *UITableViewCell_WhiteArrows_size = "UITableViewCell_WhiteArrows_size";
-
 @dynamic img;
+
+static char *UITableViewCell_WhiteArrows_size = "UITableViewCell_WhiteArrows_size";
 @dynamic size;
 
 -(void)customAccessoryView:(MKDataBlock)customAccessoryViewBlock{
