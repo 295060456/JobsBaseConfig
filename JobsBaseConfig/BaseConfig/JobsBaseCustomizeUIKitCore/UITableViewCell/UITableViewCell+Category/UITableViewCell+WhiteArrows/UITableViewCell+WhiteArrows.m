@@ -15,7 +15,7 @@ static char *UITableViewCell_WhiteArrows_img = "UITableViewCell_WhiteArrows_img"
 
 static char *UITableViewCell_WhiteArrows_size = "UITableViewCell_WhiteArrows_size";
 @dynamic size;
-
+/// 必须 self.accessoryType = UITableViewCellAccessoryDisclosureIndicator; 打开后才可以启用
 -(void)customAccessoryView:(MKDataBlock)customAccessoryViewBlock{
     // 不用系统自带的箭头
     if (self.accessoryType == UITableViewCellAccessoryDisclosureIndicator) {
@@ -57,7 +57,7 @@ static char *UITableViewCell_WhiteArrows_size = "UITableViewCell_WhiteArrows_siz
 -(CGSize)size{
     CGSize Size = [objc_getAssociatedObject(self, UITableViewCell_WhiteArrows_size) CGSizeValue];
     if (CGSizeEqualToSize(Size, CGSizeZero)) {
-        Size = CGSizeMake(20, 20);//缺省值
+        Size = CGSizeMake(KWidth(10), KWidth(18.3));//缺省值
         objc_setAssociatedObject(self,
                                  UITableViewCell_WhiteArrows_size,
                                  [NSValue valueWithCGSize:Size],

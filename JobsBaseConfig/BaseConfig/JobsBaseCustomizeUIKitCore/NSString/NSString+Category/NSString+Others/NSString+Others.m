@@ -9,6 +9,13 @@
 
 @implementation NSString (Others)
 #pragma mark —— 其他
+/// 复制到系统剪切板
+-(void)pasteboard{
+    UIPasteboard *pasteboard = UIPasteboard.generalPasteboard;
+    pasteboard.string = self;
+    [WHToast toastMsg:@"复制成功"];
+}
+
 +(NSString *)test:(NSArray <NSString *>*)arr{
     NSString *resultStr;
     for (int i = 0; i < arr.count; i++) {

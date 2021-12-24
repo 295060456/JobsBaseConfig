@@ -131,6 +131,13 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
                     context:nil];
 }
 #pragma mark —— 功能性的
+/// 给定一个数据源（数组）和 每行需要展示的元素个数，计算行数
+/// @param elementNumberInEveryLine 每行需要展示的元素个数
+/// @param arr 数据源（数组）
+-(NSInteger)lineNum:(NSInteger)elementNumberInEveryLine//5
+             byData:(NSArray *_Nonnull)arr{//8
+    return ceil(arr.count / elementNumberInEveryLine) + 1;
+}
 /**
  ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️
  -(ScrollDirection)judgementScrollDirectionByPoint:(CGPoint)point;
@@ -602,6 +609,36 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
 /// 判断任意数字是否为小数
 -(BOOL)isFloat:(CGFloat)num{
     return num - (int)num;
+}
+/**
+    判断 num1 是否能被 num2 整除
+    也就是判断 num2 是否是 num1 的整数倍
+    也就是判断 num1 除以 num2 的余数是否是 0
+ 
+    特别指出的是：
+    1、除数为零的情况，被判定为不能被整除；
+    2、num1 和 num2 必须为 NSNumber* 类型，否则判定为不能够被整除
+ 
+ */
+-(BOOL)judgementExactDivisionByNum1:(NSNumber *_Nonnull)num1
+                               num2:(NSNumber *_Nonnull)num2{
+    /// 过滤数据类型
+    if (![num1 isKindOfClass:NSNumber.class] || ![num2 isKindOfClass:NSNumber.class]) {
+        return NO;
+    }
+    /// 在数据类型为NSNumber* 的基础上进行讨论和判断
+    if (num1 == num2) {
+        return YES;
+    }
+    
+    if (num2.floatValue) {
+        int a = num2.intValue;
+        double s1 = num1.doubleValue;
+        int s2 = num1.intValue;
+        return s1/a-s2/a <= 0;
+    }else{
+        return YES;
+    }
 }
 #pragma mark —— 键盘⌨️
 /// 加入键盘通知的监听者

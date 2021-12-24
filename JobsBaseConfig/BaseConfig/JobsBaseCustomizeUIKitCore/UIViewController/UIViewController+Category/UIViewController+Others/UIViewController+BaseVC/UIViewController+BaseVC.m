@@ -91,6 +91,17 @@ static char *UIViewController_BaseVC_fromVC = "UIViewController_BaseVC_fromVC";
     [self comingToPushVC:viewController
            requestParams:viewModel];
 }
+/// 携带一个资源推控制器
+-(void)comingToPushVC:(UIViewController *)viewController
+         withNavTitle:(NSString *)navTitle
+        requestParams:(id _Nullable)requestParams{
+    UIViewModel *viewModel = UIViewModel.new;
+    viewModel.text = navTitle;
+    viewModel.cls = viewController.class;
+    viewModel.data = requestParams;
+    [self comingToPushVC:viewController
+           requestParams:viewModel];
+}
 /**
  ❤️【强制推控制器】❤️
  1、自定义是PUSH还是PRESENT展现控制器，如果自定义PUSH但是navigationController不存在，则换用PRESENT展现控制器

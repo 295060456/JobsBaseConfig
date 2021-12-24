@@ -72,6 +72,10 @@ BaseViewControllerProtocol
  */
 -(void)comingToPushVC:(UIViewController *)viewController
          withNavTitle:(NSString *)navTitle;
+/// 携带一个资源推控制器
+-(void)comingToPushVC:(UIViewController *)viewController
+         withNavTitle:(NSString *)navTitle
+        requestParams:(id _Nullable)requestParams;
 /**
  ❤️【强制推控制器】❤️
  1、自定义是PUSH还是PRESENT展现控制器，如果自定义PUSH但是navigationController不存在，则换用PRESENT展现控制器

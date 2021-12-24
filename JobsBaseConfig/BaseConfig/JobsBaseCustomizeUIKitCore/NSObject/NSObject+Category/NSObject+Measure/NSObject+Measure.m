@@ -16,5 +16,33 @@
                superview:(CGFloat)superview{
     return (superview - subview) / 2;
 }
+#pragma mark —— 几何数据类型的比较
+/// 比较 size ？= CGSizeZero
++(BOOL)isSizeZero:(CGSize)size{
+    return CGSizeEqualToSize(size, CGSizeZero);
+}
+/// 比较 point ？= CGPointZero
++(BOOL)isPointZero:(CGPoint)point{
+    return CGPointEqualToPoint(point, CGPointZero);
+}
+/// 比较 rect ？= CGRectZero
++(BOOL)isRectZero:(CGRect)rect{
+    return CGRectEqualToRect(rect, CGRectZero);
+}
+/// 比较 rect1 ？= rect2
++(BOOL)rect1:(CGRect)rect1
+isEqualToRect2:(CGRect)rect2{
+    return CGRectEqualToRect(rect1, rect2);
+}
+/// 比较 point1 ？= point2
++(BOOL)point1:(CGPoint)point1
+isEqualToPoint2:(CGPoint)point2{
+    return CGPointEqualToPoint(point1, point2);
+}
+/// 比较 size1 ？= size2
++(BOOL)size1:(CGSize)size1
+isEqualToSize2:(CGSize)size2{
+    return CGSizeEqualToSize(size1, size2);
+}
 
 @end

@@ -133,6 +133,11 @@ typedef void (^callback)(id _Nullable weakSelf, id _Nullable arg);
 /// 添加监听【针对UIScrollView 的 ContentOffset 属性】
 -(void)monitorContentOffsetScrollView:(UIScrollView *_Nonnull)scrollView;
 #pragma mark —— 功能性的
+/// 给定一个数据源（数组）和 每行需要展示的元素个数，计算行数
+/// @param elementNumberInEveryLine 每行需要展示的元素个数
+/// @param arr 数据源（数组）
+-(NSInteger)lineNum:(NSInteger)elementNumberInEveryLine
+             byData:(NSArray *_Nonnull)arr;
 /**
  ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️
  -(ScrollDirection)judgementScrollDirectionByPoint:(CGPoint)point;
@@ -244,6 +249,18 @@ typedef void (^callback)(id _Nullable weakSelf, id _Nullable arg);
 -(NSInteger)bitNum:(NSInteger)number;
 /// 判断任意数字是否为小数
 -(BOOL)isFloat:(CGFloat)num;
+/**
+    判断 num1 是否能被 num2 整除
+    也就是判断 num2 是否是 num1 的整数倍
+    也就是判断 num1 除以 num2 的余数是否是 0
+ 
+    特别指出的是：
+    1、除数为零的情况，被判定为不能被整除；
+    2、num1 和 num2 必须为 NSNumber* 类型，否则判定为不能够被整除
+ 
+ */
+-(BOOL)judgementExactDivisionByNum1:(NSNumber *_Nonnull)num1
+                               num2:(NSNumber *_Nonnull)num2;
 #pragma mark —— 键盘⌨️
 /// 加入键盘通知的监听者
 -(void)keyboard;

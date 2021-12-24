@@ -17,6 +17,22 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param superview 父控件的宽 或者 高
 +(CGFloat)measureSubview:(CGFloat)subview
                superview:(CGFloat)superview;
+#pragma mark —— 几何数据类型的比较
+/// 比较 size ？= CGSizeZero
++(BOOL)isSizeZero:(CGSize)size;
+/// 比较 point ？= CGPointZero
++(BOOL)isPointZero:(CGPoint)point;
+/// 比较 rect ？= CGRectZero
++(BOOL)isRectZero:(CGRect)rect;
+/// 比较 rect1 ？= rect2
++(BOOL)rect1:(CGRect)rect1
+isEqualToRect2:(CGRect)rect2;
+/// 比较 point1 ？= point2
++(BOOL)point1:(CGPoint)point1
+isEqualToPoint2:(CGPoint)point2;
+/// 比较 size1 ？= size2
++(BOOL)size1:(CGSize)size1
+isEqualToSize2:(CGSize)size2;
 
 @end
 
