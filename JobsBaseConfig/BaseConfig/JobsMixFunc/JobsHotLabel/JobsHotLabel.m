@@ -20,22 +20,30 @@
 
 @end
 
+static dispatch_once_t JobsHotLabelDispatchOnce;
 @implementation JobsHotLabel
 
-static dispatch_once_t dispatchOnce;
+-(void)dealloc{
+    JobsHotLabelDispatchOnce = 0;
+}
+
 -(instancetype)init{
     if (self = [super init]) {
         self.backgroundColor = HEXCOLOR(0xFFFFFF);
-        dispatchOnce = 0;
+        JobsHotLabelDispatchOnce = 0;
     }return self;
 }
 /// 必须有frame的前提下才会进行绘制
 -(void)drawRect:(CGRect)rect{
     [super drawRect:rect];
-    dispatch_once(&dispatchOnce, ^{
+    dispatch_once(&JobsHotLabelDispatchOnce, ^{
         self.scrollView.alpha = 1;
         [self createHotLabelWithArr:self.viewModelDataArr];
     });
+}
+//具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
++(CGSize)viewSizeWithModel:(NSArray <UIViewModel *>* _Nullable)model{
+    return CGSizeMake(KWidth(46 * 3 + 59 * 2), [self lineNum:3 byData:model] * KWidth(46 + 7));
 }
 
 -(void)createHotLabelWithArr:(NSArray <UIViewModel *>*)dataArr{
@@ -102,7 +110,7 @@ static dispatch_once_t dispatchOnce;
             
             @weakify(self)
             [[btn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
-                @strongify(self)                
+                @strongify(self)
                 if ([x.objBindingParams isKindOfClass:CasinoCustomerContactElementModel.class]) {
                     CasinoCustomerContactElementModel *customerContactElementModel = (CasinoCustomerContactElementModel *)btn.objBindingParams;
 

@@ -421,6 +421,9 @@
 		844B0E542764DE1A00B0513D /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B0E4E2764DE1900B0513D /* BaseModel.m */; };
 		844B0E552764DE1A00B0513D /* DDUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B0E512764DE1A00B0513D /* DDUserModel.m */; };
 		844B12892764E5C200B0513D /* URLManagerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B12872764E5C200B0513D /* URLManagerModel.m */; };
+		8459CC322775D3E900125782 /* AppDelegate+Func.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459CC2A2775D3E900125782 /* AppDelegate+Func.m */; };
+		8459CC332775D3E900125782 /* AppDelegate+UIApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459CC2D2775D3E900125782 /* AppDelegate+UIApplicationDelegate.m */; };
+		8459CC342775D3E900125782 /* AppDelegate+XHLaunchAdDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459CC312775D3E900125782 /* AppDelegate+XHLaunchAdDelegate.m */; };
 		ABB2A8B711CC6C1FEF7A4899 /* Pods_JobsBaseConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 013934AB50FCDA373FFA6597 /* Pods_JobsBaseConfig.framework */; };
 		F65541EC060397D8F6D09547 /* Pods_JobsBaseConfigUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */; };
 /* End PBXBuildFile section */
@@ -1227,6 +1230,12 @@
 		844B0E562764DE2D00B0513D /* DAO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DAO.h; sourceTree = "<group>"; };
 		844B12872764E5C200B0513D /* URLManagerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLManagerModel.m; sourceTree = "<group>"; };
 		844B12882764E5C200B0513D /* URLManagerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLManagerModel.h; sourceTree = "<group>"; };
+		8459CC2A2775D3E900125782 /* AppDelegate+Func.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Func.m"; sourceTree = "<group>"; };
+		8459CC2B2775D3E900125782 /* AppDelegate+Func.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Func.h"; sourceTree = "<group>"; };
+		8459CC2D2775D3E900125782 /* AppDelegate+UIApplicationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+UIApplicationDelegate.m"; sourceTree = "<group>"; };
+		8459CC2E2775D3E900125782 /* AppDelegate+UIApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+UIApplicationDelegate.h"; sourceTree = "<group>"; };
+		8459CC302775D3E900125782 /* AppDelegate+XHLaunchAdDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+XHLaunchAdDelegate.h"; sourceTree = "<group>"; };
+		8459CC312775D3E900125782 /* AppDelegate+XHLaunchAdDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+XHLaunchAdDelegate.m"; sourceTree = "<group>"; };
 		845A0B1B276DAC99008E75A5 /* JobsBaseConfigPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsBaseConfigPrefixHeader.pch; sourceTree = "<group>"; };
 		8465454D2769A53A003EC0B5 /* 配置info.plist.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "配置info.plist.md"; sourceTree = "<group>"; };
 		949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JobsBaseConfigUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -3457,6 +3466,9 @@
 		840F94FF27736427004979E9 /* AppDelegate+Category */ = {
 			isa = PBXGroup;
 			children = (
+				8459CC292775D3E900125782 /* AppDelegate+Func */,
+				8459CC2C2775D3E900125782 /* AppDelegate+UIApplicationDelegate */,
+				8459CC2F2775D3E900125782 /* AppDelegate+XHLaunchAdDelegate */,
 				840F950027736427004979E9 /* AppDelegate+Extra */,
 			);
 			path = "AppDelegate+Category";
@@ -4794,6 +4806,33 @@
 			path = URLManagerModel;
 			sourceTree = "<group>";
 		};
+		8459CC292775D3E900125782 /* AppDelegate+Func */ = {
+			isa = PBXGroup;
+			children = (
+				8459CC2A2775D3E900125782 /* AppDelegate+Func.m */,
+				8459CC2B2775D3E900125782 /* AppDelegate+Func.h */,
+			);
+			path = "AppDelegate+Func";
+			sourceTree = "<group>";
+		};
+		8459CC2C2775D3E900125782 /* AppDelegate+UIApplicationDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				8459CC2D2775D3E900125782 /* AppDelegate+UIApplicationDelegate.m */,
+				8459CC2E2775D3E900125782 /* AppDelegate+UIApplicationDelegate.h */,
+			);
+			path = "AppDelegate+UIApplicationDelegate";
+			sourceTree = "<group>";
+		};
+		8459CC2F2775D3E900125782 /* AppDelegate+XHLaunchAdDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				8459CC302775D3E900125782 /* AppDelegate+XHLaunchAdDelegate.h */,
+				8459CC312775D3E900125782 /* AppDelegate+XHLaunchAdDelegate.m */,
+			);
+			path = "AppDelegate+XHLaunchAdDelegate";
+			sourceTree = "<group>";
+		};
 		B0977B0404F4246F3B021752 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -5204,6 +5243,7 @@
 				840F96FE27736428004979E9 /* NSObject+DeviceID.m in Sources */,
 				840F96F427736428004979E9 /* NSObject+Popup.m in Sources */,
 				840F964E27736427004979E9 /* UITableViewCell+BaseCellProtocol.m in Sources */,
+				8459CC332775D3E900125782 /* AppDelegate+UIApplicationDelegate.m in Sources */,
 				844B08832764CF4800B0513D /* XHLaunchAdImageManager.m in Sources */,
 				840F96BD27736428004979E9 /* UIControl+XY.m in Sources */,
 				840F961627736427004979E9 /* JobsNoticePopupView.m in Sources */,
@@ -5339,6 +5379,7 @@
 				844B083D2764CF4800B0513D /* JXCategoryTimelineView.m in Sources */,
 				840F96B327736428004979E9 /* BaseNavigationVC.m in Sources */,
 				840F96EC27736428004979E9 /* NSObject+UIScrollViewDelegate.m in Sources */,
+				8459CC342775D3E900125782 /* AppDelegate+XHLaunchAdDelegate.m in Sources */,
 				840F961227736427004979E9 /* ZBCacheManager.m in Sources */,
 				840F970827736428004979E9 /* NSObject+WHToast.m in Sources */,
 				840F96BA27736428004979E9 /* BaseTableView.m in Sources */,
@@ -5438,6 +5479,7 @@
 				840F967527736428004979E9 /* UIView+BackgroundImage.m in Sources */,
 				844B08432764CF4800B0513D /* ZWPullMenuCell.m in Sources */,
 				840F968627736428004979E9 /* UICollectionView+XSAnimationKit.m in Sources */,
+				8459CC322775D3E900125782 /* AppDelegate+Func.m in Sources */,
 				840F96C227736428004979E9 /* BaseTableViewFooterView.m in Sources */,
 				840F970227736428004979E9 /* NSObject+Extras.m in Sources */,
 				840F96C027736428004979E9 /* UITableViewHeaderFooterView+BaseTableViewHeaderFooterViewProtocol.m in Sources */,

@@ -261,10 +261,12 @@ static JobsTabbarVC *static_tabbarVC = nil;
 shouldSelectViewController:(UIViewController *)viewController {
     
     NSInteger index = [self.childMutArr indexOfObject:viewController];
+    
     if ([viewController isKindOfClass:UIViewController.class] &&
         [self judgeLottieWithIndex:index]) {
         [viewController lottieImagePlay];
-    }return YES;
+    }
+    return [self.returnViewControllerBlock(@(index)) boolValue];
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)tabBarController:(UITabBarController *)tabBarController

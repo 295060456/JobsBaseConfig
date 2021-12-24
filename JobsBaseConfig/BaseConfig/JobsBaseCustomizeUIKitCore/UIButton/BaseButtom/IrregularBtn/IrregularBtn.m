@@ -15,18 +15,18 @@
 
 @end
 
+static dispatch_once_t irregularBtnDispatchOnce;
 @implementation IrregularBtn
 
-static dispatch_once_t dispatchOnce;
 -(instancetype)init{
     if (self = [super init]) {
-        dispatchOnce = 0;
+        irregularBtnDispatchOnce = 0;
     }return self;
 }
 // 绘制图形时添加path遮罩
 - (void)drawRect:(CGRect)rect{
     [super drawRect:rect];
-    dispatch_once(&dispatchOnce, ^{
+    dispatch_once(&irregularBtnDispatchOnce, ^{
         self.shapLayer.hidden = NO;
     });
 }

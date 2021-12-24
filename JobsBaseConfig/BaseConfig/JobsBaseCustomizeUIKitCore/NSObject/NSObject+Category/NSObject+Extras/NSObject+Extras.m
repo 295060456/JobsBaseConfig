@@ -758,9 +758,9 @@ callingMethodWithName:(nullable NSString *)methodName{
 /// 使用 dispatch_once 来执行只需运行一次的线程安全代码
 /// @param methodName 需要执行的方法的方法名（不带参数）
 -(void)dispatchOnceInvokingWithMethodName:(nullable NSString *)methodName{
-    static dispatch_once_t dispatchOnce;
+    static dispatch_once_t NSObjectDispatchOnce;
     @jobs_weakify(self)
-    dispatch_once(&dispatchOnce, ^{
+    dispatch_once(&NSObjectDispatchOnce, ^{
         [weak_self callingMethodWithName:methodName];
     });
 }
