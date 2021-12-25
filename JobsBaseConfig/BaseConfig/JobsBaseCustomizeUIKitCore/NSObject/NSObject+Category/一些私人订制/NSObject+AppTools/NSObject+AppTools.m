@@ -68,5 +68,24 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
     }
 }
 
+/// App 升级弹窗：在根控制器下实现，做到覆盖全局的统一
+-(void)appUpdateWithSureBlock:(MKDataBlock _Nullable)sureBlock
+                  cancelBlock:(MKDataBlock _Nullable)cancelBlock{
+    CasinoUpgradePopupView *upgradePopupView = CasinoUpgradePopupView.new;
+    upgradePopupView.size = [CasinoUpgradePopupView viewSizeWithModel:nil];
+    [upgradePopupView richElementsInViewWithModel:nil];
+    
+    [upgradePopupView actionViewBlock:^(UIButton *data) {
+        if ([[data titleForNormalState] isEqualToString:Internationalization(@"Cancel")]) {
+            if (cancelBlock) cancelBlock(@1);
+        }else if ([[data titleForNormalState] isEqualToString:Internationalization(@"Sure")]){
+            if (sureBlock) sureBlock(@1);
+        }else{}
+        [upgradePopupView tf_hide];
+    }];
+    
+    [self popupWithView:upgradePopupView];
+}
+
 @end
 

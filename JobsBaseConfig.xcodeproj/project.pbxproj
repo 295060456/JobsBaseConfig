@@ -432,6 +432,10 @@
 		8459CE1F2776DCCF00125782 /* 启动页_05.png in Resources */ = {isa = PBXBuildFile; fileRef = 8459CE182776DCCF00125782 /* 启动页_05.png */; };
 		8459CE202776DCCF00125782 /* JobsWelcomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459CE1A2776DCCF00125782 /* JobsWelcomeVC.m */; };
 		8459CE242776DD4000125782 /* SceneDelegate+UISceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459CE222776DD4000125782 /* SceneDelegate+UISceneDelegate.m */; };
+		8459CF1A2776F7C600125782 /* CasinoUpgradePopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459CF152776F7C600125782 /* CasinoUpgradePopupView.m */; };
+		8459CF1B2776F7C600125782 /* CasinoUpgradeContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459CF192776F7C600125782 /* CasinoUpgradeContentView.m */; };
+		8459CF1E2776F87F00125782 /* 弹窗升级背景图@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8459CF1C2776F87F00125782 /* 弹窗升级背景图@3x.png */; };
+		8459CF1F2776F87F00125782 /* 弹窗升级背景图@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8459CF1D2776F87F00125782 /* 弹窗升级背景图@2x.png */; };
 		ABB2A8B711CC6C1FEF7A4899 /* Pods_JobsBaseConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 013934AB50FCDA373FFA6597 /* Pods_JobsBaseConfig.framework */; };
 		F65541EC060397D8F6D09547 /* Pods_JobsBaseConfigUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */; };
 /* End PBXBuildFile section */
@@ -1255,6 +1259,12 @@
 		8459CE1A2776DCCF00125782 /* JobsWelcomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsWelcomeVC.m; sourceTree = "<group>"; };
 		8459CE222776DD4000125782 /* SceneDelegate+UISceneDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SceneDelegate+UISceneDelegate.m"; sourceTree = "<group>"; };
 		8459CE232776DD4000125782 /* SceneDelegate+UISceneDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SceneDelegate+UISceneDelegate.h"; sourceTree = "<group>"; };
+		8459CF152776F7C600125782 /* CasinoUpgradePopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasinoUpgradePopupView.m; sourceTree = "<group>"; };
+		8459CF162776F7C600125782 /* CasinoUpgradePopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CasinoUpgradePopupView.h; sourceTree = "<group>"; };
+		8459CF182776F7C600125782 /* CasinoUpgradeContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CasinoUpgradeContentView.h; sourceTree = "<group>"; };
+		8459CF192776F7C600125782 /* CasinoUpgradeContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasinoUpgradeContentView.m; sourceTree = "<group>"; };
+		8459CF1C2776F87F00125782 /* 弹窗升级背景图@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹窗升级背景图@3x.png"; sourceTree = "<group>"; };
+		8459CF1D2776F87F00125782 /* 弹窗升级背景图@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹窗升级背景图@2x.png"; sourceTree = "<group>"; };
 		845A0B1B276DAC99008E75A5 /* JobsBaseConfigPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsBaseConfigPrefixHeader.pch; sourceTree = "<group>"; };
 		8465454D2769A53A003EC0B5 /* 配置info.plist.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "配置info.plist.md"; sourceTree = "<group>"; };
 		949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JobsBaseConfigUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1303,6 +1313,7 @@
 			isa = PBXGroup;
 			children = (
 				840F92C527736425004979E9 /* JobsMixFunc.h */,
+				8459CF132776F7C600125782 /* 版本升级弹窗 */,
 				840F92D827736425004979E9 /* 播放器控制层 */,
 				840F92BD27736425004979E9 /* 分享控件 */,
 				840F92DF27736425004979E9 /* 广告或者公示弹出框 */,
@@ -4895,6 +4906,43 @@
 			path = "SceneDelegate+UISceneDelegate";
 			sourceTree = "<group>";
 		};
+		8459CF132776F7C600125782 /* 版本升级弹窗 */ = {
+			isa = PBXGroup;
+			children = (
+				8459CF202776F88700125782 /* 版本升级弹窗(资源) */,
+				8459CF142776F7C600125782 /* CasinoUpgradePopupView */,
+				8459CF172776F7C600125782 /* CasinoUpgradeContentView */,
+			);
+			path = "版本升级弹窗";
+			sourceTree = "<group>";
+		};
+		8459CF142776F7C600125782 /* CasinoUpgradePopupView */ = {
+			isa = PBXGroup;
+			children = (
+				8459CF152776F7C600125782 /* CasinoUpgradePopupView.m */,
+				8459CF162776F7C600125782 /* CasinoUpgradePopupView.h */,
+			);
+			path = CasinoUpgradePopupView;
+			sourceTree = "<group>";
+		};
+		8459CF172776F7C600125782 /* CasinoUpgradeContentView */ = {
+			isa = PBXGroup;
+			children = (
+				8459CF182776F7C600125782 /* CasinoUpgradeContentView.h */,
+				8459CF192776F7C600125782 /* CasinoUpgradeContentView.m */,
+			);
+			path = CasinoUpgradeContentView;
+			sourceTree = "<group>";
+		};
+		8459CF202776F88700125782 /* 版本升级弹窗(资源) */ = {
+			isa = PBXGroup;
+			children = (
+				8459CF1D2776F87F00125782 /* 弹窗升级背景图@2x.png */,
+				8459CF1C2776F87F00125782 /* 弹窗升级背景图@3x.png */,
+			);
+			path = "版本升级弹窗(资源)";
+			sourceTree = "<group>";
+		};
 		B0977B0404F4246F3B021752 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -5115,6 +5163,7 @@
 				840F960327736427004979E9 /* 功能性动效：手势横向滚动子VC联动Tabbar切换.md in Resources */,
 				844B08642764CF4800B0513D /* 蓝牙@3x.png in Resources */,
 				844B08652764CF4800B0513D /* 语音识别@3x.png in Resources */,
+				8459CF1F2776F87F00125782 /* 弹窗升级背景图@2x.png in Resources */,
 				840F970727736428004979E9 /* toastLoading.gif in Resources */,
 				840F95FF27736427004979E9 /* JobsPullListAutoSizeView.md in Resources */,
 				840F962C27736427004979E9 /* 4@2x.png in Resources */,
@@ -5164,6 +5213,7 @@
 				840F962827736427004979E9 /* 8@3x.png in Resources */,
 				840F96E227736428004979E9 /* MonitorNetwoking.md in Resources */,
 				844B021B2764C8EE00B0513D /* Main.storyboard in Resources */,
+				8459CF1E2776F87F00125782 /* 弹窗升级背景图@3x.png in Resources */,
 				840F95EF27736427004979E9 /* green_lottie_tab_home.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -5378,6 +5428,7 @@
 				8459CE242776DD4000125782 /* SceneDelegate+UISceneDelegate.m in Sources */,
 				844B083A2764CF4800B0513D /* JXCategoryTitleBackgroundCellModel.m in Sources */,
 				844B083C2764CF4800B0513D /* JXCategoryTitleBackgroundView.m in Sources */,
+				8459CF1B2776F7C600125782 /* CasinoUpgradeContentView.m in Sources */,
 				840F967327736428004979E9 /* UIView+BackgroundLabel.m in Sources */,
 				844B08792764CF4800B0513D /* XHLaunchAdButton.m in Sources */,
 				840F970427736428004979E9 /* NSObject+ChangeAppicon.m in Sources */,
@@ -5507,6 +5558,7 @@
 				844B083E2764CF4800B0513D /* JXCategoryTimelineCellModel.m in Sources */,
 				840F96BE27736428004979E9 /* NSArray+Safety.m in Sources */,
 				840F963527736427004979E9 /* JobsUpDownLabModel.m in Sources */,
+				8459CF1A2776F7C600125782 /* CasinoUpgradePopupView.m in Sources */,
 				844B08422764CF4800B0513D /* ZWPullMenuView.m in Sources */,
 				840F968C27736428004979E9 /* UICollectionViewCell+Default.m in Sources */,
 				840F966227736428004979E9 /* LGiOSBtn.m in Sources */,
