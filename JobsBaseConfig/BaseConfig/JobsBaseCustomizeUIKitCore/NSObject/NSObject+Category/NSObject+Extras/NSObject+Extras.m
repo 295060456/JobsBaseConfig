@@ -134,9 +134,9 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
 /// 给定一个数据源（数组）和 每行需要展示的元素个数，计算行数
 /// @param elementNumberInEveryLine 每行需要展示的元素个数
 /// @param arr 数据源（数组）
--(NSInteger)lineNum:(NSInteger)elementNumberInEveryLine//5
-             byData:(NSArray *_Nonnull)arr{//8
-    return ceil(arr.count / elementNumberInEveryLine) + 1;
+-(NSInteger)lineNum:(NSInteger)elementNumberInEveryLine
+             byData:(NSArray *_Nonnull)arr{
+    return (arr.count + (elementNumberInEveryLine - 1)) / elementNumberInEveryLine;
 }
 /**
  ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️
