@@ -29,9 +29,8 @@
 }
 
 -(void)setCellBgImage:(UIImage *)bgImage{
-    self.backgroundImageView.image = bgImage;
     self.backgroundColor = self.contentView.backgroundColor = UIColor.clearColor;
-    [self sendSubviewToBack:self.backgroundImageView];
+    self.backgroundImageView.image = bgImage;
 }
 
 +(CGFloat)cellHeightWithModel:(id _Nullable)model{

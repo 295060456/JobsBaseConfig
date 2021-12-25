@@ -12,14 +12,32 @@
 
 static char *UIView_BackgroundImage_backgroundImageView = "UIView_BackgroundImage_backgroundImageView";
 @dynamic backgroundImageView;
-
+/**
+ 【特别指出】
+ 如果self 是 诸如UICollectionViewCell 或者UITableViewCell,即：
+ 存在 self.contentView
+ 如果上面覆盖一个按钮，则需要[self.contentView addSubview:self.backgroundImageView];
+ 否则按钮点击事件被截断
+ */
 -(UIImageView *)backgroundImageView{
     UIImageView *BackgroundImageView = objc_getAssociatedObject(self, UIView_BackgroundImage_backgroundImageView);
     if (!BackgroundImageView) {
         BackgroundImageView = UIImageView.new;
         BackgroundImageView.userInteractionEnabled = YES;
-        [self addSubview:BackgroundImageView];
-        [self sendSubviewToBack:BackgroundImageView];
+        BackgroundImageView.contentMode = UIViewContentModeScaleToFill;
+
+        if ([self isKindOfClass:UICollectionViewCell.class]) {
+            UICollectionViewCell *cell = (UICollectionViewCell *)self;
+            [cell.contentView addSubview:BackgroundImageView];
+        }else if ([self isKindOfClass:UITableViewCell.class]){
+            UITableViewCell *cell = (UITableViewCell *)self;
+            [cell.contentView addSubview:BackgroundImageView];
+        }else{
+            [self addSubview:BackgroundImageView];
+        }
+        
+        BackgroundImageView.layer.zPosition = -1;// 设置层级关系
+        
         [BackgroundImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self);
         }];
