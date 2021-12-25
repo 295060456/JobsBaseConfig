@@ -10,13 +10,13 @@
 @interface JobsHotLabel (){
     CGSize btnSize;
 }
-
+/// UI
 @property(nonatomic,strong)UIScrollView *scrollView;//所有控件加在这上面
 @property(nonatomic,strong)NSMutableArray <UIButton *>*btnMutArr;
+/// Data
 @property(nonatomic,assign)CGFloat X;//如果加载了下一个btn，那么直到他的尾巴处的x值，记住包含两边固有的间距进行比较
 @property(nonatomic,assign)int row;
 @property(nonatomic,assign)CGFloat hotLabelHeight;
-@property(nonatomic,strong)UIViewModel *vm;
 
 @end
 
@@ -49,35 +49,32 @@ static dispatch_once_t JobsHotLabelDispatchOnce;
 -(void)createHotLabelWithArr:(NSArray <UIViewModel *>*)dataArr{
     if (dataArr.count) {
         for (UIViewModel *vm in dataArr) {
-            self.vm = vm;
+            self.viewModel = vm;
             // 其实item是button,因为button有相对于Label更为丰富的表现形式
             UIButton *btn = UIButton.new;
             btn.objBindingParams = vm.objBindingParams;
-            [btn setTitle:vm.text
-                 forState:UIControlStateNormal];
-            
             if ([btn.objBindingParams isKindOfClass:CasinoCustomerContactElementModel.class]) {
                 CasinoCustomerContactElementModel *customerContactElementModel = (CasinoCustomerContactElementModel *)btn.objBindingParams;
                 
                 UIImage *bgImg = nil;
                 switch (customerContactElementModel.customerMark) {
                     case CustomerContactStyle_QQ:{
-                        bgImg = KIMG(@"service_qq");
+                        bgImg = vm.bgImage ? : KIMG(@"service_qq");
                     }break;
                     case CustomerContactStyle_Skype:{
-                        bgImg = KIMG(@"service_skype");
+                        bgImg = vm.bgImage ? : KIMG(@"service_skype");
                     }break;
                     case CustomerContactStyle_Telegram:{
-                        bgImg = KIMG(@"service_telegram");
+                        bgImg = vm.bgImage ? : KIMG(@"service_telegram");
                     }break;
                     case CustomerContactStyle_whatsApp:{
-                        bgImg = KIMG(@"service_meiqia");//???
+                        bgImg = vm.bgImage ? : KIMG(@"service_meiqia");//???
                     }break;
                     case CustomerContactStyle_手机号码:{
-                        bgImg = KIMG(@"service_meiqia");//???
+                        bgImg = vm.bgImage ? : KIMG(@"service_meiqia");//???
                     }break;
                     case CustomerContactStyle_onlineURL:{
-                        bgImg = KIMG(@"service_meiqia");//???
+                        bgImg = vm.bgImage ? : KIMG(@"service_meiqia");//???
                     }break;
                         
                     default:
@@ -87,64 +84,30 @@ static dispatch_once_t JobsHotLabelDispatchOnce;
                 [btn sd_setBackgroundImageWithURL:[NSURL URLWithString:vm.bgImageURLString]
                                          forState:UIControlStateNormal
                                  placeholderImage:bgImg];
+            }else{
+                [btn normalBackgroundImage:vm.bgImage];
             }
-        
-            btn.titleLabel.font = vm.font;
-            btn.titleLabel.textColor = vm.textCor;
-
-            [UIView cornerCutToCircleWithView:btn andCornerRadius:vm.cornerRadius];
+            
+            [btn normalTitle:vm.text];
+            [btn titleFont:vm.font];
+            [btn normalTitleColor:vm.textCor];
+            [btn buttonAutoWidthByFont];
+            
+            // 手动计算出的Button的size
+            [btn buttonAutoFontByWidth];
+            CGSize BtnSize = [UILabel sizeWithText:vm.text
+                                              font:vm.font
+                                           maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
             
             if (CGSizeEqualToSize(vm.size, CGSizeZero)) {
-
-                [btn buttonAutoFontByWidth];
-                btnSize = [UILabel sizeWithText:vm.text
-                                           font:vm.font
-                                        maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
+                btnSize = BtnSize;
             }else{
-                btnSize = vm.size;
+                // 两项比较取最大值。防止多语言化的时候，外文显示过长的问题
+                btnSize = CGSizeMake(MAX(BtnSize.width, vm.size.width), MAX(BtnSize.height, vm.size.height));
             }
             
-//            btn.size = btnSize;
-            
             NSLog(@"btnSize.width = %f,btnSize.height = %f",btnSize.width,btnSize.height);
-            
-            @weakify(self)
-            [[btn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
-                @strongify(self)
-                if ([x.objBindingParams isKindOfClass:CasinoCustomerContactElementModel.class]) {
-                    CasinoCustomerContactElementModel *customerContactElementModel = (CasinoCustomerContactElementModel *)btn.objBindingParams;
-
-                    switch (customerContactElementModel.customerMark) {
-                        case CustomerContactStyle_QQ:{
-                            [NSObject openURL:[NSString stringWithFormat:@"mqq://im/chat?chat_type=wpa&uin=%@&version=1&src_type=web",customerContactElementModel.customer]];
-                        }break;
-                        case CustomerContactStyle_Skype:{
-                            [NSObject openURL:[NSString stringWithFormat:@"skype://%@?chat",customerContactElementModel.customer]];
-                        }break;
-                        case CustomerContactStyle_Telegram:{
-                            [NSObject openURL:[NSString stringWithFormat:@"https://t.me/%@",customerContactElementModel.customer]];
-                        }break;
-                        case CustomerContactStyle_whatsApp:{
-//                            [NSObject openURL:@""];
-                            [WHToast toastMsg:@"打开whatsApp未配置"];
-                        }break;
-                        case CustomerContactStyle_手机号码:{
-//                            [NSObject openURL:@""];
-                            [WHToast toastMsg:@"打开手机号码未配置"];
-                        }break;
-                        case CustomerContactStyle_onlineURL:{
-//                            [NSObject openURL:@""];
-                            [WHToast toastMsg:@"打开onlineURL未配置"];
-                        }break;
-
-                        default:
-                            break;
-                    }
-                }
-                if (self.viewBlock) {
-                    self.viewBlock(x);//利用titleStr来进行判别
-                }
-            }];
+            BtnClickEvent(btn, if (self.viewBlock) self.viewBlock(x););
             [self.scrollView addSubview:btn];
             if (self.btnMutArr.count) {
                 self.X += btnSize.width + vm.offsetXForEach;
@@ -175,10 +138,11 @@ static dispatch_once_t JobsHotLabelDispatchOnce;
                     make.size.mas_equalTo(btnSize);
                 }];
             }
+            [UIView cornerCutToCircleWithView:btn andCornerRadius:vm.cornerRadius];
             [self.btnMutArr addObject:btn];
         }
         
-        self.hotLabelHeight = self.top * 2 + btnSize.height * self.row + (self.row - 1) * self.vm.offsetYForEach;
+        self.hotLabelHeight = self.top * 2 + btnSize.height * self.row + (self.row - 1) * self.viewModel.offsetYForEach;
         
         NSLog(@"self.hotLabelHeight = %f",self.hotLabelHeight);
         NSLog(@"self.row = %d",self.row);
