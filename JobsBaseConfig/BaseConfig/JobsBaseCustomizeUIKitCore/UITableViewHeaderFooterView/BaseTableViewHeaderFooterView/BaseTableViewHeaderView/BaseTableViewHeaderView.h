@@ -8,10 +8,11 @@
 #import <UIKit/UIKit.h>
 #import "AABlock.h"
 #import "BaseTableViewHeaderFooterViewProtocol.h"
+#import "BaseViewProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BaseTableViewHeaderView : UITableViewHeaderFooterView
+@interface BaseTableViewHeaderView : UITableViewHeaderFooterView<BaseViewProtocol>
 
 @end
 

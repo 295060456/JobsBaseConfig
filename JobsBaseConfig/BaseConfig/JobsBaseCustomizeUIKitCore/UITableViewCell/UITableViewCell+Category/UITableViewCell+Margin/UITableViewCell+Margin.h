@@ -6,14 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <objc/runtime.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UITableViewCell (Margin)
-
-@property(nonatomic,strong)NSIndexPath *indexPath;
-@property(nonatomic,assign)CGFloat marginX;
-@property(nonatomic,assign)CGFloat marginY;
+@interface UITableViewCell (Margin)<BaseCellProtocol>
 // 在具体的子类去实现,分类调用无效
 -(void)setFrame:(CGRect)frame;
 

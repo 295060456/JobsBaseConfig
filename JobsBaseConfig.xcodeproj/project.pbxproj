@@ -424,6 +424,14 @@
 		8459CC322775D3E900125782 /* AppDelegate+Func.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459CC2A2775D3E900125782 /* AppDelegate+Func.m */; };
 		8459CC332775D3E900125782 /* AppDelegate+UIApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459CC2D2775D3E900125782 /* AppDelegate+UIApplicationDelegate.m */; };
 		8459CC342775D3E900125782 /* AppDelegate+XHLaunchAdDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459CC312775D3E900125782 /* AppDelegate+XHLaunchAdDelegate.m */; };
+		8459CE112776DB6600125782 /* UIView+UIBackgroundConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459CE102776DB6600125782 /* UIView+UIBackgroundConfig.m */; };
+		8459CE1B2776DCCF00125782 /* 启动页_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 8459CE142776DCCF00125782 /* 启动页_01.png */; };
+		8459CE1C2776DCCF00125782 /* 启动页_02.png in Resources */ = {isa = PBXBuildFile; fileRef = 8459CE152776DCCF00125782 /* 启动页_02.png */; };
+		8459CE1D2776DCCF00125782 /* 启动页_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 8459CE162776DCCF00125782 /* 启动页_03.png */; };
+		8459CE1E2776DCCF00125782 /* 启动页_04.png in Resources */ = {isa = PBXBuildFile; fileRef = 8459CE172776DCCF00125782 /* 启动页_04.png */; };
+		8459CE1F2776DCCF00125782 /* 启动页_05.png in Resources */ = {isa = PBXBuildFile; fileRef = 8459CE182776DCCF00125782 /* 启动页_05.png */; };
+		8459CE202776DCCF00125782 /* JobsWelcomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459CE1A2776DCCF00125782 /* JobsWelcomeVC.m */; };
+		8459CE242776DD4000125782 /* SceneDelegate+UISceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459CE222776DD4000125782 /* SceneDelegate+UISceneDelegate.m */; };
 		ABB2A8B711CC6C1FEF7A4899 /* Pods_JobsBaseConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 013934AB50FCDA373FFA6597 /* Pods_JobsBaseConfig.framework */; };
 		F65541EC060397D8F6D09547 /* Pods_JobsBaseConfigUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */; };
 /* End PBXBuildFile section */
@@ -1236,6 +1244,17 @@
 		8459CC2E2775D3E900125782 /* AppDelegate+UIApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+UIApplicationDelegate.h"; sourceTree = "<group>"; };
 		8459CC302775D3E900125782 /* AppDelegate+XHLaunchAdDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+XHLaunchAdDelegate.h"; sourceTree = "<group>"; };
 		8459CC312775D3E900125782 /* AppDelegate+XHLaunchAdDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+XHLaunchAdDelegate.m"; sourceTree = "<group>"; };
+		8459CE0F2776DB6600125782 /* UIView+UIBackgroundConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UIBackgroundConfig.h"; sourceTree = "<group>"; };
+		8459CE102776DB6600125782 /* UIView+UIBackgroundConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UIBackgroundConfig.m"; sourceTree = "<group>"; };
+		8459CE142776DCCF00125782 /* 启动页_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "启动页_01.png"; sourceTree = "<group>"; };
+		8459CE152776DCCF00125782 /* 启动页_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "启动页_02.png"; sourceTree = "<group>"; };
+		8459CE162776DCCF00125782 /* 启动页_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "启动页_03.png"; sourceTree = "<group>"; };
+		8459CE172776DCCF00125782 /* 启动页_04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "启动页_04.png"; sourceTree = "<group>"; };
+		8459CE182776DCCF00125782 /* 启动页_05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "启动页_05.png"; sourceTree = "<group>"; };
+		8459CE192776DCCF00125782 /* JobsWelcomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsWelcomeVC.h; sourceTree = "<group>"; };
+		8459CE1A2776DCCF00125782 /* JobsWelcomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsWelcomeVC.m; sourceTree = "<group>"; };
+		8459CE222776DD4000125782 /* SceneDelegate+UISceneDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SceneDelegate+UISceneDelegate.m"; sourceTree = "<group>"; };
+		8459CE232776DD4000125782 /* SceneDelegate+UISceneDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SceneDelegate+UISceneDelegate.h"; sourceTree = "<group>"; };
 		845A0B1B276DAC99008E75A5 /* JobsBaseConfigPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsBaseConfigPrefixHeader.pch; sourceTree = "<group>"; };
 		8465454D2769A53A003EC0B5 /* 配置info.plist.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "配置info.plist.md"; sourceTree = "<group>"; };
 		949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JobsBaseConfigUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1298,6 +1317,7 @@
 				840F930327736426004979E9 /* JobsLab */,
 				840F931B27736426004979E9 /* JobsPageTBV */,
 				840F932127736426004979E9 /* JobsSuspend */,
+				8459CE122776DCCF00125782 /* JobsWelcomeVC */,
 			);
 			path = JobsMixFunc;
 			sourceTree = "<group>";
@@ -2279,24 +2299,25 @@
 		840F93A927736426004979E9 /* UIView+Category */ = {
 			isa = PBXGroup;
 			children = (
-				840F93AA27736426004979E9 /* UIView+BaseView */,
-				840F93AD27736426004979E9 /* UIView+SuspendView */,
-				840F93B027736426004979E9 /* UIView+ZFPlayer */,
-				840F93B327736426004979E9 /* UIView+Gesture */,
-				840F93B627736426004979E9 /* UIView+Measure */,
-				840F93B927736426004979E9 /* UIView+Gradient */,
-				840F93BC27736426004979E9 /* UIView+Chain */,
-				840F93BF27736426004979E9 /* UIView+BackgroundLabel */,
-				840F93C227736426004979E9 /* UIView+EmptyData */,
-				840F93C527736426004979E9 /* UIView+BackgroundImage */,
-				840F93C827736426004979E9 /* UIView+ViewController */,
-				840F93CB27736426004979E9 /* UIView+JHGestureBlock */,
 				840F93CE27736426004979E9 /* UIView+Category.h */,
 				840F93CF27736426004979E9 /* UIView+Animation */,
-				840F93D227736426004979E9 /* UIView+AutoSelfAdaptionSize */,
 				840F93D527736426004979E9 /* UIView+AOP */,
-				840F93D827736426004979E9 /* UIView+MJRefresh */,
+				840F93D227736426004979E9 /* UIView+AutoSelfAdaptionSize */,
+				840F93C527736426004979E9 /* UIView+BackgroundImage */,
+				840F93BF27736426004979E9 /* UIView+BackgroundLabel */,
+				840F93AA27736426004979E9 /* UIView+BaseView */,
+				840F93BC27736426004979E9 /* UIView+Chain */,
+				840F93C227736426004979E9 /* UIView+EmptyData */,
 				840F93DB27736426004979E9 /* UIView+Extras */,
+				840F93B327736426004979E9 /* UIView+Gesture */,
+				840F93B927736426004979E9 /* UIView+Gradient */,
+				840F93CB27736426004979E9 /* UIView+JHGestureBlock */,
+				840F93B627736426004979E9 /* UIView+Measure */,
+				840F93D827736426004979E9 /* UIView+MJRefresh */,
+				840F93AD27736426004979E9 /* UIView+SuspendView */,
+				8459CE0E2776DB6600125782 /* UIView+UIBackgroundConfig */,
+				840F93C827736426004979E9 /* UIView+ViewController */,
+				840F93B027736426004979E9 /* UIView+ZFPlayer */,
 			);
 			path = "UIView+Category";
 			sourceTree = "<group>";
@@ -4427,6 +4448,7 @@
 			children = (
 				844B02132764C8EE00B0513D /* SceneDelegate.h */,
 				844B02142764C8EE00B0513D /* SceneDelegate.m */,
+				8459CE212776DD4000125782 /* SceneDelegate+UISceneDelegate */,
 			);
 			path = SceneDelegate;
 			sourceTree = "<group>";
@@ -4833,6 +4855,46 @@
 			path = "AppDelegate+XHLaunchAdDelegate";
 			sourceTree = "<group>";
 		};
+		8459CE0E2776DB6600125782 /* UIView+UIBackgroundConfig */ = {
+			isa = PBXGroup;
+			children = (
+				8459CE0F2776DB6600125782 /* UIView+UIBackgroundConfig.h */,
+				8459CE102776DB6600125782 /* UIView+UIBackgroundConfig.m */,
+			);
+			path = "UIView+UIBackgroundConfig";
+			sourceTree = "<group>";
+		};
+		8459CE122776DCCF00125782 /* JobsWelcomeVC */ = {
+			isa = PBXGroup;
+			children = (
+				8459CE132776DCCF00125782 /* 启动页资源 */,
+				8459CE192776DCCF00125782 /* JobsWelcomeVC.h */,
+				8459CE1A2776DCCF00125782 /* JobsWelcomeVC.m */,
+			);
+			path = JobsWelcomeVC;
+			sourceTree = "<group>";
+		};
+		8459CE132776DCCF00125782 /* 启动页资源 */ = {
+			isa = PBXGroup;
+			children = (
+				8459CE142776DCCF00125782 /* 启动页_01.png */,
+				8459CE152776DCCF00125782 /* 启动页_02.png */,
+				8459CE162776DCCF00125782 /* 启动页_03.png */,
+				8459CE172776DCCF00125782 /* 启动页_04.png */,
+				8459CE182776DCCF00125782 /* 启动页_05.png */,
+			);
+			path = "启动页资源";
+			sourceTree = "<group>";
+		};
+		8459CE212776DD4000125782 /* SceneDelegate+UISceneDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				8459CE222776DD4000125782 /* SceneDelegate+UISceneDelegate.m */,
+				8459CE232776DD4000125782 /* SceneDelegate+UISceneDelegate.h */,
+			);
+			path = "SceneDelegate+UISceneDelegate";
+			sourceTree = "<group>";
+		};
 		B0977B0404F4246F3B021752 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -4980,6 +5042,7 @@
 				840F968227736428004979E9 /* UITextView+IndicateWordLimit.png in Resources */,
 				840F9C66277367B1004979E9 /* 此类主要封装一些本App常用的、可以替换资源的函数调用或者是鉴权机制.md in Resources */,
 				844B086E2764CF4800B0513D /* 相机@3x.png in Resources */,
+				8459CE1F2776DCCF00125782 /* 启动页_05.png in Resources */,
 				844B087C2764CF4800B0513D /* XHLaunchAd不用pod导入的情况说明.md in Resources */,
 				840F95FA27736427004979E9 /* fangzi.json in Resources */,
 				840F961A27736427004979E9 /* JobsImageNumberView.png in Resources */,
@@ -5014,6 +5077,7 @@
 				840F96A927736428004979E9 /* 旋转.png in Resources */,
 				840F95F127736427004979E9 /* tab_me_animate.json in Resources */,
 				840F96D427736428004979E9 /* FileFolderHandleTool.md in Resources */,
+				8459CE1E2776DCCF00125782 /* 启动页_04.png in Resources */,
 				840F966627736428004979E9 /* Sound.wav in Resources */,
 				840F962027736427004979E9 /* 5@2x.png in Resources */,
 				840F961727736427004979E9 /* 登录弹窗@3x.png in Resources */,
@@ -5046,6 +5110,7 @@
 				840F96DB27736428004979E9 /* UBLLivingVC_m in Resources */,
 				840F962627736427004979E9 /* 3@2x.png in Resources */,
 				844B086D2764CF4800B0513D /* 照片@3x.png in Resources */,
+				8459CE1C2776DCCF00125782 /* 启动页_02.png in Resources */,
 				844B08582764CF4800B0513D /* 运动与健身@3x.png in Resources */,
 				840F960327736427004979E9 /* 功能性动效：手势横向滚动子VC联动Tabbar切换.md in Resources */,
 				844B08642764CF4800B0513D /* 蓝牙@3x.png in Resources */,
@@ -5092,8 +5157,10 @@
 				844B08602764CF4800B0513D /* 通讯录@2x.png in Resources */,
 				840F96FF27736428004979E9 /* 获取iOS设备唯一标示.md in Resources */,
 				844B08692764CF4800B0513D /* 文件和文件夹@2x.png in Resources */,
+				8459CE1B2776DCCF00125782 /* 启动页_01.png in Resources */,
 				844B085A2764CF4800B0513D /* 提醒事项@3x.png in Resources */,
 				840F961E27736427004979E9 /* 9@3x.png in Resources */,
+				8459CE1D2776DCCF00125782 /* 启动页_03.png in Resources */,
 				840F962827736427004979E9 /* 8@3x.png in Resources */,
 				840F96E227736428004979E9 /* MonitorNetwoking.md in Resources */,
 				844B021B2764C8EE00B0513D /* Main.storyboard in Resources */,
@@ -5282,6 +5349,7 @@
 				840F966927736428004979E9 /* UIColor+Gradient.m in Sources */,
 				840F96AA27736428004979E9 /* UIViewController+SuspendBtn.m in Sources */,
 				840F96FA27736428004979E9 /* KeychainHelper.m in Sources */,
+				8459CE202776DCCF00125782 /* JobsWelcomeVC.m in Sources */,
 				840F960A27736427004979E9 /* BWItemModel.m in Sources */,
 				840F96EA27736428004979E9 /* NSObject+SPAlertController.m in Sources */,
 				840F96EB27736428004979E9 /* NSObject+SYSAlertController.m in Sources */,
@@ -5307,6 +5375,7 @@
 				844B083B2764CF4800B0513D /* JXCategoryTitleBackgroundCell.m in Sources */,
 				844B08502764CF4800B0513D /* ECPrivacyCheckPhotos.m in Sources */,
 				840F960B27736427004979E9 /* BWShareView.m in Sources */,
+				8459CE242776DD4000125782 /* SceneDelegate+UISceneDelegate.m in Sources */,
 				844B083A2764CF4800B0513D /* JXCategoryTitleBackgroundCellModel.m in Sources */,
 				844B083C2764CF4800B0513D /* JXCategoryTitleBackgroundView.m in Sources */,
 				840F967327736428004979E9 /* UIView+BackgroundLabel.m in Sources */,
@@ -5480,6 +5549,7 @@
 				844B08432764CF4800B0513D /* ZWPullMenuCell.m in Sources */,
 				840F968627736428004979E9 /* UICollectionView+XSAnimationKit.m in Sources */,
 				8459CC322775D3E900125782 /* AppDelegate+Func.m in Sources */,
+				8459CE112776DB6600125782 /* UIView+UIBackgroundConfig.m in Sources */,
 				840F96C227736428004979E9 /* BaseTableViewFooterView.m in Sources */,
 				840F970227736428004979E9 /* NSObject+Extras.m in Sources */,
 				840F96C027736428004979E9 /* UITableViewHeaderFooterView+BaseTableViewHeaderFooterViewProtocol.m in Sources */,

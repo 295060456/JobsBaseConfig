@@ -1,15 +1,23 @@
 //
 //  SceneDelegate.h
-//  JobsBaseConfig
+//  Casino
 //
-//  Created by Jobs on 2021/12/11.
+//  Created by Jobs on 2021/11/16.
 //
 
 #import <UIKit/UIKit.h>
+#import "NSObject+Extras.h"
 
-@interface SceneDelegate : UIResponder <UIWindowSceneDelegate>
+API_AVAILABLE(ios(13.0))
 
-@property (strong, nonatomic) UIWindow * window;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunguarded-availability-new"
+
+@interface SceneDelegate : UIResponder
+
+@property(nonatomic,strong)UIWindow *window;
+@property(nonatomic,strong)UIWindowScene *windowScene;
 
 @end
 
+#pragma clang diagnostic pop

@@ -25,5 +25,6 @@
 #import "UIView+SuspendView.h"
 #import "UIView+ViewController.h"
 #import "UIView+ZFPlayer.h"
+#import "UIView+UIBackgroundConfig.h"
 
 #endif /* UIView_Category_h */

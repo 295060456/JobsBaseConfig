@@ -64,7 +64,7 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
         ConfigMutArr = NSMutableArray.array;
         {
             JobsTabBarControllerConfig *config = JobsTabBarControllerConfig.new;
-            config.vc = CasinoHomeVC.new;
+            config.vc = UIViewController.new;
             config.title = Internationalization(@"Home");
             config.imageSelected = KIMG(@"tabbbar_home_seleteds");
             config.imageUnselected = KIMG(@"tabbbar_home_normal");
@@ -76,7 +76,7 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
         
         {
             JobsTabBarControllerConfig *config = JobsTabBarControllerConfig.new;
-            config.vc = CasinoXiMaVC.new;
+            config.vc = UIViewController.new;
             config.title = Internationalization(@"XiMa");
             config.imageSelected = KIMG(@"tabbbar_weights_seleteds");
             config.imageUnselected = KIMG(@"tabbbar_weights_normal");
@@ -88,7 +88,7 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
         
         {
             JobsTabBarControllerConfig *config = JobsTabBarControllerConfig.new;
-            config.vc = CasinoRechargeVC.new;
+            config.vc = UIViewController.new;
             config.title = Internationalization(@"Recharge");
             config.imageSelected = KIMG(@"tabbbar_pay_seleteds");
             config.imageUnselected = KIMG(@"tabbbar_pay_normal");
@@ -100,7 +100,7 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
         
         {
             JobsTabBarControllerConfig *config = JobsTabBarControllerConfig.new;
-            config.vc = CasinoCustomerServiceVC.new;
+            config.vc = UIViewController.new;
             config.title = Internationalization(@"CustomerService");
             config.imageSelected = KIMG(@"tabbbar_service_seleteds");
             config.imageUnselected = KIMG(@"tabbbar_service_normal");
@@ -112,7 +112,7 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
         
         {
             JobsTabBarControllerConfig *config = JobsTabBarControllerConfig.new;
-            config.vc = CasinoMemberCenterVC.new;
+            config.vc = UIViewController.new;
             config.title = Internationalization(@"MemberCenter");
             config.imageSelected = KIMG(@"tabbar_VIP_seleteds");
             config.imageUnselected = KIMG(@"tabbar_VIP_normal");

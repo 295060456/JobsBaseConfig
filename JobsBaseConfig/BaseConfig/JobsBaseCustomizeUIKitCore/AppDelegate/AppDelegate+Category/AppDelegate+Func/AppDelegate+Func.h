@@ -8,6 +8,7 @@
 #import "AppDelegate.h"
 #import "SceneDelegate.h"
 #import "MacroDef_Func.h"
+#import "NSObject+UserInfo.h"
 
 #if __has_include(<Reachability/Reachability.h>)
 #import <Reachability/Reachability.h>

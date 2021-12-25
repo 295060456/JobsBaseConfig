@@ -44,5 +44,4 @@
     self.tableViewHeaderViewBlock = tableViewHeaderViewBlock;
 }
 
-
 @end

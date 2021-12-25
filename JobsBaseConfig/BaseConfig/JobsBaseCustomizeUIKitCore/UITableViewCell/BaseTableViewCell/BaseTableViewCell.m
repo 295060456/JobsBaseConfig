@@ -14,7 +14,7 @@
 
 @implementation BaseTableViewCell
 
-@synthesize idxPath = _idxPath;
+@synthesize indexPath = _indexPath;
 
 +(instancetype)cellWithTableView:(UITableView *)tableView{
     BaseTableViewCell *cell = (BaseTableViewCell *)[tableView dequeueReusableCellWithIdentifier:reuseIdentifier(self.class)];
@@ -35,8 +35,11 @@
 }
 
 -(void)richElementsInCellWithModel:(UIViewModel *_Nullable)model{
-    self.textLabel.text = [NSString stringWithFormat:@"%@",model.text];
-    self.detailTextLabel.text = [NSString stringWithFormat:@"%@",model.subText];
+    if (model) {
+        self.viewModel = model;
+        self.textLabel.text = [NSString stringWithFormat:@"%@",model.text];
+        self.detailTextLabel.text = [NSString stringWithFormat:@"%@",model.subText];
+    }
 }
 
 +(CGFloat)cellHeightWithModel:(UIViewModel *_Nullable)model{
@@ -152,12 +155,12 @@ makeFirstAndLastCell:(nonnull UITableViewCell *)cell
     cell.selectedBackgroundView = selectBgView;
 }
 #pragma mark —— 协议属性合成set & get方法
--(void)setIdxPath:(NSIndexPath *)idxPath{
-    _idxPath = idxPath;
+-(void)setindexPath:(NSIndexPath *)indexPath{
+    _indexPath = indexPath;
 }
 
--(NSIndexPath *)idxPath{
-    return _idxPath;
+-(NSIndexPath *)indexPath{
+    return _indexPath;
 }
 
 @end
