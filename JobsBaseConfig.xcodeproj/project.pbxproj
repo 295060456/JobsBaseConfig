@@ -438,6 +438,7 @@
 		8459D6172779A6CC00125782 /* CasinoCustomerServiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459D6142779A6CC00125782 /* CasinoCustomerServiceView.m */; };
 		8459D6182779A6CC00125782 /* CasinoCustomerServiceView.png in Resources */ = {isa = PBXBuildFile; fileRef = 8459D6152779A6CC00125782 /* CasinoCustomerServiceView.png */; };
 		8459D61C2779A88A00125782 /* CasinoCustomerContactModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459D61B2779A88900125782 /* CasinoCustomerContactModel.m */; };
+		84868DA32779DDA50098BE7A /* ZMJCells.m in Sources */ = {isa = PBXBuildFile; fileRef = 84868DA22779DDA50098BE7A /* ZMJCells.m */; };
 		ABB2A8B711CC6C1FEF7A4899 /* Pods_JobsBaseConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 013934AB50FCDA373FFA6597 /* Pods_JobsBaseConfig.framework */; };
 		F65541EC060397D8F6D09547 /* Pods_JobsBaseConfigUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */; };
 /* End PBXBuildFile section */
@@ -1272,6 +1273,8 @@
 		8459D61B2779A88900125782 /* CasinoCustomerContactModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasinoCustomerContactModel.m; sourceTree = "<group>"; };
 		845A0B1B276DAC99008E75A5 /* JobsBaseConfigPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsBaseConfigPrefixHeader.pch; sourceTree = "<group>"; };
 		8465454D2769A53A003EC0B5 /* 配置info.plist.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "配置info.plist.md"; sourceTree = "<group>"; };
+		84868DA12779DDA50098BE7A /* ZMJCells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMJCells.h; sourceTree = "<group>"; };
+		84868DA22779DDA50098BE7A /* ZMJCells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMJCells.m; sourceTree = "<group>"; };
 		949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JobsBaseConfigUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEDDD2E7A82BF58DE2012E29 /* Pods-JobsBaseConfigUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobsBaseConfigUITests.debug.xcconfig"; path = "Target Support Files/Pods-JobsBaseConfigUITests/Pods-JobsBaseConfigUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1318,6 +1321,7 @@
 			isa = PBXGroup;
 			children = (
 				840F92C527736425004979E9 /* JobsMixFunc.h */,
+				84868DA02779DDA50098BE7A /* ZMJCells */,
 				8459D6132779A6CC00125782 /* CustomerContactStyle */,
 				8459CF132776F7C600125782 /* 版本升级弹窗 */,
 				840F92D827736425004979E9 /* 播放器控制层 */,
@@ -4732,9 +4736,9 @@
 		844B081A2764CF4800B0513D /* ZMJCell+CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				844B081F2764CF4800B0513D /* ZMJCell+CustomView.h */,
 				844B081B2764CF4800B0513D /* ZMJCell+CustomView.m */,
 				844B081C2764CF4800B0513D /* ZMJGanttChartDemo */,
-				844B081F2764CF4800B0513D /* ZMJCell+CustomView.h */,
 			);
 			path = "ZMJCell+CustomView";
 			sourceTree = "<group>";
@@ -4957,6 +4961,15 @@
 				8459D61B2779A88900125782 /* CasinoCustomerContactModel.m */,
 			);
 			path = CasinoCustomerContactModel;
+			sourceTree = "<group>";
+		};
+		84868DA02779DDA50098BE7A /* ZMJCells */ = {
+			isa = PBXGroup;
+			children = (
+				84868DA12779DDA50098BE7A /* ZMJCells.h */,
+				84868DA22779DDA50098BE7A /* ZMJCells.m */,
+			);
+			path = ZMJCells;
 			sourceTree = "<group>";
 		};
 		B0977B0404F4246F3B021752 /* Pods */ = {
@@ -5628,6 +5641,7 @@
 				840F96F327736428004979E9 /* NSObject+CurrentDevice.m in Sources */,
 				844B08822764CF4800B0513D /* XHLaunchAdCache.m in Sources */,
 				844B08722764CF4800B0513D /* ECPrivacyCheckGatherTool.m in Sources */,
+				84868DA32779DDA50098BE7A /* ZMJCells.m in Sources */,
 				844B02152764C8EE00B0513D /* SceneDelegate.m in Sources */,
 				840F96AC27736428004979E9 /* MJRefreshConfigModel.m in Sources */,
 				840F961527736427004979E9 /* ZFCustomControlView.m in Sources */,

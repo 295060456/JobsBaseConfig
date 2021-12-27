@@ -86,10 +86,14 @@
               cellForItemAt:(NSIndexPath *)indexPath{
     ZMJHeaderCell *Cell = (ZMJHeaderCell *)[spreadsheetView dequeueReusableCellWithReuseIdentifier:ZMJHeaderCell.description
                                                                                       forIndexPath:indexPath];
-    Cell.label.text = self.dataMutArr[indexPath.row].readModelPropertyValueByOrder[indexPath.column];
-//    [Cell.label labelAutoWidthByFont];
+    [Cell.btn normalTitle:self.dataMutArr[indexPath.row].readModelPropertyValueByOrder[indexPath.column]];
+    
     Cell.gridlines.left = [GridStyle style:GridStyle_default width:0 color:nil];
     Cell.gridlines.right = [GridStyle borderStyleNone];
+    
+    Cell.backgroundColor = indexPath.row ? HEXCOLOR(0xFBF7E3) : HEXCOLOR(0xB6843B);
+    [Cell.btn normalTitleColor:indexPath.row ? HEXCOLOR(0x524740) : UIColor.blackColor];
+    
     return Cell;
 }
 //@optional
@@ -123,7 +127,8 @@
              forCellWithReuseIdentifier:reuseIdentifier(ZMJTextCell)];
         [_spreadsheetView registerClass:ZMJTaskCell.class
              forCellWithReuseIdentifier:reuseIdentifier(ZMJTaskCell)];
-        [_spreadsheetView registerClass:ZMJChartBarCell.class forCellWithReuseIdentifier:reuseIdentifier(ZMJChartBarCell)];
+        [_spreadsheetView registerClass:ZMJChartBarCell.class
+             forCellWithReuseIdentifier:reuseIdentifier(ZMJChartBarCell)];
         
     }return _spreadsheetView;
 }
