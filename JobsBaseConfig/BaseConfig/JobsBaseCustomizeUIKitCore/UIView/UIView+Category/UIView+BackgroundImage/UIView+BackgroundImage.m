@@ -26,6 +26,7 @@ static char *UIView_BackgroundImage_backgroundImageView = "UIView_BackgroundImag
         BackgroundImageView.userInteractionEnabled = YES;
         BackgroundImageView.contentMode = UIViewContentModeScaleToFill;
 
+        self.backgroundColor = UIColor.whiteColor;
         if ([self isKindOfClass:UICollectionViewCell.class]) {
             UICollectionViewCell *cell = (UICollectionViewCell *)self;
             [cell.contentView addSubview:BackgroundImageView];
