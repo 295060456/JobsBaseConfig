@@ -13,5 +13,6 @@
 #pragma mark —— Category
 #import "UILabel+Gesture.h"
 #import "UILabel+Measure.h"
+#import "UILabel+Extra.h"
 
 #endif /* JobsLabel_h */
