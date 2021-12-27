@@ -324,7 +324,6 @@
 		840F9C5A27736583004979E9 /* 安全区域.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F9C4427736583004979E9 /* 安全区域.png */; };
 		840F9C5B27736583004979E9 /* iPhone尺寸.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F9C4627736583004979E9 /* iPhone尺寸.png */; };
 		840F9C5C27736583004979E9 /* iPad尺寸.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F9C4727736583004979E9 /* iPad尺寸.png */; };
-		840F9C6027736736004979E9 /* CasinoCustomerContactModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F9C5F27736736004979E9 /* CasinoCustomerContactModel.m */; };
 		840F9C65277367B1004979E9 /* NSObject+AppTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F9C62277367B1004979E9 /* NSObject+AppTools.m */; };
 		840F9C66277367B1004979E9 /* 此类主要封装一些本App常用的、可以替换资源的函数调用或者是鉴权机制.md in Resources */ = {isa = PBXBuildFile; fileRef = 840F9C64277367B1004979E9 /* 此类主要封装一些本App常用的、可以替换资源的函数调用或者是鉴权机制.md */; };
 		840F9C6A277367E8004979E9 /* NSObject+UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F9C69277367E8004979E9 /* NSObject+UserInfo.m */; };
@@ -436,6 +435,9 @@
 		8459CF1B2776F7C600125782 /* CasinoUpgradeContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459CF192776F7C600125782 /* CasinoUpgradeContentView.m */; };
 		8459CF1E2776F87F00125782 /* 弹窗升级背景图@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8459CF1C2776F87F00125782 /* 弹窗升级背景图@3x.png */; };
 		8459CF1F2776F87F00125782 /* 弹窗升级背景图@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8459CF1D2776F87F00125782 /* 弹窗升级背景图@2x.png */; };
+		8459D6172779A6CC00125782 /* CasinoCustomerServiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459D6142779A6CC00125782 /* CasinoCustomerServiceView.m */; };
+		8459D6182779A6CC00125782 /* CasinoCustomerServiceView.png in Resources */ = {isa = PBXBuildFile; fileRef = 8459D6152779A6CC00125782 /* CasinoCustomerServiceView.png */; };
+		8459D61C2779A88A00125782 /* CasinoCustomerContactModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459D61B2779A88900125782 /* CasinoCustomerContactModel.m */; };
 		ABB2A8B711CC6C1FEF7A4899 /* Pods_JobsBaseConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 013934AB50FCDA373FFA6597 /* Pods_JobsBaseConfig.framework */; };
 		F65541EC060397D8F6D09547 /* Pods_JobsBaseConfigUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */; };
 /* End PBXBuildFile section */
@@ -1077,8 +1079,6 @@
 		840F9C5627736583004979E9 /* MacroDef_Print.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDef_Print.h; sourceTree = "<group>"; };
 		840F9C5727736583004979E9 /* MacroDef_Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDef_Notification.h; sourceTree = "<group>"; };
 		840F9C5927736583004979E9 /* MacroDef_Cor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDef_Cor.h; sourceTree = "<group>"; };
-		840F9C5E27736736004979E9 /* CasinoCustomerContactModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CasinoCustomerContactModel.h; sourceTree = "<group>"; };
-		840F9C5F27736736004979E9 /* CasinoCustomerContactModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasinoCustomerContactModel.m; sourceTree = "<group>"; };
 		840F9C62277367B1004979E9 /* NSObject+AppTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AppTools.m"; sourceTree = "<group>"; };
 		840F9C63277367B1004979E9 /* NSObject+AppTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AppTools.h"; sourceTree = "<group>"; };
 		840F9C64277367B1004979E9 /* 此类主要封装一些本App常用的、可以替换资源的函数调用或者是鉴权机制.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "此类主要封装一些本App常用的、可以替换资源的函数调用或者是鉴权机制.md"; sourceTree = "<group>"; };
@@ -1265,6 +1265,11 @@
 		8459CF192776F7C600125782 /* CasinoUpgradeContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasinoUpgradeContentView.m; sourceTree = "<group>"; };
 		8459CF1C2776F87F00125782 /* 弹窗升级背景图@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹窗升级背景图@3x.png"; sourceTree = "<group>"; };
 		8459CF1D2776F87F00125782 /* 弹窗升级背景图@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹窗升级背景图@2x.png"; sourceTree = "<group>"; };
+		8459D6142779A6CC00125782 /* CasinoCustomerServiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasinoCustomerServiceView.m; sourceTree = "<group>"; };
+		8459D6152779A6CC00125782 /* CasinoCustomerServiceView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CasinoCustomerServiceView.png; sourceTree = "<group>"; };
+		8459D6162779A6CC00125782 /* CasinoCustomerServiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CasinoCustomerServiceView.h; sourceTree = "<group>"; };
+		8459D61A2779A88900125782 /* CasinoCustomerContactModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CasinoCustomerContactModel.h; sourceTree = "<group>"; };
+		8459D61B2779A88900125782 /* CasinoCustomerContactModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasinoCustomerContactModel.m; sourceTree = "<group>"; };
 		845A0B1B276DAC99008E75A5 /* JobsBaseConfigPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsBaseConfigPrefixHeader.pch; sourceTree = "<group>"; };
 		8465454D2769A53A003EC0B5 /* 配置info.plist.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "配置info.plist.md"; sourceTree = "<group>"; };
 		949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JobsBaseConfigUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1313,6 +1318,7 @@
 			isa = PBXGroup;
 			children = (
 				840F92C527736425004979E9 /* JobsMixFunc.h */,
+				8459D6132779A6CC00125782 /* CustomerContactStyle */,
 				8459CF132776F7C600125782 /* 版本升级弹窗 */,
 				840F92D827736425004979E9 /* 播放器控制层 */,
 				840F92BD27736425004979E9 /* 分享控件 */,
@@ -1582,7 +1588,6 @@
 		840F92C627736425004979E9 /* JobsHotLabel */ = {
 			isa = PBXGroup;
 			children = (
-				840F9C5D27736736004979E9 /* CasinoCustomerContactModel */,
 				840F92C727736425004979E9 /* JobsHotLabel.h */,
 				840F92C827736425004979E9 /* JobsHotLabel.m */,
 			);
@@ -4322,15 +4327,6 @@
 			path = MacroDef_Cor;
 			sourceTree = "<group>";
 		};
-		840F9C5D27736736004979E9 /* CasinoCustomerContactModel */ = {
-			isa = PBXGroup;
-			children = (
-				840F9C5E27736736004979E9 /* CasinoCustomerContactModel.h */,
-				840F9C5F27736736004979E9 /* CasinoCustomerContactModel.m */,
-			);
-			path = CasinoCustomerContactModel;
-			sourceTree = "<group>";
-		};
 		840F9C61277367B1004979E9 /* NSObject+AppTools */ = {
 			isa = PBXGroup;
 			children = (
@@ -4794,11 +4790,12 @@
 		844B0E482764DE0200B0513D /* DAO */ = {
 			isa = PBXGroup;
 			children = (
-				844B12862764E5C200B0513D /* URLManagerModel */,
+				844B0E562764DE2D00B0513D /* DAO.h */,
 				844B0E4D2764DE1900B0513D /* BaseModel */,
+				8459D6192779A88900125782 /* CasinoCustomerContactModel */,
 				844B0E4A2764DE1900B0513D /* DDResponseModel */,
 				844B0E502764DE1A00B0513D /* DDUserModel */,
-				844B0E562764DE2D00B0513D /* DAO.h */,
+				844B12862764E5C200B0513D /* URLManagerModel */,
 			);
 			path = DAO;
 			sourceTree = "<group>";
@@ -4941,6 +4938,25 @@
 				8459CF1C2776F87F00125782 /* 弹窗升级背景图@3x.png */,
 			);
 			path = "版本升级弹窗(资源)";
+			sourceTree = "<group>";
+		};
+		8459D6132779A6CC00125782 /* CustomerContactStyle */ = {
+			isa = PBXGroup;
+			children = (
+				8459D6162779A6CC00125782 /* CasinoCustomerServiceView.h */,
+				8459D6142779A6CC00125782 /* CasinoCustomerServiceView.m */,
+				8459D6152779A6CC00125782 /* CasinoCustomerServiceView.png */,
+			);
+			path = CustomerContactStyle;
+			sourceTree = "<group>";
+		};
+		8459D6192779A88900125782 /* CasinoCustomerContactModel */ = {
+			isa = PBXGroup;
+			children = (
+				8459D61A2779A88900125782 /* CasinoCustomerContactModel.h */,
+				8459D61B2779A88900125782 /* CasinoCustomerContactModel.m */,
+			);
+			path = CasinoCustomerContactModel;
 			sourceTree = "<group>";
 		};
 		B0977B0404F4246F3B021752 /* Pods */ = {
@@ -5162,6 +5178,7 @@
 				844B08582764CF4800B0513D /* 运动与健身@3x.png in Resources */,
 				840F960327736427004979E9 /* 功能性动效：手势横向滚动子VC联动Tabbar切换.md in Resources */,
 				844B08642764CF4800B0513D /* 蓝牙@3x.png in Resources */,
+				8459D6182779A6CC00125782 /* CasinoCustomerServiceView.png in Resources */,
 				844B08652764CF4800B0513D /* 语音识别@3x.png in Resources */,
 				8459CF1F2776F87F00125782 /* 弹窗升级背景图@2x.png in Resources */,
 				840F970727736428004979E9 /* toastLoading.gif in Resources */,
@@ -5509,9 +5526,9 @@
 				844B08392764CF4800B0513D /* RACEXTRuntimeExtensions.m in Sources */,
 				840F960F27736427004979E9 /* ZBURLRequest.m in Sources */,
 				840F967227736428004979E9 /* UIView+Chain.m in Sources */,
-				840F9C6027736736004979E9 /* CasinoCustomerContactModel.m in Sources */,
 				844B12892764E5C200B0513D /* URLManagerModel.m in Sources */,
 				840F960427736427004979E9 /* TransitionController.m in Sources */,
+				8459D61C2779A88A00125782 /* CasinoCustomerContactModel.m in Sources */,
 				840F970A27736428004979E9 /* NSObject+UNUserNotificationCenterDelegate.m in Sources */,
 				840F969727736428004979E9 /* NSString+Path.m in Sources */,
 				840F96A527736428004979E9 /* UIViewController+Shake.m in Sources */,
@@ -5527,6 +5544,7 @@
 				840F969827736428004979E9 /* NSString+Judgment.m in Sources */,
 				844B02182764C8EE00B0513D /* ViewController.m in Sources */,
 				844B08492764CF4800B0513D /* ECPrivacyCheckCamera.m in Sources */,
+				8459D6172779A6CC00125782 /* CasinoCustomerServiceView.m in Sources */,
 				844B087A2764CF4800B0513D /* XHLaunchImageView.m in Sources */,
 				840F96D527736428004979E9 /* FileFolderHandleTool.m in Sources */,
 				840F96D627736428004979E9 /* DispatchTimerManager.m in Sources */,

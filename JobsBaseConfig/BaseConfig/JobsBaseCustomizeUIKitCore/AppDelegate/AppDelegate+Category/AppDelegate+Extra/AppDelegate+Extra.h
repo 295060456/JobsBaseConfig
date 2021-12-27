@@ -6,8 +6,13 @@
 //
 
 #import "AppDelegate.h"
+
+#import "NSObject+AppTools.h"
+
 #import "JobsTabbarVC.h"
 #import "JobsTabBarControllerConfig.h"
+
+#import "CasinoCustomerServiceView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

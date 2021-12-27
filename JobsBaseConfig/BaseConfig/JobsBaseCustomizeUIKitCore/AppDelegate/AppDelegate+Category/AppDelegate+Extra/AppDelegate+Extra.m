@@ -18,6 +18,18 @@ static char *AppDelegate_Extra_configMutArr = "AppDelegate_Extra_configMutArr";
 static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitleMutArr";
 @dynamic tabBarTitleMutArr;
 
+-(TFPopupParam *)appDelegatePopupParameter{
+    TFPopupParam *PopupParameter = TFPopupParam.new;
+    PopupParameter.duration = 0.3f;
+    PopupParameter.showAnimationDelay = 0.1f;
+    PopupParameter.hideAnimationDelay = 0.1f;
+    PopupParameter.dragEnable = YES;
+    PopupParameter.offset = CGPointMake(0,-TabBarHeightByBottomSafeArea(self.tabBarVC));
+    PopupParameter.disuseBackgroundTouchHide = YES;
+    PopupParameter.popupSize = [CasinoCustomerServiceView viewSizeWithModel:nil];
+    return PopupParameter;
+}
+
 #pragma mark —— @property(nonatomic,strong)JobsTabbarVC *tabBarVC;
 -(JobsTabbarVC *)tabBarVC{
     JobsTabbarVC *TabBarVC = objc_getAssociatedObject(self, AppDelegate_Extra_tabBarVC);
@@ -40,6 +52,17 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
                 BOOL ok = num.integerValue != 3;
                 if (!ok) {
                     [WHToast toastMsg:@"AAAA"];
+                    
+                    CasinoCustomerServiceView *customerServiceView = CasinoCustomerServiceView.new;
+                    [customerServiceView actionViewBlock:^(id data) {
+                        [customerServiceView tf_hide];
+                    }];
+                    customerServiceView.size = [CasinoCustomerServiceView viewSizeWithModel:self.hotLabelDataMutArr];
+                    [customerServiceView richElementsInViewWithModel:self.hotLabelDataMutArr];
+                    [customerServiceView tf_showSlide:getMainWindow()
+                                            direction:PopupDirectionBottom
+                                           popupParam:self.appDelegatePopupParameter];
+                    
                 }return @(ok);
             }return @(YES);
         }];

@@ -9,9 +9,6 @@
 
 @implementation AppDelegate (Func)
 
-static char *AppDelegate_Func_popupParam = "AppDelegate_Func_popupParam";
-@dynamic popupParam;
-
 -(void)reachabilityChanged:(NSNotification *)notify{}
 
 #pragma mark —— 启动调用功能
@@ -69,12 +66,12 @@ static char *AppDelegate_Func_popupParam = "AppDelegate_Func_popupParam";
 }
 #pragma mark —— 全局配置 TABAnimated
 -(void)makeTABAnimatedConfigure{
-    [[TABAnimated sharedAnimated] initWithOnlySkeleton];
-    [TABAnimated sharedAnimated].openLog = YES;
+    [TABAnimated.sharedAnimated initWithOnlySkeleton];
+    TABAnimated.sharedAnimated.openLog = YES;
 }
 #pragma mark —— 全局配置键盘
 -(void)makeIQKeyboardManagerConfigure{
-    IQKeyboardManager *keyboardManager = [IQKeyboardManager sharedManager]; // 获取类库的单例变量
+    IQKeyboardManager *keyboardManager = IQKeyboardManager.sharedManager; // 获取类库的单例变量
     keyboardManager.enable = YES; // 控制整个功能是否启用
     keyboardManager.shouldResignOnTouchOutside = YES; // 启用手势触摸:控制点击背景是否收起键盘
     keyboardManager.shouldToolbarUsesTextFieldTintColor = YES; // 控制键盘上的工具条文字颜色是否用户自定义,(使用TextField的tintColor属性IQToolbar，否则色调的颜色是黑色 )
@@ -110,14 +107,14 @@ static char *AppDelegate_Func_popupParam = "AppDelegate_Func_popupParam";
     reach.reachableOnWWAN = NO;
     // Here we set up a NSNotification observer. The Reachability that caused the notification
     // is passed in the object parameter
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reachabilityChanged:)
-                                                 name:kReachabilityChangedNotification
-                                               object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self
+                                           selector:@selector(reachabilityChanged:)
+                                               name:kReachabilityChangedNotification
+                                             object:nil];
     [reach startNotifier];
     dispatch_async(dispatch_get_main_queue(), ^{
-         [[NSNotificationCenter defaultCenter] postNotificationName:kReachabilityChangedNotification
-                                                             object:self];
+         [NSNotificationCenter.defaultCenter postNotificationName:kReachabilityChangedNotification
+                                                           object:self];
      });
 }
 #pragma mark —— 开屏广告
@@ -389,30 +386,6 @@ static char *AppDelegate_Func_popupParam = "AppDelegate_Func_popupParam";
 //    } failure:^(NSError *error) {
 //
 //    }];
-}
-#pragma mark —— @property(nonatomic,strong)TFPopupParam *popupParam;
--(TFPopupParam *)popupParam{
-    TFPopupParam *PopupParam = objc_getAssociatedObject(self, AppDelegate_Func_popupParam);
-    if (!PopupParam) {
-        PopupParam = TFPopupParam.new;
-        PopupParam.duration = 0.3f;
-        PopupParam.showAnimationDelay = 0.1f;
-        PopupParam.hideAnimationDelay = 0.1f;
-        PopupParam.offset = CGPointMake(0,-TabBarHeightByBottomSafeArea(self.tabBarVC));
-        PopupParam.dragEnable = YES;
-        PopupParam.popupSize = CGSizeMake(KWidth(345), KWidth(200));
-        objc_setAssociatedObject(self,
-                                 AppDelegate_Func_popupParam,
-                                 PopupParam,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }return PopupParam;
-}
-
--(void)setPopupParam:(TFPopupParam *)popupParam{
-    objc_setAssociatedObject(self,
-                             AppDelegate_Func_popupParam,
-                             popupParam,
-                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 @end

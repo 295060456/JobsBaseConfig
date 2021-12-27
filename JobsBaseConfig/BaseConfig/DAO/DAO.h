@@ -12,5 +12,6 @@
 #import "DDResponseModel.h"
 #import "BaseModel.h"
 #import "URLManagerModel.h"
+#import "CasinoCustomerContactModel.h"
 
 #endif /* DAO_h */

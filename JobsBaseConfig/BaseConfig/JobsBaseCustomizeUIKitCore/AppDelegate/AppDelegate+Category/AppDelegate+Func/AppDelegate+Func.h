@@ -56,8 +56,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AppDelegate (Func)
 
-@property(nonatomic,strong)TFPopupParam *popupParam;
-
 #pragma mark —— 启动调用功能
 +(void)launchFunc1;
 -(void)launchFunc2;

@@ -9,6 +9,12 @@
 
 @implementation NSObject (AppTools)
 
+static char *NSObject_AppTools_customerContactModel = "NSObject_AppTools_customerContactModel";
+@dynamic customerContactModel;
+
+static char *NSObject_AppTools_hotLabelDataMutArr = "NSObject_AppTools_hotLabelDataMutArr";
+@dynamic hotLabelDataMutArr;
+
 #pragma mark —— BaseProtocol
 /// 【通知监听】国际化语言修改UI
 /// @param targetView 需要铆定的UI
@@ -87,5 +93,83 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
     [self popupWithView:upgradePopupView];
 }
 
+-(void)actionForHotLabel:(JobsHotLabel *)hl{
+    @jobs_weakify(self)
+    [hl actionViewBlock:^(UIButton *btn) {
+        @jobs_strongify(self)
+        if([btn.objBindingParams isKindOfClass:CasinoCustomerContactElementModel.class]){
+            CasinoCustomerContactElementModel *customerContactElementModel = (CasinoCustomerContactElementModel *)btn.objBindingParams;
+
+            switch (customerContactElementModel.customerMark) {
+                case CustomerContactStyle_QQ:{
+                    [NSObject openURL:[NSString stringWithFormat:@"mqq://im/chat?chat_type=wpa&uin=%@&version=1&src_type=web",customerContactElementModel.customer]];
+                }break;
+                case CustomerContactStyle_Skype:{
+                    [NSObject openURL:[NSString stringWithFormat:@"skype://%@?chat",customerContactElementModel.customer]];
+                }break;
+                case CustomerContactStyle_Telegram:{
+                    [NSObject openURL:[NSString stringWithFormat:@"https://t.me/%@",customerContactElementModel.customer]];
+                }break;
+                case CustomerContactStyle_whatsApp:{
+//                            [NSObject openURL:@""];
+                    [WHToast toastMsg:@"打开whatsApp未配置"];
+                }break;
+                case CustomerContactStyle_手机号码:{
+//                            [NSObject openURL:@""];
+                    [WHToast toastMsg:@"打开手机号码未配置"];
+                }break;
+                case CustomerContactStyle_onlineURL:{
+//                            [NSObject openURL:@""];
+                    [WHToast toastMsg:@"打开onlineURL未配置"];
+                }break;
+
+                default:
+                    break;
+            }
+        }
+    }];
+}
+#pragma mark —— @property(nonatomic,strong)CasinoCustomerContactModel *customerContactModel;
+-(CasinoCustomerContactModel *)customerContactModel{
+    return objc_getAssociatedObject(self, NSObject_AppTools_customerContactModel);
+}
+
+-(void)setCustomerContactModel:(CasinoCustomerContactModel *)customerContactModel{
+    objc_setAssociatedObject(self,
+                             NSObject_AppTools_customerContactModel,
+                             customerContactModel,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,strong)NSMutableArray<UIViewModel *> *hotLabelDataMutArr;
+-(NSMutableArray<UIViewModel *> *)hotLabelDataMutArr{
+    NSMutableArray<UIViewModel *> *HotLabelDataMutArr = objc_getAssociatedObject(self, NSObject_AppTools_hotLabelDataMutArr);
+    if (!HotLabelDataMutArr) {
+        HotLabelDataMutArr = NSMutableArray.array;
+        
+        for (CasinoCustomerContactElementModel *element in self.customerContactModel.customerList) {
+            UIViewModel *vm = UIViewModel.new;
+
+            vm.objBindingParams = element;
+            vm.bgImageURLString = @"";//[NSObject.BaseUrl stringByAppendingString:element.appIconUrl];
+            vm.text = @"";
+            vm.size = CGSizeMake(KWidth(46), KWidth(46));
+            vm.offsetXForEach = KWidth(46);
+            vm.offsetYForEach = KWidth(46);
+            [HotLabelDataMutArr addObject:vm];
+        }
+        
+        objc_setAssociatedObject(self,
+                                 NSObject_AppTools_hotLabelDataMutArr,
+                                 HotLabelDataMutArr,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return HotLabelDataMutArr;
+}
+
+-(void)setHotLabelDataMutArr:(NSMutableArray<UIViewModel *> *)hotLabelDataMutArr{
+    objc_setAssociatedObject(self,
+                             NSObject_AppTools_hotLabelDataMutArr,
+                             hotLabelDataMutArr,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 @end
 

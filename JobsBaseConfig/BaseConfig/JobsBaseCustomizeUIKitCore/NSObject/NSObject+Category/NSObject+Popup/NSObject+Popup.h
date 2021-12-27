@@ -20,9 +20,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// UI
 @property(nonatomic,strong)JobsNoticePopupView *popupView;
 /// Data
-@property(nonatomic,strong)TFPopupParam *popupParam;
-
+@property(nonatomic,strong)TFPopupParam *popupParameter;
+/// 没有自定义 popupParam
 -(void)popupWithView:(UIView *_Nullable)view;
+/// 有自定义popupParam
+-(void)popupWithView:(UIView *_Nullable)view
+          popupParam:(TFPopupParam *_Nullable)popupParam;
 
 @end
 
