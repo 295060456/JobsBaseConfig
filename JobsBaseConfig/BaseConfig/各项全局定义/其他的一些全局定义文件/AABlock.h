@@ -1,12 +1,29 @@
 
+/**
+    全局的Block块定义
+    基本数据类型尽量的用NSNumber进行二次封装成对象对外输出
+ */
 #pragma mark —— 确定参数Block
-/// 没有返回值的Block
+///【没有返回值的Block】
 typedef void(^NoResultBlock)(void);
 typedef void(^MKDataBlock)(id data);
-/// 没有返回值的Block——单形参
-typedef void(^MKIntegerBlock)(NSInteger data);//整数
-typedef void(^MKFloatBlock)(CGFloat data);//浮点数
-/// 没有返回值的Block——多形参
+///【没有返回值的Block——单形参】
+typedef void(^MKIntegerBlock)(NSInteger data);
+typedef void(^MKUIntegerBlock)(NSUInteger data);
+typedef void(^MKCGFloatBlock)(CGFloat data);
+typedef void(^MKBOOLBlock)(BOOL data);
+typedef void(^MKIntBlock)(int data);
+typedef void(^MKUnsignedIntBlock)(unsigned int data);
+typedef void(^MKFloatBlock)(float data);
+typedef void(^MKDoubleBlock)(double data);
+typedef void(^MKCharBlock)(char data);
+typedef void(^MKUnsignedCharBlock)(unsigned char data);
+typedef void(^MKShortBlock)(short data);
+typedef void(^MKUnsignedShortBlock)(unsigned short data);
+typedef void(^MKLongBlock)(long data);
+typedef void(^MKUnsignedLongBlock)(unsigned long data);
+typedef void(^MKUnsignedLongLongBlock)(unsigned long long data);
+///【没有返回值的Block——多形参】
 typedef void(^TwoDataBlock)(id data,id data2);
 typedef void(^ThreeDataBlock)(id data,id data2,id data3);
 typedef void(^FourDataBlock)(id data,id data2,id data3,id data4);
@@ -16,13 +33,27 @@ typedef void(^SevenDataBlock)(id data,id data2,id data3,id data4,id data5,id dat
 typedef void(^EightDataBlock)(id data,id data2,id data3,id data4,id data5,id data7,id data8);
 typedef void(^NineDataBlock)(id data,id data2,id data3,id data4,id data5,id data7,id data8,id data9);
 typedef void(^TenDataBlock)(id data,id data2,id data3,id data4,id data5,id data7,id data8,id data9,id data10);
-/// 有返回值的Block
+
+///【有返回值的Block】
 typedef id(^noResultBlock)(void);
 typedef id(^mkDataBlock)(id data);
-/// 有返回值的Block——单形参
-typedef void(^MKIntegerBlock)(NSInteger data);//整数
-typedef void(^MKFloatBlock)(CGFloat data);//浮点数
-/// 有返回值的Block——多形参
+///【有返回值的Block——单形参】
+typedef id(^mkIntegerBlock)(NSInteger data);
+typedef id(^mkUIntegerBlock)(NSUInteger data);
+typedef id(^mkCGFloatBlock)(CGFloat data);
+typedef id(^mkBOOLBlock)(BOOL data);
+typedef id(^mkIntBlock)(int data);
+typedef id(^mkUnsignedIntBlock)(unsigned int data);
+typedef id(^mkFloatBlock)(float data);
+typedef id(^mkDoubleBlock)(double data);
+typedef id(^mkCharBlock)(char data);
+typedef id(^mkUnsignedCharBlock)(unsigned char data);
+typedef id(^mkShortBlock)(short data);
+typedef id(^mkUnsignedShortBlock)(unsigned short data);
+typedef id(^mkLongBlock)(long data);
+typedef id(^mkUnsignedLongBlock)(unsigned long data);
+typedef id(^mkUnsignedLongLongBlock)(unsigned long long data);
+///【有返回值的Block——多形参】
 typedef id(^twoDataBlock)(id data,id data2);
 typedef id(^threeDataBlock)(id data,id data2,id data3);
 typedef id(^fourDataBlock)(id data,id data2,id data3,id data4);
@@ -32,6 +63,7 @@ typedef id(^sevenDataBlock)(id data,id data2,id data3,id data4,id data5,id data7
 typedef id(^eightDataBlock)(id data,id data2,id data3,id data4,id data5,id data7,id data8);
 typedef id(^nineDataBlock)(id data,id data2,id data3,id data4,id data5,id data7,id data8,id data9);
 typedef id(^tenDataBlock)(id data,id data2,id data3,id data4,id data5,id data7,id data8,id data9,id data10);
+
 #pragma mark —— 不定参数Block
 typedef void(^MMDataBlock)(id firstArg,...);//第一个参数写：有多少个实际参数 用NSNumber表示 @1
 typedef id(^mmDataBlock)(id firstArg,...);//第一个参数写：有多少个实际参数 用NSNumber表示 @1

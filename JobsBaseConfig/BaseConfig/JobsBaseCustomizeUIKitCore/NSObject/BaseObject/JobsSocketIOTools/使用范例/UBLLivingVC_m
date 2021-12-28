@@ -69,13 +69,13 @@ JXCategoryTitleViewDataSource
 //        NSLog(@"result = %@",result);
 //        self.livingModel = [UBLLivingModel mj_objectWithKeyValues:result.resultData];
 //        [self.livingNavView richElementsInViewWithModel:self.livingModel];
-//        [self.attentionBtn setTitle:[NSString ensureNonnullString:[NSString stringWithFormat:@"%ld",self.livingModel.fansNum] ReplaceStr:@"暂无数据"]
+//        [self.attentionBtn setTitle:[NSString ensureNonnullString:[NSString stringWithFormat:@"%ld",self.livingModel.fansNum] replaceStr:@"暂无数据"]
 //                           forState:UIControlStateNormal];
-//        [self.attentionBtn setTitle:[NSString ensureNonnullString:[NSString stringWithFormat:@"%ld",self.livingModel.fansNum] ReplaceStr:@"暂无数据"]
+//        [self.attentionBtn setTitle:[NSString ensureNonnullString:[NSString stringWithFormat:@"%ld",self.livingModel.fansNum] replaceStr:@"暂无数据"]
 //                           forState:UIControlStateSelected];
 //
 //        UBLChatVC *chatVC = (UBLChatVC *)self.childVCMutArr[0];
-//        [chatVC setScrollContentMutArr:(NSMutableArray *)@[[NSString ensureNonnullString:self.livingModel.announcement ReplaceStr:@"暂无数据"]]];
+//        [chatVC setScrollContentMutArr:(NSMutableArray *)@[[NSString ensureNonnullString:self.livingModel.announcement replaceStr:@"暂无数据"]]];
 //        chatVC.scrollLabelView.alpha = 1;
 //
 //        self.attentionBtn.selected = self.livingModel.is_attention;

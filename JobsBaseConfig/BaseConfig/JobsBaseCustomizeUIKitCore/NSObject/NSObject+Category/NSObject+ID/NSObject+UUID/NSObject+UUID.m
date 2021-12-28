@@ -14,7 +14,7 @@
     CFStringRef uuid_string_ref = CFUUIDCreateString(kCFAllocatorDefault, uuid_ref);
     CFRelease(uuid_ref);
     NSString *uuid = [NSString ensureNonnullString:[NSString stringWithString:(__bridge NSString*)uuid_string_ref]
-                                        ReplaceStr:@""];
+                                        replaceStr:@""];
     CFRelease(uuid_string_ref);
     return uuid.lowercaseString;
 }

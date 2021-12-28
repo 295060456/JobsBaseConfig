@@ -17,6 +17,8 @@
     if (self = [super init]) {
         [self invoke1];
         [self invoke2];
+        [self invoke3];
+        [self invoke4];
     }return self;
 }
 
@@ -102,6 +104,115 @@
     [NSObject methodName:@"Test10:block2:block3:block4:"
                targetObj:DynamicInvoke.class
              paramarrays:@[@"block1",@"block2",@"block3",@"block4"]];
+}
+
+-(void)invoke3{
+    id test11 = [NSObject methodName:@"test11"
+                           targetObj:self
+                         paramarrays:nil];
+    
+    id test12 = [NSObject methodName:@"test12"
+                           targetObj:self
+                         paramarrays:@[]];
+    
+    id test13 = [NSObject methodName:@"test13:"
+                           targetObj:self
+                         paramarrays:@[@"str1"]];
+    
+    id test14 = [NSObject methodName:@"test14:str2:"
+                           targetObj:self
+                         paramarrays:@[@"str1",@"str2"]];
+    
+    id test15 = [NSObject methodName:@"test15:str2:str3:"
+                           targetObj:self
+                         paramarrays:@[@"str1",@"str2",@"str3"]];
+    
+    id test16 = [NSObject methodName:@"test16:str2:str3:str4:"
+                           targetObj:self
+                         paramarrays:@[@"str1",@"str2",@"str3",@"str4"]];
+
+    id test17 = [NSObject methodName:@"test17:"
+                           targetObj:self
+                         paramarrays:@[@"block1"]];
+    
+    id test18 = [NSObject methodName:@"test18:block2:"
+                           targetObj:self
+                         paramarrays:@[@"block1",@"block2"]];
+    
+    id test19 = [NSObject methodName:@"test19:block2:block3:"
+                           targetObj:self
+                         paramarrays:@[@"block1",@"block2",@"block3"]];
+    
+    id test20 = [NSObject methodName:@"test20:block2:block3:block4:"
+                           targetObj:self
+                         paramarrays:@[@"block1",@"block2",@"block3",@"block4"]];
+    
+    NSMutableArray *temp = NSMutableArray.array;
+    [temp addObject:test11];
+    [temp addObject:test12];
+    [temp addObject:test13];
+    [temp addObject:test14];
+    [temp addObject:test15];
+    [temp addObject:test16];
+    [temp addObject:test17];
+    [temp addObject:test18];
+    [temp addObject:test19];
+    [temp addObject:test20];
+    NSLog(@"temp = %@",temp);
+}
+
+-(void)invoke4{
+    id Test11 = [NSObject methodName:@"Test11"
+                           targetObj:DynamicInvoke.class
+                         paramarrays:nil];
+    
+    id Test12 = [NSObject methodName:@"Test12"
+                           targetObj:DynamicInvoke.class
+                         paramarrays:@[]];
+    
+    id Test13 = [NSObject methodName:@"Test13:"
+                           targetObj:DynamicInvoke.class
+                         paramarrays:@[@"str1"]];
+    
+    id Test14 = [NSObject methodName:@"Test14:str2:"
+                           targetObj:DynamicInvoke.class
+                         paramarrays:@[@"str1",@"str2"]];
+    
+    id Test15 = [NSObject methodName:@"Test15:str2:str3:"
+                           targetObj:DynamicInvoke.class
+                         paramarrays:@[@"str1",@"str2",@"str3"]];
+    
+    id Test16 = [NSObject methodName:@"Test16:str2:str3:str4:"
+                           targetObj:DynamicInvoke.class
+                         paramarrays:@[@"str1",@"str2",@"str3",@"str4"]];
+
+    id Test17 = [NSObject methodName:@"Test17:"
+                           targetObj:DynamicInvoke.class
+                         paramarrays:@[@"block1"]];
+    
+    id Test18 = [NSObject methodName:@"Test18:block2:"
+                           targetObj:DynamicInvoke.class
+                         paramarrays:@[@"block1",@"block2"]];
+    
+    id Test19 = [NSObject methodName:@"Test19:block2:block3:"
+                           targetObj:DynamicInvoke.class
+                         paramarrays:@[@"block1",@"block2",@"block3"]];
+    
+    id Test20 = [NSObject methodName:@"Test20:block2:block3:block4:"
+                           targetObj:DynamicInvoke.class
+                         paramarrays:@[@"block1",@"block2",@"block3",@"block4"]];
+    NSMutableArray *temp = NSMutableArray.array;
+    [temp addObject:Test11];
+    [temp addObject:Test12];
+    [temp addObject:Test13];
+    [temp addObject:Test14];
+    [temp addObject:Test15];
+    [temp addObject:Test16];
+    [temp addObject:Test17];
+    [temp addObject:Test18];
+    [temp addObject:Test19];
+    [temp addObject:Test20];
+    NSLog(@"temp = %@",temp);
 }
 #pragma mark —— 实例方法（不带返回值）
 -(void)test1{

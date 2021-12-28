@@ -43,7 +43,7 @@ callingMethodWithName:(nullable NSString *)methodName{
 /// @param methodName 方法名
 /// @param targetObj 靶点，方法在哪里
 /// @param paramarrays 参数数组
-+(void)methodName:(NSString *_Nonnull)methodName
++(id)methodName:(NSString *_Nonnull)methodName
         targetObj:(id _Nonnull)targetObj
       paramarrays:(NSArray *_Nullable)paramarrays{
     SEL selector = NSSelectorFromString(methodName);
@@ -60,7 +60,7 @@ callingMethodWithName:(nullable NSString *)methodName{
         // 处理方式一：
         {
             [WHToast toastErrMsg:@"方法不存在,请检查参数"];
-            return;
+            return nil;
         }
         // 处理方式二：【经常崩溃损伤硬件】
 //        {
@@ -95,6 +95,57 @@ callingMethodWithName:(nullable NSString *)methodName{
         [invocation getReturnValue:&result];
         NSLog(@"result = %@",result);
     }
+    
+    return [self getMethodReturnValueWithInv:invocation sig:signature];;
+}
+/// 获取方法返回值
+/// @param inv inv
+/// @param sig 方法签名
++(id)getMethodReturnValueWithInv:(NSInvocation *)inv
+                             sig:(NSMethodSignature *)sig{
+    const char *returnType = sig.methodReturnType;
+    __autoreleasing id returnValue = nil;
+    if(strcmp(returnType, @encode(void)) == 0){
+        returnValue = nil;
+    }else if (strcmp(returnType, @encode(id)) == 0){
+        [inv getReturnValue:&returnValue];
+    }else{
+        NSUInteger length = sig.methodReturnLength;
+        void *buffer = (void *)malloc(length);
+        [inv getReturnValue:buffer];
+
+        if( !strcmp(returnType, @encode(BOOL)) ) {
+            returnValue = [NSNumber numberWithBool:*((BOOL*)buffer)];
+        }else if( !strcmp(returnType, @encode(NSInteger)) ){
+            returnValue = [NSNumber numberWithInteger:*((NSInteger*)buffer)];
+        }else if( !strcmp(returnType, @encode(char)) ){
+            returnValue = [NSNumber numberWithChar:*((char*)buffer)];
+        }else if( !strcmp(returnType, @encode(unsigned char)) ){
+            returnValue = [NSNumber numberWithUnsignedChar:*((unsigned char*)buffer)];
+        }else if( !strcmp(returnType, @encode(short)) ){
+            returnValue = [NSNumber numberWithShort:*((short*)buffer)];
+        }else if( !strcmp(returnType, @encode(unsigned short)) ){
+            returnValue = [NSNumber numberWithUnsignedShort:*((unsigned short*)buffer)];
+        }else if( !strcmp(returnType, @encode(int)) ){
+            returnValue = [NSNumber numberWithInt:*((int*)buffer)];
+        }else if( !strcmp(returnType, @encode(unsigned int)) ){
+            returnValue = [NSNumber numberWithUnsignedInt:*((unsigned int*)buffer)];
+        }else if( !strcmp(returnType, @encode(long)) ){
+            returnValue = [NSNumber numberWithLong:*((long*)buffer)];
+        }else if( !strcmp(returnType, @encode(unsigned long)) ){
+            returnValue = [NSNumber numberWithUnsignedLong:*((unsigned long*)buffer)];
+        }else if( !strcmp(returnType, @encode(long long)) ){
+            returnValue = [NSNumber numberWithLongLong:*((long long*)buffer)];
+        }else if( !strcmp(returnType, @encode(unsigned long long)) ){
+            returnValue = [NSNumber numberWithUnsignedLongLong:*((unsigned long long*)buffer)];
+        }else if( !strcmp(returnType, @encode(float)) ){
+            returnValue = [NSNumber numberWithFloat:*((float*)buffer)];
+        }else if( !strcmp(returnType, @encode(double)) ){
+            returnValue = [NSNumber numberWithDouble:*((double*)buffer)];
+        }else if( !strcmp(returnType, @encode(NSUInteger)) ){
+            returnValue = [NSNumber numberWithUnsignedInteger:*((NSUInteger*)buffer)];
+        }else returnValue = [NSValue valueWithBytes:buffer objCType:returnType];
+    }return returnValue;
 }
 /// 判断本程序是否存在某个类
 +(BOOL)judgementAppExistClassWithName:(nullable NSString *)className{
@@ -114,8 +165,15 @@ existMethodWithName:(nullable NSString *)methodName{
 SEL _Nullable selectorBlocks(void (^_Nullable block)(id _Nullable weakSelf, id _Nullable arg),
                              id _Nullable target){
     if (!block) {
-        [NSException raise:@"block can not be nil"
-                    format:@"%@ selectorBlock error", target];
+        {
+            [WHToast toastErrMsg:@"方法不存在,请检查参数"];
+        }
+        
+//        {// 【经常崩溃损伤硬件】
+//            [NSException raise:@"block can not be nil"
+//                        format:@"%@ selectorBlock error", target];
+//        }
+
     }
     NSString *selName = [NSString stringWithFormat:@"selector_%p:", block];
     SEL sel = NSSelectorFromString(selName);
@@ -129,7 +187,7 @@ SEL _Nullable selectorBlocks(void (^_Nullable block)(id _Nullable weakSelf, id _
                              OBJC_ASSOCIATION_COPY_NONATOMIC);
     return sel;
 }
-
+/// 内部调用无需暴露
 static void selectorImp(id self,
                         SEL _cmd,
                         id arg) {

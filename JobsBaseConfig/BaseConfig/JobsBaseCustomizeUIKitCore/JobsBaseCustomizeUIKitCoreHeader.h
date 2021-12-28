@@ -24,6 +24,8 @@
 #import "JobsBundle.h"
 #pragma mark —— NSObject
 #import "JobsObject.h"
+#pragma mark —— NSNumber
+#import "JobsNumber.h"
 #pragma mark —— NSString
 #import "JobsString.h"
 #pragma mark —— NSUserDefaults

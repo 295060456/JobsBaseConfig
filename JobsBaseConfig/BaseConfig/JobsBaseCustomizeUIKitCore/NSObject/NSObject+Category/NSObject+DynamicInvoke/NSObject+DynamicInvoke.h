@@ -27,9 +27,14 @@ callingMethodWithName:(nullable NSString *)methodName;
 /// @param methodName 方法名
 /// @param targetObj 靶点，方法在哪里
 /// @param paramarrays 参数数组
-+(void)methodName:(NSString *_Nonnull)methodName
++(id)methodName:(NSString *_Nonnull)methodName
         targetObj:(id _Nonnull)targetObj
       paramarrays:(NSArray *_Nullable)paramarrays;
+/// 获取方法返回值
+/// @param inv inv
+/// @param sig 方法签名
++(id)getMethodReturnValueWithInv:(NSInvocation *)inv
+                             sig:(NSMethodSignature *)sig;
 /// 判断本程序是否存在某个类
 +(BOOL)judgementAppExistClassWithName:(nullable NSString *)className;
 /// 判断某个实例对象是否存在某个【不带参数的方法】
@@ -38,10 +43,6 @@ existMethodWithName:(nullable NSString *)methodName;
 /// 用block来代替selector
 SEL _Nullable selectorBlocks(void (^_Nullable block)(id _Nullable weakSelf, id _Nullable arg),
                              id _Nullable target);
-
-static void selectorImp(id self,
-                        SEL _cmd,
-                        id arg) ;
 
 
 @end
