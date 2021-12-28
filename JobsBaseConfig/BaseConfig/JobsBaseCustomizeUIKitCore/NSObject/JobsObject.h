@@ -31,6 +31,8 @@
 #pragma mark —— Category
 /// 关联对象
 //#import "NSObject+Association.h"
+/// 动态调用方法
+#import "NSObject+DynamicInvoke.h"
 /// 本机设备信息
 #import "NSObject+CurrentDevice.h"
 /// 本地弹出View
