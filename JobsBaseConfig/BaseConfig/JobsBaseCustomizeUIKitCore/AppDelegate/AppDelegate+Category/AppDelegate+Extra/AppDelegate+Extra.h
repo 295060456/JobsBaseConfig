@@ -6,6 +6,7 @@
 //
 
 #import "AppDelegate.h"
+#import "AppDelegate+Func.h"
 
 #import "NSObject+AppTools.h"
 
@@ -23,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// Data
 @property(nonatomic,strong)NSMutableArray <JobsTabBarControllerConfig *>*_Nullable configMutArr;
 @property(nonatomic,strong)NSMutableArray <NSString *>*_Nullable tabBarTitleMutArr;
+
+-(void)refreshTabBarTitle;
 
 @end
 

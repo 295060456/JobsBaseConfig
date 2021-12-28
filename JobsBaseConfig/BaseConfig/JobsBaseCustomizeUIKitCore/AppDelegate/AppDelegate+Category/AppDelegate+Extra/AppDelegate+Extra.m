@@ -18,6 +18,19 @@ static char *AppDelegate_Extra_configMutArr = "AppDelegate_Extra_configMutArr";
 static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitleMutArr";
 @dynamic tabBarTitleMutArr;
 
+-(void)refreshTabBarTitle{
+    
+    if (self.tabBarTitleMutArr.count) {
+        [self.tabBarTitleMutArr removeAllObjects];
+        self.tabBarTitleMutArr = nil;
+    }
+    
+    for (JobsTabBarControllerConfig *config in self.configMutArr) {
+        NSInteger index = [self.configMutArr indexOfObject:config];
+        config.vc.tabBarItem.title = self.tabBarTitleMutArr[index];
+    }
+}
+
 -(TFPopupParam *)appDelegatePopupParameter{
     TFPopupParam *PopupParameter = TFPopupParam.new;
     PopupParameter.duration = 0.3f;
@@ -29,7 +42,6 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
     PopupParameter.popupSize = [CasinoCustomerServiceView viewSizeWithModel:nil];
     return PopupParameter;
 }
-
 #pragma mark —— @property(nonatomic,strong)JobsTabbarVC *tabBarVC;
 -(JobsTabbarVC *)tabBarVC{
     JobsTabbarVC *TabBarVC = objc_getAssociatedObject(self, AppDelegate_Extra_tabBarVC);
@@ -51,18 +63,17 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
                 NSNumber *num = (NSNumber *)data;
                 BOOL ok = num.integerValue != 3;
                 if (!ok) {
-                    [WHToast toastMsg:@"AAAA"];
-                    
-                    CasinoCustomerServiceView *customerServiceView = CasinoCustomerServiceView.new;
-                    [customerServiceView actionViewBlock:^(id data) {
-                        [customerServiceView tf_hide];
-                    }];
-                    customerServiceView.size = [CasinoCustomerServiceView viewSizeWithModel:self.hotLabelDataMutArr];
-                    [customerServiceView richElementsInViewWithModel:self.hotLabelDataMutArr];
-                    [customerServiceView tf_showSlide:getMainWindow()
-                                            direction:PopupDirectionBottom
-                                           popupParam:self.appDelegatePopupParameter];
-                    
+                    if (self.customerContactModel.customerList.count) {
+                        CasinoCustomerServiceView *customerServiceView = CasinoCustomerServiceView.new;
+                        [customerServiceView actionViewBlock:^(id data) {
+                            [customerServiceView tf_hide];
+                        }];
+                        customerServiceView.size = [CasinoCustomerServiceView viewSizeWithModel:self.hotLabelDataMutArr];
+                        [customerServiceView richElementsInViewWithModel:self.hotLabelDataMutArr];
+                        [customerServiceView tf_showSlide:getMainWindow()
+                                                direction:PopupDirectionBottom
+                                               popupParam:self.appDelegatePopupParameter];
+                    }
                 }return @(ok);
             }return @(YES);
         }];
@@ -87,7 +98,7 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
         ConfigMutArr = NSMutableArray.array;
         {
             JobsTabBarControllerConfig *config = JobsTabBarControllerConfig.new;
-            config.vc = UIViewController.new;
+            config.vc = CasinoHomeVC.new;
             config.title = Internationalization(@"Home");
             config.imageSelected = KIMG(@"tabbbar_home_seleteds");
             config.imageUnselected = KIMG(@"tabbbar_home_normal");
@@ -99,7 +110,7 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
         
         {
             JobsTabBarControllerConfig *config = JobsTabBarControllerConfig.new;
-            config.vc = UIViewController.new;
+            config.vc = CasinoXiMaVC.new;
             config.title = Internationalization(@"XiMa");
             config.imageSelected = KIMG(@"tabbbar_weights_seleteds");
             config.imageUnselected = KIMG(@"tabbbar_weights_normal");
@@ -111,7 +122,7 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
         
         {
             JobsTabBarControllerConfig *config = JobsTabBarControllerConfig.new;
-            config.vc = UIViewController.new;
+            config.vc = CasinoRechargeVC.new;
             config.title = Internationalization(@"Recharge");
             config.imageSelected = KIMG(@"tabbbar_pay_seleteds");
             config.imageUnselected = KIMG(@"tabbbar_pay_normal");
@@ -123,7 +134,7 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
         
         {
             JobsTabBarControllerConfig *config = JobsTabBarControllerConfig.new;
-            config.vc = UIViewController.new;
+            config.vc = CasinoCustomerServiceVC.new;
             config.title = Internationalization(@"CustomerService");
             config.imageSelected = KIMG(@"tabbbar_service_seleteds");
             config.imageUnselected = KIMG(@"tabbbar_service_normal");
@@ -135,7 +146,7 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
         
         {
             JobsTabBarControllerConfig *config = JobsTabBarControllerConfig.new;
-            config.vc = UIViewController.new;
+            config.vc = CasinoMemberCenterVC.new;
             config.title = Internationalization(@"MemberCenter");
             config.imageSelected = KIMG(@"tabbar_VIP_seleteds");
             config.imageUnselected = KIMG(@"tabbar_VIP_normal");

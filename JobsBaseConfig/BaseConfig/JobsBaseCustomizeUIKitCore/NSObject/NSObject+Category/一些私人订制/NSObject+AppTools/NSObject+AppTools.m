@@ -31,16 +31,7 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
     }
     if ([appDelegate isKindOfClass:AppDelegate.class]) {
         AppDelegate *ad = (AppDelegate *)appDelegate;
-        
-        if (ad.tabBarTitleMutArr.count) {
-            [ad.tabBarTitleMutArr removeAllObjects];
-            ad.tabBarTitleMutArr = nil;
-        }
-
-        for (int i = 0; i < ad.configMutArr.count; i++) {
-            JobsTabBarControllerConfig *config = (JobsTabBarControllerConfig *)ad.configMutArr[i];
-            config.vc.tabBarItem.title = ad.tabBarTitleMutArr[i];
-        }
+        [ad refreshTabBarTitle];
     }
 }
 /// 接收通知并相应的方法【在分类或者基类中实现会屏蔽具体子类的相关实现】
