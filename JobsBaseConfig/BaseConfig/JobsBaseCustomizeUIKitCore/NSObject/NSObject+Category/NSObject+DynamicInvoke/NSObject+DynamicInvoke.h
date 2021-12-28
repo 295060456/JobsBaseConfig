@@ -28,8 +28,8 @@ callingMethodWithName:(nullable NSString *)methodName;
 /// @param targetObj 靶点，方法在哪里
 /// @param paramarrays 参数数组
 +(id)methodName:(NSString *_Nonnull)methodName
-        targetObj:(id _Nonnull)targetObj
-      paramarrays:(NSArray *_Nullable)paramarrays;
+      targetObj:(id _Nonnull)targetObj
+    paramarrays:(NSArray *_Nullable)paramarrays;
 /// 获取方法返回值
 /// @param inv inv
 /// @param sig 方法签名

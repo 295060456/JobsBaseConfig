@@ -16,6 +16,8 @@ UITableViewDelegate
 ,UITableViewDataSource
 >
 
+-(instancetype)initWithTableViewClass:(Class <BaseCellProtocol>_Nonnull)tableViewClass;// 要链接自定义的cell用这个初始化方法
+
 -(void)dropDownListViewDisappear;
 
 @end

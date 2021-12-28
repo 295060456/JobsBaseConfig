@@ -44,8 +44,8 @@ callingMethodWithName:(nullable NSString *)methodName{
 /// @param targetObj 靶点，方法在哪里
 /// @param paramarrays 参数数组
 +(id)methodName:(NSString *_Nonnull)methodName
-        targetObj:(id _Nonnull)targetObj
-      paramarrays:(NSArray *_Nullable)paramarrays{
+      targetObj:(id _Nonnull)targetObj
+    paramarrays:(NSArray *_Nullable)paramarrays{
     SEL selector = NSSelectorFromString(methodName);
     /*
      NSMethodSignature有两个常用的只读属性
@@ -88,14 +88,6 @@ callingMethodWithName:(nullable NSString *)methodName{
     }
     // 执行方法
     [invocation invoke];
-    //可以在invoke方法前添加，也可以在invoke方法后添加
-    //通过方法签名的methodReturnLength判断是否有返回值
-    if (signature.methodReturnLength > 0) {
-        NSString *result = nil;
-        [invocation getReturnValue:&result];
-        NSLog(@"result = %@",result);
-    }
-    
     return [self getMethodReturnValueWithInv:invocation sig:signature];;
 }
 /// 获取方法返回值
