@@ -89,14 +89,14 @@ BaseViewControllerProtocol
  @param animated  是否动画展现
  @param successBlock 在推控制器之前，反向block(B控制器），以便对B控制器的一些自定义修改
  */
-+(instancetype)comingFromVC:(UIViewController *_Nonnull)fromVC
-                       toVC:(UIViewController *_Nonnull)toVC
-                comingStyle:(ComingStyle)comingStyle
-          presentationStyle:(UIModalPresentationStyle)presentationStyle
-              requestParams:(id _Nullable)requestParams
-   hidesBottomBarWhenPushed:(BOOL)hidesBottomBarWhenPushed
-                   animated:(BOOL)animated
-                    success:(MKDataBlock _Nullable)successBlock;
++(instancetype _Nullable)comingFromVC:(UIViewController *_Nonnull)fromVC
+                                 toVC:(UIViewController *_Nonnull)toVC
+                          comingStyle:(ComingStyle)comingStyle
+                    presentationStyle:(UIModalPresentationStyle)presentationStyle
+                        requestParams:(id _Nullable)requestParams
+             hidesBottomBarWhenPushed:(BOOL)hidesBottomBarWhenPushed
+                             animated:(BOOL)animated
+                              success:(MKDataBlock _Nullable)successBlock;
 
 @end
 

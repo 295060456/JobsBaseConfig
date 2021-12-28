@@ -215,10 +215,10 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
 /// @param data 列表数据源
 /// @param motivateViewOffset 下拉列表和motivateFromView保持一个motivateViewOffset的距离
 /// @param finishBlock 点击列表以后的回调数据是UIViewModel类型
--(JobsDropDownListView *_Nonnull)motivateFromView:(UIView * _Nonnull)motivateFromView
-                                             data:(NSMutableArray <UIViewModel *>* _Nullable)data
-                               motivateViewOffset:(CGFloat)motivateViewOffset
-                                      finishBlock:(MKDataBlock _Nullable)finishBlock{
+-(JobsDropDownListView *_Nullable)motivateFromView:(UIView * _Nonnull)motivateFromView
+                                              data:(NSMutableArray <UIViewModel *>* _Nullable)data
+                                motivateViewOffset:(CGFloat)motivateViewOffset
+                                       finishBlock:(MKDataBlock _Nullable)finishBlock{
     
     JobsDropDownListView *dropDownListView = JobsDropDownListView.new;
     [dropDownListView actionViewBlock:^(id data) {
@@ -239,29 +239,49 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
         {
             UIViewModel *viewModel = UIViewModel.new;
             viewModel.text = @"111111111";
+            viewModel.subText = @"QQQQQQ";
             [data addObject:viewModel];
         }
         
         {
             UIViewModel *viewModel = UIViewModel.new;
             viewModel.text = @"222222222";
+            viewModel.subText = @"WWWWWW";
             [data addObject:viewModel];
         }
         
         {
             UIViewModel *viewModel = UIViewModel.new;
             viewModel.text = @"333333333";
+            viewModel.subText = @"EEEEEE";
             [data addObject:viewModel];
         }
     }
     [dropDownListView richElementsInViewWithModel:data];
-    
-    dropDownListView.frame = CGRectMake(motivateFromView.x,
-                                        motivateFromView.y + motivateFromView.height + motivateViewOffset,
-                                        motivateFromView.width,
-                                        data.count * [BaseTableViewCell cellHeightWithModel:Nil]);
+    CGRect f = [NSObject getWindowFrameByView:motivateFromView];
+    dropDownListView.frame = CGRectMake(f.origin.x,
+                                        f.origin.y + f.size.height + motivateViewOffset,
+                                        f.size.width,
+                                        data.count * [JobsDropDownListTBVCell cellHeightWithModel:Nil]);
     [getMainWindow() addSubview:dropDownListView];
     return dropDownListView;
+}
+/// iOS 获取任意控件在屏幕中的坐标
++(CGRect)getWindowFrameByView:(UIView *_Nonnull)view{
+    // 将rect由rect所在视图转换到目标视图view中，返回在目标视图view中的rect
+    CGRect rect = [view convertRect:view.bounds toView:getMainWindow()];
+    return rect;
+    /**
+      类似的：
+     // 将像素point由point所在视图转换到目标视图view中，返回在目标视图view中的像素值
+     - (CGPoint)convertPoint:(CGPoint)point toView:(UIView *)view;
+     // 将像素point从view中转换到当前视图中，返回在当前视图中的像素值
+     - (CGPoint)convertPoint:(CGPoint)point fromView:(UIView *)view;
+     // 将rect由rect所在视图转换到目标视图view中，返回在目标视图view中的rect
+     - (CGRect)convertRect:(CGRect)rect toView:(UIView *)view;
+     // 将rect从view中转换到当前视图中，返回在当前视图中的rect
+     - (CGRect)convertRect:(CGRect)rect fromView:(UIView *)view;
+     */
 }
 /// 依据View上铆定的internationalizationKEY来全局更改文字以适配国际化
 -(void)languageSwitch{

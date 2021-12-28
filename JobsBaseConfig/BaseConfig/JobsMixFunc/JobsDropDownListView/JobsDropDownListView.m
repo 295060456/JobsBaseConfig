@@ -56,7 +56,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [BaseTableViewCell cellHeightWithModel:Nil];
+    return [JobsDropDownListTBVCell cellHeightWithModel:Nil];
 }
 
 - (void)tableView:(UITableView *)tableView
@@ -71,7 +71,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    BaseTableViewCell *cell = (BaseTableViewCell *)self.tbvCellMutArr[indexPath.row];
+    JobsDropDownListTBVCell *cell = (JobsDropDownListTBVCell *)self.tbvCellMutArr[indexPath.row];
     [cell richElementsInCellWithModel:self.dataMutArr[indexPath.row]];
     return cell;
 }
@@ -107,7 +107,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         _tbvCellMutArr = NSMutableArray.array;
         NSInteger dataMutArrCount = self.dataMutArr.count;
         do {
-            [_tbvCellMutArr addObject:[BaseTableViewCell cellWithTableView:self.tableView]];
+            [_tbvCellMutArr addObject:[JobsDropDownListTBVCell cellWithTableView:self.tableView]];
             dataMutArrCount -= 1;
         } while (dataMutArrCount);
     }return _tbvCellMutArr;

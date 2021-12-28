@@ -103,7 +103,6 @@
 		840F963E27736427004979E9 /* JobsSuspendBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F932527736426004979E9 /* JobsSuspendBtn.m */; };
 		840F963F27736427004979E9 /* JobsSuspendLab.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F932727736426004979E9 /* JobsSuspendLab.m */; };
 		840F964027736427004979E9 /* JobsSuspendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F932A27736426004979E9 /* JobsSuspendView.m */; };
-		840F964127736427004979E9 /* JobsDropDownListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F932E27736426004979E9 /* JobsDropDownListView.m */; };
 		840F964227736427004979E9 /* UIScrollView+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F933027736426004979E9 /* UIScrollView+FDFullscreenPopGesture.m */; };
 		840F964327736427004979E9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 840F933227736426004979E9 /* README.md */; };
 		840F964427736427004979E9 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F933427736426004979E9 /* UINavigationController+FDFullscreenPopGesture.m */; };
@@ -440,6 +439,8 @@
 		8459D61C2779A88A00125782 /* CasinoCustomerContactModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459D61B2779A88900125782 /* CasinoCustomerContactModel.m */; };
 		84868DA32779DDA50098BE7A /* ZMJCells.m in Sources */ = {isa = PBXBuildFile; fileRef = 84868DA22779DDA50098BE7A /* ZMJCells.m */; };
 		84868E1F2779DFE30098BE7A /* UILabel+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 84868E1E2779DFE30098BE7A /* UILabel+Extra.m */; };
+		84868F19277ADF690098BE7A /* JobsDropDownListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84868F15277ADF690098BE7A /* JobsDropDownListView.m */; };
+		84868F1A277ADF690098BE7A /* JobsDropDownListTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84868F18277ADF690098BE7A /* JobsDropDownListTBVCell.m */; };
 		ABB2A8B711CC6C1FEF7A4899 /* Pods_JobsBaseConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 013934AB50FCDA373FFA6597 /* Pods_JobsBaseConfig.framework */; };
 		F65541EC060397D8F6D09547 /* Pods_JobsBaseConfigUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */; };
 /* End PBXBuildFile section */
@@ -613,8 +614,6 @@
 		840F932827736426004979E9 /* JobsSuspendLab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsSuspendLab.h; sourceTree = "<group>"; };
 		840F932A27736426004979E9 /* JobsSuspendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsSuspendView.m; sourceTree = "<group>"; };
 		840F932B27736426004979E9 /* JobsSuspendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsSuspendView.h; sourceTree = "<group>"; };
-		840F932D27736426004979E9 /* JobsDropDownListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsDropDownListView.h; sourceTree = "<group>"; };
-		840F932E27736426004979E9 /* JobsDropDownListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsDropDownListView.m; sourceTree = "<group>"; };
 		840F933027736426004979E9 /* UIScrollView+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
 		840F933127736426004979E9 /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		840F933227736426004979E9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -1278,6 +1277,10 @@
 		84868DA22779DDA50098BE7A /* ZMJCells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMJCells.m; sourceTree = "<group>"; };
 		84868E1D2779DFE30098BE7A /* UILabel+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Extra.h"; sourceTree = "<group>"; };
 		84868E1E2779DFE30098BE7A /* UILabel+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Extra.m"; sourceTree = "<group>"; };
+		84868F15277ADF690098BE7A /* JobsDropDownListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsDropDownListView.m; sourceTree = "<group>"; };
+		84868F16277ADF690098BE7A /* JobsDropDownListTBVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsDropDownListTBVCell.h; sourceTree = "<group>"; };
+		84868F17277ADF690098BE7A /* JobsDropDownListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsDropDownListView.h; sourceTree = "<group>"; };
+		84868F18277ADF690098BE7A /* JobsDropDownListTBVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsDropDownListTBVCell.m; sourceTree = "<group>"; };
 		949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JobsBaseConfigUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEDDD2E7A82BF58DE2012E29 /* Pods-JobsBaseConfigUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobsBaseConfigUITests.debug.xcconfig"; path = "Target Support Files/Pods-JobsBaseConfigUITests/Pods-JobsBaseConfigUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1864,8 +1867,10 @@
 		840F932C27736426004979E9 /* JobsDropDownListView */ = {
 			isa = PBXGroup;
 			children = (
-				840F932D27736426004979E9 /* JobsDropDownListView.h */,
-				840F932E27736426004979E9 /* JobsDropDownListView.m */,
+				84868F16277ADF690098BE7A /* JobsDropDownListTBVCell.h */,
+				84868F18277ADF690098BE7A /* JobsDropDownListTBVCell.m */,
+				84868F17277ADF690098BE7A /* JobsDropDownListView.h */,
+				84868F15277ADF690098BE7A /* JobsDropDownListView.m */,
 			);
 			path = JobsDropDownListView;
 			sourceTree = "<group>";
@@ -5507,7 +5512,6 @@
 				840F96EF27736428004979E9 /* NSObject+Shake.m in Sources */,
 				840F95E327736427004979E9 /* JobsBitsMonitorSuspendLab.m in Sources */,
 				840F965A27736428004979E9 /* UIButton+Timer.m in Sources */,
-				840F964127736427004979E9 /* JobsDropDownListView.m in Sources */,
 				840F969B27736428004979E9 /* UIViewController+JXPagerViewListViewDelegate.m in Sources */,
 				840F96CD27736428004979E9 /* NSUserDefaults+Manager.m in Sources */,
 				840F965227736428004979E9 /* UITableViewCell+WhiteArrows.m in Sources */,
@@ -5539,6 +5543,7 @@
 				840F965427736428004979E9 /* UITableViewCell+Margin.m in Sources */,
 				840F96E627736428004979E9 /* NSObject+Swizzling.m in Sources */,
 				844B08752764CF4800B0513D /* ZMJCell+CustomView.m in Sources */,
+				84868F1A277ADF690098BE7A /* JobsDropDownListTBVCell.m in Sources */,
 				844B083D2764CF4800B0513D /* JXCategoryTimelineView.m in Sources */,
 				840F96B327736428004979E9 /* BaseNavigationVC.m in Sources */,
 				840F96EC27736428004979E9 /* NSObject+UIScrollViewDelegate.m in Sources */,
@@ -5567,6 +5572,7 @@
 				844B084B2764CF4800B0513D /* ECPrivacyCheckFilesAndFolders.m in Sources */,
 				840F95E627736427004979E9 /* UITabBarItem+TLAnimation.m in Sources */,
 				840F969627736428004979E9 /* NSString+Decoration.m in Sources */,
+				84868F19277ADF690098BE7A /* JobsDropDownListView.m in Sources */,
 				840F969827736428004979E9 /* NSString+Judgment.m in Sources */,
 				844B02182764C8EE00B0513D /* ViewController.m in Sources */,
 				844B08492764CF4800B0513D /* ECPrivacyCheckCamera.m in Sources */,

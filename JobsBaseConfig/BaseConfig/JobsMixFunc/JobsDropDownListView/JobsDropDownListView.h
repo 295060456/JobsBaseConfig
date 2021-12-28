@@ -6,6 +6,7 @@
 //
 
 #import "BaseView.h"
+#import "JobsDropDownListTBVCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

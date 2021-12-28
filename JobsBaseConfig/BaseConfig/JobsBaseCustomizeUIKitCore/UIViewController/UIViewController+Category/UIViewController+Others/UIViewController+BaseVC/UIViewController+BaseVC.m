@@ -115,14 +115,14 @@ static char *UIViewController_BaseVC_fromVC = "UIViewController_BaseVC_fromVC";
  @param animated  是否动画展现
  @param successBlock 在推控制器之前，反向block(B控制器），以便对B控制器的一些自定义修改
  */
-+(instancetype)comingFromVC:(UIViewController *_Nonnull)fromVC // 上一个页面
-                       toVC:(UIViewController *_Nonnull)toVC // 下一个页面
-                comingStyle:(ComingStyle)comingStyle
-          presentationStyle:(UIModalPresentationStyle)presentationStyle
-              requestParams:(id _Nullable)requestParams
-   hidesBottomBarWhenPushed:(BOOL)hidesBottomBarWhenPushed
-                   animated:(BOOL)animated
-                    success:(MKDataBlock _Nullable)successBlock{
++(instancetype _Nullable)comingFromVC:(UIViewController *_Nonnull)fromVC // 上一个页面
+                                 toVC:(UIViewController *_Nonnull)toVC // 下一个页面
+                          comingStyle:(ComingStyle)comingStyle
+                    presentationStyle:(UIModalPresentationStyle)presentationStyle
+                        requestParams:(id _Nullable)requestParams
+             hidesBottomBarWhenPushed:(BOOL)hidesBottomBarWhenPushed
+                             animated:(BOOL)animated
+                              success:(MKDataBlock _Nullable)successBlock{
     if (toVC) {
         toVC.requestParams = requestParams;
 
@@ -133,9 +133,7 @@ static char *UIViewController_BaseVC_fromVC = "UIViewController_BaseVC_fromVC";
             case ComingStyle_PUSH:{
                 if (fromVC.navigationController) {
                     toVC.pushOrPresent = ComingStyle_PUSH;
-                    if (successBlock) {
-                        successBlock(toVC);
-                    }
+                    if (successBlock) successBlock(toVC);
                     toVC.hidesBottomBarWhenPushed = hidesBottomBarWhenPushed;//下面有黑条
                     [weak_fromVC.navigationController pushViewController:toVC
                                                                 animated:animated];
@@ -143,9 +141,7 @@ static char *UIViewController_BaseVC_fromVC = "UIViewController_BaseVC_fromVC";
                     toVC.pushOrPresent = ComingStyle_PRESENT;
                     //iOS_13中modalPresentationStyle的默认改为UIModalPresentationAutomatic,而在之前默认是UIModalPresentationFullScreen
                     toVC.modalPresentationStyle = presentationStyle;
-                    if (successBlock) {
-                        successBlock(toVC);
-                    }
+                    if (successBlock) successBlock(toVC);
                     [weak_fromVC presentViewController:toVC
                                               animated:animated
                                             completion:^{}];
@@ -155,9 +151,7 @@ static char *UIViewController_BaseVC_fromVC = "UIViewController_BaseVC_fromVC";
                 toVC.pushOrPresent = ComingStyle_PRESENT;
                 //iOS_13中modalPresentationStyle的默认改为UIModalPresentationAutomatic,而在之前默认是UIModalPresentationFullScreen
                 toVC.modalPresentationStyle = presentationStyle;
-                if (successBlock) {
-                    successBlock(toVC);
-                }
+                if (successBlock) successBlock(toVC);
                 [weak_fromVC presentViewController:toVC
                                           animated:animated
                                         completion:^{}];

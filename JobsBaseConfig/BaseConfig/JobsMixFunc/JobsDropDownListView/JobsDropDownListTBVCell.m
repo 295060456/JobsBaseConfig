@@ -1,0 +1,53 @@
+//
+//  JobsDropDownListTBVCell.m
+//  Casino
+//
+//  Created by Jobs on 2021/12/28.
+//
+
+#import "JobsDropDownListTBVCell.h"
+
+@interface JobsDropDownListTBVCell ()
+
+@end
+
+@implementation JobsDropDownListTBVCell
+
++(instancetype)cellWithTableView:(UITableView *)tableView{
+    JobsDropDownListTBVCell *cell = (JobsDropDownListTBVCell *)[tableView dequeueReusableCellWithIdentifier:reuseIdentifier(self.class)];
+    if (!cell) {
+        cell = [JobsDropDownListTBVCell.alloc initWithStyle:UITableViewCellStyleValue1
+                                            reuseIdentifier:reuseIdentifier(self.class)];
+//        [UIView cornerCutToCircleWithView:cell andCornerRadius:6];
+    }return cell;
+}
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style
+              reuseIdentifier:(NSString *)reuseIdentifier {
+    if (self = [super initWithStyle:style
+                    reuseIdentifier:reuseIdentifier]) {
+        [self richElementsInCellWithModel:nil];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;// 取消点击效果 【不能在cellWithTableView里面写】
+    }return self;
+}
+
+-(void)richElementsInCellWithModel:(UIViewModel *_Nullable)model{
+    if (model) {
+        self.viewModel = model;
+        self.textLabel.text = [NSString stringWithFormat:@"%@",model.text];
+        self.detailTextLabel.text = [NSString stringWithFormat:@"%@",model.subText];
+    }
+}
+
++(CGFloat)cellHeightWithModel:(UIViewModel *_Nullable)model{
+    
+    UIViewModel *vm = UIViewModel.new;
+    vm.font = [UIFont systemFontOfSize:KWidth(14) weight:UIFontWeightRegular];
+    vm.width = SCREEN_WIDTH - KWidth(200);
+    vm.text = model.subText;
+    vm.textLineSpacing = 0;
+    
+    return [UIView heightByData:vm] + KWidth(20);
+}
+
+@end

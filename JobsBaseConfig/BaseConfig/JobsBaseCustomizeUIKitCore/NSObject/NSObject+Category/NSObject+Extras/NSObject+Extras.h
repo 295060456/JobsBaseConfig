@@ -164,10 +164,12 @@ typedef void (^callback)(id _Nullable weakSelf, id _Nullable arg);
 /// @param data 列表数据源
 /// @param motivateViewOffset 下拉列表和motivateFromView保持一个motivateViewOffset的距离
 /// @param finishBlock 点击列表以后的回调数据是UIViewModel类型
--(JobsDropDownListView *_Nonnull)motivateFromView:(UIView * _Nonnull)motivateFromView
-                                             data:(NSMutableArray <UIViewModel *>* _Nullable)data
-                               motivateViewOffset:(CGFloat)motivateViewOffset
-                                      finishBlock:(MKDataBlock _Nullable)finishBlock;
+-(JobsDropDownListView *_Nullable)motivateFromView:(UIView * _Nonnull)motivateFromView
+                                              data:(NSMutableArray <UIViewModel *>* _Nullable)data
+                                motivateViewOffset:(CGFloat)motivateViewOffset
+                                       finishBlock:(MKDataBlock _Nullable)finishBlock;
+/// iOS 获取任意控件在屏幕中的坐标
++(CGRect)getWindowFrameByView:(UIView *_Nonnull)view;
 /// 依据View上铆定的internationalizationKEY来全局更改文字以适配国际化
 -(void)languageSwitch;
 /// 打印请求体
