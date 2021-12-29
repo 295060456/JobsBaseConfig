@@ -9,11 +9,12 @@
 #import "JobsTabbarVC.h"
 
 @interface JobsTabbarVC ()
-// Data
+/// UI
+@property(nonatomic,strong,readwrite)JobsTabBar *myTabBar;//myTabBar.humpOffsetY 凸起的高度自定义，默认值30  offsetHeight
+/// Data
 @property(nonatomic,assign)BOOL isOpenPPBadge;
 @property(nonatomic,assign)NSInteger subViewControllerCount;
 @property(nonatomic,strong)NSMutableArray <UIView *>*UITabBarButtonMutArr;//UITabBarButton 是内部类 直接获取不到，需要间接获取
-
 @property(nonatomic,strong)NSMutableArray <UIViewModel *>*pullListAutoSizeViewMutArr;
 
 @end
@@ -24,7 +25,9 @@
     NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+#pragma mark —— 初始化方法
 static JobsTabbarVC *static_tabbarVC = nil;
+///【单例模式】使用内置默认的JobsTabBar
 +(instancetype)sharedInstance{
     @synchronized(self){
         if (!static_tabbarVC) {
@@ -32,9 +35,29 @@ static JobsTabbarVC *static_tabbarVC = nil;
         }
     }return static_tabbarVC;
 }
-
+///【单例模式】使用外界自定义的JobsTabBar
++(instancetype)sharedInstanceWithJobsTabBar:(JobsTabBar *)tabBar{
+    @synchronized(self){
+        if (!static_tabbarVC) {
+            static_tabbarVC = JobsTabbarVC.new;
+            static_tabbarVC.myTabBar = tabBar;
+        }
+    }return static_tabbarVC;
+}
+/// 一般的初始化模式
+-(instancetype)initWithJobsTabBar:(JobsTabBar *)tabBar{
+    if (self = [super init]) {
+        self.myTabBar = tabBar;
+    }return self;
+}
+#pragma mark —— ViewController的生命周期
 -(void)loadView{
     [super loadView];
+    
+    if ([self.requestParams isKindOfClass:UIViewModel.class]) {
+        self.viewModel = (UIViewModel *)self.requestParams;
+    }
+    
     self.delegate = self;
     self.isOpenScrollTabbar = YES;
 }
@@ -44,21 +67,30 @@ static JobsTabbarVC *static_tabbarVC = nil;
     if (self.isOpenScrollTabbar) {
         self.view.target = self;
         self.view.panGR.enabled = self.isOpenScrollTabbar;
-//        @weakify(self)
-        self.view.callbackBlock = ^(id weakSelf, id arg, UIGestureRecognizer *data3) {
-//            @strongify(self)
+        self.view.callbackBlock = ^(id weakSelf,
+                                    id arg,
+                                    UIGestureRecognizer *data3) {
             [weakSelf panGestureRecognizer:(UIPanGestureRecognizer *)data3];
         };
     }
-    
     self.myTabBar.alpha = 1;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.isHiddenNavigationBar = YES;
-    [self UISetting];//最高只能在viewWillAppear，在viewDidLoad不出效果 self.tabBar.subviews为空
-    [self 添加长按手势];
+
+    static dispatch_once_t JobsTabbarVC_viewWillAppear_onceToken;
+    dispatch_once(&JobsTabbarVC_viewWillAppear_onceToken, ^{
+        [self UISetting];//最高只能在viewWillAppear，在viewDidLoad不出效果 self.tabBar.subviews为空
+        [self 添加长按手势];
+
+        [self appUpdateWithSureBlock:^(id data) {
+    //        [WHToast toastMsg:@"确定"];
+        }cancelBlock:^(id data) {
+    //        [WHToast toastMsg:@"取消"];
+        }];
+    });
 }
 
 -(void)viewDidLayoutSubviews {
@@ -95,7 +127,6 @@ static JobsTabbarVC *static_tabbarVC = nil;
 -(void)UISetting{
     for (int i = 0; i < self.tabBarControllerConfigMutArr.count; i++) {
         
-//        viewController.view.backgroundColor = RandomColor;
         JobsTabBarControllerConfig *config = (JobsTabBarControllerConfig *)self.tabBarControllerConfigMutArr[i];
         // For Test
 //        if ([self judgeLottieWithIndex:i]) {
@@ -121,7 +152,7 @@ static JobsTabbarVC *static_tabbarVC = nil;
             [self.childMutArr replaceObjectAtIndex:i withObject:nav];//替换元素，每个VC加Navigation
         }
     }
-#warning 这句话走了以后 才会有self.tabBar
+    /// ❤️这句话走了以后 才会有self.tabBar
     self.viewControllers = self.childMutArr;
     
     for (UIView *subView in self.tabBar.subviews) {
@@ -148,39 +179,11 @@ static JobsTabbarVC *static_tabbarVC = nil;
     }
 }
 #pragma mark —— 手势事件
--(void)LZBTabBarItemLongPress:(UILongPressGestureRecognizer *)longPressGR {
-    switch (longPressGR.state) {
-        case UIGestureRecognizerStatePossible:{
-            NSLog(@"没有触摸事件发生，所有手势识别的默认状态");
-        }break;
-        case UIGestureRecognizerStateBegan:{
-            //长按手势
-            [self 长按手势做什么:longPressGR];
-            NSLog(@"一个手势已经开始  但尚未改变或者完成时");
-        }break;
-        case UIGestureRecognizerStateChanged:{
-            NSLog(@"手势状态改变");
-        }break;
-        case UIGestureRecognizerStateEnded:{// = UIGestureRecognizerStateRecognized
-            NSLog(@"手势完成");
-        }break;
-        case UIGestureRecognizerStateCancelled:{
-            NSLog(@"手势取消，恢复至Possible状态");
-        }break;
-        case UIGestureRecognizerStateFailed:{
-            NSLog(@"手势失败，恢复至Possible状态");
-        }break;
-        default:
-            break;
-    }
-}
-
 -(void)长按手势做什么:(UILongPressGestureRecognizer *)longPressGR{
-    
     if (self.isFeedbackGenerator) {
         [NSObject feedbackGenerator];//震动反馈
     }
-    
+
     [JobsPullListAutoSizeView initWithTargetView:self.UITabBarButtonMutArr[longPressGR.view.tag]
                                       dataMutArr:self.pullListAutoSizeViewMutArr];
 }
@@ -213,16 +216,39 @@ static JobsTabbarVC *static_tabbarVC = nil;
         subView.minimumPressDuration = 1;
         subView.target = self;
         subView.longPressGR.enabled = YES;
-//        @weakify(self)
         subView.callbackBlock = ^(id weakSelf,
                                   id arg,
                                   UIGestureRecognizer *data3) {
-//            @strongify(self)
-            [weakSelf LZBTabBarItemLongPress:(UILongPressGestureRecognizer *)data3];
+            UILongPressGestureRecognizer *longPressGR = (UILongPressGestureRecognizer *)data3;
+            switch (longPressGR.state) {
+                case UIGestureRecognizerStatePossible:{
+                    NSLog(@"没有触摸事件发生，所有手势识别的默认状态");
+                }break;
+                case UIGestureRecognizerStateBegan:{
+                    //长按手势
+                    [self 长按手势做什么:longPressGR];
+                    NSLog(@"一个手势已经开始  但尚未改变或者完成时");
+                }break;
+                case UIGestureRecognizerStateChanged:{
+                    NSLog(@"手势状态改变");
+                }break;
+                case UIGestureRecognizerStateEnded:{// = UIGestureRecognizerStateRecognized
+                    NSLog(@"手势完成");
+                }break;
+                case UIGestureRecognizerStateCancelled:{
+                    NSLog(@"手势取消，恢复至Possible状态");
+                }break;
+                case UIGestureRecognizerStateFailed:{
+                    NSLog(@"手势失败，恢复至Possible状态");
+                }break;
+                default:
+                    break;
+            }
         };
     }
 }
-#pragma mark —— UITabBarDelegate 监听TabBarItem点击事件
+#pragma mark —— UITabBarDelegate
+/// 监听TabBarItem点击事件
 - (void)tabBar:(UITabBar *)tabBar
  didSelectItem:(UITabBarItem *)item {
 
@@ -266,7 +292,13 @@ shouldSelectViewController:(UIViewController *)viewController {
         [self judgeLottieWithIndex:index]) {
         [viewController lottieImagePlay];
     }
-    return [self.returnViewControllerBlock(@(index)) boolValue];
+    
+    if (index == 1 || index == 2 || index == 4) {
+        [self forcedLogin];
+        return [self.returnViewControllerBlock(@(index)) boolValue] && self.isLogin;
+    }else{
+        return [self.returnViewControllerBlock(@(index)) boolValue];
+    }
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)tabBarController:(UITabBarController *)tabBarController
@@ -275,12 +307,7 @@ shouldSelectViewController:(UIViewController *)viewController {
     // 打开注释 可以屏蔽点击item时的动画效果
 //    if (self.panGestureRecognizer.state == UIGestureRecognizerStateBegan || self.panGestureRecognizer.state == UIGestureRecognizerStateChanged) {
         NSArray *viewControllers = tabBarController.viewControllers;
-        if ([viewControllers indexOfObject:toVC] > [viewControllers indexOfObject:fromVC]) {
-            return [[TransitionAnimation alloc] initWithTargetEdge:UIRectEdgeLeft];
-        }
-        else {
-            return [[TransitionAnimation alloc] initWithTargetEdge:UIRectEdgeRight];
-        }
+        return [TransitionAnimation.alloc initWithTargetEdge: [viewControllers indexOfObject:toVC] > [viewControllers indexOfObject:fromVC] ? UIRectEdgeLeft : UIRectEdgeRight];
 //    }
 //    else{
 //        return nil;
@@ -291,29 +318,35 @@ shouldSelectViewController:(UIViewController *)viewController {
                      interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController{
     if (self.view.panGR.state == UIGestureRecognizerStateBegan ||
         self.view.panGR.state == UIGestureRecognizerStateChanged) {
-        return [[TransitionController alloc] initWithGestureRecognizer:self.view.panGR];
+        return [TransitionController.alloc initWithGestureRecognizer:self.view.panGR];
     }else {
         return nil;
     }
 }
 #pragma mark —— lazyLoad
+@synthesize viewModel = _viewModel;
+-(UIViewModel *)viewModel{
+    if (!_viewModel) {
+        _viewModel = UIViewModel.new;
+        _viewModel.bgCor = kWhiteColor;
+        _viewModel.bgImage = isiPhoneX_series() ? KIMG(@"底部导航栏背景(刘海屏)") : KIMG(@"底部导航栏背景(非刘海屏)");
+        _viewModel.isTranslucent = NO;
+        _viewModel.offsetHeight = KWidth(5);
+    }return _viewModel;
+}
+@synthesize myTabBar = _myTabBar;
+-(void)setMyTabBar:(JobsTabBar *)myTabBar{
+    _myTabBar = myTabBar;
+}
+
 -(JobsTabBar *)myTabBar{
     if (!_myTabBar) {
         _myTabBar = JobsTabBar.new;
         _myTabBar.backgroundImage = KIMG(@"底部导航栏背景(刘海屏)");
         _myTabBar.backgroundColor = UIColor.yellowColor;
-        
-        UIViewModel *viewModel = UIViewModel.new;
-        viewModel.bgCor = kWhiteColor;
-        viewModel.bgImage = isiPhoneX_series() ? KIMG(@"底部导航栏背景(刘海屏)") : KIMG(@"底部导航栏背景(非刘海屏)");
-        viewModel.isTranslucent = NO;
-        viewModel.offsetHeight = KWidth(5);
-
-        [_myTabBar richElementsInViewWithModel:viewModel];
-        
+        [_myTabBar richElementsInViewWithModel:self.viewModel];
         [self setValue:_myTabBar
                 forKey:@"tabBar"];//KVC 进行替换
-        NSLog(@"");
     }return _myTabBar;
 }
 

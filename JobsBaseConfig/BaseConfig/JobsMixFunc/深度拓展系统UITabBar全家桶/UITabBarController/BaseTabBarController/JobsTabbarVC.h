@@ -56,20 +56,26 @@
 UITabBarControllerDelegate,
 UIGestureRecognizerDelegate
 >
-// UI
-@property(nonatomic,strong)JobsTabBar *myTabBar;//myTabBar.humpOffsetY 凸起的高度自定义，默认值30  offsetHeight
-// Data
-@property(nonatomic,assign)NSInteger firstUI_selectedIndex;//初始显示第一个
-@property(nonatomic,strong)NSMutableArray <UIViewController *>*childMutArr;//子控制器
+/// UI
+@property(nonatomic,strong,readonly)JobsTabBar *myTabBar;// myTabBar.humpOffsetY 凸起的高度自定义，默认值30  offsetHeight
+/// Data
+@property(nonatomic,assign)NSInteger firstUI_selectedIndex;// 初始显示第一个
+@property(nonatomic,strong)NSMutableArray <UIViewController *>*childMutArr;// 子控制器
 @property(nonatomic,strong)NSMutableArray <JobsTabBarControllerConfig *>*tabBarControllerConfigMutArr;
+@property(nonatomic,assign)BOOL isOpenScrollTabbar;// 是否开启手势横向滚动子VC联动Tabbar切换，默认开启
+@property(nonatomic,assign)BOOL isAnimationAlert;// 图片从小放大
+@property(nonatomic,assign)BOOL isShakerAnimation;// 重力弹跳动画效果
+@property(nonatomic,assign)BOOL isPlaySound;// 点击声
+@property(nonatomic,assign)BOOL isFeedbackGenerator;// 振动反馈
 
-@property(nonatomic,assign)BOOL isOpenScrollTabbar;//是否开启手势横向滚动子VC联动Tabbar切换，默认开启
-@property(nonatomic,assign)BOOL isAnimationAlert;//图片从小放大
-@property(nonatomic,assign)BOOL isShakerAnimation;//重力弹跳动画效果
-@property(nonatomic,assign)BOOL isPlaySound;//点击声
-@property(nonatomic,assign)BOOL isFeedbackGenerator;//振动反馈
-
-+(instancetype)sharedInstance;
 -(void)ppBadge:(BOOL)open;// 开启/关闭 PPBadgeView的效果,至少在viewDidLayoutSubviews后有效
+
+#pragma mark —— 初始化方法
+///【单例模式】使用内置默认的JobsTabBar
++(instancetype)sharedInstance;
+///【单例模式】使用外界自定义的JobsTabBar
++(instancetype)sharedInstanceWithJobsTabBar:(JobsTabBar *)tabBar;
+/// 一般的初始化模式
+-(instancetype)initWithJobsTabBar:(JobsTabBar *)tabBar;
 
 @end

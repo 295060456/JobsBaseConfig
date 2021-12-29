@@ -17,17 +17,33 @@ static char *AppDelegate_Extra_configMutArr = "AppDelegate_Extra_configMutArr";
 
 static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitleMutArr";
 @dynamic tabBarTitleMutArr;
-
+/// 仅仅对数值tabBarTitleMutArr做简单的添加元素并赋值
+-(void)addElementByTabBarTitleMutArr:(NSMutableArray *)tabBarTitleMutArr{
+    if (tabBarTitleMutArr) {
+        [tabBarTitleMutArr addObject:Internationalization(@"Home")];
+        [tabBarTitleMutArr addObject:Internationalization(@"XiMa")];
+        [tabBarTitleMutArr addObject:Internationalization(@"Recharge")];
+        [tabBarTitleMutArr addObject:Internationalization(@"CustomerService")];
+        [tabBarTitleMutArr addObject:Internationalization(@"MemberCenter")];
+        objc_setAssociatedObject(self,
+                                 AppDelegate_Extra_tabBarTitleMutArr,
+                                 tabBarTitleMutArr,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+}
+/// 刷新 TabBarTitle
 -(void)refreshTabBarTitle{
     
-    if (self.tabBarTitleMutArr.count) {
-        [self.tabBarTitleMutArr removeAllObjects];
-        self.tabBarTitleMutArr = nil;
+    NSMutableArray *TabBarTitleMutArr = objc_getAssociatedObject(self, AppDelegate_Extra_tabBarTitleMutArr);
+    
+    if (TabBarTitleMutArr.count) {
+        [TabBarTitleMutArr removeAllObjects];
+        [self addElementByTabBarTitleMutArr:TabBarTitleMutArr];
     }
     
     for (JobsTabBarControllerConfig *config in self.configMutArr) {
         NSInteger index = [self.configMutArr indexOfObject:config];
-        config.vc.tabBarItem.title = self.tabBarTitleMutArr[index];
+        config.vc.tabBarItem.title = TabBarTitleMutArr[index];
     }
 }
 
@@ -56,6 +72,7 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
         for (JobsTabBarControllerConfig *config in self.configMutArr) {
             [TabBarVC.tabBarControllerConfigMutArr addObject:config];
             [TabBarVC.childMutArr addObject:config.vc];
+            [self.tabBarTitleMutArr addObject:config.title];
         }
         
         [TabBarVC setReturnViewControllerBlock:^id(id data) {
@@ -98,61 +115,61 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
         ConfigMutArr = NSMutableArray.array;
         {
             JobsTabBarControllerConfig *config = JobsTabBarControllerConfig.new;
-            config.vc = CasinoHomeVC.new;
-            config.title = Internationalization(@"Home");
+            config.vc = UIViewController.new;
+            config.title = self.tabBarTitleMutArr[ConfigMutArr.count];
             config.imageSelected = KIMG(@"tabbbar_home_seleteds");
             config.imageUnselected = KIMG(@"tabbbar_home_normal");
             config.humpOffsetY = 0;
             config.lottieName = nil;
-            config.tag = 1;
+            config.tag = ConfigMutArr.count + 1;
             [ConfigMutArr addObject:config];
         }
         
         {
             JobsTabBarControllerConfig *config = JobsTabBarControllerConfig.new;
-            config.vc = CasinoXiMaVC.new;
-            config.title = Internationalization(@"XiMa");
+            config.vc = UIViewController.new;
+            config.title = self.tabBarTitleMutArr[ConfigMutArr.count];
             config.imageSelected = KIMG(@"tabbbar_weights_seleteds");
             config.imageUnselected = KIMG(@"tabbbar_weights_normal");
             config.humpOffsetY = 0;
             config.lottieName = nil;
-            config.tag = 2;
+            config.tag = ConfigMutArr.count + 1;
             [ConfigMutArr addObject:config];
         }
         
         {
             JobsTabBarControllerConfig *config = JobsTabBarControllerConfig.new;
-            config.vc = CasinoRechargeVC.new;
-            config.title = Internationalization(@"Recharge");
+            config.vc = UIViewController.new;
+            config.title = self.tabBarTitleMutArr[ConfigMutArr.count];
             config.imageSelected = KIMG(@"tabbbar_pay_seleteds");
             config.imageUnselected = KIMG(@"tabbbar_pay_normal");
             config.humpOffsetY = 0;
             config.lottieName = nil;
-            config.tag = 2;
+            config.tag = ConfigMutArr.count + 1;
             [ConfigMutArr addObject:config];
         }
         
         {
             JobsTabBarControllerConfig *config = JobsTabBarControllerConfig.new;
-            config.vc = CasinoCustomerServiceVC.new;
-            config.title = Internationalization(@"CustomerService");
+            config.vc = UIViewController.new;
+            config.title = self.tabBarTitleMutArr[ConfigMutArr.count];
             config.imageSelected = KIMG(@"tabbbar_service_seleteds");
             config.imageUnselected = KIMG(@"tabbbar_service_normal");
             config.humpOffsetY = 0;
             config.lottieName = nil;
-            config.tag = 3;
+            config.tag = ConfigMutArr.count + 1;
             [ConfigMutArr addObject:config];
         }
         
         {
             JobsTabBarControllerConfig *config = JobsTabBarControllerConfig.new;
-            config.vc = CasinoMemberCenterVC.new;
-            config.title = Internationalization(@"MemberCenter");
+            config.vc = UIViewController.new;
+            config.title = self.tabBarTitleMutArr[ConfigMutArr.count];
             config.imageSelected = KIMG(@"tabbar_VIP_seleteds");
             config.imageUnselected = KIMG(@"tabbar_VIP_normal");
             config.humpOffsetY = 0;
             config.lottieName = nil;
-            config.tag = 4;
+            config.tag = ConfigMutArr.count + 1;
             [ConfigMutArr addObject:config];
         }
         
@@ -174,17 +191,7 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
     NSMutableArray *TabBarTitleMutArr = objc_getAssociatedObject(self, AppDelegate_Extra_tabBarTitleMutArr);
     if (!TabBarTitleMutArr) {
         TabBarTitleMutArr = NSMutableArray.array;
-        
-        [TabBarTitleMutArr addObject:Internationalization(@"Home")];
-        [TabBarTitleMutArr addObject:Internationalization(@"XiMa")];
-        [TabBarTitleMutArr addObject:Internationalization(@"Recharge")];
-        [TabBarTitleMutArr addObject:Internationalization(@"CustomerService")];
-        [TabBarTitleMutArr addObject:Internationalization(@"MemberCenter")];
-        
-        objc_setAssociatedObject(self,
-                                 AppDelegate_Extra_tabBarTitleMutArr,
-                                 TabBarTitleMutArr,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [self addElementByTabBarTitleMutArr:TabBarTitleMutArr];
     }return TabBarTitleMutArr;
 }
 
@@ -193,7 +200,6 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
                              AppDelegate_Extra_tabBarTitleMutArr,
                              tabBarTitleMutArr,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    
 }
 
 @end
