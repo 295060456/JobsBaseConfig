@@ -444,6 +444,7 @@
 		848691DF277B03410098BE7A /* DynamicInvoke.m in Sources */ = {isa = PBXBuildFile; fileRef = 848691DB277B03410098BE7A /* DynamicInvoke.m */; };
 		848691E0277B03410098BE7A /* NSObject+DynamicInvoke.m in Sources */ = {isa = PBXBuildFile; fileRef = 848691DE277B03410098BE7A /* NSObject+DynamicInvoke.m */; };
 		84869260277B33570098BE7A /* NSNumber+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 8486925F277B33570098BE7A /* NSNumber+Extra.m */; };
+		84869679277C68470098BE7A /* NSString+Check.m in Sources */ = {isa = PBXBuildFile; fileRef = 84869677277C68470098BE7A /* NSString+Check.m */; };
 		ABB2A8B711CC6C1FEF7A4899 /* Pods_JobsBaseConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 013934AB50FCDA373FFA6597 /* Pods_JobsBaseConfig.framework */; };
 		F65541EC060397D8F6D09547 /* Pods_JobsBaseConfigUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */; };
 /* End PBXBuildFile section */
@@ -1291,6 +1292,8 @@
 		8486925C277B33570098BE7A /* JobsNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsNumber.h; sourceTree = "<group>"; };
 		8486925E277B33570098BE7A /* NSNumber+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Extra.h"; sourceTree = "<group>"; };
 		8486925F277B33570098BE7A /* NSNumber+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Extra.m"; sourceTree = "<group>"; };
+		84869677277C68470098BE7A /* NSString+Check.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Check.m"; sourceTree = "<group>"; };
+		84869678277C68470098BE7A /* NSString+Check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Check.h"; sourceTree = "<group>"; };
 		949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JobsBaseConfigUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEDDD2E7A82BF58DE2012E29 /* Pods-JobsBaseConfigUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobsBaseConfigUITests.debug.xcconfig"; path = "Target Support Files/Pods-JobsBaseConfigUITests/Pods-JobsBaseConfigUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1625,19 +1628,21 @@
 		840F92CA27736425004979E9 /* ZBNetworking */ = {
 			isa = PBXGroup;
 			children = (
-				840F92CB27736425004979E9 /* ZBRequestConst.h */,
-				840F92CC27736425004979E9 /* ZBURLRequest.m */,
+				84869678277C68470098BE7A /* NSString+Check.h */,
+				84869677277C68470098BE7A /* NSString+Check.m */,
 				840F92CD27736425004979E9 /* NetworkingConstant.h */,
-				840F92CE27736425004979E9 /* ZBRequestEngine.m */,
-				840F92CF27736425004979E9 /* ZBRequestManager.m */,
 				840F92D027736425004979E9 /* NSString+ZBUTF8Encoding.h */,
-				840F92D127736425004979E9 /* ZBCacheManager.m */,
-				840F92D227736425004979E9 /* ZBURLRequest.h */,
 				840F92D327736425004979E9 /* NSString+ZBUTF8Encoding.m */,
-				840F92D427736425004979E9 /* ZBRequestManager.h */,
-				840F92D527736425004979E9 /* ZBRequestEngine.h */,
-				840F92D627736425004979E9 /* ZBNetworking.h */,
 				840F92D727736425004979E9 /* ZBCacheManager.h */,
+				840F92D127736425004979E9 /* ZBCacheManager.m */,
+				840F92D627736425004979E9 /* ZBNetworking.h */,
+				840F92CB27736425004979E9 /* ZBRequestConst.h */,
+				840F92D527736425004979E9 /* ZBRequestEngine.h */,
+				840F92CE27736425004979E9 /* ZBRequestEngine.m */,
+				840F92D427736425004979E9 /* ZBRequestManager.h */,
+				840F92CF27736425004979E9 /* ZBRequestManager.m */,
+				840F92D227736425004979E9 /* ZBURLRequest.h */,
+				840F92CC27736425004979E9 /* ZBURLRequest.m */,
 			);
 			path = ZBNetworking;
 			sourceTree = "<group>";
@@ -5672,6 +5677,7 @@
 				840F967427736428004979E9 /* UIView+EmptyData.m in Sources */,
 				840F96CE27736428004979E9 /* NSCache+Extra.m in Sources */,
 				840F963427736427004979E9 /* JobsUpDownLab.m in Sources */,
+				84869679277C68470098BE7A /* NSString+Check.m in Sources */,
 				840F96A027736428004979E9 /* UIViewController+BWShareView.m in Sources */,
 				840F95FE27736427004979E9 /* JobsTabbarVC.m in Sources */,
 				840F971727736428004979E9 /* CheckMemFreeVC.m in Sources */,

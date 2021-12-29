@@ -28,6 +28,9 @@
                     reuseIdentifier:reuseIdentifier]) {
         [self richElementsInCellWithModel:nil];
         self.selectionStyle = UITableViewCellSelectionStyleNone;// 取消点击效果 【不能在cellWithTableView里面写】
+        self.backgroundColor = self.contentView.backgroundColor = HEXCOLOR(0xFBF7E3);
+        self.selectedBackgroundView = [UIView.alloc initWithFrame:self.frame];// 这句不可省略
+        self.selectedBackgroundView.backgroundColor = HEXCOLOR(0xE4B94B);
     }return self;
 }
 

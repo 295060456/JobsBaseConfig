@@ -84,6 +84,14 @@
     return _uploadDatas;
 }
 
+-(NSString *)server{
+    return _server.urlProtect;
+}
+
+-(NSString *)url{
+    return _url.urlProtect;
+}
+
 @end
 
 #pragma mark - ZBBatchRequest
@@ -184,6 +192,10 @@
 - (void)setResponseSerializer:(ZBResponseSerializerType)responseSerializer{
     _responseSerializer=responseSerializer;
     _isResponseSerializer=YES;
+}
+
+-(NSString *)baseServer{
+    return _baseServer.urlProtect;
 }
 
 @end

@@ -45,6 +45,10 @@
 
 -(void)drawRect:(CGRect)rect{
     [super drawRect:rect];
+    self.tableView.contentInset = UIEdgeInsetsMake(0,
+                                                   0,
+                                                   [JobsDropDownListView getWindowFrameByView:self].origin.y,
+                                                   0);
     [TableViewAnimationKit showWithAnimationType:XSTableViewAnimationTypeFall
                                        tableView:self.tableView];
 }
@@ -100,7 +104,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
 -(UITableView *)tableView{
     if (!_tableView) {
         _tableView = UITableView.new;
-        _tableView.backgroundColor = AppMainCor_02;
+        _tableView.backgroundColor = UIColor.clearColor;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.delegate = self;
@@ -108,7 +112,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         _tableView.tableHeaderView = UIView.new;
         _tableView.tableFooterView = UIView.new;
         _tableView.separatorColor = HEXCOLOR(0xEEEEEE);
-
         [self addSubview:_tableView];
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self);

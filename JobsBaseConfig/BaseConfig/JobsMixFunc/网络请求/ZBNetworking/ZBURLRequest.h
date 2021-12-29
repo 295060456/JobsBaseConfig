@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "ZBRequestConst.h"
+#import "NSString+Check.h"
+
 @class ZBUploadData;
 @interface ZBURLRequest : NSObject
 NS_ASSUME_NONNULL_BEGIN
