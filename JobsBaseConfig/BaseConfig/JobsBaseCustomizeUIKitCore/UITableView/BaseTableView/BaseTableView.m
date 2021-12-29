@@ -25,11 +25,21 @@
 -(void)drawRect:(CGRect)rect{
     [super drawRect:rect];
 }
+/**
+ 1. 刷新完成后触发 layoutsubview
+ UITableView 在 reloaddata 后, 会触发 layoutsubview , 可以继承父类的 superview 方法, 在其中处理需要在刷新完数据后做的操作, 如播放短视频.
 
+ 2. 使用layoutIfNeeded方法，强制重绘
+ 在 UITableView 调用 reloaddata 方法后, 强制调用其 layoutIfNeeded 方法, 接着调用刷新完后的操作.
+ */
 -(void)layoutSubviews{
     [super layoutSubviews];
 }
-/*
+
+-(void)layoutIfNeeded{
+    [super layoutIfNeeded];
+}
+/**
     用于以此为基类的BaseTableView具体子类上所有数据的回调,当然也可以用NSObject分类的方法定位于：@interface NSObject (CallBackInfoByBlock)
  */
 -(void)actionBlockBaseTableView:(MKDataBlock _Nullable)baseTableViewBlock{
@@ -39,9 +49,7 @@
 -(void)touchesBegan:(NSSet<UITouch *> *)touches
           withEvent:(UIEvent *)event{
     NSLog(@"");
-    if (self.baseTableViewBlock) {
-//        self.baseTableViewBlock();
-    }
+//    if (self.baseTableViewBlock) self.baseTableViewBlock();
 }
 /// 专治UITableView相应链断裂【核心代码】
 - (UIView *)hitTest:(CGPoint)point
