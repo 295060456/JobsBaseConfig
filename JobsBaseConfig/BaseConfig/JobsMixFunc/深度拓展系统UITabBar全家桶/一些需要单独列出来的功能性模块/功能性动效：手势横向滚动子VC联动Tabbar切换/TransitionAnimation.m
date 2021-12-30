@@ -34,23 +34,21 @@
     CGVector offset;
     if (self.targetEdge == UIRectEdgeLeft){
         offset = CGVectorMake(-1.f, 0.f);
-    }
-    else if (self.targetEdge == UIRectEdgeRight){
+    }else if (self.targetEdge == UIRectEdgeRight){
         offset = CGVectorMake(1.f, 0.f);
-    }
-    else{
+    }else{
         NSAssert(NO, @"targetEdge must be one of UIRectEdgeLeft, or UIRectEdgeRight.");
     }
     
     fromView.frame = fromFrame;
-    toView.frame = CGRectOffset(toFrame, 
+    toView.frame = CGRectOffset(toFrame,
                                 toFrame.size.width * offset.dx * -1,
                                 toFrame.size.height * offset.dy * -1);
     
     [transitionContext.containerView addSubview:toView];
     NSTimeInterval transitionDuration = [self transitionDuration:transitionContext];
     [UIView animateWithDuration:transitionDuration animations:^{
-        fromView.frame = CGRectOffset(fromFrame, 
+        fromView.frame = CGRectOffset(fromFrame,
                                       fromFrame.size.width * offset.dx,
                                       fromFrame.size.height * offset.dy);
         toView.frame = toFrame;

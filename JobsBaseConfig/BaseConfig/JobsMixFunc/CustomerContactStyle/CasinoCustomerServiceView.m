@@ -25,6 +25,15 @@
 
 @implementation CasinoCustomerServiceView
 
+static CasinoCustomerServiceView *static_customerServiceView = nil;
++(instancetype)sharedInstance{
+    @synchronized(self){
+        if (!static_customerServiceView) {
+            static_customerServiceView = CasinoCustomerServiceView.new;
+        }
+    }return static_customerServiceView;
+}
+
 -(instancetype)init{
     if (self = [super init]) {
         self.backgroundImageView.image = KIMG(@"客服_背景图");

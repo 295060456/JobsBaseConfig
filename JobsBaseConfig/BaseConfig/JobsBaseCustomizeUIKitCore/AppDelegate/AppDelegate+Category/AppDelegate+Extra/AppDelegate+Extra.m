@@ -66,6 +66,7 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
         TabBarVC.isAnimationAlert = YES;//OK
         TabBarVC.isPlaySound = YES;
         TabBarVC.isFeedbackGenerator = YES;
+        TabBarVC.jumpIndexArr = @[@3];//小标为3的客服模块需要被跳开做另行处理
 //        TabBarVC.isShakerAnimation = YES;
 //        TabBarVC.isOpenScrollTabbar = NO;
 
@@ -78,10 +79,18 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
         [TabBarVC setReturnViewControllerBlock:^id(id data) {
             if ([data isKindOfClass:NSNumber.class]) {
                 NSNumber *num = (NSNumber *)data;
-                BOOL ok = num.integerValue != 3;
-                if (!ok) {
+                
+                BOOL ok = NO;
+                for (NSNumber *number in self.tabBarVC.jumpIndexArr) {
+                    if (num.unsignedIntegerValue == number.unsignedIntegerValue) {
+                        ok = YES;
+                        break;
+                    }
+                }
+                if (ok) {
                     if (self.customerContactModel.customerList.count) {
-                        CasinoCustomerServiceView *customerServiceView = CasinoCustomerServiceView.new;
+                        /// 单例模式防止重复添加
+                        CasinoCustomerServiceView *customerServiceView = CasinoCustomerServiceView.sharedInstance;
                         [customerServiceView actionViewBlock:^(id data) {
                             [customerServiceView tf_hide];
                         }];
@@ -91,7 +100,7 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
                                                 direction:PopupDirectionBottom
                                                popupParam:self.appDelegatePopupParameter];
                     }
-                }return @(ok);
+                }return @(!ok);
             }return @(YES);
         }];
         

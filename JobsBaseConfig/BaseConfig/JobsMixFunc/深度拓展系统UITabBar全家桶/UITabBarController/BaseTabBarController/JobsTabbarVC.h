@@ -67,6 +67,8 @@ UIGestureRecognizerDelegate
 @property(nonatomic,assign)BOOL isShakerAnimation;// 重力弹跳动画效果
 @property(nonatomic,assign)BOOL isPlaySound;// 点击声
 @property(nonatomic,assign)BOOL isFeedbackGenerator;// 振动反馈
+@property(nonatomic,strong)NSArray <NSNumber *>*jumpIndexArr;// 需要跳开的item的index
+@property(nonatomic,assign)BOOL isJumpToNextVC;// 当需要跳开的item,是否是需要直接跳到下一个VC？默认NO
 
 -(void)ppBadge:(BOOL)open;// 开启/关闭 PPBadgeView的效果,至少在viewDidLayoutSubviews后有效
 

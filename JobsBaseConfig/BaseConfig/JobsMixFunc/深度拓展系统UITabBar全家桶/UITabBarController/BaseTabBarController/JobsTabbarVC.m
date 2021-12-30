@@ -8,7 +8,9 @@
 
 #import "JobsTabbarVC.h"
 
-@interface JobsTabbarVC ()
+@interface JobsTabbarVC (){
+    BOOL A;
+}
 /// UI
 @property(nonatomic,strong,readwrite)JobsTabBar *myTabBar;//myTabBar.humpOffsetY 凸起的高度自定义，默认值30  offsetHeight
 /// Data
@@ -57,13 +59,14 @@ static JobsTabbarVC *static_tabbarVC = nil;
     if ([self.requestParams isKindOfClass:UIViewModel.class]) {
         self.viewModel = (UIViewModel *)self.requestParams;
     }
-    
+    A = YES;
     self.delegate = self;
     self.isOpenScrollTabbar = YES;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    /// 手势左右滑动以切换TabbarControl挂载的ViewController
     if (self.isOpenScrollTabbar) {
         self.view.target = self;
         self.view.panGR.enabled = self.isOpenScrollTabbar;
@@ -117,6 +120,15 @@ static JobsTabbarVC *static_tabbarVC = nil;
     }
 }
 #pragma mark —— 一些私有方法
+/// 需要强制跳转登录的index。点击和手势滑动都需要共同调用
+-(BOOL)forcedLoginIndex:(NSUInteger)index{
+    if (index == 1 ||
+        index == 2 ||
+        index == 4) {
+        [self forcedLogin];
+        return YES;
+    }return NO;
+}
 /// 判别是否有Lottie
 /// @param index index
 -(BOOL)judgeLottieWithIndex:(NSInteger)index{
@@ -178,16 +190,7 @@ static JobsTabbarVC *static_tabbarVC = nil;
         }
     }
 }
-#pragma mark —— 手势事件
--(void)长按手势做什么:(UILongPressGestureRecognizer *)longPressGR{
-    if (self.isFeedbackGenerator) {
-        [NSObject feedbackGenerator];//震动反馈
-    }
-
-    [JobsPullListAutoSizeView initWithTargetView:self.UITabBarButtonMutArr[longPressGR.view.tag]
-                                      dataMutArr:self.pullListAutoSizeViewMutArr];
-}
-
+#pragma mark —— 手势左右滑动以切换TabbarControl挂载的ViewController
 - (void)panGestureRecognizer:(UIPanGestureRecognizer *)pan{
     if (self.transitionCoordinator) {
         return;
@@ -201,11 +204,60 @@ static JobsTabbarVC *static_tabbarVC = nil;
 
 -(void)beginInteractiveTransitionIfPossible:(UIPanGestureRecognizer *)sender{
     CGPoint translation = [sender translationInView:self.view];
+
+    NSLog(@"FromIndex = %lu",(unsigned long)self.selectedIndex);
+    /// ❤️需要被跳开的item的逻辑❤️
+    for (NSNumber *indexNUM in self.jumpIndexArr) {
+        if (indexNUM.integerValue >= 0 ||
+            indexNUM.integerValue <= self.tabBar.items.count - 1) {
+            
+            {// 手势从左到右 和 手势从右到左 的两种触发方式
+                // 手势从左到右
+                if (self.selectedIndex == indexNUM.integerValue - 1) {
+                    if (translation.x > 0.f && self.selectedIndex > 0) {
+                        self.selectedIndex --;
+                    }else{
+                        if (self.isJumpToNextVC) {
+                            self.selectedIndex += 2;
+                        }
+                        // 向外回调需要做的事
+                        if (self.returnViewControllerBlock) A = [self.returnViewControllerBlock(indexNUM) boolValue];
+                    }return;
+                }
+                // 手势从右到左
+                if (self.selectedIndex == indexNUM.integerValue + 1) {
+                    if (translation.x < 0.f && self.selectedIndex + 1 < self.viewControllers.count) {
+                        self.selectedIndex ++;
+                    }else{
+                        if (self.isJumpToNextVC) {
+                            self.selectedIndex -= 2;
+                        }
+                        // 向外回调需要做的事
+                        if (self.returnViewControllerBlock) A = [self.returnViewControllerBlock(indexNUM) boolValue];
+                    }return;
+                }
+            }
+        }
+    }
+    
     if (translation.x > 0.f && self.selectedIndex > 0) {
         self.selectedIndex --;
     }else if (translation.x < 0.f && self.selectedIndex + 1 < self.viewControllers.count) {
         self.selectedIndex ++;
+    }else{}
+    
+    [self forcedLoginIndex:self.selectedIndex];
+    
+    NSLog(@"ToIndex = %lu",(unsigned long)self.selectedIndex);
+}
+#pragma mark —— TabBarItem的相关手势
+-(void)长按手势做什么:(UILongPressGestureRecognizer *)longPressGR{
+    if (self.isFeedbackGenerator) {
+        [NSObject feedbackGenerator];//震动反馈
     }
+
+    [JobsPullListAutoSizeView initWithTargetView:self.UITabBarButtonMutArr[longPressGR.view.tag]
+                                      dataMutArr:self.pullListAutoSizeViewMutArr];
 }
 
 -(void)添加长按手势{
@@ -252,40 +304,59 @@ static JobsTabbarVC *static_tabbarVC = nil;
 - (void)tabBar:(UITabBar *)tabBar
  didSelectItem:(UITabBarItem *)item {
 
-    if ([self.tabBar.items containsObject:item]) {
-        NSInteger index = [self.tabBar.items indexOfObject:item];
-        NSLog(@"当前点击：%ld",(long)index);
+    if ([tabBar.items containsObject:item]) {
         
+        NSUInteger index = [self.tabBar.items indexOfObject:item];
+        NSLog(@"当前点击：%ld",(long)index);
+        for (NSNumber *indexNUM in self.jumpIndexArr) {
+            if (indexNUM.unsignedIntegerValue != index) {
+                if (![self forcedLoginIndex:index]) {
+                    /// 不需要进行强制登录的时候，才重新赋值刷新self.selectedIndex
+                    self.selectedIndex = index;
+                }
+            }
+        }
+        // Lottie 动画
         if ([self judgeLottieWithIndex:self.selectedIndex]) {
             [self.tabBar animationLottieImage:(int)index];
         }
-        
+        // 震动反馈
         if (self.isFeedbackGenerator) {
             [NSObject feedbackGenerator];
         }
-        
+        // 点击声音
         if (self.isPlaySound) {
             [NSObject playSoundWithFileName:@"Sound.wav"];
         }
-
+        // 重力弹跳动画效果
         if (self.isShakerAnimation) {
-            shakerAnimation(item.badgeView, 2, 20);//重力弹跳动画效果
+            shakerAnimation(item.badgeView, 2, 20);
         }
-        
+        // 点击增加标数
         if (self.isOpenPPBadge) {
             [item pp_increase];
         }
-        
+        // 图片从小放大
         if (self.isAnimationAlert) {
             UIView *UITabBarButton = self.UITabBarButtonMutArr[index];
-            [UIView animationAlert:UITabBarButton];//图片从小放大
+            [UIView animationAlert:UITabBarButton];
         }
     }
 }
 #pragma mark - UITabBarControllerDelegate
+/**
+ 【点击TabBarItem进行切换】return YES可以切换 | return NO 不可切换
+ 
+ 【调用先后次序】
+    ①- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item；
+ 
+    ②- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController；
+ 
+ 【📢注意】在①中，如果对self.selectedIndex进行修改，那么在②中，设置返回值为NO无效
+ */
 - (BOOL)tabBarController:(UITabBarController *)tabBarController
 shouldSelectViewController:(UIViewController *)viewController {
-    
+
     NSInteger index = [self.childMutArr indexOfObject:viewController];
     
     if ([viewController isKindOfClass:UIViewController.class] &&
@@ -293,12 +364,8 @@ shouldSelectViewController:(UIViewController *)viewController {
         [viewController lottieImagePlay];
     }
     
-    if (index == 1 || index == 2 || index == 4) {
-        [self forcedLogin];
-        return [self.returnViewControllerBlock(@(index)) boolValue] && self.isLogin;
-    }else{
-        return [self.returnViewControllerBlock(@(index)) boolValue];
-    }
+    if (self.returnViewControllerBlock) A = [self.returnViewControllerBlock(@(index)) boolValue];
+    return [self forcedLoginIndex:index] ? (A && self.isLogin) : A;
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)tabBarController:(UITabBarController *)tabBarController
