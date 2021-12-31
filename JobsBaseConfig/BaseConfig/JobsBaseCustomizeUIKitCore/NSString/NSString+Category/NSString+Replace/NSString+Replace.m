@@ -21,12 +21,32 @@
     NSString *numberString = [self stringByReplacingCharactersInRange:NSMakeRange(3, 4) withString:@"****"];
     return numberString;
 }
-//我自己写的,服务器请求的数据为空值的时候进行替换本地默认值，因为json传输是通过对象包装来进行，所以其实归结起来就是2类，一类是基本数据类型被包装成Number、其他包装成String
+/// 每隔num个字符添加一个空格的字符串算法
+/// @param num 默认值是4
+-(NSString *)dealWithString:(NSInteger)num{
+    NSString *doneTitle = @"";
+    if (num == 0) num = 4;
+    int count = 0;
+    for (int i = 0; i < self.length; i++) {
+        count++;
+        doneTitle = [doneTitle stringByAppendingString:[self substringWithRange:NSMakeRange(i, 1)]];
+        if (count == num) {
+            doneTitle = [NSString stringWithFormat:@"%@ ", doneTitle];
+            count = 0;
+        }
+    }
+    NSLog(@"%@", doneTitle);
+    return doneTitle;
+}
+/// 服务器请求的数据为空值的时候进行替换本地默认值
+/// 因为json传输是通过对象包装来进行，所以其实归结起来就是2类，一类是基本数据类型被包装成Number、其他包装成String
+/// @param nullableStr 进行检查的资源
+/// @param replaceStr 进行替换的备用文字资源
 +(NSString *)ensureNonnullString:(id)nullableStr
                       replaceStr:(NSString *)replaceStr{
     //只有NSNumber 和 NSString 这两种情况
     //过滤特殊字符：空格
-    NSCharacterSet *whitespace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+    NSCharacterSet *whitespace = NSCharacterSet.whitespaceAndNewlineCharacterSet;
     replaceStr = [replaceStr stringByTrimmingCharactersInSet:whitespace];//有空格，去除空格
     if (replaceStr == nil ||
         replaceStr == Nil ||
@@ -42,28 +62,8 @@
         str = [str stringByTrimmingCharactersInSet:whitespace];//有空格，去除空格
         return str.length == 0 ? replaceStr : str;
     }else if ([nullableStr isKindOfClass:NSNumber.class]){
-        NSNumber *b = (NSNumber *)nullableStr;//longlong??
-        if (strcmp([nullableStr objCType], @encode(BOOL)) == 0) {// Bool 类型
-            return [NSString stringWithFormat:@"%d",b.boolValue];
-        }else if (strcmp([nullableStr objCType], @encode(int)) == 0){// int 类型
-            return [NSString stringWithFormat:@"%d",b.intValue];
-        }else if (strcmp([nullableStr objCType], @encode(float)) == 0){// float 类型
-            return [NSString stringWithFormat:@"%f",b.floatValue];
-        }else if (strcmp([nullableStr objCType], @encode(double)) == 0){//double 类型
-            return [NSString stringWithFormat:@"%f",b.doubleValue];
-        }else if (strcmp([nullableStr objCType], @encode(char)) == 0){//char 类型
-            return [NSString stringWithFormat:@"%c",b.charValue];
-        }else if (strcmp([nullableStr objCType], @encode(u_char)) == 0){//unsigned char 类型
-            return [NSString stringWithFormat:@"%c",b.charValue];
-        }else if (strcmp([nullableStr objCType], @encode(short)) == 0){//short 类型
-            return [NSString stringWithFormat:@"%c",b.shortValue];
-        }else if (strcmp([nullableStr objCType], @encode(u_short)) == 0){//unsigned short 类型
-            return [NSString stringWithFormat:@"%c",b.shortValue];
-        }else if (strcmp([nullableStr objCType], @encode(long)) == 0){//long 类型
-            return [NSString stringWithFormat:@"%ld",b.longValue];
-        }else if (strcmp([nullableStr objCType], @encode(u_long)) == 0){//unsigned long 类型
-            return [NSString stringWithFormat:@"%lu",b.unsignedLongValue];
-        }else return replaceStr;
+        NSNumber *b = (NSNumber *)nullableStr;
+        return [NSString isNullString:[b toString:nil]] ? replaceStr : [b toString:nil];
     }else return replaceStr;
 }
 
