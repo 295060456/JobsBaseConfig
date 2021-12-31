@@ -15,6 +15,8 @@
 #import "UIButton+ImageTitleSpacing.h"
 /// 一些UI代码的封装
 #import "UIButton+UI.h"
+/// 动画封装
+#import "UIButton+Animation.h"
 
 #pragma mark —— Base
 /// 不规则多边形按钮

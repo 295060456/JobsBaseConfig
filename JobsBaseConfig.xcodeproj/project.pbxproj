@@ -445,6 +445,7 @@
 		848691E0277B03410098BE7A /* NSObject+DynamicInvoke.m in Sources */ = {isa = PBXBuildFile; fileRef = 848691DE277B03410098BE7A /* NSObject+DynamicInvoke.m */; };
 		84869260277B33570098BE7A /* NSNumber+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 8486925F277B33570098BE7A /* NSNumber+Extra.m */; };
 		84869679277C68470098BE7A /* NSString+Check.m in Sources */ = {isa = PBXBuildFile; fileRef = 84869677277C68470098BE7A /* NSString+Check.m */; };
+		84C94D97277EBAAB00C49CBA /* UIButton+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C94D95277EBAAB00C49CBA /* UIButton+Animation.m */; };
 		ABB2A8B711CC6C1FEF7A4899 /* Pods_JobsBaseConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 013934AB50FCDA373FFA6597 /* Pods_JobsBaseConfig.framework */; };
 		F65541EC060397D8F6D09547 /* Pods_JobsBaseConfigUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */; };
 /* End PBXBuildFile section */
@@ -1294,6 +1295,8 @@
 		8486925F277B33570098BE7A /* NSNumber+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Extra.m"; sourceTree = "<group>"; };
 		84869677277C68470098BE7A /* NSString+Check.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Check.m"; sourceTree = "<group>"; };
 		84869678277C68470098BE7A /* NSString+Check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Check.h"; sourceTree = "<group>"; };
+		84C94D95277EBAAB00C49CBA /* UIButton+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Animation.m"; sourceTree = "<group>"; };
+		84C94D96277EBAAB00C49CBA /* UIButton+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Animation.h"; sourceTree = "<group>"; };
 		949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JobsBaseConfigUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEDDD2E7A82BF58DE2012E29 /* Pods-JobsBaseConfigUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobsBaseConfigUITests.debug.xcconfig"; path = "Target Support Files/Pods-JobsBaseConfigUITests/Pods-JobsBaseConfigUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -2175,6 +2178,7 @@
 		840F937527736426004979E9 /* UIButton+Category */ = {
 			isa = PBXGroup;
 			children = (
+				84C94D94277EBAAB00C49CBA /* UIButton+Animation */,
 				840F937627736426004979E9 /* UIButton+UI */,
 				840F937927736426004979E9 /* UIButton+ImageTitleSpacing */,
 				840F937D27736426004979E9 /* UIButton+Timer */,
@@ -5036,6 +5040,15 @@
 			path = "NSNumber+Extra";
 			sourceTree = "<group>";
 		};
+		84C94D94277EBAAB00C49CBA /* UIButton+Animation */ = {
+			isa = PBXGroup;
+			children = (
+				84C94D95277EBAAB00C49CBA /* UIButton+Animation.m */,
+				84C94D96277EBAAB00C49CBA /* UIButton+Animation.h */,
+			);
+			path = "UIButton+Animation";
+			sourceTree = "<group>";
+		};
 		B0977B0404F4246F3B021752 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -5540,6 +5553,7 @@
 				840F960C27736427004979E9 /* BWItemCollectionViewCell.m in Sources */,
 				840F965E27736428004979E9 /* RBCLikeButton.m in Sources */,
 				840F966527736428004979E9 /* IrregularBtn.m in Sources */,
+				84C94D97277EBAAB00C49CBA /* UIButton+Animation.m in Sources */,
 				840F967B27736428004979E9 /* UIView+MJRefresh.m in Sources */,
 				840F960027736427004979E9 /* JobsPullListTBVCell.m in Sources */,
 				840F964627736427004979E9 /* UIImage+Extras.m in Sources */,

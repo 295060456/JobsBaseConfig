@@ -15,6 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)getMainQueue:(NoResultBlock)block;
 // 开启一个子线程
 -(void)getGlobalQueue:(NoResultBlock)block;
+/// 从现在开始，等待一段时间，去做一件事情
+/// @param delay 从现在开始，等待的时间
+/// @param doSthBlock 去做的一件事情
+-(void)delay:(CGFloat)delay
+       doSth:(MKDataBlock)doSthBlock;
 
 @end
 
