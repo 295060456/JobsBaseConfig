@@ -22,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
  解决方法：可能存在复制源里面的文字带了空白url编码%E2%80%8B，空白编码没有宽度，虽然看不到但是会影响结果无法正确匹配对应的中文字。可以把文字重新url编码即可。
  */
 -(NSString *)urlProtect;
+/// 系统的stringByAppendingString方法在参数为nil的时候会崩溃
+-(NSString *)jobsStringByAppendingString:(NSString *_Nullable)str;
 
 @end
 

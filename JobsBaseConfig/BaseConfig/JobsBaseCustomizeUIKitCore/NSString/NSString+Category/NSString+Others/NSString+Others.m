@@ -62,5 +62,11 @@
         return [self stringByReplacingOccurrencesOfString:@"\u200B" withString:@""];
     }else return self;
 }
+/// 系统的stringByAppendingString方法在参数为nil的时候会崩溃
+-(NSString *)jobsStringByAppendingString:(NSString *_Nullable)str{
+    if (!str) {
+        str = @"";
+    }return [self stringByAppendingString:str];
+}
 
 @end
