@@ -131,6 +131,26 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
                     context:nil];
 }
 #pragma mark —— 功能性的
+/// 版本号比较 版本号的格式：数字中间由点隔开
+/// @param versionNumber1 版本号1
+/// @param versionNumber2 版本号2
+-(CompareRes)versionNumber1:(NSString *_Nonnull)versionNumber1
+             versionNumber2:(NSString *_Nonnull)versionNumber2{
+    NSString *v1 = [versionNumber1 stringByReplacingOccurrencesOfString:@"." withString:@""];
+    NSString *v2 = [versionNumber2 stringByReplacingOccurrencesOfString:@"." withString:@""];
+    if (v1.judgeiphoneNumberInt && v2.judgeiphoneNumberInt) {
+        if (v1.integerValue > v2.integerValue) {
+            return CompareRes_MoreThan;
+        }else if (v1.integerValue < v2.integerValue){
+            return CompareRes_LessThan;
+        }else{
+            return CompareRes_Equal;
+        }
+    }else{
+        NSLog(@"数据异常，请检查：versionNumber1 = %@,versionNumber2 = %@",versionNumber1,versionNumber2);
+        return CompareRes_Error;
+    }
+}
 /// 给定一个数据源（数组）和 每行需要展示的元素个数，计算行数
 /// @param elementNumberInEveryLine 每行需要展示的元素个数
 /// @param arr 数据源（数组）
@@ -232,7 +252,7 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
         [dropDownListView dropDownListViewDisappear];
     }];
     
-    dropDownListView.backgroundColor = kRedColor;
+//    dropDownListView.backgroundColor = kRedColor;
 
     if (!data) {
         data = NSMutableArray.array;

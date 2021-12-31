@@ -67,6 +67,13 @@ typedef struct{
     NSInteger section;
 }JobsIndexPath;
 
+typedef NS_ENUM(NSInteger, CompareRes) {
+    CompareRes_Error,
+    CompareRes_MoreThan,// >
+    CompareRes_Equal,// ==
+    CompareRes_LessThan// <
+};
+
 typedef NS_ENUM(NSInteger, ScrollDirection) {
     ScrollDirectionNone = 0,
     ScrollDirectionRight,// 右👉🏻
@@ -133,6 +140,11 @@ typedef void (^callback)(id _Nullable weakSelf, id _Nullable arg);
 /// 添加监听【针对UIScrollView 的 ContentOffset 属性】
 -(void)monitorContentOffsetScrollView:(UIScrollView *_Nonnull)scrollView;
 #pragma mark —— 功能性的
+/// 版本号比较
+/// @param versionNumber1 版本号1
+/// @param versionNumber2 版本号2
+-(CompareRes)versionNumber1:(NSString *_Nonnull)versionNumber1
+             versionNumber2:(NSString *_Nonnull)versionNumber2;
 /// 给定一个数据源（数组）和 每行需要展示的元素个数，计算行数
 /// @param elementNumberInEveryLine 每行需要展示的元素个数
 /// @param arr 数据源（数组）
