@@ -13,6 +13,7 @@
 #import "JobsNoticePopupView.h"
 #import "JobsHotLabel.h"
 #import "JobsPageView.h"
+#import "JobsBasePopupView.h"
 #import "JobsBitsMonitor.h"
 #import "JobsSuspend.h"
 #import "JobsImageNumberView.h"

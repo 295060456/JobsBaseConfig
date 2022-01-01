@@ -23,6 +23,9 @@
 @synthesize setupNavigationBarHidden = _setupNavigationBarHidden;
 @synthesize currentPage = _currentPage;
 @synthesize viewControllerBlock = _viewControllerBlock;
+@synthesize viewModel = _viewModel;
+@synthesize popupView = _popupView;
+@synthesize popupVM = _popupVM;
 
 - (void)dealloc{
     NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
@@ -109,14 +112,6 @@
     [super viewDidLayoutSubviews];
     self.view.mjRefreshTargetView.mj_footer.y = self.view.mjRefreshTargetView.contentSize.height;
 }
-
--(void)setGKNav{
-    self.gk_navTitle = self.viewModel.text;
-    self.gk_navTitleColor = HEXCOLOR(0xD3B698);
-    self.gk_navBackgroundColor = HEXCOLOR(0x564533);
-    self.gk_backImage = KIMG(@"全局返回箭头");
-    self.gk_navTitleFont = [UIFont systemFontOfSize:KWidth(18) weight:UIFontWeightRegular];
-}
 /**
  
  #  iOS 状态栏颜色的修改
@@ -147,6 +142,14 @@
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
 }
+#pragma mark —— 一些功能性的
+-(void)setGKNav{
+    self.gk_navTitle = self.viewModel.text;
+    self.gk_navTitleColor = HEXCOLOR(0xD3B698);
+    self.gk_navBackgroundColor = HEXCOLOR(0x564533);
+    self.gk_backImage = KIMG(@"全局返回箭头");
+    self.gk_navTitleFont = [UIFont systemFontOfSize:KWidth(18) weight:UIFontWeightRegular];
+}
 /*
     用于以此为基类的控制器上所有数据的回调,当然也可以用NSObject分类的方法定位于：@interface NSObject (CallBackInfoByBlock)
  */
@@ -172,6 +175,48 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
         _bgImageView.userInteractionEnabled = YES;
         self.view = _bgImageView;
     }return _bgImageView;
+}
+
+-(JobsBasePopupView *)popupView{
+    if (!_popupView) {
+        _popupView = JobsBasePopupView.new;
+        _popupView.size = [JobsBasePopupView viewSizeWithModel:nil];
+        
+        [_popupView richElementsInViewWithModel:self.popupVM];
+        
+        @jobs_weakify(self)
+        [self.popupView actionViewBlock:^(UIButton *data) {
+            @jobs_strongify(self)
+            if (data.tag == 666) {// 取消
+                NSLog(@"手滑了");
+            }else if (data.tag == 999){// 确定退出
+                [self logOut];
+            }
+            [self.popupView tf_hide];
+            
+    #ifdef DEBUG
+            @jobs_weakify(self)
+            [self.alertController dismissViewControllerAnimated:YES
+                                                     completion:^{
+                @jobs_strongify(self)
+                [self comingToPushVC:JobsShowObjInfoVC.new
+                       requestParams:self.readUserInfo];// 测试专用
+            }];
+    #endif
+        }];
+        
+    }return _popupView;
+}
+
+-(UIViewModel *)popupVM{
+    if (!_popupVM) {
+        _popupVM = UIViewModel.new;
+        _popupVM.text = Internationalization(@"Confirm to exit ?");
+        _popupVM.subText = @"";
+        _popupVM.font = [UIFont systemFontOfSize:KWidth(14) weight:UIFontWeightRegular];
+        _popupVM.textAlignment = NSTextAlignmentCenter;
+        _popupVM.bgCor = UIColor.whiteColor;
+    }return _popupVM;
 }
 
 @end

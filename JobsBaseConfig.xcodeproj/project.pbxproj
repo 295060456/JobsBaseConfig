@@ -437,6 +437,8 @@
 		8459D6172779A6CC00125782 /* CasinoCustomerServiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459D6142779A6CC00125782 /* CasinoCustomerServiceView.m */; };
 		8459D6182779A6CC00125782 /* CasinoCustomerServiceView.png in Resources */ = {isa = PBXBuildFile; fileRef = 8459D6152779A6CC00125782 /* CasinoCustomerServiceView.png */; };
 		8459D61C2779A88A00125782 /* CasinoCustomerContactModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459D61B2779A88900125782 /* CasinoCustomerContactModel.m */; };
+		846DEE0327804C340050468A /* JobsBasePopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846DEE0027804C340050468A /* JobsBasePopupView.m */; };
+		846DEE0427804C340050468A /* JobsBasePopupView.png in Resources */ = {isa = PBXBuildFile; fileRef = 846DEE0127804C340050468A /* JobsBasePopupView.png */; };
 		84868DA32779DDA50098BE7A /* ZMJCells.m in Sources */ = {isa = PBXBuildFile; fileRef = 84868DA22779DDA50098BE7A /* ZMJCells.m */; };
 		84868E1F2779DFE30098BE7A /* UILabel+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 84868E1E2779DFE30098BE7A /* UILabel+Extra.m */; };
 		84868F19277ADF690098BE7A /* JobsDropDownListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84868F15277ADF690098BE7A /* JobsDropDownListView.m */; };
@@ -1278,6 +1280,9 @@
 		8459D61B2779A88900125782 /* CasinoCustomerContactModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasinoCustomerContactModel.m; sourceTree = "<group>"; };
 		845A0B1B276DAC99008E75A5 /* JobsBaseConfigPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsBaseConfigPrefixHeader.pch; sourceTree = "<group>"; };
 		8465454D2769A53A003EC0B5 /* 配置info.plist.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "配置info.plist.md"; sourceTree = "<group>"; };
+		846DEE0027804C340050468A /* JobsBasePopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsBasePopupView.m; sourceTree = "<group>"; };
+		846DEE0127804C340050468A /* JobsBasePopupView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobsBasePopupView.png; sourceTree = "<group>"; };
+		846DEE0227804C340050468A /* JobsBasePopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBasePopupView.h; sourceTree = "<group>"; };
 		84868DA12779DDA50098BE7A /* ZMJCells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMJCells.h; sourceTree = "<group>"; };
 		84868DA22779DDA50098BE7A /* ZMJCells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMJCells.m; sourceTree = "<group>"; };
 		84868E1D2779DFE30098BE7A /* UILabel+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Extra.h"; sourceTree = "<group>"; };
@@ -1342,9 +1347,6 @@
 		840F926B27736425004979E9 /* JobsMixFunc */ = {
 			isa = PBXGroup;
 			children = (
-				840F92C527736425004979E9 /* JobsMixFunc.h */,
-				84868DA02779DDA50098BE7A /* ZMJCells */,
-				8459D6132779A6CC00125782 /* CustomerContactStyle */,
 				8459CF132776F7C600125782 /* 版本升级弹窗 */,
 				840F92D827736425004979E9 /* 播放器控制层 */,
 				840F92BD27736425004979E9 /* 分享控件 */,
@@ -1353,14 +1355,18 @@
 				840F932F27736426004979E9 /* 手势滑动返回 */,
 				840F926C27736425004979E9 /* 图形验证码 */,
 				840F92C927736425004979E9 /* 网络请求 */,
+				8459D6132779A6CC00125782 /* CustomerContactStyle */,
+				846DEDFF27804C340050468A /* JobsBasePopupView */,
 				840F926F27736425004979E9 /* JobsBitsMonitor */,
 				840F932C27736426004979E9 /* JobsDropDownListView */,
 				840F92C627736425004979E9 /* JobsHotLabel */,
 				840F92E327736426004979E9 /* JobsImageNumberView */,
 				840F930327736426004979E9 /* JobsLab */,
+				840F92C527736425004979E9 /* JobsMixFunc.h */,
 				840F931B27736426004979E9 /* JobsPageTBV */,
 				840F932127736426004979E9 /* JobsSuspend */,
 				8459CE122776DCCF00125782 /* JobsWelcomeVC */,
+				84868DA02779DDA50098BE7A /* ZMJCells */,
 			);
 			path = JobsMixFunc;
 			sourceTree = "<group>";
@@ -4993,6 +4999,16 @@
 			path = CasinoCustomerContactModel;
 			sourceTree = "<group>";
 		};
+		846DEDFF27804C340050468A /* JobsBasePopupView */ = {
+			isa = PBXGroup;
+			children = (
+				846DEE0027804C340050468A /* JobsBasePopupView.m */,
+				846DEE0127804C340050468A /* JobsBasePopupView.png */,
+				846DEE0227804C340050468A /* JobsBasePopupView.h */,
+			);
+			path = JobsBasePopupView;
+			sourceTree = "<group>";
+		};
 		84868DA02779DDA50098BE7A /* ZMJCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -5227,6 +5243,7 @@
 				840F95F927736427004979E9 /* huiyuan.json in Resources */,
 				844B08382764CF4800B0513D /* RAC_Define.md in Resources */,
 				840F966027736428004979E9 /* del_Photo@3x.png in Resources */,
+				846DEE0427804C340050468A /* JobsBasePopupView.png in Resources */,
 				840F962527736427004979E9 /* 1@3x.png in Resources */,
 				840F96A927736428004979E9 /* 旋转.png in Resources */,
 				840F95F127736427004979E9 /* tab_me_animate.json in Resources */,
@@ -5652,6 +5669,7 @@
 				840F96E527736428004979E9 /* CLLanguageManager.m in Sources */,
 				840F968427736428004979E9 /* UIDevice+XMUtils.m in Sources */,
 				844B08442764CF4800B0513D /* FMDatabase+Manager.m in Sources */,
+				846DEE0327804C340050468A /* JobsBasePopupView.m in Sources */,
 				840F968D27736428004979E9 /* BaseCollectionViewCell.m in Sources */,
 				844B08462764CF4800B0513D /* ECPrivacyCheckMicrophone.m in Sources */,
 				844B08452764CF4800B0513D /* EmptyView.m in Sources */,
