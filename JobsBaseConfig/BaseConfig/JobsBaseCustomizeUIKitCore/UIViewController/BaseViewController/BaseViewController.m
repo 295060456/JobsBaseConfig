@@ -24,8 +24,6 @@
 @synthesize currentPage = _currentPage;
 @synthesize viewControllerBlock = _viewControllerBlock;
 @synthesize viewModel = _viewModel;
-@synthesize popupView = _popupView;
-@synthesize popupVM = _popupVM;
 
 - (void)dealloc{
     NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
@@ -175,48 +173,6 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
         _bgImageView.userInteractionEnabled = YES;
         self.view = _bgImageView;
     }return _bgImageView;
-}
-
--(JobsBasePopupView *)popupView{
-    if (!_popupView) {
-        _popupView = JobsBasePopupView.new;
-        _popupView.size = [JobsBasePopupView viewSizeWithModel:nil];
-        
-        [_popupView richElementsInViewWithModel:self.popupVM];
-        
-        @jobs_weakify(self)
-        [self.popupView actionViewBlock:^(UIButton *data) {
-            @jobs_strongify(self)
-            if (data.tag == 666) {// 取消
-                NSLog(@"手滑了");
-            }else if (data.tag == 999){// 确定退出
-                [self logOut];
-            }
-            [self.popupView tf_hide];
-            
-    #ifdef DEBUG
-            @jobs_weakify(self)
-            [self.alertController dismissViewControllerAnimated:YES
-                                                     completion:^{
-                @jobs_strongify(self)
-                [self comingToPushVC:JobsShowObjInfoVC.new
-                       requestParams:self.readUserInfo];// 测试专用
-            }];
-    #endif
-        }];
-        
-    }return _popupView;
-}
-
--(UIViewModel *)popupVM{
-    if (!_popupVM) {
-        _popupVM = UIViewModel.new;
-        _popupVM.text = Internationalization(@"Confirm to exit ?");
-        _popupVM.subText = @"";
-        _popupVM.font = [UIFont systemFontOfSize:KWidth(14) weight:UIFontWeightRegular];
-        _popupVM.textAlignment = NSTextAlignmentCenter;
-        _popupVM.bgCor = UIColor.whiteColor;
-    }return _popupVM;
 }
 
 @end

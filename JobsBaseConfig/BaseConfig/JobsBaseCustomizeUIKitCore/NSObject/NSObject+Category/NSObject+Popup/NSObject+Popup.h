@@ -15,7 +15,7 @@
 #endif
 
 NS_ASSUME_NONNULL_BEGIN
-
+/// 弹出一个弹窗
 @interface NSObject (Popup)
 /// UI
 @property(nonatomic,strong)JobsNoticePopupView *popupView;

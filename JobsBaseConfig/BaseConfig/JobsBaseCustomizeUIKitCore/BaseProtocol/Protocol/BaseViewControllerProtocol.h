@@ -39,7 +39,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong,nullable)SPAlertController *alertController;
 @property(nonatomic,strong,nullable)UIImageView *bgImageView;
 @property(nonatomic,strong,nullable)UIImage *backgroundImage;// 仅在loadView中配置有效
-@property(nonatomic,strong)JobsBasePopupView *popupView;
 /// Data
 @property(nonatomic,strong,nullable)id requestParams;
 @property(nonatomic,strong,nullable)RACSignal *reqSignal;
@@ -47,7 +46,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)BOOL setupNavigationBarHidden;
 @property(nonatomic,assign)NSInteger __block currentPage;
 @property(nonatomic,copy,nullable)MKDataBlock viewControllerBlock;
-@property(nonatomic,strong)UIViewModel *popupVM;
 /// 设置GKNavigationBar
 -(void)setGKNav;
 /*

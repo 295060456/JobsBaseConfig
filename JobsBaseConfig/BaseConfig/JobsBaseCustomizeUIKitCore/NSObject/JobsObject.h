@@ -29,6 +29,8 @@
 #import "UIViewModel.h"
 
 #pragma mark —— Category
+/// 弹框提示退出登录清空本地用户数据
+#import "NSObject+PopViewToLogOut.h"
 /// 关联对象
 //#import "NSObject+Association.h"
 /// 动态调用方法

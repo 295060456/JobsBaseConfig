@@ -1,0 +1,150 @@
+//
+//  JobsAppDoorInputViewBaseStyle_3.m
+//  My_BaseProj
+//
+//  Created by Jobs on 2020/12/4.
+//  Copyright © 2020 Jobs. All rights reserved.
+//
+
+#import "JobsAppDoorInputViewBaseStyle_3.h"
+
+@interface JobsAppDoorInputViewBaseStyle_3 ()
+//UI
+@property(nonatomic,strong)UIButton *securityModeBtn;
+@property(nonatomic,strong)JobsMagicTextField *textField;
+//Data
+@property(nonatomic,strong)JobsAppDoorInputViewBaseStyleModel *doorInputViewBaseStyleModel;
+
+@end
+
+@implementation JobsAppDoorInputViewBaseStyle_3
+
+- (instancetype)init{
+    if (self = [super init]) {
+//        self.backgroundColor = kRedColor;
+        [UIView colourToLayerOfView:self
+                         withColour:Cor4
+                     andBorderWidth:1];
+    }return self;
+}
+#pragma mark —— 一些私有方法
+-(void)configTextField{
+    if (![NSString isNullString:self.doorInputViewBaseStyleModel.inputStr]) {
+        _textField.text = self.doorInputViewBaseStyleModel.inputStr;
+    }
+    _textField.background = self.doorInputViewBaseStyleModel.background;
+    _textField.backgroundColor = self.doorInputViewBaseStyleModel.backgroundColor;
+    _textField.disabledBackground = self.doorInputViewBaseStyleModel.disabledBackground;
+    _textField.keyboardType = self.doorInputViewBaseStyleModel.keyboardType;
+    _textField.leftView = [UIImageView.alloc initWithImage:self.doorInputViewBaseStyleModel.leftViewIMG];
+    _textField.leftViewMode = self.doorInputViewBaseStyleModel.leftViewMode;
+    _textField.textColor = self.doorInputViewBaseStyleModel.titleStrCor;
+    _textField.placeholder = self.doorInputViewBaseStyleModel.placeHolderStr;
+    _textField.returnKeyType = self.doorInputViewBaseStyleModel.returnKeyType;
+    _textField.keyboardAppearance = self.doorInputViewBaseStyleModel.keyboardAppearance;
+    _textField.offset = self.doorInputViewBaseStyleModel.offset;
+    _textField.placeholderColor = self.doorInputViewBaseStyleModel.placeholderColor;
+    _textField.placeholderFont = self.doorInputViewBaseStyleModel.placeholderFont;
+    _textField.objBindingParams = _textField.placeholder;
+    _textField.leftViewOffsetX = self.doorInputViewBaseStyleModel.leftViewOffsetX ? : KWidth(17);
+    _textField.animationColor = self.doorInputViewBaseStyleModel.animationColor ? : Cor4;
+    _textField.placeHolderAlignment = self.doorInputViewBaseStyleModel.placeHolderAlignment ? : PlaceHolderAlignmentLeft;
+    _textField.moveDistance = self.doorInputViewBaseStyleModel.moveDistance ? : KWidth(35);
+    _textField.placeHolderOffset = self.doorInputViewBaseStyleModel.placeHolderOffset ? : KWidth(20);
+}
+#pragma mark —— BaseViewProtocol
+/// 具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
++(CGSize)viewSizeWithModel:(id _Nullable)model{
+    return CGSizeMake(KWidth(345), KWidth(30));
+}
+#pragma mark —— JobsDoorInputViewProtocol
+-(void)changeTextFieldAnimationColor:(BOOL)toRegisterBtnSelected{
+    self.textField.animationColor = toRegisterBtnSelected ? Cor4 : Cor4;
+}
+
+
+-(JobsMagicTextField *)getTextField{
+    return self.textField;
+}
+
+-(NSString *)getTextFieldValue{
+    return self.textField.text;
+}
+
+-(void)block:(JobsMagicTextField *)textField
+       value:(NSString *)value{
+
+    Ivar ivar = class_getInstanceVariable(JobsMagicTextField.class, "_placeholderAnimationLbl");//必须是下划线接属性
+    UILabel *label = object_getIvar(textField, ivar);
+    
+    JobsAppDoorInputViewTFModel *InputViewTFModel = JobsAppDoorInputViewTFModel.new;
+    InputViewTFModel.resString = value;
+    InputViewTFModel.PlaceHolder = label.text;
+    
+    if (self.viewBlock) self.viewBlock(InputViewTFModel);
+}
+
+-(void)richElementsInViewWithModel:(JobsAppDoorInputViewBaseStyleModel *_Nullable)doorInputViewBaseStyleModel{
+    self.doorInputViewBaseStyleModel = doorInputViewBaseStyleModel;
+    self.securityModeBtn.alpha = 1;
+    self.textField.alpha = 1;
+    [self configTextField];
+}
+#pragma mark —— lazyLoad
+-(UIButton *)securityModeBtn{
+    if (!_securityModeBtn) {
+        _securityModeBtn = UIButton.new;
+        [_securityModeBtn setImage:self.doorInputViewBaseStyleModel.selectedSecurityBtnIMG
+                          forState:UIControlStateSelected];
+        [_securityModeBtn setImage:self.doorInputViewBaseStyleModel.unSelectedSecurityBtnIMG
+                          forState:UIControlStateNormal];
+        @weakify(self)
+        [[_securityModeBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
+            @strongify(self)
+            x.selected = !x.selected;
+            self.textField.secureTextEntry = x.selected;
+        }];
+        [self addSubview:_securityModeBtn];
+        [_securityModeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.right.bottom.equalTo(self);
+            make.width.mas_equalTo(40);
+        }];
+    }return _securityModeBtn;
+}
+
+-(JobsMagicTextField *)textField{
+    if (!_textField) {
+        _textField = JobsMagicTextField.new;
+        _textField.delegate = self;
+        @weakify(self)
+        [[_textField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
+            @strongify(self)
+            if ([self.textField.objBindingParams isEqualToString:Internationalization(@"User")] ||// 用户名
+                [self.textField.objBindingParams isEqualToString:Internationalization(@"Code")] ||// 密码
+                [self.textField.objBindingParams isEqualToString:Internationalization(@"Confirm")]) {// 确认密码
+                // 用户账号由6-15个字符组成,且只能输入字母大小写和数字
+                return value.length >= 6 &&
+                value.length <= 15 &&
+                value.judgeiphoneNumberInt &&
+                value.isAllLetterCharacter;
+            }return NO;
+        }] subscribeNext:^(NSString * _Nullable x) {
+            @strongify(self)
+            NSLog(@"输入的字符为 = %@",x);
+            if ([x isContainsSpecialSymbolsString:nil]) {
+                [WHToast toastMsg:Internationalization(@"Do not enter special characters")];
+            }else{
+                [self block:self->_textField
+                      value:x];
+            }
+        }];
+        
+        [self addSubview:_textField];
+        [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.left.bottom.equalTo(self);
+            make.right.equalTo(self.securityModeBtn.mas_left);
+        }];
+    }return _textField;
+}
+
+@end

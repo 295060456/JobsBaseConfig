@@ -12,10 +12,12 @@
 #import "NSObject+Extras.h"
 
 #import "AppDelegate.h"
+#import "JobsAppDoorVC.h"
 #import "AppInternationalizationVC.h"
 #import "CasinoUpgradePopupView.h"
 #import "JobsHotLabel.h"
 
+#import "UIViewModel.h"
 #import "CasinoCustomerContactModel.h"
 
 NS_ASSUME_NONNULL_BEGIN

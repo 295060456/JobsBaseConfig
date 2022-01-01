@@ -39,22 +39,32 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
 //    NSLog(@"通知传递过来的 = %@",notification.object);
 //}
 #pragma mark —— AppToolsProtocol
+/// 去登录？去注册？
+-(void)toLoginOrRegister:(CurrentPage)appDoorContentType{
+    JobsAppDoorVC *appDoorVC = JobsAppDoorVC.new;
+    appDoorVC.objBindingParams = @(appDoorContentType);
+    [UIViewController comingFromVC:self.getCurrentViewController
+                              toVC:appDoorVC
+                       comingStyle:ComingStyle_PRESENT
+                 presentationStyle:UIModalPresentationFullScreen//[UIDevice currentDevice].systemVersion.doubleValue >= 13.0 ? UIModalPresentationAutomatic : UIModalPresentationFullScreen
+                     requestParams:@(JobsAppDoorBgType_video)
+          hidesBottomBarWhenPushed:YES
+                          animated:YES
+                           success:^(id data) {}];
+}
+
 -(void)toLogin{
-//    AppDelegate *appDelegate = getSysAppDelegate();
-//    [UIViewController comingFromVC:appDelegate.tabBarVC
-//                              toVC:JobsAppDoorVC.new
-//                       comingStyle:ComingStyle_PRESENT
-//                 presentationStyle:UIModalPresentationFullScreen//[UIDevice currentDevice].systemVersion.doubleValue >= 13.0 ? UIModalPresentationAutomatic : UIModalPresentationFullScreen
-//                     requestParams:@(JobsAppDoorBgType_video)
-//          hidesBottomBarWhenPushed:YES
-//                          animated:YES
-//                           success:^(id data) {}];
+    [self toLoginOrRegister:CurrentPage_login];
 }
 
 -(void)forcedLogin{
     if (!self.isLogin) {
         [self toLogin];
     }
+}
+/// 触发退出登录模块之前，弹窗提示二次确认，确认以后再删除本地用户数据
+-(void)popUpViewToLogout{
+    [self popupWithView:self.logOutPopupView popupParam:self.popupParameter];
 }
 
 -(UIImage *)defaultHeaderImage{
