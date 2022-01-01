@@ -9,6 +9,8 @@
 #define JobsObject_h
 
 #pragma mark —— Base
+/// 请求的公共配置文件
+#import "RequestTool.h"
 /// App语言国际化
 #import "CLLanguageManager.h"
 ///  文件夹操作

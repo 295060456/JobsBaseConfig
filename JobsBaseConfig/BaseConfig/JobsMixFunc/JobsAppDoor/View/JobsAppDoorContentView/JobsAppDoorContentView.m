@@ -199,9 +199,7 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
                                      data:data];
             }else{}
             // 回调到外层，如果外层需要用的话
-            if (self.viewBlock) {
-                self.viewBlock(data);//data：监测输入字符回调 和 激活的textField
-            }
+            if (self.viewBlock) self.viewBlock(data);//data：监测输入字符回调 和 激活的textField
         }];
         [self addSubview:inputView];
         inputView.size = CGSizeMake(self.width - self.toRegisterBtn.width - KWidth(40), ThingsHeight);
@@ -470,9 +468,7 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
 }
 /// 公共方法
 -(void)animationCommon{
-    if (self.viewBlock) {
-        self.viewBlock(self.toRegisterBtn);
-    }
+    if (self.viewBlock) self.viewBlock(self.toRegisterBtn);
     
     [self.toRegisterBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
                                      imageTitleSpace:8];
@@ -581,9 +577,7 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
         @weakify(self)
         [[_abandonLoginBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
             @strongify(self)
-            if (self.viewBlock) {
-                self.viewBlock(x);
-            }
+            if (self.viewBlock) self.viewBlock(x);
         }];
         [self addSubview:_abandonLoginBtn];
     }return _abandonLoginBtn;
@@ -646,9 +640,7 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
         [[_storeCodeBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
             @strongify(self)
             x.selected = !x.selected;
-            if (self.viewBlock) {
-                self.viewBlock(x);
-            }
+            if (self.viewBlock) self.viewBlock(x);
         }];
     }return _storeCodeBtn;
 }
@@ -675,9 +667,7 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
         @weakify(self)
         [[_findCodeBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
             @strongify(self)
-            if (self.viewBlock) {
-                self.viewBlock(x);
-            }
+            if (self.viewBlock) self.viewBlock(x);
         }];
     }return _findCodeBtn;
 }

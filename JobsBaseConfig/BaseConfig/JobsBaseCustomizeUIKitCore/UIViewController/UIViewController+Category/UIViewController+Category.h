@@ -20,6 +20,7 @@
 #import "LOTAnimationMJRefreshFooter.h"
 #import "LOTAnimationMJRefreshHeader.h"
 // UIViewController+Others
+#import "UIViewController+SafeTransition.h"
 #import "UIViewController+BWShareView.h"
 #import "UIViewController+JPImageresizerView.h"
 #import "UIViewController+BackBtn.h"

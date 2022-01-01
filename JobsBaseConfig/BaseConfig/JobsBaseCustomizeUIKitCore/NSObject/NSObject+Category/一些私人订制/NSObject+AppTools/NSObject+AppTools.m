@@ -41,6 +41,7 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
 #pragma mark —— AppToolsProtocol
 /// 去登录？去注册？
 -(void)toLoginOrRegister:(CurrentPage)appDoorContentType{
+    /// 防止在某些情况下多次调用而产生的多个AppDoor页面
     JobsAppDoorVC *appDoorVC = JobsAppDoorVC.new;
     appDoorVC.objBindingParams = @(appDoorContentType);
     [UIViewController comingFromVC:self.getCurrentViewController
@@ -66,6 +67,11 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
 -(void)popUpViewToLogout{
     [self popupWithView:self.logOutPopupView popupParam:self.popupParameter];
 }
+/// 跳到首页
+-(void)jumpToHome{
+    extern AppDelegate *appDelegate;
+    appDelegate.tabBarVC.selectedIndex = 0;
+}
 
 -(UIImage *)defaultHeaderImage{
     if (self.isLogin) {
@@ -74,7 +80,6 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
         return KIMG(@"未登录默认头像（灰）");
     }
 }
-
 /// App 升级弹窗：在根控制器下实现，做到覆盖全局的统一
 -(void)appUpdateWithSureBlock:(MKDataBlock _Nullable)sureBlock
                   cancelBlock:(MKDataBlock _Nullable)cancelBlock{

@@ -8,6 +8,10 @@
 #import <Foundation/Foundation.h>
 #import "BaseProtocol.h"
 #import "JobsAppDoorConfig.h"
+#import "RequestTool.h"
+#import "CasinoGetiOSNewestVersionModel.h"
+
+@class JobsHotLabel;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -25,6 +29,18 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)popUpViewToLogout;
 /// 默认头像👤
 -(UIImage *)defaultHeaderImage;
+/// 跳到首页
+-(void)jumpToHome;
+/// 当前语言【字符串形式】
+-(NSString *)currentLanguage;
+/// 当前语言【枚举形式】
+-(HTTPRequestHeaderLanguageType)currentLanguageType;
+/// App 升级弹窗：在根控制器下实现，做到覆盖全局的统一
+-(void)appUpdateWithData:(CasinoGetiOSNewestVersionModel *_Nonnull)updateData
+               sureBlock:(MKDataBlock _Nullable)sureBlock
+             cancelBlock:(MKDataBlock _Nullable)cancelBlock;
+
+-(void)actionForHotLabel:(JobsHotLabel *)hl;
 
 @end
 

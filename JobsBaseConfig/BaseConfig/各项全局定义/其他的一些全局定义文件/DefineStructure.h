@@ -18,4 +18,9 @@ typedef enum : NSInteger {
     UATEnviron/// UAT环境地址
 } NetworkingEnvir;
 
+typedef enum : NSInteger {
+    ForcedUpdate_YES = 1,
+    ForcedUpdate_NO
+} ForcedUpdateType;// 强制更新
+
 #endif /* DefineStructure_h */

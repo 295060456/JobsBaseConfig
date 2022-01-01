@@ -42,6 +42,24 @@
     [appDoorCountDownBtn timerDestroy];
 }
 
++(void)destroyAppDoorSingleton{
+    static_jobsAppDoorOnceToken = 0;
+    static_appDoorVC = nil;
+}
+static JobsAppDoorVC *static_appDoorVC = nil;
+static dispatch_once_t static_jobsAppDoorOnceToken;
++(instancetype)sharedInstance{
+    dispatch_once(&static_jobsAppDoorOnceToken, ^{
+        static_appDoorVC = JobsAppDoorVC.new;
+    });return static_appDoorVC;
+}
+
+-(instancetype)init{
+    if (self = [super init]) {
+
+    }return self;
+}
+
 -(void)loadView{
     [super loadView];
     self.backgroundImage = nil;
@@ -327,6 +345,7 @@
                 else if ([btn.titleLabel.text isEqualToString:Title4]){
                     UIButton *abandonLoginBtn = (UIButton *)data;
                     [self backBtnClickEvent:abandonLoginBtn];
+                    [JobsAppDoorVC destroyAppDoorSingleton];
                 }
                 else if ([btn.titleLabel.text isEqualToString:Title5]){
                     

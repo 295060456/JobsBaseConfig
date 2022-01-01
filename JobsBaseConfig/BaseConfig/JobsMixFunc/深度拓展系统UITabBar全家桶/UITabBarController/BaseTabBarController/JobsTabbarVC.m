@@ -84,15 +84,11 @@ static JobsTabbarVC *static_tabbarVC = nil;
     self.isHiddenNavigationBar = YES;
 
     static dispatch_once_t JobsTabbarVC_viewWillAppear_onceToken;
+    @jobs_weakify(self)
     dispatch_once(&JobsTabbarVC_viewWillAppear_onceToken, ^{
+        @jobs_strongify(self)
         [self UISetting];//最高只能在viewWillAppear，在viewDidLoad不出效果 self.tabBar.subviews为空
         [self 添加长按手势];
-
-        [self appUpdateWithSureBlock:^(id data) {
-    //        [WHToast toastMsg:@"确定"];
-        }cancelBlock:^(id data) {
-    //        [WHToast toastMsg:@"取消"];
-        }];
     });
 }
 

@@ -477,6 +477,10 @@
 		84869260277B33570098BE7A /* NSNumber+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 8486925F277B33570098BE7A /* NSNumber+Extra.m */; };
 		84869679277C68470098BE7A /* NSString+Check.m in Sources */ = {isa = PBXBuildFile; fileRef = 84869677277C68470098BE7A /* NSString+Check.m */; };
 		84C94D97277EBAAB00C49CBA /* UIButton+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C94D95277EBAAB00C49CBA /* UIButton+Animation.m */; };
+		84D76437278090330003F0E4 /* UIViewController+SafeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D76435278090330003F0E4 /* UIViewController+SafeTransition.m */; };
+		84D764AF2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D764AD2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel.m */; };
+		84D764B3278092C10003F0E4 /* RequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D764B2278092C00003F0E4 /* RequestTool.m */; };
+		84D764B7278093660003F0E4 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D764B6278093650003F0E4 /* DataManager.m */; };
 		ABB2A8B711CC6C1FEF7A4899 /* Pods_JobsBaseConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 013934AB50FCDA373FFA6597 /* Pods_JobsBaseConfig.framework */; };
 		F65541EC060397D8F6D09547 /* Pods_JobsBaseConfigUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */; };
 /* End PBXBuildFile section */
@@ -1381,6 +1385,14 @@
 		84869678277C68470098BE7A /* NSString+Check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Check.h"; sourceTree = "<group>"; };
 		84C94D95277EBAAB00C49CBA /* UIButton+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Animation.m"; sourceTree = "<group>"; };
 		84C94D96277EBAAB00C49CBA /* UIButton+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Animation.h"; sourceTree = "<group>"; };
+		84D76435278090330003F0E4 /* UIViewController+SafeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SafeTransition.m"; sourceTree = "<group>"; };
+		84D76436278090330003F0E4 /* UIViewController+SafeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SafeTransition.h"; sourceTree = "<group>"; };
+		84D764AD2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasinoGetiOSNewestVersionModel.m; sourceTree = "<group>"; };
+		84D764AE2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CasinoGetiOSNewestVersionModel.h; sourceTree = "<group>"; };
+		84D764B1278092C00003F0E4 /* RequestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestTool.h; sourceTree = "<group>"; };
+		84D764B2278092C00003F0E4 /* RequestTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestTool.m; sourceTree = "<group>"; };
+		84D764B5278093650003F0E4 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		84D764B6278093650003F0E4 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JobsBaseConfigUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEDDD2E7A82BF58DE2012E29 /* Pods-JobsBaseConfigUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobsBaseConfigUITests.debug.xcconfig"; path = "Target Support Files/Pods-JobsBaseConfigUITests/Pods-JobsBaseConfigUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -3000,11 +3012,11 @@
 		840F944B27736426004979E9 /* UIViewController+Category */ = {
 			isa = PBXGroup;
 			children = (
-				840F944C27736426004979E9 /* UIViewController+JXCategory */,
 				840F945327736426004979E9 /* UIViewController+Category.h */,
-				840F945427736426004979E9 /* UIViewController+XLBubbleTransition */,
-				840F945A27736426004979E9 /* UIViewController+Others */,
+				840F944C27736426004979E9 /* UIViewController+JXCategory */,
 				840F947D27736426004979E9 /* UIViewController+MJRefresh */,
+				840F945A27736426004979E9 /* UIViewController+Others */,
+				840F945427736426004979E9 /* UIViewController+XLBubbleTransition */,
 			);
 			path = "UIViewController+Category";
 			sourceTree = "<group>";
@@ -3051,17 +3063,18 @@
 		840F945A27736426004979E9 /* UIViewController+Others */ = {
 			isa = PBXGroup;
 			children = (
+				840F946427736426004979E9 /* UIViewController+BackBtn */,
+				840F947327736426004979E9 /* UIViewController+BaseNavigationBar */,
+				840F946D27736426004979E9 /* UIViewController+BaseVC */,
+				840F947A27736426004979E9 /* UIViewController+BRPickerView */,
 				840F945B27736426004979E9 /* UIViewController+BWShareView */,
+				840F946727736426004979E9 /* UIViewController+EmptyData */,
+				840F947027736426004979E9 /* UIViewController+GifImageView */,
 				840F945E27736426004979E9 /* UIViewController+JPImageresizerView */,
 				840F946127736426004979E9 /* UIViewController+Lottie */,
-				840F946427736426004979E9 /* UIViewController+BackBtn */,
-				840F946727736426004979E9 /* UIViewController+EmptyData */,
+				84D76434278090330003F0E4 /* UIViewController+SafeTransition */,
 				840F946A27736426004979E9 /* UIViewController+Shake */,
-				840F946D27736426004979E9 /* UIViewController+BaseVC */,
-				840F947027736426004979E9 /* UIViewController+GifImageView */,
-				840F947327736426004979E9 /* UIViewController+BaseNavigationBar */,
 				840F947627736426004979E9 /* UIViewController+SuspendBtn */,
-				840F947A27736426004979E9 /* UIViewController+BRPickerView */,
 			);
 			path = "UIViewController+Others";
 			sourceTree = "<group>";
@@ -3653,6 +3666,8 @@
 			isa = PBXGroup;
 			children = (
 				840F950527736427004979E9 /* BaseObject.md */,
+				84D764B4278093650003F0E4 /* 存取页面数据 */,
+				84D764B0278092C00003F0E4 /* 请求的公共配置文件 */,
 				840F950627736427004979E9 /* FileFolderHandleTool */,
 				840F950A27736427004979E9 /* JobsTimerManager */,
 				840F951927736427004979E9 /* UIViewModel */,
@@ -4914,6 +4929,7 @@
 				844B0E562764DE2D00B0513D /* DAO.h */,
 				844B0E4D2764DE1900B0513D /* BaseModel */,
 				8459D6192779A88900125782 /* CasinoCustomerContactModel */,
+				84D764AC2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel */,
 				844B0E4A2764DE1900B0513D /* DDResponseModel */,
 				844B0E502764DE1A00B0513D /* DDUserModel */,
 				844B12862764E5C200B0513D /* URLManagerModel */,
@@ -5386,6 +5402,42 @@
 			path = "UIButton+Animation";
 			sourceTree = "<group>";
 		};
+		84D76434278090330003F0E4 /* UIViewController+SafeTransition */ = {
+			isa = PBXGroup;
+			children = (
+				84D76435278090330003F0E4 /* UIViewController+SafeTransition.m */,
+				84D76436278090330003F0E4 /* UIViewController+SafeTransition.h */,
+			);
+			path = "UIViewController+SafeTransition";
+			sourceTree = "<group>";
+		};
+		84D764AC2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel */ = {
+			isa = PBXGroup;
+			children = (
+				84D764AE2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel.h */,
+				84D764AD2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel.m */,
+			);
+			path = CasinoGetiOSNewestVersionModel;
+			sourceTree = "<group>";
+		};
+		84D764B0278092C00003F0E4 /* 请求的公共配置文件 */ = {
+			isa = PBXGroup;
+			children = (
+				84D764B1278092C00003F0E4 /* RequestTool.h */,
+				84D764B2278092C00003F0E4 /* RequestTool.m */,
+			);
+			path = "请求的公共配置文件";
+			sourceTree = "<group>";
+		};
+		84D764B4278093650003F0E4 /* 存取页面数据 */ = {
+			isa = PBXGroup;
+			children = (
+				84D764B5278093650003F0E4 /* DataManager.h */,
+				84D764B6278093650003F0E4 /* DataManager.m */,
+			);
+			path = "存取页面数据";
+			sourceTree = "<group>";
+		};
 		B0977B0404F4246F3B021752 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -5802,6 +5854,7 @@
 				840F967827736428004979E9 /* UIView+Animation.m in Sources */,
 				840F96D127736428004979E9 /* CALayer+Anim.m in Sources */,
 				844B084F2764CF4800B0513D /* ECPrivacyCheckMediaAndAppleMusic.m in Sources */,
+				84D764B7278093660003F0E4 /* DataManager.m in Sources */,
 				840F96D927736428004979E9 /* CADisplayLink_TimerManager.m in Sources */,
 				840F96B927736428004979E9 /* UITableView+Expand.m in Sources */,
 				840F969C27736428004979E9 /* UIViewController+JXCategoryListContentViewDelegate.m in Sources */,
@@ -5895,6 +5948,7 @@
 				840F96FB27736428004979E9 /* NSObject+UUID.m in Sources */,
 				840F968127736428004979E9 /* UITextView+IndicateWordLimit.m in Sources */,
 				840F969527736428004979E9 /* NSString+Statistics.m in Sources */,
+				84D764AF2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel.m in Sources */,
 				840F971227736428004979E9 /* HQTextField.m in Sources */,
 				840F96D227736428004979E9 /* AppDelegate+Extra.m in Sources */,
 				844B084D2764CF4800B0513D /* ECPrivacyCheckSpeechRecognition.m in Sources */,
@@ -5939,11 +5993,13 @@
 				840F961427736427004979E9 /* CustomZFPlayerControlView.m in Sources */,
 				844B084E2764CF4800B0513D /* ECPrivacyCheckMotionAndFitness.m in Sources */,
 				840F969A27736428004979E9 /* NSString+Replace.m in Sources */,
+				84D76437278090330003F0E4 /* UIViewController+SafeTransition.m in Sources */,
 				844B08512764CF4800B0513D /* ECPrivacyCheckContacts.m in Sources */,
 				840F969427736428004979E9 /* NSString+JudgeNull.m in Sources */,
 				840F96A327736428004979E9 /* UIViewController+BackBtn.m in Sources */,
 				840F964427736427004979E9 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				846DF03127806D230050468A /* JobsAppDoorInputViewBaseStyle.m in Sources */,
+				84D764B3278092C10003F0E4 /* RequestTool.m in Sources */,
 				840F967A27736428004979E9 /* UIView+AOP.m in Sources */,
 				840F96F827736428004979E9 /* NSObject+AFNReachability.m in Sources */,
 				846DF03527806D230050468A /* JobsAppDoorInputViewBaseStyle_3.m in Sources */,
