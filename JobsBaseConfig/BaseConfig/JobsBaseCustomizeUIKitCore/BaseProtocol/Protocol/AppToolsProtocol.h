@@ -21,6 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 @optional
 /// 去登录？去注册？
 -(void)toLoginOrRegister:(CurrentPage)appDoorContentType;
+/// 在某些页面不调取登录页
+-(void)toLoginOrRegisterWithRestricted:(NSArray <Class>*_Nullable)dataArr
+                    appDoorContentType:(CurrentPage)appDoorContentType;
 /// 去登录
 -(void)toLogin;
 /// 强制去登录

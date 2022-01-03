@@ -89,6 +89,7 @@ static JobsRecordPresentedViewController *static_JobsRecordPresentedVC = nil;
     }
     
     if ([self checkPresented:vc]) {
+        [JobsRecordPresentedViewController.sharedInstance.presentedVCMutArr addObject:vc];
         [self swiz_presentViewController:vc
                                 animated:animated
                               completion:completion];
@@ -104,16 +105,11 @@ static JobsRecordPresentedViewController *static_JobsRecordPresentedVC = nil;
  如果下一次presented和数组里面进行记录的ViewController是同一个类型，那么不允许presented
  */
 -(BOOL)checkPresented:(UIViewController *)viewController{
-    if (JobsRecordPresentedViewController.sharedInstance.presentedVCMutArr.count) {
-        for (UIViewController *vc in JobsRecordPresentedViewController.sharedInstance.presentedVCMutArr) {
-            if ([viewController isKindOfClass:vc.class]) {
-                return NO;
-            }
-        }return YES;
-    }else{
-        [JobsRecordPresentedViewController.sharedInstance.presentedVCMutArr addObject:viewController];
-        return YES;
-    }
+    for (UIViewController *vc in JobsRecordPresentedViewController.sharedInstance.presentedVCMutArr) {
+        if ([viewController isKindOfClass:vc.class]) {
+            return NO;
+        }
+    }return YES;
 }
 
 @end

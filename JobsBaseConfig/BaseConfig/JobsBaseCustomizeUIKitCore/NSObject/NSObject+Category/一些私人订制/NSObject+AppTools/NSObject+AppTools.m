@@ -38,13 +38,27 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
 //-(void)languageSwitchNotification:(nonnull NSNotification *)notification{
 //    NSLog(@"通知传递过来的 = %@",notification.object);
 //}
+/// 返回YES：不触发AppDoor的页面
+-(BOOL)unrestrictedLogin:(NSArray <Class>*)dataArr{
+    BOOL ok = NO;
+    for (Class cls in dataArr) {
+        if ([self.class isKindOfClass:cls]) {
+            ok = YES;
+            break;
+        }
+    }return ok;
+}
 #pragma mark —— AppToolsProtocol
 /// 去登录？去注册？
 -(void)toLoginOrRegister:(CurrentPage)appDoorContentType{
-    /// 防止在某些情况下多次调用而产生的多个AppDoor页面
     JobsAppDoorVC *appDoorVC = JobsAppDoorVC.new;
     appDoorVC.objBindingParams = @(appDoorContentType);
-    [UIViewController comingFromVC:self.getCurrentViewController
+
+    // 登录页 不推出 登录页
+    UIViewController *viewController = self.getCurrentViewController;
+    if ([viewController isKindOfClass:JobsAppDoorVC.class]) return;
+    
+    [UIViewController comingFromVC:viewController
                               toVC:appDoorVC
                        comingStyle:ComingStyle_PRESENT
                  presentationStyle:UIModalPresentationFullScreen//[UIDevice currentDevice].systemVersion.doubleValue >= 13.0 ? UIModalPresentationAutomatic : UIModalPresentationFullScreen
@@ -53,11 +67,18 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
                           animated:YES
                            success:^(id data) {}];
 }
-
--(void)toLogin{
-    [self toLoginOrRegister:CurrentPage_login];
+/// 在某些页面不调取登录页
+-(void)toLoginOrRegisterWithRestricted:(NSArray <Class>*_Nullable)dataArr
+                    appDoorContentType:(CurrentPage)appDoorContentType{
+//    if (!dataArr) dataArr = @[TESTVC.class];
+    if ([self unrestrictedLogin:dataArr]) return;
+    [self toLoginOrRegister:appDoorContentType];
 }
 
+-(void)toLogin{
+    [self toLoginOrRegisterWithRestricted:nil
+                       appDoorContentType:CurrentPage_login];
+}
 -(void)forcedLogin{
     if (!self.isLogin) {
         [self toLogin];

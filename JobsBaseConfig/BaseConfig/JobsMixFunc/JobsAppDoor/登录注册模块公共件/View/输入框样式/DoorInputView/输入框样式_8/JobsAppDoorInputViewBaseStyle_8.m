@@ -58,12 +58,12 @@
     return CGSizeMake(KWidth(345), KWidth(50));
 }
 #pragma mark —— JobsDoorInputViewProtocol
--(ZYTextField *)getTextField{
-    return self.textField;
+-(ZYTextField *_Nullable)getTextField{
+    return _textField;
 }
 
--(NSString *)getTextFieldValue{
-    return self.textField.text;
+-(NSString *_Nullable)getTextFieldValue{
+    return _textField.text;
 }
 
 -(void)richElementsInViewWithModel:(JobsAppDoorInputViewBaseStyleModel *_Nullable)doorInputViewBaseStyleModel{

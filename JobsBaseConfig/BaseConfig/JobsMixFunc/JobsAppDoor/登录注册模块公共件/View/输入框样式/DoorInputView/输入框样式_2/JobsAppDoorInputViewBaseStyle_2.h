@@ -22,7 +22,6 @@ UITextFieldDelegate
 >
 
 -(void)changeTextFieldAnimationColor:(BOOL)toRegisterBtnSelected;
--(NSString *)getTextFieldValue;
 
 @end
 

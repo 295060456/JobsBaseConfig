@@ -52,12 +52,12 @@
     self.textField.animationColor = toRegisterBtnSelected ? Cor4 : Cor4;
 }
 
--(JobsMagicTextField *)getTextField{
-    return self.textField;
+-(JobsMagicTextField *_Nullable)getTextField{
+    return _textField;
 }
 
--(NSString *)getTextFieldValue{
-    return self.textField.text;
+-(NSString *_Nullable)getTextFieldValue{
+    return _textField.text;
 }
 
 -(void)block:(JobsMagicTextField *)textField
