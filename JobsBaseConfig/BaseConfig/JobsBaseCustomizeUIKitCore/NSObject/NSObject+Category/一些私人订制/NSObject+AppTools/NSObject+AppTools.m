@@ -51,13 +51,17 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
 #pragma mark —— AppToolsProtocol
 /// 去登录？去注册？
 -(void)toLoginOrRegister:(CurrentPage)appDoorContentType{
-    JobsAppDoorVC *appDoorVC = JobsAppDoorVC.new;
-    appDoorVC.objBindingParams = @(appDoorContentType);
-
+    
     // 登录页 不推出 登录页
     UIViewController *viewController = self.getCurrentViewController;
     if ([viewController isKindOfClass:JobsAppDoorVC.class]) return;
     
+    // 首页没有展现的时候，不推出登录页
+//    extern BOOL CasinoHomeVC_viewDidAppear;
+//    if(!CasinoHomeVC_viewDidAppear) return;
+    
+    JobsAppDoorVC *appDoorVC = JobsAppDoorVC.new;
+    appDoorVC.objBindingParams = @(appDoorContentType);
     [UIViewController comingFromVC:viewController
                               toVC:appDoorVC
                        comingStyle:ComingStyle_PRESENT
@@ -71,7 +75,7 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
 -(void)toLoginOrRegisterWithRestricted:(NSArray <Class>*_Nullable)dataArr
                     appDoorContentType:(CurrentPage)appDoorContentType{
 //    if (!dataArr) dataArr = @[TESTVC.class];
-    if ([self unrestrictedLogin:dataArr]) return;
+    if (![self unrestrictedLogin:dataArr]) return;
     [self toLoginOrRegister:appDoorContentType];
 }
 
