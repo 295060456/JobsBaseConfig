@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)changeTextFieldAnimationColor:(BOOL)toRegisterBtnSelected;
 -(UITextField *_Nullable)getTextField;
 -(NSString *_Nullable)getTextFieldValue;
+-(UIViewModel *_Nullable)getViewModel;
 
 @end
 

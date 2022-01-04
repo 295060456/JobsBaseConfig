@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @optional
 
 @property(nonatomic,strong)NSIndexPath *indexPath;
+@property(nonatomic,assign)NSInteger idx;
 
 +(instancetype)cellWithTableView:(UITableView *)tableView;
 +(instancetype)cellWithCollectionView:(nonnull UICollectionView *)collectionView

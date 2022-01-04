@@ -12,6 +12,9 @@
 static char *UITableViewCell_Margin_indexPath = "UITableViewCell_Margin_indexPath";
 @dynamic indexPath;
 
+static char *UITableViewCell_Margin_idx = "UITableViewCell_Margin_idx";
+@dynamic idx;
+
 // 在具体的子类去实现,分类调用无效
 -(void)setFrame:(CGRect)frame{
     NSLog(@"self.marginX = %f",self.marginX);
@@ -22,7 +25,7 @@ static char *UITableViewCell_Margin_indexPath = "UITableViewCell_Margin_indexPat
     frame.size.width -= self.marginX * 2;
     [super setFrame:frame];
 }
-#pragma mark —— @property(nonatomic,strong)NSIndexPath *indexPath;
+#pragma mark —— <BaseCellProtocol> @property(nonatomic,strong)NSIndexPath *indexPath;
 -(NSIndexPath *)indexPath{
     NSIndexPath *indexPath = objc_getAssociatedObject(self, UITableViewCell_Margin_indexPath);
     return indexPath;
@@ -34,5 +37,17 @@ static char *UITableViewCell_Margin_indexPath = "UITableViewCell_Margin_indexPat
                              indexPath,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+#pragma mark —— <BaseCellProtocol> @property(nonatomic,assign)NSInteger idx;
+-(NSInteger)idx{
+    return [objc_getAssociatedObject(self, UITableViewCell_Margin_idx) integerValue];
+}
+
+-(void)setIdx:(NSInteger)idx{
+    objc_setAssociatedObject(self,
+                             UITableViewCell_Margin_idx,
+                             [NSNumber numberWithInteger:idx],
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 
 @end
+
