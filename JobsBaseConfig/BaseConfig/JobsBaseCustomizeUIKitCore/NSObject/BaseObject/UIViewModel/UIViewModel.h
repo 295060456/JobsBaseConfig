@@ -48,7 +48,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)CGFloat subTextlineSpacing;
 /// 图片和背景颜色
 @property(nonatomic,strong)UIImage *image;//图片
-@property(nonatomic,strong)UIImage *bgImage;//背景图片
+@property(nonatomic,strong)UIImage *bgImage;//selected == NO，状态下的背景图片
+@property(nonatomic,strong)UIImage *bgSelectedImage;//selected == YES，状态下的背景图片
 @property(nonatomic,strong)NSString *imageURLString;//图片URL(字符串形式)
 @property(nonatomic,strong)NSString *bgImageURLString;//背景图片URL(字符串形式)
 @property(nonatomic,strong)UIColor *bgCor;//背景颜色
@@ -70,6 +71,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 其他
 @property(nonatomic,strong)Class cls;//绑定的class
 @property(nonatomic,strong)id data;//绑定的数据源
+@property(nonatomic,assign)BOOL selected;
 /// 【功能性】网易云盾回调数据
 @property(nonatomic,assign)BOOL ntesVerifyCodeFinishResult;
 @property(nonatomic,assign)NTESVerifyCodeManagerStyle ntesVerifyCodeManagerStyle;

@@ -41,9 +41,16 @@ static dispatch_once_t JobsHotLabelDispatchOnce;
         [self createHotLabelWithArr:self.viewModelDataArr];
     });
 }
-//具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
+#pragma mark —— BaseViewProtocol
+/// 具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 +(CGSize)viewSizeWithModel:(NSArray <UIViewModel *>* _Nullable)model{
     return CGSizeMake(KWidth(46 * 3 + 59 * 2), [self lineNum:3 byData:model] * KWidth(46 + 7));
+}
+#pragma mark —— 一些私有方法
+-(void)changeButtonState{
+    for (UIButton *btn in self.btnMutArr) {
+        btn.selected = NO;
+    }
 }
 
 -(void)createHotLabelWithArr:(NSArray <UIViewModel *>*)dataArr{
@@ -52,6 +59,7 @@ static dispatch_once_t JobsHotLabelDispatchOnce;
             self.viewModel = vm;
             // 其实item是button,因为button有相对于Label更为丰富的表现形式
             UIButton *btn = UIButton.new;
+            btn.selected = self.viewModel.selected;
             btn.objBindingParams = vm.objBindingParams;
             if ([btn.objBindingParams isKindOfClass:CasinoCustomerContactElementModel.class]) {
                 CasinoCustomerContactElementModel *customerContactElementModel = (CasinoCustomerContactElementModel *)btn.objBindingParams;
@@ -86,6 +94,7 @@ static dispatch_once_t JobsHotLabelDispatchOnce;
                                  placeholderImage:bgImg];
             }else{
                 [btn normalBackgroundImage:vm.bgImage];
+                [btn selectedBackgroundImage:vm.bgSelectedImage];
             }
             
             [btn normalTitle:vm.text];
@@ -107,7 +116,11 @@ static dispatch_once_t JobsHotLabelDispatchOnce;
             }
             
             NSLog(@"btnSize.width = %f,btnSize.height = %f",btnSize.width,btnSize.height);
-            BtnClickEvent(btn, if (self.viewBlock) self.viewBlock(x););
+            BtnClickEvent(btn, {
+                [self changeButtonState];
+                x.selected = !x.selected;
+                if (self.viewBlock) self.viewBlock(x);
+            });
             [self.scrollView addSubview:btn];
             if (self.btnMutArr.count) {
                 self.X += btnSize.width + vm.offsetXForEach;
