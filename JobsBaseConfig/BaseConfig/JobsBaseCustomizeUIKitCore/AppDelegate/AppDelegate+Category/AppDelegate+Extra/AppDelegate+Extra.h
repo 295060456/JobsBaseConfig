@@ -25,7 +25,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSMutableArray <JobsTabBarControllerConfig *>*_Nullable configMutArr;
 @property(nonatomic,strong)NSMutableArray <NSString *>*_Nullable tabBarTitleMutArr;
 
+/// 刷新 TabBarTitle
 -(void)refreshTabBarTitle;
+/// 获取Tabbar管理的，不含导航的根控制器
+-(NSMutableArray <UIViewController *>*)getAppRootVC;
 
 @end
 

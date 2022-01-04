@@ -68,13 +68,8 @@ static JobsTabbarVC *static_tabbarVC = nil;
     [super viewDidLoad];
     /// 手势左右滑动以切换TabbarControl挂载的ViewController
     if (self.isOpenScrollTabbar) {
-        self.view.target = self;
+        [self openPan];
         self.view.panGR.enabled = self.isOpenScrollTabbar;
-        self.view.callbackBlock = ^(id weakSelf,
-                                    id arg,
-                                    UIGestureRecognizer *data3) {
-            [weakSelf panGestureRecognizer:(UIPanGestureRecognizer *)data3];
-        };
     }
     self.myTabBar.alpha = 1;
 }
@@ -100,7 +95,25 @@ static JobsTabbarVC *static_tabbarVC = nil;
 
 //    [self ppBadge:YES];
 }
-// 开启/关闭 PPBadgeView的效果,至少在viewDidLayoutSubviews后有效
+#pragma mark —— 一些公有方法
+/// 关闭手势
+-(void)closePan{
+    self.view.panGR.enabled = NO;
+}
+/// 打开手势
+-(void)openPan{
+    self.view.panGR.enabled = YES;
+    if (!self.view.callbackBlock) {
+        @jobs_weakify(self)
+        self.view.callbackBlock = ^(id weakSelf,
+                                    id arg,
+                                    UIGestureRecognizer *data3) {
+            @jobs_strongify(self)
+            [self panGestureRecognizer:(UIPanGestureRecognizer *)data3];
+        };
+    }
+}
+/// 开启/关闭 PPBadgeView的效果,至少在viewDidLayoutSubviews后有效
 -(void)ppBadge:(BOOL)open{
     self.isOpenPPBadge = open;
     if (open) {

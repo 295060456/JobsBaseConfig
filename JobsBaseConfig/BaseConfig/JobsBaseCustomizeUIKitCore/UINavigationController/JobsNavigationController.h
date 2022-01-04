@@ -12,5 +12,6 @@
 #import "BaseNavigationVC.h"
 #pragma mark —— Category
 #import "UINavigationController+SafeTransition.h"
+#import "UINavigationController+Extra.h"
 
 #endif /* JobsNavigationController_h */

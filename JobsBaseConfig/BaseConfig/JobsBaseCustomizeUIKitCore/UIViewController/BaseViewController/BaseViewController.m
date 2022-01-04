@@ -86,8 +86,11 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    /// 只有是在Tabbar管理的，不含导航的根控制器才开启手势
+    self.isRootVC ? [self tabBarOpenPan] : [self tabBarClosePan];
 #ifdef DEBUG
-//    [self ifEmptyData];// 网络异步数据刷新UI会在viewDidAppear以后执行viewWillLayoutSubviews、viewDidLayoutSubviews
+    /// 网络异步数据刷新UI会在viewDidAppear以后执行viewWillLayoutSubviews、viewDidLayoutSubviews
+//    [self ifEmptyData];
 #endif
 }
 

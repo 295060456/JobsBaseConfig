@@ -70,8 +70,6 @@ UIGestureRecognizerDelegate
 @property(nonatomic,strong)NSArray <NSNumber *>*jumpIndexArr;// 需要跳开的item的index
 @property(nonatomic,assign)BOOL isJumpToNextVC;// 当需要跳开的item,是否是需要直接跳到下一个VC？默认NO
 
--(void)ppBadge:(BOOL)open;// 开启/关闭 PPBadgeView的效果,至少在viewDidLayoutSubviews后有效
-
 #pragma mark —— 初始化方法
 ///【单例模式】使用内置默认的JobsTabBar
 +(instancetype)sharedInstance;
@@ -79,5 +77,12 @@ UIGestureRecognizerDelegate
 +(instancetype)sharedInstanceWithJobsTabBar:(JobsTabBar *)tabBar;
 /// 一般的初始化模式
 -(instancetype)initWithJobsTabBar:(JobsTabBar *)tabBar;
+#pragma mark —— 一些公有方法
+/// 关闭手势
+-(void)closePan;
+/// 打开手势
+-(void)openPan;
+/// 开启/关闭 PPBadgeView的效果,至少在viewDidLayoutSubviews后有效
+-(void)ppBadge:(BOOL)open;
 
 @end

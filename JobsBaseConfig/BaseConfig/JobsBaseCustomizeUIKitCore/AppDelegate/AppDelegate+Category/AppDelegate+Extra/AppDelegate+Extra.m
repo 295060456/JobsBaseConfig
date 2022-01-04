@@ -46,6 +46,13 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
         config.vc.tabBarItem.title = TabBarTitleMutArr[index];
     }
 }
+/// 获取Tabbar管理的，不含导航的根控制器
+-(NSMutableArray <UIViewController *>*)getAppRootVC{
+    NSMutableArray *mutArr = NSMutableArray.array;
+    for (JobsTabBarControllerConfig *config in self.configMutArr) {
+        [mutArr addObject:config.vc];
+    }return mutArr;
+}
 
 -(TFPopupParam *)appDelegatePopupParameter{
     TFPopupParam *PopupParameter = TFPopupParam.new;

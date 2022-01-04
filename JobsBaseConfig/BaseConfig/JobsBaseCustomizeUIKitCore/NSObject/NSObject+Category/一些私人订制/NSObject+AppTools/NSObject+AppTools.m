@@ -105,6 +105,49 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
         return KIMG(@"未登录默认头像（灰）");
     }
 }
+
+-(NSString *)currentLanguage{
+    if ([NSBundle.currentLanguage containsString:@"zh-Hans"]) {
+        return @"简体中文";
+    }else if ([NSBundle.currentLanguage containsString:@"en"]){
+        return @"English";
+    }else{
+        NSLog(@"%@",NSBundle.currentLanguage);
+        return @"其他语言";
+    }
+}
+
+-(HTTPRequestHeaderLanguageType)currentLanguageType{
+    if ([NSBundle.currentLanguage containsString:@"zh-Hans"]) {
+        return HTTPRequestHeaderLanguageCN;
+    }else if ([NSBundle.currentLanguage containsString:@"en"]){
+        return HTTPRequestHeaderLanguageEn;
+    }else{
+        NSLog(@"%@",NSBundle.currentLanguage);
+        return HTTPRequestHeaderLanguageOther;
+    }
+}
+/// JobsTabbarVC 关闭手势
+-(void)tabBarClosePan{
+    AppDelegate *appDelegate = getSysAppDelegate();
+    [appDelegate.tabBarVC closePan];
+}
+/// JobsTabbarVC 打开手势
+-(void)tabBarOpenPan{
+    AppDelegate *appDelegate = getSysAppDelegate();
+    [appDelegate.tabBarVC openPan];
+}
+/// 获取Tabbar管理的，不含导航的根控制器
+-(NSMutableArray <UIViewController *>*)appRootVC{
+    AppDelegate *appDelegate = getSysAppDelegate();
+    return appDelegate.getAppRootVC;
+}
+/// 当前对象是否是 Tabbar管理的，不含导航的根控制器
+-(BOOL)isRootVC{
+    if ([self isKindOfClass:UIViewController.class]) {
+        return [self.appRootVC containsObject:(UIViewController *)self];
+    }else return NO;
+}
 /// App 升级弹窗：在根控制器下实现，做到覆盖全局的统一
 -(void)appUpdateWithSureBlock:(MKDataBlock _Nullable)sureBlock
                   cancelBlock:(MKDataBlock _Nullable)cancelBlock{

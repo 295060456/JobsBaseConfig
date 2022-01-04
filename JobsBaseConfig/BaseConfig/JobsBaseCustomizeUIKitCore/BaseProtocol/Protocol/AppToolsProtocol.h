@@ -38,6 +38,14 @@ NS_ASSUME_NONNULL_BEGIN
 -(NSString *)currentLanguage;
 /// 当前语言【枚举形式】
 -(HTTPRequestHeaderLanguageType)currentLanguageType;
+/// JobsTabbarVC 关闭手势
+-(void)tabBarClosePan;
+/// JobsTabbarVC 打开手势
+-(void)tabBarOpenPan;
+/// 获取Tabbar管理的，不含导航的根控制器
+-(NSMutableArray <UIViewController *>*)appRootVC;
+/// 当前对象是否是 Tabbar管理的，不含导航的根控制器
+-(BOOL)isRootVC;
 /// App 升级弹窗：在根控制器下实现，做到覆盖全局的统一
 -(void)appUpdateWithData:(CasinoGetiOSNewestVersionModel *_Nonnull)updateData
                sureBlock:(MKDataBlock _Nullable)sureBlock
