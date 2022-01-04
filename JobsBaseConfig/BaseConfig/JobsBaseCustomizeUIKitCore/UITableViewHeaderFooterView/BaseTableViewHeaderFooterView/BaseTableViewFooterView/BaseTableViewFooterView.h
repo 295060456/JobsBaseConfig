@@ -6,7 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AABlock.h"
+#import "JobsBlock.h"
 #import "BaseTableViewHeaderFooterViewProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN

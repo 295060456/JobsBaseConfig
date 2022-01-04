@@ -6,7 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AABlock.h"
+#import "JobsBlock.h"
 #import "NSObject+Time.h"
 #import "NSObject+RichText.h"//富文本
 #import "NSObject+Extras.h"

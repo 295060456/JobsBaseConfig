@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AABlock.h"
+#import "JobsBlock.h"
 #import "NSObject+Extras.h"
 #import "NSObject+WHToast.h"//提示
 #import "JobsString.h"

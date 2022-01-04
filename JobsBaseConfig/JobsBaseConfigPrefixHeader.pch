@@ -36,7 +36,7 @@
 #import "MacroDef_Func.h"
 #import "MacroDef_Sys.h"
 ///  其他的一些全局定义文件
-#import "AABlock.h"
+#import "JobsBlock.h"
 #import "APIKey.h"
 #import "DefineStructure.h"
 #pragma mark —— JobsBaseCustomizeUIKitCore

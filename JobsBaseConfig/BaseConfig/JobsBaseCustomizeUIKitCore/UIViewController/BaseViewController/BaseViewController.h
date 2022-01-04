@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "BaseViewProtocol.h"
 #import "BaseViewControllerProtocol.h"
-#import "AABlock.h"
+#import "JobsBlock.h"
 #import "JobsBaseConfigNotificationManager.h"
 #import "MacroDef_Notification.h"
 

@@ -13,7 +13,7 @@
 + (UIImage *)MKImageNamed:(NSString *)name{
     __block UIImage *image = nil;
     
-    noResultBlock UIImageBlock_2 = ^UIImage *{
+    ResultBlock UIImageBlock_2 = ^UIImage *{
         image = [UIImage imageNamed:@"nodata"];//替换图片 保证一定要有
         if (!image) {
             image = nil;

@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AABlock.h"
+#import "JobsBlock.h"
 #import "JobsTimerManager.h"//时间管理
 #import "NSObject+RichText.h"//富文本
 #import "ButtonTimerDefStructure.h"

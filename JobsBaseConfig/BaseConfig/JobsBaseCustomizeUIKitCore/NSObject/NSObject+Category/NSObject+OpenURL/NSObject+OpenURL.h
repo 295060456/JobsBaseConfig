@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>// 发短信、发邮件
-#import "AABlock.h"
+#import "JobsBlock.h"
 #import "MacroDef_SysWarning.h"
 #import "NSString+JudgeNull.h"
 #import "NSObject+WHToast.h"

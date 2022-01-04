@@ -7,7 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import <objc/runtime.h>
-#import "AABlock.h"
+#import "JobsBlock.h"
 
 #if __has_include(<JPImageresizerView/JPImageresizerView.h>)
 #import <JPImageresizerView/JPImageresizerView.h>

@@ -1149,7 +1149,6 @@
 		844B023B2764C8F000B0513D /* JobsBaseConfigUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsBaseConfigUITestsLaunchTests.m; sourceTree = "<group>"; };
 		844B07A12764CB4A00B0513D /* DefineStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefineStructure.h; sourceTree = "<group>"; };
 		844B07A22764CB4A00B0513D /* APIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIKey.h; sourceTree = "<group>"; };
-		844B07A32764CB4A00B0513D /* AABlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AABlock.h; sourceTree = "<group>"; };
 		844B07AE2764CF4700B0513D /* RAC_Define.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = RAC_Define.md; sourceTree = "<group>"; };
 		844B07AF2764CF4700B0513D /* RACEXTRuntimeExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RACEXTRuntimeExtensions.m; sourceTree = "<group>"; };
 		844B07B02764CF4700B0513D /* RACEXTScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACEXTScope.h; sourceTree = "<group>"; };
@@ -1283,6 +1282,9 @@
 		844B0E562764DE2D00B0513D /* DAO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DAO.h; sourceTree = "<group>"; };
 		844B12872764E5C200B0513D /* URLManagerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLManagerModel.m; sourceTree = "<group>"; };
 		844B12882764E5C200B0513D /* URLManagerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLManagerModel.h; sourceTree = "<group>"; };
+		845669262784284000636967 /* DetermineParametersBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetermineParametersBlock.h; sourceTree = "<group>"; };
+		845669272784284000636967 /* JobsBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBlock.h; sourceTree = "<group>"; };
+		845669282784284000636967 /* NODetermineParametersBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NODetermineParametersBlock.h; sourceTree = "<group>"; };
 		8459CC2A2775D3E900125782 /* AppDelegate+Func.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Func.m"; sourceTree = "<group>"; };
 		8459CC2B2775D3E900125782 /* AppDelegate+Func.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Func.h"; sourceTree = "<group>"; };
 		8459CC2D2775D3E900125782 /* AppDelegate+UIApplicationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+UIApplicationDelegate.m"; sourceTree = "<group>"; };
@@ -4642,7 +4644,7 @@
 		844B07A02764CB4A00B0513D /* 其他的一些全局定义文件 */ = {
 			isa = PBXGroup;
 			children = (
-				844B07A32764CB4A00B0513D /* AABlock.h */,
+				845669252784284000636967 /* JobsBlock */,
 				844B07A22764CB4A00B0513D /* APIKey.h */,
 				844B07A12764CB4A00B0513D /* DefineStructure.h */,
 			);
@@ -4971,6 +4973,16 @@
 				844B12872764E5C200B0513D /* URLManagerModel.m */,
 			);
 			path = URLManagerModel;
+			sourceTree = "<group>";
+		};
+		845669252784284000636967 /* JobsBlock */ = {
+			isa = PBXGroup;
+			children = (
+				845669262784284000636967 /* DetermineParametersBlock.h */,
+				845669272784284000636967 /* JobsBlock.h */,
+				845669282784284000636967 /* NODetermineParametersBlock.h */,
+			);
+			path = JobsBlock;
 			sourceTree = "<group>";
 		};
 		8459CC292775D3E900125782 /* AppDelegate+Func */ = {

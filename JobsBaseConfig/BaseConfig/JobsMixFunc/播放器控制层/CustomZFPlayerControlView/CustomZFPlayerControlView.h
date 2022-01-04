@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AABlock.h"
+#import "JobsBlock.h"
 
 #pragma mark —— ZFPlayer 播放器相关
 //Core

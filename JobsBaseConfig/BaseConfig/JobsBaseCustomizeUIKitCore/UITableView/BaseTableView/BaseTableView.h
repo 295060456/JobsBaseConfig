@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewProtocol.h"
-#import "AABlock.h"
+#import "JobsBlock.h"
 
 NS_ASSUME_NONNULL_BEGIN
 /**
