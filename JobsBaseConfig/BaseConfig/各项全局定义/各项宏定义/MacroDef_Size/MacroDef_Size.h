@@ -17,20 +17,20 @@
 #define MainScreen UIScreen.mainScreen.bounds.size
 #endif
 
-#ifndef SCREEN_WIDTH
-#define SCREEN_WIDTH UIScreen.mainScreen.bounds.size.width
+#ifndef JobsSCREEN_WIDTH
+#define JobsSCREEN_WIDTH UIScreen.mainScreen.bounds.size.width
 #endif
 
-#ifndef SCREEN_HEIGHT
-#define SCREEN_HEIGHT UIScreen.mainScreen.bounds.size.height
+#ifndef JobsSCREEN_HEIGHT
+#define JobsSCREEN_HEIGHT UIScreen.mainScreen.bounds.size.height
 #endif
 
 #ifndef SCREEN_MAX_LENGTH
-#define SCREEN_MAX_LENGTH (MAX(SCREEN_WIDTH, SCREEN_HEIGHT))
+#define SCREEN_MAX_LENGTH (MAX(JobsSCREEN_WIDTH, JobsSCREEN_HEIGHT))
 #endif
 
 #ifndef SCREEN_MIN_LENGTH
-#define SCREEN_MIN_LENGTH (MIN(SCREEN_WIDTH, SCREEN_HEIGHT))
+#define SCREEN_MIN_LENGTH (MIN(JobsSCREEN_WIDTH, JobsSCREEN_HEIGHT))
 #endif
 
 #pragma mark —— 安全区域

@@ -21,19 +21,19 @@ typedef NS_ENUM(NSInteger, JobsAppDoorBgType){
 
 /// 页面1：登录
 #define JobsAppDoorContentViewLoginX JobsWidth(20)
-#define JobsAppDoorContentViewLoginY SCREEN_HEIGHT / (isiPhoneX_series() ? 4 : 5)
-#define JobsAppDoorContentViewLoginWidth SCREEN_WIDTH - JobsAppDoorContentViewLoginX * 2
-#define JobsAppDoorContentViewLoginHeight SCREEN_HEIGHT / (isiPhoneX_series() ? 2.3 : 2.0)
+#define JobsAppDoorContentViewLoginY JobsSCREEN_HEIGHT / (isiPhoneX_series() ? 4 : 5)
+#define JobsAppDoorContentViewLoginWidth JobsSCREEN_WIDTH - JobsAppDoorContentViewLoginX * 2
+#define JobsAppDoorContentViewLoginHeight JobsSCREEN_HEIGHT / (isiPhoneX_series() ? 2.3 : 2.0)
 /// 页面2：注册
 #define JobsAppDoorContentViewRegisterX JobsWidth(20)
-#define JobsAppDoorContentViewRegisterY SCREEN_HEIGHT / (isiPhoneX_series() ? 4 : 5)
-#define JobsAppDoorContentViewRegisterWidth SCREEN_WIDTH - JobsAppDoorContentViewRegisterX * 2
-#define JobsAppDoorContentViewRegisterHeight SCREEN_HEIGHT / (isiPhoneX_series() ? 1.6 : 1.3)
+#define JobsAppDoorContentViewRegisterY JobsSCREEN_HEIGHT / (isiPhoneX_series() ? 4 : 5)
+#define JobsAppDoorContentViewRegisterWidth JobsSCREEN_WIDTH - JobsAppDoorContentViewRegisterX * 2
+#define JobsAppDoorContentViewRegisterHeight JobsSCREEN_HEIGHT / (isiPhoneX_series() ? 1.6 : 1.3)
 /// 页面3：忘记密码
 #define JobsAppDoorContentViewFindPasswordX JobsWidth(20)
-#define JobsAppDoorContentViewFindPasswordY SCREEN_HEIGHT / 4
-#define JobsAppDoorContentViewFindPasswordWidth SCREEN_WIDTH - JobsAppDoorContentViewFindPasswordX * 2
-#define JobsAppDoorContentViewFindPasswordHeight SCREEN_HEIGHT / (isiPhoneX_series() ? 1.6 : 1.3)
+#define JobsAppDoorContentViewFindPasswordY JobsSCREEN_HEIGHT / 4
+#define JobsAppDoorContentViewFindPasswordWidth JobsSCREEN_WIDTH - JobsAppDoorContentViewFindPasswordX * 2
+#define JobsAppDoorContentViewFindPasswordHeight JobsSCREEN_HEIGHT / (isiPhoneX_series() ? 1.6 : 1.3)
 
 #define Cor1 [UIColor.blackColor colorWithAlphaComponent:0.9007f]
 #define Cor2 [UIColor.blackColor colorWithAlphaComponent:0.5984f]

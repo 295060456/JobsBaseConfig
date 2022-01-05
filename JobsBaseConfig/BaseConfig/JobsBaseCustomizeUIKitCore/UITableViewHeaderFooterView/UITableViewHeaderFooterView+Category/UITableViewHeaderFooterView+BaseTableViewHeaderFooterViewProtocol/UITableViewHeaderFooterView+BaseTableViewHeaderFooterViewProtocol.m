@@ -24,7 +24,7 @@
 +(CGRect)viewFrameWithModel:(id _Nullable)model{
     return CGRectMake(0,
                       0,
-                      SCREEN_WIDTH,
+                      JobsSCREEN_WIDTH,
                       JobsWidth(5));
 }
 

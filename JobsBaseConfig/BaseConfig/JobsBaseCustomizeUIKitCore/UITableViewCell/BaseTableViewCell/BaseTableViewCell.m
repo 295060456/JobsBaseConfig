@@ -46,7 +46,7 @@
     
     UIViewModel *vm = UIViewModel.new;
     vm.font = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
-    vm.width = SCREEN_WIDTH - JobsWidth(200);
+    vm.width = JobsSCREEN_WIDTH - JobsWidth(200);
     vm.text = model.subText;
     vm.textLineSpacing = 0;
     

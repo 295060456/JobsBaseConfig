@@ -53,7 +53,7 @@
 - (void)loadPhoto{
     for (NSUInteger i = 0; i < self.dataMutArr.count; i++) {
         UIImageView * imageView = UIImageView.new;
-        imageView.frame = CGRectMake(SCREEN_WIDTH * i, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+        imageView.frame = CGRectMake(JobsSCREEN_WIDTH * i, 0, JobsSCREEN_WIDTH, JobsSCREEN_HEIGHT);
         //用SDWebImage下载图片
         NSString *imageName = @"";
         if (i < 10) {
@@ -67,7 +67,7 @@
 }
 #pragma mark —— UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    if (self.scrollView.contentOffset.x > SCREEN_WIDTH * 2.8){
+    if (self.scrollView.contentOffset.x > JobsSCREEN_WIDTH * 2.8){
         if (self.viewControllerBlock) {
             self.viewControllerBlock(@1);
         }
@@ -75,12 +75,12 @@
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    if (self.scrollView.contentOffset.x < SCREEN_WIDTH * 0.5) {
+    if (self.scrollView.contentOffset.x < JobsSCREEN_WIDTH * 0.5) {
         self.pageControl.currentPage = 0;
-    }else if(self.scrollView.contentOffset.x > SCREEN_WIDTH * 0.5 &&
-             self.scrollView.contentOffset.x < SCREEN_WIDTH * 1.5){
+    }else if(self.scrollView.contentOffset.x > JobsSCREEN_WIDTH * 0.5 &&
+             self.scrollView.contentOffset.x < JobsSCREEN_WIDTH * 1.5){
         self.pageControl.currentPage = 1;
-    }else if(self.scrollView.contentOffset.x > SCREEN_WIDTH * 1.5){
+    }else if(self.scrollView.contentOffset.x > JobsSCREEN_WIDTH * 1.5){
         self.pageControl.currentPage = 2;
     }else{}
 }
@@ -105,7 +105,7 @@
         _scrollView = [UIScrollView.alloc initWithFrame:UIScreen.mainScreen.bounds];
         _scrollView.delegate = self;
         _scrollView.contentOffset = CGPointMake(0, 0);
-        _scrollView.contentSize = CGSizeMake(SCREEN_WIDTH * 4, SCREEN_HEIGHT);
+        _scrollView.contentSize = CGSizeMake(JobsSCREEN_WIDTH * 4, JobsSCREEN_HEIGHT);
         _scrollView.bounces = NO;
         _scrollView.pagingEnabled = YES;
         _scrollView.showsHorizontalScrollIndicator = NO;
