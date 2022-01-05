@@ -57,7 +57,7 @@ static char *UITableViewCell_WhiteArrows_size = "UITableViewCell_WhiteArrows_siz
 -(CGSize)size{
     CGSize Size = [objc_getAssociatedObject(self, UITableViewCell_WhiteArrows_size) CGSizeValue];
     if (CGSizeEqualToSize(Size, CGSizeZero)) {
-        Size = CGSizeMake(KWidth(10), KWidth(18.3));//缺省值
+        Size = CGSizeMake(JobsWidth(10), JobsWidth(18.3));//缺省值
         objc_setAssociatedObject(self,
                                  UITableViewCell_WhiteArrows_size,
                                  [NSValue valueWithCGSize:Size],

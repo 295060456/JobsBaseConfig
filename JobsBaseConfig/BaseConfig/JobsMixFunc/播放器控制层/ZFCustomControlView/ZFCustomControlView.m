@@ -518,7 +518,7 @@
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.textColor = [UIColor whiteColor];
-        _titleLabel.font = [UIFont systemFontOfSize:KWidth(15.0) weight:UIFontWeightRegular];
+        _titleLabel.font = [UIFont systemFontOfSize:JobsWidth(15.0) weight:UIFontWeightRegular];
     }
     return _titleLabel;
 }
@@ -545,7 +545,7 @@
     if (!_currentTimeLabel) {
         _currentTimeLabel = [[UILabel alloc] init];
         _currentTimeLabel.textColor = [UIColor whiteColor];
-        _currentTimeLabel.font = [UIFont systemFontOfSize:KWidth(14.0f) weight:UIFontWeightRegular];
+        _currentTimeLabel.font = [UIFont systemFontOfSize:JobsWidth(14.0f) weight:UIFontWeightRegular];
         _currentTimeLabel.textAlignment = NSTextAlignmentCenter;
     }
     return _currentTimeLabel;
@@ -568,7 +568,7 @@
     if (!_totalTimeLabel) {
         _totalTimeLabel = [[UILabel alloc] init];
         _totalTimeLabel.textColor = [UIColor whiteColor];
-        _totalTimeLabel.font = [UIFont systemFontOfSize:KWidth(14.0f)];
+        _totalTimeLabel.font = [UIFont systemFontOfSize:JobsWidth(14.0f)];
         _totalTimeLabel.textAlignment = NSTextAlignmentCenter;
     }
     return _totalTimeLabel;

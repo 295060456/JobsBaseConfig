@@ -45,12 +45,12 @@
 +(CGFloat)cellHeightWithModel:(UIViewModel *_Nullable)model{
     
     UIViewModel *vm = UIViewModel.new;
-    vm.font = [UIFont systemFontOfSize:KWidth(14) weight:UIFontWeightRegular];
-    vm.width = SCREEN_WIDTH - KWidth(200);
+    vm.font = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
+    vm.width = SCREEN_WIDTH - JobsWidth(200);
     vm.text = model.subText;
     vm.textLineSpacing = 0;
     
-    return [UIView heightByData:vm] + KWidth(20);
+    return [UIView heightByData:vm] + JobsWidth(20);
 }
 
 @end

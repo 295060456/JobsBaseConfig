@@ -212,8 +212,8 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
         _logoContentView = JobsAppDoorLogoContentView.new;
         [self.view addSubview:_logoContentView];
         [_logoContentView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.size.mas_equalTo(CGSizeMake(KWidth(150), KWidth(150)));
-            make.bottom.equalTo(self.jobsAppDoorContentView.mas_top).offset(-KWidth(50));
+            make.size.mas_equalTo(CGSizeMake(JobsWidth(150), JobsWidth(150)));
+            make.bottom.equalTo(self.jobsAppDoorContentView.mas_top).offset(-JobsWidth(50));
             make.centerX.equalTo(self.view);
         }];
         [self.view layoutIfNeeded];
@@ -291,7 +291,7 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
                                                                          JobsAppDoorContentViewRegisterHeight);
                         toRegisterBtn.frame = CGRectMake(0,
                                                          0,
-                                                         KWidth(64),
+                                                         JobsWidth(64),
                                                          self->_jobsAppDoorContentView.height);
                     }else{//竖形按钮在右边
                         
@@ -312,7 +312,7 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
                                                          64,
                                                          self->_jobsAppDoorContentView.height);
                     }
-                    self.customerServiceBtn.top = self.jobsAppDoorContentView.top + self.jobsAppDoorContentView.height + KWidth(20);
+                    self.customerServiceBtn.top = self.jobsAppDoorContentView.top + self.jobsAppDoorContentView.height + JobsWidth(20);
                     self.customerServiceBtnY =  self.customerServiceBtn.y;
                 }
                 else if ([btn.titleLabel.text isEqualToString:Title6]){// 注册

@@ -40,7 +40,7 @@
 }
 //具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 +(CGSize)viewSizeWithModel:(id _Nullable)model{
-    return CGSizeMake(KWidth(290), KWidth(207 + 20));
+    return CGSizeMake(JobsWidth(290), JobsWidth(207 + 20));
 }
 #pragma mark —— lazyLoad
 -(UIImageView *)imageView{
@@ -50,8 +50,8 @@
         [self addSubview:_imageView];
         [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self);
-            make.top.equalTo(self).offset(-KWidth(117));
-            make.height.mas_equalTo(KWidth(207));
+            make.top.equalTo(self).offset(-JobsWidth(117));
+            make.height.mas_equalTo(JobsWidth(207));
         }];
     }return _imageView;
 }

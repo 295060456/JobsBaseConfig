@@ -34,7 +34,7 @@
 }
 
 +(CGFloat)cellHeightWithModel:(id _Nullable)model{
-    return KWidth(44);
+    return JobsWidth(44);
 }
 
 @end

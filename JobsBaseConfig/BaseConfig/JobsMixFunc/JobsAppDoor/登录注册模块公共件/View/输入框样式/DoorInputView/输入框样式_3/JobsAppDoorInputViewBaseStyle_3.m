@@ -46,16 +46,16 @@
     _textField.placeholderColor = self.doorInputViewBaseStyleModel.placeholderColor;
     _textField.placeholderFont = self.doorInputViewBaseStyleModel.placeholderFont;
     _textField.objBindingParams = _textField.placeholder;
-    _textField.leftViewOffsetX = self.doorInputViewBaseStyleModel.leftViewOffsetX ? : KWidth(17);
+    _textField.leftViewOffsetX = self.doorInputViewBaseStyleModel.leftViewOffsetX ? : JobsWidth(17);
     _textField.animationColor = self.doorInputViewBaseStyleModel.animationColor ? : Cor4;
     _textField.placeHolderAlignment = self.doorInputViewBaseStyleModel.placeHolderAlignment ? : PlaceHolderAlignmentLeft;
-    _textField.moveDistance = self.doorInputViewBaseStyleModel.moveDistance ? : KWidth(35);
-    _textField.placeHolderOffset = self.doorInputViewBaseStyleModel.placeHolderOffset ? : KWidth(20);
+    _textField.moveDistance = self.doorInputViewBaseStyleModel.moveDistance ? : JobsWidth(35);
+    _textField.placeHolderOffset = self.doorInputViewBaseStyleModel.placeHolderOffset ? : JobsWidth(20);
 }
 #pragma mark —— BaseViewProtocol
 /// 具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 +(CGSize)viewSizeWithModel:(id _Nullable)model{
-    return CGSizeMake(KWidth(345), KWidth(30));
+    return CGSizeMake(JobsWidth(345), JobsWidth(30));
 }
 #pragma mark —— JobsDoorInputViewProtocol
 -(void)changeTextFieldAnimationColor:(BOOL)toRegisterBtnSelected{

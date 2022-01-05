@@ -19,10 +19,10 @@ static char *UIView_UIBackgroundConfig_backgroundConfig = "UIView_UIBackgroundCo
     if (!BackgroundConfig) {
         BackgroundConfig = UIBackgroundConfiguration.listPlainHeaderFooterConfiguration;
         BackgroundConfig.image = KIMG(@"设置_背景1");
-        BackgroundConfig.backgroundInsets = NSDirectionalEdgeInsetsMake(KWidth(3),
-                                                                        KWidth(15),
-                                                                        KWidth(3),
-                                                                        KWidth(15));
+        BackgroundConfig.backgroundInsets = NSDirectionalEdgeInsetsMake(JobsWidth(3),
+                                                                        JobsWidth(15),
+                                                                        JobsWidth(3),
+                                                                        JobsWidth(15));
         objc_setAssociatedObject(self,
                                  UIView_UIBackgroundConfig_backgroundConfig,
                                  BackgroundConfig,

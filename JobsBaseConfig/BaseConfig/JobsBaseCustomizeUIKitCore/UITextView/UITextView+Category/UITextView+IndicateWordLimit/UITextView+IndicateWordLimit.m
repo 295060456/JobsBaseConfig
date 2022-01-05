@@ -89,7 +89,7 @@ static char *UITextView_IndicateWordLimit_offsetY = "UITextView_IndicateWordLimi
 -(CGFloat)offsetX{
     CGFloat OffsetX = [objc_getAssociatedObject(self, UITextView_IndicateWordLimit_offsetX) floatValue];
     if (!OffsetX) {
-        OffsetX = KWidth(19.1);
+        OffsetX = JobsWidth(19.1);
         objc_setAssociatedObject(self,
                                  UITextView_IndicateWordLimit_offsetX,
                                  [NSNumber numberWithFloat:OffsetX],
@@ -107,7 +107,7 @@ static char *UITextView_IndicateWordLimit_offsetY = "UITextView_IndicateWordLimi
 -(CGFloat)offsetY{
     CGFloat OffsetY = [objc_getAssociatedObject(self, UITextView_IndicateWordLimit_offsetY) floatValue];
     if (!OffsetY) {
-        OffsetY = KWidth(13.1);
+        OffsetY = JobsWidth(13.1);
         objc_setAssociatedObject(self,
                                  UITextView_IndicateWordLimit_offsetY,
                                  [NSNumber numberWithFloat:OffsetY],

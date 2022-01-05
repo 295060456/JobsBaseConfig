@@ -46,16 +46,16 @@ UIButton *appDoorCountDownBtn;
     _textField.objBindingParams = _textField.placeholder;
     _textField.placeholderColor = self.doorInputViewBaseStyleModel.placeholderColor;
     _textField.placeholderFont = self.doorInputViewBaseStyleModel.placeholderFont;
-    _textField.leftViewOffsetX = self.doorInputViewBaseStyleModel.leftViewOffsetX ? :  KWidth(17);
+    _textField.leftViewOffsetX = self.doorInputViewBaseStyleModel.leftViewOffsetX ? :  JobsWidth(17);
     _textField.animationColor = self.doorInputViewBaseStyleModel.animationColor ? : Cor4;
     _textField.placeHolderAlignment = self.doorInputViewBaseStyleModel.placeHolderAlignment ? : PlaceHolderAlignmentLeft;
-    _textField.placeHolderOffset = self.doorInputViewBaseStyleModel.placeHolderOffset ? : KWidth(20);
-    _textField.moveDistance = self.doorInputViewBaseStyleModel.moveDistance ? : KWidth(35);
+    _textField.placeHolderOffset = self.doorInputViewBaseStyleModel.placeHolderOffset ? : JobsWidth(20);
+    _textField.moveDistance = self.doorInputViewBaseStyleModel.moveDistance ? : JobsWidth(35);
 }
 #pragma mark —— BaseViewProtocol
 /// 具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 +(CGSize)viewSizeWithModel:(id _Nullable)model{
-    return CGSizeMake(KWidth(345), KWidth(30));
+    return CGSizeMake(JobsWidth(345), JobsWidth(30));
 }
 #pragma mark —— JobsDoorInputViewProtocol
 -(void)changeTextFieldAnimationColor:(BOOL)toRegisterBtnSelected{
@@ -104,12 +104,12 @@ UIButton *appDoorCountDownBtn;
         
         /// 计时器未开始【静态值】
         _btnTimerConfigModel.layerBorderReadyPlayWidth = 1;
-        _btnTimerConfigModel.layerCornerReadyPlayRadius = KWidth(18);
+        _btnTimerConfigModel.layerCornerReadyPlayRadius = JobsWidth(18);
         _btnTimerConfigModel.bgReadyPlayCor = KYellowColor;
         _btnTimerConfigModel.layerBorderReadyPlayCor = kClearColor;
         _btnTimerConfigModel.titleReadyPlayCor = kBlackColor;
         _btnTimerConfigModel.titleReadyPlayStr = Title9;
-        _btnTimerConfigModel.titleLabelReadyPlayFont = [UIFont systemFontOfSize:KWidth(13)
+        _btnTimerConfigModel.titleLabelReadyPlayFont = [UIFont systemFontOfSize:JobsWidth(13)
                                                                          weight:UIFontWeightMedium];
         /// 计时器进行中【动态值】
         _btnTimerConfigModel.bgRunningCor = kCyanColor;
@@ -142,10 +142,10 @@ UIButton *appDoorCountDownBtn;
         
         [self addSubview:_countDownBtn];
         [_countDownBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(self).offset(-KWidth(10));
-            make.top.equalTo(self).offset(KWidth(8));
-            make.bottom.equalTo(self).offset(-KWidth(8));
-            make.width.mas_equalTo(KWidth(80));
+            make.right.equalTo(self).offset(-JobsWidth(10));
+            make.top.equalTo(self).offset(JobsWidth(8));
+            make.bottom.equalTo(self).offset(-JobsWidth(8));
+            make.width.mas_equalTo(JobsWidth(80));
         }];
         
 //        [UIView appointCornerCutToCircleWithTargetView:_countDownBtn
@@ -160,12 +160,12 @@ UIButton *appDoorCountDownBtn;
         _richLabelDataStringsMutArr = NSMutableArray.array;
         
         RichTextConfig *config_01 = RichTextConfig.new;
-        config_01.font = [UIFont systemFontOfSize:KWidth(14) weight:UIFontWeightMedium];
+        config_01.font = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightMedium];
         config_01.cor = kBlueColor;
         config_01.targetString = self.titleStr_1;
         
         RichTextConfig *config_02 = RichTextConfig.new;
-        config_02.font = [UIFont systemFontOfSize:KWidth(12) weight:UIFontWeightMedium];
+        config_02.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightMedium];
         config_02.cor = kRedColor;
         config_02.targetString = self.titleStr_2;
         

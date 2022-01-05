@@ -144,7 +144,7 @@
 
 -(UIFont *)font{
     if (!_font) {
-        _font = [UIFont systemFontOfSize:KWidth(9.6)
+        _font = [UIFont systemFontOfSize:JobsWidth(9.6)
                                   weight:UIFontWeightRegular];
     }return _font;
 }

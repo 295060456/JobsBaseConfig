@@ -20,17 +20,17 @@ typedef NS_ENUM(NSInteger, JobsAppDoorBgType){
 };
 
 /// 页面1：登录
-#define JobsAppDoorContentViewLoginX KWidth(20)
+#define JobsAppDoorContentViewLoginX JobsWidth(20)
 #define JobsAppDoorContentViewLoginY SCREEN_HEIGHT / (isiPhoneX_series() ? 4 : 5)
 #define JobsAppDoorContentViewLoginWidth SCREEN_WIDTH - JobsAppDoorContentViewLoginX * 2
 #define JobsAppDoorContentViewLoginHeight SCREEN_HEIGHT / (isiPhoneX_series() ? 2.3 : 2.0)
 /// 页面2：注册
-#define JobsAppDoorContentViewRegisterX KWidth(20)
+#define JobsAppDoorContentViewRegisterX JobsWidth(20)
 #define JobsAppDoorContentViewRegisterY SCREEN_HEIGHT / (isiPhoneX_series() ? 4 : 5)
 #define JobsAppDoorContentViewRegisterWidth SCREEN_WIDTH - JobsAppDoorContentViewRegisterX * 2
 #define JobsAppDoorContentViewRegisterHeight SCREEN_HEIGHT / (isiPhoneX_series() ? 1.6 : 1.3)
 /// 页面3：忘记密码
-#define JobsAppDoorContentViewFindPasswordX KWidth(20)
+#define JobsAppDoorContentViewFindPasswordX JobsWidth(20)
 #define JobsAppDoorContentViewFindPasswordY SCREEN_HEIGHT / 4
 #define JobsAppDoorContentViewFindPasswordWidth SCREEN_WIDTH - JobsAppDoorContentViewFindPasswordX * 2
 #define JobsAppDoorContentViewFindPasswordHeight SCREEN_HEIGHT / (isiPhoneX_series() ? 1.6 : 1.3)
@@ -41,9 +41,9 @@ typedef NS_ENUM(NSInteger, JobsAppDoorBgType){
 #define Cor4 [UIColor.whiteColor colorWithAlphaComponent:0.9007f]
 #define Cor5 HEXCOLOR(0x502600)
 
-#define ThingsHeight KWidth(50)//边角半圆形控件的高度
-#define RegisterBtnWidth KWidth(64)//竖形按钮的宽度
-#define InputViewOffset KWidth(20)//输入框承接控件之间的上下间距
+#define ThingsHeight JobsWidth(50)//边角半圆形控件的高度
+#define RegisterBtnWidth JobsWidth(64)//竖形按钮的宽度
+#define InputViewOffset JobsWidth(20)//输入框承接控件之间的上下间距
 
 #define Title1 Internationalization(@"B\na\nc\nk\nT\no\nL\no\ng\ni\nn")
 #define Title2 Internationalization(@"L\no\ng\ni\nn")

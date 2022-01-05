@@ -52,7 +52,7 @@ NS_ASSUME_NONNULL_END
      [BaseTableViewCell tableView:tableView
              makeFirstAndLastCell:cell
                       roundCorner:6
-                               dx:KWidth(16)
+                               dx:JobsWidth(16)
                                dy:0
                       atIndexPath:indexPath];
  }

@@ -95,7 +95,7 @@
         [self.view addSubview:_pageControl];
         [_pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.offset(0);
-            make.bottom.offset(-KWidth(60));
+            make.bottom.offset(-JobsWidth(60));
         }];
     }return _pageControl;
 }

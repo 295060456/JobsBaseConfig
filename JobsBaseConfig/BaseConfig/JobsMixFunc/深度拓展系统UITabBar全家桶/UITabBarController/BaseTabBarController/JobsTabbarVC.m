@@ -407,7 +407,7 @@ shouldSelectViewController:(UIViewController *)viewController {
         _viewModel.bgCor = kWhiteColor;
         _viewModel.bgImage = isiPhoneX_series() ? KIMG(@"底部导航栏背景(刘海屏)") : KIMG(@"底部导航栏背景(非刘海屏)");
         _viewModel.isTranslucent = NO;
-        _viewModel.offsetHeight = KWidth(5);
+        _viewModel.offsetHeight = JobsWidth(5);
     }return _viewModel;
 }
 @synthesize myTabBar = _myTabBar;

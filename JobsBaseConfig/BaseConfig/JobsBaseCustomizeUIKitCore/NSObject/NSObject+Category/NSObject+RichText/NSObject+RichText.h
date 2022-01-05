@@ -46,16 +46,16 @@ NS_ASSUME_NONNULL_END
                                               opaque:NO
                                       targetViewRect:CGRectMake(0,
                                                                 0,
-                                                                KWidth(400),
-                                                                KWidth(1))];
+                                                                JobsWidth(400),
+                                                                JobsWidth(1))];
      
      RichTextConfig *config_01 = RichTextConfig.new;
-     config_01.font = [UIFont systemFontOfSize:KWidth(10.6) weight:UIFontWeightRegular];
+     config_01.font = [UIFont systemFontOfSize:JobsWidth(10.6) weight:UIFontWeightRegular];
      config_01.cor = RGB_SAMECOLOR(115);
      config_01.targetString = arr[0];
 
      RichTextConfig *config_02 = RichTextConfig.new;
-     config_02.font = [UIFont systemFontOfSize:KWidth(10.6) weight:UIFontWeightMedium];
+     config_02.font = [UIFont systemFontOfSize:JobsWidth(10.6) weight:UIFontWeightMedium];
      config_02.cor = color;
      config_02.targetString = arr[1];
 

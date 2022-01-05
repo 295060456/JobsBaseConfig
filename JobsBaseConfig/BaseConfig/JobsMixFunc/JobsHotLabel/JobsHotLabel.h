@@ -40,8 +40,8 @@ NS_ASSUME_NONNULL_END
          [self addSubview:_hl];
          [_hl mas_makeConstraints:^(MASConstraintMaker *make) {
              make.centerX.equalTo(self.subTitleLab);
-             make.top.equalTo(self.subTitleLab.mas_bottom).offset(KWidth(29));
-             make.bottom.equalTo(self).offset(-KWidth(10));
+             make.top.equalTo(self.subTitleLab.mas_bottom).offset(JobsWidth(29));
+             make.bottom.equalTo(self).offset(-JobsWidth(10));
              make.width.mas_equalTo(250);
          }];
          
@@ -59,9 +59,9 @@ NS_ASSUME_NONNULL_END
              UIViewModel *vm = UIViewModel.new;
              vm.bgImage = KIMG(@"service_skype");
              vm.text = @"";
-             vm.size = CGSizeMake(KWidth(46), KWidth(46));
-             vm.offsetXForEach = KWidth(46);
-             vm.offsetYForEach = KWidth(46);
+             vm.size = CGSizeMake(JobsWidth(46), JobsWidth(46));
+             vm.offsetXForEach = JobsWidth(46);
+             vm.offsetYForEach = JobsWidth(46);
              [_hotLabelDataMutArr addObject:vm];
          }
          
@@ -69,9 +69,9 @@ NS_ASSUME_NONNULL_END
              UIViewModel *vm = UIViewModel.new;
              vm.bgImage = KIMG(@"service_qq");
              vm.text = @"";
-             vm.size = CGSizeMake(KWidth(46), KWidth(46));
-             vm.offsetXForEach = KWidth(46);
-             vm.offsetYForEach = KWidth(46);
+             vm.size = CGSizeMake(JobsWidth(46), JobsWidth(46));
+             vm.offsetXForEach = JobsWidth(46);
+             vm.offsetYForEach = JobsWidth(46);
              [_hotLabelDataMutArr addObject:vm];
          }
          
@@ -79,9 +79,9 @@ NS_ASSUME_NONNULL_END
              UIViewModel *vm = UIViewModel.new;
              vm.bgImage = KIMG(@"service_telegram");
              vm.text = @"";
-             vm.size = CGSizeMake(KWidth(46), KWidth(46));
-             vm.offsetXForEach = KWidth(46);
-             vm.offsetYForEach = KWidth(46);
+             vm.size = CGSizeMake(JobsWidth(46), JobsWidth(46));
+             vm.offsetXForEach = JobsWidth(46);
+             vm.offsetYForEach = JobsWidth(46);
              [_hotLabelDataMutArr addObject:vm];
          }
          
@@ -89,9 +89,9 @@ NS_ASSUME_NONNULL_END
              UIViewModel *vm = UIViewModel.new;
              vm.bgImage = KIMG(@"service_wechat");
              vm.text = @"";
-             vm.size = CGSizeMake(KWidth(46), KWidth(46));
-             vm.offsetXForEach = KWidth(46);
-             vm.offsetYForEach = KWidth(46);
+             vm.size = CGSizeMake(JobsWidth(46), JobsWidth(46));
+             vm.offsetXForEach = JobsWidth(46);
+             vm.offsetYForEach = JobsWidth(46);
              [_hotLabelDataMutArr addObject:vm];
          }
          
@@ -99,9 +99,9 @@ NS_ASSUME_NONNULL_END
              UIViewModel *vm = UIViewModel.new;
              vm.bgImage = KIMG(@"login_skype");
              vm.text = @"";
-             vm.size = CGSizeMake(KWidth(46), KWidth(46));
-             vm.offsetXForEach = KWidth(46);
-             vm.offsetYForEach = KWidth(46);
+             vm.size = CGSizeMake(JobsWidth(46), JobsWidth(46));
+             vm.offsetXForEach = JobsWidth(46);
+             vm.offsetYForEach = JobsWidth(46);
              [_hotLabelDataMutArr addObject:vm];
          }
          
@@ -109,9 +109,9 @@ NS_ASSUME_NONNULL_END
              UIViewModel *vm = UIViewModel.new;
              vm.bgImage = KIMG(@"service_meiqia");
              vm.text = @"";
-             vm.size = CGSizeMake(KWidth(46), KWidth(46));
-             vm.offsetXForEach = KWidth(46);
-             vm.offsetYForEach = KWidth(46);
+             vm.size = CGSizeMake(JobsWidth(46), JobsWidth(46));
+             vm.offsetXForEach = JobsWidth(46);
+             vm.offsetYForEach = JobsWidth(46);
              [_hotLabelDataMutArr addObject:vm];
          }
          

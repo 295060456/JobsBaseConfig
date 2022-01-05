@@ -69,7 +69,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return KWidth(44);
+    return JobsWidth(44);
 }
 
 - (void)tableView:(UITableView *)tableView
@@ -191,8 +191,8 @@ viewForHeaderInSection:(NSInteger)section{
 //                                                               detailStr:@""];
 //
 //            _tableView.ly_emptyView.titleLabTextColor = KLightGrayColor;
-//            _tableView.ly_emptyView.contentViewOffset = -KWidth(180);
-//            _tableView.ly_emptyView.titleLabFont = [UIFont systemFontOfSize:KWidth(16) weight:UIFontWeightMedium];
+//            _tableView.ly_emptyView.contentViewOffset = -JobsWidth(180);
+//            _tableView.ly_emptyView.titleLabFont = [UIFont systemFontOfSize:JobsWidth(16) weight:UIFontWeightMedium];
 //        }
         
         [self.view addSubview:_tableView];

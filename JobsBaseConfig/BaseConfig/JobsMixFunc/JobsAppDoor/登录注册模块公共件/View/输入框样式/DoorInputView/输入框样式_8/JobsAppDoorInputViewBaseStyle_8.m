@@ -46,16 +46,16 @@
     _textField.keyboardAppearance = self.doorInputViewBaseStyleModel.keyboardAppearance;
     
     _textField.placeHolderAlignment = self.doorInputViewBaseStyleModel.placeHolderAlignment ? : PlaceHolderAlignmentLeft;
-    _textField.placeHolderOffset = self.doorInputViewBaseStyleModel.placeHolderOffset ? : KWidth(20);
+    _textField.placeHolderOffset = self.doorInputViewBaseStyleModel.placeHolderOffset ? : JobsWidth(20);
     _textField.placeholderColor = self.doorInputViewBaseStyleModel.placeholderColor;
     _textField.placeholderFont = self.doorInputViewBaseStyleModel.placeholderFont;
     _textField.objBindingParams = _textField.placeholder;
-    _textField.leftViewOffsetX = self.doorInputViewBaseStyleModel.leftViewOffsetX ? : KWidth(17);
+    _textField.leftViewOffsetX = self.doorInputViewBaseStyleModel.leftViewOffsetX ? : JobsWidth(17);
 }
 #pragma mark —— BaseViewProtocol
 /// 具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 +(CGSize)viewSizeWithModel:(id _Nullable)model{
-    return CGSizeMake(KWidth(345), KWidth(50));
+    return CGSizeMake(JobsWidth(345), JobsWidth(50));
 }
 #pragma mark —— JobsDoorInputViewProtocol
 -(ZYTextField *_Nullable)getTextField{
@@ -127,7 +127,7 @@
 -(UILabel *)titleLab{
     if (!_titleLab) {
         _titleLab = UILabel.new;
-        _titleLab.font = [UIFont systemFontOfSize:KWidth(11) weight:UIControlStateNormal];
+        _titleLab.font = [UIFont systemFontOfSize:JobsWidth(11) weight:UIControlStateNormal];
         _titleLab.text = self.doorInputViewBaseStyleModel.text;
         _titleLab.textColor = self.doorInputViewBaseStyleModel.textCor;
         [self addSubview:_titleLab];

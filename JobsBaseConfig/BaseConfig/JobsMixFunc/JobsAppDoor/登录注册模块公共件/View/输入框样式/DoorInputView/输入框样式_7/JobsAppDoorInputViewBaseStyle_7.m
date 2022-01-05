@@ -38,14 +38,14 @@
     _textField.objBindingParams = _textField.placeholder;
     _textField.placeholderColor = self.doorInputViewBaseStyleModel.placeholderColor;
     _textField.placeholderFont = self.doorInputViewBaseStyleModel.placeholderFont;
-    _textField.offset = self.doorInputViewBaseStyleModel.offset ? : KWidth(1);
+    _textField.offset = self.doorInputViewBaseStyleModel.offset ? : JobsWidth(1);
     _textField.animationColor = self.doorInputViewBaseStyleModel.animationColor ? : Cor4;
-    _textField.moveDistance = self.doorInputViewBaseStyleModel.moveDistance ? : KWidth(35);
+    _textField.moveDistance = self.doorInputViewBaseStyleModel.moveDistance ? : JobsWidth(35);
 }
 #pragma mark —— BaseViewProtocol
 /// 具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 +(CGSize)viewSizeWithModel:(id _Nullable)model{
-    return CGSizeMake(KWidth(345), KWidth(30));
+    return CGSizeMake(JobsWidth(345), JobsWidth(30));
 }
 #pragma mark —— JobsDoorInputViewProtocol
 -(void)changeTextFieldAnimationColor:(BOOL)toRegisterBtnSelected{
@@ -87,9 +87,9 @@
         _leftIMGV.image = self.doorInputViewBaseStyleModel.leftViewIMG;
         [self addSubview:_leftIMGV];
         [_leftIMGV mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self).offset(KWidth(17));
+            make.left.equalTo(self).offset(JobsWidth(17));
             make.centerY.equalTo(self);
-            make.size.mas_equalTo(CGSizeMake(KWidth(12), KWidth(16)));
+            make.size.mas_equalTo(CGSizeMake(JobsWidth(12), JobsWidth(16)));
         }];
     }return _leftIMGV;
 }
@@ -103,7 +103,7 @@
             jobsPageViewModel.text = @"+855";
             jobsPageViewModel.textCor = kWhiteColor;
             jobsPageViewModel.bgCor = kClearColor;
-            jobsPageViewModel.font = [UIFont systemFontOfSize:KWidth(12) weight:UIFontWeightRegular];
+            jobsPageViewModel.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular];
             [_jobsPageViewDataMutArr addObject:jobsPageViewModel];
         }
         
@@ -112,7 +112,7 @@
             jobsPageViewModel.text = @"+87";
             jobsPageViewModel.textCor = kWhiteColor;
             jobsPageViewModel.bgCor = kClearColor;
-            jobsPageViewModel.font = [UIFont systemFontOfSize:KWidth(12) weight:UIFontWeightRegular];
+            jobsPageViewModel.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular];
             [_jobsPageViewDataMutArr addObject:jobsPageViewModel];
         }
         
@@ -121,7 +121,7 @@
             jobsPageViewModel.text = @"+88";
             jobsPageViewModel.textCor = kWhiteColor;
             jobsPageViewModel.bgCor = kClearColor;
-            jobsPageViewModel.font = [UIFont systemFontOfSize:KWidth(12) weight:UIFontWeightRegular];
+            jobsPageViewModel.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular];
             [_jobsPageViewDataMutArr addObject:jobsPageViewModel];
         }
         
@@ -135,9 +135,9 @@
         [_jobsPageView richElementsInViewWithModel:self.jobsPageViewDataMutArr];
         [self addSubview:_jobsPageView];
         [_jobsPageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.leftIMGV.mas_right).offset(KWidth(3));
+            make.left.equalTo(self.leftIMGV.mas_right).offset(JobsWidth(3));
             make.centerY.equalTo(self);
-            make.height.mas_equalTo(KWidth(16));
+            make.height.mas_equalTo(JobsWidth(16));
             make.width.mas_equalTo([UIView widthByData:self.jobsPageViewDataMutArr[0]]);
         }];
     }return _jobsPageView;
@@ -174,8 +174,8 @@
         [self addSubview:_textField];
         [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.bottom.equalTo(self);
-            make.right.equalTo(self).offset(-KWidth(17));
-            make.left.equalTo(self.jobsPageView.mas_right).offset(KWidth(2));
+            make.right.equalTo(self).offset(-JobsWidth(17));
+            make.left.equalTo(self.jobsPageView.mas_right).offset(JobsWidth(2));
         }];
     }return _textField;
 }

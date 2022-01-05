@@ -18,14 +18,14 @@
 }
 //具体由子类进行复写【数据定高】
 +(CGFloat)heightWithModel:(id _Nullable)model{
-    return KWidth(5);
+    return JobsWidth(5);
 }
 //具体由子类进行复写【数据Frame】
 +(CGRect)viewFrameWithModel:(id _Nullable)model{
     return CGRectMake(0,
                       0,
                       SCREEN_WIDTH,
-                      KWidth(5));
+                      JobsWidth(5));
 }
 
 @end

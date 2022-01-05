@@ -50,7 +50,7 @@
 #pragma mark —— BaseViewProtocol
 /// 具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 +(CGSize)viewSizeWithModel:(id _Nullable)model{
-    return CGSizeMake(KWidth(305), KWidth(14 + 36 + 4));
+    return CGSizeMake(JobsWidth(305), JobsWidth(14 + 36 + 4));
 }
 // 外层数据渲染
 -(void)richElementsInViewWithModel:(JobsAppDoorInputViewBaseStyleModel *_Nullable)doorInputViewBaseStyleModel{
@@ -134,7 +134,7 @@
         _btnTimerConfigModel.layerBorderReadyPlayCor = kClearColor;
         _btnTimerConfigModel.titleReadyPlayCor = kBlackColor;
         _btnTimerConfigModel.titleReadyPlayStr = Title9;
-        _btnTimerConfigModel.titleLabelReadyPlayFont = [UIFont systemFontOfSize:KWidth(13)
+        _btnTimerConfigModel.titleLabelReadyPlayFont = [UIFont systemFontOfSize:JobsWidth(13)
                                                                          weight:UIFontWeightMedium];
         /// 计时器进行中【动态值】
         _btnTimerConfigModel.bgRunningCor = kCyanColor;
@@ -162,9 +162,9 @@
         
         [self addSubview:_authCodeBtn];
         [_authCodeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(self).offset(-KWidth(50));
+            make.right.equalTo(self).offset(-JobsWidth(50));
             make.bottom.equalTo(self.textField);
-            make.size.mas_equalTo(CGSizeMake(KWidth(78), KWidth(25)));
+            make.size.mas_equalTo(CGSizeMake(JobsWidth(78), JobsWidth(25)));
         }];
         
         [UIView cornerCutToCircleWithView:_authCodeBtn
@@ -192,7 +192,7 @@
         [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.titleLab);
             make.top.equalTo(self.titleLab.mas_bottom);
-            make.bottom.equalTo(self).offset(-KWidth(8));
+            make.bottom.equalTo(self).offset(-JobsWidth(8));
             
             switch (self.style_5) {
                 case InputViewStyle_5_1:{

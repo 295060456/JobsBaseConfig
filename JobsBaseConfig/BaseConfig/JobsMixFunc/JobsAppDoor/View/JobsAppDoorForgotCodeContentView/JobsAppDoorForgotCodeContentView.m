@@ -57,12 +57,12 @@
         _titleLab = UILabel.new;
         _titleLab.text = Internationalization(Title10);
         _titleLab.textColor = kWhiteColor;
-        _titleLab.font = [UIFont systemFontOfSize:KWidth(20)
+        _titleLab.font = [UIFont systemFontOfSize:JobsWidth(20)
                                            weight:UIFontWeightRegular];
         [_titleLab sizeToFit];
         [self addSubview:_titleLab];
         _titleLab.centerX = (self.width - self.backToLoginBtn.width) / 2;
-        _titleLab.top = KWidth(20);
+        _titleLab.top = JobsWidth(20);
     }return _titleLab;
 }
 
@@ -71,7 +71,7 @@
         _backToLoginBtn = UIButton.new;
         _backToLoginBtn.titleLabel.numberOfLines = 0;
         _backToLoginBtn.backgroundColor = Cor1;
-        _backToLoginBtn.titleLabel.font = [UIFont systemFontOfSize:KWidth(13)
+        _backToLoginBtn.titleLabel.font = [UIFont systemFontOfSize:JobsWidth(13)
                                                             weight:UIFontWeightMedium];
         _backToLoginBtn.alpha = 0.7f;
         
@@ -98,7 +98,7 @@
         
         [self layoutIfNeeded];
         [_backToLoginBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
-                                         imageTitleSpace:KWidth(8)];
+                                         imageTitleSpace:JobsWidth(8)];
     }return _backToLoginBtn;
 }
 
@@ -120,8 +120,8 @@
         }];
         [self addSubview:_contactCustomerServiceBtn];
         [_contactCustomerServiceBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.size.mas_equalTo(CGSizeMake(KWidth(230), KWidth(50)));
-            make.top.equalTo(self.titleLab.mas_bottom).offset(KWidth(15));
+            make.size.mas_equalTo(CGSizeMake(JobsWidth(230), JobsWidth(50)));
+            make.top.equalTo(self.titleLab.mas_bottom).offset(JobsWidth(15));
             make.centerX.equalTo(self.titleLab);
         }];
 
@@ -135,14 +135,14 @@
         _subTitleLab.textAlignment = NSTextAlignmentCenter;
         _subTitleLab.numberOfLines = 0;
         _subTitleLab.textColor = kWhiteColor;
-        _subTitleLab.font = [UIFont systemFontOfSize:KWidth(12)
+        _subTitleLab.font = [UIFont systemFontOfSize:JobsWidth(12)
                                               weight:UIFontWeightMedium];
         [_subTitleLab sizeToFit];
         [self addSubview:_subTitleLab];
         [_subTitleLab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(self.contactCustomerServiceBtn);
-            make.top.equalTo(self.contactCustomerServiceBtn.mas_bottom).offset(KWidth(56));
-            make.height.mas_equalTo(KWidth(15));
+            make.top.equalTo(self.contactCustomerServiceBtn.mas_bottom).offset(JobsWidth(56));
+            make.height.mas_equalTo(JobsWidth(15));
         }];
     }return _subTitleLab;
 }
@@ -156,8 +156,8 @@
         [self addSubview:_hl];
         [_hl mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(self.subTitleLab);
-            make.top.equalTo(self.subTitleLab.mas_bottom).offset(KWidth(29));
-            make.bottom.equalTo(self).offset(-KWidth(10));
+            make.top.equalTo(self.subTitleLab.mas_bottom).offset(JobsWidth(29));
+            make.bottom.equalTo(self).offset(-JobsWidth(10));
             make.width.mas_equalTo(250);
         }];
         [self layoutIfNeeded];

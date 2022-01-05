@@ -79,7 +79,7 @@
 
 -(CGFloat)spreadsheetView:(SpreadsheetView *)spreadsheetView
              heightForRow:(NSInteger)row{
-    return KWidth(24.f);
+    return JobsWidth(24.f);
 }
 
 -(ZMJCell *)spreadsheetView:(SpreadsheetView *)spreadsheetView
@@ -116,7 +116,7 @@
         _spreadsheetView.scrollView.showsHorizontalScrollIndicator = NO;
         [self.view addSubview:_spreadsheetView];
         [_spreadsheetView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH, KWidth(200)));
+            make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH, JobsWidth(200)));
             make.center.equalTo(self.view);
 //            make.edges.equalTo(self.view);
         }];

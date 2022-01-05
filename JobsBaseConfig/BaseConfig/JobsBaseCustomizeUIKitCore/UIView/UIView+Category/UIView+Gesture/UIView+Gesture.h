@@ -113,7 +113,7 @@ NS_ASSUME_NONNULL_END
          [_mainIMGV mas_makeConstraints:^(MASConstraintMaker *make) {
              make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH, SCREEN_WIDTH));
              make.centerX.equalTo(self.view);
-             make.top.equalTo(self.titleIMGV.mas_bottom).offset(-KHeight(10));
+             make.top.equalTo(self.titleIMGV.mas_bottom).offset(-JobsHeight(10));
          }];
      }return _mainIMGV;
  }

@@ -50,8 +50,8 @@ NS_ASSUME_NONNULL_END
          [self.view addSubview:_textView];
          [_textView mas_makeConstraints:^(MASConstraintMaker *make) {
              make.centerX.equalTo(self.view);
-             make.top.equalTo(self.chooseFeedbackTypeBtn.mas_bottom).offset(KHeight(8));
-             make.size.mas_equalTo(CGSizeMake(KWidth(343), KHeight(150)));
+             make.top.equalTo(self.chooseFeedbackTypeBtn.mas_bottom).offset(JobsHeight(8));
+             make.size.mas_equalTo(CGSizeMake(JobsWidth(343), JobsHeight(150)));
          }];
          [self.view layoutIfNeeded];
          _textView.indicateWordLimitLab.alpha = 1;

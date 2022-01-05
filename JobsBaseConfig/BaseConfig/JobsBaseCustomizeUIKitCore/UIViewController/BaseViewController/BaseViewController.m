@@ -149,7 +149,7 @@
     self.gk_navTitleColor = HEXCOLOR(0xD3B698);
     self.gk_navBackgroundColor = HEXCOLOR(0x564533);
     self.gk_backImage = KIMG(@"全局返回箭头");
-    self.gk_navTitleFont = [UIFont systemFontOfSize:KWidth(18) weight:UIFontWeightRegular];
+    self.gk_navTitleFont = [UIFont systemFontOfSize:JobsWidth(18) weight:UIFontWeightRegular];
 }
 /*
     用于以此为基类的控制器上所有数据的回调,当然也可以用NSObject分类的方法定位于：@interface NSObject (CallBackInfoByBlock)

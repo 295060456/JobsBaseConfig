@@ -24,10 +24,10 @@ static char *UIViewController_SuspendBtn_suspendBtn = "UIViewController_SuspendB
         });
         self.view.vc = weak_self;
         [self.view addSubview:SuspendBtn];
-        SuspendBtn.frame = CGRectMake(KWidth(80),
-                                       KWidth(100),
-                                       KWidth(50),
-                                       KWidth(50));
+        SuspendBtn.frame = CGRectMake(JobsWidth(80),
+                                       JobsWidth(100),
+                                       JobsWidth(50),
+                                       JobsWidth(50));
         [UIView cornerCutToCircleWithView:SuspendBtn
                           andCornerRadius:SuspendBtn.width / 2];
         objc_setAssociatedObject(self,

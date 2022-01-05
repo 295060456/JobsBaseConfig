@@ -41,9 +41,9 @@
     CGFloat H = [model.upLabText getContentHeightOrWidthWithParagraphStyleLineSpacing:0
                                                                 calcLabelHeight_Width:CalcLabelHeight
                                                                                  font:model.upLabFont
-                                                         boundingRectWithHeight_Width:(KWidth(119) + model.space)];
+                                                         boundingRectWithHeight_Width:(JobsWidth(119) + model.space)];
     
-    return CGSizeMake(KWidth(119) + model.space, H);
+    return CGSizeMake(JobsWidth(119) + model.space, H);
 }
 
 -(void)textWidth{

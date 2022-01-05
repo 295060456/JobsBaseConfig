@@ -21,17 +21,17 @@ NS_ASSUME_NONNULL_END
      JobsLeftRightLabModel *model = JobsLeftRightLabModel.new;
      model.upLabText = Internationalization(@"Amount payable");
      model.upLabTextAlignment = NSTextAlignmentCenter;
-     model.upLabFont = [UIFont systemFontOfSize:KWidth(14) weight:UIFontWeightRegular];
+     model.upLabFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
      model.upLabTextCor = UIColor.blackColor;
      model.upLabBgCor = UIColor.clearColor;
      
      model.downLabText = @"2.99";
      model.downLabTextAlignment = NSTextAlignmentCenter;
-     model.downLabFont = [UIFont systemFontOfSize:KWidth(14) weight:UIFontWeightBold];
+     model.downLabFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightBold];
      model.downLabTextCor = HEXCOLOR(0x524740);
      model.downLabBgCor = UIColor.clearColor;
      
-     model.space = KWidth(12);
+     model.space = JobsWidth(12);
      
      [_leftRightLab richElementsInViewWithModel:model];
  }

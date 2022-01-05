@@ -257,8 +257,8 @@ didScrollSelectedItemAtIndex:(NSInteger)index {
                                                          144,
                                                          239);
         _categoryTitleView.titleColor = kBlackColor;
-        _categoryTitleView.dotSize = CGSizeMake(KWidth(5), KWidth(5));
-        _categoryTitleView.titleFont = [UIFont systemFontOfSize:KWidth(14)
+        _categoryTitleView.dotSize = CGSizeMake(JobsWidth(5), JobsWidth(5));
+        _categoryTitleView.titleFont = [UIFont systemFontOfSize:JobsWidth(14)
                                                          weight:UIFontWeightMedium];
         //关联cotentScrollView，关联之后才可以互相联动！！！
         _categoryTitleView.contentScrollView = self.listContainerView.scrollView;//
@@ -292,7 +292,7 @@ didScrollSelectedItemAtIndex:(NSInteger)index {
     if (!_attentionBtn) {
         _attentionBtn = UIButton.new;
         _attentionBtn.adjustsImageWhenHighlighted = NO;
-        _attentionBtn.titleLabel.font = [UIFont systemFontOfSize:KWidth(10)
+        _attentionBtn.titleLabel.font = [UIFont systemFontOfSize:JobsWidth(10)
                                                           weight:UIFontWeightMedium];
         [_attentionBtn setImage:KBuddleIMG(@"bundle",
                                            @"Others",

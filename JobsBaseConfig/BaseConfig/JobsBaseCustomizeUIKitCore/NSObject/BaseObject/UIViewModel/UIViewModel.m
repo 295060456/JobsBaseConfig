@@ -30,7 +30,7 @@
 
 -(UIFont *)font{
     if (!_font) {
-        _font = [UIFont systemFontOfSize:KWidth(12) weight:UIFontWeightRegular];
+        _font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular];
     }return _font;
 }
 

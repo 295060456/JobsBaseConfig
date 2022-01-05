@@ -16,7 +16,7 @@
 
 -(UIFont *)titleStrFont{
     if (!_titleStrFont) {
-        _titleStrFont = [UIFont systemFontOfSize:KWidth(9)
+        _titleStrFont = [UIFont systemFontOfSize:JobsWidth(9)
                                           weight:UIFontWeightRegular];
     }return _titleStrFont;
 }
@@ -29,7 +29,7 @@
 
 -(UIFont *)placeholderFont{
     if (!_placeholderFont) {
-        _placeholderFont = [UIFont systemFontOfSize:KWidth(14) weight:UIFontWeightRegular];
+        _placeholderFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
     }return _placeholderFont;
 }
 

@@ -52,7 +52,7 @@
 }
 //具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 +(CGSize)viewSizeWithModel:(id _Nullable)model{
-    return CGSizeMake(SCREEN_WIDTH - KWidth(30), KWidth(210));
+    return CGSizeMake(SCREEN_WIDTH - JobsWidth(30), JobsWidth(210));
 }
 #pragma mark —— lazyLoad
 -(UILabel *)titleLab{
@@ -64,7 +64,7 @@
         [self addSubview:_titleLab];
         [_titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(self);
-            make.top.equalTo(self).offset(KWidth(50));
+            make.top.equalTo(self).offset(JobsWidth(50));
         }];
     }return _titleLab;
 }
@@ -78,7 +78,7 @@
         [self addSubview:_subTitleLab];
         [_subTitleLab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(self);
-            make.top.equalTo(self.titleLab.mas_bottom).offset(KWidth(5));
+            make.top.equalTo(self.titleLab.mas_bottom).offset(JobsWidth(5));
         }];
     }return _subTitleLab;
 }
@@ -87,16 +87,16 @@
     if (!_btn1) {
         _btn1 = UIButton.new;
         _btn1.tag = 666;
-        [_btn1 titleFont:[UIFont systemFontOfSize:KWidth(14) weight:UIControlStateNormal]];
+        [_btn1 titleFont:[UIFont systemFontOfSize:JobsWidth(14) weight:UIControlStateNormal]];
         [_btn1 normalImage:self.viewModel.image];
         [_btn1 normalBackgroundImage:KIMG(@"弹窗取消按钮背景图")];
         [_btn1 normalTitle:Internationalization(@"Cancel")];
         BtnClickEvent(_btn1, if(self.viewBlock)self.viewBlock(self->_btn1););
         [self addSubview:_btn1];
         [_btn1 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.size.mas_equalTo(CGSizeMake(KWidth(110), KWidth(44)));
-            make.left.equalTo(self).offset(KWidth(20));
-            make.bottom.equalTo(self).offset(-KWidth(25));
+            make.size.mas_equalTo(CGSizeMake(JobsWidth(110), JobsWidth(44)));
+            make.left.equalTo(self).offset(JobsWidth(20));
+            make.bottom.equalTo(self).offset(-JobsWidth(25));
         }];
     }return _btn1;
 }
@@ -105,16 +105,16 @@
     if (!_btn2) {
         _btn2 = UIButton.new;
         _btn2.tag = 999;
-        [_btn2 titleFont:[UIFont systemFontOfSize:KWidth(14) weight:UIControlStateNormal]];
+        [_btn2 titleFont:[UIFont systemFontOfSize:JobsWidth(14) weight:UIControlStateNormal]];
         [_btn2 normalImage:self.viewModel.image];
         [_btn2 normalBackgroundImage:KIMG(@"弹窗确定按钮背景图")];
         [_btn2 normalTitle:Internationalization(@"Sure")];
         BtnClickEvent(_btn2, if(self.viewBlock)self.viewBlock(self->_btn2););
         [self addSubview:_btn2];
         [_btn2 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.size.mas_equalTo(CGSizeMake(KWidth(110), KWidth(44)));
-            make.right.equalTo(self).offset(KWidth(-20));
-            make.bottom.equalTo(self).offset(-KWidth(25));
+            make.size.mas_equalTo(CGSizeMake(JobsWidth(110), JobsWidth(44)));
+            make.right.equalTo(self).offset(JobsWidth(-20));
+            make.bottom.equalTo(self).offset(-JobsWidth(25));
         }];
     }return _btn2;
 }

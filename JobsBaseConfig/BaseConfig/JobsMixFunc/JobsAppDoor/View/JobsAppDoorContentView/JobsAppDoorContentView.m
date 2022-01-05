@@ -202,10 +202,10 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
             if (self.viewBlock) self.viewBlock(data);//data：监测输入字符回调 和 激活的textField
         }];
         [self addSubview:inputView];
-        inputView.size = CGSizeMake(self.width - self.toRegisterBtn.width - KWidth(40), ThingsHeight);
-        inputView.x = KWidth(20);
+        inputView.size = CGSizeMake(self.width - self.toRegisterBtn.width - JobsWidth(40), ThingsHeight);
+        inputView.x = JobsWidth(20);
         if (i == 0) {
-            inputView.top = self.titleLab.bottom + KWidth(20);//20是偏移量
+            inputView.top = self.titleLab.bottom + JobsWidth(20);//20是偏移量
         }else if(i == 1){
             JobsAppDoorInputViewBaseStyle_3 *lastObj = (JobsAppDoorInputViewBaseStyle_3 *)self.loginDoorInputViewBaseStyleMutArr[i - 1];
             inputView.top = lastObj.bottom + InputViewOffset;
@@ -243,46 +243,46 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
 /// 一些需要通过点击状态改变状态的控件【初始状态】
 -(void)initialTitleLab{
     self.titleLab.text = Title7;
-    self.titleLab.font = [UIFont systemFontOfSize:KWidth(20)
+    self.titleLab.font = [UIFont systemFontOfSize:JobsWidth(20)
                                            weight:UIFontWeightRegular];
     self.titleLab.textColor = Cor4;
     [self.titleLab sizeToFit];//sizeToFit也会刷新UI造成UI错位，所以需要提前写
-    self.titleLab.top = KWidth(20);
+    self.titleLab.top = JobsWidth(20);
     self.titleLab.centerX = (self.width - self.toRegisterBtn.width) / 2;
 }
 
 -(void)initialSendBtn{
 //        _sendBtn.backgroundColor = [KSystemPinkColor colorWithAlphaComponent:0.3];
     
-    self.sendBtn.size = CGSizeMake(self.width - self.toRegisterBtn.width - KWidth(40), ThingsHeight);
+    self.sendBtn.size = CGSizeMake(self.width - self.toRegisterBtn.width - JobsWidth(40), ThingsHeight);
     [self.sendBtn setBackgroundImage:KIMG(@"登录注册按钮背景图") forState:UIControlStateNormal];
     [self.sendBtn setBackgroundImage:KIMG(@"登录注册按钮背景图") forState:UIControlStateSelected];
     [self.sendBtn setTitleColor:Cor5
                        forState:UIControlStateNormal];
     [self.sendBtn setTitle:Title7
                   forState:UIControlStateNormal];
-    self.sendBtn.titleLabel.font = [UIFont systemFontOfSize:KWidth(16)
+    self.sendBtn.titleLabel.font = [UIFont systemFontOfSize:JobsWidth(16)
                                                      weight:UIFontWeightRegular];
     [self.sendBtn.titleLabel sizeToFit];//必须先定Size，在依据Size刷新内部控件约束
     
     self.sendBtn.centerX = self.titleLab.centerX;
-    self.sendBtn.bottom = JobsAppDoorContentViewLoginHeight - KWidth(50);
+    self.sendBtn.bottom = JobsAppDoorContentViewLoginHeight - JobsWidth(50);
 
 }
 //返回首页
 -(void)initialAbandonLoginBtn{
     
-    self.abandonLoginBtn.height = KWidth(10);
+    self.abandonLoginBtn.height = JobsWidth(10);
     [self.abandonLoginBtn setTitle:Title4
                           forState:UIControlStateNormal];
     [self.abandonLoginBtn setTitleColor:Cor3
                                forState:UIControlStateNormal];
-    self.abandonLoginBtn.titleLabel.font = [UIFont systemFontOfSize:KWidth(12)
+    self.abandonLoginBtn.titleLabel.font = [UIFont systemFontOfSize:JobsWidth(12)
                                                              weight:UIFontWeightSemibold];
     [self.abandonLoginBtn.titleLabel sizeToFit];
     self.abandonLoginBtn.adjustsImageSizeForAccessibilityContentSizeCategory = YES;
     
-    self.abandonLoginBtn.bottom = JobsAppDoorContentViewLoginHeight - KWidth(20);
+    self.abandonLoginBtn.bottom = JobsAppDoorContentViewLoginHeight - JobsWidth(20);
     self.abandonLoginBtn.centerX = self.sendBtn.centerX;
 }
 
@@ -295,7 +295,7 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
     [self.toRegisterBtn setTitle:Title2
                         forState:UIControlStateNormal];
     [self.toRegisterBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
-                                        imageTitleSpace:KWidth(20)];
+                                        imageTitleSpace:JobsWidth(20)];
 }
 /// 一些需要通过点击状态改变状态的控件【被选中状态】
 -(void)selectTitleLab{
@@ -306,7 +306,7 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
 
 -(void)selectSendBtn{
     self.sendBtn.centerX = self.titleLab.centerX;
-    self.sendBtn.bottom = JobsAppDoorContentViewRegisterHeight - KWidth(50);
+    self.sendBtn.bottom = JobsAppDoorContentViewRegisterHeight - JobsWidth(50);
     [self.sendBtn setTitle:Title6
                   forState:UIControlStateNormal];
     [self.sendBtn buttonAutoWidthByFont];
@@ -314,7 +314,7 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
 
 -(void)selectAbandonLoginBtn{
     self.abandonLoginBtn.centerX = self.sendBtn.centerX;
-    self.abandonLoginBtn.bottom = JobsAppDoorContentViewRegisterHeight - KWidth(20);
+    self.abandonLoginBtn.bottom = JobsAppDoorContentViewRegisterHeight - JobsWidth(20);
     self.abandonLoginBtn.alpha = 1;//返回首页
 }
 
@@ -367,7 +367,7 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
     
     for (int i = 0; i < self.loginDoorInputViewBaseStyleMutArr.count; i++) {
         JobsAppDoorInputViewBaseStyle *inputView = self.loginDoorInputViewBaseStyleMutArr[i];
-        inputView.x = KWidth(20);
+        inputView.x = JobsWidth(20);
     }
     
     for (long i = self.loginDoorInputViewBaseStyleMutArr.count;
@@ -461,8 +461,8 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
         
         JobsAppDoorInputViewBaseStyle *lastObj = (JobsAppDoorInputViewBaseStyle *)self.registerDoorInputViewBaseStyleMutArr[i - 1];
         doorInputViewBaseStyle.top = lastObj.bottom + InputViewOffset;
-        doorInputViewBaseStyle.size = CGSizeMake(self.width - self.toRegisterBtn.width - KWidth(40), ThingsHeight);
-        doorInputViewBaseStyle.x = KWidth(20) + RegisterBtnWidth;
+        doorInputViewBaseStyle.size = CGSizeMake(self.width - self.toRegisterBtn.width - JobsWidth(40), ThingsHeight);
+        doorInputViewBaseStyle.x = JobsWidth(20) + RegisterBtnWidth;
         doorInputViewBaseStyle.layer.cornerRadius = ThingsHeight / 2;
     }
 }
@@ -551,7 +551,7 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
         _toRegisterBtn.backgroundColor = Cor1;
         [_toRegisterBtn setTitleColor:Cor3
                              forState:UIControlStateNormal];
-        _toRegisterBtn.titleLabel.font = [UIFont systemFontOfSize:KWidth(13)
+        _toRegisterBtn.titleLabel.font = [UIFont systemFontOfSize:JobsWidth(13)
                                                            weight:UIFontWeightMedium];
         @weakify(self)
         [[_toRegisterBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
@@ -614,7 +614,7 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
         appDoorStoreCodeBtn = _storeCodeBtn;
         [_storeCodeBtn setTitle:Title5
                        forState:UIControlStateNormal];
-        _storeCodeBtn.titleLabel.font = [UIFont systemFontOfSize:KWidth(10)
+        _storeCodeBtn.titleLabel.font = [UIFont systemFontOfSize:JobsWidth(10)
                                                           weight:UIFontWeightRegular];
         _storeCodeBtn.selected = YES;// 默认记住密码
         [_storeCodeBtn setImage:KIMG(@"没有记住密码")
@@ -629,13 +629,13 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
         [self addSubview:_storeCodeBtn];
         [_storeCodeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             JobsAppDoorInputViewBaseStyle_3 *inputView = (JobsAppDoorInputViewBaseStyle_3 *)self.inputViewMutArr.lastObject;
-            make.left.equalTo(inputView).offset(KWidth(20));
-            make.top.equalTo(inputView.mas_bottom).offset(KWidth(25));
+            make.left.equalTo(inputView).offset(JobsWidth(20));
+            make.top.equalTo(inputView.mas_bottom).offset(JobsWidth(25));
         }];
         
         [self layoutIfNeeded];
         [_storeCodeBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft
-                                       imageTitleSpace:KWidth(3)];
+                                       imageTitleSpace:JobsWidth(3)];
         @weakify(self)
         [[_storeCodeBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
             @strongify(self)
@@ -650,7 +650,7 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
         _findCodeBtn = UIButton.new;
         [_findCodeBtn setTitle:Title3
                       forState:UIControlStateNormal];
-        _findCodeBtn.titleLabel.font = [UIFont systemFontOfSize:KWidth(10)
+        _findCodeBtn.titleLabel.font = [UIFont systemFontOfSize:JobsWidth(10)
                                                          weight:UIFontWeightRegular];
         [_findCodeBtn setTitleColor:Cor3
                            forState:UIControlStateNormal];
@@ -660,8 +660,8 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
         [self addSubview:_findCodeBtn];
         [_findCodeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             JobsAppDoorInputViewBaseStyle_3 *inputView = (JobsAppDoorInputViewBaseStyle_3 *)self.inputViewMutArr.lastObject;
-            make.right.equalTo(inputView).offset(-KWidth(20));
-            make.top.equalTo(inputView.mas_bottom).offset(KWidth(20));
+            make.right.equalTo(inputView).offset(-JobsWidth(20));
+            make.top.equalTo(inputView.mas_bottom).offset(JobsWidth(20));
         }];
 
         @weakify(self)

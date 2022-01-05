@@ -13,10 +13,10 @@
 - (void)initializeData {
     [super initializeData];
 
-    _timeTitleFont = [UIFont boldSystemFontOfSize:KWidth(13)];
-    self.titleFont = [UIFont systemFontOfSize:KWidth(10) weight:UIFontWeightRegular];
-    _timeTitleSelectedFont = [UIFont boldSystemFontOfSize:KWidth(15)];
-    self.titleSelectedFont = [UIFont systemFontOfSize:KWidth(10) weight:UIFontWeightRegular];
+    _timeTitleFont = [UIFont boldSystemFontOfSize:JobsWidth(13)];
+    self.titleFont = [UIFont systemFontOfSize:JobsWidth(10) weight:UIFontWeightRegular];
+    _timeTitleSelectedFont = [UIFont boldSystemFontOfSize:JobsWidth(15)];
+    self.titleSelectedFont = [UIFont systemFontOfSize:JobsWidth(10) weight:UIFontWeightRegular];
     _timeTitleNormalColor = UIColor.lightGrayColor;
     self.titleColor = UIColor.lightGrayColor;
     _timeTitleSelectedColor = UIColor.whiteColor;

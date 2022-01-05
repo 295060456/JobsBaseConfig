@@ -98,7 +98,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (!_tableview) {
         _tableview = UITableView.new;
         _tableview.scrollEnabled = NO;
-        [UIView cornerCutToCircleWithView:_tableview andCornerRadius:KWidth(3)];//圆润
+        [UIView cornerCutToCircleWithView:_tableview andCornerRadius:JobsWidth(3)];//圆润
         _tableview.delegate = self;
         _tableview.dataSource = self;
         [self addSubview:_tableview];
@@ -119,19 +119,19 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 -(CGFloat)listTbVWidth{
     if (_listTbVWidth == 0) {
-        _listTbVWidth = KWidth(100);
+        _listTbVWidth = JobsWidth(100);
     }return _listTbVWidth;
 }
 
 -(CGFloat)listTbVCellHeight{
     if (_listTbVCellHeight == 0) {
-        _listTbVCellHeight = KWidth(50);
+        _listTbVCellHeight = JobsWidth(50);
     }return _listTbVCellHeight;
 }
 
 -(CGFloat)listTbVOffset{
     if (_listTbVOffset == 0) {
-        _listTbVOffset = KWidth(10);
+        _listTbVOffset = JobsWidth(10);
     }return _listTbVOffset;
 }
 
