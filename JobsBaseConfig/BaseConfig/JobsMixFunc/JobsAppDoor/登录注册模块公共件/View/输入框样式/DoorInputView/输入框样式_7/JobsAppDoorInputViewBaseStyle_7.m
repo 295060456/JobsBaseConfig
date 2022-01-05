@@ -159,14 +159,6 @@
         }] subscribeNext:^(NSString * _Nullable x) {
             @strongify(self)
             NSLog(@"输入的字符为 = %@",x);
-//            if ([x isContainsSpecialSymbolsString:nil]) {
-//                [WHToast toastMsg:Internationalization(@"Do not enter special characters")];
-//                return;
-//            }
-//            if (x.isHaveWhiteSpace) {
-//                [WHToast toastMsg:Internationalization(@"Do not enter blank space")];
-//                return;
-//            }
             [self block:self->_textField
                   value:x];
         }];

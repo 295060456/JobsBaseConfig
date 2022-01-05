@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIButton (UI)
 
 #pragma mark —— Common
+-(void)actionByCode;/// 代码触发点击调用
 -(void)titleFont:(UIFont *)font;
 -(void)titleAlignment:(NSTextAlignment)textAlignment;
 #pragma mark —— Normal

@@ -10,6 +10,11 @@
 @implementation UIButton (UI)
 
 #pragma mark —— Common
+/// 代码触发点击调用
+-(void)actionByCode{
+    [self sendActionsForControlEvents:UIControlEventTouchUpInside];
+}
+
 -(void)titleFont:(UIFont *)font{
     self.titleLabel.font = font;
 }
