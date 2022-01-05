@@ -163,7 +163,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
                 make.edges.equalTo(self.view);
             }else{
                 if (!self.setupNavigationBarHidden && self.gk_statusBarHidden) {// 用系统的导航栏
-                    make.top.equalTo(self.view).offset(NavigationBarAndStatusBarHeight(nil));
+                    make.top.equalTo(self.view).offset(JobsNavigationBarAndStatusBarHeight(nil));
                 }
                 
                 if (self.setupNavigationBarHidden && !self.gk_statusBarHidden) {// 用GK的导航栏

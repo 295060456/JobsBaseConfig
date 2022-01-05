@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)UIBarButtonItem *leftBarButtonItem_back;
 @property(nonatomic,strong)UINavigationItem *navItem;
 @property(nonatomic,strong)UIColor *bgCor;
-@property(nonatomic,assign)CGFloat navigationBarHeight;
+@property(nonatomic,assign)CGFloat jobsNavigationBarHeight;
 @property(nonatomic,assign)BOOL isHiddenNavigationBar;
 @property(nonatomic,assign)BOOL isBarTranslucent;
 @property(nonatomic,strong)UIColor *tintColor;

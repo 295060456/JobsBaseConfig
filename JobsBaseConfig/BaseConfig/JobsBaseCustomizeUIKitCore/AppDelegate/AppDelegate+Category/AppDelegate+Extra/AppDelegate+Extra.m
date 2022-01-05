@@ -60,7 +60,7 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
     PopupParameter.showAnimationDelay = 0.1f;
     PopupParameter.hideAnimationDelay = 0.1f;
     PopupParameter.dragEnable = YES;
-    PopupParameter.offset = CGPointMake(0,-TabBarHeightByBottomSafeArea(self.tabBarVC));
+    PopupParameter.offset = CGPointMake(0,-JobsTabBarHeightByBottomSafeArea(self.tabBarVC));
     PopupParameter.disuseBackgroundTouchHide = YES;
     PopupParameter.popupSize = [CasinoCustomerServiceView viewSizeWithModel:nil];
     return PopupParameter;

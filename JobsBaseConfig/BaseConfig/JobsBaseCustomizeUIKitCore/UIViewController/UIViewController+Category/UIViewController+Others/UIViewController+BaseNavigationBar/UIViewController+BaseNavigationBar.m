@@ -10,33 +10,45 @@
 @implementation UIViewController (BaseNavigationBar)
 
 static char *UIViewController_NavigationBar_navigationBar = "UIViewController_NavigationBar_navigationBar";
-static char *UIViewController_NavigationBar_leftBarButtonItem_back = "UIViewController_NavigationBar_leftBarButtonItem_back";
-static char *UIViewController_NavigationBar_bgCor = "UIViewController_NavigationBar_bgCor";
-static char *UIViewController_NavigationBar_navigationBarHeight = "UIViewController_NavigationBar_navigationBarHeight";
-static char *UIViewController_NavigationBar_isHiddenNavigationBar = "UIViewController_NavigationBar_isHiddenNavigationBar";
-static char *UIViewController_NavigationBar_isBarTranslucent = "UIViewController_NavigationBar_isBarTranslucent";
-static char *UIViewController_NavigationBar_shadow = "UIViewController_NavigationBar_shadow";
-static char *UIViewController_NavigationBar_navItem = "UIViewController_NavigationBar_navItem";
-static char *UIViewController_NavigationBar_foregroundColorAttributeNameCor = "UIViewController_NavigationBar_foregroundColorAttributeNameCor";
-static char *UIViewController_NavigationBar_fontAttributeName = "UIViewController_NavigationBar_fontAttributeName";
-static char *UIViewController_NavigationBar_tintColor = "UIViewController_NavigationBar_tintColor";
-static char *UIViewController_NavigationBar_barTintColor = "UIViewController_NavigationBar_barTintColor";
-static char *UIViewController_NavigationBar_title = "UIViewController_NavigationBar_title";
-static char *UIViewController_NavigationBar_shadowCor = "UIViewController_NavigationBar_shadowCor";
-
 @dynamic navigationBar;
+
+static char *UIViewController_NavigationBar_leftBarButtonItem_back = "UIViewController_NavigationBar_leftBarButtonItem_back";
 @dynamic leftBarButtonItem_back;
+
+static char *UIViewController_NavigationBar_bgCor = "UIViewController_NavigationBar_bgCor";
 @dynamic bgCor;
-@dynamic navigationBarHeight;
+
+static char *UIViewController_NavigationBar_jobsNavigationBarHeight = "UIViewController_NavigationBar_jobsNavigationBarHeight";
+@dynamic jobsNavigationBarHeight;
+
+static char *UIViewController_NavigationBar_isHiddenNavigationBar = "UIViewController_NavigationBar_isHiddenNavigationBar";
 @dynamic isHiddenNavigationBar;
+
+static char *UIViewController_NavigationBar_isBarTranslucent = "UIViewController_NavigationBar_isBarTranslucent";
 @dynamic isBarTranslucent;
+
+static char *UIViewController_NavigationBar_shadow = "UIViewController_NavigationBar_shadow";
 @dynamic shadow;
+
+static char *UIViewController_NavigationBar_navItem = "UIViewController_NavigationBar_navItem";
 @dynamic navItem;
+
+static char *UIViewController_NavigationBar_foregroundColorAttributeNameCor = "UIViewController_NavigationBar_foregroundColorAttributeNameCor";
 @dynamic foregroundColorAttributeNameCor;
+
+static char *UIViewController_NavigationBar_fontAttributeName = "UIViewController_NavigationBar_fontAttributeName";
 @dynamic fontAttributeName;
+
+static char *UIViewController_NavigationBar_tintColor = "UIViewController_NavigationBar_tintColor";
 @dynamic tintColor;
+
+static char *UIViewController_NavigationBar_barTintColor = "UIViewController_NavigationBar_barTintColor";
 @dynamic barTintColor;
+
+static char *UIViewController_NavigationBar_title = "UIViewController_NavigationBar_title";
 @dynamic title;
+
+static char *UIViewController_NavigationBar_shadowCor = "UIViewController_NavigationBar_shadowCor";
 @dynamic shadowCor;
 
 - (void)gotoback{
@@ -77,7 +89,7 @@ static char *UIViewController_NavigationBar_shadowCor = "UIViewController_Naviga
         [self.view addSubview:NavBar];
         [NavBar mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.top.equalTo(self.view);
-            make.height.mas_offset(self.navigationBarHeight);
+            make.height.mas_offset(self.jobsNavigationBarHeight);
         }];
         
         objc_setAssociatedObject(self,
@@ -132,22 +144,22 @@ static char *UIViewController_NavigationBar_shadowCor = "UIViewController_Naviga
                              bgCor,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-#pragma mark —— @property(nonatomic,assign)CGFloat navigationBarHeight;
--(CGFloat)navigationBarHeight{
-    CGFloat NavigationBarHeight = [objc_getAssociatedObject(self, UIViewController_NavigationBar_navigationBarHeight) floatValue];
-    if (NavigationBarHeight == 0) {
-        NavigationBarHeight = NavigationBarAndStatusBarHeight(nil);
+#pragma mark —— @property(nonatomic,assign)CGFloat jobsNavigationBarHeight;
+-(CGFloat)jobsNavigationBarHeight{
+    CGFloat jobsNavigationBarHeight = [objc_getAssociatedObject(self, UIViewController_NavigationBar_jobsNavigationBarHeight) floatValue];
+    if (jobsNavigationBarHeight == 0) {
+        jobsNavigationBarHeight = JobsNavigationBarAndStatusBarHeight(nil);
         objc_setAssociatedObject(self,
-                                 UIViewController_NavigationBar_navigationBarHeight,
-                                 [NSNumber numberWithFloat:NavigationBarHeight],
+                                 UIViewController_NavigationBar_jobsNavigationBarHeight,
+                                 [NSNumber numberWithFloat:jobsNavigationBarHeight],
                                  OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }return NavigationBarHeight;
+    }return jobsNavigationBarHeight;
 }
 
--(void)setNavigationBarHeight:(CGFloat)navigationBarHeight{
+-(void)setJobsNavigationBarHeight:(CGFloat)jobsNavigationBarHeight{
     objc_setAssociatedObject(self,
-                             UIViewController_NavigationBar_navigationBarHeight,
-                             [NSNumber numberWithFloat:navigationBarHeight],
+                             UIViewController_NavigationBar_jobsNavigationBarHeight,
+                             [NSNumber numberWithFloat:jobsNavigationBarHeight],
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,assign)BOOL isHiddenNavigationBar

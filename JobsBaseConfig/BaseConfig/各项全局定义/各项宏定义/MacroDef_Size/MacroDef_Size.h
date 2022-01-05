@@ -35,7 +35,7 @@
 
 #pragma mark —— 安全区域
 //顶部的安全距离
-static inline CGFloat TopSafeAreaHeight(){
+static inline CGFloat JobsTopSafeAreaHeight(){
     if (@available(iOS 11.0, *)) {
         return getMainWindow().safeAreaInsets.top;
     } else {
@@ -43,7 +43,7 @@ static inline CGFloat TopSafeAreaHeight(){
     }
 }
 //底部的安全距离，全面屏手机为34pt，非全面屏手机为0pt
-static inline CGFloat BottomSafeAreaHeight(){
+static inline CGFloat JobsBottomSafeAreaHeight(){
     if (@available(iOS 11.0, *)) {
         return getMainWindow().safeAreaInsets.bottom;
     } else {
@@ -52,7 +52,7 @@ static inline CGFloat BottomSafeAreaHeight(){
 }
 #pragma mark —— 状态栏高度：全面屏手机的状态栏高度为44pt，非全面屏手机的状态栏高度为20pt
 //方法一：状态栏高度
-static inline CGFloat rectOfStatusbar(){
+static inline CGFloat JobsRectOfStatusbar(){
     SuppressWdeprecatedDeclarationsWarning(
         if (@available(iOS 13.0, *)){
             UIStatusBarManager *statusBarManager = getMainWindow().windowScene.statusBarManager;
@@ -62,16 +62,16 @@ static inline CGFloat rectOfStatusbar(){
         });
 }
 //方法二：状态栏高度
-static inline CGFloat StatusBarHeight(){
+static inline CGFloat JobsStatusBarHeight(){
     if (@available(iOS 11.0, *)) {
         return getMainWindow().safeAreaInsets.top;
     } else {
-        return rectOfStatusbar();
+        return JobsRectOfStatusbar();
     }
 }
 /// 导航栏高度
 /// @param navigationController 传nil为系统默认navigationController高度；因为navigationController可以自定义高度，传自定义navigationController返回自定义的navigationController的高度
-static inline CGFloat NavigationHeight(UINavigationController * _Nullable navigationController){
+static inline CGFloat JobsNavigationHeight(UINavigationController * _Nullable navigationController){
     if (navigationController) {
         return navigationController.navigationBar.frame.size.height;
     }else{
@@ -81,12 +81,12 @@ static inline CGFloat NavigationHeight(UINavigationController * _Nullable naviga
 /// 状态栏 + 导航栏高度
 /// 非刘海屏：状态栏高度(20.f) + 导航栏高度(44.f) = 64.f
 /// 刘海屏系列：状态栏高度(44.f) + 导航栏高度(44.f) = 88.f
-static inline CGFloat NavigationBarAndStatusBarHeight(UINavigationController * _Nullable navigationController){
-    return StatusBarHeight() + NavigationHeight(navigationController);
+static inline CGFloat JobsNavigationBarAndStatusBarHeight(UINavigationController * _Nullable navigationController){
+    return JobsStatusBarHeight() + JobsNavigationHeight(navigationController);
 }
 /// tabbar高度：全面屏手机比普通手机多34的安全区域
 /// @param tabBarController 传nil为系统默认tabbar高度；因为tabBarController可以自定义高度，传自定义tabBarController返回自定义的tabBarController的高度
-static inline CGFloat TabBarHeight(UITabBarController * _Nullable tabBarController){
+static inline CGFloat JobsTabBarHeight(UITabBarController * _Nullable tabBarController){
     //因为tabbar可以自定义高度，所以这个地方返回系统默认的49像素的高度
     if (tabBarController) {
         return tabBarController.tabBar.frame.size.height;
@@ -95,8 +95,8 @@ static inline CGFloat TabBarHeight(UITabBarController * _Nullable tabBarControll
     }
 }
 //tabbar高度：【包括了底部安全区域的TabBar高度，一般用这个】
-static inline CGFloat TabBarHeightByBottomSafeArea(UITabBarController * _Nullable tabBarController){
-    return TabBarHeight(tabBarController) + BottomSafeAreaHeight();
+static inline CGFloat JobsTabBarHeightByBottomSafeArea(UITabBarController * _Nullable tabBarController){
+    return JobsTabBarHeight(tabBarController) + JobsBottomSafeAreaHeight();
 }
 
 #endif /* MacroDef_Size_h */
