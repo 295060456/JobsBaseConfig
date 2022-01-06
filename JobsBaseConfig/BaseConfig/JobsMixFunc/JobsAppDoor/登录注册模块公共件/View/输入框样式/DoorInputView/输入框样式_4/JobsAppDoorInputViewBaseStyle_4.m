@@ -46,23 +46,6 @@
     _textField.placeHolderAlignment = self.doorInputViewBaseStyleModel.placeHolderAlignment ? : PlaceHolderAlignmentLeft;
     _textField.placeHolderOffset = self.doorInputViewBaseStyleModel.placeHolderOffset ? : JobsWidth(20);
 }
-#pragma mark —— BaseViewProtocol
-/// 具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
-+(CGSize)viewSizeWithModel:(id _Nullable)model{
-    return CGSizeMake(JobsWidth(345), JobsWidth(30));
-}
-#pragma mark —— JobsDoorInputViewProtocol
--(void)changeTextFieldAnimationColor:(BOOL)toRegisterBtnSelected{
-    self.textField.animationColor = toRegisterBtnSelected ? Cor4 : Cor4;
-}
-
--(JobsMagicTextField *_Nullable)getTextField{
-    return _textField;
-}
-
--(NSString *_Nullable)getTextFieldValue{
-    return _textField.text;
-}
 
 -(void)block:(JobsMagicTextField *)textField
        value:(NSString *)value{
@@ -76,12 +59,29 @@
     
     if (self.viewBlock) self.viewBlock(InputViewTFModel);
 }
+#pragma mark —— BaseViewProtocol
+/// 具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
++(CGSize)viewSizeWithModel:(id _Nullable)model{
+    return CGSizeMake(JobsWidth(345), JobsWidth(30));
+}
 
 -(void)richElementsInViewWithModel:(JobsAppDoorInputViewBaseStyleModel *_Nullable)doorInputViewBaseStyleModel{
     self.doorInputViewBaseStyleModel = doorInputViewBaseStyleModel;
     self.imageCodeView.alpha = 1;
     self.textField.alpha = 1;
     [self configTextField];
+}
+#pragma mark —— JobsDoorInputViewProtocol
+-(void)changeTextFieldAnimationColor:(BOOL)toRegisterBtnSelected{
+    self.textField.animationColor = toRegisterBtnSelected ? Cor4 : Cor4;
+}
+
+-(JobsMagicTextField *_Nullable)getTextField{
+    return _textField;
+}
+
+-(NSString *_Nullable)getTextFieldValue{
+    return _textField.text;
 }
 #pragma mark —— lazyLoad
 -(ImageCodeView *)imageCodeView{

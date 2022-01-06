@@ -52,18 +52,20 @@
     _textField.objBindingParams = _textField.placeholder;
     _textField.leftViewOffsetX = self.doorInputViewBaseStyleModel.leftViewOffsetX ? : JobsWidth(17);
 }
+
+-(void)block:(ZYTextField *)textField
+       value:(NSString *)value{
+    
+    JobsAppDoorInputViewTFModel *InputViewTFModel = JobsAppDoorInputViewTFModel.new;
+    InputViewTFModel.resString = value;
+    InputViewTFModel.PlaceHolder = self.textField.placeholder;
+    
+    if (self.viewBlock) self.viewBlock(InputViewTFModel);
+}
 #pragma mark —— BaseViewProtocol
 /// 具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 +(CGSize)viewSizeWithModel:(id _Nullable)model{
     return CGSizeMake(JobsWidth(345), JobsWidth(50));
-}
-#pragma mark —— JobsDoorInputViewProtocol
--(ZYTextField *_Nullable)getTextField{
-    return _textField;
-}
-
--(NSString *_Nullable)getTextFieldValue{
-    return _textField.text;
 }
 
 -(void)richElementsInViewWithModel:(JobsAppDoorInputViewBaseStyleModel *_Nullable)doorInputViewBaseStyleModel{
@@ -75,6 +77,14 @@
         self.textField.alpha = 1;
         [self configTextField];
     }
+}
+#pragma mark —— JobsDoorInputViewProtocol
+-(ZYTextField *_Nullable)getTextField{
+    return _textField;
+}
+
+-(NSString *_Nullable)getTextFieldValue{
+    return _textField.text;
 }
 #pragma mark —— lazyLoad
 -(UIButton *)securityModeBtn{
@@ -115,6 +125,10 @@
             NSLog(@"输入的字符为 = %@",x);
             if ([x isContainsSpecialSymbolsString:nil]) {
                 [WHToast toastMsg:Internationalization(@"Do not enter special characters")];
+            }else{
+                NSLog(@"输入的字符为 = %@",x);
+                [self block:self->_textField
+                      value:x];
             }
         }];
         
