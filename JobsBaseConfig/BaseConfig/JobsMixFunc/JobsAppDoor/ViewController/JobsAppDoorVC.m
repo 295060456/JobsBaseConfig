@@ -10,7 +10,9 @@
 
 //ZFPlayerController *ZFPlayer_DoorVC;
 @interface JobsAppDoorVC (){
+    NSInteger index;// 当前被激活的TextField的序号，从1开始
     UIButton *toRegisterBtn;
+    UITextField *lastEditTextField;// 上一次处于编辑状态的TextField
 }
 //UI
 @property(nonatomic,strong)JobsAppDoorLogoContentView *logoContentView;
@@ -22,7 +24,6 @@
 @property(nonatomic,strong)ZFAVPlayerManager *playerManager;
 @property(nonatomic,strong,nullable)CustomZFPlayerControlView *customPlayerControlView;
 //Data
-@property(nonatomic,assign)BOOL loginDoorInputEditing;//只要有一个TF还在编辑那么就是在编辑
 @property(nonatomic,assign)BOOL registerDoorInputEditing;
 @property(nonatomic,assign)CGFloat logoContentViewY;//初始高度
 @property(nonatomic,assign)CGFloat forgotCodeContentViewY;//初始高度
@@ -113,7 +114,7 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
 }
 #pragma mark —— 一些私有方法
 -(void)竖形按钮在左边{
-    
+    index = 0;
     self->_jobsAppDoorContentView.backgroundColor = Cor2;
     Ivar ivar = class_getInstanceVariable([JobsAppDoorContentView class], "_toRegisterBtn");//必须是下划线接属性
     UIButton *toRegisterBtn = object_getIvar(self->_jobsAppDoorContentView, ivar);
@@ -133,7 +134,7 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
 }
 
 -(void)竖形按钮在右边{
-    
+    index = 0;
     self->_jobsAppDoorContentView.backgroundColor = Cor2;
     Ivar ivar = class_getInstanceVariable([JobsAppDoorContentView class], "_toRegisterBtn");//必须是下划线接属性
     UIButton *toRegisterBtn = object_getIvar(self->_jobsAppDoorContentView, ivar);
@@ -197,8 +198,9 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
 //    CGRect beginFrame = [userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue];
 //    CGRect endFrame = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
 //    CGFloat KeyboardOffsetY = beginFrame.origin.y - endFrame.origin.y;
-
+    @jobs_weakify(self)
     NSMutableArray * (^currentPageDataMutArr)(CurrentPage currentPage) = ^(CurrentPage currentPage){
+        @jobs_strongify(self)
         if (currentPage == CurrentPage_login) {
             return self.jobsAppDoorContentView.loginDoorInputViewBaseStyleMutArr;
         }else{
@@ -206,48 +208,33 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
         }
     };
     
-    NSInteger index = 0;
+    index = 0;
+    
     for (JobsAppDoorInputViewBaseStyle *inputView in currentPageDataMutArr(self.currentPage)) {
-        Ivar ivar = nil;
-        if (index == 0) {
-            ivar = class_getInstanceVariable([JobsAppDoorInputViewBaseStyle_3 class], "_tf");//必须是下划线接属性
-        }else if (index == 1){
-            ivar = class_getInstanceVariable([JobsAppDoorInputViewBaseStyle_3 class], "_tf");//必须是下划线接属性
-        }else if (index == 2){
-            ivar = class_getInstanceVariable([JobsAppDoorInputViewBaseStyle_3 class], "_tf");//必须是下划线接属性
-        }else if (index == 3){
-            ivar = class_getInstanceVariable([JobsAppDoorInputViewBaseStyle_7 class], "_tf");//必须是下划线接属性
-        }else if (index == 4){
-            ivar = class_getInstanceVariable([JobsAppDoorInputViewBaseStyle_1 class], "_tf");//必须是下划线接属性
-        }else{}
-        
-        if (ivar) {
-            JobsMagicTextField *tf = object_getIvar(inputView, ivar);
-            self.loginDoorInputEditing = tf.editing;
-            if (tf.editing) {
-                NSLog(@"FFF = %ld",index);//当前被激活的idx
-                self.lastTimeActivateTFIndex = self.currentActivateTFIndex;
-                self.currentActivateTFIndex = index;//赋予新值。因为同一时刻，textField有且只有一个被激活
-            }
+        UITextField *textField = inputView.getTextField;
+        if (textField.isEditing) {
+            NSLog(@"当前被激活的输入框的index = %ld",index);
+            self.lastTimeActivateTFIndex = self.currentActivateTFIndex;
+            self.currentActivateTFIndex = index;//赋予新值。因为同一时刻，textField有且只有一个被激活
+            
+            NSLog(@"在编辑");
+            NSInteger offsetIdx = self.currentActivateTFIndex - self.lastTimeActivateTFIndex;
+            self.jobsAppDoorContentView.y -= JobsWidth(40) * (offsetIdx + 0);
+            self.logoContentView.y -= JobsWidth(40) * (offsetIdx + 0);
+            self.customerServiceBtn.y -= JobsWidth(40) * (offsetIdx + 0);
+            
+            lastEditTextField = textField;
+            index++;
+            break;
+        }else{
+            NSLog(@"没有在编辑");
+            self.jobsAppDoorContentView.y = self.jobsAppDoorContentViewY;
+            self.logoContentView.y = self.logoContentViewY;
+            self.customerServiceBtn.y = self.customerServiceBtnY;
+            index++;
         }
-        
-        index += 1;
     }
-    
-    if (!self.loginDoorInputEditing) {
-        NSLog(@"没有在编辑");
-        self.jobsAppDoorContentView.y = self.jobsAppDoorContentViewY;
-        self.logoContentView.y = self.logoContentViewY;
-        self.customerServiceBtn.y = self.customerServiceBtnY;
-    }else{
-        NSLog(@"在编辑");
-        NSInteger offsetIdx = self.currentActivateTFIndex - self.lastTimeActivateTFIndex;
-        self.jobsAppDoorContentView.y -= 40 * (offsetIdx + 0);
-        self.logoContentView.y -= 40 * (offsetIdx + 0);
-        self.customerServiceBtn.y -= 40 * (offsetIdx + 0);
-    }
-    
-    self.loginDoorInputEditing = NO;//置空状态
+    NSLog(@"");
 }
 #pragma mark —— lazyLoad
 -(JobsAppDoorLogoContentView *)logoContentView{

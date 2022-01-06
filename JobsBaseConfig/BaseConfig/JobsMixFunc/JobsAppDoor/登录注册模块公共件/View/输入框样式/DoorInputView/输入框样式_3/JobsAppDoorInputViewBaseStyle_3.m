@@ -42,6 +42,7 @@
     _textField.placeholder = self.doorInputViewBaseStyleModel.placeHolderStr;
     _textField.returnKeyType = self.doorInputViewBaseStyleModel.returnKeyType;
     _textField.keyboardAppearance = self.doorInputViewBaseStyleModel.keyboardAppearance;
+    _textField.rightViewOffsetX = self.doorInputViewBaseStyleModel.rightViewOffsetX;// 删除按钮的偏移量
     _textField.offset = self.doorInputViewBaseStyleModel.offset;
     _textField.placeholderColor = self.doorInputViewBaseStyleModel.placeholderColor;
     _textField.placeholderFont = self.doorInputViewBaseStyleModel.placeholderFont;
@@ -61,7 +62,11 @@
 -(void)changeTextFieldAnimationColor:(BOOL)toRegisterBtnSelected{
     self.textField.animationColor = toRegisterBtnSelected ? Cor4 : Cor4;
 }
-
+#pragma mark —— UITextFieldDelegate
+/// 获得焦点成为第一响应者，此时 textField.isEditing == YES
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    if (self.viewBlock) self.viewBlock(textField);
+}
 
 -(JobsMagicTextField *_Nullable)getTextField{
     return _textField;
@@ -103,6 +108,9 @@
             @strongify(self)
             x.selected = !x.selected;
             self.textField.secureTextEntry = x.selected;
+            if (x.selected && !self.textField.isEditing) {
+                self.textField.placeholder = self.doorInputViewBaseStyleModel.placeHolderStr;
+            }
         }];
         [self addSubview:_securityModeBtn];
         [_securityModeBtn mas_makeConstraints:^(MASConstraintMaker *make) {

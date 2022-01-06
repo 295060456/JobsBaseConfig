@@ -39,6 +39,7 @@
     _textField.background = self.doorInputViewBaseStyleModel.background;
     _textField.keyboardType = self.doorInputViewBaseStyleModel.keyboardType;
     _textField.textColor = self.doorInputViewBaseStyleModel.ZYtextColor;
+    _textField.rightViewOffsetX = self.doorInputViewBaseStyleModel.rightViewOffsetX;// 删除按钮的偏移量
     _textField.placeHolderAlignment = self.doorInputViewBaseStyleModel.placeHolderAlignment;
     _textField.placeHolderOffset = self.doorInputViewBaseStyleModel.placeHolderOffset;
     _textField.leftViewOffsetX = self.doorInputViewBaseStyleModel.leftViewOffsetX;
@@ -92,6 +93,9 @@
             @strongify(self)
             x.selected = !x.selected;
             self.textField.secureTextEntry = x.selected;
+            if (x.selected && !self.textField.isEditing) {
+                self.textField.placeholder = self.doorInputViewBaseStyleModel.placeHolderStr;
+            }
         }];
         [self addSubview:_securityModeBtn];
         [_securityModeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -180,6 +184,7 @@
 -(ZYTextField *)textField{
     if (!_textField) {
         _textField = ZYTextField.new;
+        _textField.text = self.doorInputViewBaseStyleModel.text;
         _textField.delegate = self;
         @weakify(self)
         [_textField.rac_textSignal subscribeNext:^(NSString * _Nullable x) {

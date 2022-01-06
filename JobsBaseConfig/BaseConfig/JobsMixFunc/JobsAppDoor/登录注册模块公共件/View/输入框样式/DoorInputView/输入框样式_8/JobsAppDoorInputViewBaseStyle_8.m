@@ -44,7 +44,7 @@
     _textField.placeholder = self.doorInputViewBaseStyleModel.placeHolderStr;
     _textField.returnKeyType = self.doorInputViewBaseStyleModel.returnKeyType;
     _textField.keyboardAppearance = self.doorInputViewBaseStyleModel.keyboardAppearance;
-    
+    _textField.rightViewOffsetX = self.doorInputViewBaseStyleModel.rightViewOffsetX;// 删除按钮的偏移量
     _textField.placeHolderAlignment = self.doorInputViewBaseStyleModel.placeHolderAlignment ? : PlaceHolderAlignmentLeft;
     _textField.placeHolderOffset = self.doorInputViewBaseStyleModel.placeHolderOffset ? : JobsWidth(20);
     _textField.placeholderColor = self.doorInputViewBaseStyleModel.placeholderColor;
@@ -89,6 +89,9 @@
             @strongify(self)
             x.selected = !x.selected;
             self.textField.secureTextEntry = x.selected;
+            if (x.selected && !self.textField.isEditing) {
+                self.textField.placeholder = self.doorInputViewBaseStyleModel.placeHolderStr;
+            }
         }];
         [self addSubview:_securityModeBtn];
         [_securityModeBtn mas_makeConstraints:^(MASConstraintMaker *make) {

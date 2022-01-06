@@ -16,10 +16,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JobsAppDoorInputViewBaseStyle_6 : JobsAppDoorInputViewBaseStyle
-<
-UITextFieldDelegate
-,JobsDoorInputViewProtocol
->
 
 @end
 

@@ -18,10 +18,6 @@ typedef enum : NSUInteger {
 } InputViewStyle_5;
 
 @interface JobsAppDoorInputViewBaseStyle_5 : JobsAppDoorInputViewBaseStyle
-<
-UITextFieldDelegate
-,JobsDoorInputViewProtocol
->
 
 @property(nonatomic,assign)InputViewStyle_5 style_5;
 

@@ -224,6 +224,20 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
 //        self.sendBtn.backgroundColor = [KSystemPinkColor colorWithAlphaComponent:0.3];
 //    }
 }
+/// 除了传入的textfield，其他的全部放弃第一响应者
+-(void)allRise:(UITextField *)textfield{
+    for (JobsAppDoorInputViewBaseStyle *appDoorInputViewBaseStyle in self.loginDoorInputViewBaseStyleMutArr) {
+        if (textfield != appDoorInputViewBaseStyle.getTextField) {
+            [appDoorInputViewBaseStyle.getTextField resignFirstResponder];
+        }
+    }
+    
+    for (JobsAppDoorInputViewBaseStyle *appDoorInputViewBaseStyle in self.registerDoorInputViewBaseStyleMutArr) {
+        if (textfield != appDoorInputViewBaseStyle.getTextField) {
+            [appDoorInputViewBaseStyle.getTextField resignFirstResponder];
+        }
+    }
+}
 /// Core
 -(void)makeInputView{
     for (int i = 0; i < self.loginDoorInputViewBaseStyleModelMutArr.count; i++) {
@@ -235,17 +249,21 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
         //【用户名 & 密码 输入回调，共享注册与登录两个界面】
         [inputView actionViewBlock:^(id data) {
             @strongify(self)
-            if ([self.sendBtn.titleLabel.text isEqualToString:Title7]) {
-                [self sendBtnCheckWithDic:self.loginInputTFValueMutDic
-                   userInteractionEnabled:@selector(checkLoginBtnCanBeUsed)
-                                     data:data];
-            }else if([self.sendBtn.titleLabel.text isEqualToString:Title6]){
-                [self sendBtnCheckWithDic:self.registerInputTFValueMutDic
-                   userInteractionEnabled:@selector(checkRegisterBtnCanBeUsed)
-                                     data:data];
+            if ([data isKindOfClass:JobsAppDoorInputViewTFModel.class]) {
+                if ([self.sendBtn.titleLabel.text isEqualToString:Title7]) {
+                    [self sendBtnCheckWithDic:self.loginInputTFValueMutDic
+                       userInteractionEnabled:@selector(checkLoginBtnCanBeUsed)
+                                         data:data];
+                }else if([self.sendBtn.titleLabel.text isEqualToString:Title6]){
+                    [self sendBtnCheckWithDic:self.registerInputTFValueMutDic
+                       userInteractionEnabled:@selector(checkRegisterBtnCanBeUsed)
+                                         data:data];
+                }else{}
+                // 回调到外层，如果外层需要用的话
+                if (self.viewBlock) self.viewBlock(data);//data：监测输入字符回调 和 激活的textField
+            }else if ([data isKindOfClass:UITextField.class]){
+                [self allRise:data];
             }else{}
-            // 回调到外层，如果外层需要用的话
-            if (self.viewBlock) self.viewBlock(data);//data：监测输入字符回调 和 激活的textField
         }];
         [self addSubview:inputView];
         inputView.size = CGSizeMake(self.width - self.toRegisterBtn.width - JobsWidth(40), ThingsHeight);
@@ -686,6 +704,9 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
             用户名.keyboardAppearance = UIKeyboardAppearanceAlert;
             用户名.leftViewMode = UITextFieldViewModeAlways;
             用户名.placeholderColor = UIColor.whiteColor;
+            用户名.rightViewOffsetX = -JobsWidth(25);
+            用户名.placeHolderOffset = JobsWidth(35);
+            用户名.offset = JobsWidth(0);
 
             if (self.readUserNameMutArr.count) {
                 用户名.inputStr = [self readUserNameMutArr][0];
@@ -705,6 +726,10 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
             密码.keyboardAppearance = UIKeyboardAppearanceAlert;
             密码.leftViewMode = UITextFieldViewModeAlways;
             密码.placeholderColor = UIColor.whiteColor;
+            密码.rightViewOffsetX = -JobsWidth(8);
+            密码.placeHolderOffset = JobsWidth(35);
+            密码.offset = JobsWidth(0);
+            
             [_loginDoorInputViewBaseStyleModelMutArr addObject:密码];
         }
         
@@ -726,6 +751,10 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
             用户名.leftViewMode = UITextFieldViewModeAlways;
             用户名.inputStr = self.readUserInfo.userName;
             用户名.placeholderColor = UIColor.whiteColor;
+            用户名.rightViewOffsetX = -JobsWidth(25);
+            用户名.placeHolderOffset = JobsWidth(35);
+            用户名.offset = JobsWidth(0);
+            
             [_registerDoorInputViewBaseStyleModelMutArr addObject:用户名];
         }
         
@@ -741,6 +770,10 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
             密码.unSelectedSecurityBtnIMG = KIMG(@"codeDecode");//开眼
             密码.leftViewMode = UITextFieldViewModeAlways;
             密码.placeholderColor = UIColor.whiteColor;
+            密码.rightViewOffsetX = -JobsWidth(8);
+            密码.placeHolderOffset = JobsWidth(35);
+            密码.offset = JobsWidth(0);
+            
             [_registerDoorInputViewBaseStyleModelMutArr addObject:密码];
         }
         
@@ -756,6 +789,10 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
             确认密码.unSelectedSecurityBtnIMG = KIMG(@"codeDecode");//开眼
             确认密码.leftViewMode = UITextFieldViewModeAlways;
             确认密码.placeholderColor = UIColor.whiteColor;
+            确认密码.rightViewOffsetX = -JobsWidth(8);
+            确认密码.placeHolderOffset = JobsWidth(35);
+            确认密码.offset = JobsWidth(0);
+            
             [_registerDoorInputViewBaseStyleModelMutArr addObject:确认密码];
         }
         
@@ -770,6 +807,9 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
             手机号码.leftViewMode = UITextFieldViewModeAlways;
             手机号码.placeholderColor = UIColor.whiteColor;
             手机号码.keyboardType = UIKeyboardTypePhonePad;
+            手机号码.placeHolderOffset = JobsWidth(35);
+            手机号码.offset = JobsWidth(0);
+            
             [_registerDoorInputViewBaseStyleModelMutArr addObject:手机号码];
         }
         
@@ -783,6 +823,9 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
             手机验证码.keyboardAppearance = UIKeyboardAppearanceAlert;
             手机验证码.leftViewMode = UITextFieldViewModeAlways;
             手机验证码.placeholderColor = UIColor.whiteColor;
+//            手机验证码.placeHolderOffset = JobsWidth(35);
+//            手机验证码.offset = JobsWidth(0);
+            
             [_registerDoorInputViewBaseStyleModelMutArr addObject:手机验证码];
         }
         

@@ -31,6 +31,8 @@
 #import "UIViewModel.h"
 
 #pragma mark —— Category
+/// runtime方式获取对象的一些属性
+#import "NSObject+RunrtimeGet.h"
 /// 弹框提示退出登录清空本地用户数据
 #import "NSObject+PopViewToLogOut.h"
 /// 关联对象

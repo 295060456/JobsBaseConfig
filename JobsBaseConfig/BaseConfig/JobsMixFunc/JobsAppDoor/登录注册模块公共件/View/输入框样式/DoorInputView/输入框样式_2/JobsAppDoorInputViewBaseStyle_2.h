@@ -16,10 +16,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JobsAppDoorInputViewBaseStyle_2 : JobsAppDoorInputViewBaseStyle
-<
-UITextFieldDelegate
-,JobsDoorInputViewProtocol
->
 
 -(void)changeTextFieldAnimationColor:(BOOL)toRegisterBtnSelected;
 
