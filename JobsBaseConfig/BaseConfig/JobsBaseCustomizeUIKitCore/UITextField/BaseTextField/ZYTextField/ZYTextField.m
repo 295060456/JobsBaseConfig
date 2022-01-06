@@ -8,14 +8,24 @@
 
 -(instancetype)init{
     if (self = [super init]) {
-        self.clearButtonMode = UITextFieldViewModeWhileEditing;
-        [self modifyClearButtonWithImage:KIMG(@"closeCircle")];
         self.placeHolderAlignment = PlaceHolderAlignmentLeft;
     }return self;
 }
 
 -(void)drawRect:(CGRect)rect{
     [super drawRect:rect];
+}
+#pragma mark —— 一些私有方法
+-(void)setIsShowDelBtn:(BOOL)isShowDelBtn{
+    _isShowDelBtn = isShowDelBtn;
+    self.clearButtonMode = _isShowDelBtn ? UITextFieldViewModeWhileEditing : UITextFieldViewModeNever;
+}
+
+-(void)setUseCustomClearButton:(BOOL)useCustomClearButton{
+    _useCustomClearButton = useCustomClearButton;
+    if (_useCustomClearButton) {
+        [self modifyClearButtonWithImage:KIMG(@"closeCircle")];
+    }
 }
 /// iOS UIMenuController
 -(BOOL)canPerformAction:(SEL)action
@@ -46,17 +56,6 @@
     }
 }
 #pragma mark —— 重写父类方法
-/// Placeholder —— Rect
--(void)drawPlaceholderInRect:(CGRect)rect {
-    // 计算占位文字的 Size
-    CGSize placeholderSize = [self.placeholder sizeWithAttributes: @{NSFontAttributeName : self.placeholderFont}];
-    [self.placeholder drawInRect:CGRectMake(0,
-                                            (rect.size.height - placeholderSize.height) / 2,
-                                            rect.size.width,
-                                            rect.size.height)
-                  withAttributes:@{NSForegroundColorAttributeName : self.placeholderColor,
-                                   NSFontAttributeName : self.placeholderFont}];
-}
 /// leftView——Rect
 -(CGRect)leftViewRectForBounds:(CGRect)bounds{
     CGRect iconRect = [super leftViewRectForBounds:bounds];
@@ -68,6 +67,17 @@
     CGRect iconRect = [super rightViewRectForBounds:bounds];
     iconRect.origin.x -= self.rightViewOffsetX;
     return iconRect;
+}
+/// Placeholder —— Rect
+-(void)drawPlaceholderInRect:(CGRect)rect {
+    // 计算占位文字的 Size
+    CGSize placeholderSize = [self.placeholder sizeWithAttributes: @{NSFontAttributeName : self.placeholderFont}];
+    [self.placeholder drawInRect:CGRectMake(0,
+                                            (rect.size.height - placeholderSize.height) / 2,
+                                            rect.size.width,
+                                            rect.size.height)
+                  withAttributes:@{NSForegroundColorAttributeName : self.placeholderColor,
+                                   NSFontAttributeName : self.placeholderFont}];
 }
 /// placeholder——Rect
 -(CGRect)placeholderRectForBounds:(CGRect)bounds{
@@ -97,9 +107,9 @@
             break;
     }
 }
-/// text——Rect 【未编辑状态下的起始位置】
+/// text——Rect 【未编辑状态下光标的起始位置】
 -(CGRect)textRectForBounds:(CGRect)bounds{
-    CGRect inset = CGRectMake(bounds.origin.x + self.offset + self.leftViewOffsetX,
+    CGRect inset = CGRectMake((bounds.origin.x + self.offset) + (self.leftView.origin.x + self.leftView.size.width + self.leftViewOffsetX),
                               bounds.origin.y,
                               bounds.size.width - (self.offset + self.leftViewOffsetX + self.rightViewOffsetX),
                               bounds.size.height);
@@ -107,7 +117,7 @@
 }
 /// editing——Rect【编辑状态下的起始位置】
 -(CGRect)editingRectForBounds:(CGRect)bounds{
-    CGRect inset = CGRectMake(bounds.origin.x + self.offset + self.leftViewOffsetX,
+    CGRect inset = CGRectMake((bounds.origin.x + self.offset) + (self.leftView.origin.x + self.leftView.size.width + self.leftViewOffsetX),
                               bounds.origin.y,
                               bounds.size.width - (self.offset + self.leftViewOffsetX + self.rightViewOffsetX),
                               bounds.size.height);
@@ -116,25 +126,25 @@
 #pragma mark —— lazyLoad
 -(CGFloat)offset{
     if (_offset == 0) {
-        _offset = 30;
+        _offset = 0.1;
     }return _offset;
 }
 
 -(CGFloat)leftViewOffsetX{
     if (_leftViewOffsetX == 0) {
-        _leftViewOffsetX = 5;
+        _leftViewOffsetX = 0.1;
     }return _leftViewOffsetX;
 }
 
 -(CGFloat)rightViewOffsetX{
     if (_rightViewOffsetX == 0) {
-        _rightViewOffsetX = 5;
+        _rightViewOffsetX = 0.1;
     }return _rightViewOffsetX;
 }
 
 -(CGFloat)ZYTextFieldBorderWidth{
     if (_ZYTextFieldBorderWidth == 0) {
-        _ZYTextFieldBorderWidth = 1;
+        _ZYTextFieldBorderWidth = 0.1;
     }return _ZYTextFieldBorderWidth;
 }
 

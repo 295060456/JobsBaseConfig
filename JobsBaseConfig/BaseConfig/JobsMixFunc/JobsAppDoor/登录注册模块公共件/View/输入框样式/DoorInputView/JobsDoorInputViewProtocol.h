@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(UITextField *_Nullable)getTextField;
 -(NSString *_Nullable)getTextFieldValue;
 -(UIViewModel *_Nullable)getViewModel;
+-(UIButton *)getSecurityModeBtn;
 
 @end
 

@@ -242,6 +242,7 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
 -(void)makeInputView{
     for (int i = 0; i < self.loginDoorInputViewBaseStyleModelMutArr.count; i++) {
         JobsAppDoorInputViewBaseStyle_3 *inputView = JobsAppDoorInputViewBaseStyle_3.new;
+//        inputView.getSecurityModeBtn.visible = i;/// 用户名始终可见
         [self.inputViewMutArr addObject:inputView];
         [self.loginDoorInputViewBaseStyleMutArr addObject:inputView];
         [inputView richElementsInViewWithModel:self.loginDoorInputViewBaseStyleModelMutArr[i]];
@@ -700,11 +701,12 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
             用户名.placeHolderStr = Internationalization(@"User");
             用户名.isShowDelBtn = YES;
             用户名.isShowSecurityBtn = NO;
+            用户名.useCustomClearButton = YES;
             用户名.returnKeyType = UIReturnKeyDone;
             用户名.keyboardAppearance = UIKeyboardAppearanceAlert;
             用户名.leftViewMode = UITextFieldViewModeAlways;
             用户名.placeholderColor = UIColor.whiteColor;
-            用户名.rightViewOffsetX = -JobsWidth(25);
+            用户名.rightViewOffsetX = -JobsWidth(8);
             用户名.placeHolderOffset = JobsWidth(35);
             用户名.offset = JobsWidth(0);
 
@@ -720,6 +722,7 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
             密码.placeHolderStr = Internationalization(@"Code");
             密码.isShowDelBtn = YES;
             密码.isShowSecurityBtn = YES;
+            密码.useCustomClearButton = YES;
             密码.selectedSecurityBtnIMG = KIMG(@"codeEncode");//闭眼
             密码.unSelectedSecurityBtnIMG =KIMG(@"codeDecode");//开眼
             密码.returnKeyType = UIReturnKeyDone;
@@ -746,6 +749,7 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
             用户名.placeHolderStr = Internationalization(@"User");
             用户名.isShowDelBtn = YES;
             用户名.isShowSecurityBtn = NO;
+            用户名.useCustomClearButton = YES;
             用户名.returnKeyType = UIReturnKeyDone;
             用户名.keyboardAppearance = UIKeyboardAppearanceAlert;
             用户名.leftViewMode = UITextFieldViewModeAlways;
@@ -764,6 +768,7 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
             密码.placeHolderStr = Internationalization(@"Code");
             密码.isShowDelBtn = YES;
             密码.isShowSecurityBtn = YES;
+            密码.useCustomClearButton = YES;
             密码.returnKeyType = UIReturnKeyDone;
             密码.keyboardAppearance = UIKeyboardAppearanceAlert;
             密码.selectedSecurityBtnIMG = KIMG(@"codeEncode");//闭眼
@@ -783,6 +788,7 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
             确认密码.placeHolderStr = Internationalization(@"Confirm");
             确认密码.isShowDelBtn = YES;
             确认密码.isShowSecurityBtn = YES;
+            确认密码.useCustomClearButton = YES;
             确认密码.returnKeyType = UIReturnKeyDone;
             确认密码.keyboardAppearance = UIKeyboardAppearanceAlert;
             确认密码.selectedSecurityBtnIMG = KIMG(@"codeEncode");//闭眼
@@ -802,6 +808,7 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
             手机号码.placeHolderStr = Internationalization(@"telephone");
             手机号码.isShowDelBtn = YES;
             手机号码.isShowSecurityBtn = NO;
+            手机号码.useCustomClearButton = YES;
             手机号码.returnKeyType = UIReturnKeyDone;
             手机号码.keyboardAppearance = UIKeyboardAppearanceAlert;
             手机号码.leftViewMode = UITextFieldViewModeAlways;
@@ -819,6 +826,7 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
             手机验证码.placeHolderStr = Internationalization(@"Auth code");
             手机验证码.isShowDelBtn = YES;
             手机验证码.isShowSecurityBtn = NO;
+            手机验证码.useCustomClearButton = YES;
             手机验证码.returnKeyType = UIReturnKeyDone;
             手机验证码.keyboardAppearance = UIKeyboardAppearanceAlert;
             手机验证码.leftViewMode = UITextFieldViewModeAlways;

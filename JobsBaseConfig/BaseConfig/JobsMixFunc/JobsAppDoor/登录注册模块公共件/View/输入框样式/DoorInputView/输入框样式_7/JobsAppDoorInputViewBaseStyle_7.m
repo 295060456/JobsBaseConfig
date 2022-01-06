@@ -35,6 +35,8 @@
     _textField.keyboardType = self.doorInputViewBaseStyleModel.keyboardType;
     _textField.keyboardAppearance = self.doorInputViewBaseStyleModel.keyboardAppearance;
     _textField.textColor = self.doorInputViewBaseStyleModel.titleStrCor;
+    _textField.useCustomClearButton = self.doorInputViewBaseStyleModel.useCustomClearButton;
+    _textField.isShowDelBtn = self.doorInputViewBaseStyleModel.isShowDelBtn;
     _textField.rightViewOffsetX = self.doorInputViewBaseStyleModel.rightViewOffsetX;// 删除按钮的偏移量
     _textField.objBindingParams = _textField.placeholder;
     _textField.placeholderColor = self.doorInputViewBaseStyleModel.placeholderColor;

@@ -10,7 +10,6 @@
 @interface ZYTextField : UITextField
 
 @property(nonatomic,assign)CGFloat TFRiseHeight; /// 键盘在此手机上的最高弹起，区别于全面屏结合非全面屏，有一个安全区域34
-
 @property(nonatomic,assign)CGFloat offset; /// 光标的起始距离距离控件左边的差值
 @property(nonatomic,assign)CGFloat leftViewOffsetX;
 @property(nonatomic,assign)CGFloat rightViewOffsetX;
@@ -20,7 +19,8 @@
 @property(nonatomic,assign)CGFloat ZYTextFieldBorderWidth;
 @property(nonatomic,assign)UIColor *ZYTextFieldBorderColor;
 @property(nonatomic,assign)BOOL ZYTextFieldMasksToBounds;
-
+@property(nonatomic,assign)BOOL isShowDelBtn;/// 是否显示删除按钮，默认不显示
+@property(nonatomic,assign)BOOL useCustomClearButton;/// 是否使用自定义的删除按钮 默认不使用
 @property(nonatomic,assign)BOOL isShowMenu; ///是否显示菜单 默认不显示
 
 @end

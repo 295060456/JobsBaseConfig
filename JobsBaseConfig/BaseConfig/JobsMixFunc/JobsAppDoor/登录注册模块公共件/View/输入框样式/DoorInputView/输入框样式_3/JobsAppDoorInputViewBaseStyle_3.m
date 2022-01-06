@@ -42,6 +42,8 @@
     _textField.placeholder = self.doorInputViewBaseStyleModel.placeHolderStr;
     _textField.returnKeyType = self.doorInputViewBaseStyleModel.returnKeyType;
     _textField.keyboardAppearance = self.doorInputViewBaseStyleModel.keyboardAppearance;
+    _textField.useCustomClearButton = self.doorInputViewBaseStyleModel.useCustomClearButton;
+    _textField.isShowDelBtn = self.doorInputViewBaseStyleModel.isShowDelBtn;
     _textField.rightViewOffsetX = self.doorInputViewBaseStyleModel.rightViewOffsetX;// 删除按钮的偏移量
     _textField.offset = self.doorInputViewBaseStyleModel.offset;
     _textField.placeholderColor = self.doorInputViewBaseStyleModel.placeholderColor;
@@ -74,8 +76,7 @@
 
 -(void)richElementsInViewWithModel:(JobsAppDoorInputViewBaseStyleModel *_Nullable)doorInputViewBaseStyleModel{
     self.doorInputViewBaseStyleModel = doorInputViewBaseStyleModel;
-    self.securityModeBtn.alpha = 1;
-    self.textField.alpha = 1;
+    self.textField.isShowDelBtn = self.doorInputViewBaseStyleModel.isShowDelBtn;/// ❎
     [self configTextField];
 }
 #pragma mark —— JobsDoorInputViewProtocol
@@ -90,6 +91,10 @@
 -(NSString *_Nullable)getTextFieldValue{
     return _textField.text;
 }
+
+-(UIButton *)getSecurityModeBtn{
+    return _securityModeBtn;
+}
 #pragma mark —— UITextFieldDelegate
 /// 获得焦点成为第一响应者，此时 textField.isEditing == YES
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
@@ -99,19 +104,18 @@
 -(UIButton *)securityModeBtn{
     if (!_securityModeBtn) {
         _securityModeBtn = UIButton.new;
-        [_securityModeBtn setImage:self.doorInputViewBaseStyleModel.selectedSecurityBtnIMG
-                          forState:UIControlStateSelected];
-        [_securityModeBtn setImage:self.doorInputViewBaseStyleModel.unSelectedSecurityBtnIMG
-                          forState:UIControlStateNormal];
-        @weakify(self)
-        [[_securityModeBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
-            @strongify(self)
+
+        [_securityModeBtn normalImage:self.doorInputViewBaseStyleModel.selectedSecurityBtnIMG ? : [UIImage imageWithColor:UIColor.redColor]];
+        [_securityModeBtn normalImage:self.doorInputViewBaseStyleModel.unSelectedSecurityBtnIMG ? : [UIImage imageWithColor:UIColor.blueColor]];
+
+        BtnClickEvent(_securityModeBtn, {
             x.selected = !x.selected;
             self.textField.secureTextEntry = x.selected;
             if (x.selected && !self.textField.isEditing) {
                 self.textField.placeholder = self.doorInputViewBaseStyleModel.placeHolderStr;
             }
-        }];
+        });
+
         [self addSubview:_securityModeBtn];
         [_securityModeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.right.bottom.equalTo(self);
@@ -139,6 +143,8 @@
         }] subscribeNext:^(NSString * _Nullable x) {
             @strongify(self)
             NSLog(@"输入的字符为 = %@",x);
+            self.securityModeBtn.visible = ![NSString isNullString:x] && self.doorInputViewBaseStyleModel.isShowSecurityBtn;/// 👁
+            BOOL d = self.securityModeBtn.visible;
             if ([x isContainsSpecialSymbolsString:nil]) {
                 [WHToast toastMsg:Internationalization(@"Do not enter special characters")];
             }else{

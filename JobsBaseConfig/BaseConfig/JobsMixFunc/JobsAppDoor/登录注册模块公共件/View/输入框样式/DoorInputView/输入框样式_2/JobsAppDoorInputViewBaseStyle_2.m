@@ -43,6 +43,8 @@
     _textField.placeholder = self.doorInputViewBaseStyleModel.placeHolderStr;
     _textField.keyboardType = self.doorInputViewBaseStyleModel.keyboardType;
     _textField.textColor = self.doorInputViewBaseStyleModel.titleStrCor;
+    _textField.useCustomClearButton = self.doorInputViewBaseStyleModel.useCustomClearButton;
+    _textField.isShowDelBtn = self.doorInputViewBaseStyleModel.isShowDelBtn;
     _textField.rightViewOffsetX = self.doorInputViewBaseStyleModel.rightViewOffsetX;// 删除按钮的偏移量
     _textField.placeholderColor = self.doorInputViewBaseStyleModel.placeholderColor;
     _textField.leftViewOffsetX = self.doorInputViewBaseStyleModel.leftViewOffsetX ? : JobsWidth(17);
