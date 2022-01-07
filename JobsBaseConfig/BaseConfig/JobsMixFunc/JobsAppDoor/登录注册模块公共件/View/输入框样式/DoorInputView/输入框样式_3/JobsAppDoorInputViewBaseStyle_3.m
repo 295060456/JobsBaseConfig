@@ -156,7 +156,11 @@
         [self addSubview:_textField];
         [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.left.bottom.equalTo(self);
-            make.right.equalTo(self.securityModeBtn.mas_left);
+            if (self.doorInputViewBaseStyleModel.isShowSecurityBtn) {
+                make.right.equalTo(self.securityModeBtn.mas_left);
+            }else{
+                make.right.equalTo(self);
+            }
         }];
     }return _textField;
 }

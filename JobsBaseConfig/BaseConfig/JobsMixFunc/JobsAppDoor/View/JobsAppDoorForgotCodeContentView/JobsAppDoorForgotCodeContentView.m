@@ -17,15 +17,17 @@
 @property(nonatomic,strong)UILabel *subTitleLab;// 副标题
 @property(nonatomic,strong)JobsHotLabel *hl;
 // Data
+//@property(nonatomic,strong)NSMutableArray <UIViewModel *>*hotLabelDataMutArr;
+//@property(nonatomic,strong)CasinoCustomerContactModel *customerContactModel;
 
 @end
 
 @implementation JobsAppDoorForgotCodeContentView
-
+#pragma mark - Lifecycle
 - (void)dealloc {
     NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
 }
-#pragma mark - Lifecycle
+
 -(instancetype)init{
     if (self = [super init]) {
         self.backgroundColor = Cor2;
@@ -40,16 +42,24 @@
           withEvent:(UIEvent *)event{
     [self endEditing:YES];
 }
-//外层数据渲染
+#pragma mark —— BaseViewProtocol
+/// 外层数据渲染
 -(void)richElementsInViewWithModel:(id _Nullable)contentViewModel{
-    self.customerContactModel;// 这个是数据源，需要对他进行赋值
-    self.backToLoginBtn.alpha = 1;
-    self.titleLab.alpha = 1;
-    self.contactCustomerServiceBtn.alpha = 1;
-    
-    if (self.hotLabelDataMutArr.count) {
-        self.hl.alpha = 1;
-    }
+    @jobs_weakify(self)
+    [self customerContact:^(CasinoCustomerContactModel *data) {
+        @jobs_strongify(self)
+        self.backToLoginBtn.alpha = 1;
+        self.titleLab.alpha = 1;
+        self.contactCustomerServiceBtn.alpha = 1;
+        if (self.hotLabelDataMutArr.count) {
+            self.hl.alpha = 1;
+        }
+    }];
+}
+#pragma mark —— 网络请求
+/// 获取客服联系方式
+-(void)customerContact:(MKDataBlock)block{
+    NSLog(@"获取客服联系方式 —— 网络请求");
 }
 #pragma mark —— lazyLoad
 -(UILabel *)titleLab{
@@ -86,9 +96,7 @@
             NSLog(@"返回登录");
             @strongify(self)
             [self endEditing:YES];
-            if (self.viewBlock) {
-                self.viewBlock(x);
-            }
+            if (self.viewBlock) self.viewBlock(x);
         }];
         [self addSubview:_backToLoginBtn];
         [_backToLoginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -111,12 +119,13 @@
         [[_contactCustomerServiceBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
             NSLog(@"返回登录");
             @strongify(self)
-            [NSObject openURL:self.customerContactModel.onlineUrl.customerAccount];
-            
-            [self endEditing:YES];
-            if (self.viewBlock) {
-                self.viewBlock(x);
+            if ([NSString isNullString:self.customerContactModel.onlineUrl.customerAccount]) {
+                [self customerContact:nil];
+            }else{
+                [NSObject openURL:self.customerContactModel.onlineUrl.customerAccount];
             }
+            [self endEditing:YES];
+            if (self.viewBlock) self.viewBlock(x);
         }];
         [self addSubview:_contactCustomerServiceBtn];
         [_contactCustomerServiceBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -164,6 +173,30 @@
         NSLog(@"");
     }return _hl;
 }
+/**
+    在 @interface NSObject (AppTools)<AppToolsProtocol>里
+    对下列属性进行统一管理
+    @property(nonatomic,strong)NSMutableArray <UIViewModel *>*hotLabelDataMutArr;
+    @property(nonatomic,strong)CasinoCustomerContactModel *customerContactModel;
+ */
+//-(NSMutableArray<UIViewModel *> *)hotLabelDataMutArr{
+//    if (!_hotLabelDataMutArr) {
+//        _hotLabelDataMutArr = NSMutableArray.array;
+//
+//        for (CasinoCustomerContactElementModel *element in self.customerContactModel.customerList) {
+//            UIViewModel *vm = UIViewModel.new;
+//
+//            vm.objBindingParams = element;
+//            vm.bgImageURLString = [NSObject.BaseUrl stringByAppendingString:element.appIconUrl];
+//            vm.text = @"";
+//            vm.size = CGSizeMake(JobsWidth(46), JobsWidth(46));
+//            vm.offsetXForEach = JobsWidth(46);
+//            vm.offsetYForEach = JobsWidth(46);
+//            [_hotLabelDataMutArr addObject:vm];
+//        }
+//
+//    }return _hotLabelDataMutArr;
+//}
 
 @end
 
