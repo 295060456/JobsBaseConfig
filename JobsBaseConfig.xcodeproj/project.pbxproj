@@ -112,7 +112,6 @@
 		840F964827736427004979E9 /* UIImage+YBGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F934427736426004979E9 /* UIImage+YBGIF.m */; };
 		840F964927736427004979E9 /* UIImage+Tailor.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F934727736426004979E9 /* UIImage+Tailor.m */; };
 		840F964A27736427004979E9 /* UIImage+Overlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F934B27736426004979E9 /* UIImage+Overlay.m */; };
-		840F964B27736427004979E9 /* UIScrollView+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F934F27736426004979E9 /* UIScrollView+Extra.m */; };
 		840F964C27736427004979E9 /* UILabel+Gesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F935527736426004979E9 /* UILabel+Gesture.m */; };
 		840F964D27736427004979E9 /* UILabel+Measure.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F935927736426004979E9 /* UILabel+Measure.m */; };
 		840F964E27736427004979E9 /* UITableViewCell+BaseCellProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F935E27736426004979E9 /* UITableViewCell+BaseCellProtocol.m */; };
@@ -170,9 +169,6 @@
 		840F968227736428004979E9 /* UITextView+IndicateWordLimit.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F93F527736426004979E9 /* UITextView+IndicateWordLimit.png */; };
 		840F968327736428004979E9 /* iOS 获取手机型号、系统版本.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F93FA27736426004979E9 /* iOS 获取手机型号、系统版本.png */; };
 		840F968427736428004979E9 /* UIDevice+XMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F93FC27736426004979E9 /* UIDevice+XMUtils.m */; };
-		840F968527736428004979E9 /* CollectionViewAnimationKit.md in Resources */ = {isa = PBXBuildFile; fileRef = 840F940627736426004979E9 /* CollectionViewAnimationKit.md */; };
-		840F968627736428004979E9 /* UICollectionView+XSAnimationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F940727736426004979E9 /* UICollectionView+XSAnimationKit.m */; };
-		840F968727736428004979E9 /* CollectionViewAnimationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F940827736426004979E9 /* CollectionViewAnimationKit.m */; };
 		840F968827736428004979E9 /* UICollectionView+RegisterClass.md in Resources */ = {isa = PBXBuildFile; fileRef = 840F940B27736426004979E9 /* UICollectionView+RegisterClass.md */; };
 		840F968927736428004979E9 /* UICollectionView+RegisterClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F940C27736426004979E9 /* UICollectionView+RegisterClass.m */; };
 		840F968A27736428004979E9 /* BaseCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F940F27736426004979E9 /* BaseCollectionView.m */; };
@@ -217,9 +213,6 @@
 		840F96B127736428004979E9 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F948B27736426004979E9 /* BaseViewController.m */; };
 		840F96B227736428004979E9 /* UINavigationController+SafeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F949127736426004979E9 /* UINavigationController+SafeTransition.m */; };
 		840F96B327736428004979E9 /* BaseNavigationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F949427736426004979E9 /* BaseNavigationVC.m */; };
-		840F96B427736428004979E9 /* TableViewAnimationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F949A27736426004979E9 /* TableViewAnimationKit.m */; };
-		840F96B527736428004979E9 /* TableViewAnimationKit.md in Resources */ = {isa = PBXBuildFile; fileRef = 840F949D27736426004979E9 /* TableViewAnimationKit.md */; };
-		840F96B627736428004979E9 /* UITableView+XSAnimationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F94A027736426004979E9 /* UITableView+XSAnimationKit.m */; };
 		840F96B727736428004979E9 /* UITableView+WWFoldableTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F94A227736426004979E9 /* UITableView+WWFoldableTableView.m */; };
 		840F96B827736428004979E9 /* UITableView+WWFoldableTableView.md in Resources */ = {isa = PBXBuildFile; fileRef = 840F94A327736426004979E9 /* UITableView+WWFoldableTableView.md */; };
 		840F96B927736428004979E9 /* UITableView+Expand.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F94A727736426004979E9 /* UITableView+Expand.m */; };
@@ -478,6 +471,9 @@
 		848691E0277B03410098BE7A /* NSObject+DynamicInvoke.m in Sources */ = {isa = PBXBuildFile; fileRef = 848691DE277B03410098BE7A /* NSObject+DynamicInvoke.m */; };
 		84869260277B33570098BE7A /* NSNumber+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 8486925F277B33570098BE7A /* NSNumber+Extra.m */; };
 		84869679277C68470098BE7A /* NSString+Check.m in Sources */ = {isa = PBXBuildFile; fileRef = 84869677277C68470098BE7A /* NSString+Check.m */; };
+		848AAC7C27881C8200856087 /* UIScrollView+XSAnimationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 848AAC7727881C8200856087 /* UIScrollView+XSAnimationKit.m */; };
+		848AAC7D27881C8200856087 /* UIScrollViewAnimationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 848AAC7827881C8200856087 /* UIScrollViewAnimationKit.m */; };
+		848AAC7E27881C8200856087 /* UIScrollView+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 848AAC7B27881C8200856087 /* UIScrollView+Extra.m */; };
 		84C94D97277EBAAB00C49CBA /* UIButton+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C94D95277EBAAB00C49CBA /* UIButton+Animation.m */; };
 		84D76437278090330003F0E4 /* UIViewController+SafeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D76435278090330003F0E4 /* UIViewController+SafeTransition.m */; };
 		84D764AF2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D764AD2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel.m */; };
@@ -675,9 +671,6 @@
 		840F934827736426004979E9 /* UIImage+Tailor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tailor.h"; sourceTree = "<group>"; };
 		840F934A27736426004979E9 /* UIImage+Overlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Overlay.h"; sourceTree = "<group>"; };
 		840F934B27736426004979E9 /* UIImage+Overlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Overlay.m"; sourceTree = "<group>"; };
-		840F934E27736426004979E9 /* UIScrollView+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Extra.h"; sourceTree = "<group>"; };
-		840F934F27736426004979E9 /* UIScrollView+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Extra.m"; sourceTree = "<group>"; };
-		840F935027736426004979E9 /* JobsScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsScrollView.h; sourceTree = "<group>"; };
 		840F935227736426004979E9 /* JobsLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsLabel.h; sourceTree = "<group>"; };
 		840F935527736426004979E9 /* UILabel+Gesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Gesture.m"; sourceTree = "<group>"; };
 		840F935627736426004979E9 /* UILabel+Gesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Gesture.h"; sourceTree = "<group>"; };
@@ -790,13 +783,6 @@
 		840F93FC27736426004979E9 /* UIDevice+XMUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+XMUtils.m"; sourceTree = "<group>"; };
 		840F93FD27736426004979E9 /* JobsDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsDevice.h; sourceTree = "<group>"; };
 		840F93FF27736426004979E9 /* JobsCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsCollectionView.h; sourceTree = "<group>"; };
-		840F940227736426004979E9 /* UICollectionView+XSAnimationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+XSAnimationKit.h"; sourceTree = "<group>"; };
-		840F940327736426004979E9 /* CollectionViewAnimationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewAnimationKit.h; sourceTree = "<group>"; };
-		840F940427736426004979E9 /* CollectionViewAnimationKitHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewAnimationKitHeaders.h; sourceTree = "<group>"; };
-		840F940527736426004979E9 /* CollectionViewAnimationKitConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewAnimationKitConfig.h; sourceTree = "<group>"; };
-		840F940627736426004979E9 /* CollectionViewAnimationKit.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CollectionViewAnimationKit.md; sourceTree = "<group>"; };
-		840F940727736426004979E9 /* UICollectionView+XSAnimationKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+XSAnimationKit.m"; sourceTree = "<group>"; };
-		840F940827736426004979E9 /* CollectionViewAnimationKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewAnimationKit.m; sourceTree = "<group>"; };
 		840F940A27736426004979E9 /* UICollectionView+RegisterClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+RegisterClass.h"; sourceTree = "<group>"; };
 		840F940B27736426004979E9 /* UICollectionView+RegisterClass.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "UICollectionView+RegisterClass.md"; sourceTree = "<group>"; };
 		840F940C27736426004979E9 /* UICollectionView+RegisterClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+RegisterClass.m"; sourceTree = "<group>"; };
@@ -889,13 +875,6 @@
 		840F949427736426004979E9 /* BaseNavigationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationVC.m; sourceTree = "<group>"; };
 		840F949527736426004979E9 /* BaseNavigationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationVC.h; sourceTree = "<group>"; };
 		840F949727736426004979E9 /* JobsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsTableView.h; sourceTree = "<group>"; };
-		840F949A27736426004979E9 /* TableViewAnimationKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewAnimationKit.m; sourceTree = "<group>"; };
-		840F949B27736426004979E9 /* TableViewAnimationKitHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewAnimationKitHeaders.h; sourceTree = "<group>"; };
-		840F949C27736426004979E9 /* UITableView+XSAnimationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+XSAnimationKit.h"; sourceTree = "<group>"; };
-		840F949D27736426004979E9 /* TableViewAnimationKit.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = TableViewAnimationKit.md; sourceTree = "<group>"; };
-		840F949E27736426004979E9 /* TableViewAnimationKitConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewAnimationKitConfig.h; sourceTree = "<group>"; };
-		840F949F27736426004979E9 /* TableViewAnimationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewAnimationKit.h; sourceTree = "<group>"; };
-		840F94A027736426004979E9 /* UITableView+XSAnimationKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+XSAnimationKit.m"; sourceTree = "<group>"; };
 		840F94A227736426004979E9 /* UITableView+WWFoldableTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+WWFoldableTableView.m"; sourceTree = "<group>"; };
 		840F94A327736426004979E9 /* UITableView+WWFoldableTableView.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "UITableView+WWFoldableTableView.md"; sourceTree = "<group>"; };
 		840F94A427736426004979E9 /* UITableView+WWFoldableTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+WWFoldableTableView.h"; sourceTree = "<group>"; };
@@ -1391,6 +1370,15 @@
 		8486925F277B33570098BE7A /* NSNumber+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Extra.m"; sourceTree = "<group>"; };
 		84869677277C68470098BE7A /* NSString+Check.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Check.m"; sourceTree = "<group>"; };
 		84869678277C68470098BE7A /* NSString+Check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Check.h"; sourceTree = "<group>"; };
+		848AAC7027881C8200856087 /* JobsScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsScrollView.h; sourceTree = "<group>"; };
+		848AAC7327881C8200856087 /* UIScrollViewAnimationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScrollViewAnimationKit.h; sourceTree = "<group>"; };
+		848AAC7427881C8200856087 /* UIScrollView+XSAnimationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+XSAnimationKit.h"; sourceTree = "<group>"; };
+		848AAC7527881C8200856087 /* UIScrollViewAnimationKitConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScrollViewAnimationKitConfig.h; sourceTree = "<group>"; };
+		848AAC7627881C8200856087 /* UIScrollViewAnimationKitHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScrollViewAnimationKitHeader.h; sourceTree = "<group>"; };
+		848AAC7727881C8200856087 /* UIScrollView+XSAnimationKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+XSAnimationKit.m"; sourceTree = "<group>"; };
+		848AAC7827881C8200856087 /* UIScrollViewAnimationKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIScrollViewAnimationKit.m; sourceTree = "<group>"; };
+		848AAC7A27881C8200856087 /* UIScrollView+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Extra.h"; sourceTree = "<group>"; };
+		848AAC7B27881C8200856087 /* UIScrollView+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Extra.m"; sourceTree = "<group>"; };
 		84C94D95277EBAAB00C49CBA /* UIButton+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Animation.m"; sourceTree = "<group>"; };
 		84C94D96277EBAAB00C49CBA /* UIButton+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Animation.h"; sourceTree = "<group>"; };
 		84D76435278090330003F0E4 /* UIViewController+SafeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SafeTransition.m"; sourceTree = "<group>"; };
@@ -2133,19 +2121,10 @@
 		840F934C27736426004979E9 /* UIScrollView */ = {
 			isa = PBXGroup;
 			children = (
-				840F934D27736426004979E9 /* UIScrollView+Extra */,
-				840F935027736426004979E9 /* JobsScrollView.h */,
+				848AAC7027881C8200856087 /* JobsScrollView.h */,
+				848AAC7127881C8200856087 /* UIScrollView+Category */,
 			);
 			path = UIScrollView;
-			sourceTree = "<group>";
-		};
-		840F934D27736426004979E9 /* UIScrollView+Extra */ = {
-			isa = PBXGroup;
-			children = (
-				840F934E27736426004979E9 /* UIScrollView+Extra.h */,
-				840F934F27736426004979E9 /* UIScrollView+Extra.m */,
-			);
-			path = "UIScrollView+Extra";
 			sourceTree = "<group>";
 		};
 		840F935127736426004979E9 /* UILabel */ = {
@@ -2760,24 +2739,9 @@
 		840F940027736426004979E9 /* UICollectionView+Category */ = {
 			isa = PBXGroup;
 			children = (
-				840F940127736426004979E9 /* CollectionViewAnimationKit */,
 				840F940927736426004979E9 /* UICollectionView+RegisterClass */,
 			);
 			path = "UICollectionView+Category";
-			sourceTree = "<group>";
-		};
-		840F940127736426004979E9 /* CollectionViewAnimationKit */ = {
-			isa = PBXGroup;
-			children = (
-				840F940227736426004979E9 /* UICollectionView+XSAnimationKit.h */,
-				840F940327736426004979E9 /* CollectionViewAnimationKit.h */,
-				840F940427736426004979E9 /* CollectionViewAnimationKitHeaders.h */,
-				840F940527736426004979E9 /* CollectionViewAnimationKitConfig.h */,
-				840F940627736426004979E9 /* CollectionViewAnimationKit.md */,
-				840F940727736426004979E9 /* UICollectionView+XSAnimationKit.m */,
-				840F940827736426004979E9 /* CollectionViewAnimationKit.m */,
-			);
-			path = CollectionViewAnimationKit;
 			sourceTree = "<group>";
 		};
 		840F940927736426004979E9 /* UICollectionView+RegisterClass */ = {
@@ -3277,25 +3241,10 @@
 		840F949827736426004979E9 /* UITableView+Category */ = {
 			isa = PBXGroup;
 			children = (
-				840F949927736426004979E9 /* TableViewAnimationKit */,
 				840F94A127736426004979E9 /* UITableView+WWFoldableTableView */,
 				840F94A527736426004979E9 /* UITableView+Expand */,
 			);
 			path = "UITableView+Category";
-			sourceTree = "<group>";
-		};
-		840F949927736426004979E9 /* TableViewAnimationKit */ = {
-			isa = PBXGroup;
-			children = (
-				840F949A27736426004979E9 /* TableViewAnimationKit.m */,
-				840F949B27736426004979E9 /* TableViewAnimationKitHeaders.h */,
-				840F949C27736426004979E9 /* UITableView+XSAnimationKit.h */,
-				840F949D27736426004979E9 /* TableViewAnimationKit.md */,
-				840F949E27736426004979E9 /* TableViewAnimationKitConfig.h */,
-				840F949F27736426004979E9 /* TableViewAnimationKit.h */,
-				840F94A027736426004979E9 /* UITableView+XSAnimationKit.m */,
-			);
-			path = TableViewAnimationKit;
 			sourceTree = "<group>";
 		};
 		840F94A127736426004979E9 /* UITableView+WWFoldableTableView */ = {
@@ -5439,6 +5388,37 @@
 			path = "NSNumber+Extra";
 			sourceTree = "<group>";
 		};
+		848AAC7127881C8200856087 /* UIScrollView+Category */ = {
+			isa = PBXGroup;
+			children = (
+				848AAC7227881C8200856087 /* UIScrollViewXSAnimationKit */,
+				848AAC7927881C8200856087 /* UIScrollView+Extra */,
+			);
+			path = "UIScrollView+Category";
+			sourceTree = "<group>";
+		};
+		848AAC7227881C8200856087 /* UIScrollViewXSAnimationKit */ = {
+			isa = PBXGroup;
+			children = (
+				848AAC7327881C8200856087 /* UIScrollViewAnimationKit.h */,
+				848AAC7427881C8200856087 /* UIScrollView+XSAnimationKit.h */,
+				848AAC7527881C8200856087 /* UIScrollViewAnimationKitConfig.h */,
+				848AAC7627881C8200856087 /* UIScrollViewAnimationKitHeader.h */,
+				848AAC7727881C8200856087 /* UIScrollView+XSAnimationKit.m */,
+				848AAC7827881C8200856087 /* UIScrollViewAnimationKit.m */,
+			);
+			path = UIScrollViewXSAnimationKit;
+			sourceTree = "<group>";
+		};
+		848AAC7927881C8200856087 /* UIScrollView+Extra */ = {
+			isa = PBXGroup;
+			children = (
+				848AAC7A27881C8200856087 /* UIScrollView+Extra.h */,
+				848AAC7B27881C8200856087 /* UIScrollView+Extra.m */,
+			);
+			path = "UIScrollView+Extra";
+			sourceTree = "<group>";
+		};
 		84C94D94277EBAAB00C49CBA /* UIButton+Animation */ = {
 			isa = PBXGroup;
 			children = (
@@ -5615,10 +5595,8 @@
 				840F96C527736428004979E9 /* HQCollectionViewFlowLayout.md in Resources */,
 				844B08612764CF4800B0513D /* 日历@3x.png in Resources */,
 				840F962A27736427004979E9 /* 6@3x.png in Resources */,
-				840F968527736428004979E9 /* CollectionViewAnimationKit.md in Resources */,
 				840F95F027736427004979E9 /* 我的.json in Resources */,
 				844B08562764CF4800B0513D /* 运动与健身@2x.png in Resources */,
-				840F96B527736428004979E9 /* TableViewAnimationKit.md in Resources */,
 				844B02232764C8F000B0513D /* LaunchScreen.storyboard in Resources */,
 				844B08632764CF4800B0513D /* 蓝牙@2x.png in Resources */,
 				840F965F27736428004979E9 /* LGiOSBtn.md in Resources */,
@@ -5893,7 +5871,6 @@
 			files = (
 				845C79912786D2FE009843EE /* JobsAppDoorInputViewBaseStyle_1.m in Sources */,
 				840F966D27736428004979E9 /* UIView+SuspendView.m in Sources */,
-				840F96B427736428004979E9 /* TableViewAnimationKit.m in Sources */,
 				840F96E127736428004979E9 /* TouchID.m in Sources */,
 				840F96B127736428004979E9 /* BaseViewController.m in Sources */,
 				840F967D27736428004979E9 /* UIFont+Extras.m in Sources */,
@@ -5920,7 +5897,6 @@
 				840F96BD27736428004979E9 /* UIControl+XY.m in Sources */,
 				840F961627736427004979E9 /* JobsNoticePopupView.m in Sources */,
 				840F966327736428004979E9 /* BaseButton.m in Sources */,
-				840F964B27736427004979E9 /* UIScrollView+Extra.m in Sources */,
 				844B08412764CF4800B0513D /* ZWPullMenuModel.m in Sources */,
 				840F96C127736428004979E9 /* UITableViewHeaderFooterView+Attribute.m in Sources */,
 				840F96AB27736428004979E9 /* UIViewController+BRPickerView.m in Sources */,
@@ -6058,6 +6034,7 @@
 				845C798B2786D2FE009843EE /* JobsAppDoorInputViewBaseStyle_8.m in Sources */,
 				840F963E27736427004979E9 /* JobsSuspendBtn.m in Sources */,
 				840F96C927736428004979E9 /* KFZShopCatoryFlowLayput.m in Sources */,
+				848AAC7E27881C8200856087 /* UIScrollView+Extra.m in Sources */,
 				840F971027736428004979E9 /* UITextField+Extend.m in Sources */,
 				840F96F027736428004979E9 /* NSObject+RegularExpression.m in Sources */,
 				840F96A427736428004979E9 /* UIViewController+EmptyData.m in Sources */,
@@ -6077,7 +6054,6 @@
 				840F96BA27736428004979E9 /* BaseTableView.m in Sources */,
 				840F96E327736428004979E9 /* JobsMonitorNetwoking.m in Sources */,
 				840F967127736428004979E9 /* UIView+Gradient.m in Sources */,
-				840F968727736428004979E9 /* CollectionViewAnimationKit.m in Sources */,
 				844B08392764CF4800B0513D /* RACEXTRuntimeExtensions.m in Sources */,
 				840F960F27736427004979E9 /* ZBURLRequest.m in Sources */,
 				840F967227736428004979E9 /* UIView+Chain.m in Sources */,
@@ -6102,6 +6078,7 @@
 				844B08492764CF4800B0513D /* ECPrivacyCheckCamera.m in Sources */,
 				8459D6172779A6CC00125782 /* CasinoCustomerServiceView.m in Sources */,
 				844B087A2764CF4800B0513D /* XHLaunchImageView.m in Sources */,
+				848AAC7D27881C8200856087 /* UIScrollViewAnimationKit.m in Sources */,
 				840F96D527736428004979E9 /* FileFolderHandleTool.m in Sources */,
 				840F96D627736428004979E9 /* DispatchTimerManager.m in Sources */,
 				840F971A27736428004979E9 /* AppInternationalizationVC.m in Sources */,
@@ -6122,7 +6099,6 @@
 				840F965527736428004979E9 /* BaseTableViewCell.m in Sources */,
 				840F96B227736428004979E9 /* UINavigationController+SafeTransition.m in Sources */,
 				844B08532764CF4800B0513D /* ECPrivacyCheckReminders.m in Sources */,
-				840F96B627736428004979E9 /* UITableView+XSAnimationKit.m in Sources */,
 				840F96AF27736428004979E9 /* UIViewController+MJRefresh.m in Sources */,
 				840F969E27736428004979E9 /* XLBubbleTransition.m in Sources */,
 				840F960627736427004979E9 /* TLTabBarAnimation.m in Sources */,
@@ -6144,6 +6120,7 @@
 				844B084C2764CF4800B0513D /* ECPrivacyCheckCalendars.m in Sources */,
 				840F95E227736427004979E9 /* ImageCodeView.m in Sources */,
 				840F967727736428004979E9 /* UIView+JHGestureBlock.m in Sources */,
+				848AAC7C27881C8200856087 /* UIScrollView+XSAnimationKit.m in Sources */,
 				840F967E27736428004979E9 /* NSMutableDictionary+Ordered.m in Sources */,
 				844B083F2764CF4800B0513D /* JXCategoryTimelineCell.m in Sources */,
 				840F960127736427004979E9 /* JobsPullListAutoSizeView.m in Sources */,
@@ -6180,7 +6157,6 @@
 				840F970127736428004979E9 /* NSObject+RichText.m in Sources */,
 				840F967527736428004979E9 /* UIView+BackgroundImage.m in Sources */,
 				844B08432764CF4800B0513D /* ZWPullMenuCell.m in Sources */,
-				840F968627736428004979E9 /* UICollectionView+XSAnimationKit.m in Sources */,
 				8459CC322775D3E900125782 /* AppDelegate+Func.m in Sources */,
 				846DF03827806D230050468A /* JobsAppDoorVC.m in Sources */,
 				8459CE112776DB6600125782 /* UIView+UIBackgroundConfig.m in Sources */,

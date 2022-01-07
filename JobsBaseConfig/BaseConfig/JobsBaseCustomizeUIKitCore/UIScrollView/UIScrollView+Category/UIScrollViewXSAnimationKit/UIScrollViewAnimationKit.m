@@ -1,24 +1,19 @@
 //
-//  CollectionViewAnimationKit.m
-//  CollectionViewAnimationKit-OC
+//  UIScrollViewAnimationKit.m
+//  Casino
 //
-//  Created by alanwang on 2017/7/11.
-//  Copyright © 2017年 com.cn.fql. All rights reserved.
+//  Created by Jobs on 2022/1/7.
 //
 
-#import "CollectionViewAnimationKit.h"
+#import "UIScrollViewAnimationKit.h"
 
 #define XS_SCREEN_WIDTH UIScreen.mainScreen.bounds.size.width
 #define XS_SCREEN_HEIGHT UIScreen.mainScreen.bounds.size.height
 
-@interface CollectionViewAnimationKit ()
+@implementation UIScrollViewAnimationKit
 
-@end
-
-@implementation CollectionViewAnimationKit
-
-+(void)showWithAnimationType:(XSCollectionViewAnimationType)animationType
-              collectionView:(nonnull UICollectionView *)collectionView{
++(void)showWithAnimationType:(XSScrollViewAnimationType)animationType
+                  scrollView:(nonnull UIScrollView *)scrollView{
     unsigned int count = 0;
     Method *methodlist = class_copyMethodList(object_getClass(self.class), &count);
     int tag= 0;
@@ -28,27 +23,28 @@
         NSString *methodName = NSStringFromSelector(selector);
         if ([methodName rangeOfString:@"AnimationWithCollectionView"].location != NSNotFound) {
             if (tag == animationType) {
-                ((void (*)(id,SEL,UICollectionView *))objc_msgSend)(self,selector,collectionView);
+                ((void (*)(id,SEL,UIScrollView *))objc_msgSend)(self,selector,scrollView);
                 break;
             }tag++;
         }
     }free(methodlist);
 }
 #pragma mark —— moveAnimation
-+(void)moveAnimationWithCollectionView:(nonnull UICollectionView *)CollectionView{
-    [self moveAnimWithCollectionView:CollectionView
-                 animationBlock:nil
-                completionBlock:nil];
++(void)moveAnimationWithScrollView:(nonnull UIScrollView *)scrollView{
+    [self moveAnimWithScrollView:scrollView
+                  animationBlock:nil
+                 completionBlock:nil];
 }
 
-+(void)moveAnimWithCollectionView:(nonnull UICollectionView *)CollectionView
-              animationBlock:(nullable NoResultBlock)animationBlock
-             completionBlock:(nullable MKDataBlock)completionBlock{
-
-    NSArray *cells = CollectionView.visibleCells;
++(void)moveAnimWithScrollView:(nonnull UIScrollView *)scrollView
+               animationBlock:(nullable NoResultBlock)animationBlock
+              completionBlock:(nullable MKDataBlock)completionBlock{
+    
+    NSArray *cells = [UIScrollViewAnimationKit cellsWithScrollView:scrollView];
+    CGFloat totalTime = 0.3;
+    
     for (int i = 0; i < cells.count; i++) {
-        CGFloat totalTime = 0.3;
-        UICollectionViewCell *cell = [CollectionView.visibleCells objectAtIndex:i];
+        UIView *cell = [UIScrollViewAnimationKit cellWithScrollView:scrollView atIndex:i];
         cell.transform = CGAffineTransformMakeTranslation(-XS_SCREEN_WIDTH, 0);
         @jobs_weakify(cell)
         [UIView animateWithDuration:0.25
@@ -64,19 +60,19 @@
     }
 }
 #pragma mark —— moveSpringAnimation
-+(void)moveSpringAnimationWithCollectionView:(nonnull UICollectionView *)CollectionView{
-    [self moveSpringAnim:CollectionView
++(void)moveSpringAnimationWithCollectionView:(nonnull UIScrollView *)scrollView{
+    [self moveSpringAnim:scrollView
           animationBlock:nil
          completionBlock:nil];
 }
 
-+(void)moveSpringAnim:(nonnull UICollectionView *)CollectionView
++(void)moveSpringAnim:(nonnull UIScrollView *)scrollView
        animationBlock:(nullable NoResultBlock)animationBlock
       completionBlock:(nullable MKDataBlock)completionBlock{
-    NSArray *cells = CollectionView.visibleCells;
+    NSArray <UIView *>*cells = [UIScrollViewAnimationKit cellsWithScrollView:scrollView];
+    CGFloat totalTime = 0.4;
     for (int i = 0; i < cells.count; i++) {
-        CGFloat totalTime = 0.4;
-        UICollectionViewCell *cell = [CollectionView.visibleCells objectAtIndex:i];
+        UIView *cell = [UIScrollViewAnimationKit cellWithScrollView:scrollView atIndex:i];
         cell.transform = CGAffineTransformMakeTranslation(-XS_SCREEN_WIDTH, 0);
         @jobs_weakify(cell)
         [UIView animateWithDuration:0.4
@@ -94,18 +90,18 @@
     }
 }
 #pragma mark —— alphaAnimation
-+(void)alphaAnimationWithCollectionView:(nonnull UICollectionView *)CollectionView{
-    [self alphaAnim:CollectionView
++(void)alphaAnimationWithCollectionView:(nonnull UIScrollView *)scrollView{
+    [self alphaAnim:scrollView
      animationBlock:nil
     completionBlock:nil];
 }
 
-+(void)alphaAnim:(nonnull UICollectionView *)CollectionView
++(void)alphaAnim:(nonnull UIScrollView *)scrollView
   animationBlock:(nullable NoResultBlock)animationBlock
  completionBlock:(nullable MKDataBlock)completionBlock{
-    NSArray *cells = CollectionView.visibleCells;
+    NSArray *cells = [UIScrollViewAnimationKit cellsWithScrollView:scrollView];
     for (int i = 0; i < cells.count; i++) {
-        UICollectionViewCell *cell = [CollectionView.visibleCells objectAtIndex:i];
+        UIView *cell = [UIScrollViewAnimationKit cellWithScrollView:scrollView atIndex:i];
         cell.alpha = 0.0;
         @jobs_weakify(cell)
         [UIView animateWithDuration:0.3
@@ -121,19 +117,19 @@
     }
 }
 #pragma mark —— fallAnimation
-+(void)fallAnimationWithCollectionView:(nonnull UICollectionView *)CollectionView{
-    [self fallAnim:CollectionView
++(void)fallAnimationWithCollectionView:(nonnull UIScrollView *)scrollView{
+    [self fallAnim:scrollView
     animationBlock:nil
    completionBlock:nil];
 }
 
-+(void)fallAnim:(nonnull UICollectionView *)CollectionView
++(void)fallAnim:(nonnull UIScrollView *)scrollView
  animationBlock:(nullable NoResultBlock)animationBlock
     completionBlock:(nullable MKDataBlock)completionBlock{
-    NSArray *cells = CollectionView.visibleCells;
+    NSArray *cells = [UIScrollViewAnimationKit cellsWithScrollView:scrollView];
     NSTimeInterval totalTime = 0.8;
     for (int i = 0; i < cells.count; i++) {
-        UICollectionViewCell *cell = [CollectionView.visibleCells objectAtIndex:i];
+        UIView *cell = [UIScrollViewAnimationKit cellWithScrollView:scrollView atIndex:i];
         cell.transform = CGAffineTransformMakeTranslation(0, - XS_SCREEN_HEIGHT);
         @jobs_weakify(cell)
         [UIView animateWithDuration:0.3
@@ -149,18 +145,18 @@
     }
 }
 #pragma mark —— shakeAnimation
-+(void)shakeAnimationWithCollectionView:(nonnull UICollectionView *)CollectionView{
-    [self shakeAnim:CollectionView
++(void)shakeAnimationWithCollectionView:(nonnull UIScrollView *)scrollView{
+    [self shakeAnim:scrollView
      animationBlock:nil
     completionBlock:nil];
 }
 
-+(void)shakeAnim:(nonnull UICollectionView *)CollectionView
++(void)shakeAnim:(nonnull UIScrollView *)scrollView
   animationBlock:(nullable NoResultBlock)animationBlock
  completionBlock:(nullable MKDataBlock)completionBlock{
-    NSArray *cells = CollectionView.visibleCells;
+    NSArray *cells = [UIScrollViewAnimationKit cellsWithScrollView:scrollView];
     for (int i = 0; i < cells.count; i++) {
-        UICollectionViewCell *cell = [cells objectAtIndex:i];
+        UIView *cell = [UIScrollViewAnimationKit cellWithScrollView:scrollView atIndex:i];
         if (i % 2 == 0) {
             cell.transform = CGAffineTransformMakeTranslation(-XS_SCREEN_WIDTH,0);
         }else {
@@ -182,21 +178,21 @@
     }
 }
 #pragma mark —— overTurnAnimation
-+(void)overTurnAnimationWithCollectionView:(nonnull UICollectionView *)CollectionView{
-    [self overTurnAnim:CollectionView
++(void)overTurnAnimationWithCollectionView:(nonnull UIScrollView *)scrollView{
+    [self overTurnAnim:scrollView
         animationBlock:nil
        completionBlock:nil];
 }
 
-+(void)overTurnAnim:(nonnull UICollectionView *)CollectionView
++(void)overTurnAnim:(nonnull UIScrollView *)scrollView
      animationBlock:(nullable NoResultBlock)animationBlock
     completionBlock:(nullable MKDataBlock)completionBlock{
-    NSArray *cells = CollectionView.visibleCells;
+    NSArray *cells = [UIScrollViewAnimationKit cellsWithScrollView:scrollView];
+    NSTimeInterval totalTime = 0.7;
     for (int i = 0; i < cells.count; i++) {
-        UICollectionViewCell *cell = [cells objectAtIndex:i];
+        UIView *cell = [UIScrollViewAnimationKit cellWithScrollView:scrollView atIndex:i];
         cell.layer.opacity = 0.0;
         cell.layer.transform = CATransform3DMakeRotation(M_PI, 1, 0, 0);
-        NSTimeInterval totalTime = 0.7;
         @jobs_weakify(cell)
         [UIView animateWithDuration:0.3
                               delay:i * (totalTime / cells.count)
@@ -212,19 +208,19 @@
     }
 }
 #pragma mark —— toTopAnimation
-+(void)toTopAnimationWithCollectionView:(nonnull UICollectionView *)CollectionView{
-    [self toTopAnim:CollectionView
++(void)toTopAnimationWithCollectionView:(nonnull UIScrollView *)scrollView{
+    [self toTopAnim:scrollView
      animationBlock:nil
     completionBlock:nil];
 }
 
-+(void)toTopAnim:(nonnull UICollectionView *)CollectionView
++(void)toTopAnim:(nonnull UIScrollView *)scrollView
   animationBlock:(nullable NoResultBlock)animationBlock
  completionBlock:(nullable MKDataBlock)completionBlock{
-    NSArray *cells = CollectionView.visibleCells;
+    NSArray *cells = [UIScrollViewAnimationKit cellsWithScrollView:scrollView];
     NSTimeInterval totalTime = 0.8;
     for (int i = 0; i < cells.count; i++) {
-        UICollectionViewCell *cell = [CollectionView.visibleCells objectAtIndex:i];
+        UIView *cell = [UIScrollViewAnimationKit cellWithScrollView:scrollView atIndex:i];
         cell.transform = CGAffineTransformMakeTranslation(0,XS_SCREEN_HEIGHT);
         @jobs_weakify(cell)
         [UIView animateWithDuration:0.35
@@ -240,21 +236,21 @@
     }
 }
 #pragma mark —— springListAnimation
-+(void)springListAnimationWithCollectionView:(nonnull UICollectionView *)CollectionView{
-    [self springListAnim:CollectionView
++(void)springListAnimationWithCollectionView:(nonnull UIScrollView *)scrollView{
+    [self springListAnim:scrollView
           animationBlock:nil
          completionBlock:nil];
 }
 
-+(void)springListAnim:(nonnull UICollectionView *)CollectionView
++(void)springListAnim:(nonnull UIScrollView *)scrollView
        animationBlock:(nullable NoResultBlock)animationBlock
       completionBlock:(nullable MKDataBlock)completionBlock{
-    NSArray *cells = CollectionView.visibleCells;
+    NSArray *cells = [UIScrollViewAnimationKit cellsWithScrollView:scrollView];
+    NSTimeInterval totalTime = 1.0;
     for (int i = 0; i < cells.count; i++) {
-        UICollectionViewCell *cell = [cells objectAtIndex:i];
+        UIView *cell = [UIScrollViewAnimationKit cellWithScrollView:scrollView atIndex:i];
         cell.layer.opacity = 0.7;
         cell.layer.transform = CATransform3DMakeTranslation(0, -XS_SCREEN_HEIGHT, 20);
-        NSTimeInterval totalTime = 1.0;
         @jobs_weakify(cell)
         [UIView animateWithDuration:0.4
                               delay:i * (totalTime/cells.count)
@@ -272,16 +268,17 @@
     }
 }
 #pragma mark —— shrinkToTopAnimation
-+(void)shrinkToTopAnimationWithCollectionView:(nonnull UICollectionView *)CollectionView{
-    [self shrinkToTopAnim:CollectionView animationBlock:nil];
++(void)shrinkToTopAnimationWithCollectionView:(nonnull UIScrollView *)scrollView{
+    [self shrinkToTopAnim:scrollView
+           animationBlock:nil];
 }
 
-+(void)shrinkToTopAnim:(nonnull UICollectionView *)CollectionView
++(void)shrinkToTopAnim:(nonnull UIScrollView *)scrollView
         animationBlock:(nullable NoResultBlock)animationBlock{
-    NSArray *cells = CollectionView.visibleCells;
+    NSArray *cells = [UIScrollViewAnimationKit cellsWithScrollView:scrollView];
     for (int i = 0; i < cells.count; i++) {
-        UICollectionViewCell *cell = [cells objectAtIndex:i];
-        CGRect rect = [cell convertRect:cell.bounds fromView:CollectionView];
+        UIView *cell = [UIScrollViewAnimationKit cellWithScrollView:scrollView atIndex:i];
+        CGRect rect = [cell convertRect:cell.bounds fromView:scrollView];
         cell.transform = CGAffineTransformMakeTranslation(0, -rect.origin.y);
         @jobs_weakify(cell)
         [UIView animateWithDuration:0.5
@@ -293,19 +290,19 @@
     }
 }
 #pragma mark —— layDownAnimation
-+(void)layDownAnimationWithCollectionView:(nonnull UICollectionView *)CollectionView{
-    [self layDownAnim:CollectionView
++(void)layDownAnimationWithCollectionView:(nonnull UIScrollView *)scrollView{
+    [self layDownAnim:scrollView
        animationBlock:nil
       completionBlock:nil];
 }
 
-+(void)layDownAnim:(nonnull UICollectionView *)CollectionView
++(void)layDownAnim:(nonnull UIScrollView *)scrollView
     animationBlock:(nullable NoResultBlock)animationBlock
    completionBlock:(nullable MKDataBlock)completionBlock{
-    NSArray *cells = CollectionView.visibleCells;
+    NSArray *cells = [UIScrollViewAnimationKit cellsWithScrollView:scrollView];
     NSMutableArray *rectArr = NSMutableArray.array;
     for (int i = 0; i < cells.count; i++) {
-        UICollectionViewCell *cell = [cells objectAtIndex:i];
+        UIView *cell = [UIScrollViewAnimationKit cellWithScrollView:scrollView atIndex:i];
         CGRect rect = cell.frame;
         [rectArr addObject:[NSValue valueWithCGRect:rect]];
         rect.origin.y = i * 10;
@@ -314,7 +311,7 @@
     }
     NSTimeInterval totalTime = 0.8;
     for (int i = 0; i < cells.count; i++) {
-        UICollectionViewCell *cell = [cells objectAtIndex:i];
+        UIView *cell = [UIScrollViewAnimationKit cellWithScrollView:scrollView atIndex:i];
         CGRect rect = [[rectArr objectAtIndex:i] CGRectValue];
         @jobs_weakify(cell)
         [UIView animateWithDuration:(totalTime/cells.count) * i
@@ -330,16 +327,16 @@
     }
 }
 #pragma mark —— roteAnimation
-+(void)roteAnimationWithCollectionView:(nonnull UICollectionView *)CollectionView{
-    [self roteAnim:CollectionView
++(void)roteAnimationWithCollectionView:(nonnull UIScrollView *)scrollView{
+    [self roteAnim:scrollView
     animationBlock:nil
    completionBlock:nil];
 }
 
-+(void)roteAnim:(nonnull UICollectionView *)CollectionView
++(void)roteAnim:(nonnull UIScrollView *)scrollView
  animationBlock:(nullable NoResultBlock)animationBlock
     completionBlock:(nullable MKDataBlock)completionBlock{
-    NSArray *cells = CollectionView.visibleCells;
+    NSArray *cells = [UIScrollViewAnimationKit cellsWithScrollView:scrollView];
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.y"];
     animation.fromValue = @(-M_PI);
     animation.toValue = 0;
@@ -349,7 +346,7 @@
     animation.fillMode = kCAFillModeForwards;
     animation.autoreverses = NO;
     for (int i = 0; i < cells.count; i++) {
-        UICollectionViewCell *cell = [cells objectAtIndex:i];
+        UIView *cell = [UIScrollViewAnimationKit cellWithScrollView:scrollView atIndex:i];
         cell.alpha = 0.0;
         @jobs_weakify(cell)
         [UIView animateWithDuration:0.1
@@ -366,6 +363,31 @@
             if (completionBlock) completionBlock(@(finished));
         }];
     }
+}
+#pragma mark —— 一些私有的公共方法
++(NSArray <UIView *> * _Nullable)cellsWithScrollView:(nonnull UIScrollView *)scrollView{
+    NSArray <UIView *>*cells = nil;
+    if ([scrollView isKindOfClass:UICollectionView.class]) {
+        UICollectionView *collectionView = (UICollectionView *)scrollView;
+        cells = collectionView.visibleCells;
+    }else if ([scrollView isKindOfClass:UITableView.class]){
+        UITableView *tableView = (UITableView *)scrollView;
+        cells = tableView.visibleCells;
+    }else{}
+    return cells;
+}
+
++(UIView * _Nullable)cellWithScrollView:(nonnull UIScrollView *)scrollView
+                                atIndex:(int)index{
+    UIView *cell = nil;
+    if ([scrollView isKindOfClass:UICollectionView.class]) {
+        UICollectionView *collectionView = (UICollectionView *)scrollView;
+        cell = [collectionView.visibleCells objectAtIndex:index];
+    }else if ([scrollView isKindOfClass:UITableView.class]){
+        UITableView *tableView = (UITableView *)scrollView;
+        cell = [tableView.visibleCells objectAtIndex:index];
+    }else{}
+    return cell;
 }
 
 @end

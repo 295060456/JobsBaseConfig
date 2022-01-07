@@ -90,6 +90,7 @@
         [_btn1 titleFont:[UIFont systemFontOfSize:JobsWidth(14) weight:UIControlStateNormal]];
         [_btn1 normalImage:self.viewModel.image];
         [_btn1 normalBackgroundImage:KIMG(@"弹窗取消按钮背景图")];
+        [_btn1 normalTitleColor:HEXCOLOR(0x502600)];
         [_btn1 normalTitle:Internationalization(@"Cancel")];
         BtnClickEvent(_btn1, if(self.viewBlock)self.viewBlock(self->_btn1););
         [self addSubview:_btn1];
@@ -108,6 +109,7 @@
         [_btn2 titleFont:[UIFont systemFontOfSize:JobsWidth(14) weight:UIControlStateNormal]];
         [_btn2 normalImage:self.viewModel.image];
         [_btn2 normalBackgroundImage:KIMG(@"弹窗确定按钮背景图")];
+        [_btn2 normalTitleColor:HEXCOLOR(0x502600)];
         [_btn2 normalTitle:Internationalization(@"Sure")];
         BtnClickEvent(_btn2, if(self.viewBlock)self.viewBlock(self->_btn2););
         [self addSubview:_btn2];

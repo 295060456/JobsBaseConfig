@@ -14,10 +14,5 @@
 #import "UITableView+Expand.h"
 // UITableView 折叠功能
 #import "UITableView+WWFoldableTableView.h"
-// TableViewAnimationKit
-#import "TableViewAnimationKit.h"
-#import "TableViewAnimationKitConfig.h"
-#import "TableViewAnimationKitHeaders.h"
-#import "UITableView+XSAnimationKit.h"
 
 #endif /* JobsTableView_h */

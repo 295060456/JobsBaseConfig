@@ -49,8 +49,8 @@
                                                    0,
                                                    [JobsDropDownListView getWindowFrameByView:self].origin.y,
                                                    0);
-    [TableViewAnimationKit showWithAnimationType:XSTableViewAnimationTypeFall
-                                       tableView:self.tableView];
+    [UIScrollViewAnimationKit showWithAnimationType:XSScrollViewAnimationTypeFall
+                                         scrollView:self.tableView];
 }
 
 -(void)dropDownListViewDisappear{
