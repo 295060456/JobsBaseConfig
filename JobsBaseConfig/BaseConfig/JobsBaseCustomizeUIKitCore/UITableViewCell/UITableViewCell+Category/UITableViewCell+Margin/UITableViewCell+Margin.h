@@ -11,8 +11,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UITableViewCell (Margin)<BaseCellProtocol>
-// 在具体的子类去实现,分类调用无效
--(void)setFrame:(CGRect)frame;
 
 @end
 
