@@ -9,4 +9,8 @@
 
 @implementation UIScrollView (XSAnimationKit)
 
+-(void)xs_showScrollViewAnimationWithType:(XSScrollViewAnimationType)animationType{
+    [UIScrollViewAnimationKit showWithAnimationType:animationType scrollView:self];
+}
+
 @end

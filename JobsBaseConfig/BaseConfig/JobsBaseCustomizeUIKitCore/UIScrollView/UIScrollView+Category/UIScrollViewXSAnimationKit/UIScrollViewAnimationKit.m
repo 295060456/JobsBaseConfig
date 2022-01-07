@@ -1,5 +1,5 @@
 //
-//  UIScrollViewAnimationKit.m
+//  self.m
 //  Casino
 //
 //  Created by Jobs on 2022/1/7.
@@ -11,7 +11,12 @@
 #define XS_SCREEN_HEIGHT UIScreen.mainScreen.bounds.size.height
 
 @implementation UIScrollViewAnimationKit
+/**
+ class method to show the tableView animation
 
+ @param animationType : animation type
+ @param scrollView : the scrollView to show animation
+ */
 +(void)showWithAnimationType:(XSScrollViewAnimationType)animationType
                   scrollView:(nonnull UIScrollView *)scrollView{
     unsigned int count = 0;
@@ -40,11 +45,11 @@
                animationBlock:(nullable NoResultBlock)animationBlock
               completionBlock:(nullable MKDataBlock)completionBlock{
     
-    NSArray *cells = [UIScrollViewAnimationKit cellsWithScrollView:scrollView];
+    NSArray *cells = [UIScrollView cellsWithScrollView:scrollView];
     CGFloat totalTime = 0.3;
     
     for (int i = 0; i < cells.count; i++) {
-        UIView *cell = [UIScrollViewAnimationKit cellWithScrollView:scrollView atIndex:i];
+        UIView *cell = [UIScrollView cellWithScrollView:scrollView atIndex:i];
         cell.transform = CGAffineTransformMakeTranslation(-XS_SCREEN_WIDTH, 0);
         @jobs_weakify(cell)
         [UIView animateWithDuration:0.25
@@ -69,10 +74,10 @@
 +(void)moveSpringAnim:(nonnull UIScrollView *)scrollView
        animationBlock:(nullable NoResultBlock)animationBlock
       completionBlock:(nullable MKDataBlock)completionBlock{
-    NSArray <UIView *>*cells = [UIScrollViewAnimationKit cellsWithScrollView:scrollView];
+    NSArray <UIView *>*cells = [UIScrollView cellsWithScrollView:scrollView];
     CGFloat totalTime = 0.4;
     for (int i = 0; i < cells.count; i++) {
-        UIView *cell = [UIScrollViewAnimationKit cellWithScrollView:scrollView atIndex:i];
+        UIView *cell = [UIScrollView cellWithScrollView:scrollView atIndex:i];
         cell.transform = CGAffineTransformMakeTranslation(-XS_SCREEN_WIDTH, 0);
         @jobs_weakify(cell)
         [UIView animateWithDuration:0.4
@@ -99,9 +104,9 @@
 +(void)alphaAnim:(nonnull UIScrollView *)scrollView
   animationBlock:(nullable NoResultBlock)animationBlock
  completionBlock:(nullable MKDataBlock)completionBlock{
-    NSArray *cells = [UIScrollViewAnimationKit cellsWithScrollView:scrollView];
+    NSArray *cells = [UIScrollView cellsWithScrollView:scrollView];
     for (int i = 0; i < cells.count; i++) {
-        UIView *cell = [UIScrollViewAnimationKit cellWithScrollView:scrollView atIndex:i];
+        UIView *cell = [UIScrollView cellWithScrollView:scrollView atIndex:i];
         cell.alpha = 0.0;
         @jobs_weakify(cell)
         [UIView animateWithDuration:0.3
@@ -126,10 +131,10 @@
 +(void)fallAnim:(nonnull UIScrollView *)scrollView
  animationBlock:(nullable NoResultBlock)animationBlock
     completionBlock:(nullable MKDataBlock)completionBlock{
-    NSArray *cells = [UIScrollViewAnimationKit cellsWithScrollView:scrollView];
+    NSArray *cells = [UIScrollView cellsWithScrollView:scrollView];
     NSTimeInterval totalTime = 0.8;
     for (int i = 0; i < cells.count; i++) {
-        UIView *cell = [UIScrollViewAnimationKit cellWithScrollView:scrollView atIndex:i];
+        UIView *cell = [UIScrollView cellWithScrollView:scrollView atIndex:i];
         cell.transform = CGAffineTransformMakeTranslation(0, - XS_SCREEN_HEIGHT);
         @jobs_weakify(cell)
         [UIView animateWithDuration:0.3
@@ -154,9 +159,9 @@
 +(void)shakeAnim:(nonnull UIScrollView *)scrollView
   animationBlock:(nullable NoResultBlock)animationBlock
  completionBlock:(nullable MKDataBlock)completionBlock{
-    NSArray *cells = [UIScrollViewAnimationKit cellsWithScrollView:scrollView];
+    NSArray *cells = [UIScrollView cellsWithScrollView:scrollView];
     for (int i = 0; i < cells.count; i++) {
-        UIView *cell = [UIScrollViewAnimationKit cellWithScrollView:scrollView atIndex:i];
+        UIView *cell = [UIScrollView cellWithScrollView:scrollView atIndex:i];
         if (i % 2 == 0) {
             cell.transform = CGAffineTransformMakeTranslation(-XS_SCREEN_WIDTH,0);
         }else {
@@ -187,10 +192,10 @@
 +(void)overTurnAnim:(nonnull UIScrollView *)scrollView
      animationBlock:(nullable NoResultBlock)animationBlock
     completionBlock:(nullable MKDataBlock)completionBlock{
-    NSArray *cells = [UIScrollViewAnimationKit cellsWithScrollView:scrollView];
+    NSArray *cells = [UIScrollView cellsWithScrollView:scrollView];
     NSTimeInterval totalTime = 0.7;
     for (int i = 0; i < cells.count; i++) {
-        UIView *cell = [UIScrollViewAnimationKit cellWithScrollView:scrollView atIndex:i];
+        UIView *cell = [UIScrollView cellWithScrollView:scrollView atIndex:i];
         cell.layer.opacity = 0.0;
         cell.layer.transform = CATransform3DMakeRotation(M_PI, 1, 0, 0);
         @jobs_weakify(cell)
@@ -217,10 +222,10 @@
 +(void)toTopAnim:(nonnull UIScrollView *)scrollView
   animationBlock:(nullable NoResultBlock)animationBlock
  completionBlock:(nullable MKDataBlock)completionBlock{
-    NSArray *cells = [UIScrollViewAnimationKit cellsWithScrollView:scrollView];
+    NSArray *cells = [UIScrollView cellsWithScrollView:scrollView];
     NSTimeInterval totalTime = 0.8;
     for (int i = 0; i < cells.count; i++) {
-        UIView *cell = [UIScrollViewAnimationKit cellWithScrollView:scrollView atIndex:i];
+        UIView *cell = [UIScrollView cellWithScrollView:scrollView atIndex:i];
         cell.transform = CGAffineTransformMakeTranslation(0,XS_SCREEN_HEIGHT);
         @jobs_weakify(cell)
         [UIView animateWithDuration:0.35
@@ -245,10 +250,10 @@
 +(void)springListAnim:(nonnull UIScrollView *)scrollView
        animationBlock:(nullable NoResultBlock)animationBlock
       completionBlock:(nullable MKDataBlock)completionBlock{
-    NSArray *cells = [UIScrollViewAnimationKit cellsWithScrollView:scrollView];
+    NSArray *cells = [UIScrollView cellsWithScrollView:scrollView];
     NSTimeInterval totalTime = 1.0;
     for (int i = 0; i < cells.count; i++) {
-        UIView *cell = [UIScrollViewAnimationKit cellWithScrollView:scrollView atIndex:i];
+        UIView *cell = [UIScrollView cellWithScrollView:scrollView atIndex:i];
         cell.layer.opacity = 0.7;
         cell.layer.transform = CATransform3DMakeTranslation(0, -XS_SCREEN_HEIGHT, 20);
         @jobs_weakify(cell)
@@ -275,9 +280,9 @@
 
 +(void)shrinkToTopAnim:(nonnull UIScrollView *)scrollView
         animationBlock:(nullable NoResultBlock)animationBlock{
-    NSArray *cells = [UIScrollViewAnimationKit cellsWithScrollView:scrollView];
+    NSArray *cells = [UIScrollView cellsWithScrollView:scrollView];
     for (int i = 0; i < cells.count; i++) {
-        UIView *cell = [UIScrollViewAnimationKit cellWithScrollView:scrollView atIndex:i];
+        UIView *cell = [UIScrollView cellWithScrollView:scrollView atIndex:i];
         CGRect rect = [cell convertRect:cell.bounds fromView:scrollView];
         cell.transform = CGAffineTransformMakeTranslation(0, -rect.origin.y);
         @jobs_weakify(cell)
@@ -299,10 +304,10 @@
 +(void)layDownAnim:(nonnull UIScrollView *)scrollView
     animationBlock:(nullable NoResultBlock)animationBlock
    completionBlock:(nullable MKDataBlock)completionBlock{
-    NSArray *cells = [UIScrollViewAnimationKit cellsWithScrollView:scrollView];
+    NSArray *cells = [UIScrollView cellsWithScrollView:scrollView];
     NSMutableArray *rectArr = NSMutableArray.array;
     for (int i = 0; i < cells.count; i++) {
-        UIView *cell = [UIScrollViewAnimationKit cellWithScrollView:scrollView atIndex:i];
+        UIView *cell = [UIScrollView cellWithScrollView:scrollView atIndex:i];
         CGRect rect = cell.frame;
         [rectArr addObject:[NSValue valueWithCGRect:rect]];
         rect.origin.y = i * 10;
@@ -311,7 +316,7 @@
     }
     NSTimeInterval totalTime = 0.8;
     for (int i = 0; i < cells.count; i++) {
-        UIView *cell = [UIScrollViewAnimationKit cellWithScrollView:scrollView atIndex:i];
+        UIView *cell = [UIScrollView cellWithScrollView:scrollView atIndex:i];
         CGRect rect = [[rectArr objectAtIndex:i] CGRectValue];
         @jobs_weakify(cell)
         [UIView animateWithDuration:(totalTime/cells.count) * i
@@ -336,7 +341,7 @@
 +(void)roteAnim:(nonnull UIScrollView *)scrollView
  animationBlock:(nullable NoResultBlock)animationBlock
     completionBlock:(nullable MKDataBlock)completionBlock{
-    NSArray *cells = [UIScrollViewAnimationKit cellsWithScrollView:scrollView];
+    NSArray *cells = [UIScrollView cellsWithScrollView:scrollView];
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.y"];
     animation.fromValue = @(-M_PI);
     animation.toValue = 0;
@@ -346,7 +351,7 @@
     animation.fillMode = kCAFillModeForwards;
     animation.autoreverses = NO;
     for (int i = 0; i < cells.count; i++) {
-        UIView *cell = [UIScrollViewAnimationKit cellWithScrollView:scrollView atIndex:i];
+        UIView *cell = [UIScrollView cellWithScrollView:scrollView atIndex:i];
         cell.alpha = 0.0;
         @jobs_weakify(cell)
         [UIView animateWithDuration:0.1
@@ -363,31 +368,6 @@
             if (completionBlock) completionBlock(@(finished));
         }];
     }
-}
-#pragma mark —— 一些私有的公共方法
-+(NSArray <UIView *> * _Nullable)cellsWithScrollView:(nonnull UIScrollView *)scrollView{
-    NSArray <UIView *>*cells = nil;
-    if ([scrollView isKindOfClass:UICollectionView.class]) {
-        UICollectionView *collectionView = (UICollectionView *)scrollView;
-        cells = collectionView.visibleCells;
-    }else if ([scrollView isKindOfClass:UITableView.class]){
-        UITableView *tableView = (UITableView *)scrollView;
-        cells = tableView.visibleCells;
-    }else{}
-    return cells;
-}
-
-+(UIView * _Nullable)cellWithScrollView:(nonnull UIScrollView *)scrollView
-                                atIndex:(int)index{
-    UIView *cell = nil;
-    if ([scrollView isKindOfClass:UICollectionView.class]) {
-        UICollectionView *collectionView = (UICollectionView *)scrollView;
-        cell = [collectionView.visibleCells objectAtIndex:index];
-    }else if ([scrollView isKindOfClass:UITableView.class]){
-        UITableView *tableView = (UITableView *)scrollView;
-        cell = [tableView.visibleCells objectAtIndex:index];
-    }else{}
-    return cell;
 }
 
 @end

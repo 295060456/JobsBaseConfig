@@ -49,7 +49,7 @@
                                                    0,
                                                    [JobsDropDownListView getWindowFrameByView:self].origin.y,
                                                    0);
-    [UIScrollViewAnimationKit showWithAnimationType:XSScrollViewAnimationTypeFall
+    [UIScrollViewAnimationKit showWithAnimationType:XSScrollViewAnimationTypeAlpha
                                          scrollView:self.tableView];
 }
 

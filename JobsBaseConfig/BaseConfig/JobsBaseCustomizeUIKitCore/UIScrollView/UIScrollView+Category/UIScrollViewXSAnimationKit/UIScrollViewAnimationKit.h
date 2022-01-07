@@ -12,13 +12,18 @@
 #import "JobsBlock.h"
 #import "MacroDef_Strong@Weak.h"
 
+#import "UIScrollView+Extra.h"
 #import "UIScrollViewAnimationKitConfig.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIScrollViewAnimationKit : NSObject<UICollisionBehaviorDelegate>
+/**
+ class method to show the tableView animation
 
-#pragma mark —— lazyLoad
+ @param animationType : animation type
+ @param scrollView : the scrollView to show animation
+ */
 +(void)showWithAnimationType:(XSScrollViewAnimationType)animationType
                   scrollView:(nonnull UIScrollView *)scrollView;
 #pragma mark —— moveAnimation

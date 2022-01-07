@@ -471,9 +471,9 @@
 		848691E0277B03410098BE7A /* NSObject+DynamicInvoke.m in Sources */ = {isa = PBXBuildFile; fileRef = 848691DE277B03410098BE7A /* NSObject+DynamicInvoke.m */; };
 		84869260277B33570098BE7A /* NSNumber+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 8486925F277B33570098BE7A /* NSNumber+Extra.m */; };
 		84869679277C68470098BE7A /* NSString+Check.m in Sources */ = {isa = PBXBuildFile; fileRef = 84869677277C68470098BE7A /* NSString+Check.m */; };
-		848AAC7C27881C8200856087 /* UIScrollView+XSAnimationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 848AAC7727881C8200856087 /* UIScrollView+XSAnimationKit.m */; };
-		848AAC7D27881C8200856087 /* UIScrollViewAnimationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 848AAC7827881C8200856087 /* UIScrollViewAnimationKit.m */; };
-		848AAC7E27881C8200856087 /* UIScrollView+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 848AAC7B27881C8200856087 /* UIScrollView+Extra.m */; };
+		848AAD6D2788213400856087 /* UIScrollView+XSAnimationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 848AAD682788213300856087 /* UIScrollView+XSAnimationKit.m */; };
+		848AAD6E2788213400856087 /* UIScrollViewAnimationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 848AAD692788213300856087 /* UIScrollViewAnimationKit.m */; };
+		848AAD712788214B00856087 /* UIScrollView+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 848AAD702788214B00856087 /* UIScrollView+Extra.m */; };
 		84C94D97277EBAAB00C49CBA /* UIButton+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C94D95277EBAAB00C49CBA /* UIButton+Animation.m */; };
 		84D76437278090330003F0E4 /* UIViewController+SafeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D76435278090330003F0E4 /* UIViewController+SafeTransition.m */; };
 		84D764AF2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D764AD2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel.m */; };
@@ -1371,14 +1371,14 @@
 		84869677277C68470098BE7A /* NSString+Check.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Check.m"; sourceTree = "<group>"; };
 		84869678277C68470098BE7A /* NSString+Check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Check.h"; sourceTree = "<group>"; };
 		848AAC7027881C8200856087 /* JobsScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsScrollView.h; sourceTree = "<group>"; };
-		848AAC7327881C8200856087 /* UIScrollViewAnimationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScrollViewAnimationKit.h; sourceTree = "<group>"; };
-		848AAC7427881C8200856087 /* UIScrollView+XSAnimationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+XSAnimationKit.h"; sourceTree = "<group>"; };
-		848AAC7527881C8200856087 /* UIScrollViewAnimationKitConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScrollViewAnimationKitConfig.h; sourceTree = "<group>"; };
-		848AAC7627881C8200856087 /* UIScrollViewAnimationKitHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScrollViewAnimationKitHeader.h; sourceTree = "<group>"; };
-		848AAC7727881C8200856087 /* UIScrollView+XSAnimationKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+XSAnimationKit.m"; sourceTree = "<group>"; };
-		848AAC7827881C8200856087 /* UIScrollViewAnimationKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIScrollViewAnimationKit.m; sourceTree = "<group>"; };
-		848AAC7A27881C8200856087 /* UIScrollView+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Extra.h"; sourceTree = "<group>"; };
-		848AAC7B27881C8200856087 /* UIScrollView+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Extra.m"; sourceTree = "<group>"; };
+		848AAD672788213300856087 /* UIScrollView+XSAnimationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+XSAnimationKit.h"; sourceTree = "<group>"; };
+		848AAD682788213300856087 /* UIScrollView+XSAnimationKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+XSAnimationKit.m"; sourceTree = "<group>"; };
+		848AAD692788213300856087 /* UIScrollViewAnimationKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIScrollViewAnimationKit.m; sourceTree = "<group>"; };
+		848AAD6A2788213300856087 /* UIScrollViewAnimationKitHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScrollViewAnimationKitHeader.h; sourceTree = "<group>"; };
+		848AAD6B2788213400856087 /* UIScrollViewAnimationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScrollViewAnimationKit.h; sourceTree = "<group>"; };
+		848AAD6C2788213400856087 /* UIScrollViewAnimationKitConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScrollViewAnimationKitConfig.h; sourceTree = "<group>"; };
+		848AAD6F2788214B00856087 /* UIScrollView+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Extra.h"; sourceTree = "<group>"; };
+		848AAD702788214B00856087 /* UIScrollView+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Extra.m"; sourceTree = "<group>"; };
 		84C94D95277EBAAB00C49CBA /* UIButton+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Animation.m"; sourceTree = "<group>"; };
 		84C94D96277EBAAB00C49CBA /* UIButton+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Animation.h"; sourceTree = "<group>"; };
 		84D76435278090330003F0E4 /* UIViewController+SafeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SafeTransition.m"; sourceTree = "<group>"; };
@@ -5400,12 +5400,12 @@
 		848AAC7227881C8200856087 /* UIScrollViewXSAnimationKit */ = {
 			isa = PBXGroup;
 			children = (
-				848AAC7327881C8200856087 /* UIScrollViewAnimationKit.h */,
-				848AAC7427881C8200856087 /* UIScrollView+XSAnimationKit.h */,
-				848AAC7527881C8200856087 /* UIScrollViewAnimationKitConfig.h */,
-				848AAC7627881C8200856087 /* UIScrollViewAnimationKitHeader.h */,
-				848AAC7727881C8200856087 /* UIScrollView+XSAnimationKit.m */,
-				848AAC7827881C8200856087 /* UIScrollViewAnimationKit.m */,
+				848AAD672788213300856087 /* UIScrollView+XSAnimationKit.h */,
+				848AAD682788213300856087 /* UIScrollView+XSAnimationKit.m */,
+				848AAD6B2788213400856087 /* UIScrollViewAnimationKit.h */,
+				848AAD692788213300856087 /* UIScrollViewAnimationKit.m */,
+				848AAD6C2788213400856087 /* UIScrollViewAnimationKitConfig.h */,
+				848AAD6A2788213300856087 /* UIScrollViewAnimationKitHeader.h */,
 			);
 			path = UIScrollViewXSAnimationKit;
 			sourceTree = "<group>";
@@ -5413,8 +5413,8 @@
 		848AAC7927881C8200856087 /* UIScrollView+Extra */ = {
 			isa = PBXGroup;
 			children = (
-				848AAC7A27881C8200856087 /* UIScrollView+Extra.h */,
-				848AAC7B27881C8200856087 /* UIScrollView+Extra.m */,
+				848AAD6F2788214B00856087 /* UIScrollView+Extra.h */,
+				848AAD702788214B00856087 /* UIScrollView+Extra.m */,
 			);
 			path = "UIScrollView+Extra";
 			sourceTree = "<group>";
@@ -5978,10 +5978,12 @@
 				840F971227736428004979E9 /* HQTextField.m in Sources */,
 				840F96D227736428004979E9 /* AppDelegate+Extra.m in Sources */,
 				844B084D2764CF4800B0513D /* ECPrivacyCheckSpeechRecognition.m in Sources */,
+				848AAD6D2788213400856087 /* UIScrollView+XSAnimationKit.m in Sources */,
 				840F9C6A277367E8004979E9 /* NSObject+UserInfo.m in Sources */,
 				840F96A727736428004979E9 /* UIViewController+GifImageView.m in Sources */,
 				840F961027736427004979E9 /* ZBRequestEngine.m in Sources */,
 				840F960C27736427004979E9 /* BWItemCollectionViewCell.m in Sources */,
+				848AAD712788214B00856087 /* UIScrollView+Extra.m in Sources */,
 				840F965E27736428004979E9 /* RBCLikeButton.m in Sources */,
 				840F966527736428004979E9 /* IrregularBtn.m in Sources */,
 				84C94D97277EBAAB00C49CBA /* UIButton+Animation.m in Sources */,
@@ -6034,7 +6036,6 @@
 				845C798B2786D2FE009843EE /* JobsAppDoorInputViewBaseStyle_8.m in Sources */,
 				840F963E27736427004979E9 /* JobsSuspendBtn.m in Sources */,
 				840F96C927736428004979E9 /* KFZShopCatoryFlowLayput.m in Sources */,
-				848AAC7E27881C8200856087 /* UIScrollView+Extra.m in Sources */,
 				840F971027736428004979E9 /* UITextField+Extend.m in Sources */,
 				840F96F027736428004979E9 /* NSObject+RegularExpression.m in Sources */,
 				840F96A427736428004979E9 /* UIViewController+EmptyData.m in Sources */,
@@ -6078,7 +6079,6 @@
 				844B08492764CF4800B0513D /* ECPrivacyCheckCamera.m in Sources */,
 				8459D6172779A6CC00125782 /* CasinoCustomerServiceView.m in Sources */,
 				844B087A2764CF4800B0513D /* XHLaunchImageView.m in Sources */,
-				848AAC7D27881C8200856087 /* UIScrollViewAnimationKit.m in Sources */,
 				840F96D527736428004979E9 /* FileFolderHandleTool.m in Sources */,
 				840F96D627736428004979E9 /* DispatchTimerManager.m in Sources */,
 				840F971A27736428004979E9 /* AppInternationalizationVC.m in Sources */,
@@ -6120,7 +6120,6 @@
 				844B084C2764CF4800B0513D /* ECPrivacyCheckCalendars.m in Sources */,
 				840F95E227736427004979E9 /* ImageCodeView.m in Sources */,
 				840F967727736428004979E9 /* UIView+JHGestureBlock.m in Sources */,
-				848AAC7C27881C8200856087 /* UIScrollView+XSAnimationKit.m in Sources */,
 				840F967E27736428004979E9 /* NSMutableDictionary+Ordered.m in Sources */,
 				844B083F2764CF4800B0513D /* JXCategoryTimelineCell.m in Sources */,
 				840F960127736427004979E9 /* JobsPullListAutoSizeView.m in Sources */,
@@ -6167,6 +6166,7 @@
 				845C798F2786D2FE009843EE /* AuthCodeLab.m in Sources */,
 				840F96FC27736428004979E9 /* NSObject+UDID.m in Sources */,
 				840F96B727736428004979E9 /* UITableView+WWFoldableTableView.m in Sources */,
+				848AAD6E2788213400856087 /* UIScrollViewAnimationKit.m in Sources */,
 				840F96F327736428004979E9 /* NSObject+CurrentDevice.m in Sources */,
 				844B08822764CF4800B0513D /* XHLaunchAdCache.m in Sources */,
 				846DEFD927806BC50050468A /* NSObject+PopViewToLogOut.m in Sources */,

@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIScrollView (XSAnimationKit)
 
+-(void)xs_showScrollViewAnimationWithType:(XSScrollViewAnimationType)animationType;
+
 @end
 
 NS_ASSUME_NONNULL_END
