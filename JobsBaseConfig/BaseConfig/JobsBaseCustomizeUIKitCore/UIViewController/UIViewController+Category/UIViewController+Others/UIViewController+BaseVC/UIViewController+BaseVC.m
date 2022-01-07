@@ -24,6 +24,14 @@ static char *UIViewController_BaseVC_viewModel = "UIViewController_BaseVC_viewMo
 static char *UIViewController_BaseVC_fromVC = "UIViewController_BaseVC_fromVC";
 @dynamic fromVC;
 
+#pragma mark —— 一些功能性的
+-(void)setGKNav{
+    self.gk_navTitle = self.viewModel.text;
+    self.gk_navTitleColor = HEXCOLOR(0xD3B698);
+    self.gk_navBackgroundColor = HEXCOLOR(0x564533);
+    self.gk_backImage = KIMG(@"全局返回箭头");
+    self.gk_navTitleFont = [UIFont systemFontOfSize:JobsWidth(18) weight:UIFontWeightRegular];
+}
 #pragma mark —— present
 /// 简洁版强制present展现一个控制器页面【不需要正向传参】
 -(void)comingToPresentVC:(UIViewController *_Nonnull)viewController{
