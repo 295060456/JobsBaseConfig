@@ -242,7 +242,6 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
 -(void)makeInputView{
     for (int i = 0; i < self.loginDoorInputViewBaseStyleModelMutArr.count; i++) {
         JobsAppDoorInputViewBaseStyle_3 *inputView = JobsAppDoorInputViewBaseStyle_3.new;
-//        inputView.getSecurityModeBtn.visible = i;/// 用户名始终可见
         [self.inputViewMutArr addObject:inputView];
         [self.loginDoorInputViewBaseStyleMutArr addObject:inputView];
         [inputView richElementsInViewWithModel:self.loginDoorInputViewBaseStyleModelMutArr[i]];
@@ -706,7 +705,7 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
             用户名.keyboardAppearance = UIKeyboardAppearanceAlert;
             用户名.leftViewMode = UITextFieldViewModeAlways;
             用户名.placeholderColor = UIColor.whiteColor;
-            用户名.rightViewOffsetX = -JobsWidth(8);
+            用户名.rightViewOffsetX = JobsWidth(10);
             用户名.placeHolderOffset = JobsWidth(35);
             用户名.offset = JobsWidth(0);
 

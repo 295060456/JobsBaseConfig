@@ -62,7 +62,11 @@
             }else{
                 self.placeholderAnimationLbl.textColor = self.animationColor;
                 self.placeholderAnimationLbl.font = self.animationFont;
-                self.placeholderAnimationLbl.text = self.placeholder;
+                
+                if (![NSString isNullString:self.placeholder]) {
+                    self.placeholderAnimationLbl.text = self.placeholder;
+                }
+                
                 self.placeholder = @"";
             }
         }];
