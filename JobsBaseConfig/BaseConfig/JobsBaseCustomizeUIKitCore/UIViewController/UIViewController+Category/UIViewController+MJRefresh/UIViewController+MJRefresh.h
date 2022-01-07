@@ -6,7 +6,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <objc/runtime.h>
+
 #import "NSObject+Extras.h"
+
 #if __has_include(<ReactiveObjC/RACmetamacros.h>)
 #import <ReactiveObjC/RACmetamacros.h>
 #else
@@ -64,11 +67,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)MJRefreshBackStateFooter *mjRefreshBackStateFooter;
 @property(nonatomic,strong)MJRefreshBackFooter *mjRefreshBackFooter;
 @property(nonatomic,strong)MJRefreshFooter *mjRefreshFooter;
-
-///下拉刷新 （子类要进行覆写）
--(void)pullToRefresh;
-///上拉加载更多 （子类要进行覆写）
--(void)loadMoreRefresh;
 
 @end
 

@@ -6,7 +6,6 @@
 //
 
 #import "UIViewController+MJRefresh.h"
-#import <objc/runtime.h>
 
 @implementation UIViewController (MJRefresh)
 
@@ -76,6 +75,7 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
     MJRefreshFooter->MJRefreshComponent->UIView
  *
  */
+#pragma mark —— BaseViewProtocol
 ///下拉刷新 （子类要进行覆写）
 -(void)pullToRefresh{
     NSLog(@"下拉刷新");
