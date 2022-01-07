@@ -24,21 +24,19 @@
 
 -(void)loadView{
     [super loadView];
-    [self loadData];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.setupNavigationBarHidden = YES;
-    self.view.backgroundColor = KYellowColor;
-    self.gk_navTitle = @"用户信息展示";
-    self.gk_navTitleColor = UIColor.blackColor;
+    [self setGKNav];
+    self.gk_navTitle = @"用户信息展示(开发测试专用)";
     self.tableView.alpha = 1;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-
+    [self.tableView.mj_header beginRefreshing];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -75,11 +73,19 @@
         [self.dataMutArr removeAllObjects];
     }
     [self loadData];
+    self.visible = YES;
     if (self.dataMutArr.count) {
         [self endRefreshing:self.tableView];
     }else{
         [self endRefreshingWithNoMoreData:self.tableView];
     }
+    /// 在reloadData后做的操作，因为reloadData刷新UI是在主线程上，那么就在主线程上等待
+    @jobs_weakify(self)
+    [self getMainQueue:^{
+        @jobs_strongify(self)
+        [UIScrollViewAnimationKit showWithAnimationType:XSScrollViewAnimationTypeAlpha
+                                             scrollView:self.tableView];
+    }];
 }
 ///上拉加载更多 （子类要进行覆写）
 -(void)loadMoreRefresh{
@@ -109,30 +115,38 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     BaseTableViewCell *cell = [BaseTableViewCell cellWithTableView:tableView];
-    cell.detailTextLabel.numberOfLines = 0;
     /// 适配iOS 13夜间模式/深色外观(Dark Mode)
     cell.backgroundColor = [UIColor xy_createWithLightColor:UIColor.whiteColor darkColor:UIColor.whiteColor];
+    cell.detailTextLabel.numberOfLines = 0;
+    cell.detailTextLabel.textColor = UIColor.brownColor;
+    cell.textLabel.textColor = UIColor.blackColor;
     [cell richElementsInCellWithModel:self.dataMutArr[indexPath.row]];
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView
+ willDisplayCell:(UITableViewCell *)cell
+forRowAtIndexPath:(NSIndexPath *)indexPath{
+    cell.alpha = self.visible;
 }
 #pragma mark —— lazyLoad
 -(UITableView *)tableView{
     if (!_tableView) {
         _tableView = UITableView.new;
-        _tableView.backgroundColor = AppMainCor_02;
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-        _tableView.showsVerticalScrollIndicator = NO;
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.backgroundColor = UIColor.whiteColor;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        _tableView.showsVerticalScrollIndicator = NO;
         _tableView.tableFooterView = UIView.new;
         _tableView.separatorColor = HEXCOLOR(0xEEEEEE);
         {
             MJRefreshConfigModel *refreshConfigHeader = MJRefreshConfigModel.new;
-            refreshConfigHeader.stateIdleTitle = @"下拉可以刷新";
-            refreshConfigHeader.pullingTitle = @"下拉可以刷新";
-            refreshConfigHeader.refreshingTitle = @"松开立即刷新";
-            refreshConfigHeader.willRefreshTitle = @"刷新数据中";
-            refreshConfigHeader.noMoreDataTitle = @"下拉可以刷新";
+            refreshConfigHeader.stateIdleTitle = Internationalization(@"Pull down to refresh");
+            refreshConfigHeader.pullingTitle = Internationalization(@"Pull down to refresh");
+            refreshConfigHeader.refreshingTitle = Internationalization(@"Release Refresh now");
+            refreshConfigHeader.willRefreshTitle = Internationalization(@"Refreshing data");
+            refreshConfigHeader.noMoreDataTitle = Internationalization(@"Pull down to refresh");
 
             MJRefreshConfigModel *refreshConfigFooter = MJRefreshConfigModel.new;
             refreshConfigFooter.stateIdleTitle = @"";
