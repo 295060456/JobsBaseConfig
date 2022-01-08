@@ -591,6 +591,17 @@
 		84CA634E2789ADB200E46E71 /* TransparentRegionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA634D2789ADB200E46E71 /* TransparentRegionVC.m */; };
 		84CA63CA2789B1EC00E46E71 /* DynamicViewTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA63C92789B1EC00E46E71 /* DynamicViewTestVC.m */; };
 		84CA63D12789B3CC00E46E71 /* TestIrregularViewTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA63D02789B3CC00E46E71 /* TestIrregularViewTestVC.m */; };
+		84CA642B2789C00300E46E71 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 84CA642A2789C00300E46E71 /* data.json */; };
+		84CA64A42789C1F100E46E71 /* Douyin_ZFPlayerVC@1.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA64A32789C1F100E46E71 /* Douyin_ZFPlayerVC@1.m */; };
+		84CA64A92789C24600E46E71 /* VideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA64A72789C24600E46E71 /* VideoModel.m */; };
+		84CA64AE2789C2AF00E46E71 /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA64AD2789C2AF00E46E71 /* PlayerCell.m */; };
+		84CA64B22789C2F300E46E71 /* Douyin_ZFPlayerVC@2.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA64B12789C2F300E46E71 /* Douyin_ZFPlayerVC@2.m */; };
+		84CA64BE2789C80600E46E71 /* ZFDouYinCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA64B62789C80400E46E71 /* ZFDouYinCell.m */; };
+		84CA64BF2789C80600E46E71 /* MKRightBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA64B72789C80500E46E71 /* MKRightBtnView.m */; };
+		84CA64C02789C80600E46E71 /* ZFDouYinControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA64B82789C80500E46E71 /* ZFDouYinControlView.m */; };
+		84CA64C82789C94400E46E71 /* ZFTableData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA64C62789C94400E46E71 /* ZFTableData.m */; };
+		84CA65402789CAB600E46E71 /* DDNetworkingAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA653F2789CAB600E46E71 /* DDNetworkingAPI.m */; };
+		84CA65452789CB2A00E46E71 /* DDNetworkingAPI+DemoTestApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA65432789CB2A00E46E71 /* DDNetworkingAPI+DemoTestApi.m */; };
 		84D76437278090330003F0E4 /* UIViewController+SafeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D76435278090330003F0E4 /* UIViewController+SafeTransition.m */; };
 		84D764AF2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D764AD2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel.m */; };
 		84D764B3278092C10003F0E4 /* RequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D764B2278092C00003F0E4 /* RequestTool.m */; };
@@ -1734,6 +1745,29 @@
 		84CA63C92789B1EC00E46E71 /* DynamicViewTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicViewTestVC.m; sourceTree = "<group>"; };
 		84CA63CF2789B3CC00E46E71 /* TestIrregularViewTestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestIrregularViewTestVC.h; sourceTree = "<group>"; };
 		84CA63D02789B3CC00E46E71 /* TestIrregularViewTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestIrregularViewTestVC.m; sourceTree = "<group>"; };
+		84CA642A2789C00300E46E71 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		84CA64A22789C1F100E46E71 /* Douyin_ZFPlayerVC@1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Douyin_ZFPlayerVC@1.h"; sourceTree = "<group>"; };
+		84CA64A32789C1F100E46E71 /* Douyin_ZFPlayerVC@1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Douyin_ZFPlayerVC@1.m"; sourceTree = "<group>"; };
+		84CA64A72789C24600E46E71 /* VideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoModel.m; sourceTree = "<group>"; };
+		84CA64A82789C24600E46E71 /* VideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoModel.h; sourceTree = "<group>"; };
+		84CA64AC2789C2AF00E46E71 /* PlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerCell.h; sourceTree = "<group>"; };
+		84CA64AD2789C2AF00E46E71 /* PlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerCell.m; sourceTree = "<group>"; };
+		84CA64B02789C2F300E46E71 /* Douyin_ZFPlayerVC@2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Douyin_ZFPlayerVC@2.h"; sourceTree = "<group>"; };
+		84CA64B12789C2F300E46E71 /* Douyin_ZFPlayerVC@2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Douyin_ZFPlayerVC@2.m"; sourceTree = "<group>"; };
+		84CA64B42789C79700E46E71 /* ZFDouYinCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZFDouYinCellDelegate.h; sourceTree = "<group>"; };
+		84CA64B62789C80400E46E71 /* ZFDouYinCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFDouYinCell.m; sourceTree = "<group>"; };
+		84CA64B72789C80500E46E71 /* MKRightBtnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKRightBtnView.m; sourceTree = "<group>"; };
+		84CA64B82789C80500E46E71 /* ZFDouYinControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFDouYinControlView.m; sourceTree = "<group>"; };
+		84CA64B92789C80500E46E71 /* ZFDouYinCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFDouYinCell.h; sourceTree = "<group>"; };
+		84CA64BA2789C80500E46E71 /* MKRightBtnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKRightBtnView.h; sourceTree = "<group>"; };
+		84CA64BC2789C80500E46E71 /* ZFDouYinControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFDouYinControlView.h; sourceTree = "<group>"; };
+		84CA64C62789C94400E46E71 /* ZFTableData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFTableData.m; sourceTree = "<group>"; };
+		84CA64C72789C94400E46E71 /* ZFTableData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFTableData.h; sourceTree = "<group>"; };
+		84CA653D2789CAB600E46E71 /* DDNetworkingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDNetworkingHeader.h; sourceTree = "<group>"; };
+		84CA653E2789CAB600E46E71 /* DDNetworkingAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDNetworkingAPI.h; sourceTree = "<group>"; };
+		84CA653F2789CAB600E46E71 /* DDNetworkingAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDNetworkingAPI.m; sourceTree = "<group>"; };
+		84CA65432789CB2A00E46E71 /* DDNetworkingAPI+DemoTestApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDNetworkingAPI+DemoTestApi.m"; sourceTree = "<group>"; };
+		84CA65442789CB2A00E46E71 /* DDNetworkingAPI+DemoTestApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDNetworkingAPI+DemoTestApi.h"; sourceTree = "<group>"; };
 		84D76435278090330003F0E4 /* UIViewController+SafeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SafeTransition.m"; sourceTree = "<group>"; };
 		84D76436278090330003F0E4 /* UIViewController+SafeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SafeTransition.h"; sourceTree = "<group>"; };
 		84D764AD2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasinoGetiOSNewestVersionModel.m; sourceTree = "<group>"; };
@@ -2109,8 +2143,8 @@
 		840F92D927736425004979E9 /* CustomZFPlayerControlView */ = {
 			isa = PBXGroup;
 			children = (
-				840F92DA27736425004979E9 /* CustomZFPlayerControlView.m */,
 				840F92DB27736425004979E9 /* CustomZFPlayerControlView.h */,
+				840F92DA27736425004979E9 /* CustomZFPlayerControlView.m */,
 			);
 			path = CustomZFPlayerControlView;
 			sourceTree = "<group>";
@@ -4528,6 +4562,7 @@
 		840F95A827736427004979E9 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
+				84CA64B42789C79700E46E71 /* ZFDouYinCellDelegate.h */,
 				840F95A927736427004979E9 /* BaseTableViewHeaderFooterViewProtocol.h */,
 				840F95AA27736427004979E9 /* BaseViewControllerProtocol.h */,
 				840F95AB27736427004979E9 /* AppToolsProtocol.h */,
@@ -5777,6 +5812,7 @@
 		84A160EC2789557200DACA3C /* 🇨🇳ServiceLogic */ = {
 			isa = PBXGroup;
 			children = (
+				84CA653C2789CA8600E46E71 /* 网络请求 */,
 				84CA5CD32789596A00E46E71 /* Other.h */,
 				844B02BD2764C95E00B0513D /* AppDelegate & SceneDelegate */,
 				84A160ED2789561A00DACA3C /* 🇨🇳ServiceLogic.md */,
@@ -6047,6 +6083,7 @@
 		84CA5DF327895B4700E46E71 /* Json文件 */ = {
 			isa = PBXGroup;
 			children = (
+				84CA642A2789C00300E46E71 /* data.json */,
 			);
 			path = "Json文件";
 			sourceTree = "<group>";
@@ -6625,6 +6662,7 @@
 		84CA609D278980E700E46E71 /* 功能模块 */ = {
 			isa = PBXGroup;
 			children = (
+				84CA642C2789C0F700E46E71 /* Douyin_ZFPlayer */,
 				84CA63CB2789B3A200E46E71 /* TestIrregularView */,
 				84CA63C62789B1C600E46E71 /* DynamicView */,
 				84CA634B2789ADA000E46E71 /* TransparentRegion */,
@@ -6764,6 +6802,145 @@
 				84CA63D02789B3CC00E46E71 /* TestIrregularViewTestVC.m */,
 			);
 			path = TestIrregularView;
+			sourceTree = "<group>";
+		};
+		84CA642C2789C0F700E46E71 /* Douyin_ZFPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				84CA64AB2789C29C00E46E71 /* View */,
+				84CA64AA2789C29100E46E71 /* ViewController */,
+				84CA64A52789C23000E46E71 /* Model */,
+			);
+			path = Douyin_ZFPlayer;
+			sourceTree = "<group>";
+		};
+		84CA64A12789C1D800E46E71 /* Douyin_ZFPlayerVC@1 */ = {
+			isa = PBXGroup;
+			children = (
+				84CA64A22789C1F100E46E71 /* Douyin_ZFPlayerVC@1.h */,
+				84CA64A32789C1F100E46E71 /* Douyin_ZFPlayerVC@1.m */,
+			);
+			path = "Douyin_ZFPlayerVC@1";
+			sourceTree = "<group>";
+		};
+		84CA64A52789C23000E46E71 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84CA64C92789C94900E46E71 /* ZFTableData */,
+				84CA64A62789C24600E46E71 /* VideoModel */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		84CA64A62789C24600E46E71 /* VideoModel */ = {
+			isa = PBXGroup;
+			children = (
+				84CA64A82789C24600E46E71 /* VideoModel.h */,
+				84CA64A72789C24600E46E71 /* VideoModel.m */,
+			);
+			path = VideoModel;
+			sourceTree = "<group>";
+		};
+		84CA64AA2789C29100E46E71 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84CA64A12789C1D800E46E71 /* Douyin_ZFPlayerVC@1 */,
+				84CA64AF2789C2E800E46E71 /* Douyin_ZFPlayerVC@2 */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		84CA64AB2789C29C00E46E71 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84CA64C52789C82300E46E71 /* ZFDouYinControlView */,
+				84CA64C42789C81B00E46E71 /* ZFDouYinCell */,
+				84CA64C22789C80B00E46E71 /* MKRightBtnView */,
+				84CA64B52789C7F900E46E71 /* PlayerCell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		84CA64AF2789C2E800E46E71 /* Douyin_ZFPlayerVC@2 */ = {
+			isa = PBXGroup;
+			children = (
+				84CA64B02789C2F300E46E71 /* Douyin_ZFPlayerVC@2.h */,
+				84CA64B12789C2F300E46E71 /* Douyin_ZFPlayerVC@2.m */,
+			);
+			path = "Douyin_ZFPlayerVC@2";
+			sourceTree = "<group>";
+		};
+		84CA64B52789C7F900E46E71 /* PlayerCell */ = {
+			isa = PBXGroup;
+			children = (
+				84CA64AC2789C2AF00E46E71 /* PlayerCell.h */,
+				84CA64AD2789C2AF00E46E71 /* PlayerCell.m */,
+			);
+			path = PlayerCell;
+			sourceTree = "<group>";
+		};
+		84CA64C22789C80B00E46E71 /* MKRightBtnView */ = {
+			isa = PBXGroup;
+			children = (
+				84CA64BA2789C80500E46E71 /* MKRightBtnView.h */,
+				84CA64B72789C80500E46E71 /* MKRightBtnView.m */,
+			);
+			path = MKRightBtnView;
+			sourceTree = "<group>";
+		};
+		84CA64C42789C81B00E46E71 /* ZFDouYinCell */ = {
+			isa = PBXGroup;
+			children = (
+				84CA64B92789C80500E46E71 /* ZFDouYinCell.h */,
+				84CA64B62789C80400E46E71 /* ZFDouYinCell.m */,
+			);
+			path = ZFDouYinCell;
+			sourceTree = "<group>";
+		};
+		84CA64C52789C82300E46E71 /* ZFDouYinControlView */ = {
+			isa = PBXGroup;
+			children = (
+				84CA64BC2789C80500E46E71 /* ZFDouYinControlView.h */,
+				84CA64B82789C80500E46E71 /* ZFDouYinControlView.m */,
+			);
+			path = ZFDouYinControlView;
+			sourceTree = "<group>";
+		};
+		84CA64C92789C94900E46E71 /* ZFTableData */ = {
+			isa = PBXGroup;
+			children = (
+				84CA64C72789C94400E46E71 /* ZFTableData.h */,
+				84CA64C62789C94400E46E71 /* ZFTableData.m */,
+			);
+			path = ZFTableData;
+			sourceTree = "<group>";
+		};
+		84CA653C2789CA8600E46E71 /* 网络请求 */ = {
+			isa = PBXGroup;
+			children = (
+				84CA65412789CABD00E46E71 /* App 的所有网络请求Api */,
+			);
+			path = "网络请求";
+			sourceTree = "<group>";
+		};
+		84CA65412789CABD00E46E71 /* App 的所有网络请求Api */ = {
+			isa = PBXGroup;
+			children = (
+				84CA65422789CB2A00E46E71 /* App接口示例 */,
+				84CA653E2789CAB600E46E71 /* DDNetworkingAPI.h */,
+				84CA653F2789CAB600E46E71 /* DDNetworkingAPI.m */,
+				84CA653D2789CAB600E46E71 /* DDNetworkingHeader.h */,
+			);
+			path = "App 的所有网络请求Api";
+			sourceTree = "<group>";
+		};
+		84CA65422789CB2A00E46E71 /* App接口示例 */ = {
+			isa = PBXGroup;
+			children = (
+				84CA65442789CB2A00E46E71 /* DDNetworkingAPI+DemoTestApi.h */,
+				84CA65432789CB2A00E46E71 /* DDNetworkingAPI+DemoTestApi.m */,
+			);
+			path = "App接口示例";
 			sourceTree = "<group>";
 		};
 		84D76434278090330003F0E4 /* UIViewController+SafeTransition */ = {
@@ -7022,6 +7199,7 @@
 				840F969D27736428004979E9 /* UIViewController+XLBubbleTransition.md in Resources */,
 				84CA5F9127897AFB00E46E71 /* File in Resources */,
 				840F96C827736428004979E9 /* KFZShopCatoryFlowLayput.md in Resources */,
+				84CA642B2789C00300E46E71 /* data.json in Resources */,
 				840F961C27736427004979E9 /* 小数点@2x.png in Resources */,
 				845C79932786D2FE009843EE /* 输入框样式_7.png in Resources */,
 				840F95F527736427004979E9 /* tab_search_animate.json in Resources */,
@@ -7303,6 +7481,7 @@
 				840F967627736428004979E9 /* UIView+ViewController.m in Sources */,
 				840F963627736427004979E9 /* JobsLabBaseModel.m in Sources */,
 				840F964827736427004979E9 /* UIImage+YBGIF.m in Sources */,
+				84CA65452789CB2A00E46E71 /* DDNetworkingAPI+DemoTestApi.m in Sources */,
 				840F966C27736428004979E9 /* UIView+BaseView.m in Sources */,
 				840F96F127736428004979E9 /* NSObject+Time.m in Sources */,
 				840F966F27736428004979E9 /* UIView+Gesture.m in Sources */,
@@ -7378,6 +7557,7 @@
 				844B08792764CF4800B0513D /* XHLaunchAdButton.m in Sources */,
 				840F970427736428004979E9 /* NSObject+ChangeAppicon.m in Sources */,
 				840F96FB27736428004979E9 /* NSObject+UUID.m in Sources */,
+				84CA64BE2789C80600E46E71 /* ZFDouYinCell.m in Sources */,
 				84CA5FA227897AFB00E46E71 /* AES.m in Sources */,
 				840F968127736428004979E9 /* UITextView+IndicateWordLimit.m in Sources */,
 				840F969527736428004979E9 /* NSString+Statistics.m in Sources */,
@@ -7416,6 +7596,7 @@
 				844B087D2764CF4800B0513D /* XHLaunchAd.m in Sources */,
 				840F96F527736428004979E9 /* NSObject+Random.m in Sources */,
 				840F963927736427004979E9 /* JobsLeftRightLab.m in Sources */,
+				84CA64AE2789C2AF00E46E71 /* PlayerCell.m in Sources */,
 				84CA5FE127897AFB00E46E71 /* CountdownView.m in Sources */,
 				840F965627736428004979E9 /* NSBundle+CLLanguage.m in Sources */,
 				84CA5FB627897AFB00E46E71 /* DDUploadingProgressView.m in Sources */,
@@ -7437,6 +7618,7 @@
 				84CA5FE027897AFB00E46E71 /* GDFadeView.m in Sources */,
 				840F971827736428004979E9 /* JobsShowObjInfoVC.m in Sources */,
 				840F960E27736427004979E9 /* JobsHotLabel.m in Sources */,
+				84CA64B22789C2F300E46E71 /* Douyin_ZFPlayerVC@2.m in Sources */,
 				840F968E27736428004979E9 /* BaseImageView.m in Sources */,
 				840F961427736427004979E9 /* CustomZFPlayerControlView.m in Sources */,
 				84CA61932789851300E46E71 /* A_VC.m in Sources */,
@@ -7482,12 +7664,15 @@
 				840F967127736428004979E9 /* UIView+Gradient.m in Sources */,
 				844B08392764CF4800B0513D /* RACEXTRuntimeExtensions.m in Sources */,
 				840F960F27736427004979E9 /* ZBURLRequest.m in Sources */,
+				84CA64C82789C94400E46E71 /* ZFTableData.m in Sources */,
 				840F967227736428004979E9 /* UIView+Chain.m in Sources */,
 				844B12892764E5C200B0513D /* URLManagerModel.m in Sources */,
 				840F960427736427004979E9 /* TransitionController.m in Sources */,
 				8459D61C2779A88A00125782 /* CasinoCustomerContactModel.m in Sources */,
 				84CA5FD527897AFB00E46E71 /* SearchView.m in Sources */,
 				84CA5F9927897AFB00E46E71 /* GTMBase64.m in Sources */,
+				84CA64BF2789C80600E46E71 /* MKRightBtnView.m in Sources */,
+				84CA64C02789C80600E46E71 /* ZFDouYinControlView.m in Sources */,
 				840F970A27736428004979E9 /* NSObject+UNUserNotificationCenterDelegate.m in Sources */,
 				840F969727736428004979E9 /* NSString+Path.m in Sources */,
 				840F96A527736428004979E9 /* UIViewController+Shake.m in Sources */,
@@ -7495,6 +7680,7 @@
 				840F96F727736428004979E9 /* NSObject+Sound.m in Sources */,
 				84CA5FD927897AFB00E46E71 /* XWCountryCodeController.m in Sources */,
 				84A160FE278956BF00DACA3C /* ViewController@4.m in Sources */,
+				84CA65402789CAB600E46E71 /* DDNetworkingAPI.m in Sources */,
 				840F95E527736427004979E9 /* JobsTabBarItem.m in Sources */,
 				840F96CB27736428004979E9 /* UserDefaultModel.m in Sources */,
 				84CA5F9527897AFB00E46E71 /* NSString+Base64.m in Sources */,
@@ -7538,6 +7724,7 @@
 				84CA5F9A27897AFB00E46E71 /* RSAUtil.m in Sources */,
 				844B08532764CF4800B0513D /* ECPrivacyCheckReminders.m in Sources */,
 				840F96AF27736428004979E9 /* UIViewController+MJRefresh.m in Sources */,
+				84CA64A92789C24600E46E71 /* VideoModel.m in Sources */,
 				840F969E27736428004979E9 /* XLBubbleTransition.m in Sources */,
 				840F960627736427004979E9 /* TLTabBarAnimation.m in Sources */,
 				844B087F2764CF4800B0513D /* XHLaunchAdDownloader.m in Sources */,
@@ -7564,6 +7751,7 @@
 				84CA5FBC27897AFB00E46E71 /* WBTableViewCell.m in Sources */,
 				844B083F2764CF4800B0513D /* JXCategoryTimelineCell.m in Sources */,
 				840F960127736427004979E9 /* JobsPullListAutoSizeView.m in Sources */,
+				84CA64A42789C1F100E46E71 /* Douyin_ZFPlayerVC@1.m in Sources */,
 				844B084A2764CF4800B0513D /* ECPrivacyCheckLocationServices.m in Sources */,
 				840F965B27736428004979E9 /* ButtonTimerConfigModel.m in Sources */,
 				840F96BF27736428004979E9 /* NSArray+Tools.m in Sources */,

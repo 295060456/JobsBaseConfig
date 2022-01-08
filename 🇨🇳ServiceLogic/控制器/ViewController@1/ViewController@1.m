@@ -87,9 +87,11 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
         [self comingToPushVC:TransparentRegionVC.new
                 withNavTitle:@"TransparentRegion"];
     }else if (indexPath == [self myIndexPath:(JobsIndexPath){2,0}]){
-        
+        [self comingToPushVC:Douyin_ZFPlayerVC_1.new
+                withNavTitle:@"Douyin_ZFPlayerVC_1"];
     }else if (indexPath == [self myIndexPath:(JobsIndexPath){3,0}]){
-        
+        [self comingToPushVC:Douyin_ZFPlayerVC_2.new
+                withNavTitle:@"Douyin_ZFPlayerVC_2"];
     }else if (indexPath == [self myIndexPath:(JobsIndexPath){4,0}]){
         
     }else if (indexPath == [self myIndexPath:(JobsIndexPath){5,0}]){
@@ -97,21 +99,21 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     }else if (indexPath == [self myIndexPath:(JobsIndexPath){6,0}]){
         
     }else if (indexPath == [self myIndexPath:(JobsIndexPath){7,0}]){
+
+    }else if (indexPath == [self myIndexPath:(JobsIndexPath){8,0}]){
         [self comingToPushVC:A_VC.new
                 withNavTitle:_dataMutArr[indexPath.row].text];
-    }else if (indexPath == [self myIndexPath:(JobsIndexPath){8,0}]){
-        
     }else if (indexPath == [self myIndexPath:(JobsIndexPath){9,0}]){
+
+    }else if (indexPath == [self myIndexPath:(JobsIndexPath){10,0}]){
         [self comingToPushVC:DynamicViewTestVC.new
                 withNavTitle:@"DynamicViewTestVC"];
-    }else if (indexPath == [self myIndexPath:(JobsIndexPath){10,0}]){
+    }else if (indexPath == [self myIndexPath:(JobsIndexPath){11,0}]){
         [self comingToPushVC:JobsProgressVC.new
                 withNavTitle:@"JobsProgressVC"];
-    }else if (indexPath == [self myIndexPath:(JobsIndexPath){11,0}]){
+    }else if (indexPath == [self myIndexPath:(JobsIndexPath){12,0}]){
         [self comingToPushVC:TestIrregularViewTestVC.new
                 withNavTitle:@"TestIrregularViewTestVC"];
-    }else if (indexPath == [self myIndexPath:(JobsIndexPath){12,0}]){
-
     }else if (indexPath == [self myIndexPath:(JobsIndexPath){13,0}]){
         
     }else if (indexPath == [self myIndexPath:(JobsIndexPath){14,0}]){
@@ -233,7 +235,14 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         
         {
             UIViewModel *viewModel = UIViewModel.new;
-            viewModel.text = @"Douyin_ZFPlayer";
+            viewModel.text = @"Douyin_ZFPlayer_1";
+            viewModel.subText = @"点击查看";
+            [_dataMutArr addObject:viewModel];
+        }
+        
+        {
+            UIViewModel *viewModel = UIViewModel.new;
+            viewModel.text = @"Douyin_ZFPlayer_2";
             viewModel.subText = @"点击查看";
             [_dataMutArr addObject:viewModel];
         }

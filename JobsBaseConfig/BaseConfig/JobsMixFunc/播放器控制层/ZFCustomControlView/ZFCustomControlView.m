@@ -7,54 +7,44 @@
 //
 
 #import "ZFCustomControlView.h"
-#import "UIView+ZFFrame.h"
-#import "ZFUtilities.h"
-#import <ZFPlayer/ZFPlayerController.h>
-#import <ZFPlayer/ZFPlayerConst.h>
-#import "ZFSliderView.h"
-#import "UIImageView+ZFCache.h"
 
-@interface ZFCustomControlView () <ZFSliderViewDelegate>
-
+@interface ZFCustomControlView ()<ZFSliderViewDelegate>
 /// 底部工具栏
-@property (nonatomic, strong) UIView *bottomToolView;
+@property(nonatomic,strong)UIView *bottomToolView;
 /// 顶部工具栏
-@property (nonatomic, strong) UIView *topToolView;
+@property(nonatomic,strong)UIView *topToolView;
 /// 标题
-@property (nonatomic, strong) UILabel *titleLabel;
+@property(nonatomic,strong)UILabel *titleLabel;
 /// 播放或暂停按钮
-@property (nonatomic, strong) UIButton *playOrPauseBtn;
+@property(nonatomic,strong)UIButton *playOrPauseBtn;
 /// 播放的当前时间
-@property (nonatomic, strong) UILabel *currentTimeLabel;
+@property(nonatomic,strong)UILabel *currentTimeLabel;
 /// 滑杆
-@property (nonatomic, strong) ZFSliderView *slider;
+@property(nonatomic,strong)ZFSliderView *slider;
 /// 视频总时间
-@property (nonatomic, strong) UILabel *totalTimeLabel;
+@property(nonatomic,strong)UILabel *totalTimeLabel;
 /// 全屏按钮
-@property (nonatomic, strong) UIButton *fullScreenBtn;
+@property(nonatomic,strong)UIButton *fullScreenBtn;
 
-@property (nonatomic, assign) BOOL isShow;
+@property(nonatomic,assign)BOOL isShow;
 
-@property (nonatomic, assign) BOOL controlViewAppeared;
+@property(nonatomic,assign)BOOL controlViewAppeared;
 
-@property (nonatomic, strong) dispatch_block_t afterBlock;
+@property(nonatomic,strong)dispatch_block_t afterBlock;
 
-@property (nonatomic, assign) NSTimeInterval sumTime;
-
+@property(nonatomic,assign)NSTimeInterval sumTime;
 /// 底部播放进度
-@property (nonatomic, strong) ZFSliderView *bottomPgrogress;
-
+@property(nonatomic,strong)ZFSliderView *bottomPgrogress;
 /// 加载loading
-@property (nonatomic, strong) ZFSpeedLoadingView *activity;
-
+@property(nonatomic,strong)ZFSpeedLoadingView *activity;
 /// 封面图
-@property (nonatomic, strong) UIImageView *coverImageView;
+@property(nonatomic,strong)UIImageView *coverImageView;
 
 @end
 
 @implementation ZFCustomControlView
-@synthesize player = _player;
 
+@synthesize player = _player;
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         // 添加子控件
@@ -77,17 +67,18 @@
         
         [self resetControlView];
         self.clipsToBounds = YES;
-    }
-    return self;
+    }return self;
 }
 
 - (void)makeSubViewsAction {
-    [self.playOrPauseBtn addTarget:self action:@selector(playPauseButtonClickAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.fullScreenBtn addTarget:self action:@selector(fullScreenButtonClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.playOrPauseBtn addTarget:self
+                            action:@selector(playPauseButtonClickAction:)
+                  forControlEvents:UIControlEventTouchUpInside];
+    [self.fullScreenBtn addTarget:self
+                           action:@selector(fullScreenButtonClickAction:)
+                 forControlEvents:UIControlEventTouchUpInside];
 }
-
 #pragma mark - ZFSliderViewDelegate
-
 - (void)sliderTouchBegan:(float)value {
     self.slider.isdragging = YES;
 }
@@ -95,7 +86,8 @@
 - (void)sliderTouchEnded:(float)value {
     if (self.player.totalTime > 0) {
         @zf_weakify(self)
-        [self.player seekToTime:self.player.totalTime*value completionHandler:^(BOOL finished) {
+        [self.player seekToTime:self.player.totalTime*value
+              completionHandler:^(BOOL finished) {
             @zf_strongify(self)
             if (finished) {
                 self.slider.isdragging = NO;
@@ -132,9 +124,7 @@
         self.slider.value = 0;
     }
 }
-
 #pragma mark - action
-
 - (void)playPauseButtonClickAction:(UIButton *)sender {
     [self playOrPause];
 }
@@ -142,7 +132,6 @@
 - (void)fullScreenButtonClickAction:(UIButton *)sender {
     [self.player enterFullScreen:!self.player.isFullScreen animated:YES];
 }
-
 /// 根据当前播放状态取反
 - (void)playOrPause {
     self.playOrPauseBtn.selected = !self.playOrPauseBtn.isSelected;
@@ -152,9 +141,7 @@
 - (void)playBtnSelectedState:(BOOL)selected {
     self.playOrPauseBtn.selected = selected;
 }
-
 #pragma mark - 添加子控件约束
-
 - (void)layoutSubviews {
     [super layoutSubviews];
     
@@ -243,9 +230,7 @@
         self.playOrPauseBtn.alpha = 1;
     }
 }
-
 #pragma mark - private
-
 /** 重置ControlView */
 - (void)resetControlView {
     self.bottomToolView.alpha        = 1;
@@ -288,7 +273,6 @@
     });
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(self.autoHiddenTimeInterval * NSEC_PER_SEC)), dispatch_get_main_queue(),self.afterBlock);
 }
-
 /// 取消延时隐藏controlView的方法
 - (void)cancelAutoFadeOutControlView {
     if (self.afterBlock) {
@@ -296,37 +280,36 @@
         self.afterBlock = nil;
     }
 }
-
 /// 隐藏控制层
 - (void)hideControlViewWithAnimated:(BOOL)animated {
     self.controlViewAppeared = NO;
-    [UIView animateWithDuration:animated ? self.autoFadeTimeInterval : 0 animations:^{
+    [UIView animateWithDuration:animated ? self.autoFadeTimeInterval : 0
+                     animations:^{
         [self hideControlView];
     } completion:^(BOOL finished) {
         self.bottomPgrogress.hidden = NO;
     }];
 }
-
 /// 显示控制层
 - (void)showControlViewWithAnimated:(BOOL)animated {
     self.controlViewAppeared = YES;
     [self autoFadeOutControlView];
-    [UIView animateWithDuration:animated ? self.autoFadeTimeInterval : 0 animations:^{
+    [UIView animateWithDuration:animated ? self.autoFadeTimeInterval : 0
+                     animations:^{
         [self showControlView];
     } completion:^(BOOL finished) {
         self.bottomPgrogress.hidden = YES;
     }];
 }
 
-
-- (BOOL)shouldResponseGestureWithPoint:(CGPoint)point withGestureType:(ZFPlayerGestureType)type touch:(nonnull UITouch *)touch {
-    CGRect sliderRect = [self.bottomToolView convertRect:self.slider.frame toView:self];
-    if (CGRectContainsPoint(sliderRect, point)) {
-        return NO;
-    }
-    return YES;
+- (BOOL)shouldResponseGestureWithPoint:(CGPoint)point
+                       withGestureType:(ZFPlayerGestureType)type
+                                 touch:(nonnull UITouch *)touch {
+    CGRect sliderRect = [self.bottomToolView
+                         convertRect:self.slider.frame
+                         toView:self];
+    return !CGRectContainsPoint(sliderRect, point);
 }
-
 /**
  设置标题、封面、全屏模式
  
@@ -334,45 +317,57 @@
  @param coverUrl 视频的封面，占位图默认是灰色的
  @param fullScreenMode 全屏模式
  */
-- (void)showTitle:(NSString *)title coverURLString:(NSString *)coverUrl fullScreenMode:(ZFFullScreenMode)fullScreenMode {
-    UIImage *placeholder = [ZFUtilities imageWithColor:[UIColor colorWithRed:220/255.0 green:220/255.0 blue:220/255.0 alpha:1] size:self.coverImageView.bounds.size];
+- (void)showTitle:(NSString *)title
+   coverURLString:(NSString *)coverUrl
+   fullScreenMode:(ZFFullScreenMode)fullScreenMode{
+    
+    UIImage *placeholder = [ZFUtilities imageWithColor:[UIColor colorWithRed:220/255.0
+                                                                       green:220/255.0
+                                                                        blue:220/255.0
+                                                                       alpha:1]
+                                                  size:self.coverImageView.bounds.size];
     [self resetControlView];
     [self layoutIfNeeded];
     [self setNeedsDisplay];
     self.titleLabel.text = title;
     self.player.orientationObserver.fullScreenMode = fullScreenMode;
-    [self.player.currentPlayerManager.view.coverImageView setImageWithURLString:coverUrl placeholder:placeholder];
+    [self.player.currentPlayerManager.view.coverImageView setImageWithURLString:coverUrl
+                                                                    placeholder:placeholder];
 }
-
 /// 调节播放进度slider和当前时间更新
-- (void)sliderValueChanged:(CGFloat)value currentTimeString:(NSString *)timeString {
+- (void)sliderValueChanged:(CGFloat)value
+         currentTimeString:(NSString *)timeString {
     self.slider.value = value;
     self.currentTimeLabel.text = timeString;
     self.slider.isdragging = YES;
-    [UIView animateWithDuration:0.3 animations:^{
+    [UIView animateWithDuration:0.3
+                     animations:^{
         self.slider.sliderBtn.transform = CGAffineTransformMakeScale(1.2, 1.2);
     }];
 }
-
 /// 滑杆结束滑动
 - (void)sliderChangeEnded {
     self.slider.isdragging = NO;
-    [UIView animateWithDuration:0.3 animations:^{
+    [UIView animateWithDuration:0.3
+                     animations:^{
         self.slider.sliderBtn.transform = CGAffineTransformIdentity;
     }];
 }
-
 #pragma mark - ZFPlayerControlViewDelegate
-
 /// 手势筛选，返回NO不响应该手势
-- (BOOL)gestureTriggerCondition:(ZFPlayerGestureControl *)gestureControl gestureType:(ZFPlayerGestureType)gestureType gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer touch:(nonnull UITouch *)touch {
+- (BOOL)gestureTriggerCondition:(ZFPlayerGestureControl *)gestureControl
+                    gestureType:(ZFPlayerGestureType)gestureType
+              gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
+                          touch:(nonnull UITouch *)touch {
     CGPoint point = [touch locationInView:self];
-    if (self.player.isSmallFloatViewShow && !self.player.isFullScreen && gestureType != ZFPlayerGestureTypeSingleTap) {
+    if (self.player.isSmallFloatViewShow &&
+        !self.player.isFullScreen && gestureType != ZFPlayerGestureTypeSingleTap) {
         return NO;
     }
-    return [self shouldResponseGestureWithPoint:point withGestureType:gestureType touch:touch];
+    return [self shouldResponseGestureWithPoint:point
+                                withGestureType:gestureType
+                                          touch:touch];
 }
-
 /// 单击手势事件
 - (void)gestureSingleTapped:(ZFPlayerGestureControl *)gestureControl {
     if (!self.player) return;
@@ -388,28 +383,27 @@
         }
     }
 }
-
 /// 双击手势事件
 - (void)gestureDoubleTapped:(ZFPlayerGestureControl *)gestureControl {
     [self playOrPause];
 }
-
 /// 捏合手势事件，这里改变了视频的填充模式
-- (void)gesturePinched:(ZFPlayerGestureControl *)gestureControl scale:(float)scale {
+- (void)gesturePinched:(ZFPlayerGestureControl *)gestureControl
+                 scale:(float)scale {
     if (scale > 1) {
         self.player.currentPlayerManager.scalingMode = ZFPlayerScalingModeAspectFill;
     } else {
         self.player.currentPlayerManager.scalingMode = ZFPlayerScalingModeAspectFit;
     }
 }
-
 /// 准备播放
-- (void)videoPlayer:(ZFPlayerController *)videoPlayer prepareToPlay:(NSURL *)assetURL {
+- (void)videoPlayer:(ZFPlayerController *)videoPlayer
+      prepareToPlay:(NSURL *)assetURL {
     [self hideControlViewWithAnimated:NO];
 }
-
 /// 播放状态改变
-- (void)videoPlayer:(ZFPlayerController *)videoPlayer playStateChanged:(ZFPlayerPlaybackState)state {
+- (void)videoPlayer:(ZFPlayerController *)videoPlayer
+   playStateChanged:(ZFPlayerPlaybackState)state {
     if (state == ZFPlayerPlayStatePlaying) {
         [self playBtnSelectedState:YES];
         /// 开始播放时候判断是否显示loading
@@ -426,26 +420,28 @@
         [self.activity stopAnimating];
     }
 }
-
 /// 加载状态改变
-- (void)videoPlayer:(ZFPlayerController *)videoPlayer loadStateChanged:(ZFPlayerLoadState)state {
+- (void)videoPlayer:(ZFPlayerController *)videoPlayer
+   loadStateChanged:(ZFPlayerLoadState)state {
     if (state == ZFPlayerLoadStatePrepare) {
         self.coverImageView.hidden = NO;
-    } else if (state == ZFPlayerLoadStatePlaythroughOK || state == ZFPlayerLoadStatePlayable) {
+    } else if (state == ZFPlayerLoadStatePlaythroughOK ||
+               state == ZFPlayerLoadStatePlayable) {
         self.coverImageView.hidden = YES;
         self.player.currentPlayerManager.view.backgroundColor = [UIColor blackColor];
     }
     if (state == ZFPlayerLoadStateStalled && videoPlayer.currentPlayerManager.isPlaying) {
         [self.activity startAnimating];
-    } else if ((state == ZFPlayerLoadStateStalled || state == ZFPlayerLoadStatePrepare) && videoPlayer.currentPlayerManager.isPlaying) {
+    } else if ((state == ZFPlayerLoadStateStalled ||
+                state == ZFPlayerLoadStatePrepare) && videoPlayer.currentPlayerManager.isPlaying) {
         [self.activity startAnimating];
     } else {
         [self.activity stopAnimating];
     }
 }
-
 /// 播放进度改变回调
-- (void)videoPlayer:(ZFPlayerController *)videoPlayer currentTime:(NSTimeInterval)currentTime totalTime:(NSTimeInterval)totalTime {
+- (void)videoPlayer:(ZFPlayerController *)videoPlayer
+        currentTime:(NSTimeInterval)currentTime totalTime:(NSTimeInterval)totalTime {
     if (!self.slider.isdragging) {
         NSString *currentTimeString = [ZFUtilities convertTimeSecond:currentTime];
         self.currentTimeLabel.text = currentTimeString;
@@ -455,19 +451,20 @@
     }
     self.bottomPgrogress.value = videoPlayer.progress;
 }
-
 /// 缓冲改变回调
-- (void)videoPlayer:(ZFPlayerController *)videoPlayer bufferTime:(NSTimeInterval)bufferTime {
+- (void)videoPlayer:(ZFPlayerController *)videoPlayer
+         bufferTime:(NSTimeInterval)bufferTime {
     self.slider.bufferValue = videoPlayer.bufferProgress;
     self.bottomPgrogress.bufferValue = videoPlayer.bufferProgress;
 }
 
-- (void)videoPlayer:(ZFPlayerController *)videoPlayer presentationSizeChanged:(CGSize)size {
+- (void)videoPlayer:(ZFPlayerController *)videoPlayer
+presentationSizeChanged:(CGSize)size {
     
 }
-
 /// 视频view即将旋转
-- (void)videoPlayer:(ZFPlayerController *)videoPlayer orientationWillChange:(ZFOrientationObserver *)observer {
+- (void)videoPlayer:(ZFPlayerController *)videoPlayer
+orientationWillChange:(ZFOrientationObserver *)observer {
     if (videoPlayer.isSmallFloatViewShow) {
         if (observer.isFullScreen) {
             self.controlViewAppeared = NO;
@@ -480,9 +477,9 @@
         [self hideControlViewWithAnimated:NO];
     }
 }
-
 /// 视频view已经旋转
-- (void)videoPlayer:(ZFPlayerController *)videoPlayer orientationDidChanged:(ZFOrientationObserver *)observer {
+- (void)videoPlayer:(ZFPlayerController *)videoPlayer
+orientationDidChanged:(ZFOrientationObserver *)observer {
     if (self.controlViewAppeared) {
         [self showControlViewWithAnimated:NO];
     } else {
@@ -491,36 +488,31 @@
     [self layoutIfNeeded];
     [self setNeedsDisplay];
 }
-
 /// 锁定旋转方向
-- (void)lockedVideoPlayer:(ZFPlayerController *)videoPlayer lockedScreen:(BOOL)locked {
+- (void)lockedVideoPlayer:(ZFPlayerController *)videoPlayer
+             lockedScreen:(BOOL)locked {
     [self showControlViewWithAnimated:YES];
 }
-
 #pragma mark - setter
-
 - (void)setPlayer:(ZFPlayerController *)player {
     _player = player;
 }
-
 #pragma mark - getter
-
 - (UIView *)topToolView {
     if (!_topToolView) {
         _topToolView = [[UIView alloc] init];
         UIImage *image = ZFPlayer_Image(@"ZFPlayer_top_shadow");
         _topToolView.layer.contents = (id)image.CGImage;
-    }
-    return _topToolView;
+    }return _topToolView;
 }
 
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.textColor = [UIColor whiteColor];
-        _titleLabel.font = [UIFont systemFontOfSize:JobsWidth(15.0) weight:UIFontWeightRegular];
-    }
-    return _titleLabel;
+        _titleLabel.font = [UIFont systemFontOfSize:JobsWidth(15.0)
+                                             weight:UIFontWeightRegular];
+    }return _titleLabel;
 }
 
 - (UIView *)bottomToolView {
@@ -528,40 +520,46 @@
         _bottomToolView = [[UIView alloc] init];
         UIImage *image = ZFPlayer_Image(@"ZFPlayer_bottom_shadow");
         _bottomToolView.layer.contents = (id)image.CGImage;
-    }
-    return _bottomToolView;
+    }return _bottomToolView;
 }
 
 - (UIButton *)playOrPauseBtn {
     if (!_playOrPauseBtn) {
         _playOrPauseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_playOrPauseBtn setImage:ZFPlayer_Image(@"new_allPlay_44x44_") forState:UIControlStateNormal];
-        [_playOrPauseBtn setImage:ZFPlayer_Image(@"new_allPause_44x44_") forState:UIControlStateSelected];
-    }
-    return _playOrPauseBtn;
+        [_playOrPauseBtn setImage:ZFPlayer_Image(@"new_allPlay_44x44_")
+                         forState:UIControlStateNormal];
+        [_playOrPauseBtn setImage:ZFPlayer_Image(@"new_allPause_44x44_")
+                         forState:UIControlStateSelected];
+    }return _playOrPauseBtn;
 }
 
 - (UILabel *)currentTimeLabel {
     if (!_currentTimeLabel) {
         _currentTimeLabel = [[UILabel alloc] init];
         _currentTimeLabel.textColor = [UIColor whiteColor];
-        _currentTimeLabel.font = [UIFont systemFontOfSize:JobsWidth(14.0f) weight:UIFontWeightRegular];
+        _currentTimeLabel.font = [UIFont systemFontOfSize:JobsWidth(14.0f)
+                                                   weight:UIFontWeightRegular];
         _currentTimeLabel.textAlignment = NSTextAlignmentCenter;
-    }
-    return _currentTimeLabel;
+    }return _currentTimeLabel;
 }
 
 - (ZFSliderView *)slider {
     if (!_slider) {
         _slider = [[ZFSliderView alloc] init];
         _slider.delegate = self;
-        _slider.maximumTrackTintColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:0.8];
-        _slider.bufferTrackTintColor  = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.5];
+        _slider.maximumTrackTintColor = [UIColor colorWithRed:0.5
+                                                        green:0.5
+                                                         blue:0.5
+                                                        alpha:0.8];
+        _slider.bufferTrackTintColor  = [UIColor colorWithRed:1
+                                                        green:1
+                                                         blue:1
+                                                        alpha:0.5];
         _slider.minimumTrackTintColor = [UIColor whiteColor];
-        [_slider setThumbImage:ZFPlayer_Image(@"ZFPlayer_slider") forState:UIControlStateNormal];
+        [_slider setThumbImage:ZFPlayer_Image(@"ZFPlayer_slider")
+                      forState:UIControlStateNormal];
         _slider.sliderHeight = 2;
-    }
-    return _slider;
+    }return _slider;
 }
 
 - (UILabel *)totalTimeLabel {
@@ -570,16 +568,15 @@
         _totalTimeLabel.textColor = [UIColor whiteColor];
         _totalTimeLabel.font = [UIFont systemFontOfSize:JobsWidth(14.0f)];
         _totalTimeLabel.textAlignment = NSTextAlignmentCenter;
-    }
-    return _totalTimeLabel;
+    }return _totalTimeLabel;
 }
 
 - (UIButton *)fullScreenBtn {
     if (!_fullScreenBtn) {
         _fullScreenBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_fullScreenBtn setImage:ZFPlayer_Image(@"ZFPlayer_fullscreen") forState:UIControlStateNormal];
-    }
-    return _fullScreenBtn;
+        [_fullScreenBtn setImage:ZFPlayer_Image(@"ZFPlayer_fullscreen")
+                        forState:UIControlStateNormal];
+    }return _fullScreenBtn;
 }
 
 - (UIImageView *)coverImageView {
@@ -587,8 +584,7 @@
         _coverImageView = [[UIImageView alloc] init];
         _coverImageView.userInteractionEnabled = YES;
         _coverImageView.contentMode = UIViewContentModeScaleAspectFit;
-    }
-    return _coverImageView;
+    }return _coverImageView;
 }
 
 - (ZFSliderView *)bottomPgrogress {
@@ -599,8 +595,7 @@
         _bottomPgrogress.bufferTrackTintColor  = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.5];
         _bottomPgrogress.sliderHeight = 1;
         _bottomPgrogress.isHideSliderBlock = NO;
-    }
-    return _bottomPgrogress;
+    }return _bottomPgrogress;
 }
 
 @end

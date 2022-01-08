@@ -16,15 +16,9 @@
 
 @implementation CustomZFPlayerControlView
 
--(void)actionCustomZFPlayerControlViewBlock:(TwoDataBlock _Nullable)customZFPlayerControlViewBlock{
-    self.customZFPlayerControlViewBlock = customZFPlayerControlViewBlock;
-}
-
 -(void)gestureSingleTapped:(ZFPlayerGestureControl *)gestureControl{
     [self endEditing:YES];
-    if (self.customZFPlayerControlViewBlock) {
-        self.customZFPlayerControlViewBlock(NSStringFromSelector(_cmd),@1);
-    }
+    if (self.customZFPlayerControlViewBlock) self.customZFPlayerControlViewBlock(NSStringFromSelector(_cmd),@1);
 }
 
 -(void)gestureDoubleTapped:(ZFPlayerGestureControl *)gestureControl{
@@ -55,13 +49,18 @@
            panLocation:(ZFPanLocation)location{
     if (self.customZFPlayerControlViewBlock) {
         NSLog(@"%@",NSStringFromSelector(_cmd));
-        self.customZFPlayerControlViewBlock(NSStringFromSelector(_cmd),@(gestureControl.panMovingDirection));
+        self.customZFPlayerControlViewBlock(NSStringFromSelector(_cmd),
+                                            @(gestureControl.panMovingDirection));
     }
 }
 
 -(void)gesturePinched:(ZFPlayerGestureControl *)gestureControl
                 scale:(float)scale{
     NSLog(@"");
+}
+
+-(void)actionCustomZFPlayerControlViewBlock:(TwoDataBlock _Nullable)customZFPlayerControlViewBlock{
+    self.customZFPlayerControlViewBlock = customZFPlayerControlViewBlock;
 }
 
 @end

@@ -18,4 +18,6 @@
 #import "BaseButtonProtocol.h"
 #import "BaseViewControllerProtocol.h"
 
+#import "ZFDouYinCellDelegate.h"
+
 #endif /* JobsBaseProtocolHeader_h */

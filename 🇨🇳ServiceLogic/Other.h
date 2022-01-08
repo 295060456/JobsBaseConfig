@@ -31,11 +31,16 @@
 #import "JobsShowObjInfoVC.h"// 查看对象
 #import "AppInternationalizationVC.h"// 国际化
 
+// App 的所有网络请求Api
+#import "DDNetworkingHeader.h"
+
 // 相关功能模块组测试控制器
 #import "JobsProgressVC.h"
 #import "A_VC.h"
 #import "TransparentRegionVC.h"
 #import "DynamicViewTestVC.h"
 #import "TestIrregularViewTestVC.h"
+#import "Douyin_ZFPlayerVC@1.h"
+#import "Douyin_ZFPlayerVC@2.h"
 
 #endif /* Other_h */
