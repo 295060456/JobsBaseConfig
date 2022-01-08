@@ -67,7 +67,9 @@ UIGestureRecognizerDelegate
 @property(nonatomic,assign)BOOL isShakerAnimation;// 重力弹跳动画效果
 @property(nonatomic,assign)BOOL isPlaySound;// 点击声
 @property(nonatomic,assign)BOOL isFeedbackGenerator;// 振动反馈
-@property(nonatomic,strong)NSArray <NSNumber *>*jumpIndexArr;// 需要跳开的item的index
+@property(nonatomic,strong)NSArray <NSNumber *>*jumpIndexArr;// 需要跳开的item
+@property(nonatomic,strong)NSArray <NSNumber *>*needLoginArr;// 在某些页面强制弹出登录
+@property(nonatomic,strong)NSArray <NSNumber *>*noNeedLoginArr;// 在某些页面不需要弹出登录，其优先级高于needLoginArr（也就是item点了没反应）
 @property(nonatomic,assign)BOOL isJumpToNextVC;// 当需要跳开的item,是否是需要直接跳到下一个VC？默认NO
 
 #pragma mark —— 初始化方法
@@ -78,6 +80,8 @@ UIGestureRecognizerDelegate
 /// 一般的初始化模式
 -(instancetype)initWithJobsTabBar:(JobsTabBar *)tabBar;
 #pragma mark —— 一些公有方法
+/// 需要强制跳转登录的index。点击和手势滑动都需要共同调用
+-(BOOL)forcedLoginIndex:(NSUInteger)index;
 /// 关闭手势
 -(void)closePan;
 /// 打开手势

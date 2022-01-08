@@ -1,0 +1,11 @@
+ngnix
+brew 安装 ffmpeg
+安装一个docker 环境
+https://github.com/ossrs/srs   --- 流服务器
+https://github.com/ossrs/srs-docker/tree/dev#usage
+https://github.com/ossrs/srs-docker
+
+播放器：VLC
+播放文件：destinationfile.flv
+
+ffmpeg -re -i destinationfile.flv -c copy -f flv rtmp://127.0.0.1/live/livestream

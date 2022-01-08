@@ -1,0 +1,8 @@
+
+    BOOL (^checkArrContainString)(id data,id data2) = ^(NSArray <NSString *>*arr,NSString *string){
+        for (NSString *str in arr) {
+            return [str isEqualToString:string];
+        }return NO;
+    };
+    
+    不能在block里面自己销毁自己 time..

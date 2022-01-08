@@ -15,6 +15,23 @@ static char *NSObject_AppTools_customerContactModel = "NSObject_AppTools_custome
 static char *NSObject_AppTools_hotLabelDataMutArr = "NSObject_AppTools_hotLabelDataMutArr";
 @dynamic hotLabelDataMutArr;
 
+#pragma mark —— 一些私有化方法
+/// noNeedLoginArr
+-(NSArray <Class>*_Nullable)makeDataArr{
+    extern AppDelegate *appDelegate;
+    NSMutableArray <Class>*tempDataArr = NSMutableArray.array;
+    
+    for (UIViewController *viewController in appDelegate.tabBarVC.childMutArr) {
+        NSUInteger index = [appDelegate.tabBarVC.childMutArr indexOfObject:viewController];
+        
+        if ([appDelegate.tabBarVC.noNeedLoginArr containsObject:@(index)]) {
+            Class cls = viewController.class;
+            [tempDataArr addObject:cls];
+        }
+    }
+    [tempDataArr addObject:appDelegate.tabBarVC.class];
+    return (NSArray *)tempDataArr;
+}
 #pragma mark —— BaseProtocol
 /// 【通知监听】国际化语言修改UI
 /// @param targetView 需要铆定的UI
@@ -39,14 +56,8 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
 //    NSLog(@"通知传递过来的 = %@",notification.object);
 //}
 /// 返回YES：不触发AppDoor的页面
--(BOOL)unrestrictedLogin:(NSArray <Class>*)dataArr{
-    BOOL ok = NO;
-    for (Class cls in dataArr) {
-        if ([self.class isKindOfClass:cls]) {
-            ok = YES;
-            break;
-        }
-    }return ok;
+-(BOOL)unrestrictedLogin:(NSArray <Class>*_Nullable)dataArr{
+    return [dataArr containsObject:self.class];
 }
 #pragma mark —— AppToolsProtocol
 /// 去登录？去注册？
@@ -71,22 +82,22 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
                           animated:YES
                            success:^(id data) {}];
 }
-/// 在某些页面不调取登录页
--(void)toLoginOrRegisterWithRestricted:(NSArray <Class>*_Nullable)dataArr
-                    appDoorContentType:(CurrentPage)appDoorContentType{
-//    if (!dataArr) dataArr = @[TESTVC.class];
-    if (![self unrestrictedLogin:dataArr]) return;
-    [self toLoginOrRegister:appDoorContentType];
-}
-
--(void)toLogin{
-    [self toLoginOrRegisterWithRestricted:nil
-                       appDoorContentType:CurrentPage_login];
-}
+/// 强制登录：没登录（本地用户数据为空）就去登录
 -(void)forcedLogin{
     if (!self.isLogin) {
         [self toLogin];
     }
+}
+/// 去登录：有限制makeDataArr
+-(void)toLogin{
+    [self toLoginOrRegisterWithRestricted:self.makeDataArr
+                       appDoorContentType:CurrentPage_login];
+}
+/// 限制条件：在某些页面（noNeedLoginArr）不调取登录页
+-(void)toLoginOrRegisterWithRestricted:(NSArray <Class>*_Nullable)dataArr
+                    appDoorContentType:(CurrentPage)appDoorContentType{
+    if (![self unrestrictedLogin:dataArr]) return;/// 返回YES：不触发AppDoor的页面
+    [self toLoginOrRegister:appDoorContentType];
 }
 /// 触发退出登录模块之前，弹窗提示二次确认，确认以后再删除本地用户数据
 -(void)popUpViewToLogout{
@@ -149,11 +160,12 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
     }else return NO;
 }
 /// App 升级弹窗：在根控制器下实现，做到覆盖全局的统一
--(void)appUpdateWithSureBlock:(MKDataBlock _Nullable)sureBlock
-                  cancelBlock:(MKDataBlock _Nullable)cancelBlock{
+-(void)appUpdateWithData:(CasinoGetiOSNewestVersionModel *_Nonnull)updateData
+               sureBlock:(MKDataBlock _Nullable)sureBlock
+             cancelBlock:(MKDataBlock _Nullable)cancelBlock{
     CasinoUpgradePopupView *upgradePopupView = CasinoUpgradePopupView.new;
     upgradePopupView.size = [CasinoUpgradePopupView viewSizeWithModel:nil];
-    [upgradePopupView richElementsInViewWithModel:nil];
+    [upgradePopupView richElementsInViewWithModel:updateData];
     
     [upgradePopupView actionViewBlock:^(UIButton *data) {
         if ([[data titleForNormalState] isEqualToString:Internationalization(@"Cancel")]) {
@@ -168,9 +180,9 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
 }
 
 -(void)actionForHotLabel:(JobsHotLabel *)hl{
-    @jobs_weakify(self)
+//    @jobs_weakify(self)
     [hl actionViewBlock:^(UIButton *btn) {
-        @jobs_strongify(self)
+//        @jobs_strongify(self)
         if([btn.objBindingParams isKindOfClass:CasinoCustomerContactElementModel.class]){
             CasinoCustomerContactElementModel *customerContactElementModel = (CasinoCustomerContactElementModel *)btn.objBindingParams;
 
@@ -245,5 +257,6 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
                              hotLabelDataMutArr,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+
 @end
 

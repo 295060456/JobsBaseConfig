@@ -70,10 +70,13 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
     JobsTabbarVC *TabBarVC = objc_getAssociatedObject(self, AppDelegate_Extra_tabBarVC);
     if (!TabBarVC) {
         TabBarVC = JobsTabbarVC.new;
-        TabBarVC.isAnimationAlert = YES;//OK
+        TabBarVC.isAnimationAlert = YES;
         TabBarVC.isPlaySound = YES;
         TabBarVC.isFeedbackGenerator = YES;
-        TabBarVC.jumpIndexArr = @[@3];//小标为3的客服模块需要被跳开做另行处理
+        TabBarVC.jumpIndexArr = @[@3];// 需要被跳开的item
+        TabBarVC.needLoginArr = @[@1,@2,@4];// 在某些页面强制弹出登录
+        TabBarVC.noNeedLoginArr = @[@0];// 在某些页面不需要弹出登录，其优先级高于needLoginArr
+        
 //        TabBarVC.isShakerAnimation = YES;
 //        TabBarVC.isOpenScrollTabbar = NO;
 

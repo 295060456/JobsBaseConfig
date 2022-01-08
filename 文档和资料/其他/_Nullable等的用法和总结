@@ -1,0 +1,37 @@
+
+_Nullable等用法
+__nullable 和__nonnull。从字面上我们可知， __nullable 表示对象可以是 NULL 或 nil，而 __nonnull 表示对象不应该为空。当我们不遵循这一规则时，编译器就会给出警告。在 Xcode 7 中，为了避免与第三方库潜在的冲突，苹果把 __nonnull/__nullable改成 _Nonnull/_Nullable。再加上苹果同样支持了没有下划线的写法 nonnull/nullable ，于是就造成现在有三种写法这样混乱的局面。
+
+但是这三种写法本质上都是互通的，只是放的位置不同，举例如下：
+
+方法返回值修饰：
+
+- (nullable NSString*)method ;
+- (NSString*  __nullable)method2 ;
+- (NSString* _Nullable)method3 ;
+声明属性的修饰:
+
+@property(nonatomic, copy, nullable) NSString *aString;
+@property(nonatomic, copy) NSString* __nullable aString;
+@property(nonatomic, copy) NSString* _Nullable aString;
+方法参数修饰：
+
+- (void)methodWithString:(nullable NSString *)aString;
+- (void)methodWithString:(NSString  *_Nullable)aString;
+- (void)methodWithString:(NSString *__nullable)aString;
+而对于双指针类型对象 、 Block 的返回值 、 Block 的参数 等，这时候就不能用 nonnull/nullable 修饰，只能用带下划线的 __nonnull / __nullable 或者 _Nonnull/_Nullable
+
+- (void)methodWithError:(NSError *_Nullable *_Nullable)error;
+- (void)methodWithError:(NSError * __nullable * __null_unspecified)error;
+// 以及其他的组合方式
+- (void)methodWithBlock:(nullable id __nonnull(^)(id __nullable params))block;
+- (void)methodWithBlock:(id __nonnull(^ __nullable)(id __nullable params))block;
+- (void)methodWithBlock:(id _Nonnull (^ _Nullable)(id _Nullable params))block;
+归纳：
+对于属性、方法返回值、方法参数的修饰，使用： nonnull/nullable ；
+对于 C 函数的参数、Block 的参数、Block 返回值的修饰，使用： _Nonnull/_Nullable
+
+作者：JimmyOu
+链接：https://www.jianshu.com/p/189aaa4dd498
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

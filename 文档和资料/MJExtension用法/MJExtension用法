@@ -1,0 +1,29 @@
+-(void)netWorking_MKWalletMyWalletPOST{
+    //[MKPublickDataManager sharedPublicDataManage].mkLoginModel.token
+    /// 1. 配置参数
+    NSMutableDictionary *easyDict = [NSMutableDictionary dictionary];
+    /// 2. 配置参数模型
+    FMHttpRequest *req = [FMHttpRequest urlParametersWithMethod:HTTTP_METHOD_POST
+                                                           path:[URL_Manager sharedInstance].MKWalletMyWalletPOST
+                                                     parameters:easyDict];
+    self.reqSignal = [[FMARCNetwork sharedInstance] requestNetworkData:req];
+    [self.reqSignal subscribeNext:^(FMHttpResonse *response) {
+        if (response.isSuccess) {
+            self.myVCModel = [MyVCModel mj_objectWithKeyValues:response.reqResult];
+            NSArray *array = [VideoListModel mj_objectArrayWithKeyValuesArray:response.reqResult[@"videoList"]];
+            if (array) {
+                @weakify(self)
+                [array enumerateObjectsUsingBlock:^(id  _Nonnull obj,
+                                                    NSUInteger idx,
+                                                    BOOL * _Nonnull stop) {
+                    @strongify(self)
+                    VideoListModel *model = array[idx];
+                    [self.videoListdataMutArr addObject:model];
+                }];
+            }
+            NSLog(@"");
+        }
+    }];
+}
+
+

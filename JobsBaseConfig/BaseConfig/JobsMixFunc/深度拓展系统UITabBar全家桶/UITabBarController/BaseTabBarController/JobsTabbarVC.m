@@ -96,6 +96,13 @@ static JobsTabbarVC *static_tabbarVC = nil;
 //    [self ppBadge:YES];
 }
 #pragma mark —— 一些公有方法
+/// 需要强制跳转登录的index。点击和手势滑动都需要共同调用
+-(BOOL)forcedLoginIndex:(NSUInteger)index{
+    if ([self.needLoginArr containsObject:@(index)]) {
+        [self forcedLogin];
+        return YES;
+    }return NO;
+}
 /// 关闭手势
 -(void)closePan{
     self.view.panGR.enabled = NO;
@@ -129,15 +136,6 @@ static JobsTabbarVC *static_tabbarVC = nil;
     }
 }
 #pragma mark —— 一些私有方法
-/// 需要强制跳转登录的index。点击和手势滑动都需要共同调用
--(BOOL)forcedLoginIndex:(NSUInteger)index{
-    if (index == 1 ||
-        index == 2 ||
-        index == 4) {
-        [self forcedLogin];
-        return YES;
-    }return NO;
-}
 /// 判别是否有Lottie
 /// @param index index
 -(BOOL)judgeLottieWithIndex:(NSInteger)index{

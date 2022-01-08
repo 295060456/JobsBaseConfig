@@ -1,0 +1,7 @@
+
+{
+
+    self.gk_backStyle = GKNavigationBarBackStyleWhite;
+    self.gk_navBackgroundColor = UIColor.clearColor;
+    self.gk_backImage = KIMG(@"返回箭头白色");
+}

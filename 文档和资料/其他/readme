@@ -1,0 +1,172 @@
+iOS面试题：如何高性能的给 UIImageView 加个圆角?
+https://www.jianshu.com/p/d568a7e078e9
+
+iOS面试题：如何捕获异常？
+https://www.jianshu.com/p/e7d4e308ecdb
+
+iOS面试题：你会如何存储用户的一些敏感信息，如登录的token
+https://www.jianshu.com/p/380d15262054
+
+iOS URL编码&base64编码
+https://blog.csdn.net/lotheve/article/details/53706756
+
+iOS面试题：数据库选择原因（realm 、coreData、FMDB、Sqlite）
+https://www.jianshu.com/p/7883d87ec971
+
+FFmpeg在iOS开发中编译并使用
+https://www.jianshu.com/p/4b832101f12b
+Swift - 使用ijkplayer框架播放直播视频1（RTMP/HTTP视频流播放）
+http://www.hangge.com/blog/cache/detail_1326.html
+
+动态配置 iOS app 的启动图
+https://juejin.im/entry/57b3e4a75bbb500063f80e72
+
+拖动 tableView 来缩放顶部图片
+https://www.jianshu.com/p/4664af98f20d
+[iOS]TableView顶部图片下拉放大功能
+https://www.jianshu.com/p/af8eda47e989
+
+取消的TableView的页眉与页脚的黏性效果
+http://al1020119.github.io/blog/2014/08/05/qu-xiao-tableviewde-headeryu-footerde-nian-xing-xiao-guo/
+
+iOS App Icon启动图尺寸配置适配iPhone XS XR XS Max等
+https://www.jianshu.com/p/77da18f8d231
+
+修改Xcode工程名称
+https://juejin.im/post/5a5725a76fb9a01ca602b6ac
+
+子类化UINavigationBar的方式修改导航栏的高度
+https://github.com/feng520ckx/CustomNavigationBar
+https://blog.csdn.net/gaoyp/article/details/52806519
+
+MBProgressHUD
+https://www.jianshu.com/p/cd2d2adde73c
+
+ijkplayer 的编译、打包 framework 和 https 支持
+https://blog.wskfz.com/index.php/archives/59/
+
+A powerful and easy to use category view (segmentedcontrol, segmentview, pagingview, pagerview, pagecontrol) (腾讯新闻、今日头条、QQ音乐、网易云音乐、京东、爱奇艺、腾讯视频、淘宝、天猫、简书、微博等所有主流APP分类切换滚动视图)
+https://github.com/pujiaxin33/JXCategoryView
+
+XLChannelControl
+参考了今日头条、网易、腾讯这几个新闻客户端的频道管理功能
+觉得腾讯的逻辑和操作还是比较清晰的
+所以仿照这腾讯新闻的客户端做了一个这个频道管理的功能；
+实现原理是利用UICollectionView+UIGestureRecognizer实现的
+https://github.com/mengxianliang/XLChannelControl
+
+高仿苹果按住图标抖动
+https://blog.csdn.net/weixin_34357436/article/details/92053677
+
+直接隐藏当前页面的 UITabBar
+https://www.cnblogs.com/gfxxbk/p/5595335.html
+propertyVC.hidesBottomBarWhenPushed = YES;
+
+友盟封装demo
+https://github.com/zhouxihi/ThirdPartDemo
+https://www.cnblogs.com/zhouxihi/p/7128567.html
+
+mansonry 高级用法
+@property (nonatomic, strong) MASConstraint *Topic_headerViewHeightConstraint;
+
+[_Topic_headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+make.top.left.right.equalTo(self.view);
+self.Topic_headerViewHeightConstraint = make.height.mas_equalTo(0.0);
+}];
+
+self.Topic_headerView.Topic_showBlock = ^(BOOL isShow) {
+if (isShow) {
+CGFloat headerViewHeight = CGRectGetWidth([[UIScreen mainScreen] bounds])/5.5;
+weakSelf.Topic_headerViewHeightConstraint.mas_equalTo(headerViewHeight);
+weakSelf.Topic_headerView.hidden = NO;
+} else {
+weakSelf.Topic_headerViewHeightConstraint.mas_equalTo(0.0);
+weakSelf.Topic_headerView.hidden = YES;
+}
+[weakSelf.Topic_headerView layoutIfNeeded];
+};
+
+监听UIScrollView滑动和停止滑动
+https://blog.csdn.net/haha223545/article/details/80008279
+
+https://www.jianshu.com/p/6517ab655be7
+[爆栈热门 iOS 问题] performSelector may cause a leak because its selector is unknown
+
+https://github.com/QMUI/QMUI_iOS_CodeSnippets
+
+https://github.com/kingsic/SGPagingView
+
+项目中各个地方都会用到文本框，TextView的，他们输入也会有各种需求，各种限制，每次用到的时候要重写一遍这些限制，导致各种垃圾代码，各种重复，有一天，我终于看不下去了，于是把他们进行了一层封装，方便后续开发使用，代码量也减少了很多，这里把封装的查看提供出来，有需要的可以参考一下。
+https://github.com/qqcc1388/TYLimitInputDemo
+
+iOS-拍照后裁剪,不可拖动照片的问题
+https://www.jianshu.com/p/9474ca73e269
+demo:
+https://github.com/jianyang1990/YYImageClipViewControllerDemo
+
+iOS UITextView限制输入字数并显示剩余字数
+https://blog.csdn.net/Dancer2015/article/details/51505810
+
+完美解决 Treating Unicode character as whitespace的问题
+https://blog.csdn.net/lcg910978041/article/details/78626033
+
+Carthage的使用
+https://www.zybuluo.com/Sweetfish/note/1013133
+
+PLPlayerKit 是七牛推出的一款免费的适用于 iOS 平台的播放器 SDK，采用全自研的跨平台播放内核，拥有丰富的功能和优异的性能，可高度定制化和二次开发。
+https://github.com/pili-engineering/PLPlayerKit/
+
+Class class = NSClassFromString([self.classes objectAtIndex:indexPath.row]);
+UIViewController *vc = [[class alloc]init];
+
+git commit但没push 想回退到commit
+git reset --soft HEAD^
+
+https://github.com/fletcheryang2014/BundleLoader
+
+https://www.jianshu.com/p/37b3e382dcab //Label或Button自适应宽度或文字大小
+
+https://blog.csdn.net/ziyuzhiye/article/details/90677399 超级签名
+
+功能|YYLabel|YYTextView| TTTAttributedLabel|备注
+:---:|:---:|:---:|:---:
+字体|✔️|✔️|✔️|
+颜色|✔️|✔️|✔️|
+描边|✔️|✔️|✔️|
+删除样式|✔️|✔️|✔️|
+下划线|✔️|✔️|✔️|
+背景色|✔️|✔️|✔️|
+阴影|✔️|✔️|❌|
+斜体|❌|❌|❌|
+图片|✔️|✔️|❌|TTT不支持
+链接|✔️|✔️|✔️|
+数据探测器|❌|✔️|✔️|
+
+oc综合项目,ios综合项目,iosdemo,ocdemo,demo,百思不得姐,新浪微博,sina,QQ音乐,QQMusic,music,视频列表,滚动播放,拖拽播放,离线下载,即时通讯,打印 ios 日志,省市区三级联动,没有导航栏,自定义导航栏,字体适配屏幕,空白页展示,空白页,导航条颜色渐变,导航条高度渐变,YYText 使用,列表的展开和收起,京东首页布局,流水布局,垂直流水布局,水平流水布局,非规则流水布局,键盘处理,文件下载,Masonry 案例,LKDB 数据库,百度地图,二维码,照片上传,照片上传有进度,列表倒计时,H5和原生交互,自定义各种弹框,常见表单类型,人脸识别,列表加载图片,列表拖拽,日历操作,导航条渐变,指纹解锁,物理仿真,控制器生命周期,RunTime … https://github.com/NJHu/PLMMPrjk
+
+在cell里面，用[self layoutIfNeeded]刷新立即得到textLabel等的frame值，每走一次[self layoutIfNeeded]，调用一次layoutSubviews，frame有可能不准，是中间值
+最终对于cell自带的系统控件的frame都体现在-(void)drawRect:(CGRect)rect及其以后的方法里面
+
+extern 会引起计数器+
+nstimer 要在viewwilldisappear销毁 而不是dealloc
+
+
+https://juejin.im/post/5a9e66f6f265da23970660a9
+https://www.jianshu.com/p/2bf17335c3e9
+https://www.jianshu.com/p/e4fc6aceec49
+https://heisenbean.me/2016/09/Timer-in-iOS/
+
+//UIImage转NSData有时为nil
+https://www.jianshu.com/p/0c54fef22fa7
+
+https://www.yuque.com/baxiang/ios/vdowq0
+
+//iOS 教你如何使用iconfont图标    https://blog.csdn.net/u010960265/article/details/82531268
+//阿里巴巴矢量图标库   https://www.iconfont.cn
+
+//大厂iOS APP都用了哪些第三方库？ http://www.jeepxie.net/article/974559.html
+
+NSProxy!!!!!!
+
+//iOS MJRefresh下拉、上拉刷新自定义以及系统详细讲解
+https://www.cnblogs.com/xujiahui/p/6808018.html
