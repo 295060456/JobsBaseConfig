@@ -60,6 +60,7 @@
 /// 获取客服联系方式
 -(void)customerContact:(MKDataBlock)block{
     NSLog(@"获取客服联系方式 —— 网络请求");
+    if (block) block(@1);
 }
 #pragma mark —— lazyLoad
 -(UILabel *)titleLab{

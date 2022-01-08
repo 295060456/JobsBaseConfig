@@ -588,6 +588,7 @@
 		84CA621C27899E2700E46E71 /* 0.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 84CA621827899E2700E46E71 /* 0.jpeg */; };
 		84CA621D27899E2700E46E71 /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 84CA621927899E2700E46E71 /* 1.jpeg */; };
 		84CA621E27899E2700E46E71 /* 3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 84CA621A27899E2700E46E71 /* 3.jpeg */; };
+		84CA634E2789ADB200E46E71 /* TransparentRegionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA634D2789ADB200E46E71 /* TransparentRegionVC.m */; };
 		84D76437278090330003F0E4 /* UIViewController+SafeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D76435278090330003F0E4 /* UIViewController+SafeTransition.m */; };
 		84D764AF2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D764AD2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel.m */; };
 		84D764B3278092C10003F0E4 /* RequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D764B2278092C00003F0E4 /* RequestTool.m */; };
@@ -1725,6 +1726,8 @@
 		84CA621827899E2700E46E71 /* 0.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0.jpeg; sourceTree = "<group>"; };
 		84CA621927899E2700E46E71 /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpeg; sourceTree = "<group>"; };
 		84CA621A27899E2700E46E71 /* 3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpeg; sourceTree = "<group>"; };
+		84CA634C2789ADB200E46E71 /* TransparentRegionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransparentRegionVC.h; sourceTree = "<group>"; };
+		84CA634D2789ADB200E46E71 /* TransparentRegionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransparentRegionVC.m; sourceTree = "<group>"; };
 		84D76435278090330003F0E4 /* UIViewController+SafeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SafeTransition.m"; sourceTree = "<group>"; };
 		84D76436278090330003F0E4 /* UIViewController+SafeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SafeTransition.h"; sourceTree = "<group>"; };
 		84D764AD2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasinoGetiOSNewestVersionModel.m; sourceTree = "<group>"; };
@@ -6616,6 +6619,7 @@
 		84CA609D278980E700E46E71 /* 功能模块 */ = {
 			isa = PBXGroup;
 			children = (
+				84CA634B2789ADA000E46E71 /* TransparentRegion */,
 				84CA618F278984F300E46E71 /* PushTransformAnimation */,
 				84CA609E2789817300E46E71 /* Progress */,
 			);
@@ -6717,6 +6721,23 @@
 				84CA621A27899E2700E46E71 /* 3.jpeg */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		84CA634B2789ADA000E46E71 /* TransparentRegion */ = {
+			isa = PBXGroup;
+			children = (
+				84CA63522789ADD200E46E71 /* TransparentRegionVC */,
+			);
+			path = TransparentRegion;
+			sourceTree = "<group>";
+		};
+		84CA63522789ADD200E46E71 /* TransparentRegionVC */ = {
+			isa = PBXGroup;
+			children = (
+				84CA634C2789ADB200E46E71 /* TransparentRegionVC.h */,
+				84CA634D2789ADB200E46E71 /* TransparentRegionVC.m */,
+			);
+			path = TransparentRegionVC;
 			sourceTree = "<group>";
 		};
 		84D76434278090330003F0E4 /* UIViewController+SafeTransition */ = {
@@ -7283,6 +7304,7 @@
 				840F967927736428004979E9 /* UIView+AutoSelfAdaptionSize.m in Sources */,
 				840F961827736427004979E9 /* JobsImageNumberViewCVCell.m in Sources */,
 				840F966927736428004979E9 /* UIColor+Gradient.m in Sources */,
+				84CA634E2789ADB200E46E71 /* TransparentRegionVC.m in Sources */,
 				840F96AA27736428004979E9 /* UIViewController+SuspendBtn.m in Sources */,
 				840F96FA27736428004979E9 /* KeychainHelper.m in Sources */,
 				8459CE202776DCCF00125782 /* JobsWelcomeVC.m in Sources */,

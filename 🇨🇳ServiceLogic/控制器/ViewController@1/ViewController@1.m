@@ -80,10 +80,12 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
     if (indexPath == [self myIndexPath:(JobsIndexPath){0,0}]) {
-        [self comingToPushVC:JobsAppDoorVC.new
-                withNavTitle:_dataMutArr[indexPath.row].text];
+        JobsAppDoorVC *appDoorVC = JobsAppDoorVC.new;
+        [self comingToPresentVC:appDoorVC
+                  requestParams:@(JobsAppDoorBgType_video)];
     }else if (indexPath == [self myIndexPath:(JobsIndexPath){1,0}]){
-        
+        [self comingToPushVC:TransparentRegionVC.new
+                withNavTitle:@"TransparentRegion"];
     }else if (indexPath == [self myIndexPath:(JobsIndexPath){2,0}]){
         
     }else if (indexPath == [self myIndexPath:(JobsIndexPath){3,0}]){
@@ -302,10 +304,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             viewModel.subText = @"点击查看";
             [_dataMutArr addObject:viewModel];
         }
-        
-
-  
-
     }return _dataMutArr;
 }
 
