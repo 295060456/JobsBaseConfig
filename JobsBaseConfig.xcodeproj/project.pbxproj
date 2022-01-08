@@ -589,6 +589,8 @@
 		84CA621D27899E2700E46E71 /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 84CA621927899E2700E46E71 /* 1.jpeg */; };
 		84CA621E27899E2700E46E71 /* 3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 84CA621A27899E2700E46E71 /* 3.jpeg */; };
 		84CA634E2789ADB200E46E71 /* TransparentRegionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA634D2789ADB200E46E71 /* TransparentRegionVC.m */; };
+		84CA63CA2789B1EC00E46E71 /* DynamicViewTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA63C92789B1EC00E46E71 /* DynamicViewTestVC.m */; };
+		84CA63D12789B3CC00E46E71 /* TestIrregularViewTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA63D02789B3CC00E46E71 /* TestIrregularViewTestVC.m */; };
 		84D76437278090330003F0E4 /* UIViewController+SafeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D76435278090330003F0E4 /* UIViewController+SafeTransition.m */; };
 		84D764AF2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D764AD2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel.m */; };
 		84D764B3278092C10003F0E4 /* RequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D764B2278092C00003F0E4 /* RequestTool.m */; };
@@ -1728,6 +1730,10 @@
 		84CA621A27899E2700E46E71 /* 3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpeg; sourceTree = "<group>"; };
 		84CA634C2789ADB200E46E71 /* TransparentRegionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransparentRegionVC.h; sourceTree = "<group>"; };
 		84CA634D2789ADB200E46E71 /* TransparentRegionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransparentRegionVC.m; sourceTree = "<group>"; };
+		84CA63C82789B1EC00E46E71 /* DynamicViewTestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicViewTestVC.h; sourceTree = "<group>"; };
+		84CA63C92789B1EC00E46E71 /* DynamicViewTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicViewTestVC.m; sourceTree = "<group>"; };
+		84CA63CF2789B3CC00E46E71 /* TestIrregularViewTestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestIrregularViewTestVC.h; sourceTree = "<group>"; };
+		84CA63D02789B3CC00E46E71 /* TestIrregularViewTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestIrregularViewTestVC.m; sourceTree = "<group>"; };
 		84D76435278090330003F0E4 /* UIViewController+SafeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SafeTransition.m"; sourceTree = "<group>"; };
 		84D76436278090330003F0E4 /* UIViewController+SafeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SafeTransition.h"; sourceTree = "<group>"; };
 		84D764AD2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasinoGetiOSNewestVersionModel.m; sourceTree = "<group>"; };
@@ -6619,6 +6625,8 @@
 		84CA609D278980E700E46E71 /* 功能模块 */ = {
 			isa = PBXGroup;
 			children = (
+				84CA63CB2789B3A200E46E71 /* TestIrregularView */,
+				84CA63C62789B1C600E46E71 /* DynamicView */,
 				84CA634B2789ADA000E46E71 /* TransparentRegion */,
 				84CA618F278984F300E46E71 /* PushTransformAnimation */,
 				84CA609E2789817300E46E71 /* Progress */,
@@ -6738,6 +6746,24 @@
 				84CA634D2789ADB200E46E71 /* TransparentRegionVC.m */,
 			);
 			path = TransparentRegionVC;
+			sourceTree = "<group>";
+		};
+		84CA63C62789B1C600E46E71 /* DynamicView */ = {
+			isa = PBXGroup;
+			children = (
+				84CA63C82789B1EC00E46E71 /* DynamicViewTestVC.h */,
+				84CA63C92789B1EC00E46E71 /* DynamicViewTestVC.m */,
+			);
+			path = DynamicView;
+			sourceTree = "<group>";
+		};
+		84CA63CB2789B3A200E46E71 /* TestIrregularView */ = {
+			isa = PBXGroup;
+			children = (
+				84CA63CF2789B3CC00E46E71 /* TestIrregularViewTestVC.h */,
+				84CA63D02789B3CC00E46E71 /* TestIrregularViewTestVC.m */,
+			);
+			path = TestIrregularView;
 			sourceTree = "<group>";
 		};
 		84D76434278090330003F0E4 /* UIViewController+SafeTransition */ = {
@@ -7261,6 +7287,7 @@
 				840F964E27736427004979E9 /* UITableViewCell+BaseCellProtocol.m in Sources */,
 				8459CC332775D3E900125782 /* AppDelegate+UIApplicationDelegate.m in Sources */,
 				844B08832764CF4800B0513D /* XHLaunchAdImageManager.m in Sources */,
+				84CA63CA2789B1EC00E46E71 /* DynamicViewTestVC.m in Sources */,
 				840F96BD27736428004979E9 /* UIControl+XY.m in Sources */,
 				840F961627736427004979E9 /* JobsNoticePopupView.m in Sources */,
 				840F966327736428004979E9 /* BaseButton.m in Sources */,
@@ -7299,6 +7326,7 @@
 				84CA5FBB27897AFB00E46E71 /* WBTableViewDelegate.m in Sources */,
 				84CA5FE227897AFB00E46E71 /* FSAppIconManager.m in Sources */,
 				840F96ED27736428004979E9 /* NSObject+UserNotifications.m in Sources */,
+				84CA63D12789B3CC00E46E71 /* TestIrregularViewTestVC.m in Sources */,
 				840F96D727736428004979E9 /* NSTimerManager.m in Sources */,
 				840F96FD27736428004979E9 /* NSObject+IDFA.m in Sources */,
 				840F967927736428004979E9 /* UIView+AutoSelfAdaptionSize.m in Sources */,

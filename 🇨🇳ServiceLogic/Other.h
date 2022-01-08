@@ -35,5 +35,7 @@
 #import "JobsProgressVC.h"
 #import "A_VC.h"
 #import "TransparentRegionVC.h"
+#import "DynamicViewTestVC.h"
+#import "TestIrregularViewTestVC.h"
 
 #endif /* Other_h */

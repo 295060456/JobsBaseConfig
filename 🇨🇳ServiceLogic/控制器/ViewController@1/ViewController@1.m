@@ -102,13 +102,15 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     }else if (indexPath == [self myIndexPath:(JobsIndexPath){8,0}]){
         
     }else if (indexPath == [self myIndexPath:(JobsIndexPath){9,0}]){
-        
+        [self comingToPushVC:DynamicViewTestVC.new
+                withNavTitle:@"DynamicViewTestVC"];
     }else if (indexPath == [self myIndexPath:(JobsIndexPath){10,0}]){
         
     }else if (indexPath == [self myIndexPath:(JobsIndexPath){11,0}]){
-        
+        [self comingToPushVC:TestIrregularViewTestVC.new
+                withNavTitle:@"TestIrregularViewTestVC"];
     }else if (indexPath == [self myIndexPath:(JobsIndexPath){12,0}]){
-        
+
     }else if (indexPath == [self myIndexPath:(JobsIndexPath){13,0}]){
         
     }else if (indexPath == [self myIndexPath:(JobsIndexPath){14,0}]){
