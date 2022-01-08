@@ -105,7 +105,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
         [self comingToPushVC:DynamicViewTestVC.new
                 withNavTitle:@"DynamicViewTestVC"];
     }else if (indexPath == [self myIndexPath:(JobsIndexPath){10,0}]){
-        
+        [self comingToPushVC:JobsProgressVC.new
+                withNavTitle:@"JobsProgressVC"];
     }else if (indexPath == [self myIndexPath:(JobsIndexPath){11,0}]){
         [self comingToPushVC:TestIrregularViewTestVC.new
                 withNavTitle:@"TestIrregularViewTestVC"];
