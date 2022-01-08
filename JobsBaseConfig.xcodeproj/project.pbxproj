@@ -602,6 +602,13 @@
 		84CA64C82789C94400E46E71 /* ZFTableData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA64C62789C94400E46E71 /* ZFTableData.m */; };
 		84CA65402789CAB600E46E71 /* DDNetworkingAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA653F2789CAB600E46E71 /* DDNetworkingAPI.m */; };
 		84CA65452789CB2A00E46E71 /* DDNetworkingAPI+DemoTestApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA65432789CB2A00E46E71 /* DDNetworkingAPI+DemoTestApi.m */; };
+		84CA65FC2789D3B500E46E71 /* JobsAppDoorVC_Style2.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA65F32789D3B500E46E71 /* JobsAppDoorVC_Style2.m */; };
+		84CA65FD2789D3B500E46E71 /* JobsAppDoorRegisterContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA65F72789D3B500E46E71 /* JobsAppDoorRegisterContentView.m */; };
+		84CA65FE2789D3B500E46E71 /* JobsAppDoorLoginContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA65FB2789D3B500E46E71 /* JobsAppDoorLoginContentView.m */; };
+		84CA66022789D4B100E46E71 /* DDForgetCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA66002789D4B100E46E71 /* DDForgetCodeVC.m */; };
+		84CA660E2789D4CD00E46E71 /* ForgetCodeStep_02View.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA66062789D4CD00E46E71 /* ForgetCodeStep_02View.m */; };
+		84CA660F2789D4CD00E46E71 /* FindCodeFlowChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA660A2789D4CD00E46E71 /* FindCodeFlowChartView.m */; };
+		84CA66102789D4CD00E46E71 /* ForgetCodeStep_01View.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA660C2789D4CD00E46E71 /* ForgetCodeStep_01View.m */; };
 		84D76437278090330003F0E4 /* UIViewController+SafeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D76435278090330003F0E4 /* UIViewController+SafeTransition.m */; };
 		84D764AF2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D764AD2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel.m */; };
 		84D764B3278092C10003F0E4 /* RequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D764B2278092C00003F0E4 /* RequestTool.m */; };
@@ -1768,6 +1775,20 @@
 		84CA653F2789CAB600E46E71 /* DDNetworkingAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDNetworkingAPI.m; sourceTree = "<group>"; };
 		84CA65432789CB2A00E46E71 /* DDNetworkingAPI+DemoTestApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDNetworkingAPI+DemoTestApi.m"; sourceTree = "<group>"; };
 		84CA65442789CB2A00E46E71 /* DDNetworkingAPI+DemoTestApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDNetworkingAPI+DemoTestApi.h"; sourceTree = "<group>"; };
+		84CA65F22789D3B500E46E71 /* JobsAppDoorVC_Style2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorVC_Style2.h; sourceTree = "<group>"; };
+		84CA65F32789D3B500E46E71 /* JobsAppDoorVC_Style2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorVC_Style2.m; sourceTree = "<group>"; };
+		84CA65F72789D3B500E46E71 /* JobsAppDoorRegisterContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorRegisterContentView.m; sourceTree = "<group>"; };
+		84CA65F82789D3B500E46E71 /* JobsAppDoorRegisterContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorRegisterContentView.h; sourceTree = "<group>"; };
+		84CA65FA2789D3B500E46E71 /* JobsAppDoorLoginContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorLoginContentView.h; sourceTree = "<group>"; };
+		84CA65FB2789D3B500E46E71 /* JobsAppDoorLoginContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorLoginContentView.m; sourceTree = "<group>"; };
+		84CA66002789D4B100E46E71 /* DDForgetCodeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDForgetCodeVC.m; sourceTree = "<group>"; };
+		84CA66012789D4B100E46E71 /* DDForgetCodeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDForgetCodeVC.h; sourceTree = "<group>"; };
+		84CA66062789D4CD00E46E71 /* ForgetCodeStep_02View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetCodeStep_02View.m; sourceTree = "<group>"; };
+		84CA66072789D4CD00E46E71 /* ForgetCodeStep_02View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetCodeStep_02View.h; sourceTree = "<group>"; };
+		84CA66092789D4CD00E46E71 /* FindCodeFlowChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindCodeFlowChartView.h; sourceTree = "<group>"; };
+		84CA660A2789D4CD00E46E71 /* FindCodeFlowChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindCodeFlowChartView.m; sourceTree = "<group>"; };
+		84CA660C2789D4CD00E46E71 /* ForgetCodeStep_01View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetCodeStep_01View.m; sourceTree = "<group>"; };
+		84CA660D2789D4CD00E46E71 /* ForgetCodeStep_01View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetCodeStep_01View.h; sourceTree = "<group>"; };
 		84D76435278090330003F0E4 /* UIViewController+SafeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SafeTransition.m"; sourceTree = "<group>"; };
 		84D76436278090330003F0E4 /* UIViewController+SafeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SafeTransition.h"; sourceTree = "<group>"; };
 		84D764AD2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasinoGetiOSNewestVersionModel.m; sourceTree = "<group>"; };
@@ -6662,6 +6683,7 @@
 		84CA609D278980E700E46E71 /* 功能模块 */ = {
 			isa = PBXGroup;
 			children = (
+				84CA65F02789D39700E46E71 /* JobsAppDoor-2 */,
 				84CA642C2789C0F700E46E71 /* Douyin_ZFPlayer */,
 				84CA63CB2789B3A200E46E71 /* TestIrregularView */,
 				84CA63C62789B1C600E46E71 /* DynamicView */,
@@ -6941,6 +6963,115 @@
 				84CA65432789CB2A00E46E71 /* DDNetworkingAPI+DemoTestApi.m */,
 			);
 			path = "App接口示例";
+			sourceTree = "<group>";
+		};
+		84CA65F02789D39700E46E71 /* JobsAppDoor-2 */ = {
+			isa = PBXGroup;
+			children = (
+				84CA65F42789D3B500E46E71 /* View */,
+				84CA65F12789D3B500E46E71 /* ViewController */,
+			);
+			path = "JobsAppDoor-2";
+			sourceTree = "<group>";
+		};
+		84CA65F12789D3B500E46E71 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84CA66032789D4B500E46E71 /* DDForgetCodeVC */,
+				84CA65FF2789D49400E46E71 /* JobsAppDoorVC_Style2 */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		84CA65F42789D3B500E46E71 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84CA66042789D4CD00E46E71 /* 找回密码相关页面 */,
+				84CA65F52789D3B500E46E71 /* ContentView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		84CA65F52789D3B500E46E71 /* ContentView */ = {
+			isa = PBXGroup;
+			children = (
+				84CA65F62789D3B500E46E71 /* JobsAppDoorRegisterContentView */,
+				84CA65F92789D3B500E46E71 /* JobsAppDoorLoginContentView */,
+			);
+			path = ContentView;
+			sourceTree = "<group>";
+		};
+		84CA65F62789D3B500E46E71 /* JobsAppDoorRegisterContentView */ = {
+			isa = PBXGroup;
+			children = (
+				84CA65F72789D3B500E46E71 /* JobsAppDoorRegisterContentView.m */,
+				84CA65F82789D3B500E46E71 /* JobsAppDoorRegisterContentView.h */,
+			);
+			path = JobsAppDoorRegisterContentView;
+			sourceTree = "<group>";
+		};
+		84CA65F92789D3B500E46E71 /* JobsAppDoorLoginContentView */ = {
+			isa = PBXGroup;
+			children = (
+				84CA65FA2789D3B500E46E71 /* JobsAppDoorLoginContentView.h */,
+				84CA65FB2789D3B500E46E71 /* JobsAppDoorLoginContentView.m */,
+			);
+			path = JobsAppDoorLoginContentView;
+			sourceTree = "<group>";
+		};
+		84CA65FF2789D49400E46E71 /* JobsAppDoorVC_Style2 */ = {
+			isa = PBXGroup;
+			children = (
+				84CA65F22789D3B500E46E71 /* JobsAppDoorVC_Style2.h */,
+				84CA65F32789D3B500E46E71 /* JobsAppDoorVC_Style2.m */,
+			);
+			path = JobsAppDoorVC_Style2;
+			sourceTree = "<group>";
+		};
+		84CA66032789D4B500E46E71 /* DDForgetCodeVC */ = {
+			isa = PBXGroup;
+			children = (
+				84CA66012789D4B100E46E71 /* DDForgetCodeVC.h */,
+				84CA66002789D4B100E46E71 /* DDForgetCodeVC.m */,
+			);
+			path = DDForgetCodeVC;
+			sourceTree = "<group>";
+		};
+		84CA66042789D4CD00E46E71 /* 找回密码相关页面 */ = {
+			isa = PBXGroup;
+			children = (
+				84CA66052789D4CD00E46E71 /* 找回密码第二步 */,
+				84CA66082789D4CD00E46E71 /* 找回密码流程图 */,
+				84CA660B2789D4CD00E46E71 /* 找回密码第一步 */,
+			);
+			path = "找回密码相关页面";
+			sourceTree = "<group>";
+		};
+		84CA66052789D4CD00E46E71 /* 找回密码第二步 */ = {
+			isa = PBXGroup;
+			children = (
+				84CA66062789D4CD00E46E71 /* ForgetCodeStep_02View.m */,
+				84CA66072789D4CD00E46E71 /* ForgetCodeStep_02View.h */,
+			);
+			path = "找回密码第二步";
+			sourceTree = "<group>";
+		};
+		84CA66082789D4CD00E46E71 /* 找回密码流程图 */ = {
+			isa = PBXGroup;
+			children = (
+				84CA66092789D4CD00E46E71 /* FindCodeFlowChartView.h */,
+				84CA660A2789D4CD00E46E71 /* FindCodeFlowChartView.m */,
+			);
+			path = "找回密码流程图";
+			sourceTree = "<group>";
+		};
+		84CA660B2789D4CD00E46E71 /* 找回密码第一步 */ = {
+			isa = PBXGroup;
+			children = (
+				84CA660C2789D4CD00E46E71 /* ForgetCodeStep_01View.m */,
+				84CA660D2789D4CD00E46E71 /* ForgetCodeStep_01View.h */,
+			);
+			path = "找回密码第一步";
 			sourceTree = "<group>";
 		};
 		84D76434278090330003F0E4 /* UIViewController+SafeTransition */ = {
@@ -7443,6 +7574,7 @@
 				840F96E127736428004979E9 /* TouchID.m in Sources */,
 				840F96B127736428004979E9 /* BaseViewController.m in Sources */,
 				840F967D27736428004979E9 /* UIFont+Extras.m in Sources */,
+				84CA66102789D4CD00E46E71 /* ForgetCodeStep_01View.m in Sources */,
 				840F96B027736428004979E9 /* LOTAnimationMJRefreshFooter.m in Sources */,
 				840F967827736428004979E9 /* UIView+Animation.m in Sources */,
 				840F96D127736428004979E9 /* CALayer+Anim.m in Sources */,
@@ -7475,12 +7607,14 @@
 				840F95E427736427004979E9 /* JobsBitsMonitorCore.m in Sources */,
 				840F96C727736428004979E9 /* LMHWaterFallLayout.m in Sources */,
 				840F971427736428004979E9 /* ZYTextField.m in Sources */,
+				84CA66022789D4B100E46E71 /* DDForgetCodeVC.m in Sources */,
 				840F96A227736428004979E9 /* UIViewController+Lottie.m in Sources */,
 				840F966E27736428004979E9 /* UIView+ZFPlayer.m in Sources */,
 				84566B042784833100636967 /* UINavigationController+Extra.m in Sources */,
 				840F967627736428004979E9 /* UIView+ViewController.m in Sources */,
 				840F963627736427004979E9 /* JobsLabBaseModel.m in Sources */,
 				840F964827736427004979E9 /* UIImage+YBGIF.m in Sources */,
+				84CA660E2789D4CD00E46E71 /* ForgetCodeStep_02View.m in Sources */,
 				84CA65452789CB2A00E46E71 /* DDNetworkingAPI+DemoTestApi.m in Sources */,
 				840F966C27736428004979E9 /* UIView+BaseView.m in Sources */,
 				840F96F127736428004979E9 /* NSObject+Time.m in Sources */,
@@ -7621,6 +7755,7 @@
 				84CA64B22789C2F300E46E71 /* Douyin_ZFPlayerVC@2.m in Sources */,
 				840F968E27736428004979E9 /* BaseImageView.m in Sources */,
 				840F961427736427004979E9 /* CustomZFPlayerControlView.m in Sources */,
+				84CA65FE2789D3B500E46E71 /* JobsAppDoorLoginContentView.m in Sources */,
 				84CA61932789851300E46E71 /* A_VC.m in Sources */,
 				844B084E2764CF4800B0513D /* ECPrivacyCheckMotionAndFitness.m in Sources */,
 				840F969A27736428004979E9 /* NSString+Replace.m in Sources */,
@@ -7703,6 +7838,7 @@
 				84CA5FC227897AFB00E46E71 /* PopUpVC.m in Sources */,
 				840F964727736427004979E9 /* UIImage+SYS.m in Sources */,
 				840F961127736427004979E9 /* ZBRequestManager.m in Sources */,
+				84CA65FC2789D3B500E46E71 /* JobsAppDoorVC_Style2.m in Sources */,
 				845C795E2786D29F009843EE /* NSObject+RunrtimeGet.m in Sources */,
 				840F960227736427004979E9 /* TransitionAnimation.m in Sources */,
 				84CA5FA927897AFB00E46E71 /* HWTFCodeView.m in Sources */,
@@ -7734,6 +7870,7 @@
 				840F96A127736428004979E9 /* UIViewController+JPImageresizerView.m in Sources */,
 				84CA5FAA27897AFB00E46E71 /* HWTextCodeView.m in Sources */,
 				840F96AD27736428004979E9 /* LOTAnimationMJRefreshHeader.m in Sources */,
+				84CA65FD2789D3B500E46E71 /* JobsAppDoorRegisterContentView.m in Sources */,
 				844B083E2764CF4800B0513D /* JXCategoryTimelineCellModel.m in Sources */,
 				840F96BE27736428004979E9 /* NSArray+Safety.m in Sources */,
 				840F963527736427004979E9 /* JobsUpDownLabModel.m in Sources */,
@@ -7759,6 +7896,7 @@
 				840F968027736428004979E9 /* UITextView+Extend.m in Sources */,
 				84CA5FBE27897AFB00E46E71 /* ZHKeyChainManager.m in Sources */,
 				84CA5FDE27897AFB00E46E71 /* WGradientProgressView.m in Sources */,
+				84CA660F2789D4CD00E46E71 /* FindCodeFlowChartView.m in Sources */,
 				844B08472764CF4800B0513D /* ECPrivacyCheckHomeKit.m in Sources */,
 				845C798E2786D2FE009843EE /* JobsAppDoorInputViewBaseStyle_6.m in Sources */,
 				84CA5FCC27897AFB00E46E71 /* UIImage+TBCityIconFont.m in Sources */,

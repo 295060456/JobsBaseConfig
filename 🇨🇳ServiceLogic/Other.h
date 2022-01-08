@@ -42,5 +42,6 @@
 #import "TestIrregularViewTestVC.h"
 #import "Douyin_ZFPlayerVC@1.h"
 #import "Douyin_ZFPlayerVC@2.h"
+#import "JobsAppDoorVC_Style2.h"
 
 #endif /* Other_h */
