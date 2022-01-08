@@ -10,7 +10,7 @@
 //
 
 #import "JhtBannerView.h"
-#import "AABlock.h"
+#import "JobsBlock.h"
 
 @interface JhtBannerView ()
 <
@@ -82,7 +82,7 @@ didScrollToCardViewWithIndex:(NSInteger)index {
 
 -(CGSize)JhtBannerCardViewSize{
     if (CGSizeEqualToSize(CGSizeZero, _JhtBannerCardViewSize)) {
-        _JhtBannerCardViewSize = CGSizeMake(SCREEN_WIDTH / self.dataArr.count, self.mj_h);
+        _JhtBannerCardViewSize = CGSizeMake(JobsSCREEN_WIDTH / self.dataArr.count, self.mj_h);
     }return _JhtBannerCardViewSize;
 }
 
@@ -109,7 +109,7 @@ cardViewForBannerViewAtIndex:(NSInteger)index {
             [cardView.cardImageView sd_setImageWithURL:[NSURL URLWithString:str]
                                       placeholderImage:[UIImage imageNamed:self.placeholderImageName]];
         }else{
-            cardView.cardLab.text = [NSString ensureNonnullString:(NSString *)self.dataArr[index] ReplaceStr:self.placeholderName];
+            cardView.cardLab.text = [NSString ensureNonnullString:(NSString *)self.dataArr[index] replaceStr:self.placeholderName];
         }
     }
     return cardView;

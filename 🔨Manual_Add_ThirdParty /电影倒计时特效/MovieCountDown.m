@@ -8,8 +8,8 @@
 
 #import "MovieCountDown.h"
 
-#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
-#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+#define JobsSCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define JobsSCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
 @interface MovieCountDown ()
 
@@ -97,8 +97,8 @@
         _countDown.textColor = self.countDownTextColor;
         _countDown.font = [UIFont boldSystemFontOfSize:100];
         _countDown.textAlignment = 1;
-        _countDown.x = (SCREEN_WIDTH - 100) / 2;
-        _countDown.y = (SCREEN_HEIGHT - 100) / 2;
+        _countDown.x = (JobsSCREEN_WIDTH - 100) / 2;
+        _countDown.y = (JobsSCREEN_HEIGHT - 100) / 2;
         _countDown.width = _countDown.height = 100;
         [self.effectView addSubview:_countDown];
     }return _countDown;

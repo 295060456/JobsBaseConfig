@@ -502,7 +502,6 @@
 		84CA5F8F27897AFB00E46E71 /* 牛逼标签效果 - SphereView👍 in Resources */ = {isa = PBXBuildFile; fileRef = 84CA5EC127897AFA00E46E71 /* 牛逼标签效果 - SphereView👍 */; };
 		84CA5F9027897AFB00E46E71 /* XLSphereView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA5EC327897AFA00E46E71 /* XLSphereView.m */; };
 		84CA5F9127897AFB00E46E71 /* File in Resources */ = {isa = PBXBuildFile; fileRef = 84CA5EC527897AFA00E46E71 /* File */; };
-		84CA5F9227897AFB00E46E71 /* SocketRocketUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA5EC727897AFA00E46E71 /* SocketRocketUtility.m */; };
 		84CA5F9327897AFB00E46E71 /* 凯撒加密解密 in Resources */ = {isa = PBXBuildFile; fileRef = 84CA5ECC27897AFA00E46E71 /* 凯撒加密解密 */; };
 		84CA5F9427897AFB00E46E71 /* DES in Resources */ = {isa = PBXBuildFile; fileRef = 84CA5ECF27897AFA00E46E71 /* DES */; };
 		84CA5F9527897AFB00E46E71 /* NSString+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA5ED427897AFA00E46E71 /* NSString+Base64.m */; };
@@ -561,14 +560,6 @@
 		84CA5FCA27897AFB00E46E71 /* TBCityIconFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA5F5327897AFA00E46E71 /* TBCityIconFont.m */; };
 		84CA5FCB27897AFB00E46E71 /* TBCityIconInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA5F5427897AFA00E46E71 /* TBCityIconInfo.m */; };
 		84CA5FCC27897AFB00E46E71 /* UIImage+TBCityIconFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA5F5527897AFA00E46E71 /* UIImage+TBCityIconFont.m */; };
-		84CA5FCD27897AFB00E46E71 /* StyleDIY.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA5F5A27897AFA00E46E71 /* StyleDIY.m */; };
-		84CA5FCE27897AFB00E46E71 /* LBXScanDIYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA5F5B27897AFA00E46E71 /* LBXScanDIYViewController.m */; };
-		84CA5FCF27897AFB00E46E71 /* ScanResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA5F5D27897AFA00E46E71 /* ScanResultViewController.m */; };
-		84CA5FD027897AFB00E46E71 /* LBXScanDIYView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA5F6027897AFA00E46E71 /* LBXScanDIYView.m */; };
-		84CA5FD127897AFB00E46E71 /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA5F6427897AFA00E46E71 /* Global.m */; };
-		84CA5FD227897AFB00E46E71 /* CreateBarCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA5F6627897AFA00E46E71 /* CreateBarCodeVC.m */; };
-		84CA5FD327897AFB00E46E71 /* DIYScanVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA5F6727897AFA00E46E71 /* DIYScanVC.m */; };
-		84CA5FD427897AFB00E46E71 /* WaterMark.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA5F6927897AFA00E46E71 /* WaterMark.m */; };
 		84CA5FD527897AFB00E46E71 /* SearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA5F6C27897AFA00E46E71 /* SearchView.m */; };
 		84CA5FD627897AFB00E46E71 /* 电话号码国家选择器 in Resources */ = {isa = PBXBuildFile; fileRef = 84CA5F7027897AFA00E46E71 /* 电话号码国家选择器 */; };
 		84CA5FD727897AFB00E46E71 /* sortedNameEN.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84CA5F7127897AFA00E46E71 /* sortedNameEN.plist */; };
@@ -1677,22 +1668,6 @@
 		84CA5F5627897AFA00E46E71 /* TBCityIconInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBCityIconInfo.h; sourceTree = "<group>"; };
 		84CA5F5727897AFA00E46E71 /* TBCityIconFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBCityIconFont.h; sourceTree = "<group>"; };
 		84CA5F5827897AFA00E46E71 /* UIImage+TBCityIconFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+TBCityIconFont.h"; sourceTree = "<group>"; };
-		84CA5F5A27897AFA00E46E71 /* StyleDIY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyleDIY.m; sourceTree = "<group>"; };
-		84CA5F5B27897AFA00E46E71 /* LBXScanDIYViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBXScanDIYViewController.m; sourceTree = "<group>"; };
-		84CA5F5C27897AFA00E46E71 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
-		84CA5F5D27897AFA00E46E71 /* ScanResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanResultViewController.m; sourceTree = "<group>"; };
-		84CA5F5E27897AFA00E46E71 /* DIYScanVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIYScanVC.h; sourceTree = "<group>"; };
-		84CA5F5F27897AFA00E46E71 /* CreateBarCodeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateBarCodeVC.h; sourceTree = "<group>"; };
-		84CA5F6027897AFA00E46E71 /* LBXScanDIYView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBXScanDIYView.m; sourceTree = "<group>"; };
-		84CA5F6127897AFA00E46E71 /* LBXScanDIYViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXScanDIYViewController.h; sourceTree = "<group>"; };
-		84CA5F6227897AFA00E46E71 /* StyleDIY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleDIY.h; sourceTree = "<group>"; };
-		84CA5F6327897AFA00E46E71 /* ScanResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanResultViewController.h; sourceTree = "<group>"; };
-		84CA5F6427897AFA00E46E71 /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
-		84CA5F6527897AFA00E46E71 /* LBXScanDIYView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXScanDIYView.h; sourceTree = "<group>"; };
-		84CA5F6627897AFA00E46E71 /* CreateBarCodeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateBarCodeVC.m; sourceTree = "<group>"; };
-		84CA5F6727897AFA00E46E71 /* DIYScanVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIYScanVC.m; sourceTree = "<group>"; };
-		84CA5F6927897AFA00E46E71 /* WaterMark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterMark.m; sourceTree = "<group>"; };
-		84CA5F6A27897AFA00E46E71 /* WaterMark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterMark.h; sourceTree = "<group>"; };
 		84CA5F6C27897AFA00E46E71 /* SearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchView.m; sourceTree = "<group>"; };
 		84CA5F6D27897AFA00E46E71 /* SearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchView.h; sourceTree = "<group>"; };
 		84CA5F6F27897AFA00E46E71 /* XWCountryCodeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWCountryCodeController.h; sourceTree = "<group>"; };
@@ -6054,6 +6029,7 @@
 		84CA5EBD27897AFA00E46E71 /* 🔨Manual_Add_ThirdParty  */ = {
 			isa = PBXGroup;
 			children = (
+				84CA5FE627897BEB00E46E71 /* 扫一扫组件（空缺） */,
 				84CA5EBE27897AFA00E46E71 /* XLSphereView */,
 				84CA5EC427897AFA00E46E71 /* FFmpeg */,
 				84CA5EC627897AFA00E46E71 /* WebSocket */,
@@ -6073,8 +6049,6 @@
 				84CA5F4227897AFA00E46E71 /* 卡片式滑动效果 */,
 				84CA5F4F27897AFA00E46E71 /* XDTextBtnView */,
 				84CA5F5227897AFA00E46E71 /* IconFont */,
-				84CA5F5927897AFA00E46E71 /* 扫一扫组件 */,
-				84CA5F6827897AFA00E46E71 /* WaterMark */,
 				84CA5F6B27897AFA00E46E71 /* SearchView */,
 				84CA5F6E27897AFA00E46E71 /* XWCountryCodeController */,
 				84CA5F7427897AFB00E46E71 /* AESCrypt-ObjC */,
@@ -6111,8 +6085,8 @@
 		84CA5EC627897AFA00E46E71 /* WebSocket */ = {
 			isa = PBXGroup;
 			children = (
-				84CA5EC727897AFA00E46E71 /* SocketRocketUtility.m */,
 				84CA5EC827897AFA00E46E71 /* SocketRocketUtility.h */,
+				84CA5EC727897AFA00E46E71 /* SocketRocketUtility.m */,
 			);
 			path = WebSocket;
 			sourceTree = "<group>";
@@ -6511,36 +6485,6 @@
 			path = IconFont;
 			sourceTree = "<group>";
 		};
-		84CA5F5927897AFA00E46E71 /* 扫一扫组件 */ = {
-			isa = PBXGroup;
-			children = (
-				84CA5F5A27897AFA00E46E71 /* StyleDIY.m */,
-				84CA5F5B27897AFA00E46E71 /* LBXScanDIYViewController.m */,
-				84CA5F5C27897AFA00E46E71 /* Global.h */,
-				84CA5F5D27897AFA00E46E71 /* ScanResultViewController.m */,
-				84CA5F5E27897AFA00E46E71 /* DIYScanVC.h */,
-				84CA5F5F27897AFA00E46E71 /* CreateBarCodeVC.h */,
-				84CA5F6027897AFA00E46E71 /* LBXScanDIYView.m */,
-				84CA5F6127897AFA00E46E71 /* LBXScanDIYViewController.h */,
-				84CA5F6227897AFA00E46E71 /* StyleDIY.h */,
-				84CA5F6327897AFA00E46E71 /* ScanResultViewController.h */,
-				84CA5F6427897AFA00E46E71 /* Global.m */,
-				84CA5F6527897AFA00E46E71 /* LBXScanDIYView.h */,
-				84CA5F6627897AFA00E46E71 /* CreateBarCodeVC.m */,
-				84CA5F6727897AFA00E46E71 /* DIYScanVC.m */,
-			);
-			path = "扫一扫组件";
-			sourceTree = "<group>";
-		};
-		84CA5F6827897AFA00E46E71 /* WaterMark */ = {
-			isa = PBXGroup;
-			children = (
-				84CA5F6927897AFA00E46E71 /* WaterMark.m */,
-				84CA5F6A27897AFA00E46E71 /* WaterMark.h */,
-			);
-			path = WaterMark;
-			sourceTree = "<group>";
-		};
 		84CA5F6B27897AFA00E46E71 /* SearchView */ = {
 			isa = PBXGroup;
 			children = (
@@ -6629,6 +6573,13 @@
 				84CA5F8E27897AFB00E46E71 /* Q弹 */,
 			);
 			path = RYCuteView;
+			sourceTree = "<group>";
+		};
+		84CA5FE627897BEB00E46E71 /* 扫一扫组件（空缺） */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "扫一扫组件（空缺）";
 			sourceTree = "<group>";
 		};
 		84D76434278090330003F0E4 /* UIViewController+SafeTransition */ = {
@@ -7121,7 +7072,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				845C79912786D2FE009843EE /* JobsAppDoorInputViewBaseStyle_1.m in Sources */,
-				84CA5F9227897AFB00E46E71 /* SocketRocketUtility.m in Sources */,
 				84CA5FB127897AFB00E46E71 /* HAHandleDemoView.m in Sources */,
 				840F966D27736428004979E9 /* UIView+SuspendView.m in Sources */,
 				840F96E127736428004979E9 /* TouchID.m in Sources */,
@@ -7156,7 +7106,6 @@
 				840F96C127736428004979E9 /* UITableViewHeaderFooterView+Attribute.m in Sources */,
 				840F96AB27736428004979E9 /* UIViewController+BRPickerView.m in Sources */,
 				840F95E427736427004979E9 /* JobsBitsMonitorCore.m in Sources */,
-				84CA5FCF27897AFB00E46E71 /* ScanResultViewController.m in Sources */,
 				840F96C727736428004979E9 /* LMHWaterFallLayout.m in Sources */,
 				840F971427736428004979E9 /* ZYTextField.m in Sources */,
 				840F96A227736428004979E9 /* UIViewController+Lottie.m in Sources */,
@@ -7176,7 +7125,6 @@
 				84CA5FB327897AFB00E46E71 /* GifLoopPlayView.m in Sources */,
 				840F966B27736428004979E9 /* BaseView.m in Sources */,
 				84CA5FAF27897AFB00E46E71 /* XLChannelView.m in Sources */,
-				84CA5FD227897AFB00E46E71 /* CreateBarCodeVC.m in Sources */,
 				84CA5FBD27897AFB00E46E71 /* XXTools.m in Sources */,
 				840F96C427736428004979E9 /* HQCollectionViewFlowLayout.m in Sources */,
 				84A160F12789567D00DACA3C /* ViewController@1.m in Sources */,
@@ -7191,10 +7139,8 @@
 				840F96ED27736428004979E9 /* NSObject+UserNotifications.m in Sources */,
 				840F96D727736428004979E9 /* NSTimerManager.m in Sources */,
 				840F96FD27736428004979E9 /* NSObject+IDFA.m in Sources */,
-				84CA5FD427897AFB00E46E71 /* WaterMark.m in Sources */,
 				840F967927736428004979E9 /* UIView+AutoSelfAdaptionSize.m in Sources */,
 				840F961827736427004979E9 /* JobsImageNumberViewCVCell.m in Sources */,
-				84CA5FD027897AFB00E46E71 /* LBXScanDIYView.m in Sources */,
 				840F966927736428004979E9 /* UIColor+Gradient.m in Sources */,
 				840F96AA27736428004979E9 /* UIViewController+SuspendBtn.m in Sources */,
 				840F96FA27736428004979E9 /* KeychainHelper.m in Sources */,
@@ -7253,9 +7199,7 @@
 				84CA5FAB27897AFB00E46E71 /* HWTFCodeBView.m in Sources */,
 				840F961027736427004979E9 /* ZBRequestEngine.m in Sources */,
 				840F960C27736427004979E9 /* BWItemCollectionViewCell.m in Sources */,
-				84CA5FCD27897AFB00E46E71 /* StyleDIY.m in Sources */,
 				848AAD712788214B00856087 /* UIScrollView+Extra.m in Sources */,
-				84CA5FD127897AFB00E46E71 /* Global.m in Sources */,
 				840F965E27736428004979E9 /* RBCLikeButton.m in Sources */,
 				840F966527736428004979E9 /* IrregularBtn.m in Sources */,
 				84C94D97277EBAAB00C49CBA /* UIButton+Animation.m in Sources */,
@@ -7382,7 +7326,6 @@
 				840F960227736427004979E9 /* TransitionAnimation.m in Sources */,
 				84CA5FA927897AFB00E46E71 /* HWTFCodeView.m in Sources */,
 				844B08802764CF4800B0513D /* XHLaunchAdImageView+XHLaunchAdCache.m in Sources */,
-				84CA5FD327897AFB00E46E71 /* DIYScanVC.m in Sources */,
 				846DF03A27806D230050468A /* JobsAppDoorForgotCodeContentView.m in Sources */,
 				840F970927736428004979E9 /* NSObject+Class.m in Sources */,
 				840F96E527736428004979E9 /* CLLanguageManager.m in Sources */,
@@ -7448,7 +7391,6 @@
 				840F966A27736428004979E9 /* UIColor+Hex.m in Sources */,
 				840F963D27736427004979E9 /* JobsPageView.m in Sources */,
 				846DF03B27806D230050468A /* JobsAppDoorContentView.m in Sources */,
-				84CA5FCE27897AFB00E46E71 /* LBXScanDIYViewController.m in Sources */,
 				840F968A27736428004979E9 /* BaseCollectionView.m in Sources */,
 				844B02122764C8EE00B0513D /* AppDelegate.m in Sources */,
 				84CA5FAE27897AFB00E46E71 /* XLChannelHeader.m in Sources */,

@@ -27,8 +27,8 @@ static DDUploadingProgressView *static_uploadingProgressView = nil;
 +(instancetype)sharedInstance{
     @synchronized(self){
         if (!static_uploadingProgressView) {
-            static_uploadingProgressView = [[DDUploadingProgressView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH - 267) / 2,
-                                                                                                     SCREEN_HEIGHT / 2 - 76,
+            static_uploadingProgressView = [[DDUploadingProgressView alloc] initWithFrame:CGRectMake((JobsSCREEN_WIDTH - 267) / 2,
+                                                                                                     JobsSCREEN_HEIGHT / 2 - 76,
                                                                                                      267,
                                                                                                      76)];
         }
@@ -169,7 +169,7 @@ static DDUploadingProgressView *static_uploadingProgressView = nil;
         [_imgeV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self.shapLayerView).offset(-2); // 由于图片不是对称的，需要位置微调
             make.centerX.equalTo(self.shapLayerView).offset(-8); // 位置微调
-            make.size.mas_equalTo(CGSizeMake(KWidth(12), KWidth(20)));
+            make.size.mas_equalTo(CGSizeMake(JobsWidth(12), JobsWidth(20)));
         }];
     }return _imgeV;
 }
@@ -192,7 +192,7 @@ static DDUploadingProgressView *static_uploadingProgressView = nil;
         _subrefreshLabel = UILabel.new;
         _subrefreshLabel.textColor = kWhiteColor;
         _subrefreshLabel.textAlignment = NSTextAlignmentRight;
-        _subrefreshLabel.font = [UIFont systemFontOfSize:KWidth(12) weight:UIFontWeightRegular];
+        _subrefreshLabel.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular];
         [self addSubview:_subrefreshLabel];
         [_subrefreshLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(self).offset(-8);

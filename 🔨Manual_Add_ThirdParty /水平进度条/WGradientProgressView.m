@@ -65,7 +65,7 @@ static dispatch_once_t dispatchOnce;
 
 -(UIFont *)titleFont{
     if (!_titleFont) {
-        _titleFont = [UIFont systemFontOfSize:KWidth(6.5)
+        _titleFont = [UIFont systemFontOfSize:JobsWidth(6.5)
                                        weight:UIFontWeightRegular];
     }return _titleFont;
 }

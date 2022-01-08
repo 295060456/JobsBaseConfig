@@ -30,7 +30,7 @@ UIScrollViewDelegate
         self.backgroundColor = kClearColor;
         
         if (btnTitleMutArr.count < 5) {
-            self.BtnWidth = (SCREEN_WIDTH - 5 * 2 - 10 * (btnTitleMutArr.count - 1))/ btnTitleMutArr.count;
+            self.BtnWidth = (JobsSCREEN_WIDTH - 5 * 2 - 10 * (btnTitleMutArr.count - 1))/ btnTitleMutArr.count;
         }else{
             self.BtnWidth = BtnDefaultWidth;
         }

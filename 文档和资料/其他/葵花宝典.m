@@ -279,7 +279,7 @@ return _instance; \
     return YES;
 }
 -(void)layoutViews {
-    self.shareWeb=[[UIWebView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    self.shareWeb=[[UIWebView alloc]initWithFrame:CGRectMake(0, 0, JobsSCREEN_WIDTH, JobsSCREEN_HEIGHT)];
     self.shareWeb.userInteractionEnabled=YES;
     self.shareWeb.scrollView.scrollEnabled=NO;
     SKAccountManager *manager = [SKAccountManager defaultAccountManager];
@@ -289,7 +289,7 @@ return _instance; \
     self.shareWeb.delegate=self;
     [self.view addSubview:self.shareWeb];
     
-    UIButton *closeBtn=[[UIButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-42, 6, 36, 36)];
+    UIButton *closeBtn=[[UIButton alloc]initWithFrame:CGRectMake(JobsSCREEN_WIDTH-42, 6, 36, 36)];
     [closeBtn setBackgroundImage:[UIImage imageNamed:@"iconfont-cha"] forState:UIControlStateNormal];
     [closeBtn addTarget:self action:@selector(closeShare) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:closeBtn];
