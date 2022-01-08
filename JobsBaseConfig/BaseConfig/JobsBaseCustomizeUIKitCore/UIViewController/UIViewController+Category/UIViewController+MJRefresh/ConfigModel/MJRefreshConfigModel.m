@@ -10,20 +10,20 @@
 @implementation MJRefreshConfigModel
 
 #pragma mark —— lazyLoad 默认配置
-#pragma mark —— Font
+/// Font
 -(UIFont *)font{
     if (!_font) {
         _font = [UIFont systemFontOfSize:17
                                   weight:UIFontWeightLight];
     }return _font;
 }
-#pragma mark —— TextColor
+/// TextColor
 -(UIColor *)textColor{
     if (!_textColor) {
         _textColor = KLightGrayColor;
     }return _textColor;
 }
-#pragma mark —— duration
+/// duration
 -(CGFloat)stateIdleDuration{
     if (!_stateIdleDuration) {
         _stateIdleDuration = 0.1f;
@@ -53,7 +53,7 @@
         _noMoreDataDuration = 0.5;
     }return _noMoreDataDuration;
 }
-#pragma mark —— title
+/// title
 -(NSString *)stateIdleTitle{
     if (!_stateIdleTitle) {
         _stateIdleTitle = @"普通闲置状态";
@@ -83,18 +83,24 @@
         _noMoreDataTitle = @"所有数据加载完毕，没有更多的数据了";
     }return _noMoreDataTitle;
 }
-#pragma mark —— 静态图内部拼接出的动效，而非Gif
+/// 静态图内部拼接出的动效，而非Gif
 -(NSMutableArray<UIImage *> *)stateIdlePicsMutArr{
     if (!_stateIdlePicsMutArr) {
         _stateIdlePicsMutArr = NSMutableArray.array;
-        [_stateIdlePicsMutArr addObject:KBuddleIMG(@"bundle",@"刷新", nil, @"header.png")];
+        [_stateIdlePicsMutArr addObject:KBuddleIMG(@"bundle",
+                                                   @"刷新",
+                                                   nil,
+                                                   @"header.png")];
     }return _stateIdlePicsMutArr;
 }
 
 -(NSMutableArray<UIImage *> *)pullingPicsMutArr{
     if (!_pullingPicsMutArr) {
         _pullingPicsMutArr = NSMutableArray.array;
-        [_pullingPicsMutArr addObject:KBuddleIMG(@"bundle",@"刷新", nil, @"Indeterminate Spinner - Small.png")];
+        [_pullingPicsMutArr addObject:KBuddleIMG(@"bundle",
+                                                 @"刷新",
+                                                 nil,
+                                                 @"Indeterminate Spinner - Small.png")];
     }return _pullingPicsMutArr;
 }
 
@@ -145,7 +151,7 @@
         
     }return _noMoreDataPicsMutArr;
 }
-#pragma mark —— Lottie配置
+/// Lottie配置
 -(NSString *)jsonLottiefilePaths{
     if (!_jsonLottiefilePaths) {
         _jsonLottiefilePaths = pathForBuddleIMG(nil,

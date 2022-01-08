@@ -26,10 +26,7 @@ static inline NSString *__nullable getPathForResource(NSString *__nullable blueF
                                                       NSString *__nullable bundle_folderName,
                                                       NSString *__nullable ofType){
     NSString *filePath = nil;
-    if ([NSString isNullString:blueFolderName]) {//最外层是黄色文件夹
-        filePath = [NSBundle.mainBundle pathForResource:pathForResource
-                                                 ofType:ofType];
-    }else{//最外层是蓝色文件夹
+    if ([NSString isNullString:blueFolderName]) {// 最外层是蓝色文件夹
         filePath = [NSBundle.mainBundle pathForResource:pathForResource
                                                  ofType:ofType
                                             inDirectory:blueFolderName];//蓝色文件夹下是bundle
@@ -37,6 +34,9 @@ static inline NSString *__nullable getPathForResource(NSString *__nullable blueF
         if ([NSString isNullString:filePath]) {//蓝色文件夹下是蓝色文件夹
             filePath = blueFolderName;
         }
+    }else{// 最外层是黄色文件夹
+        filePath = [NSBundle.mainBundle pathForResource:pathForResource
+                                                 ofType:ofType];
     }
     
     if (![NSString isNullString:bundle_folderName]) {
@@ -54,9 +54,10 @@ static inline NSString *__nullable pathForBuddleIMG(NSString *__nullable blueFol
                                                     NSString *__nullable pathForResource,
                                                     NSString *__nullable bundle_folderName,
                                                     NSString *__nonnull fileFullNameWithSuffix){
-    
-    NSString *filePath = getPathForResource(blueFolderName,pathForResource,bundle_folderName,@"bundle");
-    
+    NSString *filePath = getPathForResource(blueFolderName,
+                                            pathForResource,
+                                            bundle_folderName,
+                                            @"bundle");
     //容错处理
     if (![fileFullNameWithSuffix containsString:@"."]) {//如果是其他格式资源请自带后缀名
         fileFullNameWithSuffix = [fileFullNameWithSuffix stringByAppendingString:@".png"];
@@ -75,7 +76,10 @@ static inline UIImage *__nullable KBuddleIMG(NSString *__nullable blueFolderName
                                              NSString *__nullable bundle_folderName,
                                              NSString *__nonnull fileFullNameWithSuffix){
     
-    NSString *filePath = pathForBuddleIMG(blueFolderName, pathForResource, bundle_folderName, fileFullNameWithSuffix);
+    NSString *filePath = pathForBuddleIMG(blueFolderName,
+                                          pathForResource,
+                                          bundle_folderName,
+                                          fileFullNameWithSuffix);
     UIImage *image = [UIImage imageWithContentsOfFile:filePath];
     return image;
 }
@@ -88,7 +92,10 @@ static inline NSData *__nullable KDataByBuddleIMG(NSString *__nonnull pathForRes
                                                   NSString *__nullable blueFolderName,
                                                   NSString *__nullable bundle_folderName,
                                                   NSString *__nonnull fileFullNameWithSuffix){
-    NSString *filePath = pathForBuddleIMG(blueFolderName, pathForResource, bundle_folderName, fileFullNameWithSuffix);
+    NSString *filePath = pathForBuddleIMG(blueFolderName,
+                                          pathForResource,
+                                          bundle_folderName,
+                                          fileFullNameWithSuffix);
     NSData *imgData = [NSData dataWithContentsOfFile:filePath];
     return imgData;
 }

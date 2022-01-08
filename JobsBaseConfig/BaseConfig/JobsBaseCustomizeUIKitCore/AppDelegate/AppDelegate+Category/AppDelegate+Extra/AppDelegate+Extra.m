@@ -74,8 +74,9 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
         TabBarVC.isPlaySound = YES;
         TabBarVC.isFeedbackGenerator = YES;
         TabBarVC.jumpIndexArr = @[@3];// 需要被跳开的item
-        TabBarVC.needLoginArr = @[@1,@2,@4];// 在某些页面强制弹出登录
-        TabBarVC.noNeedLoginArr = @[@0];// 在某些页面不需要弹出登录，其优先级高于needLoginArr
+        
+//        TabBarVC.needLoginArr = @[@1,@2,@4];// 在某些页面强制弹出登录
+//        TabBarVC.noNeedLoginArr = @[@0];// 在某些页面不需要弹出登录，其优先级高于needLoginArr
         
 //        TabBarVC.isShakerAnimation = YES;
 //        TabBarVC.isOpenScrollTabbar = NO;

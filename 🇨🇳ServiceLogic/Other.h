@@ -31,4 +31,8 @@
 #import "JobsShowObjInfoVC.h"// 查看对象
 #import "AppInternationalizationVC.h"// 国际化
 
+// 相关功能模块组测试控制器
+#import "JobsProgressVC.h"
+#import "A_VC.h"
+
 #endif /* Other_h */
