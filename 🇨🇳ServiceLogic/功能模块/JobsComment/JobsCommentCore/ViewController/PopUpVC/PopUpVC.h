@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,11 +18,12 @@ typedef NS_ENUM(NSUInteger, MoveDirection){
     MoveDirection_horizont_right//水平方向(向右)滑动
 };
 //此类解耦手势
-@interface PopUpVC : UIViewController
+@interface PopUpVC : BaseViewController
+<
+UIGestureRecognizerDelegate
+>
 
 @property(nonatomic,assign)CGFloat popUpHeight;//默认弹出高度300
-
--(void)actionBlockPopUpVC:(MKDataBlock)PopUpVCBlock;
 
 @end
 

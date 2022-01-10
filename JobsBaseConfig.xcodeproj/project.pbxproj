@@ -412,6 +412,21 @@
 		844B0E542764DE1A00B0513D /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B0E4E2764DE1900B0513D /* BaseModel.m */; };
 		844B0E552764DE1A00B0513D /* DDUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B0E512764DE1A00B0513D /* DDUserModel.m */; };
 		844B12892764E5C200B0513D /* URLManagerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B12872764E5C200B0513D /* URLManagerModel.m */; };
+		84562572278BF1FB0067ABB9 /* JobsComment【OutLines 01】.png in Resources */ = {isa = PBXBuildFile; fileRef = 8456256D278BF1FB0067ABB9 /* JobsComment【OutLines 01】.png */; };
+		84562573278BF1FB0067ABB9 /* JobsComment【OutLines 05】.png in Resources */ = {isa = PBXBuildFile; fileRef = 8456256E278BF1FB0067ABB9 /* JobsComment【OutLines 05】.png */; };
+		84562574278BF1FB0067ABB9 /* JobsComment【OutLines 04】.png in Resources */ = {isa = PBXBuildFile; fileRef = 8456256F278BF1FB0067ABB9 /* JobsComment【OutLines 04】.png */; };
+		84562575278BF1FB0067ABB9 /* JobsComment【OutLines 03】.png in Resources */ = {isa = PBXBuildFile; fileRef = 84562570278BF1FB0067ABB9 /* JobsComment【OutLines 03】.png */; };
+		84562576278BF1FB0067ABB9 /* JobsComment【OutLines 02】.png in Resources */ = {isa = PBXBuildFile; fileRef = 84562571278BF1FB0067ABB9 /* JobsComment【OutLines 02】.png */; };
+		84562598278BF2780067ABB9 /* PopUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8456257C278BF2780067ABB9 /* PopUpVC.m */; };
+		84562599278BF2780067ABB9 /* InfoTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84562580278BF2780067ABB9 /* InfoTBVCell.m */; };
+		8456259A278BF2780067ABB9 /* LoadMoreTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84562582278BF2780067ABB9 /* LoadMoreTBVCell.m */; };
+		8456259B278BF2780067ABB9 /* JobsCommentPopUpViewForTVH.m in Sources */ = {isa = PBXBuildFile; fileRef = 84562585278BF2780067ABB9 /* JobsCommentPopUpViewForTVH.m */; };
+		8456259C278BF2780067ABB9 /* JobsCommentTitleHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84562588278BF2780067ABB9 /* JobsCommentTitleHeaderView.m */; };
+		8456259D278BF2780067ABB9 /* JobsCommentConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 8456258C278BF2780067ABB9 /* JobsCommentConfig.m */; };
+		8456259E278BF2780067ABB9 /* JobsCommentCoreVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8456258D278BF2780067ABB9 /* JobsCommentCoreVC.m */; };
+		8456259F278BF2780067ABB9 /* CommentData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8456258F278BF2780067ABB9 /* CommentData.json */; };
+		845625A0278BF2780067ABB9 /* JobsCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84562592278BF2780067ABB9 /* JobsCommentModel.m */; };
+		845625A5278BF2BB0067ABB9 /* JobsCommentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 845625A4278BF2BB0067ABB9 /* JobsCommentVC.m */; };
 		84566B042784833100636967 /* UINavigationController+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 84566B032784833100636967 /* UINavigationController+Extra.m */; };
 		8459CC322775D3E900125782 /* AppDelegate+Func.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459CC2A2775D3E900125782 /* AppDelegate+Func.m */; };
 		8459CC332775D3E900125782 /* AppDelegate+UIApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459CC2D2775D3E900125782 /* AppDelegate+UIApplicationDelegate.m */; };
@@ -549,7 +564,6 @@
 		84CA5FBF27897AFB00E46E71 /* XDSDropDownMenu（下拉菜单） in Resources */ = {isa = PBXBuildFile; fileRef = 84CA5F3727897AFA00E46E71 /* XDSDropDownMenu（下拉菜单） */; };
 		84CA5FC027897AFB00E46E71 /* XDSDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA5F3927897AFA00E46E71 /* XDSDropDownMenu.m */; };
 		84CA5FC127897AFB00E46E71 /* XDSDropDownMenu+DelegateProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA5F3A27897AFA00E46E71 /* XDSDropDownMenu+DelegateProtocol.m */; };
-		84CA5FC227897AFB00E46E71 /* PopUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA5F3D27897AFA00E46E71 /* PopUpVC.m */; };
 		84CA5FC327897AFB00E46E71 /* LongPressToDeleteImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA5F4027897AFA00E46E71 /* LongPressToDeleteImageView.m */; };
 		84CA5FC427897AFB00E46E71 /* 仿iOS图标抖动、iOS删除App效果 in Resources */ = {isa = PBXBuildFile; fileRef = 84CA5F4127897AFA00E46E71 /* 仿iOS图标抖动、iOS删除App效果 */; };
 		84CA5FC527897AFB00E46E71 /* JhtBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA5F4627897AFA00E46E71 /* JhtBannerView.m */; };
@@ -1397,6 +1411,32 @@
 		844B0E562764DE2D00B0513D /* DAO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DAO.h; sourceTree = "<group>"; };
 		844B12872764E5C200B0513D /* URLManagerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLManagerModel.m; sourceTree = "<group>"; };
 		844B12882764E5C200B0513D /* URLManagerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLManagerModel.h; sourceTree = "<group>"; };
+		8456256D278BF1FB0067ABB9 /* JobsComment【OutLines 01】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsComment【OutLines 01】.png"; sourceTree = "<group>"; };
+		8456256E278BF1FB0067ABB9 /* JobsComment【OutLines 05】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsComment【OutLines 05】.png"; sourceTree = "<group>"; };
+		8456256F278BF1FB0067ABB9 /* JobsComment【OutLines 04】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsComment【OutLines 04】.png"; sourceTree = "<group>"; };
+		84562570278BF1FB0067ABB9 /* JobsComment【OutLines 03】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsComment【OutLines 03】.png"; sourceTree = "<group>"; };
+		84562571278BF1FB0067ABB9 /* JobsComment【OutLines 02】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsComment【OutLines 02】.png"; sourceTree = "<group>"; };
+		84562579278BF2780067ABB9 /* JobsCommentCoreVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsCommentCoreVC.h; sourceTree = "<group>"; };
+		8456257B278BF2780067ABB9 /* PopUpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopUpVC.h; sourceTree = "<group>"; };
+		8456257C278BF2780067ABB9 /* PopUpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopUpVC.m; sourceTree = "<group>"; };
+		84562580278BF2780067ABB9 /* InfoTBVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoTBVCell.m; sourceTree = "<group>"; };
+		84562581278BF2780067ABB9 /* LoadMoreTBVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadMoreTBVCell.h; sourceTree = "<group>"; };
+		84562582278BF2780067ABB9 /* LoadMoreTBVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadMoreTBVCell.m; sourceTree = "<group>"; };
+		84562583278BF2780067ABB9 /* InfoTBVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoTBVCell.h; sourceTree = "<group>"; };
+		84562585278BF2780067ABB9 /* JobsCommentPopUpViewForTVH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsCommentPopUpViewForTVH.m; sourceTree = "<group>"; };
+		84562586278BF2780067ABB9 /* JobsCommentPopUpViewForTVH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsCommentPopUpViewForTVH.h; sourceTree = "<group>"; };
+		84562588278BF2780067ABB9 /* JobsCommentTitleHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsCommentTitleHeaderView.m; sourceTree = "<group>"; };
+		84562589278BF2780067ABB9 /* JobsCommentTitleHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsCommentTitleHeaderView.h; sourceTree = "<group>"; };
+		8456258B278BF2780067ABB9 /* JobsCommentConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsCommentConfig.h; sourceTree = "<group>"; };
+		8456258C278BF2780067ABB9 /* JobsCommentConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsCommentConfig.m; sourceTree = "<group>"; };
+		8456258D278BF2780067ABB9 /* JobsCommentCoreVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsCommentCoreVC.m; sourceTree = "<group>"; };
+		8456258F278BF2780067ABB9 /* CommentData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CommentData.json; sourceTree = "<group>"; };
+		84562591278BF2780067ABB9 /* JobsCommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsCommentModel.h; sourceTree = "<group>"; };
+		84562592278BF2780067ABB9 /* JobsCommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsCommentModel.m; sourceTree = "<group>"; };
+		845625A3278BF2BB0067ABB9 /* JobsCommentVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsCommentVC.h; sourceTree = "<group>"; };
+		845625A4278BF2BB0067ABB9 /* JobsCommentVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsCommentVC.m; sourceTree = "<group>"; };
+		84562619278BF4FB0067ABB9 /* JobsCommentCoreHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsCommentCoreHeader.h; sourceTree = "<group>"; };
+		8456261F278BF61C0067ABB9 /* PopUpVC.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PopUpVC.md; sourceTree = "<group>"; };
 		845669262784284000636967 /* DetermineParametersBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetermineParametersBlock.h; sourceTree = "<group>"; };
 		845669272784284000636967 /* JobsBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBlock.h; sourceTree = "<group>"; };
 		845669282784284000636967 /* NODetermineParametersBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NODetermineParametersBlock.h; sourceTree = "<group>"; };
@@ -1679,8 +1719,6 @@
 		84CA5F3827897AFA00E46E71 /* XDSDropDownMenu+DelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XDSDropDownMenu+DelegateProtocol.h"; sourceTree = "<group>"; };
 		84CA5F3927897AFA00E46E71 /* XDSDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XDSDropDownMenu.m; sourceTree = "<group>"; };
 		84CA5F3A27897AFA00E46E71 /* XDSDropDownMenu+DelegateProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XDSDropDownMenu+DelegateProtocol.m"; sourceTree = "<group>"; };
-		84CA5F3C27897AFA00E46E71 /* PopUpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopUpVC.h; sourceTree = "<group>"; };
-		84CA5F3D27897AFA00E46E71 /* PopUpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopUpVC.m; sourceTree = "<group>"; };
 		84CA5F3F27897AFA00E46E71 /* LongPressToDeleteImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LongPressToDeleteImageView.h; sourceTree = "<group>"; };
 		84CA5F4027897AFA00E46E71 /* LongPressToDeleteImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LongPressToDeleteImageView.m; sourceTree = "<group>"; };
 		84CA5F4127897AFA00E46E71 /* 仿iOS图标抖动、iOS删除App效果 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "仿iOS图标抖动、iOS删除App效果"; sourceTree = "<group>"; };
@@ -1789,6 +1827,8 @@
 		84CA660A2789D4CD00E46E71 /* FindCodeFlowChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindCodeFlowChartView.m; sourceTree = "<group>"; };
 		84CA660C2789D4CD00E46E71 /* ForgetCodeStep_01View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetCodeStep_01View.m; sourceTree = "<group>"; };
 		84CA660D2789D4CD00E46E71 /* ForgetCodeStep_01View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetCodeStep_01View.h; sourceTree = "<group>"; };
+		84CA66842789D6CE00E46E71 /* ™Whisky On The Rocks® 2020-12-12 11.17.50.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "™Whisky On The Rocks® 2020-12-12 11.17.50.mp4"; sourceTree = "<group>"; };
+		84CA66852789D6CE00E46E71 /* ™Whisky On The Rocks® 2020-12-12 11.17.46.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "™Whisky On The Rocks® 2020-12-12 11.17.46.mp4"; sourceTree = "<group>"; };
 		84D76435278090330003F0E4 /* UIViewController+SafeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SafeTransition.m"; sourceTree = "<group>"; };
 		84D76436278090330003F0E4 /* UIViewController+SafeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SafeTransition.h"; sourceTree = "<group>"; };
 		84D764AD2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasinoGetiOSNewestVersionModel.m; sourceTree = "<group>"; };
@@ -3805,8 +3845,8 @@
 		840F94C927736426004979E9 /* BaseTableViewHeaderView */ = {
 			isa = PBXGroup;
 			children = (
-				840F94CA27736426004979E9 /* BaseTableViewHeaderView.m */,
 				840F94CB27736426004979E9 /* BaseTableViewHeaderView.h */,
+				840F94CA27736426004979E9 /* BaseTableViewHeaderView.m */,
 			);
 			path = BaseTableViewHeaderView;
 			sourceTree = "<group>";
@@ -5342,6 +5382,158 @@
 			path = URLManagerModel;
 			sourceTree = "<group>";
 		};
+		8456256B278BF0A70067ABB9 /* JobsComment */ = {
+			isa = PBXGroup;
+			children = (
+				845625A2278BF2AC0067ABB9 /* JobsCommentVC */,
+				84562577278BF2780067ABB9 /* JobsCommentCore */,
+				8456256C278BF1FB0067ABB9 /* Outlines */,
+				84562619278BF4FB0067ABB9 /* JobsCommentCoreHeader.h */,
+			);
+			path = JobsComment;
+			sourceTree = "<group>";
+		};
+		8456256C278BF1FB0067ABB9 /* Outlines */ = {
+			isa = PBXGroup;
+			children = (
+				8456256D278BF1FB0067ABB9 /* JobsComment【OutLines 01】.png */,
+				8456256E278BF1FB0067ABB9 /* JobsComment【OutLines 05】.png */,
+				8456256F278BF1FB0067ABB9 /* JobsComment【OutLines 04】.png */,
+				84562570278BF1FB0067ABB9 /* JobsComment【OutLines 03】.png */,
+				84562571278BF1FB0067ABB9 /* JobsComment【OutLines 02】.png */,
+			);
+			path = Outlines;
+			sourceTree = "<group>";
+		};
+		84562577278BF2780067ABB9 /* JobsCommentCore */ = {
+			isa = PBXGroup;
+			children = (
+				8456261B278BF5810067ABB9 /* ViewController */,
+				8456261A278BF5610067ABB9 /* JobsCommentCoreModel */,
+				8456257E278BF2780067ABB9 /* View */,
+			);
+			path = JobsCommentCore;
+			sourceTree = "<group>";
+		};
+		8456257E278BF2780067ABB9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8456257F278BF2780067ABB9 /* TBVCell（二级标题） */,
+				84562584278BF2780067ABB9 /* viewForHeaderInSection（一级标题） */,
+				84562587278BF2780067ABB9 /* 标题栏 */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8456257F278BF2780067ABB9 /* TBVCell（二级标题） */ = {
+			isa = PBXGroup;
+			children = (
+				84562621278BF7000067ABB9 /* LoadMoreTBVCell */,
+				84562620278BF6F90067ABB9 /* InfoTBVCell */,
+			);
+			path = "TBVCell（二级标题）";
+			sourceTree = "<group>";
+		};
+		84562584278BF2780067ABB9 /* viewForHeaderInSection（一级标题） */ = {
+			isa = PBXGroup;
+			children = (
+				84562586278BF2780067ABB9 /* JobsCommentPopUpViewForTVH.h */,
+				84562585278BF2780067ABB9 /* JobsCommentPopUpViewForTVH.m */,
+			);
+			path = "viewForHeaderInSection（一级标题）";
+			sourceTree = "<group>";
+		};
+		84562587278BF2780067ABB9 /* 标题栏 */ = {
+			isa = PBXGroup;
+			children = (
+				84562589278BF2780067ABB9 /* JobsCommentTitleHeaderView.h */,
+				84562588278BF2780067ABB9 /* JobsCommentTitleHeaderView.m */,
+			);
+			path = "标题栏";
+			sourceTree = "<group>";
+		};
+		84562590278BF2780067ABB9 /* JobsCommentModel */ = {
+			isa = PBXGroup;
+			children = (
+				84562591278BF2780067ABB9 /* JobsCommentModel.h */,
+				84562592278BF2780067ABB9 /* JobsCommentModel.m */,
+			);
+			path = JobsCommentModel;
+			sourceTree = "<group>";
+		};
+		845625A2278BF2AC0067ABB9 /* JobsCommentVC */ = {
+			isa = PBXGroup;
+			children = (
+				845625A3278BF2BB0067ABB9 /* JobsCommentVC.h */,
+				845625A4278BF2BB0067ABB9 /* JobsCommentVC.m */,
+			);
+			path = JobsCommentVC;
+			sourceTree = "<group>";
+		};
+		8456261A278BF5610067ABB9 /* JobsCommentCoreModel */ = {
+			isa = PBXGroup;
+			children = (
+				8456261C278BF5E80067ABB9 /* JobsCommentConfig */,
+				84562590278BF2780067ABB9 /* JobsCommentModel */,
+			);
+			path = JobsCommentCoreModel;
+			sourceTree = "<group>";
+		};
+		8456261B278BF5810067ABB9 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8456261E278BF6060067ABB9 /* JobsCommentCoreVC */,
+				8456261D278BF5FD0067ABB9 /* PopUpVC */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		8456261C278BF5E80067ABB9 /* JobsCommentConfig */ = {
+			isa = PBXGroup;
+			children = (
+				8456258B278BF2780067ABB9 /* JobsCommentConfig.h */,
+				8456258C278BF2780067ABB9 /* JobsCommentConfig.m */,
+			);
+			path = JobsCommentConfig;
+			sourceTree = "<group>";
+		};
+		8456261D278BF5FD0067ABB9 /* PopUpVC */ = {
+			isa = PBXGroup;
+			children = (
+				8456257B278BF2780067ABB9 /* PopUpVC.h */,
+				8456257C278BF2780067ABB9 /* PopUpVC.m */,
+				8456261F278BF61C0067ABB9 /* PopUpVC.md */,
+			);
+			path = PopUpVC;
+			sourceTree = "<group>";
+		};
+		8456261E278BF6060067ABB9 /* JobsCommentCoreVC */ = {
+			isa = PBXGroup;
+			children = (
+				84562579278BF2780067ABB9 /* JobsCommentCoreVC.h */,
+				8456258D278BF2780067ABB9 /* JobsCommentCoreVC.m */,
+			);
+			path = JobsCommentCoreVC;
+			sourceTree = "<group>";
+		};
+		84562620278BF6F90067ABB9 /* InfoTBVCell */ = {
+			isa = PBXGroup;
+			children = (
+				84562583278BF2780067ABB9 /* InfoTBVCell.h */,
+				84562580278BF2780067ABB9 /* InfoTBVCell.m */,
+			);
+			path = InfoTBVCell;
+			sourceTree = "<group>";
+		};
+		84562621278BF7000067ABB9 /* LoadMoreTBVCell */ = {
+			isa = PBXGroup;
+			children = (
+				84562581278BF2780067ABB9 /* LoadMoreTBVCell.h */,
+				84562582278BF2780067ABB9 /* LoadMoreTBVCell.m */,
+			);
+			path = LoadMoreTBVCell;
+			sourceTree = "<group>";
+		};
 		845669252784284000636967 /* JobsBlock */ = {
 			isa = PBXGroup;
 			children = (
@@ -6104,6 +6296,7 @@
 		84CA5DF327895B4700E46E71 /* Json文件 */ = {
 			isa = PBXGroup;
 			children = (
+				8456258F278BF2780067ABB9 /* CommentData.json */,
 				84CA642A2789C00300E46E71 /* data.json */,
 			);
 			path = "Json文件";
@@ -6142,7 +6335,6 @@
 				84CA5F2F27897AFA00E46E71 /* XXTools */,
 				84CA5F3227897AFA00E46E71 /* KeyChainManager */,
 				84CA5F3527897AFA00E46E71 /* XDSDropDownMenu */,
-				84CA5F3B27897AFA00E46E71 /* 弹窗小控件（高仿今日头条App评论弹窗框架） */,
 				84CA5F3E27897AFA00E46E71 /* LongPressToDeleteImageView */,
 				84CA5F4227897AFA00E46E71 /* 卡片式滑动效果 */,
 				84CA5F4F27897AFA00E46E71 /* XDTextBtnView */,
@@ -6495,15 +6687,6 @@
 			path = XDSDropDownMenu;
 			sourceTree = "<group>";
 		};
-		84CA5F3B27897AFA00E46E71 /* 弹窗小控件（高仿今日头条App评论弹窗框架） */ = {
-			isa = PBXGroup;
-			children = (
-				84CA5F3C27897AFA00E46E71 /* PopUpVC.h */,
-				84CA5F3D27897AFA00E46E71 /* PopUpVC.m */,
-			);
-			path = "弹窗小控件（高仿今日头条App评论弹窗框架）";
-			sourceTree = "<group>";
-		};
 		84CA5F3E27897AFA00E46E71 /* LongPressToDeleteImageView */ = {
 			isa = PBXGroup;
 			children = (
@@ -6683,6 +6866,7 @@
 		84CA609D278980E700E46E71 /* 功能模块 */ = {
 			isa = PBXGroup;
 			children = (
+				8456256B278BF0A70067ABB9 /* JobsComment */,
 				84CA65F02789D39700E46E71 /* JobsAppDoor-2 */,
 				84CA642C2789C0F700E46E71 /* Douyin_ZFPlayer */,
 				84CA63CB2789B3A200E46E71 /* TestIrregularView */,
@@ -6968,6 +7152,7 @@
 		84CA65F02789D39700E46E71 /* JobsAppDoor-2 */ = {
 			isa = PBXGroup;
 			children = (
+				84CA66832789D6CE00E46E71 /* Outlines */,
 				84CA65F42789D3B500E46E71 /* View */,
 				84CA65F12789D3B500E46E71 /* ViewController */,
 			);
@@ -7072,6 +7257,15 @@
 				84CA660D2789D4CD00E46E71 /* ForgetCodeStep_01View.h */,
 			);
 			path = "找回密码第一步";
+			sourceTree = "<group>";
+		};
+		84CA66832789D6CE00E46E71 /* Outlines */ = {
+			isa = PBXGroup;
+			children = (
+				84CA66842789D6CE00E46E71 /* ™Whisky On The Rocks® 2020-12-12 11.17.50.mp4 */,
+				84CA66852789D6CE00E46E71 /* ™Whisky On The Rocks® 2020-12-12 11.17.46.mp4 */,
+			);
+			path = Outlines;
 			sourceTree = "<group>";
 		};
 		84D76434278090330003F0E4 /* UIViewController+SafeTransition */ = {
@@ -7259,7 +7453,9 @@
 				844B08542764CF4800B0513D /* 健康@3x.png in Resources */,
 				840F961F27736427004979E9 /* 9@2x.png in Resources */,
 				840F95F327736427004979E9 /* tab_home_animate.json in Resources */,
+				84562575278BF1FB0067ABB9 /* JobsComment【OutLines 03】.png in Resources */,
 				840F96F927736428004979E9 /* KeychainHelper.webp in Resources */,
+				84562574278BF1FB0067ABB9 /* JobsComment【OutLines 04】.png in Resources */,
 				84CA621C27899E2700E46E71 /* 0.jpeg in Resources */,
 				840F95F227736427004979E9 /* upgrade.json in Resources */,
 				840F968227736428004979E9 /* UITextView+IndicateWordLimit.png in Resources */,
@@ -7268,6 +7464,7 @@
 				844B086E2764CF4800B0513D /* 相机@3x.png in Resources */,
 				845C79962786D2FE009843EE /* 输入框样式_5.2.png in Resources */,
 				8459CE1F2776DCCF00125782 /* 启动页_05.png in Resources */,
+				84562573278BF1FB0067ABB9 /* JobsComment【OutLines 05】.png in Resources */,
 				844B087C2764CF4800B0513D /* XHLaunchAd不用pod导入的情况说明.md in Resources */,
 				840F95FA27736427004979E9 /* fangzi.json in Resources */,
 				840F961A27736427004979E9 /* JobsImageNumberView.png in Resources */,
@@ -7275,6 +7472,7 @@
 				840F95EC27736427004979E9 /* 任务.json in Resources */,
 				840F966427736428004979E9 /* IrregularBtn.md in Resources */,
 				84CA5DFF27895B4700E46E71 /* 开屏页面.bundle in Resources */,
+				84562572278BF1FB0067ABB9 /* JobsComment【OutLines 01】.png in Resources */,
 				840F95EB27736427004979E9 /* wode.json in Resources */,
 				84CA5FD627897AFB00E46E71 /* 电话号码国家选择器 in Resources */,
 				84CA5FE527897AFB00E46E71 /* Q弹 in Resources */,
@@ -7420,10 +7618,12 @@
 				840F963A27736427004979E9 /* JobsLeftRightLab.png in Resources */,
 				84CA5F8F27897AFB00E46E71 /* 牛逼标签效果 - SphereView👍 in Resources */,
 				844B08592764CF4800B0513D /* 健康@2x.png in Resources */,
+				84562576278BF1FB0067ABB9 /* JobsComment【OutLines 02】.png in Resources */,
 				84CA5FC427897AFB00E46E71 /* 仿iOS图标抖动、iOS删除App效果 in Resources */,
 				84CA5FA727897AFB00E46E71 /* HASH in Resources */,
 				84CA5F9727897AFB00E46E71 /* Base64 in Resources */,
 				840F963327736427004979E9 /* JobsUpDownLab.md in Resources */,
+				8456259F278BF2780067ABB9 /* CommentData.json in Resources */,
 				845C79942786D2FE009843EE /* 输入框样式_2.png in Resources */,
 				840F962227736427004979E9 /* 7@3x.png in Resources */,
 				840F966827736428004979E9 /* SoundBtn.md in Resources */,
@@ -7582,6 +7782,7 @@
 				84D764B7278093660003F0E4 /* DataManager.m in Sources */,
 				840F96D927736428004979E9 /* CADisplayLink_TimerManager.m in Sources */,
 				840F96B927736428004979E9 /* UITableView+Expand.m in Sources */,
+				845625A5278BF2BB0067ABB9 /* JobsCommentVC.m in Sources */,
 				840F969C27736428004979E9 /* UIViewController+JXCategoryListContentViewDelegate.m in Sources */,
 				840F969027736428004979E9 /* BaseNavigationBar.m in Sources */,
 				840F96E927736428004979E9 /* NSObject+NTESVerifyCode.m in Sources */,
@@ -7597,6 +7798,7 @@
 				840F964E27736427004979E9 /* UITableViewCell+BaseCellProtocol.m in Sources */,
 				8459CC332775D3E900125782 /* AppDelegate+UIApplicationDelegate.m in Sources */,
 				844B08832764CF4800B0513D /* XHLaunchAdImageManager.m in Sources */,
+				8456259A278BF2780067ABB9 /* LoadMoreTBVCell.m in Sources */,
 				84CA63CA2789B1EC00E46E71 /* DynamicViewTestVC.m in Sources */,
 				840F96BD27736428004979E9 /* UIControl+XY.m in Sources */,
 				840F961627736427004979E9 /* JobsNoticePopupView.m in Sources */,
@@ -7733,6 +7935,7 @@
 				84CA64AE2789C2AF00E46E71 /* PlayerCell.m in Sources */,
 				84CA5FE127897AFB00E46E71 /* CountdownView.m in Sources */,
 				840F965627736428004979E9 /* NSBundle+CLLanguage.m in Sources */,
+				845625A0278BF2780067ABB9 /* JobsCommentModel.m in Sources */,
 				84CA5FB627897AFB00E46E71 /* DDUploadingProgressView.m in Sources */,
 				84A160FA278956AF00DACA3C /* ViewController@3.m in Sources */,
 				840F9C72277368AE004979E9 /* NSObject+URLManager.m in Sources */,
@@ -7757,6 +7960,7 @@
 				840F961427736427004979E9 /* CustomZFPlayerControlView.m in Sources */,
 				84CA65FE2789D3B500E46E71 /* JobsAppDoorLoginContentView.m in Sources */,
 				84CA61932789851300E46E71 /* A_VC.m in Sources */,
+				8456259D278BF2780067ABB9 /* JobsCommentConfig.m in Sources */,
 				844B084E2764CF4800B0513D /* ECPrivacyCheckMotionAndFitness.m in Sources */,
 				840F969A27736428004979E9 /* NSString+Replace.m in Sources */,
 				84D76437278090330003F0E4 /* UIViewController+SafeTransition.m in Sources */,
@@ -7773,6 +7977,7 @@
 				840F960927736427004979E9 /* JobsTabBar.m in Sources */,
 				845C798B2786D2FE009843EE /* JobsAppDoorInputViewBaseStyle_8.m in Sources */,
 				840F963E27736427004979E9 /* JobsSuspendBtn.m in Sources */,
+				84562599278BF2780067ABB9 /* InfoTBVCell.m in Sources */,
 				84CA5FA627897AFB00E46E71 /* NSData+CommonCrypto.m in Sources */,
 				840F96C927736428004979E9 /* KFZShopCatoryFlowLayput.m in Sources */,
 				84CA5FA827897AFB00E46E71 /* MovieCountDown.m in Sources */,
@@ -7785,6 +7990,7 @@
 				840F965427736428004979E9 /* UITableViewCell+Margin.m in Sources */,
 				840F96E627736428004979E9 /* NSObject+Swizzling.m in Sources */,
 				844B08752764CF4800B0513D /* ZMJCell+CustomView.m in Sources */,
+				8456259C278BF2780067ABB9 /* JobsCommentTitleHeaderView.m in Sources */,
 				84868F1A277ADF690098BE7A /* JobsDropDownListTBVCell.m in Sources */,
 				845C799B2786D2FE009843EE /* JobsAppDoorInputViewBaseStyle_4.m in Sources */,
 				844B083D2764CF4800B0513D /* JXCategoryTimelineView.m in Sources */,
@@ -7809,6 +8015,7 @@
 				84CA64BF2789C80600E46E71 /* MKRightBtnView.m in Sources */,
 				84CA64C02789C80600E46E71 /* ZFDouYinControlView.m in Sources */,
 				840F970A27736428004979E9 /* NSObject+UNUserNotificationCenterDelegate.m in Sources */,
+				8456259B278BF2780067ABB9 /* JobsCommentPopUpViewForTVH.m in Sources */,
 				840F969727736428004979E9 /* NSString+Path.m in Sources */,
 				840F96A527736428004979E9 /* UIViewController+Shake.m in Sources */,
 				840F970C27736428004979E9 /* NSObject+CallBackInfoByBlock.m in Sources */,
@@ -7825,6 +8032,7 @@
 				844B084B2764CF4800B0513D /* ECPrivacyCheckFilesAndFolders.m in Sources */,
 				840F95E627736427004979E9 /* UITabBarItem+TLAnimation.m in Sources */,
 				840F969627736428004979E9 /* NSString+Decoration.m in Sources */,
+				84562598278BF2780067ABB9 /* PopUpVC.m in Sources */,
 				84868F19277ADF690098BE7A /* JobsDropDownListView.m in Sources */,
 				840F969827736428004979E9 /* NSString+Judgment.m in Sources */,
 				844B02182764C8EE00B0513D /* ViewController.m in Sources */,
@@ -7835,7 +8043,6 @@
 				840F96D627736428004979E9 /* DispatchTimerManager.m in Sources */,
 				840F971A27736428004979E9 /* AppInternationalizationVC.m in Sources */,
 				84CA5CD12789587900E46E71 /* AppDelegate+XHLaunchAdDelegate.m in Sources */,
-				84CA5FC227897AFB00E46E71 /* PopUpVC.m in Sources */,
 				840F964727736427004979E9 /* UIImage+SYS.m in Sources */,
 				840F961127736427004979E9 /* ZBRequestManager.m in Sources */,
 				84CA65FC2789D3B500E46E71 /* JobsAppDoorVC_Style2.m in Sources */,
@@ -7874,6 +8081,7 @@
 				844B083E2764CF4800B0513D /* JXCategoryTimelineCellModel.m in Sources */,
 				840F96BE27736428004979E9 /* NSArray+Safety.m in Sources */,
 				840F963527736427004979E9 /* JobsUpDownLabModel.m in Sources */,
+				8456259E278BF2780067ABB9 /* JobsCommentCoreVC.m in Sources */,
 				8459CF1A2776F7C600125782 /* CasinoUpgradePopupView.m in Sources */,
 				844B08422764CF4800B0513D /* ZWPullMenuView.m in Sources */,
 				840F968C27736428004979E9 /* UICollectionViewCell+Default.m in Sources */,

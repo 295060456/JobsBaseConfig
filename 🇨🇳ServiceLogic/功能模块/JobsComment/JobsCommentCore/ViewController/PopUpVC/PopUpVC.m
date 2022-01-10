@@ -8,10 +8,7 @@
 
 #import "PopUpVC.h"
 
-@interface PopUpVC ()<UIGestureRecognizerDelegate>
-
-@property(nonatomic,copy)MKDataBlock popUpVCBlock;
-
+@interface PopUpVC ()
 
 @end
 
@@ -25,6 +22,10 @@
     if (self = [super init]) {
         
     }return self;
+}
+
+-(void)loadView{
+    [super loadView];
 }
 
 -(void)viewDidLoad{
@@ -42,14 +43,6 @@
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     self.tabBarController.tabBar.hidden = NO;
-}
-
--(void)touchesBegan:(NSSet<UITouch *> *)touches
-          withEvent:(UIEvent *)event{
-}
-
--(void)actionBlockPopUpVC:(MKDataBlock)popUpVCBlock{
-    self.popUpVCBlock = popUpVCBlock;
 }
 #pragma mark —— lazyLoad
 -(CGFloat)popUpHeight{

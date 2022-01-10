@@ -96,7 +96,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
         [self comingToPushVC:Douyin_ZFPlayerVC_2.new
                 withNavTitle:@"Douyin_ZFPlayerVC_2"];
     }else if (indexPath == [self myIndexPath:(JobsIndexPath){5,0}]){
-        
+        [self comingToPushVC:JobsCommentVC.new
+                withNavTitle:@"JobsCommentVC"];
     }else if (indexPath == [self myIndexPath:(JobsIndexPath){6,0}]){
         
     }else if (indexPath == [self myIndexPath:(JobsIndexPath){7,0}]){
