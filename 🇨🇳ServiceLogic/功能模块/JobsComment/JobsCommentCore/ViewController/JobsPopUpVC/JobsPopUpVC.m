@@ -37,7 +37,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.tabBarController.tabBar.hidden = YES;
-    self.view.mj_y = self.popUpHeight;
+    self.view.mj_y = self.popUpHeight;// 只能用present方式退出界面，否则无效
 }
 
 -(void)viewWillDisappear:(BOOL)animated{

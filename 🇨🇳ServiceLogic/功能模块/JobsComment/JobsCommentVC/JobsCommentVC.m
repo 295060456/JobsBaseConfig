@@ -64,8 +64,8 @@
         NSLog(@"您点击了关注");
     }];
 
-    [self comingToPushVC:jobsCommentCoreVC
-           requestParams:@""];
+    [self comingToPresentVC:jobsCommentCoreVC
+              requestParams:@""];
 }
 #pragma mark —— lazyLoad
 -(UIButton *)contactCustomerServiceBtn{

@@ -80,5 +80,7 @@
 #import "JobsNavigationController.h"
 #pragma mark —— UINavigationBar
 #import "JobsNavigationBar.h"
+#pragma mark —— UIWindow
+#import "UIWindow+Extra.h"
 
 #endif /* JobsBaseCustomizeUIKitCoreHeader_h */

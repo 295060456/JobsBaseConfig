@@ -28,6 +28,12 @@
 
 -(void)loadView{
     [super loadView];
+    @jobs_weakify(self)
+    [getMainWindow() actionViewBlock:^(id data) {
+        @jobs_strongify(self)
+        [self dismissViewControllerAnimated:YES
+                                 completion:Nil];
+    }];
 }
 
 -(void)viewDidLoad{
@@ -70,6 +76,22 @@
     self.tableView.mj_footer.state = MJRefreshStateIdle;
     self.tableView.mj_footer.hidden = YES;
     self.tableView.pagingEnabled = YES;
+}
+
+-(void)一级标题点击事件{
+    SYSAlertControllerConfig *config = SYSAlertControllerConfig.new;
+    config.title = @"牛逼";
+    config.message = @"哈哈哈";
+    config.isSeparateStyle = NO;
+    config.btnTitleArr = @[@"好的"];
+    config.alertBtnActionArr = @[@""];
+    config.targetVC = self;
+    config.funcInWhere = self;
+    config.animated = YES;
+    
+    [NSObject showSYSAlertViewConfig:config
+                        alertVCBlock:nil
+                     completionBlock:nil];
 }
 
 -(void)二级标题点击事件{
@@ -127,12 +149,13 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 /// 二级评论数据 展示在cellForRowAtIndexPath
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     JobsFirstCommentModel *firstCommentModel = (JobsFirstCommentModel *)self.mjModel.listDataArr[indexPath.section];//一级评论数据 展示在viewForHeaderInSection
     JobsChildCommentModel *childCommentModel = firstCommentModel.childDataArr[indexPath.row];//二级评论数据 展示在cellForRowAtIndexPath
-    
+
     JobsFirstCommentCustomCofigModel *customCofigModel = JobsFirstCommentCustomCofigModel.new;
     customCofigModel.childDataArr = firstCommentModel.childDataArr;
-    
+
     if (customCofigModel.isFullShow) {
         JobsInfoTBVCell *cell = [JobsInfoTBVCell cellWithTableView:tableView];
         [cell richElementsInCellWithModel:childCommentModel];
@@ -175,22 +198,7 @@ viewForHeaderInSection:(NSInteger)section{
     // 一级标题点击事件
     [header actionViewBlock:^(id data) {
         @strongify(self)
-        SYSAlertControllerConfig *config = SYSAlertControllerConfig.new;
-        config.title = @"牛逼";
-        config.message = @"哈哈哈";
-        config.isSeparateStyle = NO;
-        config.btnTitleArr = @[@"好的"];
-        config.alertBtnActionArr = @[@""];
-        config.targetVC = self;
-        config.funcInWhere = self;
-        config.animated = YES;
-        
-        [NSObject showSYSAlertViewConfig:config
-                            alertVCBlock:nil
-                         completionBlock:nil];
-    }];
-    [header actionViewBlock:^(id data) {
-//        @strongify(self)
+        [self 一级标题点击事件];
     }];return header;
 }
 #pragma mark —— lazyLoad
