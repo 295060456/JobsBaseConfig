@@ -322,6 +322,12 @@
 		840F9C72277368AE004979E9 /* NSObject+URLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F9C6D277368AE004979E9 /* NSObject+URLManager.m */; };
 		842D299C276C9547003B6C8E /* JobsBaseConfigNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D299B276C9547003B6C8E /* JobsBaseConfigNotificationManager.m */; };
 		84432B96278C284E0028A27D /* UIWindow+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 84432B95278C284E0028A27D /* UIWindow+Extra.m */; };
+		84432C0F278C45C40028A27D /* 动态头像 尺寸84.gif in Resources */ = {isa = PBXBuildFile; fileRef = 84432C09278C45C30028A27D /* 动态头像 尺寸84.gif */; };
+		84432C10278C45C40028A27D /* 热度.gif in Resources */ = {isa = PBXBuildFile; fileRef = 84432C0A278C45C30028A27D /* 热度.gif */; };
+		84432C11278C45C40028A27D /* 动态头像 尺寸126.gif in Resources */ = {isa = PBXBuildFile; fileRef = 84432C0B278C45C30028A27D /* 动态头像 尺寸126.gif */; };
+		84432C12278C45C40028A27D /* 跳动的竖线.gif in Resources */ = {isa = PBXBuildFile; fileRef = 84432C0C278C45C40028A27D /* 跳动的竖线.gif */; };
+		84432C13278C45C40028A27D /* 钱袋.gif in Resources */ = {isa = PBXBuildFile; fileRef = 84432C0D278C45C40028A27D /* 钱袋.gif */; };
+		84432C14278C45C40028A27D /* Bt9h.gif in Resources */ = {isa = PBXBuildFile; fileRef = 84432C0E278C45C40028A27D /* Bt9h.gif */; };
 		844B02122764C8EE00B0513D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B02112764C8EE00B0513D /* AppDelegate.m */; };
 		844B02152764C8EE00B0513D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B02142764C8EE00B0513D /* SceneDelegate.m */; };
 		844B02182764C8EE00B0513D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B02172764C8EE00B0513D /* ViewController.m */; };
@@ -421,7 +427,7 @@
 		84562598278BF2780067ABB9 /* JobsPopUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8456257C278BF2780067ABB9 /* JobsPopUpVC.m */; };
 		84562599278BF2780067ABB9 /* JobsInfoTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84562580278BF2780067ABB9 /* JobsInfoTBVCell.m */; };
 		8456259A278BF2780067ABB9 /* JobsLoadMoreTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84562582278BF2780067ABB9 /* JobsLoadMoreTBVCell.m */; };
-		8456259B278BF2780067ABB9 /* JobsCommentPopUpViewForTVH.m in Sources */ = {isa = PBXBuildFile; fileRef = 84562585278BF2780067ABB9 /* JobsCommentPopUpViewForTVH.m */; };
+		8456259B278BF2780067ABB9 /* JobsCommentPopUpView_viewForHeaderInSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 84562585278BF2780067ABB9 /* JobsCommentPopUpView_viewForHeaderInSection.m */; };
 		8456259C278BF2780067ABB9 /* JobsCommentTitleHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84562588278BF2780067ABB9 /* JobsCommentTitleHeaderView.m */; };
 		8456259D278BF2780067ABB9 /* JobsCommentConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 8456258C278BF2780067ABB9 /* JobsCommentConfig.m */; };
 		8456259E278BF2780067ABB9 /* JobsCommentCoreVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8456258D278BF2780067ABB9 /* JobsCommentCoreVC.m */; };
@@ -1261,6 +1267,12 @@
 		842D299B276C9547003B6C8E /* JobsBaseConfigNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsBaseConfigNotificationManager.m; sourceTree = "<group>"; };
 		84432B94278C284E0028A27D /* UIWindow+Extra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Extra.h"; sourceTree = "<group>"; };
 		84432B95278C284E0028A27D /* UIWindow+Extra.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Extra.m"; sourceTree = "<group>"; };
+		84432C09278C45C30028A27D /* 动态头像 尺寸84.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "动态头像 尺寸84.gif"; sourceTree = "<group>"; };
+		84432C0A278C45C30028A27D /* 热度.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "热度.gif"; sourceTree = "<group>"; };
+		84432C0B278C45C30028A27D /* 动态头像 尺寸126.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "动态头像 尺寸126.gif"; sourceTree = "<group>"; };
+		84432C0C278C45C40028A27D /* 跳动的竖线.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "跳动的竖线.gif"; sourceTree = "<group>"; };
+		84432C0D278C45C40028A27D /* 钱袋.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "钱袋.gif"; sourceTree = "<group>"; };
+		84432C0E278C45C40028A27D /* Bt9h.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Bt9h.gif; sourceTree = "<group>"; };
 		844B020D2764C8EE00B0513D /* JobsBaseConfig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobsBaseConfig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		844B02102764C8EE00B0513D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		844B02112764C8EE00B0513D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -1426,8 +1438,8 @@
 		84562581278BF2780067ABB9 /* JobsLoadMoreTBVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsLoadMoreTBVCell.h; sourceTree = "<group>"; };
 		84562582278BF2780067ABB9 /* JobsLoadMoreTBVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsLoadMoreTBVCell.m; sourceTree = "<group>"; };
 		84562583278BF2780067ABB9 /* JobsInfoTBVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsInfoTBVCell.h; sourceTree = "<group>"; };
-		84562585278BF2780067ABB9 /* JobsCommentPopUpViewForTVH.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsCommentPopUpViewForTVH.m; sourceTree = "<group>"; };
-		84562586278BF2780067ABB9 /* JobsCommentPopUpViewForTVH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsCommentPopUpViewForTVH.h; sourceTree = "<group>"; };
+		84562585278BF2780067ABB9 /* JobsCommentPopUpView_viewForHeaderInSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsCommentPopUpView_viewForHeaderInSection.m; sourceTree = "<group>"; };
+		84562586278BF2780067ABB9 /* JobsCommentPopUpView_viewForHeaderInSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsCommentPopUpView_viewForHeaderInSection.h; sourceTree = "<group>"; };
 		84562588278BF2780067ABB9 /* JobsCommentTitleHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsCommentTitleHeaderView.m; sourceTree = "<group>"; };
 		84562589278BF2780067ABB9 /* JobsCommentTitleHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsCommentTitleHeaderView.h; sourceTree = "<group>"; };
 		8456258B278BF2780067ABB9 /* JobsCommentConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsCommentConfig.h; sourceTree = "<group>"; };
@@ -5453,8 +5465,8 @@
 		84562584278BF2780067ABB9 /* JobsCommentPopUpViewForTVH */ = {
 			isa = PBXGroup;
 			children = (
-				84562586278BF2780067ABB9 /* JobsCommentPopUpViewForTVH.h */,
-				84562585278BF2780067ABB9 /* JobsCommentPopUpViewForTVH.m */,
+				84562586278BF2780067ABB9 /* JobsCommentPopUpView_viewForHeaderInSection.h */,
+				84562585278BF2780067ABB9 /* JobsCommentPopUpView_viewForHeaderInSection.m */,
 				846B8335278C05A3005BCF91 /* 一级标题.md */,
 			);
 			path = JobsCommentPopUpViewForTVH;
@@ -6286,6 +6298,12 @@
 		84CA5DE527895B4700E46E71 /* Gif */ = {
 			isa = PBXGroup;
 			children = (
+				84432C09278C45C30028A27D /* 动态头像 尺寸84.gif */,
+				84432C0B278C45C30028A27D /* 动态头像 尺寸126.gif */,
+				84432C0D278C45C40028A27D /* 钱袋.gif */,
+				84432C0A278C45C30028A27D /* 热度.gif */,
+				84432C0C278C45C40028A27D /* 跳动的竖线.gif */,
+				84432C0E278C45C40028A27D /* Bt9h.gif */,
 				84CA5DE627895B4700E46E71 /* GIF大图.gif */,
 			);
 			path = Gif;
@@ -7458,6 +7476,7 @@
 				84CA5FBF27897AFB00E46E71 /* XDSDropDownMenu（下拉菜单） in Resources */,
 				84CA5FB527897AFB00E46E71 /* 上传中....md in Resources */,
 				844B08612764CF4800B0513D /* 日历@3x.png in Resources */,
+				84432C11278C45C40028A27D /* 动态头像 尺寸126.gif in Resources */,
 				84CA5E0827895B4700E46E71 /* iph_X.mp4 in Resources */,
 				840F962A27736427004979E9 /* 6@3x.png in Resources */,
 				840F95F027736427004979E9 /* 我的.json in Resources */,
@@ -7515,6 +7534,7 @@
 				840F95F427736427004979E9 /* 社区.json in Resources */,
 				844B086B2764CF4800B0513D /* 相机@2x.png in Resources */,
 				840F963C27736427004979E9 /* JobsPageTBV.md in Resources */,
+				84432C12278C45C40028A27D /* 跳动的竖线.gif in Resources */,
 				840F968827736428004979E9 /* UICollectionView+RegisterClass.md in Resources */,
 				840F96DC27736428004979E9 /* UBLLivingVC_h in Resources */,
 				840F962927736427004979E9 /* 6@2x.png in Resources */,
@@ -7555,6 +7575,7 @@
 				844B08662764CF4800B0513D /* 日历@2x.png in Resources */,
 				840F96DF27736428004979E9 /* DeleteSystemUITabBarButton.md in Resources */,
 				840F962E27736427004979E9 /* 2@3x.png in Resources */,
+				84432C10278C45C40028A27D /* 热度.gif in Resources */,
 				840F96BC27736428004979E9 /* UIControl+XY.md in Resources */,
 				844B08742764CF4800B0513D /* ECAuthorizationTools.md in Resources */,
 				84CA5FB227897AFB00E46E71 /* 高仿Uber取消叫车按钮效果(按住放大) in Resources */,
@@ -7564,6 +7585,7 @@
 				84CA5E0327895B4700E46E71 /* Others.bundle in Resources */,
 				84CA5FA527897AFB00E46E71 /* MD5 in Resources */,
 				84CA5E0227895B4700E46E71 /* 登录 * 注册 * 密码找回.bundle in Resources */,
+				84432C13278C45C40028A27D /* 钱袋.gif in Resources */,
 				844B08762764CF4800B0513D /* CasinoFlowDetailsVC_h in Resources */,
 				840F963227736427004979E9 /* JobsUpDownLab.png in Resources */,
 				840F961B27736427004979E9 /* 7@2x.png in Resources */,
@@ -7588,6 +7610,7 @@
 				844B08642764CF4800B0513D /* 蓝牙@3x.png in Resources */,
 				845C799E2786D2FE009843EE /* 输入框样式_3.png in Resources */,
 				8459D6182779A6CC00125782 /* CasinoCustomerServiceView.png in Resources */,
+				84432C0F278C45C40028A27D /* 动态头像 尺寸84.gif in Resources */,
 				84CA5FDA27897AFB00E46E71 /* 手势解锁 in Resources */,
 				844B08652764CF4800B0513D /* 语音识别@3x.png in Resources */,
 				84CA5FE327897AFB00E46E71 /* App图标更换 in Resources */,
@@ -7657,6 +7680,7 @@
 				84CA5E0427895B4700E46E71 /* GIF大图.gif in Resources */,
 				840F961E27736427004979E9 /* 9@3x.png in Resources */,
 				8459CE1D2776DCCF00125782 /* 启动页_03.png in Resources */,
+				84432C14278C45C40028A27D /* Bt9h.gif in Resources */,
 				840F962827736427004979E9 /* 8@3x.png in Resources */,
 				840F96E227736428004979E9 /* MonitorNetwoking.md in Resources */,
 				844B021B2764C8EE00B0513D /* Main.storyboard in Resources */,
@@ -8032,7 +8056,7 @@
 				84CA64BF2789C80600E46E71 /* MKRightBtnView.m in Sources */,
 				84CA64C02789C80600E46E71 /* ZFDouYinControlView.m in Sources */,
 				840F970A27736428004979E9 /* NSObject+UNUserNotificationCenterDelegate.m in Sources */,
-				8456259B278BF2780067ABB9 /* JobsCommentPopUpViewForTVH.m in Sources */,
+				8456259B278BF2780067ABB9 /* JobsCommentPopUpView_viewForHeaderInSection.m in Sources */,
 				840F969727736428004979E9 /* NSString+Path.m in Sources */,
 				840F96A527736428004979E9 /* UIViewController+Shake.m in Sources */,
 				840F970C27736428004979E9 /* NSObject+CallBackInfoByBlock.m in Sources */,

@@ -99,12 +99,12 @@
 -(NSInteger)loadMoreDataNum{
     if (_loadMoreDataNum == 0) {
         if (self.childDataArr.count) {
-            return self.childDataArr.count - self.firstShonNum;//全加载 = 数据库有的 - 默认已经显示的
+            return self.childDataArr.count - self.firstShowNum;//全加载 = 数据库有的 - 默认已经显示的
         }
     }return _loadMoreDataNum;
 }
 
--(NSInteger)firstShonNum{
+-(NSInteger)firstShowNum{
     if (self.isFullShow) {
         return self.childDataArr.count;
     }else{
@@ -113,7 +113,7 @@
 }
 
 -(BOOL)isFullShow{
-    return YES;
+    return NO;
 }
 
 @end

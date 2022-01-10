@@ -6,9 +6,9 @@
 //  Copyright © 2020 Jobs. All rights reserved.
 //
 
-#import "JobsCommentPopUpViewForTVH.h"
+#import "JobsCommentPopUpView_viewForHeaderInSection.h"
 
-@interface JobsCommentPopUpViewForTVH ()
+@interface JobsCommentPopUpView_viewForHeaderInSection ()
 /// UI
 @property(nonatomic,strong)UIImageView *headerIMGV;
 @property(nonatomic,strong)UILabel *titleLab;
@@ -21,12 +21,21 @@
 
 @end
 
-@implementation JobsCommentPopUpViewForTVH
+@implementation JobsCommentPopUpView_viewForHeaderInSection
 
--(instancetype)initWithReuseIdentifier:(nullable NSString *)reuseIdentifier{
-    if (self = [super initWithReuseIdentifier:reuseIdentifier]) {
-        self.contentView.backgroundColor = JobsCommentConfig.sharedInstance.bgCor;
+-(instancetype)init{
+    if (self = [super init]) {
+        
     }return self;
+}
+
+-(void)drawRect:(CGRect)rect{
+    [super drawRect:rect];
+}
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches
+          withEvent:(UIEvent *)event{
+    if (self.viewBlock) self.viewBlock(@1);
 }
 #pragma mark —— BaseViewProtocol
 /// 具体由子类进行复写【数据定高】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
@@ -35,24 +44,27 @@
 }
 /// 具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 -(void)richElementsInViewWithModel:(id _Nullable)model{
-    self.firstCommentModel = model;
-    [self.headerIMGV sd_setImageWithURL:[NSURL URLWithString:self.firstCommentModel.headImg]
-                       placeholderImage:[UIImage animatedGIFNamed:@"动态头像 尺寸126"]];
-    self.titleStr = self.firstCommentModel.nickname;
-    self.contentStr = self.firstCommentModel.content;
-    self.titleLab.alpha = 1;
-    self.contentLab.alpha = 1;
-    self.LikeBtn.selected = self.firstCommentModel.isPraise;
+    self.backgroundColor = UIColor.whiteColor;
+    if ([model isKindOfClass:JobsFirstCommentModel.class]) {
+        self.firstCommentModel = model;
+        [self.headerIMGV sd_setImageWithURL:[NSURL URLWithString:self.firstCommentModel.headImg]
+                           placeholderImage:[UIImage animatedGIFNamed:@"动态头像 尺寸126"]];
+        self.titleStr = self.firstCommentModel.nickname;
+        self.contentStr = self.firstCommentModel.content;
+        self.titleLab.alpha = 1;
+        self.contentLab.alpha = 1;
+        self.LikeBtn.selected = self.firstCommentModel.isPraise;
+    }
 }
 #pragma mark —— lazyLoad
 -(UIImageView *)headerIMGV{
     if (!_headerIMGV) {
         _headerIMGV = UIImageView.new;
-        [self.contentView addSubview:_headerIMGV];
+        [self addSubview:_headerIMGV];
         [_headerIMGV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(JobsCommentConfig.sharedInstance.headerImageViewSize);
-            make.left.equalTo(self.contentView).offset(16);
-            make.centerY.equalTo(self.contentView);
+            make.left.equalTo(self).offset(16);
+            make.centerY.equalTo(self);
         }];
     }return _headerIMGV;
 }
@@ -61,12 +73,12 @@
     if (!_titleLab) {
         _titleLab = UILabel.new;
         _titleLab.text = self.titleStr;
-        _titleLab.attributedText = [NSMutableAttributedString.alloc initWithString:self.titleStr
+        _titleLab.attributedText = [NSMutableAttributedString.alloc initWithString:self.titleStr ? : @""
                                                                         attributes:@{NSFontAttributeName: JobsCommentConfig.sharedInstance.titleFont,
                                                                                      NSForegroundColorAttributeName: JobsCommentConfig.sharedInstance.titleCor}];
-        [self.contentView addSubview:_titleLab];
+        [self addSubview:_titleLab];
         [_titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.contentView);
+            make.top.equalTo(self);
             make.bottom.equalTo(self.headerIMGV.mas_centerY);
             make.left.equalTo(self.headerIMGV.mas_right).offset(10);
         }];
@@ -80,10 +92,10 @@
         _contentLab.attributedText = [[NSMutableAttributedString alloc] initWithString:self.contentStr
                                                                             attributes:@{NSFontAttributeName: JobsCommentConfig.sharedInstance.subTitleFont,
                                                                                          NSForegroundColorAttributeName: JobsCommentConfig.sharedInstance.subTitleCor}];
-        [self.contentView addSubview:_contentLab];
+        [self addSubview:_contentLab];
         [_contentLab mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.contentView.mas_centerY);
-            make.bottom.equalTo(self.contentView);
+            make.top.equalTo(self.mas_centerY);
+            make.bottom.equalTo(self);
             make.left.equalTo(self.headerIMGV.mas_right).offset(10);
         }];
     }return _contentLab;
@@ -112,11 +124,11 @@
             }
         });
         
-        [self.contentView addSubview:_LikeBtn];
+        [self addSubview:_LikeBtn];
         [_LikeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(JobsCommentConfig.sharedInstance.cellHeight / 2, JobsCommentConfig.sharedInstance.cellHeight / 2));
-            make.right.equalTo(self.contentView).offset(-13);
-            make.centerY.equalTo(self.contentView);
+            make.right.equalTo(self).offset(-13);
+            make.centerY.equalTo(self);
         }];
     }return _LikeBtn;
 }

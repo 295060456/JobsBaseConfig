@@ -9,7 +9,7 @@
 
 #pragma mark —— View
 #import "EmptyView.h"
-#import "JobsCommentPopUpViewForTVH.h"
+#import "JobsCommentPopUpView_viewForHeaderInSection.h"
 #import "JobsCommentTitleHeaderView.h"
 #import "JobsInfoTBVCell.h"//显示具体的有用讯息
 #import "JobsLoadMoreTBVCell.h"//加载更多

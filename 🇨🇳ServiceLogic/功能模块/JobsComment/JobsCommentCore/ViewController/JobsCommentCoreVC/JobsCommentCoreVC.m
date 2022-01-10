@@ -149,12 +149,11 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     JobsFirstCommentModel *firstCommentModel = (JobsFirstCommentModel *)self.mjModel.listDataArr[section];
     JobsFirstCommentCustomCofigModel *customCofigModel = JobsFirstCommentCustomCofigModel.new;
     customCofigModel.childDataArr = firstCommentModel.childDataArr;
-    return customCofigModel.firstShonNum;
+    return customCofigModel.firstShowNum;
 }
 /// 二级评论数据 展示在cellForRowAtIndexPath
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     JobsFirstCommentModel *firstCommentModel = (JobsFirstCommentModel *)self.mjModel.listDataArr[indexPath.section];//一级评论数据 展示在viewForHeaderInSection
     JobsChildCommentModel *childCommentModel = firstCommentModel.childDataArr[indexPath.row];//二级评论数据 展示在cellForRowAtIndexPath
 
@@ -169,7 +168,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 //            @jobs_strongify(self)
         }];return cell;
     }else{
-        if (indexPath.row <= customCofigModel.firstShonNum) {
+        if (indexPath.row <= customCofigModel.firstShowNum) {
             // 二级评论展示...
             JobsInfoTBVCell *cell = [JobsInfoTBVCell cellWithTableView:tableView];
             [cell richElementsInCellWithModel:childCommentModel];
@@ -187,17 +186,18 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    NSLog(@"QQQQ = %ld",self.mjModel.listDataArr.count);
     return self.mjModel.listDataArr.count;/// 一级评论👌
 }
 
 - (CGFloat)tableView:(UITableView *)tableView
 heightForHeaderInSection:(NSInteger)section{///  👌
-    return [JobsCommentPopUpViewForTVH viewHeightWithModel:nil];
+    return [JobsCommentPopUpView_viewForHeaderInSection viewHeightWithModel:nil];
 }
 /// 一级评论数据 展示在viewForHeaderInSection
 - (UIView *)tableView:(UITableView *)tableView
 viewForHeaderInSection:(NSInteger)section{
-    JobsCommentPopUpViewForTVH *header = [JobsCommentPopUpViewForTVH.alloc initWithReuseIdentifier:NSStringFromClass(JobsCommentPopUpViewForTVH.class)];
+    JobsCommentPopUpView_viewForHeaderInSection *header = JobsCommentPopUpView_viewForHeaderInSection.new;
     [header richElementsInViewWithModel:self.mjModel.listDataArr[section]];//一级评论数据 展示在viewForHeaderInSection
     @weakify(self)
     // 一级标题点击事件
