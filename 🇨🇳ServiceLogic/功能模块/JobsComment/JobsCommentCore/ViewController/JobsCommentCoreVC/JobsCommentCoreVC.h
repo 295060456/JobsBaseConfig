@@ -42,7 +42,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JobsCommentCoreVC : JobsPopUpVC
-
+<
+UITableViewDelegate
+,UITableViewDataSource
+>
 //用下面两个都可以
 @property(nonatomic,strong)JobsCommentModel *mjModel;
 @property(nonatomic,strong)JobsCommentModel *yyModel;

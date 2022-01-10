@@ -8,11 +8,7 @@
 #import "JobsCommentCoreVC.h"
 
 @interface JobsCommentCoreVC ()
-<
-UITableViewDelegate
-,UITableViewDataSource
->
-
+/// UI
 @property(nonatomic,strong)JobsCommentTitleHeaderView *titleHeaderView;
 @property(nonatomic,strong)UITableView *tableView;
 
@@ -36,6 +32,7 @@ UITableViewDelegate
 
 -(void)viewDidLoad{
     [super viewDidLoad];
+    
     self.view.backgroundColor = UIColor.orangeColor;
     self.isHiddenNavigationBar = YES;//禁用系统的导航栏
     self.gk_statusBarHidden = YES;
@@ -64,12 +61,8 @@ UITableViewDelegate
     self.mjModel = [JobsCommentModel mj_objectWithKeyValues:dic[@"data"]];
 //    self.yyModel = [MKCommentModel yy_modelWithDictionary:dic[@"data"]];
     NSLog(@"KKK");
-    if (self.mjModel.listDataArr.count) {
-        [self.tableView ly_hideEmptyView];
-    }else{
-        [self.tableView ly_showEmptyView];
-    }
-    
+
+    [self dataSource:self.mjModel.listDataArr contentView:self.tableView];
     [self endRefreshing:self.tableView];
 }
 
@@ -77,6 +70,20 @@ UITableViewDelegate
     self.tableView.mj_footer.state = MJRefreshStateIdle;
     self.tableView.mj_footer.hidden = YES;
     self.tableView.pagingEnabled = YES;
+}
+
+-(void)二级标题点击事件{
+    SYSAlertControllerConfig *config = SYSAlertControllerConfig.new;
+    config.isSeparateStyle = YES;
+    config.btnTitleArr = @[@"回复",@"复制",@"举报",@"取消"];
+    config.alertBtnActionArr = @[@"reply",@"copyIt",@"report",@"cancel"];
+    config.targetVC = self;
+    config.funcInWhere = self;
+    config.animated = YES;
+    
+    [NSObject showSYSActionSheetConfig:config
+                          alertVCBlock:nil
+                       completionBlock:nil];
 }
 #pragma mark —— BaseViewProtocol
 /// 下拉刷新 （子类要进行覆写）
@@ -106,28 +113,18 @@ heightForFooterInSection:(NSInteger)section{
 
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    // 二级标题点击事件
-    SYSAlertControllerConfig *config = SYSAlertControllerConfig.new;
-    config.isSeparateStyle = YES;
-    config.btnTitleArr = @[@"回复",@"复制",@"举报",@"取消"];
-    config.alertBtnActionArr = @[@"reply",@"copyIt",@"report",@"cancel"];
-    config.targetVC = self;
-    config.funcInWhere = self;
-    config.animated = YES;
-    
-    [NSObject showSYSActionSheetConfig:config
-                          alertVCBlock:nil
-                       completionBlock:nil];
+    [self 二级标题点击事件];
 }
-
+/// 二级评论
 - (NSInteger)tableView:(UITableView *)tableView
- numberOfRowsInSection:(NSInteger)section{// 二级评论
+ numberOfRowsInSection:(NSInteger)section{
+    
     JobsFirstCommentModel *firstCommentModel = (JobsFirstCommentModel *)self.mjModel.listDataArr[section];
     JobsFirstCommentCustomCofigModel *customCofigModel = JobsFirstCommentCustomCofigModel.new;
     customCofigModel.childDataArr = firstCommentModel.childDataArr;
     return customCofigModel.firstShonNum;
 }
-//二级评论数据 展示在cellForRowAtIndexPath
+/// 二级评论数据 展示在cellForRowAtIndexPath
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     JobsFirstCommentModel *firstCommentModel = (JobsFirstCommentModel *)self.mjModel.listDataArr[indexPath.section];//一级评论数据 展示在viewForHeaderInSection
@@ -162,14 +159,14 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return self.mjModel.listDataArr.count;//一级评论
+    return self.mjModel.listDataArr.count;/// 一级评论👌
 }
 
 - (CGFloat)tableView:(UITableView *)tableView
-heightForHeaderInSection:(NSInteger)section{
+heightForHeaderInSection:(NSInteger)section{///  👌
     return [JobsCommentPopUpViewForTVH viewHeightWithModel:nil];
 }
-//一级评论数据 展示在viewForHeaderInSection
+/// 一级评论数据 展示在viewForHeaderInSection
 - (UIView *)tableView:(UITableView *)tableView
 viewForHeaderInSection:(NSInteger)section{
     JobsFirstCommentModel *firstCommentModel = self.mjModel.listDataArr[section];//一级评论数据 展示在viewForHeaderInSection
