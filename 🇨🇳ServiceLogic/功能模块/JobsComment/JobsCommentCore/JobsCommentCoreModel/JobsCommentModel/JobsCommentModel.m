@@ -98,14 +98,22 @@
 
 -(NSInteger)loadMoreDataNum{
     if (_loadMoreDataNum == 0) {
-        if (self.childDataArr) {
+        if (self.childDataArr.count) {
             return self.childDataArr.count - self.firstShonNum;//全加载 = 数据库有的 - 默认已经显示的
         }
     }return _loadMoreDataNum;
 }
 
 -(NSInteger)firstShonNum{
-    return self.childDataArr.count > self.preMax ? self.preMax : self.childDataArr.count;
+    if (self.isFullShow) {
+        return self.childDataArr.count;
+    }else{
+        return self.childDataArr.count > self.preMax ? self.preMax : self.childDataArr.count;
+    }
+}
+
+-(BOOL)isFullShow{
+    return YES;
 }
 
 @end

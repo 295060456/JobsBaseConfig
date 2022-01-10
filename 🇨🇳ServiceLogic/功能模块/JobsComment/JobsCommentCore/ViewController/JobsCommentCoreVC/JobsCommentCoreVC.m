@@ -67,6 +67,7 @@
     self.mjModel = [JobsCommentModel mj_objectWithKeyValues:dic[@"data"]];
 //    self.yyModel = [MKCommentModel yy_modelWithDictionary:dic[@"data"]];
 
+    NSLog(@"self.mjModel = %@",self.mjModel);
     [self dataSource:self.mjModel.listDataArr contentView:self.tableView];
     [self endRefreshing:self.tableView];
 }
@@ -124,12 +125,17 @@
 #pragma mark —————————— UITableViewDelegate,UITableViewDataSource ——————————
 - (CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [JobsLoadMoreTBVCell cellHeightWithModel:nil];
+    return [JobsLoadMoreTBVCell cellHeightWithModel:nil];//isFullShow
 }
 
 - (CGFloat)tableView:(UITableView *)tableView
 heightForFooterInSection:(NSInteger)section{
     return 0.01;
+}
+
+- (nullable UIView *)tableView:(UITableView *)tableView
+        viewForFooterInSection:(NSInteger)section{
+    return nil;
 }
 
 - (void)tableView:(UITableView *)tableView
