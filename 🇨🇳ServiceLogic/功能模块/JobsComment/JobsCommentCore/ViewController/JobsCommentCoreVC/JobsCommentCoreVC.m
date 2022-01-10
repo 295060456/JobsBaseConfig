@@ -96,7 +96,7 @@ UITableViewDelegate
 #pragma mark —————————— UITableViewDelegate,UITableViewDataSource ——————————
 - (CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [LoadMoreTBVCell cellHeightWithModel:nil];
+    return [JobsLoadMoreTBVCell cellHeightWithModel:nil];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView
@@ -137,7 +137,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     customCofigModel.childMutArr = firstCommentModel.childMutArr;
     
     if (customCofigModel.isFullShow) {
-        InfoTBVCell *cell = [InfoTBVCell cellWithTableView:tableView];
+        JobsInfoTBVCell *cell = [JobsInfoTBVCell cellWithTableView:tableView];
         [cell richElementsInCellWithModel:childCommentModel];
 //        @weakify(self)
         [cell actionViewBlock:^(id data) {
@@ -146,7 +146,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     }else{
         if (indexPath.row <= customCofigModel.firstShonNum) {
             // 二级评论展示...
-            InfoTBVCell *cell = [InfoTBVCell cellWithTableView:tableView];
+            JobsInfoTBVCell *cell = [JobsInfoTBVCell cellWithTableView:tableView];
             [cell richElementsInCellWithModel:childCommentModel];
 //            @weakify(self)
             [cell actionViewBlock:^(id data) {
@@ -154,7 +154,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
             }];return cell;
         }else{
             // 加载更多...
-            LoadMoreTBVCell *cell = [LoadMoreTBVCell cellWithTableView:tableView];
+            JobsLoadMoreTBVCell *cell = [JobsLoadMoreTBVCell cellWithTableView:tableView];
             [cell richElementsInCellWithModel:nil];
             return cell;
         }

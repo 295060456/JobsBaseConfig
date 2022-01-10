@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LoadMoreTBVCell : UITableViewCell<BaseCellProtocol>
+@interface JobsLoadMoreTBVCell : UITableViewCell<BaseCellProtocol>
 
 @end
 

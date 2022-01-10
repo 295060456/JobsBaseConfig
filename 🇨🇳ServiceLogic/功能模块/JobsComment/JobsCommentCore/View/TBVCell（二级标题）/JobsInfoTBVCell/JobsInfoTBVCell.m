@@ -6,20 +6,20 @@
 //  Copyright © 2020 Jobs. All rights reserved.
 //
 
-#import "InfoTBVCell.h"
+#import "JobsInfoTBVCell.h"
 
-@interface InfoTBVCell ()
+@interface JobsInfoTBVCell ()
 
 @property(nonatomic,copy)MKDataBlock infoTBVCellBlock;
 
 @end
 
-@implementation InfoTBVCell
+@implementation JobsInfoTBVCell
 
 +(instancetype)cellWithTableView:(UITableView *)tableView{
-    InfoTBVCell *cell = (InfoTBVCell *)[tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
+    JobsInfoTBVCell *cell = (JobsInfoTBVCell *)[tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
     if (!cell) {
-        cell = [InfoTBVCell.alloc initWithStyle:UITableViewCellStyleSubtitle
+        cell = [JobsInfoTBVCell.alloc initWithStyle:UITableViewCellStyleSubtitle
                                 reuseIdentifier:ReuseIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.contentView.backgroundColor = JobsCommentConfig.sharedInstance.bgCor;

@@ -11,8 +11,8 @@
 #import "EmptyView.h"
 #import "JobsCommentPopUpViewForTVH.h"
 #import "JobsCommentTitleHeaderView.h"
-#import "InfoTBVCell.h"//显示具体的有用讯息
-#import "LoadMoreTBVCell.h"//加载更多
+#import "JobsInfoTBVCell.h"//显示具体的有用讯息
+#import "JobsLoadMoreTBVCell.h"//加载更多
 #import "LOTAnimationMJRefreshHeader.h"
 
 #pragma mark —— ViewController

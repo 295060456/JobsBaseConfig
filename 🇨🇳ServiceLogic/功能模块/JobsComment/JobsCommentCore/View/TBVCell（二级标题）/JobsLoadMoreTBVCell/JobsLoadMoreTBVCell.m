@@ -6,21 +6,21 @@
 //  Copyright © 2020 Jobs. All rights reserved.
 //
 
-#import "LoadMoreTBVCell.h"
+#import "JobsLoadMoreTBVCell.h"
 
-@interface LoadMoreTBVCell ()
+@interface JobsLoadMoreTBVCell ()
 
 @property(nonatomic,strong)UILabel *titleLab;
 
 @end
 
-@implementation LoadMoreTBVCell
+@implementation JobsLoadMoreTBVCell
 
 #pragma mark —— BaseCellProtocol
 +(instancetype)cellWithTableView:(UITableView *)tableView{
-    LoadMoreTBVCell *cell = (LoadMoreTBVCell *)[tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
+    JobsLoadMoreTBVCell *cell = (JobsLoadMoreTBVCell *)[tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
     if (!cell) {
-        cell = [[LoadMoreTBVCell alloc]initWithStyle:UITableViewCellStyleDefault
+        cell = [[JobsLoadMoreTBVCell alloc]initWithStyle:UITableViewCellStyleDefault
                                       reuseIdentifier:ReuseIdentifier];
         cell.contentView.backgroundColor = JobsCommentConfig.sharedInstance.bgCor;
     }return cell;
