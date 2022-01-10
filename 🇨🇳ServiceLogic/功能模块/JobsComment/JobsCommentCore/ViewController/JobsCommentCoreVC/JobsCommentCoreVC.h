@@ -16,7 +16,7 @@
 #import "LOTAnimationMJRefreshHeader.h"
 
 #pragma mark —— ViewController
-#import "PopUpVC.h"
+#import "JobsPopUpVC.h"
 
 #pragma mark —— Model
 #import "BaseModel.h"
@@ -41,7 +41,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JobsCommentCoreVC : PopUpVC
+@interface JobsCommentCoreVC : JobsPopUpVC
 
 //用下面两个都可以
 @property(nonatomic,strong)JobsCommentModel *mjModel;

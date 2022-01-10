@@ -14,7 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseTableViewHeaderView : UITableViewHeaderFooterView
 <
-BaseViewProtocol
+BaseViewProtocol,
+BaseProtocol
 >
 
 @end

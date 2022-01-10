@@ -9,7 +9,7 @@
 
 @interface JobsCommentVC (){
     JobsCommentCoreVC *jobsCommentCoreVC;
-    PopUpVC *popUpVC;
+    JobsPopUpVC *popUpVC;
 }
 
 @property(nonatomic,strong)UIButton *contactCustomerServiceBtn;// 联系客服按钮

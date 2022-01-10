@@ -14,14 +14,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JobsCommentPopUpViewForTVH : BaseTableViewHeaderView
-<
-BaseProtocol,
-BaseViewProtocol
->
-
--(instancetype)initWithReuseIdentifier:(nullable NSString *)reuseIdentifier
-                              withData:(id)data;
-+(CGFloat)viewForTableViewHeaderHeightWithModel:(id _Nullable)model;
 
 @end
 

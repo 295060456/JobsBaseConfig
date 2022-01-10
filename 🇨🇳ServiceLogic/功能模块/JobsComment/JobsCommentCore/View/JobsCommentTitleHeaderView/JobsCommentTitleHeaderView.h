@@ -6,12 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JobsCommentTitleHeaderView : UIView
-
--(void)actionBlockJobsCommentTitleHeaderViewBlock:(MKDataBlock)jobsCommentTitleHeaderViewBlock;
+@interface JobsCommentTitleHeaderView : BaseView
 
 @end
 

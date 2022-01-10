@@ -417,7 +417,7 @@
 		84562574278BF1FB0067ABB9 /* JobsComment【OutLines 04】.png in Resources */ = {isa = PBXBuildFile; fileRef = 8456256F278BF1FB0067ABB9 /* JobsComment【OutLines 04】.png */; };
 		84562575278BF1FB0067ABB9 /* JobsComment【OutLines 03】.png in Resources */ = {isa = PBXBuildFile; fileRef = 84562570278BF1FB0067ABB9 /* JobsComment【OutLines 03】.png */; };
 		84562576278BF1FB0067ABB9 /* JobsComment【OutLines 02】.png in Resources */ = {isa = PBXBuildFile; fileRef = 84562571278BF1FB0067ABB9 /* JobsComment【OutLines 02】.png */; };
-		84562598278BF2780067ABB9 /* PopUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8456257C278BF2780067ABB9 /* PopUpVC.m */; };
+		84562598278BF2780067ABB9 /* JobsPopUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8456257C278BF2780067ABB9 /* JobsPopUpVC.m */; };
 		84562599278BF2780067ABB9 /* JobsInfoTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84562580278BF2780067ABB9 /* JobsInfoTBVCell.m */; };
 		8456259A278BF2780067ABB9 /* JobsLoadMoreTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84562582278BF2780067ABB9 /* JobsLoadMoreTBVCell.m */; };
 		8456259B278BF2780067ABB9 /* JobsCommentPopUpViewForTVH.m in Sources */ = {isa = PBXBuildFile; fileRef = 84562585278BF2780067ABB9 /* JobsCommentPopUpViewForTVH.m */; };
@@ -1417,8 +1417,8 @@
 		84562570278BF1FB0067ABB9 /* JobsComment【OutLines 03】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsComment【OutLines 03】.png"; sourceTree = "<group>"; };
 		84562571278BF1FB0067ABB9 /* JobsComment【OutLines 02】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsComment【OutLines 02】.png"; sourceTree = "<group>"; };
 		84562579278BF2780067ABB9 /* JobsCommentCoreVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsCommentCoreVC.h; sourceTree = "<group>"; };
-		8456257B278BF2780067ABB9 /* PopUpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopUpVC.h; sourceTree = "<group>"; };
-		8456257C278BF2780067ABB9 /* PopUpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopUpVC.m; sourceTree = "<group>"; };
+		8456257B278BF2780067ABB9 /* JobsPopUpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsPopUpVC.h; sourceTree = "<group>"; };
+		8456257C278BF2780067ABB9 /* JobsPopUpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsPopUpVC.m; sourceTree = "<group>"; };
 		84562580278BF2780067ABB9 /* JobsInfoTBVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsInfoTBVCell.m; sourceTree = "<group>"; };
 		84562581278BF2780067ABB9 /* JobsLoadMoreTBVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsLoadMoreTBVCell.h; sourceTree = "<group>"; };
 		84562582278BF2780067ABB9 /* JobsLoadMoreTBVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsLoadMoreTBVCell.m; sourceTree = "<group>"; };
@@ -1507,7 +1507,7 @@
 		845C79892786D2FE009843EE /* JobsAppDoorInputViewBaseStyle_3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputViewBaseStyle_3.h; sourceTree = "<group>"; };
 		845C798A2786D2FE009843EE /* JobsAppDoorInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputView.h; sourceTree = "<group>"; };
 		8465454D2769A53A003EC0B5 /* 配置info.plist.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "配置info.plist.md"; sourceTree = "<group>"; };
-		846B8335278C05A3005BCF91 /* JobsCommentPopUpViewForTVH.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = JobsCommentPopUpViewForTVH.md; sourceTree = "<group>"; };
+		846B8335278C05A3005BCF91 /* 一级标题.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "一级标题.md"; sourceTree = "<group>"; };
 		846DEE0027804C340050468A /* JobsBasePopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsBasePopupView.m; sourceTree = "<group>"; };
 		846DEE0127804C340050468A /* JobsBasePopupView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobsBasePopupView.png; sourceTree = "<group>"; };
 		846DEE0227804C340050468A /* JobsBasePopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBasePopupView.h; sourceTree = "<group>"; };
@@ -1838,6 +1838,7 @@
 		84D764B2278092C00003F0E4 /* RequestTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestTool.m; sourceTree = "<group>"; };
 		84D764B5278093650003F0E4 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		84D764B6278093650003F0E4 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		84ED5203278C09F5009A22C1 /* 二级标题.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "二级标题.md"; sourceTree = "<group>"; };
 		949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JobsBaseConfigUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEDDD2E7A82BF58DE2012E29 /* Pods-JobsBaseConfigUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobsBaseConfigUITests.debug.xcconfig"; path = "Target Support Files/Pods-JobsBaseConfigUITests/Pods-JobsBaseConfigUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -5419,39 +5420,40 @@
 		8456257E278BF2780067ABB9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8456257F278BF2780067ABB9 /* TBVCell（二级标题） */,
-				84562584278BF2780067ABB9 /* viewForHeaderInSection（一级标题） */,
-				84562587278BF2780067ABB9 /* 标题栏 */,
+				8456257F278BF2780067ABB9 /* TBVCell */,
+				84562584278BF2780067ABB9 /* JobsCommentPopUpViewForTVH */,
+				84562587278BF2780067ABB9 /* JobsCommentTitleHeaderView */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		8456257F278BF2780067ABB9 /* TBVCell（二级标题） */ = {
+		8456257F278BF2780067ABB9 /* TBVCell */ = {
 			isa = PBXGroup;
 			children = (
 				84562621278BF7000067ABB9 /* JobsLoadMoreTBVCell */,
 				84562620278BF6F90067ABB9 /* JobsInfoTBVCell */,
+				84ED5203278C09F5009A22C1 /* 二级标题.md */,
 			);
-			path = "TBVCell（二级标题）";
+			path = TBVCell;
 			sourceTree = "<group>";
 		};
-		84562584278BF2780067ABB9 /* viewForHeaderInSection（一级标题） */ = {
+		84562584278BF2780067ABB9 /* JobsCommentPopUpViewForTVH */ = {
 			isa = PBXGroup;
 			children = (
 				84562586278BF2780067ABB9 /* JobsCommentPopUpViewForTVH.h */,
 				84562585278BF2780067ABB9 /* JobsCommentPopUpViewForTVH.m */,
-				846B8335278C05A3005BCF91 /* JobsCommentPopUpViewForTVH.md */,
+				846B8335278C05A3005BCF91 /* 一级标题.md */,
 			);
-			path = "viewForHeaderInSection（一级标题）";
+			path = JobsCommentPopUpViewForTVH;
 			sourceTree = "<group>";
 		};
-		84562587278BF2780067ABB9 /* 标题栏 */ = {
+		84562587278BF2780067ABB9 /* JobsCommentTitleHeaderView */ = {
 			isa = PBXGroup;
 			children = (
 				84562589278BF2780067ABB9 /* JobsCommentTitleHeaderView.h */,
 				84562588278BF2780067ABB9 /* JobsCommentTitleHeaderView.m */,
 			);
-			path = "标题栏";
+			path = JobsCommentTitleHeaderView;
 			sourceTree = "<group>";
 		};
 		84562590278BF2780067ABB9 /* JobsCommentModel */ = {
@@ -5485,7 +5487,7 @@
 			isa = PBXGroup;
 			children = (
 				8456261E278BF6060067ABB9 /* JobsCommentCoreVC */,
-				8456261D278BF5FD0067ABB9 /* PopUpVC */,
+				8456261D278BF5FD0067ABB9 /* JobsPopUpVC */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -5499,14 +5501,14 @@
 			path = JobsCommentConfig;
 			sourceTree = "<group>";
 		};
-		8456261D278BF5FD0067ABB9 /* PopUpVC */ = {
+		8456261D278BF5FD0067ABB9 /* JobsPopUpVC */ = {
 			isa = PBXGroup;
 			children = (
-				8456257B278BF2780067ABB9 /* PopUpVC.h */,
-				8456257C278BF2780067ABB9 /* PopUpVC.m */,
+				8456257B278BF2780067ABB9 /* JobsPopUpVC.h */,
+				8456257C278BF2780067ABB9 /* JobsPopUpVC.m */,
 				8456261F278BF61C0067ABB9 /* PopUpVC.md */,
 			);
-			path = PopUpVC;
+			path = JobsPopUpVC;
 			sourceTree = "<group>";
 		};
 		8456261E278BF6060067ABB9 /* JobsCommentCoreVC */ = {
@@ -8034,7 +8036,7 @@
 				844B084B2764CF4800B0513D /* ECPrivacyCheckFilesAndFolders.m in Sources */,
 				840F95E627736427004979E9 /* UITabBarItem+TLAnimation.m in Sources */,
 				840F969627736428004979E9 /* NSString+Decoration.m in Sources */,
-				84562598278BF2780067ABB9 /* PopUpVC.m in Sources */,
+				84562598278BF2780067ABB9 /* JobsPopUpVC.m in Sources */,
 				84868F19277ADF690098BE7A /* JobsDropDownListView.m in Sources */,
 				840F969827736428004979E9 /* NSString+Judgment.m in Sources */,
 				844B02182764C8EE00B0513D /* ViewController.m in Sources */,

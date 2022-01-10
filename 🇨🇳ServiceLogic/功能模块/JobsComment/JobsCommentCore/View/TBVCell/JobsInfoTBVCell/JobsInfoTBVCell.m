@@ -9,13 +9,16 @@
 #import "JobsInfoTBVCell.h"
 
 @interface JobsInfoTBVCell ()
-
-@property(nonatomic,copy)MKDataBlock infoTBVCellBlock;
+/// UI
+@property(nonatomic,strong)RBCLikeButton *LikeBtn;
+/// Data
+@property(nonatomic,strong)JobsChildCommentModel *childCommentModel;
 
 @end
 
 @implementation JobsInfoTBVCell
 
+#pragma mark —— BaseCellProtocol
 +(instancetype)cellWithTableView:(UITableView *)tableView{
     JobsInfoTBVCell *cell = (JobsInfoTBVCell *)[tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
     if (!cell) {
@@ -56,6 +59,10 @@
     self.imageView.mj_x += JobsCommentConfig.sharedInstance.secondLevelCommentOffset;
     self.textLabel.mj_x += JobsCommentConfig.sharedInstance.secondLevelCommentOffset;
     self.detailTextLabel.mj_x += JobsCommentConfig.sharedInstance.secondLevelCommentOffset;
+}
+
+-(RBCLikeButton *)getLikeBtn{
+    return _LikeBtn;
 }
 #pragma mark —— lazyLoad
 -(RBCLikeButton *)LikeBtn{

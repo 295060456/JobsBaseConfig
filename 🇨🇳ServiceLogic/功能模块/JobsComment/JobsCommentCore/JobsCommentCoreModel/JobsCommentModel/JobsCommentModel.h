@@ -41,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy)NSString *commentDate;
 @property(nonatomic,assign)NSInteger praiseNum;
 @property(nonatomic,assign)NSInteger replyNum;
-@property(nonatomic,strong)NSMutableArray <JobsChildCommentModel *>*childMutArr;//二级评论
+@property(nonatomic,strong)NSArray <JobsChildCommentModel *>*childDataArr;//二级评论
 @property(nonatomic,copy)NSString *videoId;
 @property(nonatomic,copy)NSString *commentId;
 @property(nonatomic,assign)NSInteger isPraise;
@@ -51,13 +51,13 @@ NS_ASSUME_NONNULL_BEGIN
 /// 对应字段 data
 @interface JobsCommentModel : BaseModel
 
-@property(nonatomic,strong) NSMutableArray <JobsFirstCommentModel *>*listMutArr;//一级评论
+@property(nonatomic,strong)NSArray <JobsFirstCommentModel *>*listDataArr;//一级评论
 
 @end
 
 @interface JobsFirstCommentCustomCofigModel : NSObject
 
-@property(nonatomic,strong)NSMutableArray <JobsChildCommentModel *>*childMutArr;//二级评论
+@property(nonatomic,strong)NSArray <JobsChildCommentModel *>*childDataArr;//二级评论
 #pragma mask —— 自定义字段
 @property(nonatomic,assign)BOOL isFullShow;//是否全显示 默认不全显示
 @property(nonatomic,assign)NSInteger preMax;//显示控制，二级数据默认最多显示多少个 默认3

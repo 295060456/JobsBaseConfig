@@ -7,7 +7,7 @@
 
 #import "BaseViewController.h"
 #import "JobsCommentCoreVC.h"
-#import "PopUpVC.h"
+#import "JobsPopUpVC.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

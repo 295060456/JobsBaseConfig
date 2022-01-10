@@ -20,9 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface JobsInfoTBVCell : UITableViewCell<BaseCellProtocol>
 
-@property(nonatomic,strong)RBCLikeButton *LikeBtn;
-@property(nonatomic,strong)JobsChildCommentModel *childCommentModel;
-
 @end
 
 NS_ASSUME_NONNULL_END

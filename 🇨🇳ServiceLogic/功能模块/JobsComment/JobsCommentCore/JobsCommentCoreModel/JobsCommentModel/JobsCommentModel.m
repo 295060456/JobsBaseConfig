@@ -32,13 +32,13 @@
 + (NSDictionary *)modelCustomPropertyMapper{
     return @{
         @"ID" : @"id",
-        @"childMutArr":@"child"
+        @"childDataArr":@"child"
     };
 }
 
 + (NSDictionary *)modelContainerPropertyGenericClass {
     return @{
-        @"childMutArr" : JobsChildCommentModel.class
+        @"childDataArr" : JobsChildCommentModel.class
     };
 }
 #pragma mark —— MJExtention
@@ -46,13 +46,13 @@
     /* 返回的字典，key为模型属性名，value为转化的字典的多级key */
     return @{
         @"ID" : @"id",
-        @"childMutArr":@"child"
+        @"childDataArr":@"child"
     };
 }
 
 +(NSDictionary *)mj_objectClassInArray{
     return @{
-        @"childMutArr" : JobsChildCommentModel.class
+        @"childDataArr" : JobsChildCommentModel.class
     };
 }
 
@@ -63,7 +63,7 @@
 #pragma mark —— YYModel
 + (NSDictionary *)modelCustomPropertyMapper{
     return @{
-        @"listMutArr": @"list"
+        @"listDataArr": @"list"
     };
 }
 
@@ -76,13 +76,13 @@
 +(NSDictionary *)mj_replacedKeyFromPropertyName{
     /* 返回的字典，key为模型属性名，value为转化的字典的多级key */
     return @{
-        @"listMutArr" : @"list",
+        @"listDataArr" : @"list",
     };
 }
 
 +(NSDictionary *)mj_objectClassInArray{
     return @{
-        @"listMutArr" : JobsFirstCommentModel.class,
+        @"listDataArr" : JobsFirstCommentModel.class,
     };
 }
 
@@ -98,14 +98,14 @@
 
 -(NSInteger)loadMoreDataNum{
     if (_loadMoreDataNum == 0) {
-        if (self.childMutArr) {
-            return self.childMutArr.count - self.firstShonNum;//全加载 = 数据库有的 - 默认已经显示的
+        if (self.childDataArr) {
+            return self.childDataArr.count - self.firstShonNum;//全加载 = 数据库有的 - 默认已经显示的
         }
     }return _loadMoreDataNum;
 }
 
 -(NSInteger)firstShonNum{
-    return self.childMutArr.count > self.preMax ? self.preMax : self.childMutArr.count;
+    return self.childDataArr.count > self.preMax ? self.preMax : self.childDataArr.count;
 }
 
 @end

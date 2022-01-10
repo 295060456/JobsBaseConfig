@@ -18,7 +18,7 @@ typedef NS_ENUM(NSUInteger, MoveDirection){
     MoveDirection_horizont_right//水平方向(向右)滑动
 };
 //此类解耦手势
-@interface PopUpVC : BaseViewController
+@interface JobsPopUpVC : BaseViewController
 <
 UIGestureRecognizerDelegate
 >

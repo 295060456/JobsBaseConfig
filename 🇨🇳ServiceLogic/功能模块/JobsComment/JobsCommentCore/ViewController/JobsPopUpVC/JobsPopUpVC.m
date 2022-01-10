@@ -6,13 +6,13 @@
 //  Copyright © 2020 Jobs. All rights reserved.
 //
 
-#import "PopUpVC.h"
+#import "JobsPopUpVC.h"
 
-@interface PopUpVC ()
+@interface JobsPopUpVC ()
 
 @end
 
-@implementation PopUpVC
+@implementation JobsPopUpVC
 
 - (void)dealloc {
     NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);

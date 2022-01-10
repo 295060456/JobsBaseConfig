@@ -38,7 +38,7 @@ static char *UIViewController_BaseVC_fromVC = "UIViewController_BaseVC_fromVC";
     [UIViewController comingFromVC:self
                               toVC:viewController
                        comingStyle:ComingStyle_PRESENT
-                 presentationStyle:UIModalPresentationFullScreen
+                 presentationStyle:[UIDevice currentDevice].systemVersion.doubleValue >= 13.0 ? UIModalPresentationAutomatic : UIModalPresentationFullScreen
                      requestParams:nil
           hidesBottomBarWhenPushed:YES
                           animated:YES
@@ -50,7 +50,7 @@ static char *UIViewController_BaseVC_fromVC = "UIViewController_BaseVC_fromVC";
     [UIViewController comingFromVC:self
                               toVC:viewController
                        comingStyle:ComingStyle_PRESENT
-                 presentationStyle:UIModalPresentationFullScreen
+                 presentationStyle:[UIDevice currentDevice].systemVersion.doubleValue >= 13.0 ? UIModalPresentationAutomatic : UIModalPresentationFullScreen
                      requestParams:requestParams
           hidesBottomBarWhenPushed:YES
                           animated:YES
@@ -62,7 +62,7 @@ static char *UIViewController_BaseVC_fromVC = "UIViewController_BaseVC_fromVC";
     [UIViewController comingFromVC:self
                               toVC:viewController
                        comingStyle:ComingStyle_PUSH
-                 presentationStyle:UIModalPresentationFullScreen
+                 presentationStyle:[UIDevice currentDevice].systemVersion.doubleValue >= 13.0 ? UIModalPresentationAutomatic : UIModalPresentationFullScreen
                      requestParams:nil
           hidesBottomBarWhenPushed:YES
                           animated:YES
@@ -74,7 +74,7 @@ static char *UIViewController_BaseVC_fromVC = "UIViewController_BaseVC_fromVC";
     [UIViewController comingFromVC:self
                               toVC:viewController
                        comingStyle:ComingStyle_PUSH
-                 presentationStyle:UIModalPresentationFullScreen
+                 presentationStyle:[UIDevice currentDevice].systemVersion.doubleValue >= 13.0 ? UIModalPresentationAutomatic : UIModalPresentationFullScreen
                      requestParams:requestParams
           hidesBottomBarWhenPushed:YES
                           animated:YES

@@ -26,7 +26,7 @@ UITableViewDelegate
 #pragma mark - Lifecycle
 -(instancetype)init{
     if (self = [super init]) {
-        
+//        [self loadData];
     }return self;
 }
 
@@ -36,7 +36,7 @@ UITableViewDelegate
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-    self.view.backgroundColor = kWhiteColor;
+    self.view.backgroundColor = UIColor.orangeColor;
     self.isHiddenNavigationBar = YES;//禁用系统的导航栏
     self.gk_statusBarHidden = YES;
     self.gk_navigationBar.hidden = YES;
@@ -60,19 +60,16 @@ UITableViewDelegate
 #pragma mark —— 一些私有方法
 /// 装载本地假数据
 -(void)loadData{
-    
-    NSDictionary *dics = @{
-        @"qwe":@"好的",
-        @"dfr":@"dd",
-    };
-    
-    NSArray *dd = @[@"qwe",@"vtt"];
-    
     NSDictionary *dic = @"CommentData".readLocalFileWithName;
     self.mjModel = [JobsCommentModel mj_objectWithKeyValues:dic[@"data"]];
 //    self.yyModel = [MKCommentModel yy_modelWithDictionary:dic[@"data"]];
-    NSLog(@"%@",dics);
-    NSLog(@"%@",dd);
+    NSLog(@"KKK");
+    if (self.mjModel.listDataArr.count) {
+        [self.tableView ly_hideEmptyView];
+    }else{
+        [self.tableView ly_showEmptyView];
+    }
+    
     [self endRefreshing:self.tableView];
 }
 
@@ -89,9 +86,12 @@ UITableViewDelegate
 /// 上拉加载更多 （子类要进行覆写）
 -(void)loadMoreRefresh{
     self.tableView.pagingEnabled = NO;
-    [self performSelector:@selector(delayMethods)
-               withObject:nil
-               afterDelay:2];
+    @jobs_weakify(self)
+    [self delay:0.1
+          doSth:^(id data) {
+        @strongify(self)
+        [self delayMethods];
+    }];
 }
 #pragma mark —————————— UITableViewDelegate,UITableViewDataSource ——————————
 - (CGFloat)tableView:(UITableView *)tableView
@@ -122,19 +122,19 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section{// 二级评论
-    JobsFirstCommentModel *firstCommentModel = (JobsFirstCommentModel *)self.mjModel.listMutArr[section];
+    JobsFirstCommentModel *firstCommentModel = (JobsFirstCommentModel *)self.mjModel.listDataArr[section];
     JobsFirstCommentCustomCofigModel *customCofigModel = JobsFirstCommentCustomCofigModel.new;
-    customCofigModel.childMutArr = firstCommentModel.childMutArr;
+    customCofigModel.childDataArr = firstCommentModel.childDataArr;
     return customCofigModel.firstShonNum;
 }
 //二级评论数据 展示在cellForRowAtIndexPath
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    JobsFirstCommentModel *firstCommentModel = (JobsFirstCommentModel *)self.mjModel.listMutArr[indexPath.section];//一级评论数据 展示在viewForHeaderInSection
-    JobsChildCommentModel *childCommentModel = firstCommentModel.childMutArr[indexPath.row];//二级评论数据 展示在cellForRowAtIndexPath
+    JobsFirstCommentModel *firstCommentModel = (JobsFirstCommentModel *)self.mjModel.listDataArr[indexPath.section];//一级评论数据 展示在viewForHeaderInSection
+    JobsChildCommentModel *childCommentModel = firstCommentModel.childDataArr[indexPath.row];//二级评论数据 展示在cellForRowAtIndexPath
     
     JobsFirstCommentCustomCofigModel *customCofigModel = JobsFirstCommentCustomCofigModel.new;
-    customCofigModel.childMutArr = firstCommentModel.childMutArr;
+    customCofigModel.childDataArr = firstCommentModel.childDataArr;
     
     if (customCofigModel.isFullShow) {
         JobsInfoTBVCell *cell = [JobsInfoTBVCell cellWithTableView:tableView];
@@ -162,21 +162,21 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return self.mjModel.listMutArr.count;//一级评论
+    return self.mjModel.listDataArr.count;//一级评论
 }
 
 - (CGFloat)tableView:(UITableView *)tableView
 heightForHeaderInSection:(NSInteger)section{
-    return [JobsCommentPopUpViewForTVH viewForTableViewHeaderHeightWithModel:nil];
+    return [JobsCommentPopUpViewForTVH viewHeightWithModel:nil];
 }
 //一级评论数据 展示在viewForHeaderInSection
 - (UIView *)tableView:(UITableView *)tableView
 viewForHeaderInSection:(NSInteger)section{
-    JobsFirstCommentModel *firstCommentModel = self.mjModel.listMutArr[section];//一级评论数据 展示在viewForHeaderInSection
+    JobsFirstCommentModel *firstCommentModel = self.mjModel.listDataArr[section];//一级评论数据 展示在viewForHeaderInSection
     JobsCommentPopUpViewForTVH *header = [JobsCommentPopUpViewForTVH.alloc initWithReuseIdentifier:NSStringFromClass(JobsCommentPopUpViewForTVH.class) withData:firstCommentModel];
     @weakify(self)
     // 一级标题点击事件
-    [header actionBlockTableViewHeaderView:^(id data) {
+    [header actionViewBlock:^(id data) {
         @strongify(self)
         SYSAlertControllerConfig *config = SYSAlertControllerConfig.new;
         config.title = @"牛逼";
@@ -201,7 +201,7 @@ viewForHeaderInSection:(NSInteger)section{
     if (!_titleHeaderView) {
         _titleHeaderView = JobsCommentTitleHeaderView.new;
         @weakify(self)
-        [_titleHeaderView actionBlockJobsCommentTitleHeaderViewBlock:^(id data) {
+        [_titleHeaderView actionViewBlock:^(id data) {
             @strongify(self)
             [self dismissViewControllerAnimated:YES
                                      completion:Nil];
@@ -235,18 +235,12 @@ viewForHeaderInSection:(NSInteger)section{
         _tableView.ly_emptyView = [EmptyView emptyViewWithImageStr:@"Indeterminate Spinner - Small"
                                                           titleStr:@"没有评论"
                                                          detailStr:@"来发布第一条吧"];
-        
-        if (self.mjModel.listMutArr.count) {
-            [_tableView ly_hideEmptyView];
-        }else{
-            [_tableView ly_showEmptyView];
-        }
 
         @weakify(self)
         _tableView.mj_header = [LOTAnimationMJRefreshHeader headerWithRefreshingBlock:^{
             @strongify(self)
             @weakify(self)
-            [self delay:3.0
+            [self delay:0.1
                   doSth:^(id data) {
                 @strongify(self)
                 [self pullToRefresh];
