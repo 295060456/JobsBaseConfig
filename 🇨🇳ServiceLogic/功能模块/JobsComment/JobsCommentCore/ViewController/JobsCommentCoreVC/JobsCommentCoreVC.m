@@ -66,7 +66,6 @@
     NSDictionary *dic = @"CommentData".readLocalFileWithName;
     self.mjModel = [JobsCommentModel mj_objectWithKeyValues:dic[@"data"]];
 //    self.yyModel = [MKCommentModel yy_modelWithDictionary:dic[@"data"]];
-    NSLog(@"KKK");
 
     [self dataSource:self.mjModel.listDataArr contentView:self.tableView];
     [self endRefreshing:self.tableView];
@@ -192,8 +191,8 @@ heightForHeaderInSection:(NSInteger)section{///  👌
 /// 一级评论数据 展示在viewForHeaderInSection
 - (UIView *)tableView:(UITableView *)tableView
 viewForHeaderInSection:(NSInteger)section{
-    JobsFirstCommentModel *firstCommentModel = self.mjModel.listDataArr[section];//一级评论数据 展示在viewForHeaderInSection
-    JobsCommentPopUpViewForTVH *header = [JobsCommentPopUpViewForTVH.alloc initWithReuseIdentifier:NSStringFromClass(JobsCommentPopUpViewForTVH.class) withData:firstCommentModel];
+    JobsCommentPopUpViewForTVH *header = [JobsCommentPopUpViewForTVH.alloc initWithReuseIdentifier:NSStringFromClass(JobsCommentPopUpViewForTVH.class)];
+    [header richElementsInViewWithModel:self.mjModel.listDataArr[section]];//一级评论数据 展示在viewForHeaderInSection
     @weakify(self)
     // 一级标题点击事件
     [header actionViewBlock:^(id data) {

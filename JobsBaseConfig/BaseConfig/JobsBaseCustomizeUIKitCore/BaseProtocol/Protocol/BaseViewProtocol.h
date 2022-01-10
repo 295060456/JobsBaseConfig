@@ -23,9 +23,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)CGFloat viewWidth;
 @property(nonatomic,assign)CGFloat viewHeight;
 
-/// UITableViewHeaderFooterView
--(instancetype)initWithReuseIdentifier:(nullable NSString *)reuseIdentifier
-                              withData:(id)data;
 /// 具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 -(void)richElementsInViewWithModel:(id _Nullable)model;
 /// 具体由子类进行复写【数据定宽】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】

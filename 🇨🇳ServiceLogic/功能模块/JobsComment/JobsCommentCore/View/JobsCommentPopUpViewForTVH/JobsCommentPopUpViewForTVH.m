@@ -23,26 +23,26 @@
 
 @implementation JobsCommentPopUpViewForTVH
 
--(instancetype)initWithReuseIdentifier:(nullable NSString *)reuseIdentifier
-                              withData:(id)data{
+-(instancetype)initWithReuseIdentifier:(nullable NSString *)reuseIdentifier{
     if (self = [super initWithReuseIdentifier:reuseIdentifier]) {
         self.contentView.backgroundColor = JobsCommentConfig.sharedInstance.bgCor;
-        if ([data isKindOfClass:JobsFirstCommentModel.class]) {
-            self.firstCommentModel = (JobsFirstCommentModel *)data;
-            [self.headerIMGV sd_setImageWithURL:[NSURL URLWithString:self.firstCommentModel.headImg]
-                               placeholderImage:[UIImage animatedGIFNamed:@"动态头像 尺寸126"]];
-            self.titleStr = self.firstCommentModel.nickname;
-            self.contentStr = self.firstCommentModel.content;
-            self.titleLab.alpha = 1;
-            self.contentLab.alpha = 1;
-            self.LikeBtn.selected = self.firstCommentModel.isPraise;
-        }
     }return self;
 }
 #pragma mark —— BaseViewProtocol
 /// 具体由子类进行复写【数据定高】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 +(CGFloat)viewHeightWithModel:(id _Nullable)model{
     return JobsCommentConfig.sharedInstance.cellHeight;
+}
+/// 具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
+-(void)richElementsInViewWithModel:(id _Nullable)model{
+    self.firstCommentModel = model;
+    [self.headerIMGV sd_setImageWithURL:[NSURL URLWithString:self.firstCommentModel.headImg]
+                       placeholderImage:[UIImage animatedGIFNamed:@"动态头像 尺寸126"]];
+    self.titleStr = self.firstCommentModel.nickname;
+    self.contentStr = self.firstCommentModel.content;
+    self.titleLab.alpha = 1;
+    self.contentLab.alpha = 1;
+    self.LikeBtn.selected = self.firstCommentModel.isPraise;
 }
 #pragma mark —— lazyLoad
 -(UIImageView *)headerIMGV{

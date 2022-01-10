@@ -7,10 +7,7 @@
 
 #import "JobsCommentVC.h"
 
-@interface JobsCommentVC (){
-    JobsCommentCoreVC *jobsCommentCoreVC;
-    JobsPopUpVC *popUpVC;
-}
+@interface JobsCommentVC ()
 
 @property(nonatomic,strong)UIButton *contactCustomerServiceBtn;// 联系客服按钮
 
@@ -57,7 +54,7 @@
 }
 #pragma mark —— 一些私有方法
 -(void)makeJobsCommentCoreVC{    //触发
-    jobsCommentCoreVC = JobsCommentCoreVC.new;
+    JobsCommentCoreVC *jobsCommentCoreVC = JobsCommentCoreVC.new;
 //        @weakify(self)
     [jobsCommentCoreVC actionViewBlock:^(id data) {
 //            @strongify(self)
