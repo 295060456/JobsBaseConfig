@@ -1198,7 +1198,6 @@
 		840F95A427736427004979E9 /* NSObject+CallBackInfoByBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+CallBackInfoByBlock.h"; sourceTree = "<group>"; };
 		840F95A527736427004979E9 /* NSObject+CallBackInfoByBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CallBackInfoByBlock.m"; sourceTree = "<group>"; };
 		840F95A627736427004979E9 /* JobsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsObject.h; sourceTree = "<group>"; };
-		840F95A927736427004979E9 /* BaseTableViewHeaderFooterViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewHeaderFooterViewProtocol.h; sourceTree = "<group>"; };
 		840F95AA27736427004979E9 /* BaseViewControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewControllerProtocol.h; sourceTree = "<group>"; };
 		840F95AB27736427004979E9 /* AppToolsProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppToolsProtocol.h; sourceTree = "<group>"; };
 		840F95AC27736427004979E9 /* BaseButtonProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseButtonProtocol.h; sourceTree = "<group>"; };
@@ -3837,8 +3836,8 @@
 		840F94C227736426004979E9 /* UITableViewHeaderFooterView+Attribute */ = {
 			isa = PBXGroup;
 			children = (
-				840F94C327736426004979E9 /* UITableViewHeaderFooterView+Attribute.m */,
 				840F94C427736426004979E9 /* UITableViewHeaderFooterView+Attribute.h */,
+				840F94C327736426004979E9 /* UITableViewHeaderFooterView+Attribute.m */,
 			);
 			path = "UITableViewHeaderFooterView+Attribute";
 			sourceTree = "<group>";
@@ -4643,7 +4642,6 @@
 			isa = PBXGroup;
 			children = (
 				84CA64B42789C79700E46E71 /* ZFDouYinCellDelegate.h */,
-				840F95A927736427004979E9 /* BaseTableViewHeaderFooterViewProtocol.h */,
 				840F95AA27736427004979E9 /* BaseViewControllerProtocol.h */,
 				840F95AB27736427004979E9 /* AppToolsProtocol.h */,
 				840F95AC27736427004979E9 /* BaseButtonProtocol.h */,

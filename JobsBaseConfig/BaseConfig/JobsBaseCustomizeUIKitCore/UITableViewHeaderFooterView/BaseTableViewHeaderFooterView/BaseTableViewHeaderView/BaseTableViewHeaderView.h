@@ -7,7 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "JobsBlock.h"
-#import "BaseTableViewHeaderFooterViewProtocol.h"
+#import "BaseProtocol.h"
 #import "BaseViewProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN

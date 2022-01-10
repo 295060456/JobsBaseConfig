@@ -6,6 +6,5 @@ NSObject —— FoundationProtocol
          —— BaseViewProtocol
             —— BaseButtonProtocol
             —— BaseCellProtocol
-            —— BaseTableViewHeaderFooterViewProtocol
             —— BaseViewControllerProtocol
 

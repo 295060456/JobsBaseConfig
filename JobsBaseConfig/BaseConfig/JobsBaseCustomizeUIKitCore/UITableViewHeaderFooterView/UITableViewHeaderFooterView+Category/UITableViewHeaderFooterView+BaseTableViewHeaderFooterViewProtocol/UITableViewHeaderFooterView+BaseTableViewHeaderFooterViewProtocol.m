@@ -8,7 +8,7 @@
 #import "UITableViewHeaderFooterView+BaseTableViewHeaderFooterViewProtocol.h"
 
 @implementation UITableViewHeaderFooterView (BaseTableViewHeaderFooterViewProtocol)
-
+#pragma mark —— BaseViewProtocol
 //具体由子类进行复写【数据定UI】
 -(void)richElementsInViewWithModel:(UIViewModel *_Nullable)model{
     if ([model isKindOfClass:UIViewModel.class]) {
@@ -17,7 +17,7 @@
     }
 }
 //具体由子类进行复写【数据定高】
-+(CGFloat)heightWithModel:(id _Nullable)model{
++(CGFloat)viewHeightWithModel:(id _Nullable)model{
     return JobsWidth(5);
 }
 //具体由子类进行复写【数据Frame】

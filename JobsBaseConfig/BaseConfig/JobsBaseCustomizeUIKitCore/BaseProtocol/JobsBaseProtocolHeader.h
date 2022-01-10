@@ -14,7 +14,6 @@
 
 #import "BaseViewProtocol.h"
 #import "BaseCellProtocol.h"
-#import "BaseTableViewHeaderFooterViewProtocol.h"
 #import "BaseButtonProtocol.h"
 #import "BaseViewControllerProtocol.h"
 

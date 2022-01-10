@@ -152,7 +152,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (CGFloat)tableView:(UITableView *)tableView
 heightForHeaderInSection:(NSInteger)section{
-    return [UITableViewHeaderFooterView heightWithModel:nil];
+    return [UITableViewHeaderFooterView viewHeightWithModel:nil];
 }
 
 - (void)tableView:(UITableView *)tableView
