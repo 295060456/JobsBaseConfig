@@ -1273,6 +1273,7 @@
 		84432C0C278C45C40028A27D /* 跳动的竖线.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "跳动的竖线.gif"; sourceTree = "<group>"; };
 		84432C0D278C45C40028A27D /* 钱袋.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "钱袋.gif"; sourceTree = "<group>"; };
 		84432C0E278C45C40028A27D /* Bt9h.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Bt9h.gif; sourceTree = "<group>"; };
+		84432C87278C4CD20028A27D /* JobsComment.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = JobsComment.md; sourceTree = "<group>"; };
 		844B020D2764C8EE00B0513D /* JobsBaseConfig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobsBaseConfig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		844B02102764C8EE00B0513D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		844B02112764C8EE00B0513D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -5416,6 +5417,7 @@
 				84562577278BF2780067ABB9 /* JobsCommentCore */,
 				8456256C278BF1FB0067ABB9 /* Outlines */,
 				84562619278BF4FB0067ABB9 /* JobsCommentCoreHeader.h */,
+				84432C87278C4CD20028A27D /* JobsComment.md */,
 			);
 			path = JobsComment;
 			sourceTree = "<group>";
