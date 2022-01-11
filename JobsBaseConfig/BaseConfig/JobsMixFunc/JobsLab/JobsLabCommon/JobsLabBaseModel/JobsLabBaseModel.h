@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)NSTextAlignment upLabTextAlignment;
 @property(nonatomic,assign)NSLineBreakMode upLabLineBreakMode;
 @property(nonatomic,strong)NSAttributedString *upLabAttributedText;
+@property(nonatomic,assign)BOOL isUpLabMultiLineShows;// 是否多行行显示【默认单行显示】
 #pragma mark —— DownLab / RightLab
 @property(nonatomic,strong)UIColor *downLabTextCor;
 @property(nonatomic,strong)UIColor *downLabBgCor;
@@ -33,6 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)NSTextAlignment downLabTextAlignment;
 @property(nonatomic,assign)NSLineBreakMode downLabLineBreakMode;
 @property(nonatomic,strong)NSAttributedString *downLabAttributedText;
+@property(nonatomic,assign)BOOL isDownLabMultiLineShows;// 是否多行行显示【默认单行显示】
 
 @end
 

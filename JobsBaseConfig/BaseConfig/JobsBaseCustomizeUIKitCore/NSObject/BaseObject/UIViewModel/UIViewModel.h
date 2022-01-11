@@ -72,6 +72,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)Class cls;//绑定的class
 @property(nonatomic,strong)id data;//绑定的数据源
 @property(nonatomic,assign)BOOL selected;
+@property(nonatomic,assign)BOOL isMultiLineShows;// 是否多行行显示【默认单行显示】
 /// 【功能性】网易云盾回调数据
 @property(nonatomic,assign)BOOL ntesVerifyCodeFinishResult;
 @property(nonatomic,assign)NTESVerifyCodeManagerStyle ntesVerifyCodeManagerStyle;

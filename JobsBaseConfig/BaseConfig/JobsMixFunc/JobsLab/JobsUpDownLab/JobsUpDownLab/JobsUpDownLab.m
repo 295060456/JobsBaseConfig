@@ -33,8 +33,20 @@
     if (model) {
         [self.upBtn normalTitle:self.upDownLabModel.upLabText];
         [self.downBtn normalTitle:self.upDownLabModel.downLabText];
-        [self.upBtn buttonAutoFontByWidth];
-        [self.downBtn buttonAutoFontByWidth];
+        /// 单行ByWidth  多行ByFont
+        if (self.upDownLabModel.isUpLabMultiLineShows) {
+            _upBtn.titleLabel.numberOfLines = 0;
+            [self.upBtn labelAutoWidthByFont];
+        }else{
+            [self.upBtn buttonAutoFontByWidth];
+        }
+        
+        if (self.upDownLabModel.isDownLabMultiLineShows) {
+            _upBtn.titleLabel.numberOfLines = 0;
+            [self.downBtn labelAutoWidthByFont];
+        }else{
+            [self.downBtn buttonAutoFontByWidth];
+        }
     }
 }
 //具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
@@ -71,6 +83,11 @@
         [_upBtn normalBackgroundImage:self.upDownLabModel.upLabBgImage];
         _upBtn.backgroundColor = self.upDownLabModel.upLabBgCor;
         _upBtn.titleLabel.font = self.upDownLabModel.upLabFont;
+
+        if (self.upDownLabModel.isUpLabMultiLineShows) {
+            _upBtn.titleLabel.numberOfLines = 0;
+        }
+        
         [self addSubview:_upBtn];
         [_upBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.left.right.equalTo(self);
@@ -89,6 +106,11 @@
         [_downBtn normalBackgroundImage:self.upDownLabModel.downLabBgImage];
         _downBtn.backgroundColor = self.upDownLabModel.downLabBgCor;
         _downBtn.titleLabel.font = self.upDownLabModel.downLabFont;
+        
+        if (self.upDownLabModel.isDownLabMultiLineShows) {
+            _downBtn.titleLabel.numberOfLines = 0;
+        }
+        
         [self addSubview:_downBtn];
         [_downBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.upBtn.mas_bottom).offset(self.upDownLabModel.space);
