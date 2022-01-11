@@ -38,7 +38,7 @@
     _textField.useCustomClearButton = self.doorInputViewBaseStyleModel.useCustomClearButton;
     _textField.isShowDelBtn = self.doorInputViewBaseStyleModel.isShowDelBtn;
     _textField.rightViewOffsetX = self.doorInputViewBaseStyleModel.rightViewOffsetX;// 删除按钮的偏移量
-    _textField.objBindingParams = _textField.placeholder;
+    _textField.objBindingParams = self.textFieldInputModel;
     _textField.placeholderColor = self.doorInputViewBaseStyleModel.placeholderColor;
     _textField.placeholderFont = self.doorInputViewBaseStyleModel.placeholderFont;
     _textField.offset = self.doorInputViewBaseStyleModel.offset ? : JobsWidth(1);
@@ -52,11 +52,10 @@
     Ivar ivar = class_getInstanceVariable(JobsMagicTextField.class, "_placeholderAnimationLbl");//必须是下划线接属性
     UILabel *label = object_getIvar(textField, ivar);
     
-    JobsAppDoorInputViewTFModel *InputViewTFModel = JobsAppDoorInputViewTFModel.new;
-    InputViewTFModel.resString = value;
-    InputViewTFModel.PlaceHolder = label.text;
-    
-    textField.objBindingParams = InputViewTFModel;
+    self.textFieldInputModel.resString = value;
+    self.textFieldInputModel.PlaceHolder = label.text;
+
+    textField.objBindingParams = self.textFieldInputModel;
     
     if (self.viewBlock) self.viewBlock(textField);// 对外统一传出TF
 }
@@ -155,7 +154,8 @@
         @weakify(self)
         [[_textField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
             @strongify(self)
-            if ([self.textField.objBindingParams isEqualToString:Internationalization(@"telephone")]) {// 手机号码
+            JobsAppDoorInputViewTFModel *textFieldInputModel = (JobsAppDoorInputViewTFModel *)self.textField.objBindingParams;
+            if ([textFieldInputModel.PlaceHolder isEqualToString:Internationalization(@"telephone")]) {// 手机号码
                 if ([self checkTelNum:value]) {
                     return YES;
                 }else{

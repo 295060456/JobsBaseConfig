@@ -22,6 +22,15 @@
 @end
 
 @implementation JobsAppDoorInputViewBaseStyle
+
+-(JobsAppDoorInputViewTFModel *)textFieldInputModel{
+    if (!_textFieldInputModel) {
+        _textFieldInputModel = JobsAppDoorInputViewTFModel.new;
+        _textFieldInputModel.resString = @"";
+        _textFieldInputModel.PlaceHolder = self.getTextField.placeholder;
+    }return _textFieldInputModel;
+}
+
 @end
 
 

@@ -25,6 +25,8 @@ JobsDoorInputViewProtocol
 ,UITextFieldDelegate
 >
 
+@property(nonatomic,strong)JobsAppDoorInputViewTFModel *textFieldInputModel;
+
 @end
 
 NS_ASSUME_NONNULL_END

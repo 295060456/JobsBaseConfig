@@ -152,7 +152,7 @@
         [_subTitleLab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(self.contactCustomerServiceBtn);
             make.top.equalTo(self.contactCustomerServiceBtn.mas_bottom).offset(JobsWidth(56));
-            make.height.mas_equalTo(JobsWidth(15));
+            make.width.mas_equalTo(self.width - JobsWidth(80));
         }];
     }return _subTitleLab;
 }

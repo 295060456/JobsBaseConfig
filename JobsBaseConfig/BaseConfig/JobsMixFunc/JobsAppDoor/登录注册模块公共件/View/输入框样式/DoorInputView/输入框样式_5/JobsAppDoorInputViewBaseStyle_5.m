@@ -46,7 +46,7 @@
     _textField.placeHolderOffset = self.doorInputViewBaseStyleModel.placeHolderOffset;
     _textField.leftViewOffsetX = self.doorInputViewBaseStyleModel.leftViewOffsetX;
     _textField.offset = self.doorInputViewBaseStyleModel.offset;
-    _textField.objBindingParams = _textField.placeholder;
+    _textField.objBindingParams = self.textFieldInputModel;
     _textField.placeholderColor = self.doorInputViewBaseStyleModel.placeholderColor;
     _textField.placeholderFont = self.doorInputViewBaseStyleModel.placeholderFont;
 }

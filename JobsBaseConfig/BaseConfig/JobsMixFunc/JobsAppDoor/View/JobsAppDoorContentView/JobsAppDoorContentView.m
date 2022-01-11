@@ -30,8 +30,10 @@
 @implementation JobsAppDoorContentView
 
 -(void)dealloc{
-    JobsAppDoorInputViewBaseStyle_1 *手机验证码 = (JobsAppDoorInputViewBaseStyle_1 *)self.registerDoorInputViewBaseStyleMutArr[4];
-    [手机验证码.getCountDownBtn timerDestroy];
+    if (self.registerDoorInputViewBaseStyleMutArr.count) {
+        JobsAppDoorInputViewBaseStyle_1 *手机验证码 = (JobsAppDoorInputViewBaseStyle_1 *)self.registerDoorInputViewBaseStyleMutArr[4];
+        [手机验证码.getCountDownBtn timerDestroy];
+    }
 }
 
 -(instancetype)init{
@@ -126,8 +128,6 @@
         [inputView actionViewBlock:^(UITextField *data) {
             @strongify(self)
             JobsAppDoorInputViewTFModel *textFieldInputModel = (JobsAppDoorInputViewTFModel *)data.objBindingParams;
-            [textFieldInputModel.PlaceHolder isEqualToString:Internationalization(@"User")];
-            [textFieldInputModel.PlaceHolder isEqualToString:Internationalization(@"Code")];
             if ([textFieldInputModel.PlaceHolder isEqualToString:Internationalization(@"User")]) {
                 self.appDoorModel.userName = data.text;
             }else if ([textFieldInputModel.PlaceHolder isEqualToString:Internationalization(@"Code")]){

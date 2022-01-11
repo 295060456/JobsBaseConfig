@@ -5825,10 +5825,10 @@
 		845C797D2786D2FE009843EE /* 输入框样式基类 */ = {
 			isa = PBXGroup;
 			children = (
-				845C797E2786D2FE009843EE /* JobsAppDoorInputViewBaseStyleModel.h */,
-				845C797F2786D2FE009843EE /* JobsAppDoorInputViewBaseStyle.m */,
-				845C79802786D2FE009843EE /* JobsAppDoorInputViewBaseStyleModel.m */,
 				845C79812786D2FE009843EE /* JobsAppDoorInputViewBaseStyle.h */,
+				845C797F2786D2FE009843EE /* JobsAppDoorInputViewBaseStyle.m */,
+				845C797E2786D2FE009843EE /* JobsAppDoorInputViewBaseStyleModel.h */,
+				845C79802786D2FE009843EE /* JobsAppDoorInputViewBaseStyleModel.m */,
 			);
 			path = "输入框样式基类";
 			sourceTree = "<group>";
