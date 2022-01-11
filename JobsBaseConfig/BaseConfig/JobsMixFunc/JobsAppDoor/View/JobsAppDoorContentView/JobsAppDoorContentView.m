@@ -10,49 +10,48 @@
 
 // 可以发现：（animateWithDuration + Masonry，动画参数设置无效）
 // 用户名 和 密码 ，登录注册两个界面共用，只不过frame不一样
-UIButton *appDoorStoreCodeBtn;
-@interface JobsAppDoorContentView ()
-// UI
-@property(nonatomic,strong)UILabel *titleLab;//标题
-@property(nonatomic,strong)UIButton *abandonLoginBtn;//返回首页按钮
-@property(nonatomic,strong)UIButton *toRegisterBtn;//去注册
-@property(nonatomic,strong)UIButton *sendBtn;//登录 & 注册按钮 （本页面请求可以不用jobsAppDoorContentViewBlock回调）
-@property(nonatomic,strong)UIButton *storeCodeBtn;//记住密码
-@property(nonatomic,strong)UIButton *findCodeBtn;//忘记密码
-// Data
+@interface JobsAppDoorContentView (){
+    JobsAppDoorInputViewBaseStyle_7 *inputView_7;
+}
+/// UI
+@property(nonatomic,strong)UILabel *titleLab;/// 标题
+@property(nonatomic,strong)UIButton *abandonLoginBtn;/// 返回首页按钮
+@property(nonatomic,strong)UIButton *toRegisterBtn;/// 去注册
+@property(nonatomic,strong)UIButton *sendBtn;/// 登录 & 注册按钮 （本页面请求可以不用jobsAppDoorContentViewBlock回调）
+@property(nonatomic,strong)UIButton *storeCodeBtn;/// 记住密码
+@property(nonatomic,strong)UIButton *findCodeBtn;/// 忘记密码
+/// Data
 @property(nonatomic,strong)NSMutableArray <JobsAppDoorInputViewBaseStyleModel *>*loginDoorInputViewBaseStyleModelMutArr;
 @property(nonatomic,strong)NSMutableArray <JobsAppDoorInputViewBaseStyleModel *>*registerDoorInputViewBaseStyleModelMutArr;
 @property(nonatomic,strong)NSMutableArray <JobsAppDoorInputViewBaseStyle *>*inputViewMutArr;
-@property(nonatomic,strong)NSMutableDictionary *loginInputTFValueMutDic;
-@property(nonatomic,strong)NSMutableDictionary *registerInputTFValueMutDic;
-@property(nonatomic,strong)JobsAppDoorModel *appDoorModel;
 
 @end
 
 @implementation JobsAppDoorContentView
 
-static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
+-(void)dealloc{
+    JobsAppDoorInputViewBaseStyle_1 *手机验证码 = (JobsAppDoorInputViewBaseStyle_1 *)self.registerDoorInputViewBaseStyleMutArr[4];
+    [手机验证码.getCountDownBtn timerDestroy];
+}
+
 -(instancetype)init{
     if (self = [super init]) {
         self.backgroundColor = Cor2;
-        JobsAppDoorContentViewDispatchOnce = 0;
     }return self;
 }
 
 -(void)drawRect:(CGRect)rect{
     [super drawRect:rect];
-    dispatch_once(&JobsAppDoorContentViewDispatchOnce, ^{
-        //进页面最初是登录
-        [self initialToRegisterBtn];
-        [self initialTitleLab];
-        [self makeInputView];
-        [self initialSendBtn];
-        [self initialAbandonLoginBtn];
-        [self initialOthers];
-    });
 }
 #pragma mark —— BaseViewProtocol
--(void)richElementsInViewWithModel:(id _Nullable)contentViewModel{}
+-(void)richElementsInViewWithModel:(id _Nullable)contentViewModel{
+    [self initialToRegisterBtn];
+    [self initialTitleLab];
+    [self makeInputView];
+    [self initialSendBtn];
+    [self initialAbandonLoginBtn];
+    [self initialOthers];
+}
 #pragma mark —— 网络请求
 /// 获取手机验证码网络请求
 -(void)getCellPhoneVerificationCodeWithCountry:(NSString *)country
@@ -62,38 +61,22 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
 //        [WHToast toastSuccessMsg:Internationalization(@"Verification send success")];
 //        [WHToast toastErrMsg:Internationalization(@"TelePhone Number Error")];
         
-        extern UIButton *appDoorCountDownBtn;
-        [appDoorCountDownBtn timerDestroy];
+        JobsAppDoorInputViewBaseStyle_1 *手机验证码 = (JobsAppDoorInputViewBaseStyle_1 *)self.registerDoorInputViewBaseStyleMutArr[4];
+        [手机验证码.getCountDownBtn timerDestroy];
     }];
 }
 #pragma mark —— 一些外部调用的方法
+///  获取存储按钮
+-(UIButton *)getStoreCodeBtn{
+    return self.storeCodeBtn;
+}
 /// 去登录【外部调用】
 -(void)animationToLogin{
-    if (![NSString isNullString:self.registerInputTFValueMutDic[@"用户名"]] &&
-        [NSString isNullString:self.loginInputTFValueMutDic[@"用户名"]]) {
-        [self.loginInputTFValueMutDic setValue:self.registerInputTFValueMutDic[@"用户名"] forKey:@"用户名"];
-    }else{
-        [self.loginInputTFValueMutDic setValue:@"" forKey:@"用户名"];
-    }
-    
-    if (![NSString isNullString:self.registerInputTFValueMutDic[@"密码"]] &&
-        [NSString isNullString:self.loginInputTFValueMutDic[@"密码"]]) {
-        [self.loginInputTFValueMutDic setValue:self.registerInputTFValueMutDic[@"密码"] forKey:@"密码"];
-    }else{
-        [self.loginInputTFValueMutDic setValue:@"" forKey:@"密码"];
-    }
-    
-    [self sendBtnCheckWithDic:self.loginInputTFValueMutDic
-       userInteractionEnabled:@selector(checkLoginBtnCanBeUsed)
-                         data:nil];
-    
     [self 一些UI的初始状态];
-    
     for (int i = 0; i < self.loginDoorInputViewBaseStyleMutArr.count; i++) {
         JobsAppDoorInputViewBaseStyle *inputView = self.loginDoorInputViewBaseStyleMutArr[i];
         inputView.x = JobsWidth(20);
     }
-    
     for (long i = self.loginDoorInputViewBaseStyleMutArr.count;
          i < self.registerDoorInputViewBaseStyleModelMutArr.count;
          i++) {
@@ -116,113 +99,6 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
         [phone isPureInt]) {
         return YES;
     }return NO;
-}
-/// 登录过滤
--(BOOL)loginCheck{
-    
-    JobsAppDoorInputViewBaseStyle_3 *用户名 = nil;
-    JobsAppDoorInputViewBaseStyle_3 *密码 = nil;
-
-    if (self.loginDoorInputViewBaseStyleMutArr.count >= 2) {
-        用户名 = (JobsAppDoorInputViewBaseStyle_3 *)self.loginDoorInputViewBaseStyleMutArr[0];
-        密码 = (JobsAppDoorInputViewBaseStyle_3 *)self.loginDoorInputViewBaseStyleMutArr[1];
-    }
-
-    if ([NSString isNullString:用户名.getTextFieldValue] && [NSString isNullString:密码.getTextFieldValue]){
-        [WHToast toastErrMsg:Internationalization(@"Please complete the login information")];
-        return NO;
-    }
-    
-    if ([NSString isNullString:用户名.getTextFieldValue]) {
-        [WHToast toastErrMsg:Internationalization(@"Please enter a user name")];
-        return NO;
-    }else if ([NSString isNullString:密码.getTextFieldValue]){
-        [WHToast toastErrMsg:Internationalization(@"Please enter your password")];
-        return NO;
-    }else{
-        self.appDoorModel.userName = 用户名.getTextFieldValue;
-        self.appDoorModel.password = 密码.getTextFieldValue;
-        return YES;
-    }
-}
-/// 注册过滤
--(BOOL)registerCheck{
-    JobsAppDoorInputViewBaseStyle_3 *用户名 = nil;
-    JobsAppDoorInputViewBaseStyle_3 *密码 = nil;
-    JobsAppDoorInputViewBaseStyle_3 *确认密码 = nil;
-    JobsAppDoorInputViewBaseStyle_7 *手机号码 = nil;
-    JobsAppDoorInputViewBaseStyle_1 *手机验证码 = nil;
-    
-    if (self.registerDoorInputViewBaseStyleMutArr.count == 5) {
-        用户名 = (JobsAppDoorInputViewBaseStyle_3 *)self.registerDoorInputViewBaseStyleMutArr[0];
-        密码 = (JobsAppDoorInputViewBaseStyle_3 *)self.registerDoorInputViewBaseStyleMutArr[1];
-        确认密码 = (JobsAppDoorInputViewBaseStyle_3 *)self.registerDoorInputViewBaseStyleMutArr[2];
-        手机号码 = (JobsAppDoorInputViewBaseStyle_7 *)self.registerDoorInputViewBaseStyleMutArr[3];
-        手机验证码 = (JobsAppDoorInputViewBaseStyle_1 *)self.registerDoorInputViewBaseStyleMutArr[4];
-    }
-    
-    if ([NSString isNullString:用户名.getTextFieldValue] ||
-        [NSString isNullString:密码.getTextFieldValue] ||
-        [NSString isNullString:确认密码.getTextFieldValue] ||
-        [NSString isNullString:手机号码.getTextFieldValue] ||
-        [NSString isNullString:手机验证码.getTextFieldValue]){
-        [WHToast toastErrMsg:Internationalization(@"Please complete the registration information")];
-        return NO;
-    }
-    
-    if (![NSString isNullString:用户名.getTextFieldValue] &&
-        ![NSString isNullString:密码.getTextFieldValue] &&
-        ![NSString isNullString:确认密码.getTextFieldValue] &&
-        ![NSString isNullString:手机号码.getTextFieldValue] &&
-        ![NSString isNullString:手机验证码.getTextFieldValue]){
-        
-        self.appDoorModel.userName = 用户名.getTextFieldValue;
-        self.appDoorModel.password = 密码.getTextFieldValue;
-        self.appDoorModel.confirmPassword = 确认密码.getTextFieldValue;
-        self.appDoorModel.tel = 手机号码.getTextFieldValue;
-        self.appDoorModel.verificationCode = 手机验证码.getTextFieldValue;
-        
-        return YES;
-    }return NO;
-    
-    {
-        //    if ([NSString isNullString:用户名.getTextFieldValue]) {
-        //        [WHToast toastErrMsg:Internationalization(@"Please enter a user name")];
-        //        return NO;
-        //    }else if ([NSString isNullString:密码.getTextFieldValue]){
-        //        [WHToast toastErrMsg:Internationalization(@"Please enter your password")];
-        //        return NO;
-        //    }else if ([NSString isNullString:确认密码.getTextFieldValue]){
-        //        [WHToast toastErrMsg:Internationalization(@"Please confirm your password")];
-        //        return NO;
-        //    }else if ([NSString isNullString:手机号码.getTextFieldValue]){
-        //        [WHToast toastErrMsg:Internationalization(@"Please enter your mobile phone number")];
-        //        return NO;
-        //    }else if ([NSString isNullString:手机验证码.getTextFieldValue]){
-        //        [WHToast toastErrMsg:Internationalization(@"Please enter the verification code")];
-        //        return NO;
-        //    }else{
-        //        return YES;
-        //    }
-    }
-}
-/// sendBtn的状态
--(void)sendBtnCheckWithDic:(NSMutableDictionary *)inputTFValueMutDic
-    userInteractionEnabled:(SEL)checkSendBtnCanBeUsed
-                      data:(id _Nullable)data{
-    if ([data isKindOfClass:NSDictionary.class]) {
-        NSDictionary *dataDic = (NSDictionary *)data;
-        JobsAppDoorInputViewTFModel *inputViewTFModel = dataDic[@"TFResModel"];
-        [inputTFValueMutDic setValue:inputViewTFModel.resString
-                              forKey:inputViewTFModel.PlaceHolder];
-    }
-    
-//    SuppressWarcPerformSelectorLeaksWarning(self.sendBtn.userInteractionEnabled = [self performSelector:checkSendBtnCanBeUsed]);
-//    if (self.sendBtn.userInteractionEnabled) {
-//        self.sendBtn.backgroundColor = [KSystemPinkColor colorWithAlphaComponent:0.7];
-//    }else{
-//        self.sendBtn.backgroundColor = [KSystemPinkColor colorWithAlphaComponent:0.3];
-//    }
 }
 /// 除了传入的textfield，其他的全部放弃第一响应者
 -(void)allRise:(UITextField *)textfield{
@@ -247,23 +123,18 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
         [inputView richElementsInViewWithModel:self.loginDoorInputViewBaseStyleModelMutArr[i]];
         @weakify(self)
         //【用户名 & 密码 输入回调，共享注册与登录两个界面】
-        [inputView actionViewBlock:^(id data) {
+        [inputView actionViewBlock:^(UITextField *data) {
             @strongify(self)
-            if ([data isKindOfClass:JobsAppDoorInputViewTFModel.class]) {
-                if ([self.sendBtn.titleLabel.text isEqualToString:Title7]) {
-                    [self sendBtnCheckWithDic:self.loginInputTFValueMutDic
-                       userInteractionEnabled:@selector(checkLoginBtnCanBeUsed)
-                                         data:data];
-                }else if([self.sendBtn.titleLabel.text isEqualToString:Title6]){
-                    [self sendBtnCheckWithDic:self.registerInputTFValueMutDic
-                       userInteractionEnabled:@selector(checkRegisterBtnCanBeUsed)
-                                         data:data];
-                }else{}
-                // 回调到外层，如果外层需要用的话
-                if (self.viewBlock) self.viewBlock(data);//data：监测输入字符回调 和 激活的textField
-            }else if ([data isKindOfClass:UITextField.class]){
-                [self allRise:data];
+            JobsAppDoorInputViewTFModel *textFieldInputModel = (JobsAppDoorInputViewTFModel *)data.objBindingParams;
+            [textFieldInputModel.PlaceHolder isEqualToString:Internationalization(@"User")];
+            [textFieldInputModel.PlaceHolder isEqualToString:Internationalization(@"Code")];
+            if ([textFieldInputModel.PlaceHolder isEqualToString:Internationalization(@"User")]) {
+                self.appDoorModel.userName = data.text;
+            }else if ([textFieldInputModel.PlaceHolder isEqualToString:Internationalization(@"Code")]){
+                self.appDoorModel.password = data.text;
             }else{}
+            if (self.viewBlock) self.viewBlock(self.appDoorModel);
+            [self allRise:data];
         }];
         [self addSubview:inputView];
         inputView.size = CGSizeMake(self.width - self.toRegisterBtn.width - JobsWidth(40), ThingsHeight);
@@ -278,28 +149,13 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
         [self layoutIfNeeded];// 这句话不加，不刷新界面，placeHolder会出现异常
     }
 }
-/// 返回NO 登录按钮不可点击
+/// 返回NO 登录按钮不可点击【可加入判断标准】
 -(BOOL)checkLoginBtnCanBeUsed{
-    NSLog(@"self.inputTFValueMutDic = %@",self.loginInputTFValueMutDic);
-    if (self.loginInputTFValueMutDic.count == self.loginDoorInputViewBaseStyleModelMutArr.count) {
-        BOOL r = YES;
-        for (JobsAppDoorInputViewBaseStyleModel *inputViewBaseStyleModel in self.loginDoorInputViewBaseStyleModelMutArr) {
-            r &= ![NSString isNullString:(NSString *)self.loginInputTFValueMutDic[inputViewBaseStyleModel.placeHolderStr]];
-        }return r;
-    }else{
-        return NO;
-    }
+    return YES;
 }
-/// 返回NO 注册按钮不可点击
+/// 返回NO 注册按钮不可点击【可加入判断标准】
 -(BOOL)checkRegisterBtnCanBeUsed{
-    if (self.registerInputTFValueMutDic.count == self.registerDoorInputViewBaseStyleModelMutArr.count) {
-        BOOL r = YES;
-        for (JobsAppDoorInputViewBaseStyleModel *inputViewBaseStyleModel in self.registerDoorInputViewBaseStyleModelMutArr) {
-            r &= ![NSString isNullString:(NSString *)self.registerInputTFValueMutDic[inputViewBaseStyleModel.placeHolderStr]];
-        }return r;
-    }else{
-        return NO;
-    }
+    return YES;
 }
 /// 一些需要通过点击状态改变状态的控件
 /// 一些需要通过点击状态改变状态的控件【初始状态】
@@ -335,10 +191,8 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
 -(void)initialAbandonLoginBtn{
     
     self.abandonLoginBtn.height = JobsWidth(10);
-    [self.abandonLoginBtn setTitle:Title4
-                          forState:UIControlStateNormal];
-    [self.abandonLoginBtn setTitleColor:Cor3
-                               forState:UIControlStateNormal];
+    [self.abandonLoginBtn normalTitle:Title4];
+    [self.abandonLoginBtn normalTitleColor:Cor3];
     self.abandonLoginBtn.titleLabel.font = [UIFont systemFontOfSize:JobsWidth(12)
                                                              weight:UIFontWeightSemibold];
     [self.abandonLoginBtn.titleLabel sizeToFit];
@@ -354,8 +208,7 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
 }
 
 -(void)initialToRegisterBtn{
-    [self.toRegisterBtn setTitle:Title2
-                        forState:UIControlStateNormal];
+    [self.toRegisterBtn normalTitle:Title2];
     [self.toRegisterBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
                                         imageTitleSpace:JobsWidth(20)];
 }
@@ -416,9 +269,6 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
     }
     
     if (self.registerDoorInputViewBaseStyleMutArr.count) {//不是第一次
-        [self sendBtnCheckWithDic:self.registerInputTFValueMutDic
-           userInteractionEnabled:@selector(checkRegisterBtnCanBeUsed)
-                             data:nil];
         for (long i = self.loginDoorInputViewBaseStyleMutArr.count;
              i < self.registerDoorInputViewBaseStyleModelMutArr.count;
              i++) {
@@ -440,26 +290,26 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
             [self.registerDoorInputViewBaseStyleMutArr addObject:inputView];
             [inputView richElementsInViewWithModel:self.registerDoorInputViewBaseStyleModelMutArr[i]];
             @weakify(self)
-            //监测输入字符回调 和 激活的textField【确认密码输入回调】
-            [inputView actionViewBlock:^(id data) {
+            [inputView actionViewBlock:^(UITextField *data) {
                 @strongify(self)
-                [self sendBtnCheckWithDic:self.registerInputTFValueMutDic
-                   userInteractionEnabled:@selector(checkRegisterBtnCanBeUsed)
-                                     data:data];
+                UITextField *textField = (UITextField *)data;
+                self.appDoorModel.confirmPassword = textField.text;
+                if (self.viewBlock) self.viewBlock(self.appDoorModel);
+                [self allRise:data];
             }];
         }else if (i == self.loginDoorInputViewBaseStyleMutArr.count + 1){// 手机号码
-            JobsAppDoorInputViewBaseStyle_7 *inputView = JobsAppDoorInputViewBaseStyle_7.new;
-            doorInputViewBaseStyle = (JobsAppDoorInputViewBaseStyle *)inputView;
-            [self addSubview:inputView];
-            [self.registerDoorInputViewBaseStyleMutArr addObject:inputView];
-            [inputView richElementsInViewWithModel:self.registerDoorInputViewBaseStyleModelMutArr[i]];
+            inputView_7 = JobsAppDoorInputViewBaseStyle_7.new;
+            doorInputViewBaseStyle = (JobsAppDoorInputViewBaseStyle *)inputView_7;
+            [self addSubview:inputView_7];
+            [self.registerDoorInputViewBaseStyleMutArr addObject:inputView_7];
+            [inputView_7 richElementsInViewWithModel:self.registerDoorInputViewBaseStyleModelMutArr[i]];
             @weakify(self)
-            //监测输入字符回调 和 激活的textField 【手机号码输入回调】
-            [inputView actionViewBlock:^(id data) {
+            [inputView_7 actionViewBlock:^(UITextField *data) {
                 @strongify(self)
-                [self sendBtnCheckWithDic:self.registerInputTFValueMutDic
-                   userInteractionEnabled:@selector(checkRegisterBtnCanBeUsed)
-                                     data:data];
+                UITextField *textField = (UITextField *)data;
+                self.appDoorModel.tel = textField.text;
+                if (self.viewBlock) self.viewBlock(self.appDoorModel);
+                [self allRise:data];
             }];
         }else if (i == self.loginDoorInputViewBaseStyleMutArr.count + 2){// 手机验证码
             JobsAppDoorInputViewBaseStyle_1 *inputView = JobsAppDoorInputViewBaseStyle_1.new;
@@ -468,12 +318,17 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
             [self.registerDoorInputViewBaseStyleMutArr addObject:inputView];
             [inputView richElementsInViewWithModel:self.registerDoorInputViewBaseStyleModelMutArr[i]];
             @weakify(self)
-            //监测输入字符回调 和 激活的textField 【手机验证码 输入回调】
             [inputView actionViewBlock:^(id data) {
                 @strongify(self)
-                [self sendBtnCheckWithDic:self.registerInputTFValueMutDic
-                   userInteractionEnabled:@selector(checkRegisterBtnCanBeUsed)
-                                     data:data];
+                if ([data isKindOfClass:UITextField.class]) {
+                    UITextField *textField = (UITextField *)data;
+                    self.appDoorModel.verificationCode = textField.text;
+                    if (self.viewBlock) self.viewBlock(self.appDoorModel);
+                    [self allRise:data];
+                }else if ([data isKindOfClass:UIButton.class]){
+                    [self getCellPhoneVerificationCodeWithCountry:nil
+                                                            phone:self->inputView_7.getTextFieldValue];
+                }else{}
             }];
         }else{}
         
@@ -515,17 +370,6 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
         [UIView colourToLayerOfView:确认密码
                          withColour:Cor4
                      andBorderWidth:1];
-        @jobs_weakify(手机号码)
-        @jobs_weakify(self)
-        [手机验证码 actionViewBlock:^(id data) {
-            @jobs_strongify(手机号码)
-            @jobs_strongify(self)
-            if ([data isKindOfClass:UIButton.class]) {
-                NSLog(@"获取验证码");
-                [self getCellPhoneVerificationCodeWithCountry:nil
-                                                        phone:手机号码.getTextFieldValue];
-            }
-        }];
     }
 }
 /// 核心方法
@@ -563,21 +407,17 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
                                           0,
                                           RegisterBtnWidth,
                                           self.height);
-        [_toRegisterBtn setImage:KIMG(@"用户名称")
-                        forState:UIControlStateNormal];
+        [_toRegisterBtn normalImage:KIMG(@"用户名称")];
         _toRegisterBtn.titleLabel.numberOfLines = 0;
         _toRegisterBtn.backgroundColor = Cor1;
-        [_toRegisterBtn setTitleColor:Cor3
-                             forState:UIControlStateNormal];
+        [_toRegisterBtn normalTitleColor:Cor3];
         _toRegisterBtn.titleLabel.font = [UIFont systemFontOfSize:JobsWidth(13)
                                                            weight:UIFontWeightMedium];
-        @weakify(self)
-        [[_toRegisterBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
-            @strongify(self)
+        BtnClickEvent(_toRegisterBtn, {
             x.selected = !x.selected;
             [self endEditing:YES];
             [self animationChangeRegisterBtnFrame];
-        }];
+        });
         [self addSubview:_toRegisterBtn];
     }return _toRegisterBtn;
 }
@@ -592,34 +432,19 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
 -(UIButton *)abandonLoginBtn{
     if (!_abandonLoginBtn) {
         _abandonLoginBtn = UIButton.new;
-        @weakify(self)
-        [[_abandonLoginBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
-            @strongify(self)
-            if (self.viewBlock) self.viewBlock(x);
-        }];
+        BtnClickEvent(_abandonLoginBtn, if (self.viewBlock) self.viewBlock(x););
         [self addSubview:_abandonLoginBtn];
     }return _abandonLoginBtn;
 }
-
+/// 登录 或者 注册按钮
 -(UIButton *)sendBtn{
     if (!_sendBtn) {
         _sendBtn = UIButton.new;
-        @jobs_weakify(self)
-        [[_sendBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
-            @jobs_strongify(self)
+        BtnClickEvent(_sendBtn, {
             [self endEditing:YES];
-            self->_sendBtn.objBindingParams = self.appDoorModel;
-            if ([x.titleLabel.text isEqualToString:Title7]) {// 登录
-                if ([self loginCheck]) {
-                    NSLog(@"SSSSS = 登录");
-                    if (self.viewBlock) self.viewBlock(x);                }
-            }else if ([x.titleLabel.text isEqualToString:Title6]){// 注册
-                if ([self registerCheck]) {
-                    NSLog(@"SSSSS = 注册");
-                    if (self.viewBlock) self.viewBlock(x);
-                }
-            }else{}
-        }];
+            x.objBindingParams = self.appDoorModel;
+            if (self.viewBlock) self.viewBlock(x);
+        });
         [self addSubview:_sendBtn];
         [UIView cornerCutToCircleWithView:_sendBtn
                           andCornerRadius:_sendBtn.height / 2];
@@ -629,18 +454,13 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
 -(UIButton *)storeCodeBtn{
     if (!_storeCodeBtn) {
         _storeCodeBtn = UIButton.new;
-        appDoorStoreCodeBtn = _storeCodeBtn;
-        [_storeCodeBtn setTitle:Title5
-                       forState:UIControlStateNormal];
+        [_storeCodeBtn normalTitle:Title5];
         _storeCodeBtn.titleLabel.font = [UIFont systemFontOfSize:JobsWidth(10)
                                                           weight:UIFontWeightRegular];
         _storeCodeBtn.selected = YES;// 默认记住密码
-        [_storeCodeBtn setImage:KIMG(@"没有记住密码")
-                       forState:UIControlStateNormal];
-        [_storeCodeBtn setImage:KIMG(@"记住密码")
-                       forState:UIControlStateSelected];
-        [_storeCodeBtn setTitleColor:Cor4
-                            forState:UIControlStateNormal];
+        [_storeCodeBtn normalImage:KIMG(@"没有记住密码")];
+        [_storeCodeBtn selectedImage:KIMG(@"记住密码")];
+        [_storeCodeBtn normalTitleColor:Cor4];
         [_storeCodeBtn.titleLabel sizeToFit];
         [_storeCodeBtn.titleLabel adjustsFontSizeToFitWidth];
         _storeCodeBtn.titleLabel.adjustsFontForContentSizeCategory = YES;
@@ -650,28 +470,23 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
             make.left.equalTo(inputView).offset(JobsWidth(20));
             make.top.equalTo(inputView.mas_bottom).offset(JobsWidth(25));
         }];
-        
         [self layoutIfNeeded];
         [_storeCodeBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft
                                        imageTitleSpace:JobsWidth(3)];
-        @weakify(self)
-        [[_storeCodeBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
-            @strongify(self)
+        BtnClickEvent(_storeCodeBtn, {
             x.selected = !x.selected;
             if (self.viewBlock) self.viewBlock(x);
-        }];
+        });
     }return _storeCodeBtn;
 }
 
 -(UIButton *)findCodeBtn{
     if (!_findCodeBtn) {
         _findCodeBtn = UIButton.new;
-        [_findCodeBtn setTitle:Title3
-                      forState:UIControlStateNormal];
+        [_findCodeBtn normalTitle:Title3];
         _findCodeBtn.titleLabel.font = [UIFont systemFontOfSize:JobsWidth(10)
                                                          weight:UIFontWeightRegular];
-        [_findCodeBtn setTitleColor:Cor3
-                           forState:UIControlStateNormal];
+        [_findCodeBtn normalTitleColor:Cor3];
         [_findCodeBtn.titleLabel sizeToFit];
         [_findCodeBtn.titleLabel adjustsFontSizeToFitWidth];
         _findCodeBtn.titleLabel.adjustsFontForContentSizeCategory = YES;
@@ -681,12 +496,7 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
             make.right.equalTo(inputView).offset(-JobsWidth(20));
             make.top.equalTo(inputView.mas_bottom).offset(JobsWidth(20));
         }];
-
-        @weakify(self)
-        [[_findCodeBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
-            @strongify(self)
-            if (self.viewBlock) self.viewBlock(x);
-        }];
+        BtnClickEvent(_findCodeBtn, if (self.viewBlock) self.viewBlock(x););
     }return _findCodeBtn;
 }
 
@@ -855,18 +665,6 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
     if (!_inputViewMutArr) {
         _inputViewMutArr = NSMutableArray.array;
     }return _inputViewMutArr;
-}
-
--(NSMutableDictionary *)loginInputTFValueMutDic{
-    if (!_loginInputTFValueMutDic) {
-        _loginInputTFValueMutDic = NSMutableDictionary.dictionary;
-    }return _loginInputTFValueMutDic;
-}
-
--(NSMutableDictionary *)registerInputTFValueMutDic{
-    if (!_registerInputTFValueMutDic) {
-        _registerInputTFValueMutDic = [NSMutableDictionary dictionaryWithDictionary:self.loginInputTFValueMutDic];
-    }return _registerInputTFValueMutDic;
 }
 
 -(JobsAppDoorModel *)appDoorModel{

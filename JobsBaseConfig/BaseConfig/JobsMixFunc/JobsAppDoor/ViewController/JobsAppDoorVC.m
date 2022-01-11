@@ -16,8 +16,8 @@
 }
 //UI
 @property(nonatomic,strong)JobsAppDoorLogoContentView *logoContentView;
-@property(nonatomic,strong)JobsAppDoorContentView *jobsAppDoorContentView;//登录和注册
-@property(nonatomic,strong,nullable)JobsAppDoorForgotCodeContentView *forgotCodeContentView;//忘记密码
+@property(nonatomic,strong)JobsAppDoorContentView *jobsAppDoorContentView;/// 登录和注册
+@property(nonatomic,strong,nullable)JobsAppDoorForgotCodeContentView *forgotCodeContentView;/// 忘记密码
 @property(nonatomic,strong)UIButton *customerServiceBtn;
 @property(nonatomic,strong)UIImageView *bgImgV;
 @property(nonatomic,strong)ZFPlayerController *player;
@@ -25,12 +25,13 @@
 @property(nonatomic,strong,nullable)CustomZFPlayerControlView *customPlayerControlView;
 //Data
 @property(nonatomic,assign)BOOL registerDoorInputEditing;
-@property(nonatomic,assign)CGFloat logoContentViewY;//初始高度
-@property(nonatomic,assign)CGFloat forgotCodeContentViewY;//初始高度
-@property(nonatomic,assign)CGFloat jobsAppDoorContentViewY;//初始高度
-@property(nonatomic,assign)CGFloat customerServiceBtnY;//初始高度
-@property(nonatomic,assign)NSInteger currentActivateTFIndex;//当前被激活的输入框的序列号
-@property(nonatomic,assign)NSInteger lastTimeActivateTFIndex;//上一时刻被激活的输入框的序列号
+@property(nonatomic,assign)CGFloat logoContentViewY;/// 初始高度
+@property(nonatomic,assign)CGFloat forgotCodeContentViewY;/// 初始高度
+@property(nonatomic,assign)CGFloat jobsAppDoorContentViewY;/// 初始高度
+@property(nonatomic,assign)CGFloat customerServiceBtnY;/// 初始高度
+@property(nonatomic,assign)NSInteger currentActivateTFIndex;/// 当前被激活的输入框的序列号
+@property(nonatomic,assign)NSInteger lastTimeActivateTFIndex;/// 上一时刻被激活的输入框的序列号
+@property(nonatomic,strong)JobsAppDoorModel *appDoorModel;
 
 @end
 
@@ -39,9 +40,6 @@
 - (void)dealloc{
     NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
-    extern UIButton *appDoorCountDownBtn;
-    [appDoorCountDownBtn timerDestroy];
 }
 
 +(void)destroyAppDoorSingleton{
@@ -116,11 +114,10 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
 -(void)竖形按钮在左边{
     index = 0;
     self->_jobsAppDoorContentView.backgroundColor = Cor2;
-    Ivar ivar = class_getInstanceVariable([JobsAppDoorContentView class], "_toRegisterBtn");//必须是下划线接属性
+    Ivar ivar = class_getInstanceVariable(JobsAppDoorContentView.class, "_toRegisterBtn");//必须是下划线接属性
     UIButton *toRegisterBtn = object_getIvar(self->_jobsAppDoorContentView, ivar);
     toRegisterBtn.backgroundColor = Cor4;
-    [toRegisterBtn setTitleColor:Cor1
-                        forState:UIControlStateNormal];
+    [toRegisterBtn normalTitleColor:Cor1];
     
     self.currentPage = CurrentPage_register;//注册页面
     self->_jobsAppDoorContentView.frame = CGRectMake(JobsAppDoorContentViewRegisterX,
@@ -290,6 +287,12 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
 -(JobsAppDoorContentView *)jobsAppDoorContentView{
     if (!_jobsAppDoorContentView) {
         _jobsAppDoorContentView = JobsAppDoorContentView.new;
+        /// 初始进的是登录页面
+        _jobsAppDoorContentView.frame = CGRectMake(JobsAppDoorContentViewLoginX,
+                                                   JobsAppDoorContentViewLoginY,
+                                                   JobsAppDoorContentViewLoginWidth,
+                                                   JobsAppDoorContentViewLoginHeight);
+        self.jobsAppDoorContentViewY = _jobsAppDoorContentView.y;
         _jobsAppDoorContentView.backgroundColor = Cor2;
         @weakify(self)
         //监测输入字符回调 和 激活的textField 和 toRegisterBtn/abandonLoginBtn点击事件
@@ -298,8 +301,8 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
             if ([data isKindOfClass:UIButton.class]) {
                 [self.view endEditing:YES];
                 UIButton *btn = (UIButton *)data;
-                if ([btn.titleLabel.text isEqualToString:Title2] ||
-                    [btn.titleLabel.text isEqualToString:Title1]) {
+                if ([btn.titleLabel.text isEqualToString:Title2] ||// Title2 Internationalization(@"L\no\ng\ni\nn")
+                    [btn.titleLabel.text isEqualToString:Title1]) {// Title1 Internationalization(@"B\na\nc\nk\nT\no\nL\no\ng\ni\nn")
                     self->toRegisterBtn = (UIButton *)data;
                     //状态置空
                     self.currentActivateTFIndex = 0;
@@ -313,46 +316,44 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
                     self.customerServiceBtn.top = self.jobsAppDoorContentView.top + self.jobsAppDoorContentView.height + JobsWidth(20);
                     self.customerServiceBtnY =  self.customerServiceBtn.y;
                 }
-                else if ([btn.titleLabel.text isEqualToString:Title6]){// 注册
-                    @weakify(self)
-                    [self NTESVerifyCodeWithBlock:^(UIViewModel *data) {
-                        @strongify(self)
-                        NSLog(@"网易云盾验证注册成功");
-                        JobsAppDoorModel *appDoorModel = (JobsAppDoorModel *)btn.objBindingParams;
-                        if ([self checkLoginData:appDoorModel]) {
-                            [self authRegisterByAccount:appDoorModel.userName
+                else if ([btn.titleLabel.text isEqualToString:Title6]){// Title6 Internationalization(@"Register")
+                    if ([self checkRegisterData:self.appDoorModel]) {
+                        @weakify(self)
+                        [self NTESVerifyCodeWithBlock:^(UIViewModel *data) {
+                            @strongify(self)
+                            NSLog(@"网易云盾验证注册成功");
+                            [self authRegisterByAccount:self.appDoorModel.userName
                                                 country:nil
                                              inviteCode:nil
-                                               password:appDoorModel.password
-                                                  phone:appDoorModel.tel
-                                              phoneCode:appDoorModel.verificationCode
+                                               password:self.appDoorModel.password
+                                                  phone:self.appDoorModel.tel
+                                              phoneCode:self.appDoorModel.verificationCode
                                                validate:data.ntesVerifyCodeValidate];
-                        }else{
-                            [WHToast toastMsg:Internationalization(@"Please improve the information")];
-                        }
-                    }];
+                        }];
+                    }
                 }
-                else if ([btn.titleLabel.text isEqualToString:Title7]){// 登录
-                    @weakify(self)
-                    [self NTESVerifyCodeWithBlock:^(UIViewModel *data) {
-                        @strongify(self)
-                        NSLog(@"网易云盾验证登陆成功");
-                        JobsAppDoorModel *appDoorModel = (JobsAppDoorModel *)btn.objBindingParams;
-                        [self authLoginByAccount:appDoorModel.userName
-                                        deviceId:nil
-                                        password:appDoorModel.password
-                                        validate:data.ntesVerifyCodeValidate];
-                    }];
+                else if ([btn.titleLabel.text isEqualToString:Title7]){// Internationalization(@"Login")
+                    if ([self checkLoginData:self.appDoorModel]) {
+                        @weakify(self)
+                        [self NTESVerifyCodeWithBlock:^(UIViewModel *data) {
+                            @strongify(self)
+                            NSLog(@"网易云盾验证登陆成功");
+                            [self authLoginByAccount:self.appDoorModel.userName
+                                            deviceId:nil
+                                            password:self.appDoorModel.password
+                                            validate:data.ntesVerifyCodeValidate];
+                        }];
+                    }
                 }
-                else if ([btn.titleLabel.text isEqualToString:Title4]){
+                else if ([btn.titleLabel.text isEqualToString:Title4]){// Title4 Internationalization(@"Back to HomePage")
                     UIButton *abandonLoginBtn = (UIButton *)data;
                     [self backBtnClickEvent:abandonLoginBtn];
                     [JobsAppDoorVC destroyAppDoorSingleton];
                 }
-                else if ([btn.titleLabel.text isEqualToString:Title5]){
+                else if ([btn.titleLabel.text isEqualToString:Title5]){// Title5 Internationalization(@"Save the user name")
                     
                 }
-                else if ([btn.titleLabel.text isEqualToString:Title3]){
+                else if ([btn.titleLabel.text isEqualToString:Title3]){// Title3 Internationalization(@"Forgot code")
                     
                     {//本页动效实现的
                         self.currentPage = CurrentPage_forgotCode;
@@ -360,34 +361,16 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
                         [self.forgotCodeContentView showContentViewWithOffsetY:0];
                         self.customerServiceBtn.alpha = 0;
                     }
-                    
-                    {//推控制器的做法
-                        // 忘记密码
-    //                    [UIViewController comingFromVC:self
-    //                                              toVC:DDForgetCodeVC.new
-    //                                       comingStyle:ComingStyle_PUSH
-    //                                 presentationStyle:UIModalPresentationFullScreen//[UIDevice currentDevice].systemVersion.doubleValue >= 13.0 ? UIModalPresentationAutomatic : UIModalPresentationFullScreen
-    //                                     requestParams:nil
-    //                          hidesBottomBarWhenPushed:YES
-    //                                          animated:YES
-    //                                           success:nil];
-                    }
+
                 }else{}
-            }else if ([data isKindOfClass:JobsMagicTextField.class]){
-                
-            }else if ([data isKindOfClass:NSString.class]){
-                
+            }else if ([data isKindOfClass:JobsAppDoorModel.class]){
+                self.appDoorModel = (JobsAppDoorModel *)data;
             }else{}
         }];
         [self.view addSubview:_jobsAppDoorContentView];
-        /// 初始进的是登录页面
-        _jobsAppDoorContentView.frame = CGRectMake(JobsAppDoorContentViewLoginX,
-                                                   JobsAppDoorContentViewLoginY,
-                                                   JobsAppDoorContentViewLoginWidth,
-                                                   JobsAppDoorContentViewLoginHeight);
-        self.jobsAppDoorContentViewY = _jobsAppDoorContentView.y;
         [UIView cornerCutToCircleWithView:_jobsAppDoorContentView
                           andCornerRadius:8];
+        [_jobsAppDoorContentView richElementsInViewWithModel:nil];
     }return _jobsAppDoorContentView;
 }
 
@@ -421,11 +404,11 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
         _playerManager.shouldAutoPlay = YES;
 
         if (isiPhoneX_series()) {
-            _playerManager.assetURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"iph_X"
-                                                                                             ofType:@"mp4"]];
+            _playerManager.assetURL = [NSURL fileURLWithPath:[NSBundle.mainBundle pathForResource:@"iph_X"
+                                                                                           ofType:@"mp4"]];
         }else{
-            _playerManager.assetURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"非iph_X"
-                                                                                             ofType:@"mp4"]];
+            _playerManager.assetURL = [NSURL fileURLWithPath:[NSBundle.mainBundle pathForResource:@"非iph_X"
+                                                                                           ofType:@"mp4"]];
         }
     }return _playerManager;
 }
@@ -433,8 +416,8 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
 -(ZFPlayerController *)player{
     if (!_player) {
         @weakify(self)
-        _player = [[ZFPlayerController alloc] initWithPlayerManager:self.playerManager
-                                                      containerView:self.view];
+        _player = [ZFPlayerController.alloc initWithPlayerManager:self.playerManager
+                                                    containerView:self.view];
         _player.controlView = self.customPlayerControlView;
 //        ZFPlayer_DoorVC = _player;
         [_player setPlayerDidToEnd:^(id<ZFPlayerMediaPlayback>  _Nonnull asset) {

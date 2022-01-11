@@ -8,7 +8,6 @@
 
 #import "JobsAppDoorInputViewBaseStyle_1.h"
 
-UIButton *appDoorCountDownBtn;
 @interface JobsAppDoorInputViewBaseStyle_1 ()
 //UI
 @property(nonatomic,strong)UIButton *countDownBtn;
@@ -66,7 +65,13 @@ UIButton *appDoorCountDownBtn;
     InputViewTFModel.resString = value;
     InputViewTFModel.PlaceHolder = label.text;
     
-    if (self.viewBlock) self.viewBlock(InputViewTFModel);
+    textField.objBindingParams = InputViewTFModel;
+    
+    if (self.viewBlock) self.viewBlock(textField);// 对外统一传出TF
+}
+/// 倒计时按钮（需要销毁定时器）
+-(UIButton *)getCountDownBtn{
+    return self.countDownBtn;
 }
 #pragma mark —— BaseViewProtocol
 /// 具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
@@ -125,7 +130,6 @@ UIButton *appDoorCountDownBtn;
 -(UIButton *)countDownBtn{
     if (!_countDownBtn) {
         _countDownBtn = [UIButton.alloc initWithConfig:self.btnTimerConfigModel];
-        appDoorCountDownBtn = _countDownBtn;
         @weakify(self)
         [_countDownBtn actionBlockTimerRunning:^(id data) {
             @strongify(self)
@@ -138,9 +142,7 @@ UIButton *appDoorCountDownBtn;
         [[_countDownBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
             [x startTimer];//选择时机、触发启动
 //            NSLog(@"SSSSS = 获取验证码");
-            if (self.viewBlock) {
-                self.viewBlock(x);
-            }
+            if (self.viewBlock) self.viewBlock(x);
         }];
         
         [self addSubview:_countDownBtn];
