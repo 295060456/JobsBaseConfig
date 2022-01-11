@@ -101,10 +101,10 @@ NS_ASSUME_NONNULL_END
                                                                       animatedCountArray:@[@(1),@(1),@(1)]];
          
          [_collectionView.tabAnimated addHeaderViewClass:BaseCollectionReusableView_Style1.class
-                                                viewSize:[BaseCollectionReusableView_Style1 collectionReusableViewSizeWithModel:nil]
+                                                viewSize:[BaseCollectionReusableView_Style1 viewSizeWithModel:nil]
                                                toSection:0];
          [_collectionView.tabAnimated addHeaderViewClass:BaseCollectionReusableView_Style1.class
-                                                viewSize:[BaseCollectionReusableView_Style2 collectionReusableViewSizeWithModel:nil]
+                                                viewSize:[BaseCollectionReusableView_Style2 viewSizeWithModel:nil]
                                                toSection:2];
          
          _collectionView.tabAnimated.containNestAnimation = YES;

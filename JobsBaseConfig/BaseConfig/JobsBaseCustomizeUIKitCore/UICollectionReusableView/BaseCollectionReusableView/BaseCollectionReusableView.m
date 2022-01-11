@@ -22,18 +22,10 @@
 -(void)touchesBegan:(NSSet<UITouch *> *)touches
           withEvent:(UIEvent *)event{
     @jobs_weakify(self)
-    if (self.collectionReusableViewBlock) {
-        self.collectionReusableViewBlock(weak_self);
-    }
-}
-/*
-    用于以此为基类的UICollectionReusableView具体子类上所有数据的回调,当然也可以用NSObject分类的方法定位于：@interface NSObject (CallBackInfoByBlock)
- */
--(void)actionBlockCollectionReusableView:(MKDataBlock _Nullable)collectionReusableViewBlock{
-    self.collectionReusableViewBlock = collectionReusableViewBlock;
+    if (self.viewBlock) self.viewBlock(weak_self);
 }
 //由具体的子类进行覆写
-+(CGSize)collectionReusableViewSizeWithModel:(id _Nullable)model{
++(CGSize)viewSizeWithModel:(id _Nullable)model{
     return CGSizeZero;
 }
 //由具体的子类进行覆写
