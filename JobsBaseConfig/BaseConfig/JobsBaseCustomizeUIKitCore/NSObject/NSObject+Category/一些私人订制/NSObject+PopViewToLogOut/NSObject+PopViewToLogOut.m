@@ -54,13 +54,27 @@ static char *NSObject_PopViewToLogOut_logOutPopupVM = "NSObject_PopViewToLogOut_
                 NSLog(@"手滑了");
             }else if (data.tag == 999){// 确定退出
                 [self logOut];
+                [WHToast toastSuccessMsg:Internationalization(@"Logout succeeded")];
+                [NSNotificationCenter.defaultCenter postNotificationName:退出登录 object:@(NO)];
+                
+//                {
+//                    @weakify(self)
+//                    [NSNotificationCenter.defaultCenter addObserver:self
+//                                                           selector:selectorBlocks(^(id  _Nullable weakSelf,
+//                                                                                     id  _Nullable arg) {
+//                        @jobs_strongify(self)
+//                //        NSNotification *notification = (NSNotification *)arg;
+//                //        NSNumber *b = notification.object;
+//                    }, self)
+//                                                               name:退出登录
+//                                                             object:nil];
+//                }
             }
             [LogOutPopupView tf_hide];
-            
-    #ifdef DEBUG
-            [self.getCurrentViewController comingToPushVC:JobsShowObjInfoVC.new
-                                            requestParams:self.readUserInfo];// 测试专用
-    #endif
+            if (JobsDebug) {
+                [self.getCurrentViewController comingToPushVC:JobsShowObjInfoVC.new
+                                                requestParams:self.readUserInfo];// 测试专用
+            }
         }];
         
         objc_setAssociatedObject(self,

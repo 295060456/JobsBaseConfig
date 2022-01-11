@@ -520,7 +520,7 @@
             用户名.offset = JobsWidth(0);
 
             if (self.readUserNameMutArr.count) {
-                用户名.inputStr = [self readUserNameMutArr][0];
+                用户名.inputStr = self.readUserNameMutArr[0];
             }
             [_loginDoorInputViewBaseStyleModelMutArr addObject:用户名];
         }
@@ -614,7 +614,7 @@
         {
             JobsAppDoorInputViewBaseStyleModel *手机号码 = JobsAppDoorInputViewBaseStyleModel.new;
             手机号码.leftViewIMG = KIMG(@"手机号码");
-            手机号码.placeHolderStr = Internationalization(@"telephone");
+            手机号码.placeHolderStr = Internationalization(@"Telephone");
             手机号码.isShowDelBtn = YES;
             手机号码.isShowSecurityBtn = NO;
             手机号码.useCustomClearButton = YES;

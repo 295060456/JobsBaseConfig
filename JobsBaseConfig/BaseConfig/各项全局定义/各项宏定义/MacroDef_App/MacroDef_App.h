@@ -10,10 +10,7 @@
 
 #define debug 1//是否显示debug控件
 
-static NSString *userInfoKey = @"userinfoKey";
-static NSString *PostDraftURLKey = @"PostDraftURL";
-static NSString *authorizationKey = @"Authorization";
-static NSString *userIdKey = @"userIdKey";
+static NSString *退出登录 = @"退出登录";
 
 #define AppVersion @"100010017"
 #define categoryTitleViewHeight 50

@@ -152,7 +152,7 @@
         [[_textField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
             @strongify(self)
             JobsAppDoorInputViewTFModel *textFieldInputModel = (JobsAppDoorInputViewTFModel *)self.textField.objBindingParams;
-            if ([textFieldInputModel.PlaceHolder isEqualToString:Internationalization(@"telephone")]) {// 手机号码
+            if ([textFieldInputModel.PlaceHolder isEqualToString:Internationalization(@"Telephone")]) {// 手机号码
                 if ([self checkTelNum:value]) {
                     return YES;
                 }else{

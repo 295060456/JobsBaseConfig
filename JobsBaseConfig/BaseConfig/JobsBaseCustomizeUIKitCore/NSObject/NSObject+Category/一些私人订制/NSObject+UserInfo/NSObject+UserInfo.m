@@ -13,7 +13,7 @@ NSString *const 用户名数组 = @"用户名数组";
 @implementation NSObject (UserInfo)
 /**
   【鉴别是否登录】
-  【标准】userIdKey值对应的token是否为空
+  【标准】token是否为空
   【return】 YES(已经登录)、NO（未登录）
  */
 -(BOOL)isLogin{

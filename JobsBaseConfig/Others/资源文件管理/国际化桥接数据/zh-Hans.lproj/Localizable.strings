@@ -30,7 +30,7 @@
 "User" = "用户名";
 "Code" = "密码";
 "Confirm" = "确认密码";
-"telephone" = "手机号码";
+"Telephone" = "手机号码";
 "Auth code" = "手机验证码";
 "Play Record" = "洗码记录";
 "My Play" = "我的洗码";
