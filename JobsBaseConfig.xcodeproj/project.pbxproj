@@ -435,6 +435,7 @@
 		845625A0278BF2780067ABB9 /* JobsCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84562592278BF2780067ABB9 /* JobsCommentModel.m */; };
 		845625A5278BF2BB0067ABB9 /* JobsCommentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 845625A4278BF2BB0067ABB9 /* JobsCommentVC.m */; };
 		84566B042784833100636967 /* UINavigationController+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 84566B032784833100636967 /* UINavigationController+Extra.m */; };
+		8458D276278DBDD50063A76E /* LMJDropdownMenu+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 8458D275278DBDD40063A76E /* LMJDropdownMenu+Extra.m */; };
 		8459CC322775D3E900125782 /* AppDelegate+Func.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459CC2A2775D3E900125782 /* AppDelegate+Func.m */; };
 		8459CC332775D3E900125782 /* AppDelegate+UIApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459CC2D2775D3E900125782 /* AppDelegate+UIApplicationDelegate.m */; };
 		8459CC342775D3E900125782 /* AppDelegate+XHLaunchAdDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459CC312775D3E900125782 /* AppDelegate+XHLaunchAdDelegate.m */; };
@@ -1457,6 +1458,8 @@
 		845669282784284000636967 /* NODetermineParametersBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NODetermineParametersBlock.h; sourceTree = "<group>"; };
 		84566B022784833100636967 /* UINavigationController+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Extra.h"; sourceTree = "<group>"; };
 		84566B032784833100636967 /* UINavigationController+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Extra.m"; sourceTree = "<group>"; };
+		8458D274278DBDD40063A76E /* LMJDropdownMenu+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LMJDropdownMenu+Extra.h"; sourceTree = "<group>"; };
+		8458D275278DBDD40063A76E /* LMJDropdownMenu+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LMJDropdownMenu+Extra.m"; sourceTree = "<group>"; };
 		8459CC2A2775D3E900125782 /* AppDelegate+Func.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Func.m"; sourceTree = "<group>"; };
 		8459CC2B2775D3E900125782 /* AppDelegate+Func.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Func.h"; sourceTree = "<group>"; };
 		8459CC2D2775D3E900125782 /* AppDelegate+UIApplicationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+UIApplicationDelegate.m"; sourceTree = "<group>"; };
@@ -5097,6 +5100,7 @@
 		844B07AC2764CF4700B0513D /* PodsManual */ = {
 			isa = PBXGroup;
 			children = (
+				8458D273278DBDD40063A76E /* LMJDropdownMenu */,
 				844B07AD2764CF4700B0513D /* RAC_Define */,
 				844B07B42764CF4700B0513D /* JXCategoryView */,
 				844B07C32764CF4700B0513D /* ZWPullMenuView */,
@@ -5599,6 +5603,15 @@
 				840F949127736426004979E9 /* UINavigationController+SafeTransition.m */,
 			);
 			path = "UINavigationController+SafeTransition";
+			sourceTree = "<group>";
+		};
+		8458D273278DBDD40063A76E /* LMJDropdownMenu */ = {
+			isa = PBXGroup;
+			children = (
+				8458D274278DBDD40063A76E /* LMJDropdownMenu+Extra.h */,
+				8458D275278DBDD40063A76E /* LMJDropdownMenu+Extra.m */,
+			);
+			path = LMJDropdownMenu;
 			sourceTree = "<group>";
 		};
 		8459CC292775D3E900125782 /* AppDelegate+Func */ = {
@@ -8031,6 +8044,7 @@
 				84CA5FA827897AFB00E46E71 /* MovieCountDown.m in Sources */,
 				840F971027736428004979E9 /* UITextField+Extend.m in Sources */,
 				84CA5FDB27897AFB00E46E71 /* AESCrypt.m in Sources */,
+				8458D276278DBDD50063A76E /* LMJDropdownMenu+Extra.m in Sources */,
 				84CA5FDC27897AFB00E46E71 /* CFGradientLabel.m in Sources */,
 				840F96F027736428004979E9 /* NSObject+RegularExpression.m in Sources */,
 				840F96A427736428004979E9 /* UIViewController+EmptyData.m in Sources */,
