@@ -58,12 +58,8 @@
 -(void)block:(JobsMagicTextField *)textField
        value:(NSString *)value{
     
-    Ivar ivar = class_getInstanceVariable(JobsMagicTextField.class, "_placeholderAnimationLbl");//必须是下划线接属性
-    UILabel *label = object_getIvar(textField, ivar);
-    
     self.textFieldInputModel.resString = value;
-    self.textFieldInputModel.PlaceHolder = label.text;
-
+    self.textFieldInputModel.PlaceHolder = self.doorInputViewBaseStyleModel.placeHolderStr;
     textField.objBindingParams = self.textFieldInputModel;
     
     if (self.viewBlock) self.viewBlock(textField);// 对外统一传出TF

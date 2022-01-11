@@ -59,7 +59,7 @@
        value:(NSString *)value{
     
     self.textFieldInputModel.resString = value;
-    self.textFieldInputModel.PlaceHolder = self.textField.placeholder;
+    self.textFieldInputModel.PlaceHolder = self.doorInputViewBaseStyleModel.placeHolderStr;
 
     textField.objBindingParams = self.textFieldInputModel;
     

@@ -48,22 +48,20 @@
     _textField.offset = self.doorInputViewBaseStyleModel.offset;
     _textField.placeholderColor = self.doorInputViewBaseStyleModel.placeholderColor;
     _textField.placeholderFont = self.doorInputViewBaseStyleModel.placeholderFont;
-    _textField.objBindingParams = self.textFieldInputModel;
     _textField.leftViewOffsetX = self.doorInputViewBaseStyleModel.leftViewOffsetX ? : JobsWidth(17);
     _textField.animationColor = self.doorInputViewBaseStyleModel.animationColor ? : Cor4;
     _textField.placeHolderAlignment = self.doorInputViewBaseStyleModel.placeHolderAlignment ? : PlaceHolderAlignmentLeft;
     _textField.moveDistance = self.doorInputViewBaseStyleModel.moveDistance ? : JobsWidth(35);
     _textField.placeHolderOffset = self.doorInputViewBaseStyleModel.placeHolderOffset ? : JobsWidth(20);
+    
+    self.textFieldInputModel.PlaceHolder = _textField.placeholder;
 }
 
 -(void)block:(JobsMagicTextField *)textField
        value:(NSString *)value{
 
-    Ivar ivar = class_getInstanceVariable(JobsMagicTextField.class, "_placeholderAnimationLbl");//必须是下划线接属性
-    UILabel *label = object_getIvar(textField, ivar);
-    
     self.textFieldInputModel.resString = value;
-    self.textFieldInputModel.PlaceHolder = label.text;
+    self.textFieldInputModel.PlaceHolder = self.doorInputViewBaseStyleModel.placeHolderStr;
 
     textField.objBindingParams = self.textFieldInputModel;
     
@@ -131,13 +129,9 @@
         _textField.delegate = self;
         @weakify(self)
         [[_textField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
-            @strongify(self)// JobsAppDoorInputViewTFModel
-            JobsAppDoorInputViewTFModel *textFieldInputModel = (JobsAppDoorInputViewTFModel *)self.textField.objBindingParams;
-            if ([textFieldInputModel.PlaceHolder isEqualToString:Internationalization(@"User")] ||// 用户名
-                [textFieldInputModel.PlaceHolder isEqualToString:Internationalization(@"Code")] ||// 密码
-                [textFieldInputModel.PlaceHolder isEqualToString:Internationalization(@"Confirm")]) {// 确认密码
-                // 用户账号由6-15个字符组成,且只能输入字母大小写和数字
-                NSLog(@"AAA = %d",[self checkUserName:value]);
+            NSLog(@"SSS = %@",self.textFieldInputModel.PlaceHolder);
+            @strongify(self)
+            if ([self.textFieldInputModel.PlaceHolder isEqualToString:Internationalization(@"User")]) {
                 if ([self checkUserName:value]) {
                     return YES;
                 }else{
@@ -145,7 +139,16 @@
                         self.textField.text = [value substringWithRange:NSMakeRange(0, value.length - 1)];
                     }return NO;
                 }
-            }return NO;
+            }else if ([self.textFieldInputModel.PlaceHolder isEqualToString:Internationalization(@"Code")] ||
+                      [self.textFieldInputModel.PlaceHolder isEqualToString:Internationalization(@"Confirm")]){
+                if ([self checkUserPassword:value]) {
+                    return YES;
+                }else{
+                    if (![self userAndPasswordNotUpTo:value]) {
+                        self.textField.text = [value substringWithRange:NSMakeRange(0, value.length - 1)];
+                    }return NO;
+                }
+            }else{}return NO;
         }] subscribeNext:^(NSString * _Nullable x) {
             @strongify(self)
             NSLog(@"输入的字符为 = %@",x);

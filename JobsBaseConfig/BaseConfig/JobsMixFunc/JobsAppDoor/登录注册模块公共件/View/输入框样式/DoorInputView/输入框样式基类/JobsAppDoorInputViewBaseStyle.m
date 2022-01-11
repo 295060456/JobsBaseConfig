@@ -16,6 +16,12 @@
     }return _PlaceHolder;
 }
 
+-(NSString *)resString{
+    if (!_resString) {
+        _resString = @"";
+    }return _resString;
+}
+
 @end
 
 @interface JobsAppDoorInputViewBaseStyle ()
