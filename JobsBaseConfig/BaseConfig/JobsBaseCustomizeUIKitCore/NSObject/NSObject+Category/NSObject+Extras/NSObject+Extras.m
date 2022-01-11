@@ -138,7 +138,7 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
              versionNumber2:(NSString *_Nonnull)versionNumber2{
     NSString *v1 = [versionNumber1 stringByReplacingOccurrencesOfString:@"." withString:@""];
     NSString *v2 = [versionNumber2 stringByReplacingOccurrencesOfString:@"." withString:@""];
-    if (v1.judgeiphoneNumberInt && v2.judgeiphoneNumberInt) {
+    if (v1.isPureInt && v2.isPureInt) {
         if (v1.integerValue > v2.integerValue) {
             return CompareRes_MoreThan;
         }else if (v1.integerValue < v2.integerValue){

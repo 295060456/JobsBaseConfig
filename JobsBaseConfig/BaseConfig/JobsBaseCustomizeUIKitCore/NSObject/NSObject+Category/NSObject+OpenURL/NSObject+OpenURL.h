@@ -10,7 +10,7 @@
 #import <MessageUI/MessageUI.h>// 发短信、发邮件
 #import "JobsBlock.h"
 #import "MacroDef_SysWarning.h"
-#import "NSString+JudgeNull.h"
+#import "NSString+Judgment.h"
 #import "NSObject+WHToast.h"
 
 NS_ASSUME_NONNULL_BEGIN

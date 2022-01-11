@@ -6,9 +6,29 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NSString+JudgeNull.h"
+#import "MacroDef_Func.h"
+#import "NSString+Judgment.h"
+#import <_ctype.h>
 
 NS_ASSUME_NONNULL_BEGIN
+
+@interface NSString (JudgeNull)
+#pragma mark —— 判空
+- (BOOL)isNotBlank;
+/**
+*  判断对象 / 数组是否为空
+*  为空返回 YES
+*  不为空返回 NO
+*/
++(BOOL)isNullString:(NSString *)string;
+/// 判断是否是空格(space和\t)
+-(BOOL)isBlank;
+/// 判断是否是空格(space、\t、\r、\n)
+-(BOOL)isSpace;
+/// 判断字符串是否包含空格：返回YES【没有空格】
+-(BOOL)isContainBlank;
+
+@end
 
 @interface NSString (Judgment)
 #pragma mark —— 字符串的 比较 & 判断
@@ -20,8 +40,26 @@ NS_ASSUME_NONNULL_BEGIN
 /// 如果字符串为null 那么不走isEqualToString，无法比较都是空的情况
 +(BOOL)isEqualStrA:(NSString *)stringA
               strB:(NSString *)stringB;
-/// 判断是否为纯整数
--(BOOL)judgeiphoneNumberInt;
+/// 判断是否为整形
+-(BOOL)isPureInt;
+/// 判断是否为浮点形
+-(BOOL)isPureFloat;
+/// 判断是否是数字字母结合
+-(BOOL)isAlnum;
+/// 判断是否是ASCII码的控制字符
+-(BOOL)isCntrl;
+/// 判断是否是为可打印字符(不包含空格)
+-(BOOL)isGraph;
+/// 判断字符是否为可打印字符（含空格）
+-(BOOL)isPrint;
+/// 判断是否是小写的英文字母
+-(BOOL)isLower;
+/// 判断字符是否为大写英文字母
+-(BOOL)isUpper;
+/// 判断字符是否为16进制数字
+-(BOOL)isXdigit;
+/// 判断字符是否为标点符号或特殊字符
+-(BOOL)isPunct;
 /// 是否全是字母（26个英文字母）
 -(BOOL)isAllLetterCharacter;
 /// 字符串是否包含URL【返回YES包含】

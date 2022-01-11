@@ -181,7 +181,6 @@
 		840F969127736428004979E9 /* NSString+Conversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F942D27736426004979E9 /* NSString+Conversion.m */; };
 		840F969227736428004979E9 /* NSString+Others.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F943027736426004979E9 /* NSString+Others.m */; };
 		840F969327736428004979E9 /* NSString+Eomji.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F943427736426004979E9 /* NSString+Eomji.m */; };
-		840F969427736428004979E9 /* NSString+JudgeNull.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F943627736426004979E9 /* NSString+JudgeNull.m */; };
 		840F969527736428004979E9 /* NSString+Statistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F943A27736426004979E9 /* NSString+Statistics.m */; };
 		840F969627736428004979E9 /* NSString+Decoration.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F943D27736426004979E9 /* NSString+Decoration.m */; };
 		840F969727736428004979E9 /* NSString+Path.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F944027736426004979E9 /* NSString+Path.m */; };
@@ -328,6 +327,7 @@
 		84432C12278C45C40028A27D /* 跳动的竖线.gif in Resources */ = {isa = PBXBuildFile; fileRef = 84432C0C278C45C40028A27D /* 跳动的竖线.gif */; };
 		84432C13278C45C40028A27D /* 钱袋.gif in Resources */ = {isa = PBXBuildFile; fileRef = 84432C0D278C45C40028A27D /* 钱袋.gif */; };
 		84432C14278C45C40028A27D /* Bt9h.gif in Resources */ = {isa = PBXBuildFile; fileRef = 84432C0E278C45C40028A27D /* Bt9h.gif */; };
+		8443310F278D456A0028A27D /* NSObject+CasinoCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 8443310E278D456A0028A27D /* NSObject+CasinoCheck.m */; };
 		844B02122764C8EE00B0513D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B02112764C8EE00B0513D /* AppDelegate.m */; };
 		844B02152764C8EE00B0513D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B02142764C8EE00B0513D /* SceneDelegate.m */; };
 		844B02182764C8EE00B0513D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B02172764C8EE00B0513D /* ViewController.m */; };
@@ -965,8 +965,6 @@
 		840F943127736426004979E9 /* NSString+Others.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Others.h"; sourceTree = "<group>"; };
 		840F943327736426004979E9 /* NSString+Eomji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Eomji.h"; sourceTree = "<group>"; };
 		840F943427736426004979E9 /* NSString+Eomji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Eomji.m"; sourceTree = "<group>"; };
-		840F943627736426004979E9 /* NSString+JudgeNull.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JudgeNull.m"; sourceTree = "<group>"; };
-		840F943727736426004979E9 /* NSString+JudgeNull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JudgeNull.h"; sourceTree = "<group>"; };
 		840F943927736426004979E9 /* NSString+Statistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Statistics.h"; sourceTree = "<group>"; };
 		840F943A27736426004979E9 /* NSString+Statistics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Statistics.m"; sourceTree = "<group>"; };
 		840F943C27736426004979E9 /* NSString+Decoration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Decoration.h"; sourceTree = "<group>"; };
@@ -1273,6 +1271,8 @@
 		84432C0D278C45C40028A27D /* 钱袋.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "钱袋.gif"; sourceTree = "<group>"; };
 		84432C0E278C45C40028A27D /* Bt9h.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Bt9h.gif; sourceTree = "<group>"; };
 		84432C87278C4CD20028A27D /* JobsComment.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = JobsComment.md; sourceTree = "<group>"; };
+		8443310D278D456A0028A27D /* NSObject+CasinoCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+CasinoCheck.h"; sourceTree = "<group>"; };
+		8443310E278D456A0028A27D /* NSObject+CasinoCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CasinoCheck.m"; sourceTree = "<group>"; };
 		844B020D2764C8EE00B0513D /* JobsBaseConfig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobsBaseConfig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		844B02102764C8EE00B0513D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		844B02112764C8EE00B0513D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -3336,7 +3336,6 @@
 				840F942C27736426004979E9 /* NSString+Conversion */,
 				840F942F27736426004979E9 /* NSString+Others */,
 				840F943227736426004979E9 /* NSString+Eomji */,
-				840F943527736426004979E9 /* NSString+JudgeNull */,
 				840F943827736426004979E9 /* NSString+Statistics */,
 				840F943B27736426004979E9 /* NSString+Decoration */,
 				840F943E27736426004979E9 /* NSString+Path */,
@@ -3372,15 +3371,6 @@
 				840F943427736426004979E9 /* NSString+Eomji.m */,
 			);
 			path = "NSString+Eomji";
-			sourceTree = "<group>";
-		};
-		840F943527736426004979E9 /* NSString+JudgeNull */ = {
-			isa = PBXGroup;
-			children = (
-				840F943627736426004979E9 /* NSString+JudgeNull.m */,
-				840F943727736426004979E9 /* NSString+JudgeNull.h */,
-			);
-			path = "NSString+JudgeNull";
 			sourceTree = "<group>";
 		};
 		840F943827736426004979E9 /* NSString+Statistics */ = {
@@ -4934,6 +4924,26 @@
 			path = UIWindow;
 			sourceTree = "<group>";
 		};
+		8443310B278D455D0028A27D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				84CA653C2789CA8600E46E71 /* 网络请求 */,
+				844B02BD2764C95E00B0513D /* AppDelegate & SceneDelegate */,
+				8443310C278D456A0028A27D /* CasinoCheck */,
+				84CA5CD32789596A00E46E71 /* Other.h */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		8443310C278D456A0028A27D /* CasinoCheck */ = {
+			isa = PBXGroup;
+			children = (
+				8443310D278D456A0028A27D /* NSObject+CasinoCheck.h */,
+				8443310E278D456A0028A27D /* NSObject+CasinoCheck.m */,
+			);
+			path = CasinoCheck;
+			sourceTree = "<group>";
+		};
 		844B02042764C8EE00B0513D = {
 			isa = PBXGroup;
 			children = (
@@ -6054,10 +6064,8 @@
 		84A160EC2789557200DACA3C /* 🇨🇳ServiceLogic */ = {
 			isa = PBXGroup;
 			children = (
-				84CA653C2789CA8600E46E71 /* 网络请求 */,
-				84CA5CD32789596A00E46E71 /* Other.h */,
-				844B02BD2764C95E00B0513D /* AppDelegate & SceneDelegate */,
 				84A160ED2789561A00DACA3C /* 🇨🇳ServiceLogic.md */,
+				8443310B278D455D0028A27D /* Common */,
 				84CA609D278980E700E46E71 /* 功能模块 */,
 				84A160EE2789565F00DACA3C /* 控制器 */,
 			);
@@ -8006,7 +8014,6 @@
 				840F969A27736428004979E9 /* NSString+Replace.m in Sources */,
 				84D76437278090330003F0E4 /* UIViewController+SafeTransition.m in Sources */,
 				844B08512764CF4800B0513D /* ECPrivacyCheckContacts.m in Sources */,
-				840F969427736428004979E9 /* NSString+JudgeNull.m in Sources */,
 				840F96A327736428004979E9 /* UIViewController+BackBtn.m in Sources */,
 				840F964427736427004979E9 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				84D764B3278092C10003F0E4 /* RequestTool.m in Sources */,
@@ -8033,6 +8040,7 @@
 				844B08752764CF4800B0513D /* ZMJCell+CustomView.m in Sources */,
 				8456259C278BF2780067ABB9 /* JobsCommentTitleHeaderView.m in Sources */,
 				84868F1A277ADF690098BE7A /* JobsDropDownListTBVCell.m in Sources */,
+				8443310F278D456A0028A27D /* NSObject+CasinoCheck.m in Sources */,
 				845C799B2786D2FE009843EE /* JobsAppDoorInputViewBaseStyle_4.m in Sources */,
 				844B083D2764CF4800B0513D /* JXCategoryTimelineView.m in Sources */,
 				840F96B327736428004979E9 /* BaseNavigationVC.m in Sources */,

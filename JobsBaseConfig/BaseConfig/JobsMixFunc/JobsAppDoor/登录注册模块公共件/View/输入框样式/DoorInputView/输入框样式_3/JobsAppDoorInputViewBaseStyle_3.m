@@ -135,10 +135,14 @@
                 [self.textField.objBindingParams isEqualToString:Internationalization(@"Code")] ||// 密码
                 [self.textField.objBindingParams isEqualToString:Internationalization(@"Confirm")]) {// 确认密码
                 // 用户账号由6-15个字符组成,且只能输入字母大小写和数字
-                return value.length >= 6 &&
-                value.length <= 15 &&
-                value.judgeiphoneNumberInt &&
-                value.isAllLetterCharacter;
+                NSLog(@"AAA = %d",[self checkUserName:value]);
+                if ([self checkUserName:value]) {
+                    return YES;
+                }else{
+                    if (![self userAndPasswordNotUpTo:value]) {
+                        self.textField.text = [value substringWithRange:NSMakeRange(0, value.length - 1)];
+                    }return NO;
+                }
             }return NO;
         }] subscribeNext:^(NSString * _Nullable x) {
             @strongify(self)

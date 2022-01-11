@@ -113,7 +113,7 @@ static dispatch_once_t JobsAppDoorContentViewDispatchOnce;
 -(BOOL)checkTelePhoneNum:(NSString *)phone{
     /// 不为空且全为整数
     if (![NSString isNullString:phone] &&
-        [phone judgeiphoneNumberInt]) {
+        [phone isPureInt]) {
         return YES;
     }return NO;
 }

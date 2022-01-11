@@ -27,6 +27,8 @@
 #import "ViewController@4.h"
 #import "ViewController@5.h"
 
+#import "NSObject+CasinoCheck.h"// 数据检验
+
 // 测试专用
 #import "JobsShowObjInfoVC.h"// 查看对象
 #import "AppInternationalizationVC.h"// 国际化

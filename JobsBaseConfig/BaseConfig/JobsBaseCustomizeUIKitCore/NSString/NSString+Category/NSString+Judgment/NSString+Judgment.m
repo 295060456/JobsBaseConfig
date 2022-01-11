@@ -7,6 +7,66 @@
 
 #import "NSString+Judgment.h"
 
+@implementation NSString (JudgeNull)
+#pragma mark —— 判空
+- (BOOL)isNotBlank {
+    NSCharacterSet *blank = NSCharacterSet.whitespaceAndNewlineCharacterSet;
+    for (NSInteger i = 0; i < self.length; ++i) {
+        unichar c = [self characterAtIndex:i];
+        if (![blank characterIsMember:c]) {
+            return YES;
+        }
+    }return NO;
+}
+/**
+*  判断对象 / 数组是否为空
+*  为空返回 YES
+*  不为空返回 NO
+*/
++(BOOL)isNullString:(NSString *)string{
+    if (string == nil ||
+        string == NULL ||
+        (NSNull *)string == NSNull.null ||
+        [string isKindOfClass:NSNull.class] ||
+        [string isEqualToString:@"(null)"]||
+        [string isEqualToString:@"null"]||
+        [string isEqualToString:@"<null>"]) {
+        return YES;
+    }
+
+    string = StringFormat(@"%@",string);
+    string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];//去掉两端的空格
+    if (string.length == 0) {
+        return YES;
+    }return NO;
+}
+/// 判断是否是空格(space和\t)
+-(BOOL)isBlank{
+    unichar c;
+    for (int i = 0; i < self.length; i++) {
+        c = [self characterAtIndex:i];
+        if (!isblank(c)) {
+            return NO;
+        }
+    }return YES;
+}
+/// 判断是否是空格(space、\t、\r、\n)
+-(BOOL)isSpace{
+    unichar c;
+    for (int i = 0; i < self.length; i++) {
+        c = [self characterAtIndex:i];
+        if (!isspace(c)) {
+            return NO;
+        }
+    }return YES;
+}
+/// 判断字符串是否包含空格：返回YES【没有空格】
+-(BOOL)isContainBlank{
+    return [self rangeOfString:@" "].location == NSNotFound;
+}
+
+@end
+
 @implementation NSString (Judgment)
 #pragma mark —— 字符串的 比较 & 判断
 /// 给定某字符串，判断里面的组成char是否全部为某个char
@@ -42,11 +102,97 @@
         return [stringA isEqualToString:stringB];
     }
 }
-/// 判断是否为纯整数
--(BOOL)judgeiphoneNumberInt{
+/// 判断是否为整形
+-(BOOL)isPureInt{
     NSScanner *scan = [NSScanner scannerWithString:self];
     int val;
     return [scan scanInt:&val] && [scan isAtEnd];
+}
+/// 判断是否为浮点形
+-(BOOL)isPureFloat{
+    NSScanner* scan = [NSScanner scannerWithString:self];
+    float val;
+    return[scan scanFloat:&val] && [scan isAtEnd];
+}
+/// 判断是否是数字字母结合
+-(BOOL)isAlnum{
+    unichar c;
+    for (int i = 0; i < self.length; i++) {
+        c = [self characterAtIndex:i];
+        if (!isalnum(c)) {
+            return NO;
+        }
+    }return YES;
+}
+/// 判断是否是ASCII码的控制字符
+-(BOOL)isCntrl{
+    unichar c;
+    for (int i = 0; i < self.length; i++) {
+        c = [self characterAtIndex:i];
+        if (!iscntrl(c)) {
+            return NO;
+        }
+    }return YES;
+}
+/// 判断是否是为可打印字符(不包含空格)
+-(BOOL)isGraph{
+    unichar c;
+    for (int i = 0; i < self.length; i++) {
+        c = [self characterAtIndex:i];
+        if (!isgraph(c)) {
+            return NO;
+        }
+    }return YES;
+}
+/// 判断字符是否为可打印字符（含空格）
+-(BOOL)isPrint{
+    unichar c;
+    for (int i = 0; i < self.length; i++) {
+        c = [self characterAtIndex:i];
+        if (!isprint(c)) {
+            return NO;
+        }
+    }return YES;
+}
+/// 判断是否是小写的英文字母
+-(BOOL)isLower{
+    unichar c;
+    for (int i = 0; i < self.length; i++) {
+        c = [self characterAtIndex:i];
+        if (!islower(c)) {
+            return NO;
+        }
+    }return YES;
+}
+/// 判断字符是否为大写英文字母
+-(BOOL)isUpper{
+    unichar c;
+    for (int i = 0; i < self.length; i++) {
+        c = [self characterAtIndex:i];
+        if (!isupper(c)) {
+            return NO;
+        }
+    }return YES;
+}
+/// 判断字符是否为16进制数字
+-(BOOL)isXdigit{
+    unichar c;
+    for (int i = 0; i < self.length; i++) {
+        c = [self characterAtIndex:i];
+        if (!isxdigit(c)) {
+            return NO;
+        }
+    }return YES;
+}
+/// 判断字符是否为标点符号或特殊字符
+-(BOOL)isPunct{
+    unichar c;
+    for (int i = 0; i < self.length; i++) {
+        c = [self characterAtIndex:i];
+        if (!ispunct(c)) {
+            return NO;
+        }
+    }return YES;
 }
 /// 是否全是字母（26个英文字母）
 -(BOOL)isAllLetterCharacter{

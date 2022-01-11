@@ -6,7 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NSString+JudgeNull.h"
+#import "NSString+Judgment.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

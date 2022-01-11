@@ -319,13 +319,17 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
                         @strongify(self)
                         NSLog(@"网易云盾验证注册成功");
                         JobsAppDoorModel *appDoorModel = (JobsAppDoorModel *)btn.objBindingParams;
-                        [self authRegisterByAccount:appDoorModel.userName
-                                            country:nil
-                                         inviteCode:nil
-                                           password:appDoorModel.password
-                                              phone:appDoorModel.tel
-                                          phoneCode:appDoorModel.verificationCode
-                                           validate:data.ntesVerifyCodeValidate];
+                        if ([self checkLoginData:appDoorModel]) {
+                            [self authRegisterByAccount:appDoorModel.userName
+                                                country:nil
+                                             inviteCode:nil
+                                               password:appDoorModel.password
+                                                  phone:appDoorModel.tel
+                                              phoneCode:appDoorModel.verificationCode
+                                               validate:data.ntesVerifyCodeValidate];
+                        }else{
+                            [WHToast toastMsg:Internationalization(@"Please improve the information")];
+                        }
                     }];
                 }
                 else if ([btn.titleLabel.text isEqualToString:Title7]){// 登录

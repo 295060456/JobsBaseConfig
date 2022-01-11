@@ -154,10 +154,13 @@
         [[_textField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
             @strongify(self)
             if ([self.textField.objBindingParams isEqualToString:Internationalization(@"telephone")]) {// 手机号码
-                return !value.isHaveWhiteSpace &&// 电话号码不能输入空格
-                value.length <= 20 && // 电话号码长度小于20位
-                ![value isContainsSpecialSymbolsString:nil] && //电话号码不允许输入特殊字符
-                value.judgeiphoneNumberInt; // 电话号码输入全整数
+                if ([self checkTelNum:value]) {
+                    return YES;
+                }else{
+                    if (![self telNotUpTo:value]) {
+                        self.textField.text = [value substringWithRange:NSMakeRange(0, value.length - 1)];
+                    }return NO;
+                }
             }return NO;
         }] subscribeNext:^(NSString * _Nullable x) {
             @strongify(self)
