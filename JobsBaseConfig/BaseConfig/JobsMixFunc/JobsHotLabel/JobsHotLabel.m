@@ -15,7 +15,6 @@
 @property(nonatomic,strong)NSMutableArray <UIButton *>*btnMutArr;
 /// Data
 @property(nonatomic,assign)CGFloat X;//如果加载了下一个btn，那么直到他的尾巴处的x值，记住包含两边固有的间距进行比较
-@property(nonatomic,assign)int row;
 @property(nonatomic,assign)CGFloat hotLabelHeight;
 
 @end
@@ -108,11 +107,11 @@ static dispatch_once_t JobsHotLabelDispatchOnce;
                                               font:vm.font
                                            maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
             
-            if (CGSizeEqualToSize(vm.size, CGSizeZero)) {
+            if (CGSizeEqualToSize(vm.jobsSize, CGSizeZero)) {
                 btnSize = BtnSize;
             }else{
                 // 两项比较取最大值。防止多语言化的时候，外文显示过长的问题
-                btnSize = CGSizeMake(MAX(BtnSize.width, vm.size.width), MAX(BtnSize.height, vm.size.height));
+                btnSize = CGSizeMake(MAX(BtnSize.width, vm.jobsSize.width), MAX(BtnSize.height, vm.jobsSize.height));
             }
             
             NSLog(@"btnSize.width = %f,btnSize.height = %f",btnSize.width,btnSize.height);
@@ -127,12 +126,12 @@ static dispatch_once_t JobsHotLabelDispatchOnce;
                 NSLog(@"self.X = %f",self.X);
                 [btn mas_makeConstraints:^(MASConstraintMaker *make) {
                     UIButton *lastBtn = (UIButton *)self.btnMutArr.lastObject;
-                    if (self.X <= self.mj_w - self.left + vm.width) {//在本行排列
+                    if (self.X <= self.mj_w - self.left + vm.jobsWidth) {//在本行排列
                         make.top.equalTo(lastBtn);
                         make.left.equalTo(lastBtn.mas_right).offset(vm.offsetXForEach);
                     }else{//换行从头排列
                         
-                        self.row += 1;
+                        self.index += 1;
                         self.X = self.left + btnSize.width;//换行了 self.X 重置
                         
                         make.top.equalTo(lastBtn.mas_bottom).offset(vm.offsetYForEach);
@@ -144,7 +143,7 @@ static dispatch_once_t JobsHotLabelDispatchOnce;
                 }];
             }else{//第一次
                 self.X = self.left + (btnSize.width + vm.offsetXForEach);
-                self.row = 1;
+                self.index = 1;
                 [btn mas_makeConstraints:^(MASConstraintMaker *make) {
                     make.top.equalTo(self).offset(self.top);
                     make.left.equalTo(self).offset(self.left);
@@ -155,10 +154,10 @@ static dispatch_once_t JobsHotLabelDispatchOnce;
             [self.btnMutArr addObject:btn];
         }
         
-        self.hotLabelHeight = self.top * 2 + btnSize.height * self.row + (self.row - 1) * self.viewModel.offsetYForEach;
+        self.hotLabelHeight = self.top * 2 + btnSize.height * self.index + (self.index - 1) * self.viewModel.offsetYForEach;
         
         NSLog(@"self.hotLabelHeight = %f",self.hotLabelHeight);
-        NSLog(@"self.row = %d",self.row);
+        NSLog(@"self.row = %ld",(long)self.index);
         
         [NSNotificationCenter.defaultCenter postNotificationName:reuseIdentifier(self.class)
                                                           object:nil

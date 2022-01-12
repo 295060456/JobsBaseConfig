@@ -238,7 +238,7 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
             vm.objBindingParams = element;
             vm.bgImageURLString = @"";//[NSObject.BaseUrl stringByAppendingString:element.appIconUrl];
             vm.text = @"";
-            vm.size = CGSizeMake(JobsWidth(46), JobsWidth(46));
+            vm.jobsSize = CGSizeMake(JobsWidth(46), JobsWidth(46));
             vm.offsetXForEach = JobsWidth(46);
             vm.offsetYForEach = JobsWidth(46);
             [HotLabelDataMutArr addObject:vm];

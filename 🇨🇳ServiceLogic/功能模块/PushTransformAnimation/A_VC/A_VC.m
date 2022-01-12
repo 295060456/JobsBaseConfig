@@ -70,7 +70,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     B_VC *b = B_VC.new;
-    b._indexPath = indexPath;
+    b.indexPath = indexPath;
     
     UIViewModel *viewModel = UIViewModel.new;
     viewModel.image = [UIImage imageNamed:[NSString stringWithFormat:@"%ld.jpeg",indexPath.row]];

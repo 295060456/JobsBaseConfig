@@ -13,17 +13,65 @@
 @end
 
 @implementation BaseView
-/**
- 协议中是可以定义属性的
- 但是只有对应的getter和setter方法，没有对应的成员变量
- 而getter和setter就是操作的对应成员变量
- 所以就无法调用getter或者setter 否则项目崩溃
- 所以需要 @synthesize
- */
-@synthesize viewSize = _viewSize;
-@synthesize viewRect = _viewRect;
-@synthesize viewWidth = _viewWidth;
-@synthesize viewHeight = _viewHeight;
+
+#pragma mark —— UIViewModelProtocol
+/// 主、副标题文字
+@synthesize text = _text;
+@synthesize subText = _subText;
+@synthesize attributedText = _attributedText;
+@synthesize subAttributedText = _subAttributedText;
+@synthesize textCor = _textCor;
+@synthesize subTextCor = _subTextCor;
+@synthesize font = _font;
+@synthesize subFont = _subFont;
+@synthesize textAlignment = _textAlignment;
+@synthesize subTextAlignment = _subTextAlignment;
+@synthesize lineBreakMode = _lineBreakMode;
+@synthesize subLineBreakMode = _subLineBreakMode;
+@synthesize textLineSpacing = _textLineSpacing;
+@synthesize subTextlineSpacing = _subTextlineSpacing;
+/// 图片和背景颜色
+@synthesize image = _image;
+@synthesize bgImage = _bgImage;
+@synthesize bgImageView = _bgImageView;
+@synthesize bgSelectedImage = _bgSelectedImage;
+@synthesize imageURLString = _imageURLString;
+@synthesize bgImageURLString = _bgImageURLString;
+@synthesize bgCor = _bgCor;
+/// 方位
+@synthesize cornerRadius = _cornerRadius;
+@synthesize jobsWidth = _jobsWidth;
+@synthesize jobsHeight = _jobsHeight;
+@synthesize jobsTop = _jobsTop;
+@synthesize jobsLeft = _jobsLeft;
+@synthesize jobsRight = _jobsRight;
+@synthesize jobsBottom = _jobsBottom;
+@synthesize jobsSize = _jobsSize;
+@synthesize jobsRect = _jobsRect;
+@synthesize jobsPoint = _jobsPoint;
+@synthesize offsetXForEach = _offsetXForEach;
+@synthesize offsetYForEach = _offsetYForEach;
+@synthesize offsetHeight = _offsetHeight;
+@synthesize offsetWidth = _offsetWidth;
+/// 标记📌
+@synthesize indexPath = _indexPath;
+@synthesize section = _section;
+@synthesize row = _row;
+@synthesize item = _item;
+@synthesize lastPoint = _lastPoint;
+@synthesize index = _index;
+@synthesize currentPage = _currentPage;
+@synthesize pageSize = _pageSize;
+/// 其他
+@synthesize cls = _cls;
+@synthesize data = _data;
+@synthesize requestParams = _requestParams;
+@synthesize reqSignal = _reqSignal;
+@synthesize selected = _selected;
+@synthesize isMultiLineShows = _isMultiLineShows;
+@synthesize internationalizationKEY = _internationalizationKEY;
+@synthesize isTranslucent = _isTranslucent;
+@synthesize visible = _visible;
 
 -(instancetype)init{
     if (self = [super init]) {

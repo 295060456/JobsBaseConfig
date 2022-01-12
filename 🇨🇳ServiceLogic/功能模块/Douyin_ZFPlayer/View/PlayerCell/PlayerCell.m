@@ -22,7 +22,7 @@
 
 @implementation PlayerCell
 
-@synthesize idx = _idx;
+@synthesize index = _index;
 -(void)dealloc {
     NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
 }
@@ -101,9 +101,9 @@
             @strongify(self)
             if ([data isEqualToString:@"gestureEndedPan:panDirection:panLocation:"]) {
                 if (data2.intValue == ZFPanMovingDirectionTop) {
-                    if (self.playerCellBlock) self.playerCellBlock(@0,@(self.idx));
+                    if (self.playerCellBlock) self.playerCellBlock(@0,@(self.index));
                 }else if (data2.intValue == ZFPanMovingDirectionBottom){
-                    if (self.playerCellBlock) self.playerCellBlock(@1,@(self.idx));
+                    if (self.playerCellBlock) self.playerCellBlock(@1,@(self.index));
                 }else{}
             }
         }];

@@ -73,7 +73,7 @@ static char *UIViewController_NavigationBar_shadowCor = "UIViewController_Naviga
         NavBar = BaseNavigationBar.new;
         //优先级:背景图 > 背景色
         NavBar.backgroundColor = self.bgCor;
-        [NavBar setBackgroundImage:self.backgroundImage
+        [NavBar setBackgroundImage:self.bgImage
                      forBarMetrics:UIBarMetricsDefault];//仅仅是 navigationBar 背景
         NavBar.titleTextAttributes = @{
             NSForegroundColorAttributeName:self.foregroundColorAttributeNameCor,

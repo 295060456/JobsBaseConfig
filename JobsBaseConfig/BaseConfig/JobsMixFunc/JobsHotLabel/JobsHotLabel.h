@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIViewModelProtocol.h"
 #import "BaseView.h"
 #import "UIViewModel.h"
 #import "CasinoCustomerContactModel.h"

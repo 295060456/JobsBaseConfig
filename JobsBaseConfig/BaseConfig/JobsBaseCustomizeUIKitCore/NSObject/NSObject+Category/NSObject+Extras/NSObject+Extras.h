@@ -13,6 +13,7 @@
 #import <mach/mach.h>
 
 #import "BaseProtocol.h"
+#import "UIViewModelProtocol.h"
 #import "JobsBlock.h"
 #import "MacroDef_Func.h"
 #import "MacroDef_SysWarning.h"
@@ -92,7 +93,11 @@ typedef NS_ENUM(NSInteger, ScrollDirection) {
  */
 typedef void (^callback)(id _Nullable weakSelf, id _Nullable arg);
 
-@interface NSObject (Extras)<BaseProtocol>
+@interface NSObject (Extras)
+<
+BaseProtocol
+,UIViewModelProtocol
+>
 
 #pragma mark —— 宏
 /// App 国际化相关系统宏二次封装 + 设置缺省值
@@ -332,7 +337,7 @@ typedef void (^callback)(id _Nullable weakSelf, id _Nullable arg);
      NSString *arg3 = @"c";
      MKDataBlock arg4 = ^(id data){
          NSLog(@"嗯，不错");
-     };;
+     };
      
      NSArray *paramarrays = @[arg1,
                          arg2,

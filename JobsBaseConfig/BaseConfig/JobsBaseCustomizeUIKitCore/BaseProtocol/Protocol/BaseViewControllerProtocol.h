@@ -16,12 +16,6 @@
 #import "SPAlertController.h"
 #endif
 
-#if __has_include(<ReactiveObjC/ReactiveObjC.h>)
-#import <ReactiveObjC/ReactiveObjC.h>
-#else
-#import "ReactiveObjC.h"
-#endif
-
 @class JobsBasePopupView;
 
 typedef enum : NSUInteger {
@@ -31,27 +25,19 @@ typedef enum : NSUInteger {
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol BaseViewControllerProtocol <BaseViewProtocol>
+@protocol BaseViewControllerProtocol
+<
+BaseViewProtocol
+>
 
 @optional
 /// UI
 @property(nonatomic,weak)UIViewController *fromVC;
 @property(nonatomic,strong,nullable)SPAlertController *alertController;
-@property(nonatomic,strong,nullable)UIImageView *bgImageView;
-@property(nonatomic,strong,nullable)UIImage *backgroundImage;// 仅在loadView中配置有效
-/// Data
-@property(nonatomic,strong,nullable)id requestParams;
-@property(nonatomic,strong,nullable)RACSignal *reqSignal;
 @property(nonatomic,assign)ComingStyle pushOrPresent;
 @property(nonatomic,assign)BOOL setupNavigationBarHidden;
-@property(nonatomic,assign)NSInteger __block currentPage;
-@property(nonatomic,copy,nullable)MKDataBlock viewControllerBlock;
 /// 设置GKNavigationBar
 -(void)setGKNav;
-/*
-    用于以此为基类的控制器上所有数据的回调,当然也可以用NSObject分类的方法定位于：@interface NSObject (CallBackInfoByBlock)
- */
--(void)actionBlockViewController:(MKDataBlock)viewControllerBlock;
 
 @end
 

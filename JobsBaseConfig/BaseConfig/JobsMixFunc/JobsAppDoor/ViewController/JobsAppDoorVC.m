@@ -62,7 +62,7 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
 
 -(void)loadView{
     [super loadView];
-    self.backgroundImage = nil;
+    self.bgImage = nil;
     if ([self.requestParams integerValue] == JobsAppDoorBgType_Image) {
         self.view = self.bgImgV;
     }else if ([self.requestParams integerValue] == JobsAppDoorBgType_video){

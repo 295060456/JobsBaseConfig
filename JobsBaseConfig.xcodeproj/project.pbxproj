@@ -2895,8 +2895,8 @@
 		840F93A627736426004979E9 /* BaseView */ = {
 			isa = PBXGroup;
 			children = (
-				840F93A727736426004979E9 /* BaseView.m */,
 				840F93A827736426004979E9 /* BaseView.h */,
+				840F93A727736426004979E9 /* BaseView.m */,
 			);
 			path = BaseView;
 			sourceTree = "<group>";
@@ -3655,8 +3655,8 @@
 		840F948A27736426004979E9 /* BaseViewController */ = {
 			isa = PBXGroup;
 			children = (
-				840F948B27736426004979E9 /* BaseViewController.m */,
 				840F948C27736426004979E9 /* BaseViewController.h */,
+				840F948B27736426004979E9 /* BaseViewController.m */,
 			);
 			path = BaseViewController;
 			sourceTree = "<group>";

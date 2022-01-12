@@ -10,13 +10,15 @@
 #import "JobsBlock.h"
 #import "BaseProtocol.h"
 #import "BaseViewProtocol.h"
+#import "UIViewModelProtocol.h"
 #import "MacroDef_Notification.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseView : UIView
 <
-BaseProtocol
+UIViewModelProtocol
+,BaseProtocol
 ,BaseViewProtocol
 >
 

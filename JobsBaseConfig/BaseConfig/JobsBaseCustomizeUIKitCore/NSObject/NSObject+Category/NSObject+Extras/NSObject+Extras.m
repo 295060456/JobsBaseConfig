@@ -14,16 +14,16 @@ static char *NSObject_Extras_lastPoint = "NSObject_Extras_lastPoint";
 @dynamic lastPoint;
 
 static char *NSObject_Extras_indexPath = "NSObject_Extras_indexPath";
-@dynamic _indexPath;
+@dynamic indexPath;
 
 static char *NSObject_Extras_currentPage = "NSObject_Extras_currentPage";
-@dynamic _currentPage;
+@dynamic currentPage;
 
 static char *NSObject_Extras_pageSize = "NSObject_Extras_pageSize";
-@dynamic _pageSize;
+@dynamic pageSize;
 
 static char *NSObject_Extras_index = "NSObject_Extras_index";
-@dynamic _index;
+@dynamic index;
 
 static char *NSObject_Extras_viewModel = "NSObject_Extras_viewModel";
 @dynamic viewModel;
@@ -65,7 +65,7 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
 }
 #pragma mark —— ViewController
 -(UIViewController *_Nullable)getCurrentViewController{
-    return [self getCurrentViewControllerFromRootVC:getMainWindow().rootViewController];;
+    return [self getCurrentViewControllerFromRootVC:getMainWindow().rootViewController];
 }
 
 -(UIViewController *_Nullable)getCurrentViewControllerFromRootVC:(UIViewController *_Nullable)rootVC{
@@ -225,7 +225,7 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
 /// 创建IndexPath坐标
 -(NSIndexPath *_Nonnull)myIndexPath:(JobsIndexPath)indexPath{
     if (AvailableSysVersion(6.0)) {
-        return [NSIndexPath indexPathForItem:indexPath.rowOrItem inSection:indexPath.section];;
+        return [NSIndexPath indexPathForItem:indexPath.rowOrItem inSection:indexPath.section];
     }else{
         return [NSIndexPath indexPathForRow:indexPath.rowOrItem inSection:indexPath.section];
     }
@@ -788,63 +788,63 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
                              [NSValue valueWithCGPoint:lastPoint],
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-#pragma mark —— @property(nonatomic,strong)NSIndexPath *_indexPath;
--(NSIndexPath *)_indexPath{
-    return objc_getAssociatedObject(self, NSObject_Extras_indexPath);;
+#pragma mark —— @property(nonatomic,strong)NSIndexPath *indexPath;
+-(NSIndexPath *)indexPath{
+    return objc_getAssociatedObject(self, NSObject_Extras_indexPath);
 }
 
--(void)set_indexPath:(NSIndexPath *)_indexPath{
+-(void)setIndexPath:(NSIndexPath *)indexPath{
     objc_setAssociatedObject(self,
                              NSObject_Extras_indexPath,
-                             _indexPath,
+                             indexPath,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-#pragma mark —— @property(nonatomic,assign)NSInteger _currentPage;
--(NSInteger)_currentPage{
-    NSInteger _CurrentPage = [objc_getAssociatedObject(self, NSObject_Extras_currentPage) integerValue];
-    if (_CurrentPage == 0) {
-        _CurrentPage = 1;
+#pragma mark —— @property(nonatomic,assign)NSInteger currentPage;
+-(NSInteger)currentPage{
+    NSInteger CurrentPage = [objc_getAssociatedObject(self, NSObject_Extras_currentPage) integerValue];
+    if (CurrentPage == 0) {
+        CurrentPage = 1;
         objc_setAssociatedObject(self,
                                  NSObject_Extras_currentPage,
-                                 [NSNumber numberWithInteger:_CurrentPage],
+                                 [NSNumber numberWithInteger:CurrentPage],
                                  OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }return _CurrentPage;
+    }return CurrentPage;
 }
 
--(void)set_currentPage:(NSInteger)_currentPage{
+-(void)setCurrentPage:(NSInteger)currentPage{
     objc_setAssociatedObject(self,
                              NSObject_Extras_currentPage,
-                             [NSNumber numberWithInteger:_currentPage],
+                             [NSNumber numberWithInteger:currentPage],
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-#pragma mark —— @property(nonatomic,assign)NSInteger _pageSize;
--(NSInteger)_pageSize{
-    NSInteger _PageSize = [objc_getAssociatedObject(self, NSObject_Extras_pageSize) integerValue];
-    if (_PageSize == 0) {
-        _PageSize = 10;
+#pragma mark —— @property(nonatomic,assign)NSInteger pageSize;
+-(NSInteger)pageSize{
+    NSInteger PageSize = [objc_getAssociatedObject(self, NSObject_Extras_pageSize) integerValue];
+    if (PageSize == 0) {
+        PageSize = 10;
         objc_setAssociatedObject(self,
                                  NSObject_Extras_pageSize,
-                                 [NSNumber numberWithInteger:_PageSize],
+                                 [NSNumber numberWithInteger:PageSize],
                                  OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }return _PageSize;
+    }return PageSize;
 }
 
--(void)set_pageSize:(NSInteger)_pageSize{
+-(void)setPageSize:(NSInteger)pageSize{
     objc_setAssociatedObject(self,
                              NSObject_Extras_pageSize,
-                             [NSNumber numberWithInteger:_pageSize],
+                             [NSNumber numberWithInteger:pageSize],
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-#pragma mark —— @property(nonatomic,assign)NSInteger _index;
--(NSInteger)_index{
-    NSInteger _Index = [objc_getAssociatedObject(self, NSObject_Extras_index) integerValue];
-    return _Index;
+#pragma mark —— @property(nonatomic,assign)NSInteger index;
+-(NSInteger)index{
+    NSInteger Index = [objc_getAssociatedObject(self, NSObject_Extras_index) integerValue];
+    return Index;
 }
 
--(void)set_index:(NSInteger)_index{
+-(void)setIndex:(NSInteger)index{
     objc_setAssociatedObject(self,
                              NSObject_Extras_index,
-                             [NSNumber numberWithInteger:_index],
+                             [NSNumber numberWithInteger:index],
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,strong)UIViewModel *viewModel;

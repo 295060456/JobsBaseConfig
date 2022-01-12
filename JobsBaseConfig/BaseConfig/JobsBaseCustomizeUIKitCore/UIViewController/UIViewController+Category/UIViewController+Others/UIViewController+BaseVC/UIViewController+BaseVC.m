@@ -8,21 +8,21 @@
 #import "UIViewController+BaseVC.h"
 
 @implementation UIViewController (BaseVC)
-
-static char *UIViewController_BaseVC_requestParams = "UIViewController_BaseVC_requestParams";
-@dynamic requestParams;
+/// BaseViewControllerProtocol
+static char *UIViewController_BaseVC_fromVC = "UIViewController_BaseVC_fromVC";
+@dynamic fromVC;
 
 static char *UIViewController_BaseVC_pushOrPresent = "UIViewController_BaseVC_pushOrPresent";
 @dynamic pushOrPresent;
+/// UIViewModelProtocol
+static char *UIViewController_BaseVC_requestParams = "UIViewController_BaseVC_requestParams";
+@dynamic requestParams;
 
-static char *UIViewController_BaseVC_backgroundImage = "UIViewController_BaseVC_backgroundImage";
-@dynamic backgroundImage;
-
+static char *UIViewController_BaseVC_bgImage = "UIViewController_BaseVC_bgImage";
+@dynamic bgImage;
+/// FoundationProtocol
 static char *UIViewController_BaseVC_viewModel = "UIViewController_BaseVC_viewModel";
 @dynamic viewModel;
-
-static char *UIViewController_BaseVC_fromVC = "UIViewController_BaseVC_fromVC";
-@dynamic fromVC;
 
 #pragma mark —— 一些功能性的
 -(void)setGKNav{
@@ -172,7 +172,30 @@ static char *UIViewController_BaseVC_fromVC = "UIViewController_BaseVC_fromVC";
         return nil;// 为了防止多次推VC
     }
 }
-#pragma mark —— @property(nonatomic,strong)id requestParams;
+#pragma mark —— <BaseViewControllerProtocol> @property(nonatomic,weak)UIViewController *fromVC;
+-(UIViewController *)fromVC{
+    return objc_getAssociatedObject(self, UIViewController_BaseVC_fromVC);;
+}
+
+-(void)setFromVC:(UIViewController *)fromVC{
+    objc_setAssociatedObject(self,
+                             UIViewController_BaseVC_fromVC,
+                             fromVC,
+                             OBJC_ASSOCIATION_ASSIGN);
+}
+
+#pragma mark —— <BaseViewControllerProtocol> @property(nonatomic,assign)ComingStyle pushOrPresent;
+-(ComingStyle)pushOrPresent{
+    return [objc_getAssociatedObject(self, UIViewController_BaseVC_pushOrPresent) integerValue];
+}
+
+-(void)setPushOrPresent:(ComingStyle)pushOrPresent{
+    objc_setAssociatedObject(self,
+                             UIViewController_BaseVC_pushOrPresent,
+                             [NSNumber numberWithInteger:pushOrPresent],
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+#pragma mark —— <UIViewModelProtocol> @property(nonatomic,strong)id requestParams;
 -(id)requestParams{
     id RequestParams = objc_getAssociatedObject(self, UIViewController_BaseVC_requestParams);
     return RequestParams;
@@ -184,47 +207,26 @@ static char *UIViewController_BaseVC_fromVC = "UIViewController_BaseVC_fromVC";
                              requestParams,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-#pragma mark —— @property(nonatomic,assign)ComingStyle pushOrPresent;
--(ComingStyle)pushOrPresent{
-    return [objc_getAssociatedObject(self, UIViewController_BaseVC_pushOrPresent) integerValue];
-}
 
--(void)setPushOrPresent:(ComingStyle)pushOrPresent{
-    objc_setAssociatedObject(self,
-                             UIViewController_BaseVC_pushOrPresent,
-                             [NSNumber numberWithInteger:pushOrPresent],
-                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-#pragma mark —— @property(nonatomic,weak)UIViewController *fromVC;
--(UIViewController *)fromVC{
-    return objc_getAssociatedObject(self, UIViewController_BaseVC_fromVC);;
-}
-
--(void)setFromVC:(UIViewController *)fromVC{
-    objc_setAssociatedObject(self,
-                             UIViewController_BaseVC_fromVC,
-                             fromVC,
-                             OBJC_ASSOCIATION_ASSIGN);
-}
-#pragma mark —— @property(nonatomic,strong)UIImage *backgroundImage;
--(UIImage *)backgroundImage{
-    UIImage *BackgroundImage = objc_getAssociatedObject(self, UIViewController_BaseVC_backgroundImage);
-    if (!BackgroundImage) {
-        BackgroundImage = KIMG(@"启动页SLOGAN");
+#pragma mark —— <UIViewModelProtocol> @property(nonatomic,strong)UIImage *bgImage;
+-(UIImage *)bgImage{
+    UIImage *BgImage = objc_getAssociatedObject(self, UIViewController_BaseVC_bgImage);
+    if (!BgImage) {
+        BgImage = KIMG(@"启动页SLOGAN");
         objc_setAssociatedObject(self,
-                                 UIViewController_BaseVC_backgroundImage,
-                                 BackgroundImage,
+                                 UIViewController_BaseVC_bgImage,
+                                 BgImage,
                                  OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }return BackgroundImage;
+    }return BgImage;
 }
 
--(void)setBackgroundImage:(UIImage *)backgroundImage{
+-(void)setBgImage:(UIImage *)bgImage{
     objc_setAssociatedObject(self,
-                             UIViewController_BaseVC_backgroundImage,
-                             backgroundImage,
+                             UIViewController_BaseVC_bgImage,
+                             bgImage,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-#pragma mark —— @property(nonatomic,strong)UIViewModel *viewModel;
+#pragma mark —— <FoundationProtocol> @property(nonatomic,strong)UIViewModel *viewModel;
 -(UIViewModel *)viewModel{
     UIViewModel *ViewModel = objc_getAssociatedObject(self, UIViewController_BaseVC_viewModel);
     if (!ViewModel) {

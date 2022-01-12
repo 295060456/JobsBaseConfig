@@ -28,30 +28,45 @@
 /// 图片和背景颜色
 @synthesize image = _image;
 @synthesize bgImage = _bgImage;
+@synthesize bgImageView = _bgImageView;
 @synthesize bgSelectedImage = _bgSelectedImage;
 @synthesize imageURLString = _imageURLString;
 @synthesize bgImageURLString = _bgImageURLString;
 @synthesize bgCor = _bgCor;
-/// Size
+/// 方位
 @synthesize cornerRadius = _cornerRadius;
-@synthesize width = _width;
-@synthesize height = _height;
-@synthesize size = _size;
+@synthesize jobsWidth = _jobsWidth;
+@synthesize jobsHeight = _jobsHeight;
+@synthesize jobsTop = _jobsTop;
+@synthesize jobsLeft = _jobsLeft;
+@synthesize jobsRight = _jobsRight;
+@synthesize jobsBottom = _jobsBottom;
+@synthesize jobsSize = _jobsSize;
+@synthesize jobsRect = _jobsRect;
+@synthesize jobsPoint = _jobsPoint;
 @synthesize offsetXForEach = _offsetXForEach;
 @synthesize offsetYForEach = _offsetYForEach;
 @synthesize offsetHeight = _offsetHeight;
 @synthesize offsetWidth = _offsetWidth;
-@synthesize isTranslucent = _isTranslucent;
 /// 标记📌
 @synthesize indexPath = _indexPath;
 @synthesize section = _section;
 @synthesize row = _row;
 @synthesize item = _item;
+@synthesize lastPoint = _lastPoint;
+@synthesize index = _index;
+@synthesize currentPage = _currentPage;
+@synthesize pageSize = _pageSize;
 /// 其他
 @synthesize cls = _cls;
 @synthesize data = _data;
+@synthesize requestParams = _requestParams;
+@synthesize reqSignal = _reqSignal;
 @synthesize selected = _selected;
 @synthesize isMultiLineShows = _isMultiLineShows;
+@synthesize internationalizationKEY = _internationalizationKEY;
+@synthesize isTranslucent = _isTranslucent;
+@synthesize visible = _visible;
 
 #pragma mark —— NTESVerifyCodeManagerProtocol
 /// 【功能性】网易云盾回调数据
@@ -118,15 +133,15 @@
 }
 
 -(CGFloat)width{
-    if (_width == 0 && !CGSizeEqualToSize(self.size, CGSizeZero)) {
-        _width = self.size.width;
-    }return _width;
+    if (_jobsWidth == 0 && !CGSizeEqualToSize(self.jobsSize, CGSizeZero)) {
+        _jobsWidth = self.jobsSize.width;
+    }return _jobsWidth;
 }
 
 -(CGFloat)height{
-    if (_height == 0 && !CGSizeEqualToSize(self.size, CGSizeZero)) {
-        _height = self.size.height;
-    }return _height;
+    if (_jobsHeight == 0 && !CGSizeEqualToSize(self.jobsSize, CGSizeZero)) {
+        _jobsHeight = self.jobsSize.height;
+    }return _jobsHeight;
 }
 
 -(CGFloat)offsetXForEach{

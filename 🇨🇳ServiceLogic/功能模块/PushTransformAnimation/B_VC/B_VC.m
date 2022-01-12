@@ -13,7 +13,6 @@
 
 @implementation B_VC
 
-@synthesize _indexPath = ___indexPath;
 - (void)dealloc{
     NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
     //    [[NSNotificationCenter defaultCenter] removeObserver:self];

@@ -10,12 +10,6 @@
 
 @implementation UIView (Measure)
 
-static char *UIView_Measure_marginX = "UIView_Measure_marginX";
-@dynamic marginX;
-
-static char *UIView_Measure_marginY = "UIView_Measure_marginY";
-@dynamic marginY;
-
 #pragma mark —— 简捷获得控件坐标
 -(CGFloat)top {
     return CGRectGetMinY(self.frame);
@@ -47,16 +41,8 @@ static char *UIView_Measure_marginY = "UIView_Measure_marginY";
     return self.frame.origin.y;
 }
 
--(void)setMaxX:(CGFloat)maxX{
-    
-}
-
 -(CGFloat)maxX{
     return CGRectGetMaxX(self.frame);
-}
-
--(void)setMaxY:(CGFloat)maxY{
-    
 }
 
 -(CGFloat)maxY{
@@ -166,38 +152,14 @@ static char *UIView_Measure_marginY = "UIView_Measure_marginY";
     return [data.text getContentHeightOrWidthWithParagraphStyleLineSpacing:data.textLineSpacing
                                                      calcLabelHeight_Width:CalcLabelWidth
                                                                       font:data.font
-                                              boundingRectWithHeight_Width:data.height];
+                                              boundingRectWithHeight_Width:data.jobsHeight];
 }
 //数据（字符串）定高
 +(CGFloat)heightByData:(UIViewModel *_Nonnull)data{
     return [data.text getContentHeightOrWidthWithParagraphStyleLineSpacing:data.textLineSpacing
                                                      calcLabelHeight_Width:CalcLabelHeight
                                                                       font:data.font
-                                              boundingRectWithHeight_Width:data.width];
-}
-/// @property(nonatomic,assign)CGFloat marginX;
--(CGFloat)marginX{
-    CGFloat MarginX = [objc_getAssociatedObject(self, UIView_Measure_marginX) floatValue];
-    return MarginX;
-}
-
--(void)setMarginX:(CGFloat)marginX{
-    objc_setAssociatedObject(self,
-                             UIView_Measure_marginX,
-                             [NSNumber numberWithFloat:marginX],
-                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-/// @property(nonatomic,assign)CGFloat marginY;
--(CGFloat)marginY{
-    CGFloat MarginY = [objc_getAssociatedObject(self, UIView_Measure_marginY) floatValue];
-    return MarginY;
-}
-
--(void)setMarginY:(CGFloat)marginY{
-    objc_setAssociatedObject(self,
-                             UIView_Measure_marginY,
-                             [NSNumber numberWithFloat:marginY],
-                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+                                              boundingRectWithHeight_Width:data.jobsWidth];
 }
 
 @end

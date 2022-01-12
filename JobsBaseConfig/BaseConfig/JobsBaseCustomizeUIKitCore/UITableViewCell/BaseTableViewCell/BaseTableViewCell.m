@@ -19,8 +19,8 @@
 +(instancetype)cellWithTableView:(UITableView *)tableView{
     BaseTableViewCell *cell = (BaseTableViewCell *)[tableView dequeueReusableCellWithIdentifier:reuseIdentifier(self.class)];
     if (!cell) {
-        cell = [[BaseTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1
-                                        reuseIdentifier:reuseIdentifier(self.class)];
+        cell = [BaseTableViewCell.alloc initWithStyle:UITableViewCellStyleValue1
+                                      reuseIdentifier:reuseIdentifier(self.class)];
 //        [UIView cornerCutToCircleWithView:cell andCornerRadius:6];
     }return cell;
 }
@@ -46,17 +46,11 @@
     
     UIViewModel *vm = UIViewModel.new;
     vm.font = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
-    vm.width = JobsSCREEN_WIDTH - JobsWidth(200);
+    vm.jobsWidth = JobsSCREEN_WIDTH - JobsWidth(200);
     vm.text = model.subText;
     vm.textLineSpacing = 0;
     
     return [UIView heightByData:vm] + JobsWidth(20);
-}
-/*
-    用于以此为基类的BaseTableViewCell的具体子类所有数据的回调,当然也可以用NSObject分类的方法定位于：@interface NSObject (CallBackInfoByBlock)
- */
--(void)actionBlockBaseTableViewCell:(MKDataBlock)baseTableViewCellBlock{
-    self.baseTableViewCellBlock = baseTableViewCellBlock;
 }
 #pragma mark —— 功能方法
 /// iOS UITableViewCell 第一行和最后一行圆角设置

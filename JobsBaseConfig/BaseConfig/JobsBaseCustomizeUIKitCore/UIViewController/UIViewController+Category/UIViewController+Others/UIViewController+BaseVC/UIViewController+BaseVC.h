@@ -7,7 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import <objc/runtime.h>
-
+#import "UIViewModelProtocol.h"
 #import "FoundationProtocol.h"
 #import "BaseViewControllerProtocol.h"
 #import "JobsBlock.h"
@@ -44,6 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIViewController (BaseVC)
 <
 BaseViewControllerProtocol
+,UIViewModelProtocol
 ,FoundationProtocol
 >
 

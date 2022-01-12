@@ -29,6 +29,7 @@
     self.cellHeight = self.height;//16
     [self.tableView reloadData];
 }
+#pragma mark —— BaseViewProtocol
 //具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 -(void)richElementsInViewWithModel:(NSArray <UIViewModel *>*_Nullable)model{
     self.dataArr = model;
@@ -64,7 +65,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     JobsPageTBVCell *cell = [JobsPageTBVCell cellWithTableView:tableView];
     [cell richElementsInCellWithModel:self.dataArr[indexPath.row]];
     UIViewModel *viewModel = self.dataArr[indexPath.row];
-    viewModel.width = [JobsPageTBVCell cellHeightWithModel:Nil] ? : self.cellHeight;
+    viewModel.jobsWidth = [JobsPageTBVCell cellHeightWithModel:Nil] ? : self.cellHeight;
     [UIView widthByData:viewModel];
     return cell;
 }

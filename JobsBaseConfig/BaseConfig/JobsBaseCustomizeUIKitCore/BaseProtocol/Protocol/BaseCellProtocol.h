@@ -7,15 +7,13 @@
 
 #import <Foundation/Foundation.h>
 #import "BaseViewProtocol.h"
+#import "UIViewModelProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol BaseCellProtocol <BaseViewProtocol>
+@protocol BaseCellProtocol <BaseViewProtocol,UIViewModelProtocol>
 
 @optional
-
-@property(nonatomic,strong)NSIndexPath *indexPath;
-@property(nonatomic,assign)NSInteger idx;
 
 +(instancetype)cellWithTableView:(UITableView *)tableView;
 +(instancetype)cellWithCollectionView:(nonnull UICollectionView *)collectionView

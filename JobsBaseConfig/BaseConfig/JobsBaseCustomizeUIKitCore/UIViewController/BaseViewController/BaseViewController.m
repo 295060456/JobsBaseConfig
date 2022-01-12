@@ -12,24 +12,71 @@
 @end
 
 @implementation BaseViewController
-// UI
-@synthesize fromVC = _fromVC;
+
+#pragma mark —— UIViewModelProtocol
+/// 主、副标题文字
+@synthesize text = _text;
+@synthesize subText = _subText;
+@synthesize attributedText = _attributedText;
+@synthesize subAttributedText = _subAttributedText;
+@synthesize textCor = _textCor;
+@synthesize subTextCor = _subTextCor;
+@synthesize font = _font;
+@synthesize subFont = _subFont;
+@synthesize textAlignment = _textAlignment;
+@synthesize subTextAlignment = _subTextAlignment;
+@synthesize lineBreakMode = _lineBreakMode;
+@synthesize subLineBreakMode = _subLineBreakMode;
+@synthesize textLineSpacing = _textLineSpacing;
+@synthesize subTextlineSpacing = _subTextlineSpacing;
+/// 图片和背景颜色
+@synthesize image = _image;
+@synthesize bgImage = _bgImage;
 @synthesize bgImageView = _bgImageView;
-@synthesize alertController = _alertController;
-@synthesize visible = _visible;
-@synthesize marginX = _marginX;
-@synthesize marginY = _marginY;
-@synthesize viewSize = _viewSize;
-@synthesize viewRect = _viewRect;
-@synthesize viewWidth = _viewWidth;
-@synthesize viewHeight = _viewHeight;
-// Data
+@synthesize bgSelectedImage = _bgSelectedImage;
+@synthesize imageURLString = _imageURLString;
+@synthesize bgImageURLString = _bgImageURLString;
+@synthesize bgCor = _bgCor;
+/// 方位
+@synthesize cornerRadius = _cornerRadius;
+@synthesize jobsWidth = _jobsWidth;
+@synthesize jobsHeight = _jobsHeight;
+@synthesize jobsTop = _jobsTop;
+@synthesize jobsLeft = _jobsLeft;
+@synthesize jobsRight = _jobsRight;
+@synthesize jobsBottom = _jobsBottom;
+@synthesize jobsSize = _jobsSize;
+@synthesize jobsRect = _jobsRect;
+@synthesize jobsPoint = _jobsPoint;
+@synthesize offsetXForEach = _offsetXForEach;
+@synthesize offsetYForEach = _offsetYForEach;
+@synthesize offsetHeight = _offsetHeight;
+@synthesize offsetWidth = _offsetWidth;
+/// 标记📌
+@synthesize indexPath = _indexPath;
+@synthesize section = _section;
+@synthesize row = _row;
+@synthesize item = _item;
+@synthesize lastPoint = _lastPoint;
+@synthesize index = _index;
+@synthesize currentPage = _currentPage;
+@synthesize pageSize = _pageSize;
+/// 其他
+@synthesize cls = _cls;
+@synthesize data = _data;
 @synthesize requestParams = _requestParams;
 @synthesize reqSignal = _reqSignal;
+@synthesize selected = _selected;
+@synthesize isMultiLineShows = _isMultiLineShows;
+@synthesize internationalizationKEY = _internationalizationKEY;
+@synthesize isTranslucent = _isTranslucent;
+@synthesize visible = _visible;
+#pragma mark —— BaseViewControllerProtocol
+@synthesize fromVC = _fromVC;
+@synthesize alertController = _alertController;
 @synthesize pushOrPresent = _pushOrPresent;
 @synthesize setupNavigationBarHidden = _setupNavigationBarHidden;
-@synthesize currentPage = _currentPage;
-@synthesize viewControllerBlock = _viewControllerBlock;
+#pragma mark —— FoundationProtocol
 @synthesize viewModel = _viewModel;
 
 - (void)dealloc{
@@ -55,13 +102,13 @@
 -(void)loadView{
     [super loadView];
     self.currentPage = 1;
-    self.backgroundImage = KIMG(@"洗码背景图");
+    self.bgImage = KIMG(@"洗码背景图");// 仅在loadView中配置有效
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    if (self.backgroundImage) {
+    if (self.bgImage) {
         self.bgImageView.alpha = 1;
     }else{
         self.view.backgroundColor = kWhiteColor;
@@ -150,12 +197,6 @@
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
 }
-/*
-    用于以此为基类的控制器上所有数据的回调,当然也可以用NSObject分类的方法定位于：@interface NSObject (CallBackInfoByBlock)
- */
--(void)actionBlockViewController:(MKDataBlock)viewControllerBlock{
-    self.viewControllerBlock = viewControllerBlock;
-}
 #pragma mark —— UIGestureRecognizerDelegate
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
 shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
@@ -171,7 +212,7 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
     if (!_bgImageView) {
         _bgImageView = UIImageView.new;
         _bgImageView.frame = self.view.bounds;
-        _bgImageView.image = self.backgroundImage;
+        _bgImageView.image = self.bgImage;
         _bgImageView.userInteractionEnabled = YES;
         self.view = _bgImageView;
     }return _bgImageView;

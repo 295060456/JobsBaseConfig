@@ -19,8 +19,8 @@
     if (!cell) {
         cell = [[MyFansTBVCell alloc]initWithStyle:UITableViewCellStyleDefault
                                    reuseIdentifier:ReuseIdentifier];
-        cell.marginX = 10;
-        cell.marginY = 20;
+        cell.offsetXForEach = 10;
+        cell.offsetYForEach = 20;
         //加阴影立体效果
         [UIView makeTargetShadowview:cell
                            superView:nil
@@ -40,10 +40,10 @@
 }
 
 -(void)setFrame:(CGRect)frame{
-    frame.origin.x += self.marginX;
-    frame.origin.y += self.marginY;
-    frame.size.width -= self.marginX * 2;
-    frame.size.height -= self.marginY;
+    frame.origin.x += self.offsetXForEach;
+    frame.origin.y += self.offsetYForEach;
+    frame.size.width -= self.offsetXForEach * 2;
+    frame.size.height -= self.offsetYForEach;
 //    NSLog(@"---- x= %.f, y = %.f, w = %.f, h = %.f ----", frame.origin.x, frame.origin.y, frame.size.width, frame.size.height);
     [super setFrame:frame];
 }

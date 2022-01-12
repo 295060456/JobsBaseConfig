@@ -18,8 +18,6 @@
 @property(nonatomic,strong)JobsBitsMonitorSuspendLab *bitsMonitorSuspendLab;
 /// Data
 @property(nonatomic,strong)NSMutableArray <VideoModel_Core *>*dataSource;
-@property(nonatomic,strong)NSNumber *pageSize;//每页数据容量
-@property(nonatomic,strong)NSIndexPath *indexPath;
 
 @end
 
@@ -126,7 +124,7 @@
     @weakify(self)
     extern NSString *appInterfaceTesting;
     [DDNetworkingAPI requestApi:NSObject.appInterfaceTesting.funcName
-                     parameters:@{@"pageSize":self.pageSize,
+                     parameters:@{@"pageSize":@(self.pageSize),
                                   @"pageNum":@(self.currentPage)}
                    successBlock:^(DDResponseModel *data) {
         @strongify(self)
@@ -483,9 +481,10 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     }return _dataSource;
 }
 
--(NSNumber *)pageSize{
+@synthesize pageSize = _pageSize;
+-(NSInteger)pageSize{
     if (!_pageSize) {
-        _pageSize = @(6);
+        _pageSize = 6;
     }return _pageSize;
 }
 

@@ -23,7 +23,7 @@
 #pragma mark - Lifecycle
 -(instancetype)init{
     if (self = [super init]) {
-        self._index = 0;
+        self.index = 0;
     }return self;
 }
 
@@ -60,7 +60,7 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    self._index = 0;//此时cell的第一次生命周期走完，置零
+    self.index = 0;//此时cell的第一次生命周期走完，置零
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -152,9 +152,9 @@
 }
 
 -(void)roll{
-    if (self._index <= self.dataMutArr.count - 1 &&
-        self._index >= 0) {
-        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:self._index inSection:0]
+    if (self.index <= self.dataMutArr.count - 1 &&
+        self.index >= 0) {
+        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:self.index inSection:0]
                                     animated:YES
                               scrollPosition:UITableViewScrollPositionMiddle];
     }
@@ -213,7 +213,7 @@ numberOfRowsInSection:(NSInteger)section{
 -(UITableViewCell *)tableView:(UITableView *)tableView
         cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     PlayerCell *cell = [PlayerCell cellWithTableView:tableView];
-    cell.idx = indexPath.row;
+    cell.index = indexPath.row;
     
     UIViewModel *viewModel = UIViewModel.new;
     viewModel.row = indexPath.row;
@@ -221,30 +221,30 @@ numberOfRowsInSection:(NSInteger)section{
     
     [cell richElementsInCellWithModel:viewModel];
     
-    self._index = indexPath.row;
+    self.index = indexPath.row;
     @weakify(self)
     [cell actionBlockPlayerCell:^(NSNumber *direction,
                                   NSNumber *index) {
         @strongify(self)
-        self._index = index.intValue;
+        self.index = index.intValue;
         if (direction.intValue) {//手势朝下
-            self._index -= 1;
+            self.index -= 1;
         }else{//手势朝上
-            self._index += 1;
+            self.index += 1;
         }
         
-        if (self._index < 0) {
-            self._index = 0;
+        if (self.index < 0) {
+            self.index = 0;
         }
         
-        if (self._index > self.dataMutArr.count - 1) {
-            self._index = self.dataMutArr.count - 1;
+        if (self.index > self.dataMutArr.count - 1) {
+            self.index = self.dataMutArr.count - 1;
         }
         
-        NSLog(@"MMM = %ld",self._index);
+        NSLog(@"MMM = %ld",self.index);
         [self roll];
     }];
-    NSLog(@"DDD0 = %ld",self._index);
+    NSLog(@"DDD0 = %ld",self.index);
     return cell;
 }
 

@@ -11,8 +11,6 @@
 
 @property(nonatomic,strong)UIImageView *gifImageView;
 @property(nonatomic,strong)NSString *path;
-@property(nonatomic,strong)UIImage *image;
-@property(nonatomic,strong)NSData *data;
 
 @end
 
@@ -75,13 +73,13 @@
                                                 ofType:@"gif"];
     }return _path;
 }
-
+@synthesize data = _data;
 -(NSData *)data{
     if (!_data) {
         _data = [NSData dataWithContentsOfFile:self.path];
     }return _data;
 }
-
+@synthesize image = _image;
 -(UIImage *)image{
     if (!_image) {
         _image = [UIImage sd_imageWithGIFData:self.data];

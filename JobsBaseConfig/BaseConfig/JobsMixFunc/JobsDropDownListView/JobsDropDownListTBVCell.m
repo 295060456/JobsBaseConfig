@@ -13,6 +13,7 @@
 
 @implementation JobsDropDownListTBVCell
 
+#pragma mark —— BaseCellProtocol
 +(instancetype)cellWithTableView:(UITableView *)tableView{
     JobsDropDownListTBVCell *cell = (JobsDropDownListTBVCell *)[tableView dequeueReusableCellWithIdentifier:reuseIdentifier(self.class)];
     if (!cell) {
@@ -46,7 +47,7 @@
     
     UIViewModel *vm = UIViewModel.new;
     vm.font = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
-    vm.width = JobsSCREEN_WIDTH - JobsWidth(200);
+    vm.jobsWidth = JobsSCREEN_WIDTH - JobsWidth(200);
     vm.text = model.subText;
     vm.textLineSpacing = 0;
     

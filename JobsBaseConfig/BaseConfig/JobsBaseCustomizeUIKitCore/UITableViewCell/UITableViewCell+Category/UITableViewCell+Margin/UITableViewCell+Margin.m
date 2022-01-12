@@ -12,20 +12,20 @@
 static char *UITableViewCell_Margin_indexPath = "UITableViewCell_Margin_indexPath";
 @dynamic indexPath;
 
-static char *UITableViewCell_Margin_idx = "UITableViewCell_Margin_idx";
-@dynamic idx;
+static char *UITableViewCell_Margin_index = "UITableViewCell_Margin_index";
+@dynamic index;
 
 // 在具体的子类去实现,分类调用异常
 //-(void)setFrame:(CGRect)frame{
-//    NSLog(@"self.marginX = %f",self.marginX);
-//    NSLog(@"self.marginY = %f",self.marginY);
-//    frame.origin.x += self.marginX;
-//    frame.origin.y += self.marginY;
-//    frame.size.height -= self.marginY * 2;
-//    frame.size.width -= self.marginX * 2;
+//    NSLog(@"self.offsetXForEach = %f",self.offsetXForEach);
+//    NSLog(@"self.offsetYForEach = %f",self.offsetYForEach);
+//    frame.origin.x += self.offsetXForEach;
+//    frame.origin.y += self.offsetYForEach;
+//    frame.size.height -= self.offsetYForEach * 2;
+//    frame.size.width -= self.offsetXForEach * 2;
 //    [super setFrame:frame];
 //}
-#pragma mark —— <BaseCellProtocol> @property(nonatomic,strong)NSIndexPath *indexPath;
+#pragma mark —— <UIViewModelProtocol> @property(nonatomic,strong)NSIndexPath *indexPath;
 -(NSIndexPath *)indexPath{
     NSIndexPath *indexPath = objc_getAssociatedObject(self, UITableViewCell_Margin_indexPath);
     return indexPath;
@@ -37,15 +37,15 @@ static char *UITableViewCell_Margin_idx = "UITableViewCell_Margin_idx";
                              indexPath,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-#pragma mark —— <BaseCellProtocol> @property(nonatomic,assign)NSInteger idx;
--(NSInteger)idx{
-    return [objc_getAssociatedObject(self, UITableViewCell_Margin_idx) integerValue];
+#pragma mark —— <UIViewModelProtocol> @property(nonatomic,assign)NSInteger index;
+-(NSInteger)index{
+    return [objc_getAssociatedObject(self, UITableViewCell_Margin_index) integerValue];
 }
 
--(void)setIdx:(NSInteger)idx{
+-(void)setIndex:(NSInteger)index{
     objc_setAssociatedObject(self,
-                             UITableViewCell_Margin_idx,
-                             [NSNumber numberWithInteger:idx],
+                             UITableViewCell_Margin_index,
+                             [NSNumber numberWithInteger:index],
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 

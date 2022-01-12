@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewProtocol.h"
-#import "UIViewModel.h"
+@class UIViewModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
