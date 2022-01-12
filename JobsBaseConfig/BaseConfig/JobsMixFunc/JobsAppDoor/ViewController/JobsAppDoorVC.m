@@ -13,7 +13,6 @@
     NSInteger index;// 当前被激活的TextField的序号，从1开始
     UIButton *toRegisterBtn;
     UITextField *lastEditTextField;// 上一次处于编辑状态的TextField
-    UIButton *NTESVerifyCodeButton;
 }
 //UI
 @property(nonatomic,strong)JobsAppDoorLogoContentView *logoContentView;
@@ -176,7 +175,9 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
 /// 网易云盾验证
 -(void)NTESVerifyCodeWithBlock:(MKDataBlock)block{
     [self openVerifyCodeView:self.view];
+    @jobs_weakify(self)
     [self setViewBlock:^(UIViewModel *data) {
+        @jobs_strongify(self)
         if ([data isKindOfClass:UIViewModel.class]) {
             UIViewModel *vm = (UIViewModel *)data;
             if (vm.ntesVerifyCodeFinishResult) {
@@ -185,7 +186,7 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
             }
             
             if (vm.ntesVerifyCodeManagerStyle == VerifyCodeInitFinish) {
-                self->NTESVerifyCodeButton = [self fixNTESVerifyCodeButtonBug];
+                self.NTESVerifyCodeCloseBtn.visible = YES;
             }
         }
     }];

@@ -1546,6 +1546,8 @@
 		846DF01E27806D230050468A /* JobsAppDoorContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorContentView.h; sourceTree = "<group>"; };
 		846DF01F27806D230050468A /* JobsAppDoorContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorContentView.m; sourceTree = "<group>"; };
 		846DF02027806D230050468A /* 尝试高仿蜜柚.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "尝试高仿蜜柚.md"; sourceTree = "<group>"; };
+		847A2A6B278EBD65003F9A52 /* UIViewModelProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIViewModelProtocol.h; sourceTree = "<group>"; };
+		847A2A6C278EBD65003F9A52 /* NTESVerifyCodeManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTESVerifyCodeManagerProtocol.h; sourceTree = "<group>"; };
 		84868DA12779DDA50098BE7A /* ZMJCells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMJCells.h; sourceTree = "<group>"; };
 		84868DA22779DDA50098BE7A /* ZMJCells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMJCells.m; sourceTree = "<group>"; };
 		84868E1D2779DFE30098BE7A /* UILabel+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Extra.h"; sourceTree = "<group>"; };
@@ -4642,6 +4644,8 @@
 				840F95AE27736427004979E9 /* FoundationProtocol.h */,
 				840F95AF27736427004979E9 /* BaseViewProtocol.h */,
 				840F95B027736427004979E9 /* BaseProtocol.h */,
+				847A2A6C278EBD65003F9A52 /* NTESVerifyCodeManagerProtocol.h */,
+				847A2A6B278EBD65003F9A52 /* UIViewModelProtocol.h */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";

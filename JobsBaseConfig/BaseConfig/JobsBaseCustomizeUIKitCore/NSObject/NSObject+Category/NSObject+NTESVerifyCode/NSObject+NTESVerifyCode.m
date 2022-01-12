@@ -12,6 +12,9 @@
 static char *NSObject_NTESVerifyCode_ntesVerifyCodeManager = "NSObject_NTESVerifyCode_ntesVerifyCodeManager";
 @dynamic ntesVerifyCodeManager;
 
+static char *UIView_BaseView_NTESVerifyCodeCloseBtn = "UIView_BaseView_NTESVerifyCodeCloseBtn";
+@dynamic NTESVerifyCodeCloseBtn;
+
 #pragma mark —— 一些公有化方法
 /// 开启网易云盾
 -(void)openVerifyCodeView:(UIView *_Nullable)topView{
@@ -26,7 +29,7 @@ static char *NSObject_NTESVerifyCode_ntesVerifyCodeManager = "NSObject_NTESVerif
 -(void)closeVerifyCodeView{
     [self.ntesVerifyCodeManager closeVerifyCodeView];
 }
-/// 本地化解决网易云验证的一个UI方面的Bug：https://github.com/yidun/captcha-ios-demo/issues/10
+
 -(UIButton *)fixNTESVerifyCodeButtonBug{
     UIButton *btn = UIButton.new;
     [btn normalImage:KBuddleIMG(nil,@"ZYTextField",@"", @"CloseCircle（大号）.png")];
@@ -73,6 +76,9 @@ static char *NSObject_NTESVerifyCode_ntesVerifyCodeManager = "NSObject_NTESVerif
 -(void)verifyCodeValidateFinish:(BOOL)result
                        validate:(NSString *)validate
                         message:(NSString *)message{
+    
+    self.NTESVerifyCodeCloseBtn.visible = NO;
+    
     UIViewModel *viewModel = UIViewModel.new;
     viewModel.ntesVerifyCodeManagerStyle = VerifyCodeValidateFinish;
     viewModel.ntesVerifyCodeFinishResult = result;
@@ -121,6 +127,36 @@ static char *NSObject_NTESVerifyCode_ntesVerifyCodeManager = "NSObject_NTESVerif
     objc_setAssociatedObject(self,
                              NSObject_NTESVerifyCode_ntesVerifyCodeManager,
                              ntesVerifyCodeManager,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+#pragma mark —— @property (nonatomic,strong)UIButton *NTESVerifyCodeCloseBtn;
+/// 本地化解决网易云验证的一个UI方面的Bug：https://github.com/yidun/captcha-ios-demo/issues/10
+-(UIButton *)NTESVerifyCodeCloseBtn{
+    UIButton *btn = objc_getAssociatedObject(self, UIView_BaseView_NTESVerifyCodeCloseBtn);
+    if (!btn) {
+        btn = UIButton.new;
+        [btn normalImage:KBuddleIMG(nil,@"ZYTextField",@"", @"CloseCircle（大号）.png")];
+        btn.frame = CGRectMake(JobsSCREEN_WIDTH - JobsWidth(50),
+                               JobsSCREEN_HEIGHT / 4,
+                               JobsWidth(30),
+                               JobsWidth(30));
+        BtnClickEvent(btn, {
+            [self closeVerifyCodeView];
+            x.visible = NO;
+        });
+        [getMainWindow() addSubview:btn];
+        
+        objc_setAssociatedObject(self,
+                                 UIView_BaseView_NTESVerifyCodeCloseBtn,
+                                 btn,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return btn;
+}
+
+-(void)setNTESVerifyCodeCloseBtn:(UIButton *)NTESVerifyCodeCloseBtn{
+    objc_setAssociatedObject(self,
+                             UIView_BaseView_NTESVerifyCodeCloseBtn,
+                             NTESVerifyCodeCloseBtn,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 

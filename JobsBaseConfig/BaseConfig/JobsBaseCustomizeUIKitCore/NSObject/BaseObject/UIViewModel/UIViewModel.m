@@ -9,6 +9,59 @@
 
 @implementation UIViewModel
 
+#pragma mark —— UIViewModelProtocol
+/// 主、副标题文字
+@synthesize text = _text;
+@synthesize subText = _subText;
+@synthesize attributedText = _attributedText;
+@synthesize subAttributedText = _subAttributedText;
+@synthesize textCor = _textCor;
+@synthesize subTextCor = _subTextCor;
+@synthesize font = _font;
+@synthesize subFont = _subFont;
+@synthesize textAlignment = _textAlignment;
+@synthesize subTextAlignment = _subTextAlignment;
+@synthesize lineBreakMode = _lineBreakMode;
+@synthesize subLineBreakMode = _subLineBreakMode;
+@synthesize textLineSpacing = _textLineSpacing;
+@synthesize subTextlineSpacing = _subTextlineSpacing;
+/// 图片和背景颜色
+@synthesize image = _image;
+@synthesize bgImage = _bgImage;
+@synthesize bgSelectedImage = _bgSelectedImage;
+@synthesize imageURLString = _imageURLString;
+@synthesize bgImageURLString = _bgImageURLString;
+@synthesize bgCor = _bgCor;
+/// Size
+@synthesize cornerRadius = _cornerRadius;
+@synthesize width = _width;
+@synthesize height = _height;
+@synthesize size = _size;
+@synthesize offsetXForEach = _offsetXForEach;
+@synthesize offsetYForEach = _offsetYForEach;
+@synthesize offsetHeight = _offsetHeight;
+@synthesize offsetWidth = _offsetWidth;
+@synthesize isTranslucent = _isTranslucent;
+/// 标记📌
+@synthesize indexPath = _indexPath;
+@synthesize section = _section;
+@synthesize row = _row;
+@synthesize item = _item;
+/// 其他
+@synthesize cls = _cls;
+@synthesize data = _data;
+@synthesize selected = _selected;
+@synthesize isMultiLineShows = _isMultiLineShows;
+
+#pragma mark —— NTESVerifyCodeManagerProtocol
+/// 【功能性】网易云盾回调数据
+@synthesize ntesVerifyCodeFinishResult = _ntesVerifyCodeFinishResult;
+@synthesize ntesVerifyCodeManagerStyle = _ntesVerifyCodeManagerStyle;
+@synthesize ntesVerifyCodeValidate = _ntesVerifyCodeValidate;
+@synthesize ntesVerifyCodeMessage = _ntesVerifyCodeMessage;
+@synthesize ntesVerifyCodeError = _ntesVerifyCodeError;
+@synthesize ntesVerifyCodeClose = _ntesVerifyCodeClose;
+
 #pragma mark —— lazyLoad
 -(UIColor *)textCor{
     if (!_textCor) {
@@ -90,7 +143,8 @@
 
 -(NSIndexPath *)indexPath{
     if (!_indexPath) {
-        _indexPath = [NSIndexPath indexPathForRow:self.row inSection:self.section];
+        _indexPath = [NSIndexPath indexPathForRow:self.row
+                                        inSection:self.section];
     }return _indexPath;
 }
 
