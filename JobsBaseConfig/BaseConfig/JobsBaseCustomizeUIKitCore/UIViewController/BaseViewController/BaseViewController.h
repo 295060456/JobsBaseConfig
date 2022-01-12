@@ -7,7 +7,6 @@
 
 #import <UIKit/UIKit.h>
 #import "UIViewModelProtocol.h"
-#import "FoundationProtocol.h"
 #import "BaseViewControllerProtocol.h"
 #import "JobsBlock.h"
 #import "JobsBaseConfigNotificationManager.h"
@@ -35,7 +34,6 @@ NS_ASSUME_NONNULL_BEGIN
 <
 BaseViewControllerProtocol
 ,UIViewModelProtocol
-,FoundationProtocol
 ,UIGestureRecognizerDelegate
 >
 

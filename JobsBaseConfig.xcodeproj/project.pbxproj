@@ -1197,13 +1197,6 @@
 		840F95A427736427004979E9 /* NSObject+CallBackInfoByBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+CallBackInfoByBlock.h"; sourceTree = "<group>"; };
 		840F95A527736427004979E9 /* NSObject+CallBackInfoByBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CallBackInfoByBlock.m"; sourceTree = "<group>"; };
 		840F95A627736427004979E9 /* JobsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsObject.h; sourceTree = "<group>"; };
-		840F95AA27736427004979E9 /* BaseViewControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewControllerProtocol.h; sourceTree = "<group>"; };
-		840F95AB27736427004979E9 /* AppToolsProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppToolsProtocol.h; sourceTree = "<group>"; };
-		840F95AC27736427004979E9 /* BaseButtonProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseButtonProtocol.h; sourceTree = "<group>"; };
-		840F95AD27736427004979E9 /* BaseCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCellProtocol.h; sourceTree = "<group>"; };
-		840F95AE27736427004979E9 /* FoundationProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundationProtocol.h; sourceTree = "<group>"; };
-		840F95AF27736427004979E9 /* BaseViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewProtocol.h; sourceTree = "<group>"; };
-		840F95B027736427004979E9 /* BaseProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseProtocol.h; sourceTree = "<group>"; };
 		840F95B127736427004979E9 /* BaseProtocol.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = BaseProtocol.md; sourceTree = "<group>"; };
 		840F95B227736427004979E9 /* JobsBaseProtocolHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBaseProtocolHeader.h; sourceTree = "<group>"; };
 		840F95B627736427004979E9 /* UITextField+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Animation.h"; sourceTree = "<group>"; };
@@ -1546,8 +1539,15 @@
 		846DF01E27806D230050468A /* JobsAppDoorContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorContentView.h; sourceTree = "<group>"; };
 		846DF01F27806D230050468A /* JobsAppDoorContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorContentView.m; sourceTree = "<group>"; };
 		846DF02027806D230050468A /* 尝试高仿蜜柚.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "尝试高仿蜜柚.md"; sourceTree = "<group>"; };
-		847A2A6B278EBD65003F9A52 /* UIViewModelProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIViewModelProtocol.h; sourceTree = "<group>"; };
-		847A2A6C278EBD65003F9A52 /* NTESVerifyCodeManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTESVerifyCodeManagerProtocol.h; sourceTree = "<group>"; };
+		847A2E8A278EFEAA003F9A52 /* BaseViewControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewControllerProtocol.h; sourceTree = "<group>"; };
+		847A2E8B278EFEAA003F9A52 /* AppToolsProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppToolsProtocol.h; sourceTree = "<group>"; };
+		847A2E8C278EFEAA003F9A52 /* BaseButtonProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseButtonProtocol.h; sourceTree = "<group>"; };
+		847A2E8D278EFEAA003F9A52 /* BaseCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCellProtocol.h; sourceTree = "<group>"; };
+		847A2E8E278EFEAA003F9A52 /* BaseViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewProtocol.h; sourceTree = "<group>"; };
+		847A2E8F278EFEAA003F9A52 /* BaseProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseProtocol.h; sourceTree = "<group>"; };
+		847A2E91278EFEAA003F9A52 /* UIViewModelProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewModelProtocol.h; sourceTree = "<group>"; };
+		847A2E93278EFEAA003F9A52 /* ZFDouYinCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFDouYinCellDelegate.h; sourceTree = "<group>"; };
+		847A2E95278EFEAA003F9A52 /* NTESVerifyCodeManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTESVerifyCodeManagerProtocol.h; sourceTree = "<group>"; };
 		84868DA12779DDA50098BE7A /* ZMJCells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMJCells.h; sourceTree = "<group>"; };
 		84868DA22779DDA50098BE7A /* ZMJCells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMJCells.m; sourceTree = "<group>"; };
 		84868E1D2779DFE30098BE7A /* UILabel+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Extra.h"; sourceTree = "<group>"; };
@@ -1820,7 +1820,6 @@
 		84CA64AD2789C2AF00E46E71 /* PlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerCell.m; sourceTree = "<group>"; };
 		84CA64B02789C2F300E46E71 /* Douyin_ZFPlayerVC@2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Douyin_ZFPlayerVC@2.h"; sourceTree = "<group>"; };
 		84CA64B12789C2F300E46E71 /* Douyin_ZFPlayerVC@2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Douyin_ZFPlayerVC@2.m"; sourceTree = "<group>"; };
-		84CA64B42789C79700E46E71 /* ZFDouYinCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZFDouYinCellDelegate.h; sourceTree = "<group>"; };
 		84CA64B62789C80400E46E71 /* ZFDouYinCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFDouYinCell.m; sourceTree = "<group>"; };
 		84CA64B72789C80500E46E71 /* MKRightBtnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKRightBtnView.m; sourceTree = "<group>"; };
 		84CA64B82789C80500E46E71 /* ZFDouYinControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFDouYinControlView.m; sourceTree = "<group>"; };
@@ -4636,16 +4635,10 @@
 		840F95A827736427004979E9 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				84CA64B42789C79700E46E71 /* ZFDouYinCellDelegate.h */,
-				840F95AA27736427004979E9 /* BaseViewControllerProtocol.h */,
-				840F95AB27736427004979E9 /* AppToolsProtocol.h */,
-				840F95AC27736427004979E9 /* BaseButtonProtocol.h */,
-				840F95AD27736427004979E9 /* BaseCellProtocol.h */,
-				840F95AE27736427004979E9 /* FoundationProtocol.h */,
-				840F95AF27736427004979E9 /* BaseViewProtocol.h */,
-				840F95B027736427004979E9 /* BaseProtocol.h */,
-				847A2A6C278EBD65003F9A52 /* NTESVerifyCodeManagerProtocol.h */,
-				847A2A6B278EBD65003F9A52 /* UIViewModelProtocol.h */,
+				847A2E89278EFEAA003F9A52 /* BaseProtocol <NSObject> */,
+				847A2E94278EFEAA003F9A52 /* NTESVerifyCodeManagerProtocol <NSObject> */,
+				847A2E90278EFEAA003F9A52 /* UIViewModelProtocol <NSObject> */,
+				847A2E92278EFEAA003F9A52 /* ZFDouYinCellDelegate <NSObject> */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -5998,6 +5991,43 @@
 				846DF01F27806D230050468A /* JobsAppDoorContentView.m */,
 			);
 			path = JobsAppDoorContentView;
+			sourceTree = "<group>";
+		};
+		847A2E89278EFEAA003F9A52 /* BaseProtocol <NSObject> */ = {
+			isa = PBXGroup;
+			children = (
+				847A2E8A278EFEAA003F9A52 /* BaseViewControllerProtocol.h */,
+				847A2E8B278EFEAA003F9A52 /* AppToolsProtocol.h */,
+				847A2E8C278EFEAA003F9A52 /* BaseButtonProtocol.h */,
+				847A2E8D278EFEAA003F9A52 /* BaseCellProtocol.h */,
+				847A2E8E278EFEAA003F9A52 /* BaseViewProtocol.h */,
+				847A2E8F278EFEAA003F9A52 /* BaseProtocol.h */,
+			);
+			path = "BaseProtocol <NSObject>";
+			sourceTree = "<group>";
+		};
+		847A2E90278EFEAA003F9A52 /* UIViewModelProtocol <NSObject> */ = {
+			isa = PBXGroup;
+			children = (
+				847A2E91278EFEAA003F9A52 /* UIViewModelProtocol.h */,
+			);
+			path = "UIViewModelProtocol <NSObject>";
+			sourceTree = "<group>";
+		};
+		847A2E92278EFEAA003F9A52 /* ZFDouYinCellDelegate <NSObject> */ = {
+			isa = PBXGroup;
+			children = (
+				847A2E93278EFEAA003F9A52 /* ZFDouYinCellDelegate.h */,
+			);
+			path = "ZFDouYinCellDelegate <NSObject>";
+			sourceTree = "<group>";
+		};
+		847A2E94278EFEAA003F9A52 /* NTESVerifyCodeManagerProtocol <NSObject> */ = {
+			isa = PBXGroup;
+			children = (
+				847A2E95278EFEAA003F9A52 /* NTESVerifyCodeManagerProtocol.h */,
+			);
+			path = "NTESVerifyCodeManagerProtocol <NSObject>";
 			sourceTree = "<group>";
 		};
 		84868DA02779DDA50098BE7A /* ZMJCells */ = {

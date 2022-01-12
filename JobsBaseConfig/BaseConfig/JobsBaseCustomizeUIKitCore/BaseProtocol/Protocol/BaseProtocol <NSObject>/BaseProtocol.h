@@ -6,11 +6,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "FoundationProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol BaseProtocol <FoundationProtocol>
+@protocol BaseProtocol <NSObject>
 
 @optional
 

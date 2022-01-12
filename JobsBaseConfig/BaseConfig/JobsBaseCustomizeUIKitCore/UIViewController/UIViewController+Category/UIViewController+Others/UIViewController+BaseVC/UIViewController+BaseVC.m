@@ -20,7 +20,7 @@ static char *UIViewController_BaseVC_requestParams = "UIViewController_BaseVC_re
 
 static char *UIViewController_BaseVC_bgImage = "UIViewController_BaseVC_bgImage";
 @dynamic bgImage;
-/// FoundationProtocol
+
 static char *UIViewController_BaseVC_viewModel = "UIViewController_BaseVC_viewModel";
 @dynamic viewModel;
 

@@ -25,10 +25,7 @@ typedef enum : NSUInteger {
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol BaseViewControllerProtocol
-<
-BaseViewProtocol
->
+@protocol BaseViewControllerProtocol<BaseViewProtocol>
 
 @optional
 /// UI

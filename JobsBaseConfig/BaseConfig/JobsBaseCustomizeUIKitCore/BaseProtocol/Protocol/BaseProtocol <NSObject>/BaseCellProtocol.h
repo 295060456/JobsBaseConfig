@@ -7,11 +7,10 @@
 
 #import <Foundation/Foundation.h>
 #import "BaseViewProtocol.h"
-#import "UIViewModelProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol BaseCellProtocol <BaseViewProtocol,UIViewModelProtocol>
+@protocol BaseCellProtocol <BaseViewProtocol>
 
 @optional
 

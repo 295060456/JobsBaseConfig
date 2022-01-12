@@ -19,8 +19,10 @@
 #import "ReactiveObjC.h"
 #endif
 
-NS_ASSUME_NONNULL_BEGIN
+@class UIViewModel;
 
+NS_ASSUME_NONNULL_BEGIN
+/// 全局的共用的属性
 @protocol UIViewModelProtocol <NSObject>
 
 @optional
@@ -73,12 +75,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)NSInteger __block pageSize;
 /// 其他
 @property(nonatomic,strong,nullable)Class __block cls;//绑定的class
+@property(nonatomic,strong,nullable)UIViewModel __block *viewModel;
+@property(nonatomic,strong,nullable)RACSignal __block *reqSignal;
+@property(nonatomic,strong,nullable)NSString __block *internationalizationKEY;/// 国际化的key
 @property(nonatomic,strong,nullable)id __block data;//绑定的数据源
 @property(nonatomic,strong,nullable)id __block requestParams;//绑定的数据源
-@property(nonatomic,strong,nullable)RACSignal __block *reqSignal;
 @property(nonatomic,assign)BOOL __block selected;
 @property(nonatomic,assign)BOOL __block isMultiLineShows;// 是否多行行显示【默认单行显示】
-@property(nonatomic,strong,nullable)NSString __block *internationalizationKEY;/// 国际化的key
 @property(nonatomic,assign)BOOL __block isTranslucent;//是否取消tabBar的透明效果
 @property(nonatomic,assign)BOOL __block visible;
 

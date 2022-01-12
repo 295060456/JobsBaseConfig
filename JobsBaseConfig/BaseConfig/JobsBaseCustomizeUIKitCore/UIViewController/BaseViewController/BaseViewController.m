@@ -63,6 +63,7 @@
 @synthesize pageSize = _pageSize;
 /// 其他
 @synthesize cls = _cls;
+@synthesize viewModel = _viewModel;
 @synthesize data = _data;
 @synthesize requestParams = _requestParams;
 @synthesize reqSignal = _reqSignal;
@@ -76,8 +77,6 @@
 @synthesize alertController = _alertController;
 @synthesize pushOrPresent = _pushOrPresent;
 @synthesize setupNavigationBarHidden = _setupNavigationBarHidden;
-#pragma mark —— FoundationProtocol
-@synthesize viewModel = _viewModel;
 
 - (void)dealloc{
     NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);

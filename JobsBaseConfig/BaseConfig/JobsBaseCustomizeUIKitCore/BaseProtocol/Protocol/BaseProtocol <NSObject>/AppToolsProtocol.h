@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol AppToolsProtocol <BaseProtocol>
 
 @optional
+/// 打开游戏
+-(void)openGameWithUrl:(NSString *)url;
 /// 去登录？去注册？
 -(void)toLoginOrRegister:(CurrentPage)appDoorContentType;
 /// 在某些页面不调取登录页

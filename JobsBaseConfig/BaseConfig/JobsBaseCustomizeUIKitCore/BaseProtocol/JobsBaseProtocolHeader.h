@@ -8,15 +8,14 @@
 #ifndef JobsBaseProtocolHeader_h
 #define JobsBaseProtocolHeader_h
 
-#import "FoundationProtocol.h"
 #import "AppToolsProtocol.h"
-#import "BaseProtocol.h"
+#import "UIViewModelProtocol.h"
+#import "NTESVerifyCodeManagerProtocol.h"
 
+#import "BaseProtocol.h"
 #import "BaseViewProtocol.h"
 #import "BaseCellProtocol.h"
 #import "BaseButtonProtocol.h"
 #import "BaseViewControllerProtocol.h"
-
-#import "ZFDouYinCellDelegate.h"
 
 #endif /* JobsBaseProtocolHeader_h */
