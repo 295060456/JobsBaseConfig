@@ -29,7 +29,7 @@ static char *NSObject_NTESVerifyCode_ntesVerifyCodeManager = "NSObject_NTESVerif
 /// 本地化解决网易云验证的一个UI方面的Bug：https://github.com/yidun/captcha-ios-demo/issues/10
 -(UIButton *)fixNTESVerifyCodeButtonBug{
     UIButton *btn = UIButton.new;
-    [btn normalImage:KBuddleIMG(nil,@"ZYTextField",@"", @"CloseCircle.png")];
+    [btn normalImage:KBuddleIMG(nil,@"ZYTextField",@"", @"CloseCircle（大号）.png")];
     btn.frame = CGRectMake(JobsSCREEN_WIDTH - JobsWidth(50),
                            JobsSCREEN_HEIGHT / 4,
                            JobsWidth(30),

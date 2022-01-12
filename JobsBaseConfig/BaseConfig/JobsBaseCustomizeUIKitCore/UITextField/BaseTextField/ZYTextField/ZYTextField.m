@@ -24,7 +24,7 @@
 -(void)setUseCustomClearButton:(BOOL)useCustomClearButton{
     _useCustomClearButton = useCustomClearButton;
     if (_useCustomClearButton) {
-        [self modifyClearButtonWithImage:KBuddleIMG(nil,@"ZYTextField",@"", @"CloseCircle.png")];
+        [self modifyClearButtonWithImage:KBuddleIMG(nil,@"ZYTextField",@"", @"CloseCircle（小号）.png")];
     }
 }
 /// iOS UIMenuController
