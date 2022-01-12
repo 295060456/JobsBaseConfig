@@ -17,9 +17,9 @@ static inline UIImage *__nullable KIMG(NSString *__nonnull imgName){
     return [UIImage imageNamed:imgName];
 }
 /// 根据参数输出系统需要的文件路径
-/// @param blueFolderName 如果资源存在于蓝色文件夹下则blueFolderName是蓝色文件夹的名字，如果资源位于黄色文件夹下则不填
-/// @param pathForResource  自定义 Bundle 的名字
-/// @param bundle_folderName 如果在此自定义Bundle下还存在文件夹，不管几级都在此写，属于中间路径，函数内部是进行字符串拼接
+/// @param blueFolderName 如果资源存在于【蓝色文件夹】下则blueFolderName是蓝色文件夹的名字，如果资源位于【黄色文件夹】下则不填（亦可以传@""）
+/// @param pathForResource 自定义 Bundle 的名字（不能带.bundle后缀）
+/// @param bundle_folderName 如果在此自定义Bundle下还存在文件夹，不管几级都在此写，属于中间路径，函数内部是进行字符串拼接；如果不存在可以传nil 或者@""
 /// @param ofType 文件类型（后缀名）
 static inline NSString *__nullable getPathForResource(NSString *__nullable blueFolderName,
                                                       NSString *__nullable pathForResource,
@@ -46,10 +46,10 @@ static inline NSString *__nullable getPathForResource(NSString *__nullable blueF
     return filePath;
 }
 /// 读取自定义Bundle文件里面的图片 输出 NSString *
-/// @param bundle_folderName 如果在此自定义Bundle下还存在文件夹，不管几级都在此写，属于中间路径，函数内部是进行字符串拼接
-/// @param pathForResource 自定义 Bundle 的名字
-/// @param fileFullNameWithSuffix 目标图片的名字，如果不带后缀名，函数内部直接强制加 @".png" 后缀
-/// @param blueFolderName 如果资源存在于蓝色文件夹下则blueFolderName是蓝色文件夹的名字，如果资源位于黄色文件夹下则不填
+/// @param blueFolderName 如果资源存在于【蓝色文件夹】下则blueFolderName是蓝色文件夹的名字，如果资源位于【黄色文件夹】下则不填（亦可以传@""）
+/// @param pathForResource 自定义 Bundle 的名字（不能带.bundle后缀）
+/// @param bundle_folderName 如果在此自定义Bundle下还存在文件夹，不管几级都在此写，属于中间路径，函数内部是进行字符串拼接；如果不存在可以传nil 或者@""
+/// @param fileFullNameWithSuffix 目标图片的名字。如果不带后缀名，则默认@".png" 后缀；如果是其他格式资源请自带后缀名
 static inline NSString *__nullable pathForBuddleIMG(NSString *__nullable blueFolderName,
                                                     NSString *__nullable pathForResource,
                                                     NSString *__nullable bundle_folderName,
@@ -67,10 +67,10 @@ static inline NSString *__nullable pathForBuddleIMG(NSString *__nullable blueFol
     return filePath;
 }
 /// 读取自定义Bundle文件里面的图片 输出 UIImage *
-/// @param bundle_folderName 如果在此自定义Bundle下还存在文件夹，不管几级都在此写，属于中间路径，函数内部是进行字符串拼接
-/// @param pathForResource 自定义 Bundle 的名字
-/// @param fileFullNameWithSuffix 目标图片的名字，如果不带后缀名，函数内部直接强制加 @".png" 后缀
-/// @param blueFolderName 如果资源存在于蓝色文件夹下则blueFolderName是蓝色文件夹的名字，如果资源位于黄色文件夹下则不填
+/// @param blueFolderName 如果资源存在于【蓝色文件夹】下则blueFolderName是蓝色文件夹的名字，如果资源位于【黄色文件夹】下则不填（亦可以传@""）
+/// @param pathForResource 自定义 Bundle 的名字（不能带.bundle后缀）
+/// @param bundle_folderName 如果在此自定义Bundle下还存在文件夹，不管几级都在此写，属于中间路径，函数内部是进行字符串拼接；如果不存在可以传nil 或者@""
+/// @param fileFullNameWithSuffix 目标图片的名字。如果不带后缀名，则默认@".png" 后缀；如果是其他格式资源请自带后缀名
 static inline UIImage *__nullable KBuddleIMG(NSString *__nullable blueFolderName,
                                              NSString *__nullable pathForResource,
                                              NSString *__nullable bundle_folderName,
@@ -84,12 +84,12 @@ static inline UIImage *__nullable KBuddleIMG(NSString *__nullable blueFolderName
     return image;
 }
 /// 读取自定义Bundle文件里面的图片 输出 NSData *
-/// @param pathForResource 自定义 Bundle 的名字
-/// @param bundle_folderName 如果在此自定义Bundle下还存在文件夹，不管几级都在此写，属于中间路径，函数内部是进行字符串拼接
-/// @param fileFullNameWithSuffix  目标图片的名字，如果不带后缀名，函数内部直接强制加 @".png" 后缀
-/// @param blueFolderName 如果资源存在于蓝色文件夹下则blueFolderName是蓝色文件夹的名字，如果资源位于黄色文件夹下则不填
-static inline NSData *__nullable KDataByBuddleIMG(NSString *__nonnull pathForResource,
-                                                  NSString *__nullable blueFolderName,
+/// @param blueFolderName 如果资源存在于【蓝色文件夹】下则blueFolderName是蓝色文件夹的名字，如果资源位于【黄色文件夹】下则不填（亦可以传@""）
+/// @param pathForResource 自定义 Bundle 的名字（不能带.bundle后缀）
+/// @param bundle_folderName 如果在此自定义Bundle下还存在文件夹，不管几级都在此写，属于中间路径，函数内部是进行字符串拼接；如果不存在可以传nil 或者@""
+/// @param fileFullNameWithSuffix 目标图片的名字。如果不带后缀名，则默认@".png" 后缀；如果是其他格式资源请自带后缀名
+static inline NSData *__nullable KDataByBuddleIMG(NSString *__nullable blueFolderName,
+                                                  NSString *__nonnull pathForResource,
                                                   NSString *__nullable bundle_folderName,
                                                   NSString *__nonnull fileFullNameWithSuffix){
     NSString *filePath = pathForBuddleIMG(blueFolderName,
@@ -100,16 +100,16 @@ static inline NSData *__nullable KDataByBuddleIMG(NSString *__nonnull pathForRes
     return imgData;
 }
 /// 获取Bundle下的图片
-/// @param pathForResource 自定义 Bundle 的名字
-/// @param blueFolderName 如果资源存在于蓝色文件夹下则blueFolderName是蓝色文件夹的名字，如果资源位于黄色文件夹下则不填
-/// @param bundle_folderName 如果在此自定义Bundle下还存在文件夹，不管几级都在此写，属于中间路径，函数内部是进行字符串拼接
-/// @param fileFullNameWithSuffix 目标图片的名字，如果不带后缀名，函数内部直接强制加 @".png" 后缀
-static inline UIImage *__nullable KIMGByDataFromBuddleIMG(NSString *__nonnull pathForResource,
-                                                          NSString *__nullable blueFolderName,
+/// @param blueFolderName 如果资源存在于【蓝色文件夹】下则blueFolderName是蓝色文件夹的名字，如果资源位于【黄色文件夹】下则不填（亦可以传@""）
+/// @param pathForResource 自定义 Bundle 的名字（不能带.bundle后缀）
+/// @param bundle_folderName 如果在此自定义Bundle下还存在文件夹，不管几级都在此写，属于中间路径，函数内部是进行字符串拼接；如果不存在可以传nil 或者@""
+/// @param fileFullNameWithSuffix 目标图片的名字。如果不带后缀名，则默认@".png" 后缀；如果是其他格式资源请自带后缀名
+static inline UIImage *__nullable KIMGByDataFromBuddleIMG(NSString *__nullable blueFolderName,
+                                                          NSString *__nonnull pathForResource,
                                                           NSString *__nullable bundle_folderName,
                                                           NSString *__nonnull fileFullNameWithSuffix){
-    UIImage *image = [UIImage imageWithData:KDataByBuddleIMG(pathForResource,
-                                                             blueFolderName,
+    UIImage *image = [UIImage imageWithData:KDataByBuddleIMG(blueFolderName,
+                                                             pathForResource,
                                                              bundle_folderName,
                                                              fileFullNameWithSuffix)];
     return image;

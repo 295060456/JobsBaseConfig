@@ -11,6 +11,8 @@
 
 static char *NSObject_NTESVerifyCode_ntesVerifyCodeManager = "NSObject_NTESVerifyCode_ntesVerifyCodeManager";
 @dynamic ntesVerifyCodeManager;
+
+#pragma mark —— 一些公有化方法
 /// 开启网易云盾
 -(void)openVerifyCodeView:(UIView *_Nullable)topView{
     /// 在某些情况下必须传入topView，否则报错1004，创建失败
@@ -21,37 +23,24 @@ static char *NSObject_NTESVerifyCode_ntesVerifyCodeManager = "NSObject_NTESVerif
     }
 }
 /// 关闭网易云盾
--(void)closeVerifyCodeView{    
+-(void)closeVerifyCodeView{
     [self.ntesVerifyCodeManager closeVerifyCodeView];
 }
-#pragma mark —— @property (nonatomic,strong)NTESVerifyCodeManager *ntesVerifyCodeManager;
--(NTESVerifyCodeManager *)ntesVerifyCodeManager{
-    NTESVerifyCodeManager *ntesVerifyCodeManager = objc_getAssociatedObject(self, NSObject_NTESVerifyCode_ntesVerifyCodeManager);
-    
-    if (!ntesVerifyCodeManager) {
-        ntesVerifyCodeManager = NTESVerifyCodeManager.getInstance;
-        ntesVerifyCodeManager.lang = NSBundle.isChineseLanguage ? NTESVerifyCodeLangCN : NTESVerifyCodeLangEN;
-        ntesVerifyCodeManager.alpha = 0.7;
-        ntesVerifyCodeManager.frame = CGRectNull;
-        /// 每一种验证码对应不同的key,如若不对齐，否则报1004创建失败
-        ntesVerifyCodeManager.mode = NTESVerifyCodeNormal;
-        ntesVerifyCodeManager.delegate = self;
-        ntesVerifyCodeManager.shouldCloseByTouchBackground = NO;
-        [ntesVerifyCodeManager configureVerifyCode:NTESVerifyCodeKEY timeout:30.0];
-        ntesVerifyCodeManager.closeButtonHidden = NO;
-        
-        objc_setAssociatedObject(self,
-                                 NSObject_NTESVerifyCode_ntesVerifyCodeManager,
-                                 ntesVerifyCodeManager,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }return ntesVerifyCodeManager;
-}
-
--(void)setNtesVerifyCodeManager:(NTESVerifyCodeManager *)ntesVerifyCodeManager{
-    objc_setAssociatedObject(self,
-                             NSObject_NTESVerifyCode_ntesVerifyCodeManager,
-                             ntesVerifyCodeManager,
-                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+/// 本地化解决网易云验证的一个UI方面的Bug：https://github.com/yidun/captcha-ios-demo/issues/10
+-(UIButton *)fixNTESVerifyCodeButtonBug{
+    UIButton *btn = UIButton.new;
+    [btn normalImage:KBuddleIMG(nil,@"ZYTextField",@"", @"CloseCircle.png")];
+    btn.frame = CGRectMake(JobsSCREEN_WIDTH - JobsWidth(50),
+                           JobsSCREEN_HEIGHT / 4,
+                           JobsWidth(30),
+                           JobsWidth(30));
+    BtnClickEvent(btn, {
+        [self closeVerifyCodeView];
+        [x removeFromSuperview];
+        x = nil;
+    });
+    [getMainWindow() addSubview:btn];
+    return btn;
 }
 #pragma mark —— NTESVerifyCodeManagerDelegate
 /**
@@ -101,6 +90,38 @@ static char *NSObject_NTESVerifyCode_ntesVerifyCodeManager = "NSObject_NTESVerif
     viewModel.ntesVerifyCodeManagerStyle = VerifyCodeCloseWindow;
     viewModel.ntesVerifyCodeClose = close;
     if (self.viewBlock) self.viewBlock(viewModel);
+}
+#pragma mark —— @property (nonatomic,strong)NTESVerifyCodeManager *ntesVerifyCodeManager;
+-(NTESVerifyCodeManager *)ntesVerifyCodeManager{
+    NTESVerifyCodeManager *ntesVerifyCodeManager = objc_getAssociatedObject(self, NSObject_NTESVerifyCode_ntesVerifyCodeManager);
+    
+    if (!ntesVerifyCodeManager) {
+        ntesVerifyCodeManager = NTESVerifyCodeManager.getInstance;
+        ntesVerifyCodeManager.lang = NSBundle.isChineseLanguage ? NTESVerifyCodeLangCN : NTESVerifyCodeLangEN;
+        ntesVerifyCodeManager.alpha = 0.7;
+        ntesVerifyCodeManager.frame = CGRectNull;
+        ntesVerifyCodeManager.protocol = NTESVerifyCodeProtocolHttps;
+        ntesVerifyCodeManager.closeButtonHidden = NO;
+        /// 每一种验证码对应不同的key,如若不对齐，否则报1004创建失败
+        ntesVerifyCodeManager.mode = NTESVerifyCodeNormal;
+        ntesVerifyCodeManager.delegate = self;
+        ntesVerifyCodeManager.shouldCloseByTouchBackground = NO;
+        ntesVerifyCodeManager.color = UIColor.blackColor;
+        [ntesVerifyCodeManager configureVerifyCode:NTESVerifyCodeKEY timeout:30.0];
+        ntesVerifyCodeManager.closeButtonHidden = NO;
+        
+        objc_setAssociatedObject(self,
+                                 NSObject_NTESVerifyCode_ntesVerifyCodeManager,
+                                 ntesVerifyCodeManager,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return ntesVerifyCodeManager;
+}
+
+-(void)setNtesVerifyCodeManager:(NTESVerifyCodeManager *)ntesVerifyCodeManager{
+    objc_setAssociatedObject(self,
+                             NSObject_NTESVerifyCode_ntesVerifyCodeManager,
+                             ntesVerifyCodeManager,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 @end
