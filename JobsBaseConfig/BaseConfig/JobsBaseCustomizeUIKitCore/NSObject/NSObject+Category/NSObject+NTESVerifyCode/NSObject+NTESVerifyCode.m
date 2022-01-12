@@ -29,22 +29,6 @@ static char *UIView_BaseView_NTESVerifyCodeCloseBtn = "UIView_BaseView_NTESVerif
 -(void)closeVerifyCodeView{
     [self.ntesVerifyCodeManager closeVerifyCodeView];
 }
-
--(UIButton *)fixNTESVerifyCodeButtonBug{
-    UIButton *btn = UIButton.new;
-    [btn normalImage:KBuddleIMG(nil,@"ZYTextField",@"", @"CloseCircle（大号）.png")];
-    btn.frame = CGRectMake(JobsSCREEN_WIDTH - JobsWidth(50),
-                           JobsSCREEN_HEIGHT / 4,
-                           JobsWidth(30),
-                           JobsWidth(30));
-    BtnClickEvent(btn, {
-        [self closeVerifyCodeView];
-        [x removeFromSuperview];
-        x = nil;
-    });
-    [getMainWindow() addSubview:btn];
-    return btn;
-}
 #pragma mark —— NTESVerifyCodeManagerDelegate
 /**
  * 验证码组件初始化完成
