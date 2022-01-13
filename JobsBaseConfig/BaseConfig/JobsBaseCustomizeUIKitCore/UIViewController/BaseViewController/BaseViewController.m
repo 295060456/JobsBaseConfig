@@ -52,6 +52,9 @@
 @synthesize offsetYForEach = _offsetYForEach;
 @synthesize offsetHeight = _offsetHeight;
 @synthesize offsetWidth = _offsetWidth;
+@synthesize axis = _axis;
+@synthesize distribution = _distribution;
+@synthesize alignment = _alignment;
 /// 标记📌
 @synthesize indexPath = _indexPath;
 @synthesize section = _section;
@@ -63,8 +66,8 @@
 @synthesize pageSize = _pageSize;
 /// 其他
 @synthesize cls = _cls;
-@synthesize viewModel = _viewModel;
 @synthesize data = _data;
+@synthesize viewModel = _viewModel;
 @synthesize requestParams = _requestParams;
 @synthesize reqSignal = _reqSignal;
 @synthesize selected = _selected;

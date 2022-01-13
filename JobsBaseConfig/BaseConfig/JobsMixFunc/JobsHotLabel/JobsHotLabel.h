@@ -12,15 +12,13 @@
 #import "CasinoCustomerContactModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
+/**
+    1、单排显示固定样式UI（UIButton 方便图文展示）：
+        1.1、如果不满一行居中显示；
+        1.2、如果超过一行滑动显示；
+    2、如果要显示多排固定样式UI，请移步用CollectionView实现
+ */
 @interface JobsHotLabel : BaseView
-
-@property(nonatomic,assign)CGFloat top;//第一个元素距离HotLabel上边的距离  同样也是下边距（对称性）
-@property(nonatomic,assign)CGFloat left;//第一个元素距离HotLabel左边的距离 同样也是右边距（对称性）
-
-@property(nonatomic,strong)NSArray <UIViewModel *>*viewModelDataArr;// 数据源
-
--(CGFloat)heightForHotLabel;//约束走完以后，计算得出的高，用于外界自适应
 
 @end
 

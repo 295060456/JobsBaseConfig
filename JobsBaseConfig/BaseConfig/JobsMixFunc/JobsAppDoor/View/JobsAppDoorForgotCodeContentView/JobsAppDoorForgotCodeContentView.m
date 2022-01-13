@@ -161,17 +161,17 @@
     if (!_hl) {
         _hl = JobsHotLabel.new;
         _hl.backgroundColor = kClearColor;
-        _hl.viewModelDataArr = self.hotLabelDataMutArr;
         [self actionForHotLabel:_hl];
         [self addSubview:_hl];
         [_hl mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(self.subTitleLab);
             make.top.equalTo(self.subTitleLab.mas_bottom).offset(JobsWidth(29));
-            make.bottom.equalTo(self).offset(-JobsWidth(10));
-            make.width.mas_equalTo(250);
+//            make.bottom.equalTo(self).offset(-JobsWidth(10));
+            make.height.mas_equalTo(JobsWidth(50));
+            make.width.mas_equalTo(JobsWidth(250));
         }];
         [self layoutIfNeeded];
-        NSLog(@"");
+        [_hl richElementsInViewWithModel:self.hotLabelDataMutArr];
     }return _hl;
 }
 /**

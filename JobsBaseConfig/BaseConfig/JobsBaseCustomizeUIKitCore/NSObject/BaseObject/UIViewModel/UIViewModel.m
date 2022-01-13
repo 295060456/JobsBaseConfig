@@ -48,6 +48,9 @@
 @synthesize offsetYForEach = _offsetYForEach;
 @synthesize offsetHeight = _offsetHeight;
 @synthesize offsetWidth = _offsetWidth;
+@synthesize axis = _axis;
+@synthesize distribution = _distribution;
+@synthesize alignment = _alignment;
 /// 标记📌
 @synthesize indexPath = _indexPath;
 @synthesize section = _section;

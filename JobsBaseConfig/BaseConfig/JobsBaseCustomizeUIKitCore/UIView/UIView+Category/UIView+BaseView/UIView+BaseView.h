@@ -6,12 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIViewModelProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIView (BaseView)
-
-@property(nonatomic,strong)UIViewModel *viewModel;
+@interface UIView (BaseView)<UIViewModelProtocol>
 
 @end
 

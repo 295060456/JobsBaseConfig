@@ -64,6 +64,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)CGFloat __block offsetYForEach;//控件之间的垂直距离 offsetYForEach
 @property(nonatomic,assign)CGFloat __block offsetHeight;
 @property(nonatomic,assign)CGFloat __block offsetWidth;
+@property(nonatomic,assign)UILayoutConstraintAxis axis;
+@property(nonatomic,assign)UIStackViewDistribution distribution;
+@property(nonatomic,assign)UIStackViewAlignment alignment;
 /// 标记📌
 @property(nonatomic,strong,nullable)NSIndexPath __block *indexPath;
 @property(nonatomic,assign)NSInteger __block section;

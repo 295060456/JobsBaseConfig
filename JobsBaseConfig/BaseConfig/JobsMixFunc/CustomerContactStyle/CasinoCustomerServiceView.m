@@ -37,12 +37,13 @@ static CasinoCustomerServiceView *static_customerServiceView = nil;
 -(instancetype)init{
     if (self = [super init]) {
         self.backgroundImageView.image = KIMG(@"客服_背景图");
+        [self customerContact];
     }return self;
 }
 
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        
+        [self customerContact];
     }return self;
 }
 
@@ -69,11 +70,16 @@ static CasinoCustomerServiceView *static_customerServiceView = nil;
     CGFloat h = JobsWidth(162) + [JobsHotLabel viewSizeWithModel:model].height + JobsWidth(70);
     return CGSizeMake(JobsWidth(345), h);
 }
+#pragma mark —— 网络请求
+/// 获取客服联系方式
+-(void)customerContact{
+
+}
 #pragma mark —— lazyLoad
 -(UILabel *)titleLab{
     if (!_titleLab) {
         _titleLab = UILabel.new;
-        _titleLab.text = Internationalization(@"占位数据");
+        _titleLab.text = Internationalization(Title10);
         _titleLab.textColor = HEXCOLOR(0x502600);
         _titleLab.font = [UIFont systemFontOfSize:JobsWidth(20)
                                            weight:UIFontWeightRegular];
@@ -95,12 +101,13 @@ static CasinoCustomerServiceView *static_customerServiceView = nil;
         [[_contactCustomerServiceBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
             NSLog(@"返回登录");
             @strongify(self)
-            [NSObject openURL:self.customerContactModel.onlineUrl.customerAccount];
-            
-            [self endEditing:YES];
-            if (self.viewBlock) {
-                self.viewBlock(x);
+            if ([NSString isNullString:self.customerContactModel.onlineUrl.customerAccount]) {
+                [self customerContact];/// 获取客服联系方式
+            }else{
+                [NSObject openURL:self.customerContactModel.onlineUrl.customerAccount];
             }
+            [self endEditing:YES];
+            if (self.viewBlock) self.viewBlock(x);
         }];
         [self.backgroundImageView addSubview:_contactCustomerServiceBtn];
         [_contactCustomerServiceBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -129,7 +136,7 @@ static CasinoCustomerServiceView *static_customerServiceView = nil;
 -(UILabel *)subTitleLab{
     if (!_subTitleLab) {
         _subTitleLab = UILabel.new;
-        _subTitleLab.text = Internationalization(@"占位数据");
+        _subTitleLab.text = Internationalization(Title11);
         _subTitleLab.textAlignment = NSTextAlignmentCenter;
         _subTitleLab.numberOfLines = 0;
         _subTitleLab.textColor = HEXCOLOR(0x502600);
@@ -140,7 +147,8 @@ static CasinoCustomerServiceView *static_customerServiceView = nil;
         [_subTitleLab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(self.contactCustomerServiceBtn);
             make.top.equalTo(self.contactCustomerServiceBtn.mas_bottom).offset(JobsWidth(23));
-            make.height.mas_equalTo(JobsWidth(15));
+            make.left.equalTo(self).offset(JobsWidth(15));
+            make.right.equalTo(self).offset(JobsWidth(-15));
         }];
     }return _subTitleLab;
 }
@@ -149,7 +157,6 @@ static CasinoCustomerServiceView *static_customerServiceView = nil;
     if (!_hl) {
         _hl = JobsHotLabel.new;
         _hl.backgroundColor = kClearColor;
-        _hl.viewModelDataArr = self.hotLabelDataMutArr;
         [self actionForHotLabel:_hl];
         [self addSubview:_hl];
         [_hl mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -158,7 +165,7 @@ static CasinoCustomerServiceView *static_customerServiceView = nil;
             make.size.mas_equalTo([JobsHotLabel viewSizeWithModel:self.hotLabelDataMutArr]);
         }];
         [self layoutIfNeeded];
-        NSLog(@"");
+        [_hl richElementsInViewWithModel:self.hotLabelDataMutArr];
     }return _hl;
 }
 

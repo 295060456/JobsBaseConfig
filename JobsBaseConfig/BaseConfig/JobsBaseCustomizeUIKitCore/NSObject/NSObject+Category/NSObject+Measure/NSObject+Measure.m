@@ -26,6 +26,9 @@
 @dynamic offsetYForEach;
 @dynamic offsetHeight;
 @dynamic offsetWidth;
+@dynamic axis;
+@dynamic distribution;
+@dynamic alignment;
 /// 标记📌
 @dynamic indexPath;
 @dynamic section;
