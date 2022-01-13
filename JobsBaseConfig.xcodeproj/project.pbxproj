@@ -1692,6 +1692,18 @@
 		84A494CE27906CC90002A837 /* 动态头像_2 尺寸126.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "动态头像_2 尺寸126.gif"; sourceTree = "<group>"; };
 		84A494D327906D050002A837 /* 头像.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "头像.bundle"; sourceTree = "<group>"; };
 		84A494D527906D0B0002A837 /* Telegram.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Telegram.bundle; sourceTree = "<group>"; };
+		84A4954C27906E620002A837 /* JobsIM【Outlines 03】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsIM【Outlines 03】.png"; sourceTree = "<group>"; };
+		84A4954D27906E620002A837 /* JobsIM【Outlines 02】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsIM【Outlines 02】.png"; sourceTree = "<group>"; };
+		84A4954E27906E620002A837 /* JobsIM【Outlines 05】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsIM【Outlines 05】.png"; sourceTree = "<group>"; };
+		84A4954F27906E620002A837 /* JobsIM【Outlines 09】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsIM【Outlines 09】.png"; sourceTree = "<group>"; };
+		84A4955027906E620002A837 /* JobsIM【Outlines 08】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsIM【Outlines 08】.png"; sourceTree = "<group>"; };
+		84A4955127906E620002A837 /* JobsIM【Outlines 12】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsIM【Outlines 12】.png"; sourceTree = "<group>"; };
+		84A4955227906E620002A837 /* JobsIM【Outlines 04】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsIM【Outlines 04】.png"; sourceTree = "<group>"; };
+		84A4955327906E620002A837 /* JobsIM【Outlines 11】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsIM【Outlines 11】.png"; sourceTree = "<group>"; };
+		84A4955427906E620002A837 /* JobsIM【Outlines 07】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsIM【Outlines 07】.png"; sourceTree = "<group>"; };
+		84A4955527906E620002A837 /* JobsIM【Outlines 06】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsIM【Outlines 06】.png"; sourceTree = "<group>"; };
+		84A4955627906E620002A837 /* JobsIM【Outlines 10】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsIM【Outlines 10】.png"; sourceTree = "<group>"; };
+		84A4955727906E620002A837 /* JobsIM【Outlines 01】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsIM【Outlines 01】.png"; sourceTree = "<group>"; };
 		84C94D95277EBAAB00C49CBA /* UIButton+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Animation.m"; sourceTree = "<group>"; };
 		84C94D96277EBAAB00C49CBA /* UIButton+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Animation.h"; sourceTree = "<group>"; };
 		84CA5CC72789587900E46E71 /* AppDelegate+Func.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Func.m"; sourceTree = "<group>"; };
@@ -6344,6 +6356,7 @@
 			isa = PBXGroup;
 			children = (
 				84A491E527904A970002A837 /* JobsIMCore.md */,
+				84A4954B27906E620002A837 /* Outlines */,
 				84A491C927904A970002A837 /* 相关资源文件 */,
 				84A491C127904A970002A837 /* JobsIMCoreView */,
 				84A493E327905A190002A837 /* JobsIMVC */,
@@ -6503,6 +6516,25 @@
 				84A494CE27906CC90002A837 /* 动态头像_2 尺寸126.gif */,
 			);
 			path = "动态头像";
+			sourceTree = "<group>";
+		};
+		84A4954B27906E620002A837 /* Outlines */ = {
+			isa = PBXGroup;
+			children = (
+				84A4955727906E620002A837 /* JobsIM【Outlines 01】.png */,
+				84A4954D27906E620002A837 /* JobsIM【Outlines 02】.png */,
+				84A4954C27906E620002A837 /* JobsIM【Outlines 03】.png */,
+				84A4955227906E620002A837 /* JobsIM【Outlines 04】.png */,
+				84A4954E27906E620002A837 /* JobsIM【Outlines 05】.png */,
+				84A4955527906E620002A837 /* JobsIM【Outlines 06】.png */,
+				84A4955427906E620002A837 /* JobsIM【Outlines 07】.png */,
+				84A4955027906E620002A837 /* JobsIM【Outlines 08】.png */,
+				84A4954F27906E620002A837 /* JobsIM【Outlines 09】.png */,
+				84A4955627906E620002A837 /* JobsIM【Outlines 10】.png */,
+				84A4955327906E620002A837 /* JobsIM【Outlines 11】.png */,
+				84A4955127906E620002A837 /* JobsIM【Outlines 12】.png */,
+			);
+			path = Outlines;
 			sourceTree = "<group>";
 		};
 		84C94D94277EBAAB00C49CBA /* UIButton+Animation */ = {
