@@ -56,7 +56,7 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
 
 -(instancetype)init{
     if (self = [super init]) {
-
+        
     }return self;
 }
 
@@ -68,23 +68,23 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
     }else if ([self.requestParams integerValue] == JobsAppDoorBgType_video){
         [self.player.currentPlayerManager play];
     }else{}
+    
+    self.setupNavigationBarHidden = YES;//禁用系统的导航栏
+    self.currentPage = CurrentPage_login;//默认页面是登录
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.setupNavigationBarHidden = YES;//禁用系统的导航栏
-    self.currentPage = CurrentPage_login;//默认页面是登录
     [self keyboard];
-    self.view.backgroundColor = kBlueColor;
-//    self.setupNavigationBarHidden = YES;
+//    self.view.backgroundColor = kBlueColor;
     //标的值初始化
     self.logoContentViewY = 0;
     self.jobsAppDoorContentViewY = 0;
     self.customerServiceBtnY = 0;
     
-    [UIView animationAlert:self.jobsAppDoorContentView];
-    [UIView animationAlert:self.logoContentView];
-    [UIView animationAlert:self.customerServiceBtn];
+    [self.jobsAppDoorContentView animationAlert];
+    [self.logoContentView animationAlert];
+    [self.customerServiceBtn animationAlert];
 
 }
 

@@ -45,19 +45,27 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)CGFloat durationTime;
 @property(nonatomic,assign)CGFloat delayTime;
 @property(nonatomic,assign)BOOL isStopRotateAnimation;//默认值为NO（一直旋转）
--(void)startRotateAnimation;//开始旋转动画
--(void)stopRotateAnimation;//停止旋转动画
-#pragma mark —— 图片从小放大
-+(void)animationAlert:(UIView *)view;
-#pragma mark —— 重力弹跳动画效果
+
+/// 开始旋转动画
+-(void)startRotateAnimation;
+/// 停止旋转动画
+-(void)stopRotateAnimation;
+/// 图片从小放大
+-(void)animationAlert;
+/// 视图上下一直来回跳动的动画
+-(void)视图上下一直来回跳动的动画;
+/// 点击放大再缩小
+-(void)addViewAnimationWithCompletionBlock:(MKDataBlock)completionBlock;
+/// 逐渐显示
+-(void)graduallyShowWithAnimationBlock:(MKDataBlock)animationBlock
+                       completionBlock:(MKDataBlock)completionBlock;
+/// 逐渐消退
+-(void)graduallyDisappearWithAnimationBlock:(MKDataBlock)animationBlock
+                            completionBlock:(MKDataBlock)completionBlock;
+/// 重力弹跳动画效果
 void shakerAnimation (UIView *view,
                       NSTimeInterval duration,
                       float height);
-#pragma mark —— 视图上下一直来回跳动的动画
-+(void)视图上下一直来回跳动的动画:(UIView *)view;
-#pragma mark —— 点击放大再缩小
-+(void)addViewAnimation:(UIView *)sender
-        completionBlock:(MKDataBlock)completionBlock;
 
 @end
 

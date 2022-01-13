@@ -96,13 +96,6 @@ static JobsTabbarVC *static_tabbarVC = nil;
 //    [self ppBadge:YES];
 }
 #pragma mark —— 一些公有方法
-/// 需要强制跳转登录的index。点击和手势滑动都需要共同调用
--(BOOL)forcedLoginIndex:(NSUInteger)index{
-    if ([self.needLoginArr containsObject:@(index)]) {
-        [self forcedLogin];
-        return YES;
-    }return NO;
-}
 /// 关闭手势
 -(void)closePan{
     self.view.panGR.enabled = NO;
@@ -128,7 +121,7 @@ static JobsTabbarVC *static_tabbarVC = nil;
             if ([item.title isEqualToString:@"首页"]) {
                 [item pp_addBadgeWithText:@"919+"];
     #pragma mark —— 动画
-                [UIView animationAlert:item.badgeView];//图片从小放大
+                [item.badgeView animationAlert];//图片从小放大
                 shakerAnimation(item.badgeView, 2, 20);//重力弹跳动画效果
     //            [UIView 视图上下一直来回跳动的动画:item.badgeView];
             }
@@ -136,6 +129,13 @@ static JobsTabbarVC *static_tabbarVC = nil;
     }
 }
 #pragma mark —— 一些私有方法
+/// 需要强制跳转登录的index。点击和手势滑动都需要共同调用
+-(BOOL)forcedLoginIndex:(NSUInteger)index{
+    if ([self.needLoginArr containsObject:@(index)]) {
+        [self forcedLogin];
+        return YES;
+    }return NO;
+}
 /// 判别是否有Lottie
 /// @param index index
 -(BOOL)judgeLottieWithIndex:(NSInteger)index{
@@ -176,7 +176,7 @@ static JobsTabbarVC *static_tabbarVC = nil;
     
     for (UIView *subView in self.tabBar.subviews) {
         if ([subView isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
-            [UIView animationAlert:subView];//图片从小放大
+            [subView animationAlert];//图片从小放大
             [self.UITabBarButtonMutArr addObject:subView];
         }
     }
@@ -346,7 +346,7 @@ static JobsTabbarVC *static_tabbarVC = nil;
         // 图片从小放大
         if (self.isAnimationAlert) {
             UIView *UITabBarButton = self.UITabBarButtonMutArr[index];
-            [UIView animationAlert:UITabBarButton];
+            [UITabBarButton animationAlert];
         }
     }
 }

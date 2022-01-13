@@ -10,19 +10,22 @@
 
 @implementation UIView (Animation)
 
-#pragma mark —— 旋转动画
 static char *UIView_Rotate_rotateChangeAngle = "UIView_Rotate_rotateChangeAngle";
-static char *UIView_Rotate_currentAngle = "UIView_Rotate_currentAngle";
-static char *UIView_Rotate_durationTime = "UIView_Rotate_durationTime";
-static char *UIView_Rotate_delayTime = "UIView_Rotate_delayTime";
-static char *UIView_Rotate_isStopRotateAnimation = "UIView_Rotate_isStopRotateAnimation";
-
 @dynamic rotateChangeAngle;
+
+static char *UIView_Rotate_currentAngle = "UIView_Rotate_currentAngle";
 @dynamic currentAngle;
+
+static char *UIView_Rotate_durationTime = "UIView_Rotate_durationTime";
 @dynamic durationTime;
+
+static char *UIView_Rotate_delayTime = "UIView_Rotate_delayTime";
 @dynamic delayTime;
+
+static char *UIView_Rotate_isStopRotateAnimation = "UIView_Rotate_isStopRotateAnimation";
 @dynamic isStopRotateAnimation;
-//开始旋转动画
+
+/// 开始旋转动画
 -(void)startRotateAnimation{
     @weakify(self)
     CGAffineTransform endAngle = CGAffineTransformMakeRotation(self.currentAngle * (M_PI / 180.0f));
@@ -40,12 +43,12 @@ static char *UIView_Rotate_isStopRotateAnimation = "UIView_Rotate_isStopRotateAn
         }
     }];
 }
-#pragma mark —— 停止旋转动画
+/// 停止旋转动画
 -(void)stopRotateAnimation{
     self.isStopRotateAnimation = !self.isStopRotateAnimation;
 }
-#pragma mark —— 图片从小放大
-+(void)animationAlert:(UIView *)view{
+/// 图片从小放大
+-(void)animationAlert{
     CAKeyframeAnimation *popAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
     popAnimation.duration = 1;
     popAnimation.values = @[[NSValue valueWithCATransform3D:CATransform3DMakeScale(0.01f,
@@ -62,10 +65,80 @@ static char *UIView_Rotate_isStopRotateAnimation = "UIView_Rotate_isStopRotateAn
     popAnimation.timingFunctions = @[[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut],
                                      [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut],
                                      [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
-    [view.layer addAnimation:popAnimation
+    [self.layer addAnimation:popAnimation
                       forKey:nil];
 }
-#pragma mark —— 重力弹跳动画效果
+/// 视图上下一直来回跳动的动画
+-(void)视图上下一直来回跳动的动画{
+    CABasicAnimation *hover = [CABasicAnimation animationWithKeyPath:@"position"];
+    hover.additive = YES; // fromValue and toValue will be relative instead of absolute values
+    hover.fromValue = [NSValue valueWithCGPoint:CGPointZero];
+    hover.toValue = [NSValue valueWithCGPoint:CGPointMake(0.0, -10.0)]; // y increases downwards on iOS
+    hover.autoreverses = YES; // Animate back to normal afterwards
+    hover.duration = 0.5; // The duration for one part of the animation (0.2 up and 0.2 down)
+    hover.repeatCount = INFINITY; // The number of times the animation should repeat
+    hover.removedOnCompletion = NO;//锁屏进入继续动画
+    [self.layer addAnimation:hover forKey:@"myHoverAnimation"];
+}
+/// 点击放大再缩小
+-(void)addViewAnimationWithCompletionBlock:(MKDataBlock)completionBlock{
+    self.transform = CGAffineTransformIdentity;
+    [UIView animateKeyframesWithDuration:0.5
+                                   delay:0
+                                 options:0
+                              animations:^{
+        [UIView addKeyframeWithRelativeStartTime:0
+                                relativeDuration:1 / 3.0
+                                      animations:^{
+            self.transform = CGAffineTransformMakeScale(1.5, 1.5);
+        }];
+        [UIView addKeyframeWithRelativeStartTime:1/3.0
+                                relativeDuration:1/3.0
+                                      animations:^{
+            self.transform = CGAffineTransformMakeScale(0.8, 0.8);
+        }];
+        [UIView addKeyframeWithRelativeStartTime:2/3.0
+                                relativeDuration:1/3.0
+                                      animations:^{
+
+            self.transform = CGAffineTransformMakeScale(1.0, 1.0);
+        }];
+    } completion:^(BOOL finished) {
+        if (completionBlock) completionBlock(@1);
+    }];
+}
+/// 逐渐显示
+-(void)graduallyShowWithAnimationBlock:(MKDataBlock)animationBlock
+                       completionBlock:(MKDataBlock)completionBlock{
+    self.alpha = 0.0;
+    @jobs_weakify(self)
+    [UIView animateWithDuration:0.3
+                          delay:0.05
+                        options:0
+                     animations:^{
+        @jobs_strongify(self)
+        self.alpha = 1.0;
+        if (animationBlock) animationBlock(@(1));
+    } completion:^(BOOL finished) {
+        if (completionBlock) completionBlock(@(1));
+    }];
+}
+/// 逐渐消退
+-(void)graduallyDisappearWithAnimationBlock:(MKDataBlock)animationBlock
+                            completionBlock:(MKDataBlock)completionBlock{
+    @jobs_weakify(self)
+    [UIView animateWithDuration:0.3
+                          delay:0.05
+                        options:0
+                     animations:^{
+        @jobs_strongify(self)
+        self.alpha = 0.0;
+        if (animationBlock) animationBlock(@(1));
+    } completion:^(BOOL finished) {
+        if (completionBlock) completionBlock(@(1));
+    }];
+}
+/// 重力弹跳动画效果
 void shakerAnimation (UIView *view,
                       NSTimeInterval duration,
                       float height){
@@ -88,48 +161,6 @@ void shakerAnimation (UIView *view,
                            @(1)];
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     [view.layer addAnimation:animation forKey:@"kViewShakerAnimationKey"];
-}
-#pragma mark —— 视图上下一直来回跳动的动画
-+(void)视图上下一直来回跳动的动画:(UIView *)view{
-    CABasicAnimation *hover = [CABasicAnimation animationWithKeyPath:@"position"];
-    hover.additive = YES; // fromValue and toValue will be relative instead of absolute values
-    hover.fromValue = [NSValue valueWithCGPoint:CGPointZero];
-    hover.toValue = [NSValue valueWithCGPoint:CGPointMake(0.0, -10.0)]; // y increases downwards on iOS
-    hover.autoreverses = YES; // Animate back to normal afterwards
-    hover.duration = 0.5; // The duration for one part of the animation (0.2 up and 0.2 down)
-    hover.repeatCount = INFINITY; // The number of times the animation should repeat
-    hover.removedOnCompletion = NO;//锁屏进入继续动画
-    [view.layer addAnimation:hover forKey:@"myHoverAnimation"];
-}
-#pragma mark —— 点击放大再缩小
-+ (void)addViewAnimation:(UIView *)sender
-         completionBlock:(MKDataBlock)completionBlock{
-    sender.transform = CGAffineTransformIdentity;
-    [UIView animateKeyframesWithDuration:0.5
-                                   delay:0
-                                 options:0
-                              animations: ^{
-        [UIView addKeyframeWithRelativeStartTime:0
-                                relativeDuration:1 / 3.0
-                                      animations: ^{
-            sender.transform = CGAffineTransformMakeScale(1.5, 1.5);
-        }];
-        [UIView addKeyframeWithRelativeStartTime:1/3.0
-                                relativeDuration:1/3.0
-                                      animations: ^{
-            sender.transform = CGAffineTransformMakeScale(0.8, 0.8);
-        }];
-        [UIView addKeyframeWithRelativeStartTime:2/3.0
-                                relativeDuration:1/3.0
-                                      animations: ^{
-
-            sender.transform = CGAffineTransformMakeScale(1.0, 1.0);
-        }];
-    } completion:^(BOOL finished) {
-        if (completionBlock) {
-            completionBlock(@1);
-        }
-    }];
 }
 #pragma mark —— @property(nonatomic,assign)CGFloat rotateChangeAngle;
 -(CGFloat)rotateChangeAngle{

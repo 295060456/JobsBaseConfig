@@ -66,10 +66,11 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [UIView animationAlert:self.loginContentView];
-    [UIView animationAlert:self.registerContentView];
-    [UIView animationAlert:self.logoContentView];
-    [UIView animationAlert:self.customerServiceBtn];
+    
+    [self.loginContentView animationAlert];
+    [self.registerContentView animationAlert];
+    [self.logoContentView animationAlert];
+    [self.customerServiceBtn animationAlert];
     
     if ([self.requestParams integerValue] == JobsAppDoorBgType_Image) {
         

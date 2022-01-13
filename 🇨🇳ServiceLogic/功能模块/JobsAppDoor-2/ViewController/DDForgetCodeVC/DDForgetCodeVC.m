@@ -269,7 +269,7 @@
                     [inputView removeFromSuperview];
                 }
                 [x setTitle:@"去登陆" forState:UIControlStateNormal];
-                [UIView animationAlert:self.succeedBtn];
+                [self.succeedBtn animationAlert];
                 self.currentFlowSerialNum ++;
                 self.flowChartView.currentFlowSerialNum = self.currentFlowSerialNum;
             }else{}

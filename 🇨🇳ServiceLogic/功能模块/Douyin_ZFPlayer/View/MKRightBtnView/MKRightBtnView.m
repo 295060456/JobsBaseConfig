@@ -79,8 +79,7 @@
         @weakify(self)
         [[_mkZanView rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
             NSLog(@"我是点赞");
-            [UIView addViewAnimation:x.imageView
-                     completionBlock:^(id data) {
+            [x.imageView addViewAnimationWithCompletionBlock:^(id data) {
                 @strongify(self)
                 self->_mkZanView.tag = MKRightBtnViewBtnType_mkZanView;//写在block外部，此值异常
                 if (self.MKRightBtnViewBlock) {
@@ -111,8 +110,7 @@
         @weakify(self)
         [[_mkCommentView rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
             NSLog(@"我是评论");
-            [UIView addViewAnimation:x.imageView
-                     completionBlock:^(id data) {
+            [x.imageView addViewAnimationWithCompletionBlock:^(id data) {
                 @strongify(self)
                 self->_mkCommentView.tag = MKRightBtnViewBtnType_mkCommentView;//写在block外部，此值异常
                 if (self.MKRightBtnViewBlock) self.MKRightBtnViewBlock(self->_mkCommentView);
@@ -141,8 +139,7 @@
         @weakify(self)
         [[_mkShareView rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
             NSLog(@"我是分享");
-            [UIView addViewAnimation:x.imageView
-                     completionBlock:^(id data) {
+            [x.imageView addViewAnimationWithCompletionBlock:^(id data) {
                 @strongify(self)
                 self->_mkShareView.tag = MKRightBtnViewBtnType_mkShareView;//写在block外部，此值异常
                 if (self.MKRightBtnViewBlock) self.MKRightBtnViewBlock(self->_mkShareView);
@@ -158,7 +155,7 @@
         [self layoutIfNeeded];
         [_mkShareView setTitle:@"分享" forState:UIControlStateNormal];
         [_mkShareView layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
-                                            imageTitleSpace:5];
+                                      imageTitleSpace:5];
     }return _mkShareView;
 }
 

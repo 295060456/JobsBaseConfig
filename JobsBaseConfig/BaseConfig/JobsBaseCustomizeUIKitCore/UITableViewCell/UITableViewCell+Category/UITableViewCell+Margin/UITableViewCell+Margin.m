@@ -15,6 +15,9 @@ static char *UITableViewCell_Margin_indexPath = "UITableViewCell_Margin_indexPat
 static char *UITableViewCell_Margin_index = "UITableViewCell_Margin_index";
 @dynamic index;
 
+@dynamic offsetXForEach;
+@dynamic offsetYForEach;
+
 // 在具体的子类去实现,分类调用异常
 //-(void)setFrame:(CGRect)frame{
 //    NSLog(@"self.offsetXForEach = %f",self.offsetXForEach);
