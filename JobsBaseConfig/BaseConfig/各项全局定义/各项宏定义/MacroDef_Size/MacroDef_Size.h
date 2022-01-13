@@ -34,7 +34,7 @@
 #endif
 
 #pragma mark —— 安全区域
-//顶部的安全距离
+/// 顶部的安全距离
 static inline CGFloat JobsTopSafeAreaHeight(){
     if (@available(iOS 11.0, *)) {
         return getMainWindow().safeAreaInsets.top;
@@ -42,7 +42,7 @@ static inline CGFloat JobsTopSafeAreaHeight(){
         return 0.f;
     }
 }
-//底部的安全距离，全面屏手机为34pt，非全面屏手机为0pt
+/// 底部的安全距离，全面屏手机为34pt，非全面屏手机为0pt
 static inline CGFloat JobsBottomSafeAreaHeight(){
     if (@available(iOS 11.0, *)) {
         return getMainWindow().safeAreaInsets.bottom;
@@ -51,7 +51,7 @@ static inline CGFloat JobsBottomSafeAreaHeight(){
     }
 }
 #pragma mark —— 状态栏高度：全面屏手机的状态栏高度为44pt，非全面屏手机的状态栏高度为20pt
-//方法一：状态栏高度
+/// 方法一：状态栏高度
 static inline CGFloat JobsRectOfStatusbar(){
     SuppressWdeprecatedDeclarationsWarning(
         if (@available(iOS 13.0, *)){
@@ -61,7 +61,7 @@ static inline CGFloat JobsRectOfStatusbar(){
             return UIApplication.sharedApplication.statusBarFrame.size.height;
         });
 }
-//方法二：状态栏高度
+/// 方法二：状态栏高度
 static inline CGFloat JobsStatusBarHeight(){
     if (@available(iOS 11.0, *)) {
         return getMainWindow().safeAreaInsets.top;
@@ -94,9 +94,16 @@ static inline CGFloat JobsTabBarHeight(UITabBarController * _Nullable tabBarCont
         return 49.f;
     }
 }
-//tabbar高度：【包括了底部安全区域的TabBar高度，一般用这个】
+/// tabbar高度：【包括了底部安全区域的TabBar高度，一般用这个】
 static inline CGFloat JobsTabBarHeightByBottomSafeArea(UITabBarController * _Nullable tabBarController){
     return JobsTabBarHeight(tabBarController) + JobsBottomSafeAreaHeight();
+}
+/// 除开 tabBarController 和 navigationController 的内容可用区域的大小
+static inline CGFloat JobsContentAreaHeight(UITabBarController * _Nullable tabBarController,
+                                            UINavigationController * _Nullable navigationController){
+    CGFloat tabBarHeightByBottomSafeArea = JobsTabBarHeightByBottomSafeArea(tabBarController);
+    CGFloat navigationBarAndStatusBarHeight = JobsNavigationBarAndStatusBarHeight(navigationController);
+    return JobsSCREEN_HEIGHT - tabBarHeightByBottomSafeArea - navigationBarAndStatusBarHeight;
 }
 
 #endif /* MacroDef_Size_h */

@@ -16,4 +16,11 @@
     return btn;
 }
 
+-(void)greatAtEmpty{
+    UIButton *btn = self.great;
+    [btn normalImage:KIMG(@"空白图")];
+    [btn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleRight
+                         imageTitleSpace:JobsWidth(5)];
+}
+
 @end
