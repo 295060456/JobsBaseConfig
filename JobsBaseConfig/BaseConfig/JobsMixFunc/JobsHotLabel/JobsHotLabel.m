@@ -188,7 +188,12 @@
                 
                 CGFloat offset = (self.scrollView.width - self.viewModelDataArr.count * btnSize.width) / self.viewModelDataArr.count;
                 
-                make.width.mas_equalTo(self.scrollView.width - offset / 2);
+                if (self.viewModelDataArr.count > 1) {
+                    make.width.mas_equalTo(self.scrollView.width - offset / 2);
+                }else{
+                    make.width.mas_equalTo(btnSize.width);
+                }
+                
                 make.centerX.equalTo(self.scrollView);
             }
             
@@ -201,7 +206,7 @@
         _scrollView = UIScrollView.new;
         _scrollView.delegate = self;
         _scrollView.frame = self.bounds;
-        _scrollView.backgroundColor = UIColor.whiteColor;
+//        _scrollView.backgroundColor = UIColor.whiteColor;
         _scrollView.contentSize = CGSizeMake(width, btnSize.height);
         _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.showsHorizontalScrollIndicator = NO;
