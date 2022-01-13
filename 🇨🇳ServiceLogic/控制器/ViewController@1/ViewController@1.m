@@ -121,7 +121,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     }else if (indexPath == [self myIndexPath:(JobsIndexPath){14,0}]){
         
     }else if (indexPath == [self myIndexPath:(JobsIndexPath){15,0}]){
-        
+        [self comingToPushVC:JobsIMShowVC.new
+                withNavTitle:@"JobsIMVC"];
     }else{}
     
 }
@@ -325,6 +326,14 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             viewModel.subText = @"点击查看";
             [_dataMutArr addObject:viewModel];
         }
+        
+        {
+            UIViewModel *viewModel = UIViewModel.new;
+            viewModel.text = @"JobsIM";
+            viewModel.subText = @"点击查看";
+            [_dataMutArr addObject:viewModel];
+        }
+        
     }return _dataMutArr;
 }
 

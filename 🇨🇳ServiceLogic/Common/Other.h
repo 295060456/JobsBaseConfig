@@ -46,5 +46,6 @@
 #import "Douyin_ZFPlayerVC@2.h"
 #import "JobsAppDoorVC_Style2.h"
 #import "JobsCommentVC.h"
+#import "JobsIMShowVC.h"
 
 #endif /* Other_h */
