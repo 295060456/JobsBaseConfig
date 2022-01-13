@@ -81,7 +81,7 @@ static char *UIView_Rotate_isStopRotateAnimation = "UIView_Rotate_isStopRotateAn
     [self.layer addAnimation:hover forKey:@"myHoverAnimation"];
 }
 /// 点击放大再缩小
--(void)addViewAnimationWithCompletionBlock:(MKDataBlock)completionBlock{
+-(void)addViewAnimationWithCompletionBlock:(MKDataBlock _Nullable)completionBlock{
     self.transform = CGAffineTransformIdentity;
     [UIView animateKeyframesWithDuration:0.5
                                    delay:0
@@ -108,8 +108,8 @@ static char *UIView_Rotate_isStopRotateAnimation = "UIView_Rotate_isStopRotateAn
     }];
 }
 /// 逐渐显示
--(void)graduallyShowWithAnimationBlock:(MKDataBlock)animationBlock
-                       completionBlock:(MKDataBlock)completionBlock{
+-(void)graduallyShowWithAnimationBlock:(MKDataBlock _Nullable)animationBlock
+                       completionBlock:(MKDataBlock _Nullable)completionBlock{
     self.alpha = 0.0;
     @jobs_weakify(self)
     [UIView animateWithDuration:0.3
@@ -124,8 +124,8 @@ static char *UIView_Rotate_isStopRotateAnimation = "UIView_Rotate_isStopRotateAn
     }];
 }
 /// 逐渐消退
--(void)graduallyDisappearWithAnimationBlock:(MKDataBlock)animationBlock
-                            completionBlock:(MKDataBlock)completionBlock{
+-(void)graduallyDisappearWithAnimationBlock:(MKDataBlock _Nullable)animationBlock
+                            completionBlock:(MKDataBlock _Nullable)completionBlock{
     @jobs_weakify(self)
     [UIView animateWithDuration:0.3
                           delay:0.05

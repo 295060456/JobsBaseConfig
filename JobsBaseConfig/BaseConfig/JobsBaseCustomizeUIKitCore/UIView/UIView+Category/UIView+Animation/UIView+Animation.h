@@ -55,13 +55,13 @@ NS_ASSUME_NONNULL_BEGIN
 /// 视图上下一直来回跳动的动画
 -(void)视图上下一直来回跳动的动画;
 /// 点击放大再缩小
--(void)addViewAnimationWithCompletionBlock:(MKDataBlock)completionBlock;
+-(void)addViewAnimationWithCompletionBlock:(MKDataBlock _Nullable)completionBlock;
 /// 逐渐显示
--(void)graduallyShowWithAnimationBlock:(MKDataBlock)animationBlock
-                       completionBlock:(MKDataBlock)completionBlock;
+-(void)graduallyShowWithAnimationBlock:(MKDataBlock _Nullable)animationBlock
+                       completionBlock:(MKDataBlock _Nullable)completionBlock;
 /// 逐渐消退
--(void)graduallyDisappearWithAnimationBlock:(MKDataBlock)animationBlock
-                            completionBlock:(MKDataBlock)completionBlock;
+-(void)graduallyDisappearWithAnimationBlock:(MKDataBlock _Nullable)animationBlock
+                            completionBlock:(MKDataBlock _Nullable)completionBlock;
 /// 重力弹跳动画效果
 void shakerAnimation (UIView *view,
                       NSTimeInterval duration,
