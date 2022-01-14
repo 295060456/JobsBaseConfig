@@ -1,0 +1,27 @@
+//
+//  NSMutableArray+Extra.m
+//  Casino
+//
+//  Created by Jobs on 2022/1/14.
+//
+
+#import "NSMutableArray+Extra.h"
+
+@implementation NSMutableArray (Extra)
+/// 将数组里的某个元素移动到原数组的某个位
+-(NSMutableArray *_Nullable)moveElementFromIndex:(NSInteger)fromIndex
+                                         toIndex:(NSInteger)toIndex{
+    
+    BOOL a = self.count > fromIndex;
+    BOOL b = fromIndex >= 0;
+    BOOL c = toIndex >= 0;
+    
+    if (a && b && c) {
+        id element = [self objectAtIndex:fromIndex];
+        [self removeObject:element];
+        [self insertObject:element atIndex:toIndex];
+        return self;
+    }return nil;
+}
+
+@end

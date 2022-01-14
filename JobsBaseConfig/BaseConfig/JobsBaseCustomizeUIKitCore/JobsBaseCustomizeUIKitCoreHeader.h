@@ -20,6 +20,7 @@
 #import "JobsMutableDictionary.h"
 #pragma mark —— NSArray
 #import "JobsArray.h"
+#import "NSMutableArray+Extra.h"
 #pragma mark —— NSBundle
 #import "JobsBundle.h"
 #pragma mark —— NSObject

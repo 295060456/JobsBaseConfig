@@ -320,6 +320,7 @@
 		840F9C6A277367E8004979E9 /* NSObject+UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F9C69277367E8004979E9 /* NSObject+UserInfo.m */; };
 		840F9C72277368AE004979E9 /* NSObject+URLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F9C6D277368AE004979E9 /* NSObject+URLManager.m */; };
 		842D299C276C9547003B6C8E /* JobsBaseConfigNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D299B276C9547003B6C8E /* JobsBaseConfigNotificationManager.m */; };
+		844019902791997C0038FF6F /* NSMutableArray+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 8440198E2791997C0038FF6F /* NSMutableArray+Extra.m */; };
 		84432B96278C284E0028A27D /* UIWindow+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 84432B95278C284E0028A27D /* UIWindow+Extra.m */; };
 		84432C10278C45C40028A27D /* 热度.gif in Resources */ = {isa = PBXBuildFile; fileRef = 84432C0A278C45C30028A27D /* 热度.gif */; };
 		84432C12278C45C40028A27D /* 跳动的竖线.gif in Resources */ = {isa = PBXBuildFile; fileRef = 84432C0C278C45C40028A27D /* 跳动的竖线.gif */; };
@@ -1291,6 +1292,8 @@
 		840F9C6E277368AE004979E9 /* NSObject+URLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+URLManager.h"; sourceTree = "<group>"; };
 		842D299A276C9547003B6C8E /* JobsBaseConfigNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBaseConfigNotificationManager.h; sourceTree = "<group>"; };
 		842D299B276C9547003B6C8E /* JobsBaseConfigNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsBaseConfigNotificationManager.m; sourceTree = "<group>"; };
+		8440198E2791997C0038FF6F /* NSMutableArray+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Extra.m"; sourceTree = "<group>"; };
+		8440198F2791997C0038FF6F /* NSMutableArray+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Extra.h"; sourceTree = "<group>"; };
 		84432B94278C284E0028A27D /* UIWindow+Extra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Extra.h"; sourceTree = "<group>"; };
 		84432B95278C284E0028A27D /* UIWindow+Extra.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Extra.m"; sourceTree = "<group>"; };
 		84432C0A278C45C30028A27D /* 热度.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "热度.gif"; sourceTree = "<group>"; };
@@ -2568,15 +2571,15 @@
 			isa = PBXGroup;
 			children = (
 				840F93E527736426004979E9 /* JobsBaseCustomizeUIKitCoreHeader.h */,
-				84432B93278C283D0028A27D /* UIWindow */,
-				8486925B277B33570098BE7A /* NSNumber */,
 				840F94FD27736427004979E9 /* AppDelegate */,
 				840F95A727736427004979E9 /* BaseProtocol */,
 				840F94F427736427004979E9 /* CALayer */,
 				840F94B327736426004979E9 /* NSArray */,
 				840F936D27736426004979E9 /* NSBundle */,
 				840F94E927736427004979E9 /* NSCache */,
+				8440198D2791997C0038FF6F /* NSMutableArray */,
 				840F93E627736426004979E9 /* NSMutableDictionary */,
+				8486925B277B33570098BE7A /* NSNumber */,
 				840F950327736427004979E9 /* NSObject */,
 				840F942927736426004979E9 /* NSString */,
 				840F94DC27736426004979E9 /* NSUserDefaults */,
@@ -2602,6 +2605,7 @@
 				840F93ED27736426004979E9 /* UITextView */,
 				840F93A527736426004979E9 /* UIView */,
 				840F944A27736426004979E9 /* UIViewController */,
+				84432B93278C283D0028A27D /* UIWindow */,
 			);
 			path = JobsBaseCustomizeUIKitCore;
 			sourceTree = "<group>";
@@ -5008,6 +5012,15 @@
 				840F9C6E277368AE004979E9 /* NSObject+URLManager.h */,
 			);
 			path = "NSObject+URLManager";
+			sourceTree = "<group>";
+		};
+		8440198D2791997C0038FF6F /* NSMutableArray */ = {
+			isa = PBXGroup;
+			children = (
+				8440198F2791997C0038FF6F /* NSMutableArray+Extra.h */,
+				8440198E2791997C0038FF6F /* NSMutableArray+Extra.m */,
+			);
+			path = NSMutableArray;
 			sourceTree = "<group>";
 		};
 		84432B93278C283D0028A27D /* UIWindow */ = {
@@ -8586,6 +8599,7 @@
 				84432B96278C284E0028A27D /* UIWindow+Extra.m in Sources */,
 				840F963D27736427004979E9 /* JobsPageView.m in Sources */,
 				846DF03B27806D230050468A /* JobsAppDoorContentView.m in Sources */,
+				844019902791997C0038FF6F /* NSMutableArray+Extra.m in Sources */,
 				840F968A27736428004979E9 /* BaseCollectionView.m in Sources */,
 				844B02122764C8EE00B0513D /* AppDelegate.m in Sources */,
 				84CA5FAE27897AFB00E46E71 /* XLChannelHeader.m in Sources */,
