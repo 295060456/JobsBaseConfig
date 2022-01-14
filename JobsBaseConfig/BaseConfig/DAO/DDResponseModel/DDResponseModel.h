@@ -6,12 +6,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NetworkingConstant.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DDResponseModel : NSObject
 
-@property(nonatomic,assign)int code;
+@property(nonatomic,assign)HTTPResponseCode code;
 @property(nonatomic,copy)NSString *msg;
 @property(nonatomic,strong)id data;
 

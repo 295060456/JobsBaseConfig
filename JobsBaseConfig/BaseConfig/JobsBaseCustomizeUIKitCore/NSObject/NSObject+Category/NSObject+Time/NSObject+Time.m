@@ -40,7 +40,7 @@
     }
     timeModel.date = date;//时间字符串NSDate
     timeModel.dateStr = [dateFormatter stringFromDate:date];//NSDate转时间字符串
-    timeModel.intervalBySec = [date timeIntervalSince1970];//(NSDate *)时间转时间戳 单位：秒
+    timeModel.intervalBySec = date.timeIntervalSince1970;//(NSDate *)时间转时间戳 单位：秒
     timeModel.intervalByMilliSec = intervalBySec * 1000;//(NSDate *)时间转时间戳 单位：毫秒
     return timeModel;
 }
@@ -67,9 +67,9 @@
         
 //        [dateFormatter stringFromDate:date];
         
-        timeSp = [NSString stringWithFormat:@"%ld", (long)[date timeIntervalSince1970]];
+        timeSp = [NSString stringWithFormat:@"%ld", (long)date.timeIntervalSince1970];
     }else if(intervalStyle == intervalByMilliSec){
-        timeSp = [NSString stringWithFormat:@"%ld", (long)[date timeIntervalSince1970] * 1000];
+        timeSp = [NSString stringWithFormat:@"%ld", (long)date.timeIntervalSince1970 * 1000];
     }
     return timeSp;
 }
