@@ -17,7 +17,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        [self richElementsInCellWithModel:nil];
+
     }return self;
 }
 #pragma mark —— BaseCellProtocol
@@ -37,23 +37,27 @@
 }
 /// 具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 -(void)richElementsInCellWithModel:(UIViewModel *_Nullable)model{
+    [_textLab removeFromSuperview];
+    _textLab = nil;
     self.viewModel = model;
-    self.textLab.alpha = 1;
+    if (self.viewModel) {
+        self.textLab.alpha = 1;
+    }
 }
 /// 具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 +(CGSize)cellSizeWithModel:(UIViewModel *_Nullable)model{
     return [UILabel sizeWithText:model.text
-                            font:[UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular]
+                            font:model.font
                          maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
 }
 #pragma mark —— lazyLoad
 -(UILabel *)textLab{
     if (!_textLab) {
         _textLab = UILabel.new;
+        _textLab.backgroundColor = self.viewModel.bgCor;
         _textLab.textColor = self.viewModel.textCor;
         _textLab.textAlignment = NSTextAlignmentCenter;
         _textLab.text = self.viewModel.text;
-        _textLab.backgroundColor = self.viewModel.bgCor;
         [self.contentView addSubview:_textLab];
         [_textLab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.contentView);

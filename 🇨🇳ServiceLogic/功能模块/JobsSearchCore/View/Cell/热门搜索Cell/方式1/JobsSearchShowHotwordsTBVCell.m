@@ -28,24 +28,27 @@
 +(CGFloat)cellHeightWithModel:(NSMutableArray <UIViewModel *>* _Nullable)model{
     CGFloat width = hotLabLeft + hotLabRight;
     CGFloat height = 0;
-    int row = 0;
+    int row = 1;
     for (UIViewModel *viewModel in model) {
         CGSize size = [UILabel sizeWithText:viewModel.text
                                        font:[UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular]
                                     maxSize:CGSizeZero];
-        width += size.width + hotLabOffset;
+        width += size.width + hotLabOffsetX;
         height = size.height;
-        
         if (width >= JobsSearchShowHotwordsTBVCellWidth) {
             width = hotLabLeft + hotLabRight;
             row += 1;
         }
-    }return height * row + (hotLabTop + hotLabBottom);
+    }
+    CGFloat offset = JobsWidth(3);// 从何而来？
+    return (height + hotLabOffsetY) * row + (hotLabTop + hotLabBottom) + offset;
 }
 
 -(void)richElementsInCellWithModel:(NSMutableArray <UIViewModel *>* _Nullable)model{
     self.viewModelMutArr = model;
-    [self.jobsHotLabel richElementsInViewWithModel:self.viewModelMutArr];
+    if (self.viewModelMutArr.count) {
+        [self.jobsHotLabel richElementsInViewWithModel:self.viewModelMutArr];
+    }
 }
 #pragma mark —— lazyLoad
 -(JobsHotLabelWithMultiLine *)jobsHotLabel{

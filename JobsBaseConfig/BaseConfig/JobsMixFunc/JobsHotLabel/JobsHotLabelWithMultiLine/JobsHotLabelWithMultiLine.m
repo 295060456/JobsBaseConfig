@@ -33,6 +33,7 @@
 -(void)drawRect:(CGRect)rect{
     [super drawRect:rect];
 }
+#pragma mark —— BaseCellProtocol
 /// 具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 -(void)richElementsInViewWithModel:(NSMutableArray <UIViewModel *>* _Nullable)model{
     self.viewModelMutArr = model;
@@ -41,9 +42,9 @@
     }
 }
 /// 具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
-+(CGSize)viewSizeWithModel:(id _Nullable)model{
-    return CGSizeZero;
-}
+//+(CGSize)viewSizeWithModel:(id _Nullable)model{
+//    return CGSizeZero;
+//}
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
@@ -100,28 +101,28 @@ didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"%s", __FUNCTION__);
 }
 #pragma mark —— UICollectionViewDelegateFlowLayout
-- (CGSize)collectionView:(UICollectionView *)collectionView
-                  layout:(UICollectionViewLayout *)collectionViewLayout
-  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+-(CGSize)collectionView:(UICollectionView *)collectionView
+                 layout:(UICollectionViewLayout *)collectionViewLayout
+ sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return [JobsHotLabelWithMultiLineCVCell cellSizeWithModel:self.viewModelMutArr[indexPath.item]];
 }
 /// 定义的是元素垂直之间的间距
-- (CGFloat)collectionView:(UICollectionView *)collectionView
-                   layout:(UICollectionViewLayout *)collectionViewLayout
+-(CGFloat)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
 minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return 12;
+    return hotLabOffsetY;
 }
 /// 定义的是元素水平之间的间距。Api自动计算一行的Cell个数，只有当间距小于此定义的最小值时才会换行，最小执行单元是Section（每个section里面的样式是统一的）
-- (CGFloat)collectionView:(UICollectionView *)collectionView
-                   layout:(UICollectionViewLayout *)collectionViewLayout
+-(CGFloat)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
 minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
-    return 0;
+    return hotLabOffsetX;
 }
-///内间距
+/// 内间距
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView
                        layout:(UICollectionViewLayout*)collectionViewLayout
        insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(0, 0, 0, 0);
+    return UIEdgeInsetsMake(hotLabTop, hotLabLeft, hotLabBottom, hotLabRight);
 }
 #pragma mark —— lazyLoad
 -(UICollectionViewFlowLayout *)layout{
@@ -139,15 +140,13 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
         _collectionView.showsVerticalScrollIndicator = NO;
+        _collectionView.scrollEnabled = NO;
         
         [_collectionView registerCollectionViewClass];
         
         [self addSubview:_collectionView];
         [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self).offset(50);
-            make.left.equalTo(self);
-            make.right.equalTo(self);
-            make.bottom.equalTo(self);
+            make.edges.equalTo(self);
         }];
     }return _collectionView;
 }

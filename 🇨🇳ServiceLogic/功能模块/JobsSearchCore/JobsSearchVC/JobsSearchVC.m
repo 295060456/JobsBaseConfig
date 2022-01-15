@@ -58,6 +58,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self.tableView.mj_header beginRefreshing];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -87,6 +88,16 @@
     [self.view endEditing:YES];
 }
 #pragma mark —— 一些私有化方法
+///下拉刷新 （子类要进行覆写）
+-(void)pullToRefresh{
+    [NSObject feedbackGenerator];//震动反馈
+    [self endRefreshing:self.tableView];
+//    [self endRefreshingWithNoMoreData:self.tableView];
+}
+///上拉加载更多 （子类要进行覆写）
+-(void)loadMoreRefresh{
+    [self pullToRefresh];
+}
 /// 逐字搜索功能
 -(void)searchByString:(NSString *)string{
     //每次都清数据
@@ -343,6 +354,28 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         
         [_tableView registerClass:JobsSearchTableViewHeaderView.class
 forHeaderFooterViewReuseIdentifier:NSStringFromClass(JobsSearchTableViewHeaderView.class)];
+        
+        {
+            MJRefreshConfigModel *refreshConfigHeader = MJRefreshConfigModel.new;
+            refreshConfigHeader.stateIdleTitle = @"下拉可以刷新";
+            refreshConfigHeader.pullingTitle = @"下拉可以刷新";
+            refreshConfigHeader.refreshingTitle = @"松开立即刷新";
+            refreshConfigHeader.willRefreshTitle = @"刷新数据中";
+            refreshConfigHeader.noMoreDataTitle = @"下拉可以刷新";
+
+            MJRefreshConfigModel *refreshConfigFooter = MJRefreshConfigModel.new;
+            refreshConfigFooter.stateIdleTitle = @"";
+            refreshConfigFooter.pullingTitle = @"";
+            refreshConfigFooter.refreshingTitle = @"";
+            refreshConfigFooter.willRefreshTitle = @"";
+            refreshConfigFooter.noMoreDataTitle = @"";
+
+            self.refreshConfigHeader = refreshConfigHeader;
+            self.refreshConfigFooter = refreshConfigFooter;
+
+            _tableView.mj_header = self.mjRefreshNormalHeader;
+            _tableView.mj_header.automaticallyChangeAlpha = YES;//根据拖拽比例自动切换透明度
+        }
         
         @jobs_weakify(self)
         [_tableView actionViewBlock:^(id data) {

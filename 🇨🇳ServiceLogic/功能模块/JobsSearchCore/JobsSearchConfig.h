@@ -8,16 +8,12 @@
 #ifndef JobsSearchConfig_h
 #define JobsSearchConfig_h
 
-#ifndef JobsSearchShowHotwordsTBVCellHeight
+#ifndef JobsSearchShowHotwordsTBVCellHeight ///???
 #define JobsSearchShowHotwordsTBVCellHeight JobsWidth(40)//行高
 #endif
 
-#ifndef listNum
+#ifndef listNum  //???
 #define listNum 2//列数
-#endif
-
-#ifndef hotLabOffset
-#define hotLabOffset JobsWidth(5)
 #endif
 
 #ifndef hotLabLeft
@@ -34,6 +30,14 @@
 
 #ifndef hotLabBottom
 #define hotLabBottom JobsWidth(3)
+#endif
+
+#ifndef hotLabOffsetX
+#define hotLabOffsetX JobsWidth(3)
+#endif
+
+#ifndef hotLabOffsetY
+#define hotLabOffsetY JobsWidth(3)
 #endif
 
 #ifndef JobsSearchShowHotwordsTBVCellWidth
