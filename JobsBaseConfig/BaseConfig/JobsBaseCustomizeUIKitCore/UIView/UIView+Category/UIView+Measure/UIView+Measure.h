@@ -12,6 +12,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/// 操作顺序，添加视图 再进行 布局
+typedef void(^EqualToView)(UIView *view);
 /* ❤️【优先级】 @implementation UIView (Measure) > Masonry,因为Masonry刷新后才有frame ❤️*/
 @interface UIView (Measure)<BaseViewProtocol>
 
@@ -29,6 +31,42 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)CGFloat right;
 @property(nonatomic,assign)CGFloat top;
 @property(nonatomic,assign)CGFloat bottom;
+
+#pragma mark ——【UIView对齐方法扩充】 https://github.com/MisterZhouZhou/ZWUIViewExtension
+/** centerX equal to View‘s centerX
+ *  centerxEqualToView(superview/view)
+ */
+-(EqualToView)centerxEqualToView;
+
+/** centerY equal to View‘s centerY
+ *  centeryEqualToView(superview/view)
+ */
+-(EqualToView)centeryEqualToView;
+
+/** center equal to View‘s center
+ *  centerEqualToView(superview/view)
+ */
+-(EqualToView)centerEqualToView;
+
+/** left equal to View‘s left
+ *  leftEqualToView(superview/view)
+ */
+-(EqualToView)leftEqualToView;
+
+/** right equal to View‘s right
+ *  rightEqualToView(superview/view)
+ */
+-(EqualToView)rightEqualToView;
+
+/** top equal to View‘s top
+ *  topEqualToView(superview/view)
+ */
+-(EqualToView)topEqualToView;
+
+/** bottom equal to View‘s bottom
+ *  bottomEqualToView(superview/view)
+ */
+-(EqualToView)bottomEqualToView;
 
 @end
 

@@ -3106,8 +3106,8 @@
 		840F93B627736426004979E9 /* UIView+Measure */ = {
 			isa = PBXGroup;
 			children = (
-				840F93B727736426004979E9 /* UIView+Measure.m */,
 				840F93B827736426004979E9 /* UIView+Measure.h */,
+				840F93B727736426004979E9 /* UIView+Measure.m */,
 			);
 			path = "UIView+Measure";
 			sourceTree = "<group>";

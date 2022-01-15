@@ -10,6 +10,102 @@
 /* ❤️【优先级】 @implementation UIView (Measure) > Masonry,因为Masonry刷新后才有frame ❤️*/
 @implementation UIView (Measure)
 
+#pragma mark ——【UIView对齐方法扩充】 https://github.com/MisterZhouZhou/ZWUIViewExtension
+/// 设置水平方向对齐
+-(EqualToView)centerxEqualToView{
+    @jobs_weakify(self);
+    return ^(UIView *view){
+        @jobs_strongify(self);
+        //如果是子父关系
+        if ([self.superview isKindOfClass:view.class]) {
+            self.center = CGPointMake(view.center.x - view.x, self.center.y);
+        }else{
+            self.center = CGPointMake(view.center.x, self.center.y);
+        }
+    };
+}
+/// 设置垂平方向对齐
+-(EqualToView)centeryEqualToView{
+    @jobs_weakify(self);
+    return ^(UIView *view){
+        @jobs_strongify(self);
+        //如果是子父关系
+         if ([self.superview isKindOfClass:view.class]) {
+             self.center = CGPointMake(self.center.x, view.center.y - view.y);
+         }else{
+             self.center = CGPointMake(self.center.x, view.center.y);
+         }
+    };
+}
+/// 设置中心方向对齐
+-(EqualToView)centerEqualToView{
+    @jobs_weakify(self);
+    return ^(UIView *view){
+        @jobs_strongify(self);
+        //如果是子父关系
+        if ([self.superview isKindOfClass:view.class]) {
+            self.center = CGPointMake(view.center.x - view.x , view.center.y - view.y);
+        }else{
+            self.center = view.center;
+        }
+    };
+}
+/// 设置左对齐
+-(EqualToView)leftEqualToView{
+    @jobs_weakify(self);
+    return ^(UIView *view){
+        @jobs_strongify(self);
+        //如果是子父关系
+        if ([self.superview isKindOfClass:view.class]) {
+            self.center = CGPointMake(view.center.x - view.x,self.center.y);
+            self.x =  self.centerX - view.width/2;
+        }else{
+            self.x = view.x;
+        }
+    };
+}
+/// 设置右对齐
+-(EqualToView)rightEqualToView{
+    @jobs_weakify(self);
+    return ^(UIView *view){
+        @jobs_strongify(self);
+        //如果是子父关系
+        if ([self.superview isKindOfClass:view.class]) {
+            self.center = CGPointMake(view.center.x - view.x,self.center.y);
+            self.maxX =  self.centerX + view.width/2;
+        }else{
+            self.maxX = view.maxX;
+        }
+    };
+}
+/// 设置顶部对齐
+-(EqualToView)topEqualToView{
+    @jobs_weakify(self);
+    return ^(UIView *view){
+        @jobs_strongify(self);
+        //如果是子父关系
+        if ([self.superview isKindOfClass:view.class]) {
+            self.center = CGPointMake(self.center.x,view.center.y - view.y);
+            self.y =  self.centerY - view.height/2;
+        }else{
+            self.y = view.y;
+        }
+    };
+}
+/// 设置底部对齐
+-(EqualToView)bottomEqualToView{
+    @jobs_weakify(self);
+    return ^(UIView *view){
+        @jobs_strongify(self);
+        //如果是子父关系
+        if ([self.superview isKindOfClass:view.class]) {
+            self.center = CGPointMake(self.center.x,view.center.y - view.y);
+            self.maxY = self.centerY + view.height/2;
+        }else{
+            self.maxY = view.maxY;
+        }
+    };
+}
 #pragma mark —— 简捷获得控件坐标
 -(CGFloat)top {
     return CGRectGetMinY(self.frame);
