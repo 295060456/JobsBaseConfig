@@ -111,38 +111,30 @@
     return CGRectGetMinY(self.frame);
 }
 
-- (void)setTop:(CGFloat)y {
+-(void)setTop:(CGFloat)y{
     CGRect frame = self.frame;
     frame.origin.y = y;
     self.frame = frame;
 }
 
-- (void)setX:(CGFloat)x{
+-(void)setX:(CGFloat)x{
     CGRect frame = self.frame;
     frame.origin.x = x;
     self.frame = frame;
 }
 
-- (void)setY:(CGFloat)y{
+-(void)setY:(CGFloat)y{
     CGRect frame = self.frame;
     frame.origin.y = y;
     self.frame = frame;
 }
 
-- (CGFloat)x{
+-(CGFloat)x{
     return self.frame.origin.x;
 }
 
-- (CGFloat)y{
+-(CGFloat)y{
     return self.frame.origin.y;
-}
-
--(CGFloat)maxX{
-    return CGRectGetMaxX(self.frame);
-}
-
--(CGFloat)maxY{
-    return CGRectGetMaxY(self.frame);
 }
 
 -(void)setCenterX:(CGFloat)centerX{
@@ -209,7 +201,7 @@
     return CGRectGetMaxX(self.frame);
 }
 
--(CGFloat)left {
+-(CGFloat)left{
     return self.frame.origin.x;
 }
 
@@ -217,29 +209,49 @@
     return CGRectGetMaxY(self.frame);
 }
 
--(CGFloat)right {
+-(CGFloat)right{
     return self.frame.origin.x + self.frame.size.width;
 }
 
--(void)setLeft:(CGFloat)x {
+-(void)setLeft:(CGFloat)x{
     CGRect frame = self.frame;
     frame.origin.x = x;
     self.frame = frame;
 }
 
--(void)setRight:(CGFloat)right {
+-(void)setRight:(CGFloat)right{
     CGRect frame = self.frame;
     frame.origin.x = right - frame.size.width;
     self.frame = frame;
 }
 
--(CGFloat)bottom {
+-(CGFloat)bottom{
     return self.frame.origin.y + self.frame.size.height;
 }
 
 -(void)setBottom:(CGFloat)bottom {
     CGRect frame = self.frame;
     frame.origin.y = bottom - frame.size.height;
+    self.frame = frame;
+}
+
+- (void)setMaxX:(CGFloat)maxX{
+    CGRect frame = self.frame;
+    frame.origin.x = maxX - self.width;
+    self.frame = frame;
+}
+
+-(CGFloat)maxX{
+    return self.frame.origin.x + self.frame.size.width;
+}
+
+-(CGFloat)maxY{
+    return self.frame.origin.y + self.frame.size.height;
+}
+
+- (void)setMaxY:(CGFloat)maxY{
+    CGRect frame = self.frame;
+    frame.origin.y = maxY - self.height;
     self.frame = frame;
 }
 #pragma mark —— BaseViewProtocol
