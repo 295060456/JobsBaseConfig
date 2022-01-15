@@ -20,6 +20,10 @@
 
     }return self;
 }
+#pragma mark —— JobsDoorInputViewProtocol
+-(UIViewModel *_Nullable)getViewModel{
+    return self.viewModel;
+}
 #pragma mark —— BaseCellProtocol
 +(instancetype)cellWithCollectionView:(nonnull UICollectionView *)collectionView
                          forIndexPath:(nonnull NSIndexPath *)indexPath{

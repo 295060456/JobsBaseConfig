@@ -55,7 +55,7 @@
     if (!_jobsHotLabel) {
         _jobsHotLabel = JobsHotLabelWithMultiLine.new;
         @jobs_weakify(self)
-        [_jobsHotLabel actionViewBlock:^(id data) {//点击了哪个Btn？
+        [_jobsHotLabel actionViewBlock:^(UIViewModel *data) {
             @jobs_strongify(self)
             if (self.viewBlock) self.viewBlock(data);
         }];

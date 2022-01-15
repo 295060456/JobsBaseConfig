@@ -10,8 +10,6 @@
 
 @interface BaseTableView ()
 
-@property(nonatomic,copy)MKDataBlock baseTableViewBlock;
-
 @end
 
 @implementation BaseTableView
@@ -38,12 +36,6 @@
 
 -(void)layoutIfNeeded{
     [super layoutIfNeeded];
-}
-/**
-    用于以此为基类的BaseTableView具体子类上所有数据的回调,当然也可以用NSObject分类的方法定位于：@interface NSObject (CallBackInfoByBlock)
- */
--(void)actionBlockBaseTableView:(MKDataBlock _Nullable)baseTableViewBlock{
-    self.baseTableViewBlock = baseTableViewBlock;
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches

@@ -14,7 +14,6 @@
 #import "JobsSearchTableViewHeaderView.h"
 #import "JobsSearchShowHistoryDataTBVCell.h"/// 搜索历史
 #import "JobsSearchShowHotwordsTBVCell.h"/// 热门搜索
-#import "JobsSearchTableView.h"
 #import "JobsSearchResultDataListView.h"/// 逐字搜索返回数据结果下拉列表
 
 #import "UITableView+WWFoldableTableView.h"

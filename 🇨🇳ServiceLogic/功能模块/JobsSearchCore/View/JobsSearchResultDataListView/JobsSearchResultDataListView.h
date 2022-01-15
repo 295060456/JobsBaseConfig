@@ -8,9 +8,9 @@
 #import <UIKit/UIKit.h>
 #import "MacroDef_Func.h"
 #import "BaseView.h"
-
-#import "JobsSearchTableView.h"
+#import "BaseTableView.h"
 #import "JobsSearchResultDataListTBVCell.h"
+
 #if __has_include(<LYEmptyView/LYEmptyViewHeader.h>)
 #import <LYEmptyView/LYEmptyViewHeader.h>
 #else
@@ -25,7 +25,7 @@ UITableViewDelegate
 ,UITableViewDataSource
 >
 
-@property(nonatomic,strong)JobsSearchTableView *tableView;
+@property(nonatomic,strong)BaseTableView *tableView;
 @property(nonatomic,strong)NSMutableArray <UIViewModel *>*searchResDataMutArr;
 @property(nonatomic,assign)BOOL isEndScroll;//是否停止滚动
 

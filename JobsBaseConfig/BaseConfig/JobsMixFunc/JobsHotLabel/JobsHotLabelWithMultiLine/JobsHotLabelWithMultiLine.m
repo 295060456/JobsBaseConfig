@@ -42,9 +42,26 @@
     }
 }
 /// 具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
-//+(CGSize)viewSizeWithModel:(id _Nullable)model{
-//    return CGSizeZero;
-//}
++(CGSize)viewSizeWithModel:(UIViewModel * _Nullable)model{
+    NSMutableArray <UIViewModel *>*viewModelMutArr = model.viewModelMutArr;
+    CGFloat width = hotLabLeft + hotLabRight;
+    CGFloat height = 0;
+    int row = 1;
+    for (UIViewModel *viewModel in viewModelMutArr) {
+        CGSize size = [UILabel sizeWithText:viewModel.text
+                                       font:[UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular]
+                                    maxSize:CGSizeZero];
+        width += size.width + hotLabOffsetX;
+        height = size.height;
+        if (width >= JobsSearchShowHotwordsTBVCellWidth) {
+            width = hotLabLeft + hotLabRight;
+            row += 1;
+        }
+    }
+    CGFloat offset = JobsWidth(3);// 从何而来？
+    return CGSizeMake(model.jobsWidth,
+                      (height + hotLabOffsetY) * row + (hotLabTop + hotLabBottom) + offset);
+}
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
@@ -94,6 +111,9 @@ shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
 - (void)collectionView:(UICollectionView *)collectionView
 didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"%s", __FUNCTION__);
+    JobsHotLabelWithMultiLineCVCell *cell = (JobsHotLabelWithMultiLineCVCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    [WHToast toastSuccessMsg:cell.getViewModel.text];
+    if (self.viewBlock) self.viewBlock(cell.getViewModel);
 }
 /// 取消选中操作
 -(void)collectionView:(UICollectionView *)collectionView

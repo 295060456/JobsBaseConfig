@@ -12,6 +12,7 @@
 #import "ZBNetworking.h"/// 网络请求
 #import "JobsNoticePopupView.h"
 #import "JobsHotLabelWithSingleLine.h"
+#import "JobsHotLabelWithMultiLine.h"
 #import "JobsPageView.h"
 #import "JobsBasePopupView.h"
 #import "JobsBitsMonitor.h"

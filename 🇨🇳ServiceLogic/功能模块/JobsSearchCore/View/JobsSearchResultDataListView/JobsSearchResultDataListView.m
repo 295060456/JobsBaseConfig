@@ -40,9 +40,10 @@
 //UIScrollView滚动停止监测 https://muscliy.github.io/2015/07/07/UIScrollView%E6%BB%9A%E5%8A%A8%E5%81%9C%E6%AD%A2%E7%9B%91%E6%B5%8B/
 -(void)scrollViewDidScroll:(UIScrollView *)sender{
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
-    [self performSelector:@selector(scrollViewDidEndScrollingAnimation:)
-               withObject:nil
-               afterDelay:0.1];
+    [self delay:0.1f
+          doSth:^(id data) {
+        [self scrollViewDidEndScrollingAnimation:sender];
+    }];
 }
 
 -(void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
@@ -85,9 +86,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     }];return cell;
 }
 #pragma mark —— lazyLoad
--(JobsSearchTableView *)tableView{
+-(BaseTableView *)tableView{
     if (!_tableView) {
-        _tableView = JobsSearchTableView.new;
+        _tableView = BaseTableView.new;
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.tableFooterView = UIView.new;

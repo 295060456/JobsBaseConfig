@@ -10,7 +10,7 @@
 @interface JobsSearchVC ()
 /// UI
 @property(nonatomic,strong)UIButton *scanBtn;
-@property(nonatomic,strong)JobsSearchTableView *tableView;
+@property(nonatomic,strong)BaseTableView *tableView;
 @property(nonatomic,strong)JobsSearchBar *jobsSearchBar;
 @property(nonatomic,strong)JobsSearchResultDataListView *jobsSearchResultDataListView;
 /// Data
@@ -231,9 +231,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
                     [cell richElementsInCellWithModel:self.hotSearchMutArr];
                     @jobs_weakify(self)
                     /// 点击的哪个btn？
-                    [cell actionViewBlock:^(UIButton *data) {
+                    [cell actionViewBlock:^(UIViewModel *data) {
                         @jobs_strongify(self)
-                        self.jobsSearchBar.getTextField.text = data.titleLabel.text;
+                        self.jobsSearchBar.getTextField.text = data.text;
                         self.jobsSearchResultDataListView.alpha = 1;
                     }];return cell;
                 }break;
@@ -300,7 +300,7 @@ viewForHeaderInSection:(NSInteger)section{
         }];
     }
 
-    self.scrollViewClass = JobsSearchTableView.class;//这一属性决定UITableViewHeaderFooterView是否悬停
+    self.scrollViewClass = BaseTableView.class;//这一属性决定UITableViewHeaderFooterView是否悬停
     return header;
     
 //    {
@@ -340,9 +340,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     }];
 }
 #pragma mark —— lazyLoad
--(JobsSearchTableView *)tableView{
+-(BaseTableView *)tableView{
     if (!_tableView) {
-        _tableView = JobsSearchTableView.new;
+        _tableView = BaseTableView.new;
         _tableView.backgroundColor = self.bgColour;
         _tableView.delegate = self;
         _tableView.dataSource = self;
@@ -692,11 +692,10 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass(JobsSearchTableViewHeaderVi
 -(JobsSearchResultDataListView *)jobsSearchResultDataListView{
     if (!_jobsSearchResultDataListView) {
         _jobsSearchResultDataListView = JobsSearchResultDataListView.new;
-        _jobsSearchResultDataListView.backgroundColor = kRedColor;
+        _jobsSearchResultDataListView.backgroundColor = UIColor.lightGrayColor;
         @jobs_weakify(self)
         [_jobsSearchResultDataListView actionViewBlock:^(id data) {
             @jobs_strongify(self)
-
             if ([data isKindOfClass:JobsSearchResultDataListView.class]){//滚动
                 NSLog(@"");
             }else if ([data isKindOfClass:NSString.class] &&
