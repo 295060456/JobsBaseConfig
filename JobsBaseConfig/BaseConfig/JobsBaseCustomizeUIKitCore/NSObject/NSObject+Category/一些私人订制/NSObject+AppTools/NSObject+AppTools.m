@@ -179,7 +179,7 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
     [self popupWithView:upgradePopupView];
 }
 
--(void)actionForHotLabel:(JobsHotLabel *)hl{
+-(void)actionForHotLabel:(JobsHotLabelWithSingleLine *)hl{
 //    @jobs_weakify(self)
     [hl actionViewBlock:^(UIButton *btn) {
 //        @jobs_strongify(self)

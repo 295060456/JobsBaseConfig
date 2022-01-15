@@ -39,3 +39,23 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
+#pragma mark —— @synthesize BaseViewControllerProtocol
+#ifndef BaseViewControllerProtocol_synthesize
+#define BaseViewControllerProtocol_synthesize \
+@synthesize fromVC = _fromVC;\
+@synthesize alertController = _alertController;\
+@synthesize pushOrPresent = _pushOrPresent;\
+@synthesize setupNavigationBarHidden = _setupNavigationBarHidden;\
+
+#endif
+
+#pragma mark —— @dynamic BaseViewControllerProtocol
+#ifndef BaseViewControllerProtocol_dynamic
+#define BaseViewControllerProtocol_dynamic \
+@dynamic fromVC;\
+@dynamic alertController;\
+@dynamic pushOrPresent;\
+@dynamic setupNavigationBarHidden;\
+
+#endif

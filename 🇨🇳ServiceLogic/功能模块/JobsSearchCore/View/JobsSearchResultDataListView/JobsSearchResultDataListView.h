@@ -26,7 +26,7 @@ UITableViewDelegate
 >
 
 @property(nonatomic,strong)JobsSearchTableView *tableView;
-@property(nonatomic,strong)NSMutableArray <NSString *>*searchResDataMutArr;
+@property(nonatomic,strong)NSMutableArray <UIViewModel *>*searchResDataMutArr;
 @property(nonatomic,assign)BOOL isEndScroll;//是否停止滚动
 
 @end

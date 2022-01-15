@@ -9,7 +9,7 @@
 
 @interface JobsSearchShowHotwordsTBVCell ()
 
-@property(nonatomic,strong)JobsHotLabel *jobsHotLabel;
+@property(nonatomic,strong)JobsHotLabelWithMultiLine *jobsHotLabel;
 
 @end
 
@@ -25,18 +25,32 @@
     }return cell;
 }
 
-+(CGFloat)cellHeightWithModel:(id _Nullable)model{
-    return 170;
++(CGFloat)cellHeightWithModel:(NSMutableArray <UIViewModel *>* _Nullable)model{
+    CGFloat width = hotLabLeft + hotLabRight;
+    CGFloat height = 0;
+    int row = 0;
+    for (UIViewModel *viewModel in model) {
+        CGSize size = [UILabel sizeWithText:viewModel.text
+                                       font:[UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular]
+                                    maxSize:CGSizeZero];
+        width += size.width + hotLabOffset;
+        height = size.height;
+        
+        if (width >= JobsSearchShowHotwordsTBVCellWidth) {
+            width = hotLabLeft + hotLabRight;
+            row += 1;
+        }
+    }return height * row + (hotLabTop + hotLabBottom);
 }
 
--(void)richElementsInCellWithModel:(id _Nullable)model{
-    NSLog(@"");
-//    self.jobsHotLabel.viewModelDataArr = (NSArray *)model;
+-(void)richElementsInCellWithModel:(NSMutableArray <UIViewModel *>* _Nullable)model{
+    self.viewModelMutArr = model;
+    [self.jobsHotLabel richElementsInViewWithModel:self.viewModelMutArr];
 }
 #pragma mark —— lazyLoad
--(JobsHotLabel *)jobsHotLabel{
+-(JobsHotLabelWithMultiLine *)jobsHotLabel{
     if (!_jobsHotLabel) {
-        _jobsHotLabel = JobsHotLabel.new;
+        _jobsHotLabel = JobsHotLabelWithMultiLine.new;
         @jobs_weakify(self)
         [_jobsHotLabel actionViewBlock:^(id data) {//点击了哪个Btn？
             @jobs_strongify(self)

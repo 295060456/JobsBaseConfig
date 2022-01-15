@@ -14,10 +14,10 @@
 @property(nonatomic,strong)JobsSearchBar *jobsSearchBar;
 @property(nonatomic,strong)JobsSearchResultDataListView *jobsSearchResultDataListView;
 /// Data
-@property(nonatomic,strong)NSMutableArray <NSString *>*sectionTitleMutArr;
-@property(nonatomic,strong)NSMutableArray <NSString *>*hotSearchMutArr;
-@property(nonatomic,strong)NSMutableArray <NSString *>*historySearchMutArr;
-@property(nonatomic,strong)NSMutableArray <NSString *>*searchResDataMutArr;
+@property(nonatomic,strong)NSMutableArray <UIViewModel *>*sectionTitleMutArr;
+@property(nonatomic,strong)NSMutableArray <UIViewModel *>*hotSearchMutArr;
+@property(nonatomic,strong)NSMutableArray <UIViewModel *>*historySearchMutArr;
+@property(nonatomic,strong)NSMutableArray <UIViewModel *>*searchResDataMutArr;
 @property(nonatomic,strong)UIColor *bgColour;
 @property(nonatomic,assign)NSString *titleStr;//标题
 @property(nonatomic,assign)CGRect tableViewRect;
@@ -39,26 +39,20 @@
     self.isOpenLetterCase = YES;//模糊查询时，是否开启输入字母大小写检测？默认开启
     self.gk_interactivePopDisabled = NO;
     self.gk_fullScreenPopDisabled = NO;
-    
+    self.hotSearchStyle = HotSearchStyle_1;
     if ([self.requestParams isKindOfClass:UIViewModel.class]) {
         self.viewModel = (UIViewModel *)self.requestParams;
     }
-    
-//    {// 外界推得时候这么写
-//        [self comingToPushVC:CasinoOpenAccountVC.new
-//                withNavTitle:Internationalization(@"Open an account")];
-//    }
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setGKNav];
-    self.getTabBar.hidden = YES;
-    
     if (![NSString isNullString:self.viewModel.text]) {
         self.gk_navLeftBarButtonItem = [UIBarButtonItem.alloc initWithCustomView:self.backBtnCategory];
         self.gk_navRightBarButtonItem = [UIBarButtonItem.alloc initWithCustomView:self.scanBtn];
     }
+    self.getTabBar.hidden = YES;
     self.tableView.alpha = 1;
 }
 
@@ -104,7 +98,9 @@
     NSArray *arr = dic[@"data"];
     for (NSString *str in arr) {
         if (self.isOpenLetterCase ? [str.lowercaseString containsString:string.lowercaseString] : [str containsString:string]) {
-            [self.searchResDataMutArr addObject:str];
+            UIViewModel *viewModel = UIViewModel.new;
+            viewModel.text = str;
+            [self.searchResDataMutArr addObject:viewModel];
         }
     }
     self.jobsSearchResultDataListView.searchResDataMutArr = self.searchResDataMutArr;
@@ -171,7 +167,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
         case 0:{
             switch (self.hotSearchStyle) {
                 case HotSearchStyle_1:{
-                    return [JobsSearchShowHotwordsTBVCell cellHeightWithModel:nil];
+                    return [JobsSearchShowHotwordsTBVCell cellHeightWithModel:self.hotSearchMutArr];
                 }break;
                 case HotSearchStyle_2:{
                     return [TableViewCell cellHeightWithModel:self.hotSearchMutArr];
@@ -183,7 +179,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
             }
         }break;
         case 1:{
-            return [JobsSearchShowHistoryDataTBVCell cellHeightWithModel:nil];
+            return [JobsSearchShowHistoryDataTBVCell cellHeightWithModel:self.historySearchMutArr];
         }break;
         default:
             return 0;
@@ -222,15 +218,13 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
                     JobsSearchShowHotwordsTBVCell *cell = [JobsSearchShowHotwordsTBVCell cellWithTableView:tableView];
                     cell.indexPath = indexPath;
                     [cell richElementsInCellWithModel:self.hotSearchMutArr];
-                    
                     @jobs_weakify(self)
                     /// 点击的哪个btn？
                     [cell actionViewBlock:^(UIButton *data) {
                         @jobs_strongify(self)
                         self.jobsSearchBar.getTextField.text = data.titleLabel.text;
                         self.jobsSearchResultDataListView.alpha = 1;
-                    }];
-                    return cell;
+                    }];return cell;
                 }break;
                 case HotSearchStyle_2:{
                     TableViewCell *cell = [TableViewCell cellWithTableView:tableView];
@@ -275,7 +269,8 @@ viewForHeaderInSection:(NSInteger)section{
         [header actionViewBlock:^(id data) {
             @jobs_strongify(self)
             [self.view endEditing:YES];
-            [self.tableView ww_foldSection:section fold:![self.tableView ww_isSectionFolded:section]];//设置可折叠
+            [self.tableView ww_foldSection:section
+                                      fold:![self.tableView ww_isSectionFolded:section]];//设置可折叠
             /// 删除历史过往记录
             [self.historySearchMutArr removeAllObjects];
             
@@ -487,37 +482,162 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass(JobsSearchTableViewHeaderVi
     }return _jobsSearchBar;
 }
 
--(NSMutableArray<NSString *> *)sectionTitleMutArr{
+-(NSMutableArray<UIViewModel *> *)sectionTitleMutArr{
     if (!_sectionTitleMutArr) {
         _sectionTitleMutArr = NSMutableArray.array;
-        [_sectionTitleMutArr addObject:@"热门搜索"];
+    
+        UIViewModel *viewModel = UIViewModel.new;
+        viewModel.text = @"热门搜索";
+        viewModel.textCor = UIColor.lightGrayColor;
+        viewModel.bgCor = UIColor.whiteColor;
+        viewModel.font = kFontSize(20);
+        
+        [_sectionTitleMutArr addObject:viewModel];
+        
         if (self.historySearchMutArr.count) {
-            [_sectionTitleMutArr addObject:@"搜索历史"];
+            UIViewModel *viewModel = UIViewModel.new;
+            viewModel.text = @"搜索历史";
+            viewModel.textCor = UIColor.lightGrayColor;
+            viewModel.bgCor = UIColor.whiteColor;
+            viewModel.font = kFontSize(20);
+            
+            [_sectionTitleMutArr addObject:viewModel];
         }
     }return _sectionTitleMutArr;
 }
 
--(NSMutableArray<NSString *> *)hotSearchMutArr{
+-(NSMutableArray<UIViewModel *> *)hotSearchMutArr{
     if (!_hotSearchMutArr) {
         _hotSearchMutArr = NSMutableArray.array;
-        [_hotSearchMutArr addObject:@"Java"];
-        [_hotSearchMutArr addObject:@"Python"];
-        [_hotSearchMutArr addObject:@"Objective-C"];
-        [_hotSearchMutArr addObject:@"Swift"];
-        [_hotSearchMutArr addObject:@"C"];
-        [_hotSearchMutArr addObject:@"C++"];
-        [_hotSearchMutArr addObject:@"PHP"];
-        [_hotSearchMutArr addObject:@"C#"];
-        [_hotSearchMutArr addObject:@"Perl"];
-        [_hotSearchMutArr addObject:@"Go"];
-        [_hotSearchMutArr addObject:@"JavaScript"];
-        [_hotSearchMutArr addObject:@"Ruby"];
-        [_hotSearchMutArr addObject:@"R"];
-        [_hotSearchMutArr addObject:@"MATLAB"];
+        
+        {
+            UIViewModel *viewModel = UIViewModel.new;
+            viewModel.text = @"Java";
+            viewModel.textCor = RandomColor;
+            viewModel.bgCor = RandomColor;
+            viewModel.font = kFontSize(20);
+            [_hotSearchMutArr addObject:viewModel];
+        }
+        
+        {
+            UIViewModel *viewModel = UIViewModel.new;
+            viewModel.text = @"Python";
+            viewModel.textCor = RandomColor;
+            viewModel.bgCor = RandomColor;
+            viewModel.font = kFontSize(20);
+            [_hotSearchMutArr addObject:viewModel];
+        }
+        
+        {
+            UIViewModel *viewModel = UIViewModel.new;
+            viewModel.text = @"Objective-C";
+            viewModel.textCor = RandomColor;
+            viewModel.bgCor = RandomColor;
+            viewModel.font = kFontSize(20);
+            [_hotSearchMutArr addObject:viewModel];
+        }
+        
+        {
+            UIViewModel *viewModel = UIViewModel.new;
+            viewModel.text = @"Swift";
+            viewModel.textCor = RandomColor;
+            viewModel.bgCor = RandomColor;
+            viewModel.font = kFontSize(20);
+            [_hotSearchMutArr addObject:viewModel];
+        }
+        
+        {
+            UIViewModel *viewModel = UIViewModel.new;
+            viewModel.text = @"C";
+            viewModel.textCor = RandomColor;
+            viewModel.bgCor = RandomColor;
+            viewModel.font = kFontSize(20);
+            [_hotSearchMutArr addObject:viewModel];
+        }
+        {
+            UIViewModel *viewModel = UIViewModel.new;
+            viewModel.text = @"C++";
+            viewModel.textCor = RandomColor;
+            viewModel.bgCor = RandomColor;
+            viewModel.font = kFontSize(20);
+            [_hotSearchMutArr addObject:viewModel];
+        }
+        
+        {
+            UIViewModel *viewModel = UIViewModel.new;
+            viewModel.text = @"PHP";
+            viewModel.textCor = RandomColor;
+            viewModel.bgCor = RandomColor;
+            viewModel.font = kFontSize(20);
+            [_hotSearchMutArr addObject:viewModel];
+        }
+        
+        {
+            UIViewModel *viewModel = UIViewModel.new;
+            viewModel.text = @"C#";
+            viewModel.textCor = RandomColor;
+            viewModel.bgCor = RandomColor;
+            viewModel.font = kFontSize(20);
+            [_hotSearchMutArr addObject:viewModel];
+        }
+        
+        {
+            UIViewModel *viewModel = UIViewModel.new;
+            viewModel.text = @"Perl";
+            viewModel.textCor = RandomColor;
+            viewModel.bgCor = RandomColor;
+            viewModel.font = kFontSize(20);
+            [_hotSearchMutArr addObject:viewModel];
+        }
+        
+        {
+            UIViewModel *viewModel = UIViewModel.new;
+            viewModel.text = @"Go";
+            viewModel.textCor = RandomColor;
+            viewModel.bgCor = RandomColor;
+            viewModel.font = kFontSize(20);
+            [_hotSearchMutArr addObject:viewModel];
+        }
+        
+        {
+            UIViewModel *viewModel = UIViewModel.new;
+            viewModel.text = @"JavaScript";
+            viewModel.textCor = RandomColor;
+            viewModel.bgCor = RandomColor;
+            viewModel.font = kFontSize(20);
+            [_hotSearchMutArr addObject:viewModel];
+        }
+        
+        {
+            UIViewModel *viewModel = UIViewModel.new;
+            viewModel.text = @"Ruby";
+            viewModel.textCor = RandomColor;
+            viewModel.bgCor = RandomColor;
+            viewModel.font = kFontSize(20);
+            [_hotSearchMutArr addObject:viewModel];
+        }
+        
+        {
+            UIViewModel *viewModel = UIViewModel.new;
+            viewModel.text = @"R";
+            viewModel.textCor = RandomColor;
+            viewModel.bgCor = RandomColor;
+            viewModel.font = kFontSize(20);
+            [_hotSearchMutArr addObject:viewModel];
+        }
+        
+        {
+            UIViewModel *viewModel = UIViewModel.new;
+            viewModel.text = @"MATLAB";
+            viewModel.textCor = RandomColor;
+            viewModel.bgCor = RandomColor;
+            viewModel.font = kFontSize(20);
+            [_hotSearchMutArr addObject:viewModel];
+        }
     }return _hotSearchMutArr;
 }
 
--(NSMutableArray<NSString *> *)historySearchMutArr{
+-(NSMutableArray<UIViewModel *> *)historySearchMutArr{
     if (!_historySearchMutArr) {
         NSArray *jobsSearchHistoryDataArr = (NSArray *)[NSUserDefaults readWithKey:@"JobsSearchHistoryData"];
         if (jobsSearchHistoryDataArr) {
@@ -576,7 +696,7 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass(JobsSearchTableViewHeaderVi
     }return _bgColour;
 }
 
--(NSMutableArray<NSString *> *)searchResDataMutArr{
+-(NSMutableArray<UIViewModel *> *)searchResDataMutArr{
     if (!_searchResDataMutArr) {
         _searchResDataMutArr = NSMutableArray.array;
     }return _searchResDataMutArr;

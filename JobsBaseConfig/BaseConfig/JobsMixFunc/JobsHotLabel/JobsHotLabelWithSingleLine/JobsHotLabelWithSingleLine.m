@@ -5,9 +5,9 @@
 //  Created by Jobs on 2020/10/4.
 //
 
-#import "JobsHotLabel.h"
+#import "JobsHotLabelWithSingleLine.h"
 
-@interface JobsHotLabel (){
+@interface JobsHotLabelWithSingleLine (){
     CGSize btnSize;
     CGFloat width;
 }
@@ -20,10 +20,16 @@
 
 @end
 
-@implementation JobsHotLabel
+@implementation JobsHotLabelWithSingleLine
 
 -(instancetype)init{
     if (self = [super init]) {
+        self.backgroundColor = HEXCOLOR(0xFFFFFF);
+    }return self;
+}
+
+-(instancetype)initWithFrame:(CGRect)frame{
+    if (self = [super initWithFrame:frame]) {
         self.backgroundColor = HEXCOLOR(0xFFFFFF);
     }return self;
 }

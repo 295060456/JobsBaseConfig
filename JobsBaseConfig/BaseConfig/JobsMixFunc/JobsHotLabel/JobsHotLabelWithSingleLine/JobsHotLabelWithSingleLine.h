@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
         1.2、如果超过一行滑动显示；
     2、如果要显示多排固定样式UI，请移步用CollectionView实现
  */
-@interface JobsHotLabel : BaseView
+@interface JobsHotLabelWithSingleLine : BaseView
 
 @end
 

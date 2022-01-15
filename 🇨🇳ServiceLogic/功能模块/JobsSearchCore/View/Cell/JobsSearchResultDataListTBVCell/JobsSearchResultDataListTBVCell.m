@@ -31,9 +31,9 @@
     return 50;
 }
 
--(void)richElementsInCellWithModel:(id _Nullable)model{
-    if ([model isKindOfClass:NSString.class]) {
-        self.textLabel.text = (NSString *)model;
+-(void)richElementsInCellWithModel:(UIViewModel *_Nullable)model{
+    if ([model isKindOfClass:UIViewModel.class]) {
+        self.textLabel.text = model.text;
     }
 }
 #pragma mark —— UIGestureRecognizerDelegate

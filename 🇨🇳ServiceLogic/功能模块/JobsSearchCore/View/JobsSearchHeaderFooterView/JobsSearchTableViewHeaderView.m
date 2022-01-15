@@ -32,9 +32,9 @@
 #pragma mark —— BaseViewProtocol
 /// 具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 -(void)richElementsInViewWithModel:(UIViewModel *_Nullable)model{
-    if ([model.data isKindOfClass:NSString.class]) {
-        NSString *str = (NSString *)model.data;
-        self.titleLab.text = str;
+    if ([model isKindOfClass:UIViewModel.class]) {
+        self.viewModel = model;
+        self.titleLab.text = self.viewModel.text;
         self.delBtn.alpha = 1;
     }
 }
@@ -46,9 +46,9 @@
 -(UILabel *)titleLab{
     if (!_titleLab) {
         _titleLab = UILabel.new;
-        _titleLab.textColor = kBlackColor;
-        _titleLab.backgroundColor = kWhiteColor;
-        _titleLab.font = kFontSize(20);
+        _titleLab.textColor = self.viewModel.textCor;
+        _titleLab.backgroundColor = self.viewModel.bgCor;
+        _titleLab.font = self.viewModel.font;
         _titleLab.textAlignment = NSTextAlignmentLeft;
         [self.contentView addSubview:_titleLab];
         [_titleLab mas_makeConstraints:^(MASConstraintMaker *make) {

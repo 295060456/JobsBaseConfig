@@ -79,6 +79,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 其他
 @property(nonatomic,strong,nullable)Class __block cls;//绑定的class
 @property(nonatomic,strong,nullable)UIViewModel __block *viewModel;
+@property(nonatomic,strong,nullable)NSMutableArray <UIViewModel *> __block *viewModelMutArr;
 @property(nonatomic,strong,nullable)RACSignal __block *reqSignal;
 @property(nonatomic,strong,nullable)NSString __block *internationalizationKEY;/// 国际化的key
 @property(nonatomic,strong,nullable)id __block data;//绑定的数据源
@@ -91,3 +92,139 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
+#pragma mark —— @synthesize UIViewModelProtocol
+#ifndef UIViewModelProtocol_synthesize
+#define UIViewModelProtocol_synthesize \
+\
+@synthesize text = _text;\
+@synthesize subText = _subText;\
+@synthesize attributedText = _attributedText;\
+@synthesize subAttributedText = _subAttributedText;\
+@synthesize textCor = _textCor;\
+@synthesize subTextCor = _subTextCor;\
+@synthesize font = _font;\
+@synthesize subFont = _subFont;\
+@synthesize textAlignment = _textAlignment;\
+@synthesize subTextAlignment = _subTextAlignment;\
+@synthesize lineBreakMode = _lineBreakMode;\
+@synthesize subLineBreakMode = _subLineBreakMode;\
+@synthesize textLineSpacing = _textLineSpacing;\
+@synthesize subTextlineSpacing = _subTextlineSpacing;\
+\
+@synthesize image = _image;\
+@synthesize bgImage = _bgImage;\
+@synthesize bgImageView = _bgImageView;\
+@synthesize bgSelectedImage = _bgSelectedImage;\
+@synthesize imageURLString = _imageURLString;\
+@synthesize bgImageURLString = _bgImageURLString;\
+@synthesize bgCor = _bgCor;\
+\
+@synthesize cornerRadius = _cornerRadius;\
+@synthesize jobsWidth = _jobsWidth;\
+@synthesize jobsHeight = _jobsHeight;\
+@synthesize jobsTop = _jobsTop;\
+@synthesize jobsLeft = _jobsLeft;\
+@synthesize jobsRight = _jobsRight;\
+@synthesize jobsBottom = _jobsBottom;\
+@synthesize jobsSize = _jobsSize;\
+@synthesize jobsRect = _jobsRect;\
+@synthesize jobsPoint = _jobsPoint;\
+@synthesize offsetXForEach = _offsetXForEach;\
+@synthesize offsetYForEach = _offsetYForEach;\
+@synthesize offsetHeight = _offsetHeight;\
+@synthesize offsetWidth = _offsetWidth;\
+@synthesize axis = _axis;\
+@synthesize distribution = _distribution;\
+@synthesize alignment = _alignment;\
+\
+@synthesize indexPath = _indexPath;\
+@synthesize section = _section;\
+@synthesize row = _row;\
+@synthesize item = _item;\
+@synthesize lastPoint = _lastPoint;\
+@synthesize index = _index;\
+@synthesize currentPage = _currentPage;\
+@synthesize pageSize = _pageSize;\
+\
+@synthesize cls = _cls;\
+@synthesize viewModel = _viewModel;\
+@synthesize viewModelMutArr = _viewModelMutArr;\
+@synthesize reqSignal = _reqSignal;\
+@synthesize internationalizationKEY = _internationalizationKEY;\
+@synthesize data = _data;\
+@synthesize requestParams = _requestParams;\
+@synthesize selected = _selected;\
+@synthesize isMultiLineShows = _isMultiLineShows;\
+@synthesize isTranslucent = _isTranslucent;\
+@synthesize visible = _visible;\
+
+#endif
+
+#pragma mark —— @dynamic UIViewModelProtocol
+#ifndef UIViewModelProtocol_dynamic
+#define UIViewModelProtocol_dynamic \
+@dynamic text;\
+@dynamic subText;\
+@dynamic attributedText;\
+@dynamic subAttributedText;\
+@dynamic textCor;\
+@dynamic subTextCor;\
+@dynamic font;\
+@dynamic subFont;\
+@dynamic textAlignment;\
+@dynamic subTextAlignment;\
+@dynamic lineBreakMode;\
+@dynamic subLineBreakMode;\
+@dynamic textLineSpacing;\
+@dynamic subTextlineSpacing;\
+\
+@dynamic image;\
+@dynamic bgImage;\
+@dynamic bgImageView;\
+@dynamic bgSelectedImage;\
+@dynamic imageURLString;\
+@dynamic bgImageURLString;\
+@dynamic bgCor;\
+\
+@dynamic cornerRadius;\
+@dynamic jobsWidth;\
+@dynamic jobsHeight;\
+@dynamic jobsTop;\
+@dynamic jobsLeft;\
+@dynamic jobsRight;\
+@dynamic jobsBottom;\
+@dynamic jobsSize;\
+@dynamic jobsRect;\
+@dynamic jobsPoint;\
+@dynamic offsetXForEach;\
+@dynamic offsetYForEach;\
+@dynamic offsetHeight;\
+@dynamic offsetWidth;\
+@dynamic axis;\
+@dynamic distributio;\
+@dynamic alignment;\
+\
+@dynamic indexPath;\
+@dynamic section;\
+@dynamic rowp;\
+@dynamic item;\
+@dynamic lastPoint;\
+@dynamic index;\
+@dynamic currentPage;\
+@dynamic pageSize;\
+\
+@dynamic cls;\
+@dynamic viewModel;\
+@dynamic viewModelMutArr;\
+@dynamic reqSignal;\
+@dynamic internationalizationKEY;\
+@dynamic data;\
+@dynamic requestParams;\
+@dynamic selected;\
+@dynamic isMultiLineShows;\
+@dynamic isTranslucent;\
+@dynamic visible;\
+
+#endif
+

@@ -9,12 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "JobsBlock.h"
 #import "BaseCellProtocol.h"
+#import "UIViewModelProtocol.h"
 #import "MacroDef_Func.h"
 #import "UIViewModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BaseTableViewCell : UITableViewCell<BaseCellProtocol>
+@interface BaseTableViewCell : UITableViewCell
+<
+BaseCellProtocol
+,UIViewModelProtocol
+>
 
 #pragma mark —— 功能方法
 /// iOS UITableViewCell 第一行和最后一行圆角设置

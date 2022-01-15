@@ -11,7 +11,7 @@
 #import "RequestTool.h"
 #import "CasinoGetiOSNewestVersionModel.h"
 
-@class JobsHotLabel;
+@class JobsHotLabelWithSingleLine;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -59,7 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
                sureBlock:(MKDataBlock _Nullable)sureBlock
              cancelBlock:(MKDataBlock _Nullable)cancelBlock;
 
--(void)actionForHotLabel:(JobsHotLabel *)hl;
+-(void)actionForHotLabel:(JobsHotLabelWithSingleLine *)hl;
 
 
 @end

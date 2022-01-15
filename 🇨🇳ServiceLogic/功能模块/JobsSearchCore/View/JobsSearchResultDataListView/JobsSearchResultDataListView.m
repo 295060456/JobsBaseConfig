@@ -106,7 +106,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     }return _tableView;
 }
 
--(NSMutableArray<NSString *> *)searchResDataMutArr{
+-(NSMutableArray<UIViewModel *> *)searchResDataMutArr{
     if (!_searchResDataMutArr) {
         _searchResDataMutArr = NSMutableArray.array;
     }return _searchResDataMutArr;

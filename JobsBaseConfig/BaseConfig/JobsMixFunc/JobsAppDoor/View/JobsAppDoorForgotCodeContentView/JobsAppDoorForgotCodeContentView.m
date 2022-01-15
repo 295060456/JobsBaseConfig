@@ -15,7 +15,7 @@
 @property(nonatomic,strong)UIButton *backToLoginBtn;// 返回登录
 @property(nonatomic,strong)UIButton *contactCustomerServiceBtn;// 联系客服按钮
 @property(nonatomic,strong)UILabel *subTitleLab;// 副标题
-@property(nonatomic,strong)JobsHotLabel *hl;
+@property(nonatomic,strong)JobsHotLabelWithSingleLine *hl;
 // Data
 //@property(nonatomic,strong)NSMutableArray <UIViewModel *>*hotLabelDataMutArr;
 //@property(nonatomic,strong)CasinoCustomerContactModel *customerContactModel;
@@ -157,9 +157,9 @@
     }return _subTitleLab;
 }
 
--(JobsHotLabel *)hl{
+-(JobsHotLabelWithSingleLine *)hl{
     if (!_hl) {
-        _hl = JobsHotLabel.new;
+        _hl = JobsHotLabelWithSingleLine.new;
         _hl.backgroundColor = kClearColor;
         [self actionForHotLabel:_hl];
         [self addSubview:_hl];

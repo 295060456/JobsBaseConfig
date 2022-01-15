@@ -52,7 +52,7 @@
 		840F960B27736427004979E9 /* BWShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F92BF27736425004979E9 /* BWShareView.m */; };
 		840F960C27736427004979E9 /* BWItemCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F92C027736425004979E9 /* BWItemCollectionViewCell.m */; };
 		840F960D27736427004979E9 /* 分享控件的用法.md in Resources */ = {isa = PBXBuildFile; fileRef = 840F92C327736425004979E9 /* 分享控件的用法.md */; };
-		840F960E27736427004979E9 /* JobsHotLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F92C827736425004979E9 /* JobsHotLabel.m */; };
+		840F960E27736427004979E9 /* JobsHotLabelWithSingleLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F92C827736425004979E9 /* JobsHotLabelWithSingleLine.m */; };
 		840F960F27736427004979E9 /* ZBURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F92CC27736425004979E9 /* ZBURLRequest.m */; };
 		840F961027736427004979E9 /* ZBRequestEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F92CE27736425004979E9 /* ZBRequestEngine.m */; };
 		840F961127736427004979E9 /* ZBRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F92CF27736425004979E9 /* ZBRequestManager.m */; };
@@ -335,6 +335,8 @@
 		84401A8927919E3B0038FF6F /* JobsSearchTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84401A7527919E3B0038FF6F /* JobsSearchTableView.m */; };
 		84401A8B27919E3B0038FF6F /* JobsSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84401A7B27919E3B0038FF6F /* JobsSearchVC.m */; };
 		84401D282791B9F90038FF6F /* 假数据.json in Resources */ = {isa = PBXBuildFile; fileRef = 84401D272791B9F90038FF6F /* 假数据.json */; };
+		8440221F2792B4880038FF6F /* JobsHotLabelWithMultiLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8440221E2792B4880038FF6F /* JobsHotLabelWithMultiLine.m */; };
+		844022972792B6340038FF6F /* JobsHotLabelWithMultiLineCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 844022962792B6340038FF6F /* JobsHotLabelWithMultiLineCVCell.m */; };
 		84432B96278C284E0028A27D /* UIWindow+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 84432B95278C284E0028A27D /* UIWindow+Extra.m */; };
 		84432C10278C45C40028A27D /* 热度.gif in Resources */ = {isa = PBXBuildFile; fileRef = 84432C0A278C45C30028A27D /* 热度.gif */; };
 		84432C12278C45C40028A27D /* 跳动的竖线.gif in Resources */ = {isa = PBXBuildFile; fileRef = 84432C0C278C45C40028A27D /* 跳动的竖线.gif */; };
@@ -781,8 +783,8 @@
 		840F92C327736425004979E9 /* 分享控件的用法.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "分享控件的用法.md"; sourceTree = "<group>"; };
 		840F92C427736425004979E9 /* BWShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWShareView.h; sourceTree = "<group>"; };
 		840F92C527736425004979E9 /* JobsMixFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsMixFunc.h; sourceTree = "<group>"; };
-		840F92C727736425004979E9 /* JobsHotLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsHotLabel.h; sourceTree = "<group>"; };
-		840F92C827736425004979E9 /* JobsHotLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsHotLabel.m; sourceTree = "<group>"; };
+		840F92C727736425004979E9 /* JobsHotLabelWithSingleLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsHotLabelWithSingleLine.h; sourceTree = "<group>"; };
+		840F92C827736425004979E9 /* JobsHotLabelWithSingleLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsHotLabelWithSingleLine.m; sourceTree = "<group>"; };
 		840F92CB27736425004979E9 /* ZBRequestConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBRequestConst.h; sourceTree = "<group>"; };
 		840F92CC27736425004979E9 /* ZBURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBURLRequest.m; sourceTree = "<group>"; };
 		840F92CD27736425004979E9 /* NetworkingConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingConstant.h; sourceTree = "<group>"; };
@@ -1335,6 +1337,14 @@
 		84401A912791AAEF0038FF6F /* JobsSearchResultDataListTBVCell.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = JobsSearchResultDataListTBVCell.md; sourceTree = "<group>"; };
 		84401B7A2791AB210038FF6F /* JobsSearchShowHistoryDataTBVCell.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = JobsSearchShowHistoryDataTBVCell.md; sourceTree = "<group>"; };
 		84401D272791B9F90038FF6F /* 假数据.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "假数据.json"; sourceTree = "<group>"; };
+		844022182792B2350038FF6F /* JobsSearch【OutLines 01】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsSearch【OutLines 01】.png"; sourceTree = "<group>"; };
+		844022192792B2350038FF6F /* JobsSearch【OutLines 04】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsSearch【OutLines 04】.png"; sourceTree = "<group>"; };
+		8440221A2792B2350038FF6F /* JobsSearch【OutLines 02】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsSearch【OutLines 02】.png"; sourceTree = "<group>"; };
+		8440221B2792B2350038FF6F /* JobsSearch【OutLines 03】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsSearch【OutLines 03】.png"; sourceTree = "<group>"; };
+		8440221D2792B4880038FF6F /* JobsHotLabelWithMultiLine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsHotLabelWithMultiLine.h; sourceTree = "<group>"; };
+		8440221E2792B4880038FF6F /* JobsHotLabelWithMultiLine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsHotLabelWithMultiLine.m; sourceTree = "<group>"; };
+		844022952792B6340038FF6F /* JobsHotLabelWithMultiLineCVCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsHotLabelWithMultiLineCVCell.h; sourceTree = "<group>"; };
+		844022962792B6340038FF6F /* JobsHotLabelWithMultiLineCVCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsHotLabelWithMultiLineCVCell.m; sourceTree = "<group>"; };
 		84432B94278C284E0028A27D /* UIWindow+Extra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Extra.h"; sourceTree = "<group>"; };
 		84432B95278C284E0028A27D /* UIWindow+Extra.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Extra.m"; sourceTree = "<group>"; };
 		84432C0A278C45C30028A27D /* 热度.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "热度.gif"; sourceTree = "<group>"; };
@@ -2318,8 +2328,9 @@
 		840F92C627736425004979E9 /* JobsHotLabel */ = {
 			isa = PBXGroup;
 			children = (
-				840F92C727736425004979E9 /* JobsHotLabel.h */,
-				840F92C827736425004979E9 /* JobsHotLabel.m */,
+				844022982792B6C40038FF6F /* JobsHotLabelWithMultiLineCVCell */,
+				844022202792B48F0038FF6F /* JobsHotLabelWithMultiLine */,
+				8440221C2792B4500038FF6F /* JobsHotLabelWithSingleLine */,
 			);
 			path = JobsHotLabel;
 			sourceTree = "<group>";
@@ -5069,6 +5080,7 @@
 			isa = PBXGroup;
 			children = (
 				84401A902791A95A0038FF6F /* JobsSearchConfig.h */,
+				844022172792B2350038FF6F /* OutLines */,
 				84401A8F27919EA50038FF6F /* JobsSearchVC */,
 				84401A5827919E3B0038FF6F /* View */,
 			);
@@ -5192,6 +5204,44 @@
 				84401A7B27919E3B0038FF6F /* JobsSearchVC.m */,
 			);
 			path = JobsSearchVC;
+			sourceTree = "<group>";
+		};
+		844022172792B2350038FF6F /* OutLines */ = {
+			isa = PBXGroup;
+			children = (
+				844022182792B2350038FF6F /* JobsSearch【OutLines 01】.png */,
+				844022192792B2350038FF6F /* JobsSearch【OutLines 04】.png */,
+				8440221A2792B2350038FF6F /* JobsSearch【OutLines 02】.png */,
+				8440221B2792B2350038FF6F /* JobsSearch【OutLines 03】.png */,
+			);
+			path = OutLines;
+			sourceTree = "<group>";
+		};
+		8440221C2792B4500038FF6F /* JobsHotLabelWithSingleLine */ = {
+			isa = PBXGroup;
+			children = (
+				840F92C727736425004979E9 /* JobsHotLabelWithSingleLine.h */,
+				840F92C827736425004979E9 /* JobsHotLabelWithSingleLine.m */,
+			);
+			path = JobsHotLabelWithSingleLine;
+			sourceTree = "<group>";
+		};
+		844022202792B48F0038FF6F /* JobsHotLabelWithMultiLine */ = {
+			isa = PBXGroup;
+			children = (
+				8440221D2792B4880038FF6F /* JobsHotLabelWithMultiLine.h */,
+				8440221E2792B4880038FF6F /* JobsHotLabelWithMultiLine.m */,
+			);
+			path = JobsHotLabelWithMultiLine;
+			sourceTree = "<group>";
+		};
+		844022982792B6C40038FF6F /* JobsHotLabelWithMultiLineCVCell */ = {
+			isa = PBXGroup;
+			children = (
+				844022952792B6340038FF6F /* JobsHotLabelWithMultiLineCVCell.h */,
+				844022962792B6340038FF6F /* JobsHotLabelWithMultiLineCVCell.m */,
+			);
+			path = JobsHotLabelWithMultiLineCVCell;
 			sourceTree = "<group>";
 		};
 		84432B93278C283D0028A27D /* UIWindow */ = {
@@ -8468,6 +8518,7 @@
 				840F970027736428004979E9 /* NSObject+IDFV.m in Sources */,
 				840F967C27736428004979E9 /* UIView+Extras.m in Sources */,
 				842D299C276C9547003B6C8E /* JobsBaseConfigNotificationManager.m in Sources */,
+				8440221F2792B4880038FF6F /* JobsHotLabelWithMultiLine.m in Sources */,
 				84869260277B33570098BE7A /* NSNumber+Extra.m in Sources */,
 				84CA5FB327897AFB00E46E71 /* GifLoopPlayView.m in Sources */,
 				840F966B27736428004979E9 /* BaseView.m in Sources */,
@@ -8605,7 +8656,7 @@
 				840F971B27736428004979E9 /* DebugLogDescription.m in Sources */,
 				84CA5FE027897AFB00E46E71 /* GDFadeView.m in Sources */,
 				840F971827736428004979E9 /* JobsShowObjInfoVC.m in Sources */,
-				840F960E27736427004979E9 /* JobsHotLabel.m in Sources */,
+				840F960E27736427004979E9 /* JobsHotLabelWithSingleLine.m in Sources */,
 				84CA64B22789C2F300E46E71 /* Douyin_ZFPlayerVC@2.m in Sources */,
 				840F968E27736428004979E9 /* BaseImageView.m in Sources */,
 				840F961427736427004979E9 /* CustomZFPlayerControlView.m in Sources */,
@@ -8751,6 +8802,7 @@
 				844B084C2764CF4800B0513D /* ECPrivacyCheckCalendars.m in Sources */,
 				840F95E227736427004979E9 /* ImageCodeView.m in Sources */,
 				840F967727736428004979E9 /* UIView+JHGestureBlock.m in Sources */,
+				844022972792B6340038FF6F /* JobsHotLabelWithMultiLineCVCell.m in Sources */,
 				840F967E27736428004979E9 /* NSMutableDictionary+Ordered.m in Sources */,
 				84CA619C2789856C00E46E71 /* MyFansTBVCell.m in Sources */,
 				84CA5FBC27897AFB00E46E71 /* WBTableViewCell.m in Sources */,

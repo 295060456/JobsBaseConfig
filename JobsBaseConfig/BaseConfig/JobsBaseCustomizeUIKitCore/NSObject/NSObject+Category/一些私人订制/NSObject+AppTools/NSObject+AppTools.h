@@ -15,7 +15,7 @@
 #import "JobsAppDoorVC.h"
 #import "AppInternationalizationVC.h"
 #import "CasinoUpgradePopupView.h"
-#import "JobsHotLabel.h"
+#import "JobsHotLabelWithSingleLine.h"
 
 #import "UIViewModel.h"
 #import "CasinoCustomerContactModel.h"

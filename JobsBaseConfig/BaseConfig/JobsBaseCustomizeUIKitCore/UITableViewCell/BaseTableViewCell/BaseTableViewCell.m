@@ -14,7 +14,8 @@
 
 @implementation BaseTableViewCell
 
-@synthesize indexPath = _indexPath;
+#pragma mark —— UIViewModelProtocol
+UIViewModelProtocol_synthesize
 
 +(instancetype)cellWithTableView:(UITableView *)tableView{
     BaseTableViewCell *cell = (BaseTableViewCell *)[tableView dequeueReusableCellWithIdentifier:reuseIdentifier(self.class)];

@@ -1,46 +1,49 @@
 //
-//  TableViewCell.m
-//  JobsSearch
+//  JobsHotLabelWithMultiLine.m
+//  JobsBaseConfig
 //
-//  Created by Jobs on 2020/10/22.
+//  Created by Jobs on 2022/1/15.
 //
 
-#import "JobsSearchConfig.h"
-#import "TableViewCell.h"
-#import "DataCollectionViewCell.h"
+#import "JobsHotLabelWithMultiLine.h"
 
-@interface TableViewCell ()
+@interface JobsHotLabelWithMultiLine ()
 /// UI
-@property(nonatomic,strong)UICollectionView *collectionView;
 @property(nonatomic,strong)UICollectionViewFlowLayout *layout;
+@property(nonatomic,strong)UICollectionView *collectionView;
 /// Data
-@property(nonatomic,strong)NSArray <NSString *>*titleArr;
+@property(nonatomic,strong)NSMutableArray <UICollectionViewCell *>*cvcellMutArr;
 
 @end
 
-@implementation TableViewCell
+@implementation JobsHotLabelWithMultiLine
 
-#pragma mark —— BaseCellProtocol
-+(instancetype)cellWithTableView:(UITableView *)tableView{
-    TableViewCell *cell = (TableViewCell *)[tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
-    if (!cell) {
-        cell = [TableViewCell.alloc initWithStyle:UITableViewCellStyleDefault
-                                  reuseIdentifier:ReuseIdentifier];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }return cell;
+-(instancetype)init{
+    if (self = [super init]) {
+        self.backgroundColor = HEXCOLOR(0xFFFFFF);
+    }return self;
 }
 
-+(CGFloat)cellHeightWithModel:(id _Nullable)model{
-    NSArray *arr = (NSArray *)model;
-    int rowNum = ceilf(arr.count / listNum);
-    return rowNum * JobsSearchShowHotwordsTBVCellHeight;
+-(instancetype)initWithFrame:(CGRect)frame{
+    if (self = [super initWithFrame:frame]) {
+        self.backgroundColor = HEXCOLOR(0xFFFFFF);
+    }return self;
 }
-
--(void)richElementsInCellWithModel:(id _Nullable)model{
-    self.titleArr = (NSArray *)model;
-    self.collectionView.alpha = 1;
+/// 必须有frame的前提下才会进行绘制
+-(void)drawRect:(CGRect)rect{
+    [super drawRect:rect];
 }
-
+/// 具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
+-(void)richElementsInViewWithModel:(NSMutableArray <UIViewModel *>* _Nullable)model{
+    self.viewModelMutArr = model;
+    if (self.viewModelMutArr.count) {
+        [self.collectionView reloadData];
+    }
+}
+/// 具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
++(CGSize)viewSizeWithModel:(id _Nullable)model{
+    return CGSizeZero;
+}
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
@@ -48,18 +51,14 @@
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView
                                    cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
-
-    DataCollectionViewCell *cell = [DataCollectionViewCell cellWithCollectionView:collectionView
-                                                                     forIndexPath:indexPath];
-
-    cell.indexPath = indexPath;
-    [cell richElementsInCellWithModel:self.titleArr[indexPath.row]];
+    JobsHotLabelWithMultiLineCVCell *cell = (JobsHotLabelWithMultiLineCVCell *)self.cvcellMutArr[indexPath.item];
+    [cell richElementsInCellWithModel:self.viewModelMutArr[indexPath.item]];
     return cell;
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section {
-    return self.titleArr.count;
+    return self.viewModelMutArr.count;
 }
 #pragma mark —— UICollectionViewDelegate
 /// 允许选中时，高亮
@@ -104,25 +103,25 @@ didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(JobsSCREEN_WIDTH / 2, JobsSearchShowHotwordsTBVCellHeight);
+    return [JobsHotLabelWithMultiLineCVCell cellSizeWithModel:self.viewModelMutArr[indexPath.item]];
 }
-/// 每个item之间的间距 横（行）间距
+/// 定义的是元素垂直之间的间距
 - (CGFloat)collectionView:(UICollectionView *)collectionView
                    layout:(UICollectionViewLayout *)collectionViewLayout
 minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return 0;
+    return 12;
 }
-/// 每个item之间的间距  列(纵)间距
+/// 定义的是元素水平之间的间距。Api自动计算一行的Cell个数，只有当间距小于此定义的最小值时才会换行，最小执行单元是Section（每个section里面的样式是统一的）
 - (CGFloat)collectionView:(UICollectionView *)collectionView
                    layout:(UICollectionViewLayout *)collectionViewLayout
 minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
     return 0;
 }
-/// 内间距
+///内间距
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView
                        layout:(UICollectionViewLayout*)collectionViewLayout
        insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsZero;
+    return UIEdgeInsetsMake(0, 0, 0, 0);
 }
 #pragma mark —— lazyLoad
 -(UICollectionViewFlowLayout *)layout{
@@ -135,16 +134,32 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
 -(UICollectionView *)collectionView{
     if (!_collectionView) {
         _collectionView = [UICollectionView.alloc initWithFrame:CGRectZero
-                                                collectionViewLayout:self.layout];
+                                           collectionViewLayout:self.layout];
+        _collectionView.backgroundColor = RGB_SAMECOLOR(246);
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
-        [_collectionView registerClass:DataCollectionViewCell.class
-            forCellWithReuseIdentifier:@"DataCollectionViewCell"];
-        [self.contentView addSubview:_collectionView];
+        _collectionView.showsVerticalScrollIndicator = NO;
+        
+        [_collectionView registerCollectionViewClass];
+        
+        [self addSubview:_collectionView];
         [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self.contentView);
+            make.top.equalTo(self).offset(50);
+            make.left.equalTo(self);
+            make.right.equalTo(self);
+            make.bottom.equalTo(self);
         }];
     }return _collectionView;
+}
+
+-(NSMutableArray<UICollectionViewCell *> *)cvcellMutArr{
+    if (!_cvcellMutArr) {
+        _cvcellMutArr = NSMutableArray.array;
+        for (UIViewModel *viewModel in self.viewModelMutArr) {
+            NSUInteger index = [self.viewModelMutArr indexOfObject:viewModel];
+            [_cvcellMutArr addObject:[JobsHotLabelWithMultiLineCVCell cellWithCollectionView:self.collectionView forIndexPath:[self myIndexPath:(JobsIndexPath){index,0}]]];
+        }
+    }return _cvcellMutArr;
 }
 
 @end

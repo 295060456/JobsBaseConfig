@@ -10,75 +10,10 @@
 @implementation UIViewModel
 
 #pragma mark —— UIViewModelProtocol
-/// 主、副标题文字
-@synthesize text = _text;
-@synthesize subText = _subText;
-@synthesize attributedText = _attributedText;
-@synthesize subAttributedText = _subAttributedText;
-@synthesize textCor = _textCor;
-@synthesize subTextCor = _subTextCor;
-@synthesize font = _font;
-@synthesize subFont = _subFont;
-@synthesize textAlignment = _textAlignment;
-@synthesize subTextAlignment = _subTextAlignment;
-@synthesize lineBreakMode = _lineBreakMode;
-@synthesize subLineBreakMode = _subLineBreakMode;
-@synthesize textLineSpacing = _textLineSpacing;
-@synthesize subTextlineSpacing = _subTextlineSpacing;
-/// 图片和背景颜色
-@synthesize image = _image;
-@synthesize bgImage = _bgImage;
-@synthesize bgImageView = _bgImageView;
-@synthesize bgSelectedImage = _bgSelectedImage;
-@synthesize imageURLString = _imageURLString;
-@synthesize bgImageURLString = _bgImageURLString;
-@synthesize bgCor = _bgCor;
-/// 方位
-@synthesize cornerRadius = _cornerRadius;
-@synthesize jobsWidth = _jobsWidth;
-@synthesize jobsHeight = _jobsHeight;
-@synthesize jobsTop = _jobsTop;
-@synthesize jobsLeft = _jobsLeft;
-@synthesize jobsRight = _jobsRight;
-@synthesize jobsBottom = _jobsBottom;
-@synthesize jobsSize = _jobsSize;
-@synthesize jobsRect = _jobsRect;
-@synthesize jobsPoint = _jobsPoint;
-@synthesize offsetXForEach = _offsetXForEach;
-@synthesize offsetYForEach = _offsetYForEach;
-@synthesize offsetHeight = _offsetHeight;
-@synthesize offsetWidth = _offsetWidth;
-@synthesize axis = _axis;
-@synthesize distribution = _distribution;
-@synthesize alignment = _alignment;
-/// 标记📌
-@synthesize indexPath = _indexPath;
-@synthesize section = _section;
-@synthesize row = _row;
-@synthesize item = _item;
-@synthesize lastPoint = _lastPoint;
-@synthesize index = _index;
-@synthesize currentPage = _currentPage;
-@synthesize pageSize = _pageSize;
-/// 其他
-@synthesize cls = _cls;
-@synthesize data = _data;
-@synthesize requestParams = _requestParams;
-@synthesize reqSignal = _reqSignal;
-@synthesize selected = _selected;
-@synthesize isMultiLineShows = _isMultiLineShows;
-@synthesize internationalizationKEY = _internationalizationKEY;
-@synthesize isTranslucent = _isTranslucent;
-@synthesize visible = _visible;
-
+UIViewModelProtocol_synthesize
 #pragma mark —— NTESVerifyCodeManagerProtocol
 /// 【功能性】网易云盾回调数据
-@synthesize ntesVerifyCodeFinishResult = _ntesVerifyCodeFinishResult;
-@synthesize ntesVerifyCodeManagerStyle = _ntesVerifyCodeManagerStyle;
-@synthesize ntesVerifyCodeValidate = _ntesVerifyCodeValidate;
-@synthesize ntesVerifyCodeMessage = _ntesVerifyCodeMessage;
-@synthesize ntesVerifyCodeError = _ntesVerifyCodeError;
-@synthesize ntesVerifyCodeClose = _ntesVerifyCodeClose;
+NTESVerifyCodeManagerProtocol_synthesize
 
 #pragma mark —— lazyLoad
 -(UIColor *)textCor{

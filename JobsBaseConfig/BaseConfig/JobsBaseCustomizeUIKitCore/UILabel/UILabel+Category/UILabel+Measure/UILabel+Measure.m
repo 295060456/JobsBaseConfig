@@ -14,6 +14,11 @@
                  font:(UIFont *)font
               maxSize:(CGSize)maxSize{
     NSDictionary *attrs = @{NSFontAttributeName : font};// 因为attributes，此处还可以拓展
+    
+    if (CGSizeEqualToSize(maxSize, CGSizeZero)) {
+        maxSize = CGSizeMake(MAXFLOAT, MAXFLOAT);
+    }
+    
     return [text boundingRectWithSize:maxSize
                               options:NSStringDrawingUsesLineFragmentOrigin
                            attributes:attrs

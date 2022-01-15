@@ -35,3 +35,27 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
+#pragma mark —— @synthesize NTESVerifyCodeManagerProtocol
+#ifndef NTESVerifyCodeManagerProtocol_synthesize
+#define NTESVerifyCodeManagerProtocol_synthesize \
+@synthesize ntesVerifyCodeFinishResult = _ntesVerifyCodeFinishResult;\
+@synthesize ntesVerifyCodeManagerStyle = _ntesVerifyCodeManagerStyle;\
+@synthesize ntesVerifyCodeValidate = _ntesVerifyCodeValidate;\
+@synthesize ntesVerifyCodeMessage = _ntesVerifyCodeMessage;\
+@synthesize ntesVerifyCodeError = _ntesVerifyCodeError;\
+@synthesize ntesVerifyCodeClose = _ntesVerifyCodeClose;\
+
+#endif
+
+#pragma mark —— @dynamic NTESVerifyCodeManagerProtocol
+#ifndef NTESVerifyCodeManagerProtocol_dynamic
+#define NTESVerifyCodeManagerProtocol_dynamic \
+@dynamic ntesVerifyCodeFinishResult = _ntesVerifyCodeFinishResult;\
+@dynamic ntesVerifyCodeManagerStyle;\
+@dynamic ntesVerifyCodeValidate;\
+@dynamic ntesVerifyCodeMessage;\
+@dynamic ntesVerifyCodeError;\
+@dynamic ntesVerifyCodeClose;\
+
+#endif

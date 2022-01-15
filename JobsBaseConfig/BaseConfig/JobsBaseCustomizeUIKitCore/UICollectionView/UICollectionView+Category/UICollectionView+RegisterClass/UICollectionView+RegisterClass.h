@@ -6,22 +6,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-//#import "BaseCollectionViewCell.h"
-//#import "CasinoTopCVCell.h"
-//#import "CasinoBannerCVCell.h"
-//#import "CasinoMarqueeCVCell.h"
-//#import "CasinoGameCVCell.h"
-//#import "CasinoGameCell.h"
-//#import "CasinoNoAddBankCardCVCell.h"
-//#import "CasinoHasAddedBankCardCVCell.h"
-//#import "JobsImageNumberViewCVCell.h"
-//#import "CasinoAgencyRecommendCVCell.h"
-//#import "CasinoAgencyRecommendTopCVCell.h"
-//
-//#import "CasinoAgencyRecommendCRView.h"
-//#import "CasinoGameCollectionReusableView.h"
-//#import "CasinoAgencyRecommendTipsCRView.h"
+#import "BaseCollectionViewCell.h"
+#import "JobsHotLabelWithMultiLineCVCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
