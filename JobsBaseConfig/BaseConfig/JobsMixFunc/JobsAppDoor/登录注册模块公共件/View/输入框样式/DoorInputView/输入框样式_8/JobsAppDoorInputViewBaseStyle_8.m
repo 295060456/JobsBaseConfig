@@ -22,10 +22,7 @@
 
 -(instancetype)init{
     if (self = [super init]) {
-//        self.backgroundColor = kRedColor;
-//        [UIView colourToLayerOfView:self
-//                         withColour:Cor4
-//                     andBorderWidth:1];
+
     }return self;
 }
 #pragma mark —— 一些私有方法
@@ -142,8 +139,8 @@
         
         [self addSubview:_textField];
         [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.left.equalTo(self);
-            make.bottom.equalTo(self.titleLab.mas_top);
+            make.top.left.right.equalTo(self);
+            make.height.mas_equalTo(JobsWidth(30));
             make.right.equalTo(self);
         }];
     }return _textField;
