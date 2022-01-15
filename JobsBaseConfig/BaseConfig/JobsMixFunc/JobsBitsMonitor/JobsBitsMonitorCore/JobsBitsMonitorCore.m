@@ -173,9 +173,9 @@ static JobsBitsMonitorCore *static_bitsMonitorCore = nil;
         // 顺时针:每一个时间间隔为 1 秒
         _nsTimerManager.timerStyle = TimerStyle_clockwise;
         _nsTimerManager.timeInterval = 1;
-        @weakify(self)
+        @jobs_weakify(self)
         [_nsTimerManager actionNSTimerManagerRunningBlock:^(id data) {
-            @strongify(self)
+            @jobs_strongify(self)
             NSLog(@"你好");
             [self bitsSpeedMonitor];
         }];

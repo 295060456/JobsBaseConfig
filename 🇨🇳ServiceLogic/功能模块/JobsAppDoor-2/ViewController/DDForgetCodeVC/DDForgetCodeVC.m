@@ -8,16 +8,13 @@
 #import "DDForgetCodeVC.h"
 
 @interface DDForgetCodeVC ()
-
+/// UI
 @property(nonatomic,strong)FindCodeFlowChartView *flowChartView;
 @property(nonatomic,strong)UIButton *nextStepBtn;
 @property(nonatomic,strong)UIButton *succeedBtn;
-
-///一共几个流程节点
-@property(nonatomic,assign)NSInteger flowNum;
-///当前流程序号 从0开始
-@property(nonatomic,assign)NSInteger currentFlowSerialNum;
-
+/// Data
+@property(nonatomic,assign)NSInteger flowNum;///一共几个流程节点
+@property(nonatomic,assign)NSInteger currentFlowSerialNum;///当前流程序号 从0开始
 @property(nonatomic,strong)NSMutableArray <NSString *>*titleMutArr;
 @property(nonatomic,strong)NSMutableArray <NSString *>*subTitleMutArr;
 @property(nonatomic,strong)NSMutableArray <UIImage *>*backImageMutArr;
@@ -38,29 +35,17 @@
     self.setupNavigationBarHidden = YES;
     self.currentFlowSerialNum = 0;
     self.flowNum = 3;
-    self.view.backgroundColor = kWhiteColor;
 }
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-    self.gk_backStyle = GKNavigationBarBackStyleBlack;
-    
-    if (!self.navigationController) {
-        self.gk_navLeftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.backBtnCategory];
-        self.gk_navItemLeftSpace = 20;
-    }
-    
-    self.gk_navLineHidden = YES;
-    self.gk_navTitle = @"密码找回";
-    self.gk_navTitleColor = kBlackColor;
-    self.gk_navTitleFont = [UIFont systemFontOfSize:JobsWidth(17)
-                                             weight:UIFontWeightBold];
-    @weakify(self)
+    self.view.backgroundColor = kWhiteColor;
+    @jobs_weakify(self)
     [UIView transitionWithView:self.view
                       duration:0.5
                        options:UIViewAnimationOptionTransitionCrossDissolve
                     animations:^{
-        @strongify(self)
+        @jobs_strongify(self)
         self.flowChartView.alpha = 1;
         self.nextStepBtn.alpha = 1;
         [self makeTextField_step1];
@@ -82,6 +67,7 @@
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
 }
+#pragma mark —— 一些私有化方法
 /// 返回NO按钮不可点击
 -(BOOL)checkStep1{
     NSLog(@"self.inputTFValueMutDic = %@",self.inputTFValueMutDic);
@@ -134,10 +120,10 @@
         inputViewStyleModel.ZYtextColor = KLightGrayColor;
         
         [inputView richElementsInViewWithModel:inputViewStyleModel];
-        @weakify(self)
+        @jobs_weakify(self)
         // 监测输入字符回调 和 激活的textField
         [inputView actionViewBlock:^(id data) {
-            @strongify(self)
+            @jobs_strongify(self)
             if ([data isKindOfClass:NSDictionary.class]) {
                 NSDictionary *dic = (NSDictionary *)data;
                 JobsAppDoorInputViewTFModel *inputViewTFModel = (JobsAppDoorInputViewTFModel *)dic[@"TFResModel"];
@@ -184,10 +170,10 @@
         inputViewStyleModel.ZYtextColor = KLightGrayColor;
         
         [inputView richElementsInViewWithModel:inputViewStyleModel];
-        @weakify(self)
+        @jobs_weakify(self)
         // 监测输入字符回调 和 激活的textField
         [inputView actionViewBlock:^(id data) {
-            @strongify(self)
+            @jobs_strongify(self)
             if ([data isKindOfClass:NSDictionary.class]) {
                 NSDictionary *dic = (NSDictionary *)data;
                 JobsAppDoorInputViewTFModel *inputViewTFModel = (JobsAppDoorInputViewTFModel *)dic[@"TFResModel"];
@@ -197,27 +183,24 @@
             
             self.nextStepBtn.userInteractionEnabled = [self checkStep2];
             NSLog(@"sw = %d",self.nextStepBtn.userInteractionEnabled);
-            if (self.nextStepBtn.userInteractionEnabled) {
-                self.nextStepBtn.backgroundColor = [UIColor colorWithPatternImage:KIMG(@"找回密码_下一步_可点击")];
-            }else{
-                self.nextStepBtn.backgroundColor = [UIColor colorWithPatternImage:KIMG(@"找回密码_下一步_不可点击")];
-            }
+            self.nextStepBtn.backgroundColor = [UIColor colorWithPatternImage:self.nextStepBtn.userInteractionEnabled ? KIMG(@"找回密码_下一步_可点击") : KIMG(@"找回密码_下一步_不可点击")];
         }];
     }
 }
 
 -(void)step1ToStep2{
-    @weakify(self)
+    @jobs_weakify(self)
     [UIView transitionWithView:self.view
                       duration:0.5
                        options:UIViewAnimationOptionTransitionCrossDissolve
                     animations:^{
-        @strongify(self)
+        @jobs_strongify(self)
         for (JobsAppDoorInputViewBaseStyle_5 *inputView in self.inputViewMutArr_step1) {
             [inputView removeFromSuperview];
         }
         [self makeTextField_step2];
     } completion:^(BOOL finished) {
+        @jobs_strongify(self)
         // 相关状态置空
         [self.inputTFValueMutDic removeAllObjects];
         self.nextStepBtn.userInteractionEnabled = NO;
@@ -255,12 +238,9 @@
     if (!_nextStepBtn) {
         _nextStepBtn = UIButton.new;
         _nextStepBtn.userInteractionEnabled = NO;
-        [_nextStepBtn setTitle:@"下一步"
-                      forState:UIControlStateNormal];
+        [_nextStepBtn normalTitle:@"下一步"];
         _nextStepBtn.backgroundColor = [UIColor colorWithPatternImage:KIMG(@"找回密码_下一步_不可点击")];
-        @weakify(self)
-        [[_nextStepBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
-            @strongify(self)
+        BtnClickEvent(_nextStepBtn, {
             if (self.currentFlowSerialNum == 0) {
                 [self step1ToStep2];//
                 self.currentFlowSerialNum ++;
@@ -268,12 +248,12 @@
                 for (JobsAppDoorInputViewBaseStyle_5 *inputView in self.inputViewMutArr_step2) {
                     [inputView removeFromSuperview];
                 }
-                [x setTitle:@"去登陆" forState:UIControlStateNormal];
+                [x normalTitle:@"去登陆"];
                 [self.succeedBtn animationAlert];
                 self.currentFlowSerialNum ++;
                 self.flowChartView.currentFlowSerialNum = self.currentFlowSerialNum;
             }else{}
-        }];
+        };);
         [self.view addSubview:_nextStepBtn];
         [_nextStepBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_offset(CGSizeMake(JobsWidth(192), JobsWidth(32)));
@@ -282,6 +262,25 @@
         }];
     }return _nextStepBtn;
 }
+
+-(UIButton *)succeedBtn{
+    if (!_succeedBtn) {
+        _succeedBtn = UIButton.new;
+        [_succeedBtn normalTitle:@"密码修改成功"];
+        [_succeedBtn normalImage:KIMG(@"密码修改成功")];
+        [_succeedBtn normalTitleColor:UIColor.blackColor];
+        [_succeedBtn titleFont:[UIFont systemFontOfSize:JobsWidth(17) weight:UIFontWeightMedium]];
+        BtnClickEvent(_succeedBtn, [WHToast toastSuccessMsg:@"密码修改成功"];);
+        [self.view addSubview:_succeedBtn];
+        [_succeedBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.center.equalTo(self.view);
+            make.size.mas_equalTo(CGSizeMake(150, 150));
+        }];
+        [_succeedBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
+                                     imageTitleSpace:16];
+    }return _succeedBtn;
+}
+
 
 -(NSMutableArray<NSString *> *)titleMutArr{
     if (!_titleMutArr) {
@@ -361,31 +360,6 @@
     if (!_inputTFValueMutDic) {
         _inputTFValueMutDic = NSMutableDictionary.dictionary;
     }return _inputTFValueMutDic;
-}
-
--(UIButton *)succeedBtn{
-    if (!_succeedBtn) {
-        _succeedBtn = UIButton.new;
-        [_succeedBtn setTitle:@"密码修改成功"
-                     forState:UIControlStateNormal];
-        [_succeedBtn setImage:KIMG(@"密码修改成功")
-                     forState:UIControlStateNormal];
-        [_succeedBtn setTitleColor:kBlackColor
-                          forState:UIControlStateNormal];
-        _succeedBtn.titleLabel.font = [UIFont systemFontOfSize:JobsWidth(17)
-                                                        weight:UIFontWeightMedium];
-        @weakify(self)
-        [[_succeedBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
-            @strongify(self)
-        }];
-        [self.view addSubview:_succeedBtn];
-        [_succeedBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.center.equalTo(self.view);
-            make.size.mas_equalTo(CGSizeMake(150, 150));
-        }];
-        [_succeedBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
-                                     imageTitleSpace:16];
-    }return _succeedBtn;
 }
 
 @end

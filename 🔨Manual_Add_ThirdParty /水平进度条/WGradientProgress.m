@@ -147,10 +147,10 @@
         _nsTimerManager_color = NSTimerManager.new;
         _nsTimerManager_color.timeInterval = self.color_timeInterval;
         _nsTimerManager_color.timerStyle = TimerStyle_clockwise;
-        @weakify(self)
+        @jobs_weakify(self)
         [_nsTimerManager_color actionNSTimerManagerRunningBlock:^(id data) {
             NSLog(@"你好");
-            @strongify(self)
+            @jobs_strongify(self)
             if ([data isKindOfClass:NSTimerManager.class]) {
 //                NSTimerManager *timerManager = (NSTimerManager *)data;
 //                timerManager.anticlockwiseTime;
@@ -169,10 +169,10 @@
         _nsTimerManager_length.timeInterval = self.length_timeInterval;
         _nsTimerManager_length.timeSecIntervalSinceDate = self.length_timeSecIntervalSinceDate;
         _nsTimerManager_length.timerStyle = TimerStyle_clockwise;
-        @weakify(self)
+        @jobs_weakify(self)
         [_nsTimerManager_length actionNSTimerManagerRunningBlock:^(id data) {
             NSLog(@"你好");
-            @strongify(self)
+            @jobs_strongify(self)
             if ([data isKindOfClass:NSTimerManager.class]) {
 //                NSTimerManager *timerManager = (NSTimerManager *)data;
 //                timerManager.anticlockwiseTime;

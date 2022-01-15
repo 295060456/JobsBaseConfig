@@ -76,11 +76,11 @@
         [_mkZanView setImage:KBuddleIMG(@"bundle",@"Others", nil,@"喜欢-点击")
                     forState:UIControlStateSelected];
         _mkZanView.titleLabel.font = [UIFont systemFontOfSize:12 weight:UIFontWeightRegular];
-        @weakify(self)
+        @jobs_weakify(self)
         [[_mkZanView rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
             NSLog(@"我是点赞");
             [x.imageView addViewAnimationWithCompletionBlock:^(id data) {
-                @strongify(self)
+                @jobs_strongify(self)
                 self->_mkZanView.tag = MKRightBtnViewBtnType_mkZanView;//写在block外部，此值异常
                 if (self.MKRightBtnViewBlock) {
                     self.MKRightBtnViewBlock(self->_mkZanView);
@@ -107,11 +107,11 @@
                         forState:UIControlStateNormal];
         _mkCommentView.titleLabel.font = [UIFont systemFontOfSize:12
                                                            weight:UIFontWeightRegular];
-        @weakify(self)
+        @jobs_weakify(self)
         [[_mkCommentView rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
             NSLog(@"我是评论");
             [x.imageView addViewAnimationWithCompletionBlock:^(id data) {
-                @strongify(self)
+                @jobs_strongify(self)
                 self->_mkCommentView.tag = MKRightBtnViewBtnType_mkCommentView;//写在block外部，此值异常
                 if (self.MKRightBtnViewBlock) self.MKRightBtnViewBlock(self->_mkCommentView);
             }];
@@ -136,11 +136,11 @@
         [_mkShareView setImage:KBuddleIMG(@"bundle", @"Others",nil,@"分享")
                       forState:UIControlStateNormal];
         _mkShareView.titleLabel.font = [UIFont systemFontOfSize:12 weight:UIFontWeightRegular];
-        @weakify(self)
+        @jobs_weakify(self)
         [[_mkShareView rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
             NSLog(@"我是分享");
             [x.imageView addViewAnimationWithCompletionBlock:^(id data) {
-                @strongify(self)
+                @jobs_strongify(self)
                 self->_mkShareView.tag = MKRightBtnViewBtnType_mkShareView;//写在block外部，此值异常
                 if (self.MKRightBtnViewBlock) self.MKRightBtnViewBlock(self->_mkShareView);
             }];

@@ -27,16 +27,16 @@ static char *UIView_Rotate_isStopRotateAnimation = "UIView_Rotate_isStopRotateAn
 
 /// 开始旋转动画
 -(void)startRotateAnimation{
-    @weakify(self)
+    @jobs_weakify(self)
     CGAffineTransform endAngle = CGAffineTransformMakeRotation(self.currentAngle * (M_PI / 180.0f));
     [UIView animateWithDuration:self.durationTime
                           delay:self.delayTime
                         options:UIViewAnimationOptionCurveLinear
                      animations:^{
-        @strongify(self)
+        @jobs_strongify(self)
         self.transform = endAngle;
     } completion:^(BOOL finished) {
-        @strongify(self)
+        @jobs_strongify(self)
         self.currentAngle += self.rotateChangeAngle;
         if (!self.isStopRotateAnimation) {
             [self startRotateAnimation];

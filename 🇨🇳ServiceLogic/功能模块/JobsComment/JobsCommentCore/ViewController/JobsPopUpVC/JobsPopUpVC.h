@@ -32,9 +32,9 @@ NS_ASSUME_NONNULL_END
 /**
 
     PopUpVC *popUpVC = PopUpVC.new;
-    @weakify(self)
+    @jobs_weakify(self)
     [popUpVC actionBlockPopUpVC:^(id data) {
-        @strongify(self)
+        @jobs_strongify(self)
         NSLog(@"您点击了关注");
     }];
     [UIViewController comingFromVC:self

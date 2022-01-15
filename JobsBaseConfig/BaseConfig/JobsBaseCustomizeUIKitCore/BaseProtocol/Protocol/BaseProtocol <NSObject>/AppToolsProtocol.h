@@ -19,8 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol AppToolsProtocol <BaseProtocol>
 
 @optional
-/// 打开游戏
--(void)openGameWithUrl:(NSString *)url;
+
+#pragma mark —— <AppToolsProtocol> 关于注册登录
 /// 去登录？去注册？
 -(void)toLoginOrRegister:(CurrentPage)appDoorContentType;
 /// 在某些页面不调取登录页
@@ -32,14 +32,9 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)forcedLogin;
 /// 触发退出登录模块之前，弹窗提示二次确认，确认以后再删除本地用户数据
 -(void)popUpViewToLogout;
-/// 默认头像👤
--(UIImage *)defaultHeaderImage;
-/// 跳到首页
--(void)jumpToHome;
-/// 当前语言【字符串形式】
--(NSString *)currentLanguage;
-/// 当前语言【枚举形式】
--(HTTPRequestHeaderLanguageType)currentLanguageType;
+#pragma mark —— <AppToolsProtocol> 关于 TabBar
+/// TabBar
+-(UITabBar *)getTabBar;
 /// JobsTabbarVC 关闭手势
 -(void)tabBarClosePan;
 /// JobsTabbarVC 打开手势
@@ -48,12 +43,24 @@ NS_ASSUME_NONNULL_BEGIN
 -(NSMutableArray <UIViewController *>*)appRootVC;
 /// 当前对象是否是 Tabbar管理的，不含导航的根控制器
 -(BOOL)isRootVC;
+/// 跳到首页
+-(void)jumpToHome;
+#pragma mark —— <AppToolsProtocol> 其他
+/// 打开游戏
+-(void)openGameWithUrl:(NSString *)url;
+/// 默认头像👤
+-(UIImage *)defaultHeaderImage;
+/// 当前语言【字符串形式】
+-(NSString *)currentLanguage;
+/// 当前语言【枚举形式】
+-(HTTPRequestHeaderLanguageType)currentLanguageType;
 /// App 升级弹窗：在根控制器下实现，做到覆盖全局的统一
 -(void)appUpdateWithData:(CasinoGetiOSNewestVersionModel *_Nonnull)updateData
                sureBlock:(MKDataBlock _Nullable)sureBlock
              cancelBlock:(MKDataBlock _Nullable)cancelBlock;
 
 -(void)actionForHotLabel:(JobsHotLabel *)hl;
+
 
 @end
 

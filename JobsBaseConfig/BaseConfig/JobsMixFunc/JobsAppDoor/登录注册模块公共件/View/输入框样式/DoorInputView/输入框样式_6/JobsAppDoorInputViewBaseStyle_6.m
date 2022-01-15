@@ -117,9 +117,9 @@
     if (!_textField) {
         _textField = JobsMagicTextField.new;
         _textField.delegate = self;
-        @weakify(self)
+        @jobs_weakify(self)
         [_textField.rac_textSignal subscribeNext:^(NSString * _Nullable x) {
-            @strongify(self)
+            @jobs_strongify(self)
             NSLog(@"MMM = %@",x);
             [self block:self->_textField
                   value:x];

@@ -51,10 +51,10 @@
     if (self.placeholdAnimationable) {
         CGRect targetFrame = self.placeholderAnimationLbl.frame;
         targetFrame.origin.y = -self.moveDistance;
-        @weakify(self)
+        @jobs_weakify(self)
         [UIView animateWithDuration:self.animationTime
                          animations:^{
-            @strongify(self)
+            @jobs_strongify(self)
             self.placeholderAnimationLbl.visible = YES;
             self.placeholderAnimationLbl.frame = targetFrame;
             if (self.attributedPlaceholder && !self.placeholder) {
@@ -81,10 +81,10 @@
         }
         CGRect targetFrame = self.placeholderAnimationLbl.frame;
         targetFrame.origin.y = 0;
-        @weakify(self)
+        @jobs_weakify(self)
         [UIView animateWithDuration:self.animationTime
                          animations:^{
-            @strongify(self)
+            @jobs_strongify(self)
             self.placeholderAnimationLbl.visible = NO;
             self.placeholderAnimationLbl.frame = targetFrame;
             if (self.attributedPlaceholder && !self.placeholder) {

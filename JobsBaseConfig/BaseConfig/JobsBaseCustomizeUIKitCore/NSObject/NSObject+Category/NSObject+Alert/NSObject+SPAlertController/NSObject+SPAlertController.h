@@ -89,9 +89,9 @@ NS_ASSUME_NONNULL_END
          [_channelBtn setTitle:@"渠道切换点我就行" forState:UIControlStateNormal];
          [_channelBtn setTitleColor:kRedColor forState:UIControlStateNormal];
          _channelBtn.backgroundColor = KYellowColor;
-         @weakify(self)
+         @jobs_weakify(self)
          [[_channelBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
-             @strongify(self)
+             @jobs_strongify(self)
              SPAlertControllerConfig *config = SPAlertControllerConfig.new;
              config.SPAlertControllerInitType = NSObject_SPAlertControllerInitType_2;
              config.title = @"提示";

@@ -263,13 +263,13 @@ static const NSString *subviewClassName = @"JhtBannerCardView";
 
 - (void)continueScroll {
     // 判断定时器是否为 暂停状态
-    @weakify(self)
+    @jobs_weakify(self)
     if (_timerIsPause) {
         // 延迟0.2S调用，给人相应反应时间
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW,
                                      (int64_t)(0.2 * NSEC_PER_SEC)),
                        dispatch_get_main_queue(), ^{
-            @strongify(self)
+            @jobs_strongify(self)
             if (self->_bannerTimer) {
                 [self->_bannerTimer setFireDate:[NSDate distantPast]];
             } else {
@@ -706,12 +706,12 @@ static const NSString *subviewClassName = @"JhtBannerCardView";
     
     _currentIndex = pageIndex;
     // 是否开启无限轮播
-    @weakify(self)
+    @jobs_weakify(self)
     if (self.isCarousel && (_orginPageCount > 1)) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW,
                                      (int64_t)(0.25 * NSEC_PER_SEC)),
                        dispatch_get_main_queue(), ^{
-            @strongify(self)
+            @jobs_strongify(self)
             // 通过各组之间的切换实现循环
             [self bsvAdjustEachGroupToRealizeCycle];
         });

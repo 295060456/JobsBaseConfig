@@ -129,9 +129,9 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
 //        [_tableView.mj_header beginRefreshing];
         _tableView.mj_footer.hidden = NO;
         
-        @weakify(self)
+        @jobs_weakify(self)
         _tableView.mj_header = [LOTAnimationMJRefreshHeader headerWithRefreshingBlock:^{
-            @strongify(self)
+            @jobs_strongify(self)
             sleep(3);
             [self pullToRefresh];
         }];

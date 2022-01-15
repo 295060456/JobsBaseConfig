@@ -156,13 +156,13 @@
 -(UIButton *)authCodeBtn{
     if (!_authCodeBtn) {
         _authCodeBtn = [UIButton.alloc initWithConfig:self.btnTimerConfigModel];
-        @weakify(self)
+        @jobs_weakify(self)
         [_authCodeBtn actionBlockTimerRunning:^(id data) {
-            @strongify(self)
+            @jobs_strongify(self)
         }];
         
         [_authCodeBtn actionBlockTimerFinish:^(id data) {
-            @strongify(self)
+            @jobs_strongify(self)
         }];
 
         [[_authCodeBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
@@ -191,12 +191,12 @@
         _textField = ZYTextField.new;
         _textField.text = self.doorInputViewBaseStyleModel.text;
         _textField.delegate = self;
-        @weakify(self)
+        @jobs_weakify(self)
         [[_textField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
-//            @strongify(self)
+//            @jobs_strongify(self)
             return YES;
         }] subscribeNext:^(NSString * _Nullable x) {
-            @strongify(self)
+            @jobs_strongify(self)
             self.securityModeBtn.visible = ![NSString isNullString:x] && self.doorInputViewBaseStyleModel.isShowSecurityBtn;/// 👁
             if ([x isContainsSpecialSymbolsString:nil]) {
                 [WHToast toastMsg:Internationalization(@"Do not enter special characters")];

@@ -21,14 +21,14 @@
         
         [_bannerView.bannerView reloadData];
         
-        @weakify(self)
+        @jobs_weakify(self)
         /** 滚动ScrollView内部卡片 */
         [_bannerView scrollViewIndex:^(id data) {
-            @strongify(self)
+            @jobs_strongify(self)
         }];
         /** 点击ScrollView内部卡片 */
         [_bannerView clickScrollViewInsideCardView:^(id data) {
-//            @strongify(self)
+//            @jobs_strongify(self)
         }];
 //
     }return _bannerView;

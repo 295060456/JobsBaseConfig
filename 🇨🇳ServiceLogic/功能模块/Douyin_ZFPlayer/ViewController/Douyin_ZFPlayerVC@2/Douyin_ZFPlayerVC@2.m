@@ -39,11 +39,6 @@
     if ([self.requestParams isKindOfClass:UIViewModel.class]) {
         self.viewModel = (UIViewModel *)self.requestParams;
     }
-    
-    //    {// 外界推得时候这么写
-    //        [self comingToPushVC:CasinoOpenAccountVC.new
-    //                withNavTitle:Internationalization(@"Open an account")];
-    //    }
 }
 
 -(void)viewDidLoad {
@@ -121,13 +116,13 @@
     config.languageType = HTTPRequestHeaderLanguageCN;
     [RequestTool setupPublicParameters:config];
     
-    @weakify(self)
+    @jobs_weakify(self)
     extern NSString *appInterfaceTesting;
     [DDNetworkingAPI requestApi:NSObject.appInterfaceTesting.funcName
                      parameters:@{@"pageSize":@(self.pageSize),
                                   @"pageNum":@(self.currentPage)}
                    successBlock:^(DDResponseModel *data) {
-        @strongify(self)
+        @jobs_strongify(self)
         NSLog(@"");
         if([data.data isKindOfClass:NSArray.class]){
             NSArray *tempDataArr = (NSArray *)data.data;
@@ -161,15 +156,15 @@
             }
             
             /// 找到可以播放的视频并播放
-            @weakify(self)
+            @jobs_weakify(self)
             [self.player zf_filterShouldPlayCellWhileScrolled:^(NSIndexPath *indexPath) {
-                @strongify(self)
+                @jobs_strongify(self)
                 [self playTheVideoAtIndexPath:indexPath];
             }];
             
         }
     }failureBlock:^(id data) {
-        @strongify(self)
+        @jobs_strongify(self)
         if (self.currentPage > 1) {
             self.currentPage -= 1;
         }
@@ -190,12 +185,12 @@
 }
 
 - (void)playTheIndex:(NSInteger)index {
-    @weakify(self)
+    @jobs_weakify(self)
     /// 指定到某一行播放
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
     [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionNone animated:NO];
     [self.player zf_filterShouldPlayCellWhileScrolled:^(NSIndexPath *indexPath) {
-        @strongify(self)
+        @jobs_strongify(self)
         [self playTheVideoAtIndexPath:indexPath];
     }];
     /// 如果是最后一行，去请求新数据
@@ -389,9 +384,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         /// 1.0是完全消失时候
         _player.playerDisapperaPercent = 1.0;
         
-        @weakify(self)
+        @jobs_weakify(self)
         _player.playerDidToEnd = ^(id _Nonnull asset) {
-            @strongify(self)
+            @jobs_strongify(self)
             [self->_player.currentPlayerManager replay];
         };
 
@@ -399,13 +394,13 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
                                           BOOL isFullScreen) {
             extern AppDelegate *appDelegate;
             appDelegate.allowOrentitaionRotation = isFullScreen;
-            @strongify(self)
+            @jobs_strongify(self)
             self->_player.controlView.hidden = YES;
         };
         
         _player.orientationDidChanged = ^(ZFPlayerController * _Nonnull player,
                                           BOOL isFullScreen) {
-            @strongify(self)
+            @jobs_strongify(self)
             self->_player.controlView.hidden = NO;
             if (isFullScreen) {
                 self->_player.controlView = self.fullControlView;
@@ -418,7 +413,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         _player.playerPlayTimeChanged = ^(id<ZFPlayerMediaPlayback>  _Nonnull asset,
                                           NSTimeInterval currentTime,
                                           NSTimeInterval duration) {
-            @strongify(self)
+            @jobs_strongify(self)
             if ([self->_player.controlView isEqual:self.fullControlView]) {
                 [self.controlView videoPlayer:self->_player
                                   currentTime:currentTime
@@ -433,7 +428,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         /// 更新另一个控制层的缓冲时间
         _player.playerBufferTimeChanged = ^(id<ZFPlayerMediaPlayback>  _Nonnull asset,
                                             NSTimeInterval bufferTime) {
-            @strongify(self)
+            @jobs_strongify(self)
             if ([self->_player.controlView isEqual:self.fullControlView]) {
                 [self.controlView videoPlayer:self->_player
                                    bufferTime:bufferTime];
@@ -445,7 +440,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         
         /// 停止的时候找出最合适的播放
         _player.zf_scrollViewDidEndScrollingCallback = ^(NSIndexPath * _Nonnull indexPath) {
-            @strongify(self)
+            @jobs_strongify(self)
             if (self->_player.playingIndexPath) return;
             if (indexPath.row == self.dataSource.count - 1) {
                 /// 加载下一页数据

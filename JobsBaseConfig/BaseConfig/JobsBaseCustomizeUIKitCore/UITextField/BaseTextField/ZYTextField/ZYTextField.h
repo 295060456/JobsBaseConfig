@@ -29,11 +29,11 @@
 
  过滤字符请结合RAC，是目前的最优解
  
- @weakify(self)
+ @jobs_weakify(self)
  [[tf.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
      return YES;
  }] subscribeNext:^(NSString * _Nullable x) {
-//            @strongify(self)
+//            @jobs_strongify(self)
      NSLog(@"输入的字符为 = %@",x);
      if ([x isContainsSpecialSymbolsString:nil]) {
          [WHToast toastMsg:Internationalization(@"Do not enter special characters")];

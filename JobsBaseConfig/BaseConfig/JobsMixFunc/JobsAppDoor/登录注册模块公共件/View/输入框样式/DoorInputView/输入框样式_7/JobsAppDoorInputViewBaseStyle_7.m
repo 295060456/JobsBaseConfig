@@ -148,9 +148,9 @@
     if (!_textField) {
         _textField = JobsMagicTextField.new;
         _textField.delegate = self;
-        @weakify(self)
+        @jobs_weakify(self)
         [[_textField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
-            @strongify(self)
+            @jobs_strongify(self)
             JobsAppDoorInputViewTFModel *textFieldInputModel = (JobsAppDoorInputViewTFModel *)self.textField.objBindingParams;
             if ([textFieldInputModel.PlaceHolder isEqualToString:Internationalization(@"Telephone")]) {// 手机号码
                 if ([self checkTelNum:value]) {
@@ -162,7 +162,7 @@
                 }
             }return NO;
         }] subscribeNext:^(NSString * _Nullable x) {
-            @strongify(self)
+            @jobs_strongify(self)
             NSLog(@"输入的字符为 = %@",x);
             [self block:self->_textField
                   value:x];

@@ -51,13 +51,13 @@
 }
 
 - (void)hideMenu {
-    @weakify(self)
+    @jobs_weakify(self)
     [UIView animateWithDuration:0.15
                      animations:^{
-        @strongify(self)
+        @jobs_strongify(self)
         self.popMenuView.tableView.transform = CGAffineTransformMakeScale(0.0001, 0.0001);
     } completion:^(BOOL finished) {
-        @strongify(self)
+        @jobs_strongify(self)
         [self.popMenuView.tableView removeFromSuperview];
         [self.popMenuView removeFromSuperview];
         self.popMenuView.tableView = nil;
@@ -68,14 +68,14 @@
 #pragma mark —— lazyLoad
 -(WBPopMenuView *)popMenuView{
     if (!_popMenuView) {
-         @weakify(self)
+         @jobs_weakify(self)
         _popMenuView = [[WBPopMenuView alloc] initWithFrame:[[UIApplication sharedApplication] windows].firstObject.bounds
                                                   QPetFrame:self.framer
                                              menuCellHeight:40
                                                   menuWidth:self.width
                                                       items:self.item
                                                      action:^(NSInteger index) {
-        @strongify(self)
+        @jobs_strongify(self)
         self.action(index);
         [self hideMenu];
     }];

@@ -41,27 +41,27 @@ static char *UIView_ZFPlayer_customPlayerControlView = "UIView_ZFPlayer_customPl
     if (!PlayerCtr) {
         
         if (objc_getAssociatedObject(self, UIView_ZFPlayer_avPlayerManager)) {
-            @weakify(self)
+            @jobs_weakify(self)
             PlayerCtr = [[ZFPlayerController alloc] initWithPlayerManager:self.avPlayerManager
                                                             containerView:self];
             PlayerCtr.controlView = self.customPlayerControlView;
             NSLog(@"%@",PlayerCtr.controlView);
             PlayerCtr.muted = YES;//静音播放
             [PlayerCtr setPlayerDidToEnd:^(id<ZFPlayerMediaPlayback>  _Nonnull asset) {
-                @strongify(self)
+                @jobs_strongify(self)
                 [self.avPlayerManager replay];//设置循环播放
             }];
         }
         
         if (objc_getAssociatedObject(self, UIView_ZFPlayer_ijkPlayerManager)) {
-            @weakify(self)
+            @jobs_weakify(self)
             PlayerCtr = [[ZFPlayerController alloc] initWithPlayerManager:self.ijkPlayerManager
                                                             containerView:self];
             PlayerCtr.controlView = self.customPlayerControlView;
             NSLog(@"%@",PlayerCtr.controlView);
             PlayerCtr.muted = YES;//静音播放
             [PlayerCtr setPlayerDidToEnd:^(id<ZFPlayerMediaPlayback>  _Nonnull asset) {
-                @strongify(self)
+                @jobs_strongify(self)
                 [self.ijkPlayerManager replay];//设置循环播放
             }];
         }

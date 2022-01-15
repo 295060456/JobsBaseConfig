@@ -22,6 +22,10 @@
 -(void)titleAlignment:(NSTextAlignment)textAlignment{
     self.titleLabel.textAlignment = textAlignment;
 }
+/// 换行显示
+-(void)makeNewLineShows:(BOOL)breakLine{
+    self.titleLabel.numberOfLines = !breakLine;
+}
 #pragma mark —— Normal
 // set
 -(void)normalImage:(UIImage *)image{

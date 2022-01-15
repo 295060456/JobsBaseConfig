@@ -31,6 +31,11 @@ static char *UIViewController_BaseVC_viewModel = "UIViewController_BaseVC_viewMo
     self.gk_navBackgroundColor = HEXCOLOR(0x564533);
     self.gk_backImage = KIMG(@"全局返回箭头");
     self.gk_navTitleFont = [UIFont systemFontOfSize:JobsWidth(18) weight:UIFontWeightRegular];
+    self.gk_navLeftBarButtonItem = [UIBarButtonItem.alloc initWithCustomView:self.backBtnCategory];
+    self.gk_navLineHidden = YES;
+    self.gk_backStyle = GKNavigationBarBackStyleBlack;
+    self.gk_navItemLeftSpace = 20;
+    [self hideNavLine];
 }
 #pragma mark —— present
 /// 简洁版强制present展现一个控制器页面【不需要正向传参】

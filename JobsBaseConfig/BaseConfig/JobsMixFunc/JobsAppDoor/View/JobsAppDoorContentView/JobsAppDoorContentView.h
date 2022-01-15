@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSMutableArray <JobsAppDoorInputViewBaseStyle *>*loginDoorInputViewBaseStyleMutArr;
 @property(nonatomic,strong)NSMutableArray <JobsAppDoorInputViewBaseStyle *>*registerDoorInputViewBaseStyleMutArr;
 @property(nonatomic,strong)JobsAppDoorModel *appDoorModel;/// 网络请求的传入参数
-///  获取存储按钮
+/// 获取存储按钮
 -(UIButton *)getStoreCodeBtn;
 /// 去登录【外部调用】
 -(void)animationToLogin;

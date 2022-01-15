@@ -1,0 +1,75 @@
+//
+//  JobsSearchHoveringHeaderView.m
+//  JobsSearch
+//
+//  Created by Jobs on 2020/10/2.
+//
+
+#import "JobsSearchTableViewHeaderView.h"
+
+@interface JobsSearchTableViewHeaderView()
+
+@property(nonatomic,strong)UILabel *titleLab;
+@property(nonatomic,strong)UIButton *delBtn;
+
+@end
+
+@implementation JobsSearchTableViewHeaderView
+
+-(instancetype)initWithReuseIdentifier:(nullable NSString *)reuseIdentifier{
+    if (self = [super initWithReuseIdentifier:reuseIdentifier]) {
+        self.contentView.backgroundColor = kWhiteColor;
+    }return self;
+}
+
+-(void)drawRect:(CGRect)rect{
+    [super drawRect:rect];
+}
+#pragma mark —— 一些私有方法
+-(UIButton *)getDelBtn{
+    return _delBtn;
+}
+#pragma mark —— BaseViewProtocol
+/// 具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
+-(void)richElementsInViewWithModel:(UIViewModel *_Nullable)model{
+    if ([model.data isKindOfClass:NSString.class]) {
+        NSString *str = (NSString *)model.data;
+        self.titleLab.text = str;
+        self.delBtn.alpha = 1;
+    }
+}
+/// 具体由子类进行复写【数据定高】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
++(CGFloat)viewHeightWithModel:(id _Nullable)model{
+    return 50;
+}
+#pragma mark —— lazyLoad
+-(UILabel *)titleLab{
+    if (!_titleLab) {
+        _titleLab = UILabel.new;
+        _titleLab.textColor = kBlackColor;
+        _titleLab.backgroundColor = kWhiteColor;
+        _titleLab.font = kFontSize(20);
+        _titleLab.textAlignment = NSTextAlignmentLeft;
+        [self.contentView addSubview:_titleLab];
+        [_titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.right.bottom.equalTo(self.contentView);
+            make.left.equalTo(self.contentView).offset(10);
+        }];
+    }return _titleLab;
+}
+
+-(UIButton *)delBtn{
+    if (!_delBtn) {
+        _delBtn = UIButton.new;
+        [_delBtn normalImage:KIMG(@"垃圾箱")];
+        BtnClickEvent(_delBtn, if(self.viewBlock)self.viewBlock(x););
+        [self.contentView addSubview:_delBtn];
+        [_delBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(16, 16));
+            make.right.equalTo(self.contentView).offset(-10);
+            make.centerY.equalTo(self.contentView);
+        }];
+    }return _delBtn;
+}
+
+@end

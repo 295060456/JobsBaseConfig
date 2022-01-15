@@ -24,11 +24,6 @@
     if ([self.requestParams isKindOfClass:UIViewModel.class]) {
         self.viewModel = (UIViewModel *)self.requestParams;
     }
-    
-    //    {// 外界推得时候这么写
-    //        [self comingToPushVC:CasinoOpenAccountVC.new
-    //                withNavTitle:Internationalization(@"Open an account")];
-    //    }
 }
 
 - (void)viewDidLoad {

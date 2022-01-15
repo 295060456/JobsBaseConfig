@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FlowChartSingleElementView : UIView
+@interface FlowChartSingleElementView : BaseView
 
 @property(nonatomic,strong)UIImageView *bacKIMGV;
 @property(nonatomic,strong)UILabel *titleLab;
@@ -18,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface FindCodeFlowChartView : UIView
+@interface FindCodeFlowChartView : BaseView
 
 ///一共几个流程节点
 @property(nonatomic,assign)NSInteger flowNum;

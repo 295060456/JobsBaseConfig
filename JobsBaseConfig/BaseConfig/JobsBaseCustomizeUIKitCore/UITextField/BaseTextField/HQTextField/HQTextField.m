@@ -24,13 +24,13 @@
     // 透明度变化
     [self.layer addSublayer:self.warnLayer];
     // 2秒后移除动画
-    @weakify(self)
+    @jobs_weakify(self)
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW,
                                  (int64_t)(2.0 * NSEC_PER_SEC)),
                    dispatch_get_main_queue(), ^{
         // 2秒后异步执行这里的代码...
         // 移除动画
-        @strongify(self)
+        @jobs_strongify(self)
         [self.warnLayer removeFromSuperlayer];
     });
 }

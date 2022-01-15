@@ -57,7 +57,7 @@ JXCategoryTitleViewDataSource
      streamSharpness:流分辨率, ld: 标清, hd: 高清, cnhd: 中文高清, wx: 卫星, 默认返回分辨率最高的【非必须参数】
      protocolType:源协议类型, m3u8, flv【非必须参数】
      */
-    @weakify(self)
+    @jobs_weakify(self)
 //    [UBLNetWorkManager getRequestWithUrlPath:[NSString stringWithFormat:@"%@?%@&%@",UBLUrlRoomDetail,@"roomId=100032",@"streamSharpness=?",@"protocolType=?"]
 //                                  parameters:@{
 //                                      @"roomId":@"1000032",//直播间ID 【非必须参数】
@@ -65,7 +65,7 @@ JXCategoryTitleViewDataSource
 //                                      @"protocolType":@""//源协议类型, m3u8, flv【非必须参数】
 //                                  }
 //                                    finished:^(UBLNetWorkResult * _Nonnull result) {
-//        @strongify(self)
+//        @jobs_strongify(self)
 //        NSLog(@"result = %@",result);
 //        self.livingModel = [UBLLivingModel mj_objectWithKeyValues:result.resultData];
 //        [self.livingNavView richElementsInViewWithModel:self.livingModel];
@@ -99,10 +99,10 @@ JXCategoryTitleViewDataSource
 //                  @"token":@"295060456",
 //                  @"user":@{@"username":@"Jobs"}};
 //    //链接消息
-//    @weakify(self)
+//    @jobs_weakify(self)
 //    [JobsSocketIOTools.sharedInstance linkServerWithInfo:info1
 //                                         serverBlock:^(id data) {
-//        @strongify(self);
+//        @jobs_strongify(self);
 //        if ([data isKindOfClass:JobsSocketIOModel.class]) {
 //            JobsSocketIOModel *socketIOModel = (JobsSocketIOModel *)data;
 //            NSLog(@"频道名:%@,服务器返回数据:%@",socketIOModel.channelName,socketIOModel.serverReturnData);
@@ -111,10 +111,10 @@ JXCategoryTitleViewDataSource
 }
 //订阅消息:加入房间 链接以后立即订阅
 -(void)joinRoom{
-//    @weakify(self)
+//    @jobs_weakify(self)
 //    [JobsSocketIOTools.sharedInstance recevieInfoFromChannelName:@"joinRoom"
 //                                         withServerDataBlock:^(id data) {
-//        @strongify(self);
+//        @jobs_strongify(self);
 //        if ([data isKindOfClass:JobsSocketIOModel.class]) {
 //            JobsSocketIOModel *socketIOModel = (JobsSocketIOModel *)data;
 //            NSLog(@"频道名:%@,服务器返回数据:%@",socketIOModel.channelName,socketIOModel.serverReturnData);
@@ -123,10 +123,10 @@ JXCategoryTitleViewDataSource
 }
 //订阅消息:离开房间(为了防止一台设备、一个IP、PC端多窗口事件，所以有且仅有所有的该主token名下的全部“子token”全部退出的时候，才会收到leaveRoom频道发送的退出消息)  链接以后立即订阅
 -(void)leaveRoom{
-//    @weakify(self)
+//    @jobs_weakify(self)
 //    [JobsSocketIOTools.sharedInstance recevieInfoFromChannelName:@"leaveRoom"
 //                                         withServerDataBlock:^(id data) {
-//        @strongify(self);
+//        @jobs_strongify(self);
 //        if ([data isKindOfClass:JobsSocketIOModel.class]) {
 //            JobsSocketIOModel *socketIOModel = (JobsSocketIOModel *)data;
 //            NSLog(@"频道名:%@,服务器返回数据:%@",socketIOModel.channelName,socketIOModel.serverReturnData);
@@ -135,10 +135,10 @@ JXCategoryTitleViewDataSource
 }
 //订阅消息:房间在线人数变化 链接以后立即订阅
 -(void)onlineCount{
-//    @weakify(self)
+//    @jobs_weakify(self)
 //    [JobsSocketIOTools.sharedInstance recevieInfoFromChannelName:@"onlineCount"
 //                                         withServerDataBlock:^(id data) {
-//        @strongify(self);
+//        @jobs_strongify(self);
 //        if ([data isKindOfClass:JobsSocketIOModel.class]) {
 //            JobsSocketIOModel *socketIOModel = (JobsSocketIOModel *)data;
 //            NSLog(@"频道名:%@,服务器返回数据:%@",socketIOModel.channelName,socketIOModel.serverReturnData);
@@ -147,10 +147,10 @@ JXCategoryTitleViewDataSource
 }
 //接受消息
 -(void)receiveMeg{
-//    @weakify(self)
+//    @jobs_weakify(self)
 //    [JobsSocketIOTools.sharedInstance recevieInfoFromChannelName:@"message"
 //                                         withServerDataBlock:^(id data) {
-//        @strongify(self);
+//        @jobs_strongify(self);
 //        if ([data isKindOfClass:JobsSocketIOModel.class]) {
 //            JobsSocketIOModel *socketIOModel = (JobsSocketIOModel *)data;
 //            NSLog(@"频道名:%@,服务器返回数据:%@",socketIOModel.channelName,socketIOModel.serverReturnData);
@@ -159,7 +159,7 @@ JXCategoryTitleViewDataSource
 }
 //发送消息
 -(void)sendMsg{
-//    @weakify(self)
+//    @jobs_weakify(self)
 //    [JobsSocketIOTools.sharedInstance sendInfoToServer:@{
 //        @"messageId": @"88889999", // 消息唯一ID
 //        @"username": @"88889999", // 根据产品需求进入直播间但未登录统一username为"访客"
@@ -231,9 +231,9 @@ didScrollSelectedItemAtIndex:(NSInteger)index {
 -(UBLLivingVideoView *)userHeaderView{
     if (!_userHeaderView) {
         _userHeaderView = UBLLivingVideoView.new;
-        @weakify(self)
+        @jobs_weakify(self)
         [_userHeaderView actionLivingVideoViewBlock:^(id data) {
-            @strongify(self)
+            @jobs_strongify(self)
 
         }];
         [self.view addSubview:_userHeaderView];
@@ -307,9 +307,9 @@ didScrollSelectedItemAtIndex:(NSInteger)index {
         [_attentionBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
                                        imageTitleSpace:3];
         
-        @weakify(self)
+        @jobs_weakify(self)
         [[_attentionBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
-            @strongify(self)
+            @jobs_strongify(self)
             x.selected = !x.selected;
             [self->_attentionBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
                                   imageTitleSpace:5];
@@ -368,9 +368,9 @@ didScrollSelectedItemAtIndex:(NSInteger)index {
 -(UBLLivingNavView *)livingNavView{
     if (!_livingNavView) {
         _livingNavView = UBLLivingNavView.new;
-        @weakify(self)
+        @jobs_weakify(self)
         [_livingNavView actionBlockLivingNavView:^(id data) {
-            @strongify(self)
+            @jobs_strongify(self)
             [self backBtnClickEvent:nil];
         }];
         

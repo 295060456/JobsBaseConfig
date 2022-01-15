@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JobsDoorInputViewProtocol.h"
 #import "BaseViewProtocol.h"
 #import "JobsAppDoorInputView.h"
 #import "JobsAppDoorConfig.h"
@@ -16,10 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 注册页
 @interface JobsAppDoorRegisterContentView : BaseContentView
 <
-BaseViewProtocol
+JobsDoorInputViewProtocol
+,BaseViewProtocol
 >
-
-@property(nonatomic,strong)NSMutableArray <JobsAppDoorInputViewBaseStyle *>*registerDoorInputViewBaseStyleMutArr;
 
 @end
 

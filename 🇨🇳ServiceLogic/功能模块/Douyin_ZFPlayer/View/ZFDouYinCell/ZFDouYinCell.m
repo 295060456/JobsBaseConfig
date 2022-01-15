@@ -92,9 +92,9 @@
         _rotation = [UIButton buttonWithType:UIButtonTypeCustom];
         [_rotation setImage:KIMG(@"zfplayer_rotaiton")
                    forState:UIControlStateNormal];
-        @weakify(self)
+        @jobs_weakify(self)
         [[_rotation rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-            @strongify(self)
+            @jobs_strongify(self)
             [self rotationClick:x];
         }];
         [self.contentView addSubview:_rotation];

@@ -307,14 +307,14 @@ BaseProtocol
  通知的写法：示例代码
  
  接受通知：
-         @weakify(self)
+         @jobs_weakify(self)
          [NSNotificationCenter.defaultCenter addObserver:self
                                                 selector:selectorBlocks(^(id  _Nullable weakSelf,
                                                                           id  _Nullable arg) {
              NSNotification *notification = (NSNotification *)arg;
              NSNumber *b = notification.object;
              NSLog(@"SSS = %d",b.boolValue);
-             @strongify(self)
+             @jobs_strongify(self)
              self.imageView.hidden = !b.boolValue;
              self.imageView.hidden = self.selectedIndex != 4;
              self.imageView.alpha = b.boolValue;

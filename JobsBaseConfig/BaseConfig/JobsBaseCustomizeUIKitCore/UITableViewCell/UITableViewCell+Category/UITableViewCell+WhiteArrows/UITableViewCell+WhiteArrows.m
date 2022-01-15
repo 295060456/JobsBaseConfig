@@ -24,9 +24,9 @@ static char *UITableViewCell_WhiteArrows_size = "UITableViewCell_WhiteArrows_siz
         btn.size = self.size;
         [btn setBackgroundImage:self.img
                        forState:UIControlStateNormal];
-        @weakify(self)
+        @jobs_weakify(self)
         [[btn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-            @strongify(self)
+            @jobs_strongify(self)
             if (customAccessoryViewBlock) {
                 customAccessoryViewBlock(self);
             }

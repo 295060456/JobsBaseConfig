@@ -61,14 +61,14 @@ NS_ASSUME_NONNULL_END
      NSLog(@"当前是否有网：%d 状态：%ld",[ZBRequestManager isNetworkReachable],(long)[ZBRequestManager networkReachability]);
      DataManager.sharedInstance.tag = [ReuseIdentifier stringByAppendingString:NSStringFromSelector(_cmd)];
      [RequestTool setupPublicParameters];//公共配置、插件机制、证书设置
-     @weakify(self)
+     @jobs_weakify(self)
      NSDictionary *parameters = @{};
      [DDNetworkingAPI requestApi:NSObject.messageSecondClassListGET.funcName
                       parameters:parameters
                     successBlock:^(id data) {
-         @strongify(self)
+         @jobs_strongify(self)
      }failureBlock:^(id data) {
-         @strongify(self)
+         @jobs_strongify(self)
      }];
  }
  
@@ -130,17 +130,17 @@ NS_ASSUME_NONNULL_END
  DataManager.sharedInstance.tag = [ReuseIdentifier stringByAppendingString:NSStringFromSelector(_cmd)];
 
  [RequestTool setupPublicParameters];//公共配置、插件机制、证书设置
- @weakify(self)
+ @jobs_weakify(self)
  NSDictionary *parameters = @{};
  [DDNetworkingAPI requestApi:NSObject.postUploadImagePOST.funcName
         uploadImagesParamArr:@[parameters,
                                self.photosImageMutArr]
                 successBlock:^(id data) {
-     @strongify(self)
+     @jobs_strongify(self)
      NSLog(@"data = %@",data);
  }
                 failureBlock:^(id data) {
-     @strongify(self)
+     @jobs_strongify(self)
      NSLog(@"data = %@",data);
  }];
 }
@@ -202,7 +202,7 @@ NS_ASSUME_NONNULL_END
  DataManager.sharedInstance.tag = [ReuseIdentifier stringByAppendingString:NSStringFromSelector(_cmd)];
 
  [RequestTool setupPublicParameters];//公共配置、插件机制、证书设置
- @weakify(self)
+ @jobs_weakify(self)
  NSDictionary *parameters = @{};
  
  extern NSString *postuploadVideoPOST;
@@ -212,11 +212,11 @@ NS_ASSUME_NONNULL_END
         uploadVideosParamArr:@[parameters,
                                self.videosData]
                 successBlock:^(id data) {
-     @strongify(self)
+     @jobs_strongify(self)
      NSLog(@"data = %@",data);
  }
                 failureBlock:^(id data) {
-     @strongify(self)
+     @jobs_strongify(self)
      NSLog(@"data = %@",data);
  }];
 }

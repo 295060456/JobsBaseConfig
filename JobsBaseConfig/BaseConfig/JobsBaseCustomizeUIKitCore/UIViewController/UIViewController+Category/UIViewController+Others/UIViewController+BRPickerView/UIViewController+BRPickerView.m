@@ -42,10 +42,10 @@ static char *BaseVC_BRStringPickerView_addressPickerView = "BaseVC_BRStringPicke
             [temp removeObjectAtIndex:0];
             StringPickerView.dataSourceArr = temp;
         }
-        @weakify(self)
+        @jobs_weakify(self)
         StringPickerView.resultModelBlock = ^(BRResultModel *resultModel) {
 //            NSLog(@"选择的值：%@", resultModel.selectValue);
-            @strongify(self)
+            @jobs_strongify(self)
             if (self.brStringPickerViewBlock) {
                 self.brStringPickerViewBlock(resultModel);
             }

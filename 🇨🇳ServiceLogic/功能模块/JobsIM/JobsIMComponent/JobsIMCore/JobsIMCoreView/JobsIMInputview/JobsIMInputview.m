@@ -122,11 +122,11 @@
                          withColour:kWhiteColor
                      andBorderWidth:1];
         
-        @weakify(self)
+        @jobs_weakify(self)
         [[_inputTextField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
             return YES;
         }] subscribeNext:^(NSString * _Nullable x) {
-            @strongify(self)
+            @jobs_strongify(self)
             NSLog(@"输入的字符为 = %@",x);
             [self someChangeUI:x];
         }];

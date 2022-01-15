@@ -63,9 +63,9 @@ UIScrollViewDelegate
                                  imageTitleSpace:10];
             [btn.titleLabel sizeToFit];
             btn.titleLabel.adjustsFontSizeToFitWidth = YES;
-            @weakify(self)
+            @jobs_weakify(self)
             [[btn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-                @strongify(self)
+                @jobs_strongify(self)
                 if ([self.tempBtn isEqual:x]) {//同一个btn
                     x.selected = !x.selected;
                 }else{//不同一个btn

@@ -47,5 +47,6 @@
 #import "JobsAppDoorVC_Style2.h"
 #import "JobsCommentVC.h"
 #import "JobsIMShowVC.h"
+#import "JobsSearchVC.h"
 
 #endif /* Other_h */

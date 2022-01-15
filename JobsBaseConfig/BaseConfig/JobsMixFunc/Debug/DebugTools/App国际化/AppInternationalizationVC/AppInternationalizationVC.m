@@ -226,9 +226,9 @@ viewForHeaderInSection:(NSInteger)section{
         _userHeaderView.contentView.backgroundColor = UIColor.whiteColor;
         _userHeaderView.frame = [UITableViewHeaderFooterView viewFrameWithModel:nil];
         [_userHeaderView richElementsInViewWithModel:UIViewModel.new];
-//        @weakify(self)
+//        @jobs_weakify(self)
         [_userHeaderView actionViewBlock:^(id data) {
-//            @strongify(self)
+//            @jobs_strongify(self)
         }];
     }return _userHeaderView;
 }

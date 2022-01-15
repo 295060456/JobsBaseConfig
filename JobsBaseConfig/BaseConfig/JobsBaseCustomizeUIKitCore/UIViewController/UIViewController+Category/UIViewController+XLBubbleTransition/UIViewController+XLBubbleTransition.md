@@ -11,7 +11,7 @@ self.xl_popTranstion = [XLBubbleTransition transitionWithAnchorRect:self.postBtn
         [_postBtn setImage:KIMG(@"编辑")
                   forState:UIControlStateNormal];
         _postBtn.isAllowDrag = NO;//悬浮效果必须要的参数
-        @weakify(self)
+        @jobs_weakify(self)
         self.view.vc = weak_self;
         [self.view addSubview:_postBtn];
         _postBtn.frame = CGRectMake(JobsSCREEN_WIDTH - 43 - 34,
@@ -21,7 +21,7 @@ self.xl_popTranstion = [XLBubbleTransition transitionWithAnchorRect:self.postBtn
         [UIView cornerCutToCircleWithView:_postBtn
                           andCornerRadius:_postBtn.height / 2];
         [[_postBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof JobsSuspendBtn * _Nullable x) {
-            @strongify(self)
+            @jobs_strongify(self)
             [UIViewController comingFromVC:self
                                       toVC:DDPostVC.new
                                comingStyle:ComingStyle_PUSH

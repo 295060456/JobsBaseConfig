@@ -118,7 +118,7 @@
     @jobs_weakify(self)
     [self delay:0.1
           doSth:^(id data) {
-        @strongify(self)
+        @jobs_strongify(self)
         [self delayMethods];
     }];
 }
@@ -163,7 +163,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (customCofigModel.isFullShow) {
         JobsInfoTBVCell *cell = [JobsInfoTBVCell cellWithTableView:tableView];
         [cell richElementsInCellWithModel:childCommentModel];
-//        @weakify(self)
+//        @jobs_weakify(self)
         [cell actionViewBlock:^(id data) {
 //            @jobs_strongify(self)
         }];return cell;
@@ -172,7 +172,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
             // 二级评论展示...
             JobsInfoTBVCell *cell = [JobsInfoTBVCell cellWithTableView:tableView];
             [cell richElementsInCellWithModel:childCommentModel];
-//            @weakify(self)
+//            @jobs_weakify(self)
             [cell actionViewBlock:^(id data) {
 //                @jobs_strongify(self)
             }];return cell;
@@ -199,10 +199,10 @@ heightForHeaderInSection:(NSInteger)section{///  👌
 viewForHeaderInSection:(NSInteger)section{
     JobsCommentPopUpView_viewForHeaderInSection *header = JobsCommentPopUpView_viewForHeaderInSection.new;
     [header richElementsInViewWithModel:self.mjModel.listDataArr[section]];//一级评论数据 展示在viewForHeaderInSection
-    @weakify(self)
+    @jobs_weakify(self)
     // 一级标题点击事件
     [header actionViewBlock:^(id data) {
-        @strongify(self)
+        @jobs_strongify(self)
         [self 一级标题点击事件];
     }];return header;
 }
@@ -210,9 +210,9 @@ viewForHeaderInSection:(NSInteger)section{
 -(JobsCommentTitleHeaderView *)titleHeaderView{
     if (!_titleHeaderView) {
         _titleHeaderView = JobsCommentTitleHeaderView.new;
-        @weakify(self)
+        @jobs_weakify(self)
         [_titleHeaderView actionViewBlock:^(id data) {
-            @strongify(self)
+            @jobs_strongify(self)
             [self dismissViewControllerAnimated:YES
                                      completion:Nil];
         }];
@@ -246,13 +246,13 @@ viewForHeaderInSection:(NSInteger)section{
                                                           titleStr:@"没有评论"
                                                          detailStr:@"来发布第一条吧"];
 
-        @weakify(self)
+        @jobs_weakify(self)
         _tableView.mj_header = [LOTAnimationMJRefreshHeader headerWithRefreshingBlock:^{
-            @strongify(self)
-            @weakify(self)
+            @jobs_strongify(self)
+            @jobs_weakify(self)
             [self delay:0.1
                   doSth:^(id data) {
-                @strongify(self)
+                @jobs_strongify(self)
                 [self pullToRefresh];
             }];
         }];

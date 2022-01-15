@@ -58,7 +58,7 @@ static char *NSObject_PopViewToLogOut_logOutPopupVM = "NSObject_PopViewToLogOut_
                 [NSNotificationCenter.defaultCenter postNotificationName:退出登录 object:@(NO)];
                 
 //                {
-//                    @weakify(self)
+//                    @jobs_weakify(self)
 //                    [NSNotificationCenter.defaultCenter addObserver:self
 //                                                           selector:selectorBlocks(^(id  _Nullable weakSelf,
 //                                                                                     id  _Nullable arg) {

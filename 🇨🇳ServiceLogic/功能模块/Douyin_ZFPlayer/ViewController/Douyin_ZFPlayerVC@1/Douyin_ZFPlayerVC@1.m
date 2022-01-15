@@ -33,11 +33,6 @@
     if ([self.requestParams isKindOfClass:UIViewModel.class]) {
         self.viewModel = (UIViewModel *)self.requestParams;
     }
-    
-    //    {// 外界推得时候这么写
-    //        [self comingToPushVC:CasinoOpenAccountVC.new
-    //                withNavTitle:Internationalization(@"Open an account")];
-    //    }
 }
 
 -(void)viewDidLoad{
@@ -222,10 +217,10 @@ numberOfRowsInSection:(NSInteger)section{
     [cell richElementsInCellWithModel:viewModel];
     
     self.index = indexPath.row;
-    @weakify(self)
+    @jobs_weakify(self)
     [cell actionBlockPlayerCell:^(NSNumber *direction,
                                   NSNumber *index) {
-        @strongify(self)
+        @jobs_strongify(self)
         self.index = index.intValue;
         if (direction.intValue) {//手势朝下
             self.index -= 1;

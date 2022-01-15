@@ -35,14 +35,14 @@
  *    velocity 速度
  */
 -(void)showContentViewWithOffsetY:(CGFloat)offsetY{
-    @weakify(self)
+    @jobs_weakify(self)
     [UIView animateWithDuration:2
                           delay:0.1
          usingSpringWithDamping:0.3
           initialSpringVelocity:10
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-        @strongify(self)
+        @jobs_strongify(self)
         self.centerX = JobsSCREEN_WIDTH / 2;
         self.centerY -= offsetY;
     } completion:^(BOOL finished) {
@@ -51,14 +51,14 @@
 }
 
 -(void)removeContentViewWithOffsetY:(CGFloat)offsetY{
-    @weakify(self)
+    @jobs_weakify(self)
     [UIView animateWithDuration:2
                           delay:0.1
          usingSpringWithDamping:0.3
           initialSpringVelocity:10
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-        @strongify(self)
+        @jobs_strongify(self)
         self.x = -(self.width + self.x);
         self.y = self.initialContentViewRect.origin.y;
     } completion:^(BOOL finished) {

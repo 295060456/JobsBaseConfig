@@ -102,9 +102,9 @@ NS_ASSUME_NONNULL_END
              _mainIMGV.numberOfTouchesRequired = 1;
              _mainIMGV.numberOfTapsRequired = 1;
              _mainIMGV.tapGR.enabled = YES;
- //            @weakify(self)
+ //            @jobs_weakify(self)
              _mainIMGV.callbackBlock = ^(id weakSelf, id arg, UIGestureRecognizer *data3) {
- //                @strongify(self)
+ //                @jobs_strongify(self)
                  [weakSelf gameClick];
              };
          }
@@ -137,9 +137,9 @@ NS_ASSUME_NONNULL_END
     //            self.minimumPressDuration = 1;
     //            self.longPressGR.enabled = YES;
     //        }
-    //        @weakify(self)
+    //        @jobs_weakify(self)
      self.callbackBlock = ^(id weakSelf, id arg, UIGestureRecognizer *data3) {
-    //            @strongify(self)
+    //            @jobs_strongify(self)
          if ([data3 isKindOfClass:UITapGestureRecognizer.class]) {
              [weakSelf LZBTabBarItemTap:(UITapGestureRecognizer *)data3];
          }else if ([data3 isKindOfClass:UILongPressGestureRecognizer.class]){

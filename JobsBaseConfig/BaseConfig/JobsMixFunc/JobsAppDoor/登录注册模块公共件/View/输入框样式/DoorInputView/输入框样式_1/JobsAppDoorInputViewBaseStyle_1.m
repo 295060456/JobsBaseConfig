@@ -125,13 +125,13 @@
 -(UIButton *)countDownBtn{
     if (!_countDownBtn) {
         _countDownBtn = [UIButton.alloc initWithConfig:self.btnTimerConfigModel];
-        @weakify(self)
+        @jobs_weakify(self)
         [_countDownBtn actionBlockTimerRunning:^(id data) {
-            @strongify(self)
+            @jobs_strongify(self)
         }];
         
         [_countDownBtn actionBlockTimerFinish:^(id data) {
-            @strongify(self)
+            @jobs_strongify(self)
         }];
 
         [[_countDownBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
@@ -179,9 +179,9 @@
     if (!_textField) {
         _textField = JobsMagicTextField.new;
         _textField.delegate = self;
-        @weakify(self)
+        @jobs_weakify(self)
         [_textField.rac_textSignal subscribeNext:^(NSString * _Nullable x) {
-            @strongify(self)
+            @jobs_strongify(self)
             NSLog(@"MMM = %@",x);
             [self block:self->_textField
                   value:x];

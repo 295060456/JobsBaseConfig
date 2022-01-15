@@ -130,16 +130,16 @@
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Login"
                                                                              message:@"Enter Your Account Info Below"
                                                                       preferredStyle:UIAlertControllerStyleAlert];
-    @weakify(self)
+    @jobs_weakify(self)
     [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        @strongify(self)
+        @jobs_strongify(self)
         textField.placeholder = @"username";
         [textField addTarget:self
                       action:@selector(alertUserAccountInfoDidChange:targetVC:)
             forControlEvents:UIControlEventEditingChanged];
     }];
     [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        @strongify(self)
+        @jobs_strongify(self)
         textField.placeholder = @"password";
         textField.secureTextEntry = YES;
         [textField addTarget:self

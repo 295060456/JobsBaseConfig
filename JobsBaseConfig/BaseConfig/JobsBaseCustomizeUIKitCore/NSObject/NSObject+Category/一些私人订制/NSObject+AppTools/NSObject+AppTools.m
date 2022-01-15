@@ -59,7 +59,7 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
 -(BOOL)unrestrictedLogin:(NSArray <Class>*_Nullable)dataArr{
     return [dataArr containsObject:self.class];
 }
-#pragma mark —— AppToolsProtocol
+#pragma mark —— <AppToolsProtocol> 关于注册登录
 /// 去登录？去注册？
 -(void)toLoginOrRegister:(CurrentPage)appDoorContentType{
     
@@ -71,16 +71,10 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
 //    extern BOOL CasinoHomeVC_viewDidAppear;
 //    if(!CasinoHomeVC_viewDidAppear) return;
     
-    JobsAppDoorVC *appDoorVC = JobsAppDoorVC.new;
-    appDoorVC.objBindingParams = @(appDoorContentType);
-    [UIViewController comingFromVC:viewController
-                              toVC:appDoorVC
-                       comingStyle:ComingStyle_PRESENT
-                 presentationStyle:UIModalPresentationFullScreen//[UIDevice currentDevice].systemVersion.doubleValue >= 13.0 ? UIModalPresentationAutomatic : UIModalPresentationFullScreen
-                     requestParams:@(JobsAppDoorBgType_video)
-          hidesBottomBarWhenPushed:YES
-                          animated:YES
-                           success:^(id data) {}];
+    UIViewModel *viewModel = UIViewModel.new;
+    viewModel.requestParams = @(JobsAppDoorBgType_video);
+    [viewController comingToPresentVC:JobsAppDoorVC.new
+                        requestParams:viewModel];
 }
 /// 强制登录：没登录（本地用户数据为空）就去登录
 -(void)forcedLogin{
@@ -103,12 +97,39 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
 -(void)popUpViewToLogout{
     [self popupWithView:self.logOutPopupView popupParam:self.popupParameter];
 }
+#pragma mark —— <AppToolsProtocol> 关于 TabBar
 /// 跳到首页
 -(void)jumpToHome{
     extern AppDelegate *appDelegate;
     appDelegate.tabBarVC.selectedIndex = 0;
 }
-
+/// JobsTabbarVC 关闭手势
+-(void)tabBarClosePan{
+    AppDelegate *appDelegate = getSysAppDelegate();
+    [appDelegate.tabBarVC closePan];
+}
+/// JobsTabbarVC 打开手势
+-(void)tabBarOpenPan{
+    AppDelegate *appDelegate = getSysAppDelegate();
+    [appDelegate.tabBarVC openPan];
+}
+/// 获取Tabbar管理的，不含导航的根控制器
+-(NSMutableArray <UIViewController *>*)appRootVC{
+    AppDelegate *appDelegate = getSysAppDelegate();
+    return appDelegate.getAppRootVC;
+}
+/// 当前对象是否是 Tabbar管理的，不含导航的根控制器
+-(BOOL)isRootVC{
+    if ([self isKindOfClass:UIViewController.class]) {
+        return [self.appRootVC containsObject:(UIViewController *)self];
+    }else return NO;
+}
+/// TabBar
+-(UITabBar *)getTabBar{
+    extern AppDelegate *appDelegate;
+    return appDelegate.tabBarVC.tabBar;
+}
+#pragma mark —— <AppToolsProtocol> 其他
 -(UIImage *)defaultHeaderImage{
     if (self.isLogin) {
         return KIMG(@"default_avatar_white");
@@ -137,27 +158,6 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
         NSLog(@"%@",NSBundle.currentLanguage);
         return HTTPRequestHeaderLanguageOther;
     }
-}
-/// JobsTabbarVC 关闭手势
--(void)tabBarClosePan{
-    AppDelegate *appDelegate = getSysAppDelegate();
-    [appDelegate.tabBarVC closePan];
-}
-/// JobsTabbarVC 打开手势
--(void)tabBarOpenPan{
-    AppDelegate *appDelegate = getSysAppDelegate();
-    [appDelegate.tabBarVC openPan];
-}
-/// 获取Tabbar管理的，不含导航的根控制器
--(NSMutableArray <UIViewController *>*)appRootVC{
-    AppDelegate *appDelegate = getSysAppDelegate();
-    return appDelegate.getAppRootVC;
-}
-/// 当前对象是否是 Tabbar管理的，不含导航的根控制器
--(BOOL)isRootVC{
-    if ([self isKindOfClass:UIViewController.class]) {
-        return [self.appRootVC containsObject:(UIViewController *)self];
-    }else return NO;
 }
 /// App 升级弹窗：在根控制器下实现，做到覆盖全局的统一
 -(void)appUpdateWithData:(CasinoGetiOSNewestVersionModel *_Nonnull)updateData

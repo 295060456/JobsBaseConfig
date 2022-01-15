@@ -19,7 +19,7 @@ typedef CGPoint(^mmPointBlock)(id firstArg,...);//第一个参数写：有多少
 
     不定参数Block【 使用示例】
     [self GettingPicBlock:^(id firstArg, ...)NS_REQUIRES_NIL_TERMINATION{
-        @strongify(self)
+        @jobs_strongify(self)
         if (firstArg) {
             // 取出第一个参数
             NSLog(@"%@", firstArg);

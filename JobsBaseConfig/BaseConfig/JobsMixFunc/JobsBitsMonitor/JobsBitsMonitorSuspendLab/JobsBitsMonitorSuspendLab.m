@@ -43,9 +43,9 @@ extern NetworkingEnvir networkingEnvir;
             self.numberOfTapsRequired = 1;
             self.tapGR.enabled = YES;
             
-//            @weakify(self)
+//            @jobs_weakify(self)
             self.callbackBlock = ^(id weakSelf, id arg, UIGestureRecognizer *data3) {
-//                @strongify(self)
+//                @jobs_strongify(self)
                 [weakSelf showMenu];
             };
         }
@@ -72,9 +72,9 @@ extern NetworkingEnvir networkingEnvir;
 -(void)showMenu{
     ZWPullMenuView *menuView = [ZWPullMenuView pullMenuAnchorView:self
                                                        titleArray:self.operationEnvironMutArr];
-    @weakify(self)
+    @jobs_weakify(self)
     menuView.blockSelectedMenu = ^(NSInteger menuRow) {
-        @strongify(self)
+        @jobs_strongify(self)
         NSLog(@"action----->%ld",(long)menuRow);
         networkingEnvir = menuRow;
         if (menuRow + 1 <= self.operationEnvironMutArr.count) {

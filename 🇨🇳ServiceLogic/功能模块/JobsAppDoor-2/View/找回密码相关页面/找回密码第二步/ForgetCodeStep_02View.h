@@ -7,14 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseView.h"
 #import "JobsAppDoorInputView.h"
 #import "JobsAppDoorInputViewBaseStyle.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ForgetCodeStep_02View : UIView
-
--(void)richElementsInViewWithModel:(id _Nullable)model;//外层数据渲染
+@interface ForgetCodeStep_02View : BaseView
 
 @end
 

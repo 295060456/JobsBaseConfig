@@ -28,11 +28,6 @@
     if ([self.requestParams isKindOfClass:UIViewModel.class]) {
         self.viewModel = (UIViewModel *)self.requestParams;
     }
-    
-    //    {// 外界推得时候这么写
-    //        [self comingToPushVC:CasinoOpenAccountVC.new
-    //                withNavTitle:Internationalization(@"Open an account")];
-    //    }
 }
 
 - (void)viewDidLoad {
@@ -60,10 +55,10 @@
 -(JobsIMListView *)listView{
     if (!_listView) {
         _listView = JobsIMListView.new;
-        @weakify(self)
+        @jobs_weakify(self)
         [_listView richElementsInViewWithModel:nil];
         [_listView actionViewBlock:^(JobsIMListDataModel *data) {
-            @strongify(self)
+            @jobs_strongify(self)
             JobsIMChatInfoModel *chatInfoModel = JobsIMChatInfoModel.new;
             chatInfoModel.chatTextStr = data.contentStr;
             chatInfoModel.userNameStr = data.usernameStr;

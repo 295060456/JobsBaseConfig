@@ -28,9 +28,9 @@ static char *UIButton_CountDownBtn_timerFinishBlock = "UIButton_CountDownBtn_tim
         [self setTitleReadyPlay];
         [self setTitleLabelConfigReadyPlay];
         // CountDownBtn 的点击事件回调
-        @weakify(self)
+        @jobs_weakify(self)
         [[self rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
-            @strongify(self)
+            @jobs_strongify(self)
             if (self.countDownClickEventBlock) {
                 self.countDownClickEventBlock(self);
             }
@@ -263,9 +263,9 @@ static char *UIButton_CountDownBtn_timerFinishBlock = "UIButton_CountDownBtn_tim
                                  OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     // 定时器运行时的Block
-    @weakify(self)
+    @jobs_weakify(self)
     [BtnTimerConfig actionBlockTimerRunning:^(id data) {
-        @strongify(self)
+        @jobs_strongify(self)
         NSLog(@"data = %@",data);
         if ([data isKindOfClass:NSTimerManager.class]) {
             NSTimerManager *timeManager = (NSTimerManager *)data;
@@ -281,7 +281,7 @@ static char *UIButton_CountDownBtn_timerFinishBlock = "UIButton_CountDownBtn_tim
     }];
     // 定时器结束时候的Block
     [BtnTimerConfig actionBlockTimerFinish:^(id data) {
-        @strongify(self)
+        @jobs_strongify(self)
         [self timerDestroy];
         NSLog(@"定时器结束 = %@",data);
         if (self.timerFinishBlock) {

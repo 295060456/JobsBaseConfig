@@ -274,12 +274,12 @@ static char *BaseVC_JPImageresizerView_fixCompleteBlock = "BaseVC_JPImageresizer
 -(JPImageresizerView *)imageresizerView{
     JPImageresizerView *ImageresizerView = objc_getAssociatedObject(self, BaseVC_JPImageresizerView_imageresizerView);
     if (!ImageresizerView) {
-//        @weakify(self)
+//        @jobs_weakify(self)
         ImageresizerView = [JPImageresizerView imageresizerViewWithConfigure:self.configure
                                                                        imageresizerIsCanRecovery:^(BOOL isCanRecovery) {
-//            @strongify(self)
+//            @jobs_strongify(self)
         } imageresizerIsPrepareToScale:^(BOOL isPrepareToScale) {
-//            @strongify(self)
+//            @jobs_strongify(self)
         }];
     }return ImageresizerView;
 }

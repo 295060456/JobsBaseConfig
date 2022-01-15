@@ -12,11 +12,11 @@
             self.myVCModel = [MyVCModel mj_objectWithKeyValues:response.reqResult];
             NSArray *array = [VideoListModel mj_objectArrayWithKeyValuesArray:response.reqResult[@"videoList"]];
             if (array) {
-                @weakify(self)
+                @jobs_weakify(self)
                 [array enumerateObjectsUsingBlock:^(id  _Nonnull obj,
                                                     NSUInteger idx,
                                                     BOOL * _Nonnull stop) {
-                    @strongify(self)
+                    @jobs_strongify(self)
                     VideoListModel *model = array[idx];
                     [self.videoListdataMutArr addObject:model];
                 }];

@@ -78,10 +78,10 @@ static NSString *const itemCell = @"itemCell";
     UIWindow *window = getMainWindow();
     [window addSubview:self];
     [self addSubview:self.bgView];
-    @weakify(self)
+    @jobs_weakify(self)
     [UIView animateWithDuration:.3f
                      animations:^{
-        @strongify(self)
+        @jobs_strongify(self)
         CGRect frame = self.bgView.frame;
         frame.origin.y = [self isDoubleShare] ? [UIScreen mainScreen].bounds.size.height - 230 - kTitleHeight : [UIScreen mainScreen].bounds.size.height - 140 - kTitleHeight;
         self.bgView.frame = frame;
@@ -89,15 +89,15 @@ static NSString *const itemCell = @"itemCell";
 }
 
 - (void)removeChildView{
-    @weakify(self)
+    @jobs_weakify(self)
     [UIView animateWithDuration:.3f
                      animations:^{
-        @strongify(self)
+        @jobs_strongify(self)
         CGRect frame = self.bgView.frame;
         frame.origin.y = [UIScreen mainScreen].bounds.size.height;
         self.bgView.frame = frame;
     } completion:^(BOOL finished) {
-        @strongify(self)
+        @jobs_strongify(self)
         if (finished) {
             [self removeFromSuperview];
         }

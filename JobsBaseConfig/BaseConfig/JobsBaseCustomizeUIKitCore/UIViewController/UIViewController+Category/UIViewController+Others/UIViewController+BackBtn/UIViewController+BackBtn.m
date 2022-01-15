@@ -70,9 +70,9 @@ static char *BaseVC_BackBtn_backBtnTitle = "BaseVC_BackBtn_backBtnTitle";
                                   forState:UIControlStateNormal];
         }
         
-        @weakify(self)
+        @jobs_weakify(self)
         [[BackBtnCategory rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-            @strongify(self)
+            @jobs_strongify(self)
             [self backBtnClickEvent:x];
         }];
         objc_setAssociatedObject(self,

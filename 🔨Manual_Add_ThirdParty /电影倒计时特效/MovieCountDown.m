@@ -51,16 +51,16 @@
     self.countDown.text = [NSString stringWithFormat:@"%ld",(long)second];
     self.countDown.alpha = 1;
     self.aphView.alpha = 0;
-    @weakify(self)
+    @jobs_weakify(self)
     [UIView animateWithDuration:0.8
                      animations:^{
-        @strongify(self)
+        @jobs_strongify(self)
         self.countDown.alpha = 0.8;//透明度
         self.aphView.alpha = 0.1;
         self.countDown.transform = CGAffineTransformMakeScale(1.5, 1.5);//放大值
         self.aphView.transform = CGAffineTransformMakeScale(10, 10);//放大值
     } completion:^(BOOL finished) {
-        @strongify(self)
+        @jobs_strongify(self)
         self.aphView.alpha = self.countDown.alpha =  0;
         self.countDown.transform = self.aphView.transform = CGAffineTransformIdentity;//回复原大小
     }];

@@ -11,14 +11,15 @@
 @interface JobsAppDoorLoginContentView ()
 
 // UI
-@property(nonatomic,strong)UIButton *toRegisterBtn;//去注册
-@property(nonatomic,strong)UILabel *titleLab;//标题
-@property(nonatomic,strong)UIButton *abandonLoginBtn;//返回首页按钮
-@property(nonatomic,strong)UIButton *sendBtn;//登录
-@property(nonatomic,strong)UIButton *storeCodeBtn;//记住密码
-@property(nonatomic,strong)UIButton *findCodeBtn;//忘记密码
+@property(nonatomic,strong)UIButton *toRegisterBtn;/// 去注册
+@property(nonatomic,strong)UILabel *titleLab;/// 标题
+@property(nonatomic,strong)UIButton *abandonLoginBtn;/// 返回首页按钮
+@property(nonatomic,strong)UIButton *sendBtn;/// 登录
+@property(nonatomic,strong)UIButton *storeCodeBtn;/// 记住密码
+@property(nonatomic,strong)UIButton *findCodeBtn;/// 忘记密码
 // Data
 @property(nonatomic,strong)NSMutableArray <JobsAppDoorInputViewBaseStyleModel *>*loginDoorInputViewBaseStyleModelMutArr;
+@property(nonatomic,strong)NSMutableArray <JobsAppDoorInputViewBaseStyle *>*loginDoorInputViewBaseStyleMutArr;
 
 @end
 
@@ -53,15 +54,15 @@
           withEvent:(UIEvent *)event{
     [self endEditing:YES];
 }
-
+#pragma mark —— 一些私有化方法
 -(void)makeInputView{
     for (int i = 0; i < self.loginDoorInputViewBaseStyleModelMutArr.count; i++) {
         JobsAppDoorInputViewBaseStyle_3 *inputView = JobsAppDoorInputViewBaseStyle_3.new;
         [self.loginDoorInputViewBaseStyleMutArr addObject:inputView];
         [inputView richElementsInViewWithModel:self.loginDoorInputViewBaseStyleModelMutArr[i]];
-        @weakify(self)
+        @jobs_weakify(self)
         [inputView actionViewBlock:^(id data) {
-            @strongify(self)
+            @jobs_strongify(self)
             if (self.viewBlock) {
                 self.viewBlock(data);//data：监测输入字符回调 和 激活的textField
             }
@@ -80,7 +81,12 @@
         [self layoutIfNeeded];// 这句话不加，不刷新界面，placeHolder会出现异常
     }
 }
-//外层数据渲染
+#pragma mark —— JobsDoorInputViewProtocol
+-(NSMutableArray<JobsAppDoorInputViewBaseStyle *> *)getAppDoorInputViewBaseStyle{
+    return self.loginDoorInputViewBaseStyleMutArr;
+}
+#pragma mark —— BaseViewProtocol
+/// 外层数据渲染
 -(void)richElementsInViewWithModel:(id _Nullable)contentViewModel{
    
     self.toRegisterBtn.alpha = 1;
@@ -95,24 +101,16 @@
 -(UIButton *)toRegisterBtn{
     if (!_toRegisterBtn) {
         _toRegisterBtn = UIButton.new;
-        _toRegisterBtn.titleLabel.numberOfLines = 0;
+        [_toRegisterBtn makeNewLineShows:YES];
         _toRegisterBtn.backgroundColor = kBlackColor;
-        _toRegisterBtn.titleLabel.font = [UIFont systemFontOfSize:JobsWidth(13)
-                                                           weight:UIFontWeightMedium];
+        [_toRegisterBtn titleFont:[UIFont systemFontOfSize:JobsWidth(13) weight:UIFontWeightMedium]];
         _toRegisterBtn.alpha = 0.7f;
-        [_toRegisterBtn setTitle:Title2
-                        forState:UIControlStateNormal];
-        [_toRegisterBtn setImage:KIMG(@"用户名称")
-                        forState:UIControlStateNormal];
-        @weakify(self)
-        [[_toRegisterBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
-            NSLog(@"新用户注册");
-            @strongify(self)
+        [_toRegisterBtn normalTitle:Title2];
+        [_toRegisterBtn normalImage:KIMG(@"用户名称")];
+        BtnClickEvent(_toRegisterBtn, {
             [self endEditing:YES];
-            if (self.viewBlock) {
-                self.viewBlock(x);
-            }
-        }];
+            if (self.viewBlock) self.viewBlock(x);
+        });
         [self addSubview:_toRegisterBtn];
         [_toRegisterBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.right.bottom.equalTo(self);
@@ -140,65 +138,50 @@
 -(UIButton *)abandonLoginBtn{
     if (!_abandonLoginBtn) {
         _abandonLoginBtn = UIButton.new;
-        [_abandonLoginBtn setTitle:Title4
-                          forState:UIControlStateNormal];
-        [_abandonLoginBtn setTitleColor:kWhiteColor
-                               forState:UIControlStateNormal];
-        _abandonLoginBtn.titleLabel.font = [UIFont systemFontOfSize:JobsWidth(15)
-                                                             weight:UIFontWeightSemibold];
-        [_abandonLoginBtn.titleLabel sizeToFit];
-        @weakify(self)
-        [[_abandonLoginBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-            @strongify(self)
-            if (self.viewBlock) {
-                self.viewBlock(x);
-            }
-        }];
+        [_abandonLoginBtn normalTitle:Title4];
+        [_abandonLoginBtn normalTitleColor:UIColor.whiteColor];
+        [_abandonLoginBtn titleFont:[UIFont systemFontOfSize:JobsWidth(15) weight:UIFontWeightSemibold]];
+        [_abandonLoginBtn buttonAutoWidthByFont];
         [self addSubview:_abandonLoginBtn];
-        _abandonLoginBtn.x = self.titleLab.x;
-        _abandonLoginBtn.bottom = self.height - JobsWidth(30);
-        _abandonLoginBtn.size = CGSizeMake(JobsSCREEN_WIDTH / 5, JobsWidth(10));
+        [_abandonLoginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.titleLab);
+            make.height.mas_equalTo(JobsWidth(15));
+            make.bottom.mas_equalTo(self).offset(-JobsWidth(30));
+        }];
+        BtnClickEvent(_abandonLoginBtn, if (self.viewBlock) self.viewBlock(x););
     }return _abandonLoginBtn;
 }
 
 -(UIButton *)sendBtn{
     if (!_sendBtn) {
         _sendBtn = UIButton.new;
-        [_sendBtn setTitle:Title7
-                   forState:UIControlStateNormal];
+        [_sendBtn normalTitle:Title7];
         _sendBtn.backgroundColor = [KSystemPinkColor colorWithAlphaComponent:0.7];
-        [_sendBtn setTitleColor:kWhiteColor
-                        forState:UIControlStateNormal];
-        _sendBtn.titleLabel.font = [UIFont systemFontOfSize:JobsWidth(15)
-                                                     weight:UIFontWeightSemibold];
-        [_sendBtn.titleLabel sizeToFit];
-        @weakify(self)
-        [[_sendBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-            @strongify(self)
-        }];
+        [_sendBtn normalTitleColor:UIColor.whiteColor];
+        [_sendBtn titleFont:[UIFont systemFontOfSize:JobsWidth(15) weight:UIFontWeightSemibold]];
         [self addSubview:_sendBtn];
-        _sendBtn.x = JobsWidth(20);
-        _sendBtn.size = CGSizeMake(self.width - self.toRegisterBtn.width - JobsWidth(40), ThingsHeight);
-        _sendBtn.bottom = self.abandonLoginBtn.top - JobsWidth(10);
-        [UIView cornerCutToCircleWithView:_sendBtn andCornerRadius:_sendBtn.height / 2];
+        [_sendBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(self.width - self.toRegisterBtn.width - JobsWidth(40), ThingsHeight));
+            make.centerX.equalTo(self.titleLab);
+            make.bottom.mas_equalTo(self).offset(-JobsWidth(60));
+        }];
+        [self layoutIfNeeded];
+        [UIView cornerCutToCircleWithView:_sendBtn
+                          andCornerRadius:_sendBtn.height / 2];
+        BtnClickEvent(_sendBtn, [WHToast toastSuccessMsg:Title7];);
     }return _sendBtn;
 }
 /// 记住登录成功的账号和密码
 -(UIButton *)storeCodeBtn{
     if (!_storeCodeBtn) {
         _storeCodeBtn = UIButton.new;
-        [_storeCodeBtn setTitle:Title5
-                       forState:UIControlStateNormal];
-        _storeCodeBtn.titleLabel.font = [UIFont systemFontOfSize:JobsWidth(12)
-                                                          weight:UIFontWeightRegular];
+        [_storeCodeBtn normalTitle:Title5];
+        [_storeCodeBtn titleFont:[UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular]];
         _storeCodeBtn.selected = YES;// 默认记住密码
-        [_storeCodeBtn setImage:KIMG(@"没有记住密码")
-                       forState:UIControlStateNormal];
-        [_storeCodeBtn setImage:KIMG(@"记住密码")
-                       forState:UIControlStateSelected];
+        [_storeCodeBtn normalImage:KIMG(@"没有记住密码")];
+        [_storeCodeBtn selectedImage:KIMG(@"记住密码")];
         _storeCodeBtn.titleLabel.textColor = kWhiteColor;
-        [_storeCodeBtn.titleLabel sizeToFit];
-        [_storeCodeBtn.titleLabel adjustsFontSizeToFitWidth];
+        [_storeCodeBtn buttonAutoWidthByFont];
         [self addSubview:_storeCodeBtn];
         [_storeCodeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             JobsAppDoorInputViewBaseStyle *inputView = (JobsAppDoorInputViewBaseStyle *)self.loginDoorInputViewBaseStyleMutArr.lastObject;
@@ -209,41 +192,27 @@
         [self layoutIfNeeded];
         [_storeCodeBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft
                                        imageTitleSpace:JobsWidth(3)];
-        
-        @weakify(self)
-        [[_storeCodeBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
-            @strongify(self)
+        BtnClickEvent(_storeCodeBtn, {
             x.selected = !x.selected;
-            if (self.viewBlock) {
-                self.viewBlock(x);
-            }
-        }];
+            if (self.viewBlock) self.viewBlock(x);
+        })
     }return _storeCodeBtn;
 }
 
 -(UIButton *)findCodeBtn{
     if (!_findCodeBtn) {
         _findCodeBtn = UIButton.new;
-        [_findCodeBtn setTitle:Title3
-                      forState:UIControlStateNormal];
-        _findCodeBtn.titleLabel.font = [UIFont systemFontOfSize:JobsWidth(12)
-                                                         weight:UIFontWeightRegular];
-        _findCodeBtn.titleLabel.textColor = kWhiteColor;
-        [_findCodeBtn.titleLabel sizeToFit];
-        [_findCodeBtn.titleLabel adjustsFontSizeToFitWidth];
+        [_findCodeBtn normalTitle:Title3];
+        [_findCodeBtn titleFont:[UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular]];
+        [_findCodeBtn normalTitleColor:UIColor.whiteColor];
+        [_findCodeBtn buttonAutoWidthByFont];
         [self addSubview:_findCodeBtn];
         [_findCodeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             JobsAppDoorInputViewBaseStyle *inputView = (JobsAppDoorInputViewBaseStyle *)self.loginDoorInputViewBaseStyleMutArr.lastObject;
             make.right.equalTo(inputView).offset(-JobsWidth(20));
             make.top.equalTo(inputView.mas_bottom).offset(JobsWidth(20));
         }];
-        @weakify(self)
-        [[_findCodeBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
-            @strongify(self)
-            if (self.viewBlock) {
-                self.viewBlock(x);
-            }
-        }];
+        BtnClickEvent(_findCodeBtn, if (self.viewBlock) self.viewBlock(x););
     }return _findCodeBtn;
 }
 

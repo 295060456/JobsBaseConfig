@@ -183,12 +183,12 @@
 
 -(NSTimer *)nsTimer{
     if (!_nsTimer) {
-        @weakify(self)
+        @jobs_weakify(self)
         _nsTimer = [[NSTimer alloc] initWithFireDate:self.date
                                             interval:self.timeInterval
                                              repeats:self.repeats
                                                block:^(NSTimer * _Nonnull timer) {
-            @strongify(self)
+            @jobs_strongify(self)
             switch (self.timerStyle) {
                 case TimerStyle_clockwise:{//顺时针模式
                     if (self.NSTimerManagerRunningBlock) {
@@ -236,7 +236,7 @@
 }
 
 -(id)target{
-    @weakify(self)
+    @jobs_weakify(self)
     if (!_target) {
         _target = weak_self;
     }return _target;

@@ -127,10 +127,10 @@
     if (!_textField) {
         _textField = JobsMagicTextField.new;
         _textField.delegate = self;
-        @weakify(self)
+        @jobs_weakify(self)
         [[_textField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
             NSLog(@"SSS = %@",self.textFieldInputModel.PlaceHolder);
-            @strongify(self)
+            @jobs_strongify(self)
             if ([self.textFieldInputModel.PlaceHolder isEqualToString:Internationalization(@"User")]) {
                 if ([self checkUserName:value]) {
                     return YES;
@@ -150,7 +150,7 @@
                 }
             }else{}return NO;
         }] subscribeNext:^(NSString * _Nullable x) {
-            @strongify(self)
+            @jobs_strongify(self)
             NSLog(@"输入的字符为 = %@",x);
             self.securityModeBtn.visible = ![NSString isNullString:x] && self.doorInputViewBaseStyleModel.isShowSecurityBtn;/// 👁
             if ([x isContainsSpecialSymbolsString:nil]) {

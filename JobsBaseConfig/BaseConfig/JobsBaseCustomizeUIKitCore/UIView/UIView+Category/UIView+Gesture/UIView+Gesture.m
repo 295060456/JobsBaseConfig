@@ -67,12 +67,12 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
 
 -(void)Dealloc{
     UILongPressGestureRecognizer *LongPressGR = objc_getAssociatedObject(self, UIView_Gesture_longPressGR);
-    @weakify(self)
+    @jobs_weakify(self)
     if (LongPressGR) {
         [LongPressGR removeTarget:self.target
                            action:selectorBlocks(^(id _Nullable weakSelf,
                                                    id _Nullable arg) {
-            @strongify(self)
+            @jobs_strongify(self)
             if (self.callbackBlock) {
                 self.callbackBlock(weakSelf,
                                    arg,
@@ -85,7 +85,7 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
         [TapGR removeTarget:self.target
                      action:selectorBlocks(^(id _Nullable weakSelf,
                                              id _Nullable arg) {
-            @strongify(self)
+            @jobs_strongify(self)
             if (self.callbackBlock) {
                 self.callbackBlock(weakSelf,
                                    arg,
@@ -98,7 +98,7 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
         [SwipeGR removeTarget:self.target
                        action:selectorBlocks(^(id _Nullable weakSelf,
                                                id _Nullable arg) {
-            @strongify(self)
+            @jobs_strongify(self)
             if (self.callbackBlock) {
                 self.callbackBlock(weakSelf,
                                    arg,
@@ -111,7 +111,7 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
         [PanGR removeTarget:self.target
                      action:selectorBlocks(^(id _Nullable weakSelf,
                                              id _Nullable arg) {
-            @strongify(self)
+            @jobs_strongify(self)
             if (self.callbackBlock) {
                 self.callbackBlock(weakSelf,
                                    arg,
@@ -124,7 +124,7 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
         [PinchGR removeTarget:self.target
                        action:selectorBlocks(^(id _Nullable weakSelf,
                                                id _Nullable arg) {
-            @strongify(self)
+            @jobs_strongify(self)
             if (self.callbackBlock) {
                 self.callbackBlock(weakSelf,
                                    arg,
@@ -137,7 +137,7 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
         [RotationGR removeTarget:self.target
                           action:selectorBlocks(^(id _Nullable weakSelf,
                                                   id _Nullable arg) {
-            @strongify(self)
+            @jobs_strongify(self)
             if (self.callbackBlock) {
                 self.callbackBlock(weakSelf,
                                    arg,
@@ -150,7 +150,7 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
         [ScreenEdgePanGR removeTarget:self.target
                                action:selectorBlocks(^(id _Nullable weakSelf,
                                                        id _Nullable arg) {
-            @strongify(self)
+            @jobs_strongify(self)
             if (self.callbackBlock) {
                 self.callbackBlock(weakSelf,
                                    arg,
@@ -282,11 +282,11 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
 -(UILongPressGestureRecognizer *)longPressGR{
     UILongPressGestureRecognizer *LongPressGR = objc_getAssociatedObject(self, UIView_Gesture_longPressGR);
     if (!LongPressGR) {
-        @weakify(self)
+        @jobs_weakify(self)
         LongPressGR = [[UILongPressGestureRecognizer alloc] initWithTarget:self.target
                                                                     action:selectorBlocks(^(id _Nullable weakSelf,
                                                                                             id _Nullable arg) {
-            @strongify(self)
+            @jobs_strongify(self)
             if (self.callbackBlock) {
                 self.callbackBlock(weakSelf,
                                    arg,
@@ -327,11 +327,11 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
 -(UITapGestureRecognizer *)tapGR{
     UITapGestureRecognizer *TapGR = objc_getAssociatedObject(self, UIView_Gesture_tapGR);
     if (!TapGR) {
-        @weakify(self)
+        @jobs_weakify(self)
         TapGR = [[UITapGestureRecognizer alloc] initWithTarget:self.target
                                                         action:selectorBlocks(^(id _Nullable weakSelf,
                                                                                 id _Nullable arg) {
-            @strongify(self)
+            @jobs_strongify(self)
             if (self.callbackBlock) {
                 self.callbackBlock(weakSelf,
                                    arg,
@@ -364,11 +364,11 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
 -(UISwipeGestureRecognizer *)swipeGR{
     UISwipeGestureRecognizer *SwipeGR = objc_getAssociatedObject(self, UIView_Gesture_swipeGR);
     if (!SwipeGR) {
-        @weakify(self)
+        @jobs_weakify(self)
         SwipeGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self.target
                                                             action:selectorBlocks(^(id _Nullable weakSelf,
                                                                                     id _Nullable arg) {
-            @strongify(self)
+            @jobs_strongify(self)
             if (self.callbackBlock) {
                 self.callbackBlock(weakSelf,
                                    arg,
@@ -396,11 +396,11 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
 -(UIPanGestureRecognizer *)panGR{
     UIPanGestureRecognizer *PanGR = objc_getAssociatedObject(self, UIView_Gesture_panGR);
     if (!PanGR) {
-        @weakify(self)
+        @jobs_weakify(self)
         PanGR = [[UIPanGestureRecognizer alloc] initWithTarget:self.target
                                                         action:selectorBlocks(^(id _Nullable weakSelf,
                                                                                 id _Nullable arg) {
-            @strongify(self)
+            @jobs_strongify(self)
             if (self.callbackBlock) {
                 self.callbackBlock(weakSelf,
                                    arg,
@@ -429,11 +429,11 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
 -(UIPinchGestureRecognizer *)pinchGR{
     UIPinchGestureRecognizer *PinchGR = objc_getAssociatedObject(self, UIView_Gesture_pinchGR);
     if (!PinchGR) {
-        @weakify(self)
+        @jobs_weakify(self)
         PinchGR = [[UIPinchGestureRecognizer alloc] initWithTarget:self.target
                                                             action:selectorBlocks(^(id _Nullable weakSelf,
                                                                                     id _Nullable arg) {
-            @strongify(self)
+            @jobs_strongify(self)
             if (self.callbackBlock) {
                 self.callbackBlock(weakSelf,
                                    arg,
@@ -460,11 +460,11 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
 -(UIRotationGestureRecognizer *)rotationGR{
     UIRotationGestureRecognizer *RotationGR = objc_getAssociatedObject(self, UIView_Gesture_rotationGR);
     if (!RotationGR) {
-        @weakify(self)
+        @jobs_weakify(self)
         RotationGR = [[UIRotationGestureRecognizer alloc] initWithTarget:self.target
                                                                   action:selectorBlocks(^(id _Nullable weakSelf,
                                                                                           id _Nullable arg) {
-            @strongify(self)
+            @jobs_strongify(self)
             if (self.callbackBlock) {
                 self.callbackBlock(weakSelf,
                                    arg,
@@ -491,11 +491,11 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
 -(UIScreenEdgePanGestureRecognizer *)screenEdgePanGR{
     UIScreenEdgePanGestureRecognizer *ScreenEdgePanGR = objc_getAssociatedObject(self, UIView_Gesture_screenEdgePanGR);
     if (!ScreenEdgePanGR) {
-        @weakify(self)
+        @jobs_weakify(self)
         ScreenEdgePanGR = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self.target
                                                                             action:selectorBlocks(^(id _Nullable weakSelf,
                                                                                                     id _Nullable arg) {
-            @strongify(self)
+            @jobs_strongify(self)
             if (self.callbackBlock) {
                 self.callbackBlock(weakSelf,
                                    arg,

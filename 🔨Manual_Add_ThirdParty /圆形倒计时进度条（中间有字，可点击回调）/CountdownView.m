@@ -28,11 +28,11 @@
     self.label.alpha = 1;
     [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self
                                                                        action:@selector(tapAction)]];
-    @weakify(self)
+    @jobs_weakify(self)
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW,
                                  (int64_t)(self.time * NSEC_PER_SEC)),
                    dispatch_get_main_queue(), ^{
-        @strongify(self)
+        @jobs_strongify(self)
         [self animationFinished];
     });
 }

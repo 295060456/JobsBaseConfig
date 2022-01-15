@@ -43,10 +43,10 @@
         _timerManager = NSTimerManager.new;
         _timerManager.timerStyle = self.countDownBtnType;
         _timerManager.anticlockwiseTime = self.count;//【逆时针模式：到这个时间点结束】、【顺时针模式：从这个时间点开始】
-        @weakify(self)
+        @jobs_weakify(self)
         //倒计时启动
         [_timerManager actionNSTimerManagerRunningBlock:^(id data) {
-            @strongify(self)
+            @jobs_strongify(self)
             NSLog(@"正在倒计时...");
             if (self.timerRunningBlock) {
                 self.timerRunningBlock(data);
@@ -54,7 +54,7 @@
         }];
         //倒计时结束
         [_timerManager actionNSTimerManagerFinishBlock:^(id data) {
-            @strongify(self)
+            @jobs_strongify(self)
             if (self.timerFinishBlock) {
                 self.timerFinishBlock(data);
             }

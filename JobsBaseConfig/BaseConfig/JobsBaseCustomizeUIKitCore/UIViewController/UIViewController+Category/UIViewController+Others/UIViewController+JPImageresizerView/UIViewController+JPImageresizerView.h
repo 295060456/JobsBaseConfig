@@ -59,12 +59,12 @@ NS_ASSUME_NONNULL_END
 //    self.JPImageresizerView_img = img;
 //    //图片裁剪 方式方法_2
 //    NSLog(@"图片裁剪中...");
-//    @weakify(self)
+//    @jobs_weakify(self)
 //    [self.imageresizerView cropPictureWithCompressScale:0.5// 压缩比例，大于等于1按原图尺寸裁剪，小于等于0则返回nil（例：compressScale = 0.5，1000 x 500 --> 500 x 250）
 //                                               cacheURL:[FileFolderHandleTool cacheURL:@"png"]
 //                                             errorBlock:^(NSURL *cacheURL,
 //                                                          JPImageresizerErrorReason reason) {
-////                    @strongify(self)
+////                    @jobs_strongify(self)
 //        switch (reason) {
 //            case JPIEReason_NilObject:
 //                NSLog(@"资源为空");
@@ -90,7 +90,7 @@ NS_ASSUME_NONNULL_END
 //                                         completeBlock :^(UIImage *finalImage,
 //                                                           NSURL *cacheURL,
 //                                                           BOOL isCacheSuccess) {
-//        @strongify(self)
+//        @jobs_strongify(self)
 //        NSLog(@"图片裁剪完成");
 //        // 裁剪完成，finalImage为裁剪后的图片
 //        if (!finalImage && !cacheURL) {

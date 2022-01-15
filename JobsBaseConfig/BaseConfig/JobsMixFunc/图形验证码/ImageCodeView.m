@@ -87,9 +87,9 @@
 }
 ///点击、刷新验证码
 -(void)changeCode:(UITapGestureRecognizer *)sender{
-    @weakify(self)
+    @jobs_weakify(self)
 //    [NSObject getAuthCode_networking:^(id data) {
-//        @strongify(self)
+//        @jobs_strongify(self)
 //        if ([data isKindOfClass:NSDictionary.class]) {
 //            self.CodeStr = data[@"imgCode"];
 //            self.backgroundColor = self.bgColor;

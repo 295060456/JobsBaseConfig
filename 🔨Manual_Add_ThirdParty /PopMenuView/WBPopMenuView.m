@@ -108,9 +108,9 @@
 
 -(WBTableViewDelegate *)tableViewDelegate{
     if (!_tableViewDelegate) {
-        @weakify(self)
+        @jobs_weakify(self)
         _tableViewDelegate = [[WBTableViewDelegate alloc] initWithDidSelectRowAtIndexPath:^(NSInteger indexRow) {
-            @strongify(self)
+            @jobs_strongify(self)
             if (self.action) {
                 self.action(indexRow);
             }

@@ -11,12 +11,13 @@
 @class JobsAppDoorDoorInputViewBaseStyle;
 
 @interface JobsAppDoorRegisterContentView ()
-// UI
+/// UI
 @property(nonatomic,strong)UIButton *backToLoginBtn;// 返回登录
 @property(nonatomic,strong)UILabel *titleLab;// 标题
 @property(nonatomic,strong)UIButton *sendBtn;// 注册按钮
-// Data
+/// Data
 @property(nonatomic,strong)NSMutableArray <JobsAppDoorInputViewBaseStyleModel *>*registerDoorInputViewBaseStyleModelMutArr;
+@property(nonatomic,strong)NSMutableArray <JobsAppDoorInputViewBaseStyle *>*registerDoorInputViewBaseStyleMutArr;
 
 @end
 
@@ -51,29 +52,19 @@
           withEvent:(UIEvent *)event{
     [self endEditing:YES];
 }
-//外层数据渲染
+#pragma mark —— JobsDoorInputViewProtocol
+-(NSMutableArray<JobsAppDoorInputViewBaseStyle *> *)getAppDoorInputViewBaseStyle{
+    return self.registerDoorInputViewBaseStyleMutArr;
+}
+#pragma mark —— BaseViewProtocol
+/// 外层数据渲染
 -(void)richElementsInViewWithModel:(id _Nullable)contentViewModel{
     self.backToLoginBtn.alpha = 1;
     self.titleLab.alpha = 1;
     [self makeInputView];
     self.sendBtn.alpha = 1;
 }
-
--(JobsAppDoorInputViewBaseStyle *)dk:(Class)cls{
-    if ([cls isSubclassOfClass:JobsAppDoorInputViewBaseStyle.class]) {
-        JobsAppDoorInputViewBaseStyle *inputView = cls.new;
-        [self.registerDoorInputViewBaseStyleMutArr addObject:inputView];
-        @weakify(self)
-        [inputView actionViewBlock:^(id data) {
-            @strongify(self)
-            if (self.viewBlock) {
-                self.viewBlock(data);
-            }
-        }];
-        return inputView;
-    }return nil;
-}
-
+#pragma mark —— 一些私有化方法
 -(void)makeInputView{
     for (int i = 0; i < self.registerDoorInputViewBaseStyleModelMutArr.count; i++) {
         JobsAppDoorInputViewBaseStyle *inputViewBaseStyle = nil;
@@ -103,6 +94,18 @@
         inputViewBaseStyle.layer.cornerRadius = ThingsHeight / 2;
     }
 }
+
+-(JobsAppDoorInputViewBaseStyle *)dk:(Class)cls{
+    if ([cls isSubclassOfClass:JobsAppDoorInputViewBaseStyle.class]) {
+        JobsAppDoorInputViewBaseStyle *inputView = cls.new;
+        [self.registerDoorInputViewBaseStyleMutArr addObject:inputView];
+        @jobs_weakify(self)
+        [inputView actionViewBlock:^(id data) {
+            @jobs_strongify(self)
+            if (self.viewBlock) self.viewBlock(data);
+        }];return inputView;
+    }return nil;
+}
 #pragma mark —— lazyLoad
 -(UIButton *)backToLoginBtn{
     if (!_backToLoginBtn) {
@@ -110,20 +113,13 @@
         _backToLoginBtn.titleLabel.numberOfLines = 0;
         _backToLoginBtn.backgroundColor = Cor1;
         _backToLoginBtn.alpha = 0.7f;
-        _backToLoginBtn.titleLabel.font = [UIFont systemFontOfSize:JobsWidth(13) weight:UIFontWeightMedium];
-        [_backToLoginBtn setTitle:Title1
-                        forState:UIControlStateNormal];
-        [_backToLoginBtn setImage:KIMG(@"用户名称")
-                         forState:UIControlStateNormal];
-        @weakify(self)
-        [[_backToLoginBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
-            NSLog(@"返回登录");
-            @strongify(self)
+        [_backToLoginBtn titleFont:[UIFont systemFontOfSize:JobsWidth(13) weight:UIFontWeightMedium]];
+        [_backToLoginBtn normalTitle:Title1];
+        [_backToLoginBtn normalImage:KIMG(@"用户名称")];
+        BtnClickEvent(_backToLoginBtn, {
             [self endEditing:YES];
-            if (self.viewBlock) {
-                self.viewBlock(x);
-            }
-        }];
+            if (self.viewBlock) self.viewBlock(x);
+        })
         [self addSubview:_backToLoginBtn];
         [_backToLoginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.left.bottom.equalTo(self);
@@ -152,23 +148,17 @@
 -(UIButton *)sendBtn{
     if (!_sendBtn) {
         _sendBtn = UIButton.new;
-        [_sendBtn setTitle:Title6
-                   forState:UIControlStateNormal];
+        [_sendBtn normalTitle:Title6];
         _sendBtn.backgroundColor = [KSystemPinkColor colorWithAlphaComponent:0.7];
-        [_sendBtn setTitleColor:kWhiteColor
-                        forState:UIControlStateNormal];
-        _sendBtn.titleLabel.font = [UIFont systemFontOfSize:JobsWidth(16)
-                                                     weight:UIFontWeightRegular];
-        [_sendBtn.titleLabel sizeToFit];
-        @weakify(self)
-        [[_sendBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-            @strongify(self)
-        }];
-        [self addSubview:_sendBtn];
+        [_sendBtn normalTitleColor:UIColor.whiteColor];
+        [_sendBtn titleFont:[UIFont systemFontOfSize:JobsWidth(16) weight:UIFontWeightRegular]];
+        [_sendBtn buttonAutoWidthByFont];
+        BtnClickEvent(_sendBtn, [WHToast toastSuccessMsg:Title6];);
         _sendBtn.x = self.backToLoginBtn.width + JobsWidth(20);
         _sendBtn.size = CGSizeMake(self.width - self.backToLoginBtn.width - JobsWidth(40), ThingsHeight);
         _sendBtn.bottom = JobsAppDoorContentViewRegisterHeight - JobsWidth(20);
         [UIView cornerCutToCircleWithView:_sendBtn andCornerRadius:_sendBtn.height / 2];
+        [self addSubview:_sendBtn];
     }return _sendBtn;
 }
 

@@ -97,10 +97,10 @@ static CasinoCustomerServiceView *static_customerServiceView = nil;
         _contactCustomerServiceBtn = UIButton.new;
         [_contactCustomerServiceBtn setImage:KIMG(Internationalization(@"zaixiankefu_en"))
                                     forState:UIControlStateNormal];
-        @weakify(self)
+        @jobs_weakify(self)
         [[_contactCustomerServiceBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
             NSLog(@"返回登录");
-            @strongify(self)
+            @jobs_strongify(self)
             if ([NSString isNullString:self.customerContactModel.onlineUrl.customerAccount]) {
                 [self customerContact];/// 获取客服联系方式
             }else{

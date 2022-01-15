@@ -28,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)actionByCode;/// 代码触发点击调用
 -(void)titleFont:(UIFont *)font;
 -(void)titleAlignment:(NSTextAlignment)textAlignment;
+-(void)makeNewLineShows:(BOOL)breakLine;/// 换行显示
 #pragma mark —— Normal
 // set
 -(void)normalImage:(UIImage *)image;

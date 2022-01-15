@@ -26,11 +26,6 @@
     if ([self.requestParams isKindOfClass:UIViewModel.class]) {
         self.viewModel = (UIViewModel *)self.requestParams;
     }
-    
-    //    {// 外界推得时候这么写
-    //        [self comingToPushVC:CasinoOpenAccountVC.new
-    //                withNavTitle:Internationalization(@"Open an account")];
-    //    }
 }
 
 - (void)viewDidLoad {
@@ -55,9 +50,9 @@
 #pragma mark —— 一些私有方法
 -(void)makeJobsCommentCoreVC{    //触发
     JobsCommentCoreVC *jobsCommentCoreVC = JobsCommentCoreVC.new;
-//        @weakify(self)
+//        @jobs_weakify(self)
     [jobsCommentCoreVC actionViewBlock:^(id data) {
-//            @strongify(self)
+//            @jobs_strongify(self)
         NSLog(@"您点击了关注");
     }];
 

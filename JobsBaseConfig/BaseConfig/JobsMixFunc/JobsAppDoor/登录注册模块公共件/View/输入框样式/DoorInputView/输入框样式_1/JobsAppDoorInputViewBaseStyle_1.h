@@ -14,7 +14,7 @@
 #import "JobsMagicTextField.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
+/// 输入框样式_1
 @interface JobsAppDoorInputViewBaseStyle_1 : JobsAppDoorInputViewBaseStyle
 /// 倒计时按钮（需要销毁定时器）
 -(UIButton *)getCountDownBtn;

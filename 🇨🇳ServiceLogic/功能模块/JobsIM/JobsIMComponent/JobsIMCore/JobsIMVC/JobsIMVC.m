@@ -85,10 +85,10 @@
 -(void)loadMoreRefresh{
     /// 特别说明：pagingEnabled = YES 在此会影响Cell的偏移量，原作者希望我们在这里临时关闭一下，刷新完成以后再打开
     self.tableView.pagingEnabled = NO;
-    @weakify(self)
+    @jobs_weakify(self)
     [self delay:2
           doSth:^(id data) {
-        @strongify(self)
+        @jobs_strongify(self)
         [self delayMethods];
     }];
 }
@@ -360,9 +360,9 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
 -(JobsIMInputview *)inputview{
     if (!_inputview) {
         _inputview = JobsIMInputview.new;
-        @weakify(self)
+        @jobs_weakify(self)
         [_inputview actionViewBlock:^(id data) {
-            @strongify(self)
+            @jobs_strongify(self)
             if ([data isKindOfClass:ZYTextField.class]){
                 ZYTextField *tf = (ZYTextField *)data;
                 

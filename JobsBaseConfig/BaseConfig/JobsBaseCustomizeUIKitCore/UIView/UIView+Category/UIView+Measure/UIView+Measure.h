@@ -12,6 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/* ❤️【优先级】 @implementation UIView (Measure) > Masonry,因为Masonry刷新后才有frame ❤️*/
 @interface UIView (Measure)<BaseViewProtocol>
 
 @property(nonatomic,assign)CGFloat x;

@@ -96,9 +96,9 @@
 -(CustomZFPlayerControlView *)customPlayerControlView{
     if (!_customPlayerControlView) {
         _customPlayerControlView = CustomZFPlayerControlView.new;
-        @weakify(self)
+        @jobs_weakify(self)
         [_customPlayerControlView actionCustomZFPlayerControlViewBlock:^(NSString *data, NSNumber *data2) {
-            @strongify(self)
+            @jobs_strongify(self)
             if ([data isEqualToString:@"gestureEndedPan:panDirection:panLocation:"]) {
                 if (data2.intValue == ZFPanMovingDirectionTop) {
                     if (self.playerCellBlock) self.playerCellBlock(@0,@(self.index));

@@ -25,12 +25,6 @@
         UIViewModel *viewModel = (UIViewModel *)self.requestParams;
         self.viewModel = (UIViewModel *)viewModel.data;
     }
-    
-    //    {// 外界推得时候这么写
-    //        [self comingToPushVC:CasinoOpenAccountVC.new
-    //                withNavTitle:Internationalization(@"Open an account")];
-    //    }
-    
 }
 
 - (void)viewDidLoad {

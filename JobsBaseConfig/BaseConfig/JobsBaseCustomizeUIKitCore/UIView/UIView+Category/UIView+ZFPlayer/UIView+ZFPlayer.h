@@ -121,9 +121,9 @@ NS_ASSUME_NONNULL_END
 
 /** 用法
  self.playerManager.assetURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"iph_X" ofType:@"mp4"]];
- @weakify(self)
+ @jobs_weakify(self)
  [self.customPlayerControlView actionCustomZFPlayerControlViewBlock:^(NSString *data, NSNumber *data2) {
-     @strongify(self)
+     @jobs_strongify(self)
      if ([data isEqualToString:@"gestureSingleTapped:"]) {
          if (self.livingVideoViewBlock) {
              self.livingVideoViewBlock(data);

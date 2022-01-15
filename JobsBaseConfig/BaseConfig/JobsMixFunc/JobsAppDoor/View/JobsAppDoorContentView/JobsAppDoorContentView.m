@@ -123,10 +123,10 @@
         [self.inputViewMutArr addObject:inputView];
         [self.loginDoorInputViewBaseStyleMutArr addObject:inputView];
         [inputView richElementsInViewWithModel:self.loginDoorInputViewBaseStyleModelMutArr[i]];
-        @weakify(self)
+        @jobs_weakify(self)
         //【用户名 & 密码 输入回调，共享注册与登录两个界面】
         [inputView actionViewBlock:^(UITextField *data) {
-            @strongify(self)
+            @jobs_strongify(self)
             JobsAppDoorInputViewTFModel *textFieldInputModel = (JobsAppDoorInputViewTFModel *)data.objBindingParams;
             if ([textFieldInputModel.PlaceHolder isEqualToString:Internationalization(@"User")]) {
                 self.appDoorModel.userName = data.text;
@@ -289,9 +289,9 @@
             [self addSubview:inputView];
             [self.registerDoorInputViewBaseStyleMutArr addObject:inputView];
             [inputView richElementsInViewWithModel:self.registerDoorInputViewBaseStyleModelMutArr[i]];
-            @weakify(self)
+            @jobs_weakify(self)
             [inputView actionViewBlock:^(UITextField *data) {
-                @strongify(self)
+                @jobs_strongify(self)
                 UITextField *textField = (UITextField *)data;
                 self.appDoorModel.confirmPassword = textField.text;
                 if (self.viewBlock) self.viewBlock(self.appDoorModel);
@@ -303,9 +303,9 @@
             [self addSubview:inputView_7];
             [self.registerDoorInputViewBaseStyleMutArr addObject:inputView_7];
             [inputView_7 richElementsInViewWithModel:self.registerDoorInputViewBaseStyleModelMutArr[i]];
-            @weakify(self)
+            @jobs_weakify(self)
             [inputView_7 actionViewBlock:^(UITextField *data) {
-                @strongify(self)
+                @jobs_strongify(self)
                 UITextField *textField = (UITextField *)data;
                 self.appDoorModel.tel = textField.text;
                 if (self.viewBlock) self.viewBlock(self.appDoorModel);
@@ -317,9 +317,9 @@
             [self addSubview:inputView];
             [self.registerDoorInputViewBaseStyleMutArr addObject:inputView];
             [inputView richElementsInViewWithModel:self.registerDoorInputViewBaseStyleModelMutArr[i]];
-            @weakify(self)
+            @jobs_weakify(self)
             [inputView actionViewBlock:^(id data) {
-                @strongify(self)
+                @jobs_strongify(self)
                 if ([data isKindOfClass:UITextField.class]) {
                     UITextField *textField = (UITextField *)data;
                     self.appDoorModel.verificationCode = textField.text;
@@ -383,14 +383,14 @@
      *    dampingRatio 阻尼
      *    velocity 速度
      */
-    @weakify(self)
+    @jobs_weakify(self)
     [UIView animateWithDuration:0.7f
                           delay:0.1f
          usingSpringWithDamping:1
           initialSpringVelocity:0.1f
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-        @strongify(self)
+        @jobs_strongify(self)
         if (self.toRegisterBtn.selected) {//点击了“新用户注册”按钮，正在进入注册页面
             [self p_animationToRegister];
         }else{//点击了“返回登录”按钮，正在进入登录页面 初始状态

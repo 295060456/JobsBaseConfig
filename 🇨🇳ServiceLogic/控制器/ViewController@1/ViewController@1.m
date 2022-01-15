@@ -29,11 +29,6 @@
     if ([self.requestParams isKindOfClass:UIViewModel.class]) {
         self.viewModel = (UIViewModel *)self.requestParams;
     }
-    
-    //    {// 外界推得时候这么写
-    //        [self comingToPushVC:CasinoOpenAccountVC.new
-    //                withNavTitle:Internationalization(@"Open an account")];
-    //    }
 }
 
 - (void)viewDidLoad {
@@ -78,53 +73,13 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-
-    if (indexPath == [self myIndexPath:(JobsIndexPath){0,0}]) {
-        JobsAppDoorVC *appDoorVC = JobsAppDoorVC.new;
-        [self comingToPresentVC:appDoorVC
-                  requestParams:@(JobsAppDoorBgType_video)];
-    }else if (indexPath == [self myIndexPath:(JobsIndexPath){1,0}]){
-        [self comingToPushVC:JobsAppDoorVC_Style2.new
-               requestParams:@(JobsAppDoorBgType_video)];
-    }else if (indexPath == [self myIndexPath:(JobsIndexPath){2,0}]){
-        [self comingToPushVC:TransparentRegionVC.new
-                withNavTitle:@"TransparentRegion"];
-    }else if (indexPath == [self myIndexPath:(JobsIndexPath){3,0}]){
-        [self comingToPushVC:Douyin_ZFPlayerVC_1.new
-                withNavTitle:@"Douyin_ZFPlayerVC_1"];
-    }else if (indexPath == [self myIndexPath:(JobsIndexPath){4,0}]){
-        [self comingToPushVC:Douyin_ZFPlayerVC_2.new
-                withNavTitle:@"Douyin_ZFPlayerVC_2"];
-    }else if (indexPath == [self myIndexPath:(JobsIndexPath){5,0}]){
-        [self comingToPushVC:JobsCommentVC.new
-                withNavTitle:@"JobsCommentVC"];
-    }else if (indexPath == [self myIndexPath:(JobsIndexPath){6,0}]){
+    if (self.dataMutArr[indexPath.row].cls) {
         
-    }else if (indexPath == [self myIndexPath:(JobsIndexPath){7,0}]){
-
-    }else if (indexPath == [self myIndexPath:(JobsIndexPath){8,0}]){
-
-    }else if (indexPath == [self myIndexPath:(JobsIndexPath){9,0}]){
-        [self comingToPushVC:A_VC.new
-                withNavTitle:_dataMutArr[indexPath.row].text];
-    }else if (indexPath == [self myIndexPath:(JobsIndexPath){10,0}]){
-
-    }else if (indexPath == [self myIndexPath:(JobsIndexPath){11,0}]){
-        [self comingToPushVC:DynamicViewTestVC.new
-                withNavTitle:@"DynamicViewTestVC"];
-    }else if (indexPath == [self myIndexPath:(JobsIndexPath){12,0}]){
-        [self comingToPushVC:JobsProgressVC.new
-                withNavTitle:@"JobsProgressVC"];
-    }else if (indexPath == [self myIndexPath:(JobsIndexPath){13,0}]){
-        [self comingToPushVC:TestIrregularViewTestVC.new
-                withNavTitle:@"TestIrregularViewTestVC"];
-    }else if (indexPath == [self myIndexPath:(JobsIndexPath){14,0}]){
-        
-    }else if (indexPath == [self myIndexPath:(JobsIndexPath){15,0}]){
-        [self comingToPushVC:JobsIMShowVC.new
-                withNavTitle:@"JobsIMVC"];
-    }else{}
-    
+        [self comingToPushVC:self.dataMutArr[indexPath.row].cls.new
+               requestParams:self.dataMutArr[indexPath.row]];
+    }else{
+        [WHToast toastMsg:@"尚未接入此功能"];
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView
@@ -226,6 +181,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             UIViewModel *viewModel = UIViewModel.new;
             viewModel.text = @"JobsAppDoor-1";
             viewModel.subText = @"点击查看";
+            viewModel.cls = JobsAppDoorVC.class;
+            viewModel.requestParams = @(JobsAppDoorBgType_video);
             [_dataMutArr addObject:viewModel];
         }
         
@@ -233,6 +190,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             UIViewModel *viewModel = UIViewModel.new;
             viewModel.text = @"JobsAppDoor-2";
             viewModel.subText = @"点击查看";
+            viewModel.cls = JobsAppDoorVC_Style2.class;
+            viewModel.requestParams = @(JobsAppDoorBgType_video);
             [_dataMutArr addObject:viewModel];
         }
 
@@ -240,6 +199,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             UIViewModel *viewModel = UIViewModel.new;
             viewModel.text = @"TransparentRegion";
             viewModel.subText = @"点击查看";
+            viewModel.cls = TransparentRegionVC.class;
+            
             [_dataMutArr addObject:viewModel];
         }
         
@@ -247,6 +208,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             UIViewModel *viewModel = UIViewModel.new;
             viewModel.text = @"Douyin_ZFPlayer_1";
             viewModel.subText = @"点击查看";
+            viewModel.cls = Douyin_ZFPlayerVC_1.class;
             [_dataMutArr addObject:viewModel];
         }
         
@@ -254,6 +216,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             UIViewModel *viewModel = UIViewModel.new;
             viewModel.text = @"Douyin_ZFPlayer_2";
             viewModel.subText = @"点击查看";
+            viewModel.cls = Douyin_ZFPlayerVC_2.class;
             [_dataMutArr addObject:viewModel];
         }
         
@@ -261,20 +224,15 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             UIViewModel *viewModel = UIViewModel.new;
             viewModel.text = @"JobsComment";
             viewModel.subText = @"点击查看";
+            viewModel.cls = JobsCommentVC.class;
             [_dataMutArr addObject:viewModel];
         }
-        
-        {
-            UIViewModel *viewModel = UIViewModel.new;
-            viewModel.text = @"JobsIM";
-            viewModel.subText = @"点击查看";
-            [_dataMutArr addObject:viewModel];
-        }
-        
+    
         {
             UIViewModel *viewModel = UIViewModel.new;
             viewModel.text = @"JobsSearch";
             viewModel.subText = @"点击查看";
+            viewModel.cls = JobsSearchVC.class;
             [_dataMutArr addObject:viewModel];
         }
         
@@ -282,6 +240,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             UIViewModel *viewModel = UIViewModel.new;
             viewModel.text = @"JobsTimer";
             viewModel.subText = @"点击查看";
+//            viewModel.cls =
             [_dataMutArr addObject:viewModel];
         }
         
@@ -289,6 +248,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             UIViewModel *viewModel = UIViewModel.new;
             viewModel.text = @"ShadowTBVCell";
             viewModel.subText = @"点击查看";
+//            viewModel.cls =
             [_dataMutArr addObject:viewModel];
         }
         
@@ -296,6 +256,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             UIViewModel *viewModel = UIViewModel.new;
             viewModel.text = @"JobsShooting";
             viewModel.subText = @"点击查看";
+//            viewModel.cls =
             [_dataMutArr addObject:viewModel];
         }
         
@@ -303,6 +264,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             UIViewModel *viewModel = UIViewModel.new;
             viewModel.text = @"DynamicView";
             viewModel.subText = @"点击查看";
+            viewModel.cls = DynamicViewTestVC.class;
             [_dataMutArr addObject:viewModel];
         }
         
@@ -310,6 +272,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             UIViewModel *viewModel = UIViewModel.new;
             viewModel.text = @"Progress";
             viewModel.subText = @"点击查看";
+            viewModel.cls = JobsProgressVC.class;
             [_dataMutArr addObject:viewModel];
         }
         
@@ -317,6 +280,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             UIViewModel *viewModel = UIViewModel.new;
             viewModel.text = @"IrregularView";
             viewModel.subText = @"点击查看";
+            viewModel.cls = TestIrregularViewTestVC.class;
             [_dataMutArr addObject:viewModel];
         }
         
@@ -324,6 +288,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             UIViewModel *viewModel = UIViewModel.new;
             viewModel.text = @"JobsTimer";
             viewModel.subText = @"点击查看";
+//            viewModel.cls =
             [_dataMutArr addObject:viewModel];
         }
         
@@ -331,6 +296,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             UIViewModel *viewModel = UIViewModel.new;
             viewModel.text = @"JobsIM";
             viewModel.subText = @"点击查看";
+            viewModel.cls = JobsIMShowVC.class;
             [_dataMutArr addObject:viewModel];
         }
         

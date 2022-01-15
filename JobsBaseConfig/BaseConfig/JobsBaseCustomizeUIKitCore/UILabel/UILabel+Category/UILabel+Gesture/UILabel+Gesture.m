@@ -33,11 +33,11 @@
             self.numberOfTapsRequired = 1;
         }
         
-        @weakify(self)
+        @jobs_weakify(self)
         self.callbackBlock = ^(id weakSelf,
                                id arg,
                                UIGestureRecognizer *data3) {
-            @strongify(self)
+            @jobs_strongify(self)
             if ([data3 isKindOfClass:UITapGestureRecognizer.class]) {
                 NSLog(@"UILabel 的 Tap 手势");
                 [self clickLink];

@@ -14,7 +14,7 @@
 #import "AuthCodeLab.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
+/// 输入框样式_6
 @interface JobsAppDoorInputViewBaseStyle_6 : JobsAppDoorInputViewBaseStyle
 
 @end

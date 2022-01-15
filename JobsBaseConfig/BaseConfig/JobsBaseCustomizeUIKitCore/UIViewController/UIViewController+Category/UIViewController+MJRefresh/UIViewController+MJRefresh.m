@@ -156,9 +156,9 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
     LOTAnimationMJRefreshHeader *lotAnimMJRefreshHeader = objc_getAssociatedObject(self, UIViewController_MJRefresh_lotAnimMJRefreshHeader);
     NSLog(@"DDD = %@",lotAnimMJRefreshHeader);
     if (!lotAnimMJRefreshHeader) {
-        @weakify(self)
+        @jobs_weakify(self)
         lotAnimMJRefreshHeader = [LOTAnimationMJRefreshHeader headerWithRefreshingBlock:^{
-            @strongify(self)
+            @jobs_strongify(self)
             [self pullToRefresh];
         }];
         //图片
@@ -231,9 +231,9 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
 -(MJRefreshNormalHeader *)mjRefreshNormalHeader{
     MJRefreshNormalHeader *MjRefreshNormalHeader = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshNormalHeader);
     if (!MjRefreshNormalHeader) {
-        @weakify(self)
+        @jobs_weakify(self)
         MjRefreshNormalHeader = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            @strongify(self)
+            @jobs_strongify(self)
             [self pullToRefresh];
         }];
         //文字
@@ -285,9 +285,9 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
 -(MJRefreshStateHeader *)mjRefreshStateHeader{
     MJRefreshStateHeader *MjRefreshStateHeader = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshStateHeader);
     if (!MjRefreshStateHeader) {
-        @weakify(self)
+        @jobs_weakify(self)
         MjRefreshStateHeader = [MJRefreshStateHeader headerWithRefreshingBlock:^{
-            @strongify(self)
+            @jobs_strongify(self)
             [self pullToRefresh];
         }];
         //文字
@@ -340,9 +340,9 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
 -(MJRefreshHeader *)mjRefreshHeader{
     MJRefreshHeader *MjRefreshHeader = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshHeader);
     if (!MjRefreshHeader) {
-        @weakify(self)
+        @jobs_weakify(self)
         MjRefreshHeader = [MJRefreshHeader headerWithRefreshingBlock:^{
-            @strongify(self)
+            @jobs_strongify(self)
             [self pullToRefresh];
         }];
         //其他
@@ -373,9 +373,9 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
 -(MJRefreshGifHeader *)mjRefreshGifHeader{
     MJRefreshGifHeader *MjRefreshGifHeader = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshGifHeader);
     if (!MjRefreshGifHeader) {
-        @weakify(self)
+        @jobs_weakify(self)
         MjRefreshGifHeader = [MJRefreshGifHeader headerWithRefreshingBlock:^{
-            @strongify(self)
+            @jobs_strongify(self)
             [self pullToRefresh];
         }];
         //图片
@@ -448,9 +448,9 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
 -(MJRefreshAutoGifFooter *)mjRefreshAutoGifFooter{
     MJRefreshAutoGifFooter *MjRefreshAutoGifFooter = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshAutoGifFooter);
     if (!MjRefreshAutoGifFooter) {
-        @weakify(self)
+        @jobs_weakify(self)
         MjRefreshAutoGifFooter = [MJRefreshAutoGifFooter footerWithRefreshingBlock:^{
-            @strongify(self)
+            @jobs_strongify(self)
             [self loadMoreRefresh];
         }];
         // 图片
@@ -521,9 +521,9 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
 -(MJRefreshBackNormalFooter *)mjRefreshBackNormalFooter{
     MJRefreshBackNormalFooter *MjRefreshBackNormalFooter = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshBackNormalFooter);
     if (!MjRefreshBackNormalFooter) {
-        @weakify(self)
+        @jobs_weakify(self)
         MjRefreshBackNormalFooter = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-            @strongify(self)
+            @jobs_strongify(self)
             [self loadMoreRefresh];
         }];
         // 文字 (此模式下只有文字而没有图片)
@@ -576,9 +576,9 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
 -(MJRefreshAutoNormalFooter *)mjRefreshAutoNormalFooter{
     MJRefreshAutoNormalFooter *MjRefreshAutoNormalFooter = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshAutoNormalFooter);
     if (!MjRefreshAutoNormalFooter) {
-        @weakify(self)
+        @jobs_weakify(self)
         MjRefreshAutoNormalFooter = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            @strongify(self)
+            @jobs_strongify(self)
             [self loadMoreRefresh];
         }];
         
@@ -631,9 +631,9 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
 -(MJRefreshAutoStateFooter *)mjRefreshAutoStateFooter{
     MJRefreshAutoStateFooter *MjRefreshAutoStateFooter = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshAutoStateFooter);
     if (!MjRefreshAutoStateFooter) {
-        @weakify(self)
+        @jobs_weakify(self)
         MjRefreshAutoStateFooter = [MJRefreshAutoStateFooter footerWithRefreshingBlock:^{
-            @strongify(self)
+            @jobs_strongify(self)
             [self loadMoreRefresh];
         }];
         // 文字
@@ -686,9 +686,9 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
 -(MJRefreshAutoFooter *)mjRefreshAutoFooter{
     MJRefreshAutoFooter *MjRefreshAutoFooter = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshAutoFooter);
     if (!MjRefreshAutoFooter) {
-        @weakify(self)
+        @jobs_weakify(self)
         MjRefreshAutoFooter = [MJRefreshAutoFooter footerWithRefreshingBlock:^{
-            @strongify(self)
+            @jobs_strongify(self)
             [self loadMoreRefresh];
         }];
         objc_setAssociatedObject(self,
@@ -708,9 +708,9 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
 -(MJRefreshBackGifFooter *)mjRefreshBackGifFooter{
     MJRefreshBackGifFooter *MjRefreshBackGifFooter = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshBackGifFooter);
     if (!MjRefreshBackGifFooter) {
-        @weakify(self)
+        @jobs_weakify(self)
         MjRefreshBackGifFooter = [MJRefreshBackGifFooter footerWithRefreshingBlock:^{
-            @strongify(self)
+            @jobs_strongify(self)
             [self loadMoreRefresh];
         }];
         // 图片
@@ -782,9 +782,9 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
 -(MJRefreshBackStateFooter *)mjRefreshBackStateFooter{
     MJRefreshBackStateFooter *MjRefreshBackStateFooter = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshBackStateFooter);
     if (!MjRefreshBackStateFooter) {
-        @weakify(self)
+        @jobs_weakify(self)
         MjRefreshBackStateFooter = [MJRefreshBackStateFooter footerWithRefreshingBlock:^{
-            @strongify(self)
+            @jobs_strongify(self)
             [self loadMoreRefresh];
         }];
         // 文字
@@ -836,9 +836,9 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
 -(MJRefreshBackFooter *)mjRefreshBackFooter{
     MJRefreshBackFooter *MjRefreshBackFooter = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshBackFooter);
     if (!MjRefreshBackFooter) {
-        @weakify(self)
+        @jobs_weakify(self)
         MjRefreshBackFooter = [MJRefreshBackFooter footerWithRefreshingBlock:^{
-            @strongify(self)
+            @jobs_strongify(self)
             [self loadMoreRefresh];
         }];
         //其他
@@ -869,9 +869,9 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
 -(MJRefreshFooter *)mjRefreshFooter{
     MJRefreshFooter *MjRefreshFooter = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshFooter);
     if (!MjRefreshFooter) {
-        @weakify(self)
+        @jobs_weakify(self)
         MjRefreshFooter = [MJRefreshFooter footerWithRefreshingBlock:^{
-            @strongify(self)
+            @jobs_strongify(self)
             [self loadMoreRefresh];
         }];
         //其他

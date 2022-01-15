@@ -89,9 +89,9 @@ static DDUploadingProgressView *static_uploadingProgressView = nil;
         // 顺时针:每一个时间间隔为 1 秒
         _nsTimerManager.timerStyle = TimerStyle_clockwise;
         _nsTimerManager.timeInterval = .5f;
-        @weakify(self)
+        @jobs_weakify(self)
         [_nsTimerManager actionNSTimerManagerRunningBlock:^(id data) {
-            @strongify(self)
+            @jobs_strongify(self)
             if ([self.refreshLabel.text isEqualToString:@"正在上传..."]) {
                 self.refreshLabel.text = @"正在上传";
             }else{

@@ -42,9 +42,9 @@ static char *UITextField_Extend_customSysClearBtn = "UITextField_Extend_customSy
                                                0.0f,
                                                15.0f,
                                                15.0f)];
-        @weakify(self)
+        @jobs_weakify(self)
         [[CustomSysClearBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-            @strongify(self)
+            @jobs_strongify(self)
             self.text = @"";
         }];
         objc_setAssociatedObject(self,

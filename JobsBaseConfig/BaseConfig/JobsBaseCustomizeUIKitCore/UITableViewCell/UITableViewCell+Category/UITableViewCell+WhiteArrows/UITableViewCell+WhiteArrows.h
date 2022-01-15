@@ -40,9 +40,9 @@ NS_ASSUME_NONNULL_END
   willDisplayCell:(UITableViewCell *)cell
 forRowAtIndexPath:(NSIndexPath *)indexPath {
     cell.img = KIMG(@"删除");
-    @weakify(self)
+    @jobs_weakify(self)
     [cell customAccessoryView:^(id data) {
-        @strongify(self)
+        @jobs_strongify(self)
         JobsSearchShowHistoryDataTBVCell *cell = (JobsSearchShowHistoryDataTBVCell *)data;
         NSLog(@"MMM - %ld",cell.index);
     }];
