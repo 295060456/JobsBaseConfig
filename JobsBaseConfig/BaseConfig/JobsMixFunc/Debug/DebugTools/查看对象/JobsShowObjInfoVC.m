@@ -105,7 +105,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     UIPasteboard.generalPasteboard.string = self.dataMutArr[indexPath.row].subTextModel.text;
-    [WHToast toastMsg:[NSString stringWithFormat:@"复制%@成功",self.dataMutArr[indexPath.row].subTextModel.text]];
+    [WHToast toastMsg:[NSString stringWithFormat:@"复制%@成功",self.dataMutArr[indexPath.row].textModel.text]];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView
