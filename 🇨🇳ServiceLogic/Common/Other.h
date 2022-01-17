@@ -48,5 +48,6 @@
 #import "JobsCommentVC.h"
 #import "JobsIMShowVC.h"
 #import "JobsSearchVC.h"
+#import "AutoScrollLabelTestVC.h"
 
 #endif /* Other_h */

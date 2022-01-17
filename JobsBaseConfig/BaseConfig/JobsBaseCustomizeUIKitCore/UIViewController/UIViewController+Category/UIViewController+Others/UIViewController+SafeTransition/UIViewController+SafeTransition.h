@@ -16,6 +16,7 @@
 #endif
 
 #import "NSObject+WHToast.h"
+#import "NSObject+Swizzling.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

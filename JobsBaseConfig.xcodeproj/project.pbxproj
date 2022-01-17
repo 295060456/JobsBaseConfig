@@ -288,7 +288,6 @@
 		840F970227736428004979E9 /* NSObject+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F958A27736427004979E9 /* NSObject+Extras.m */; };
 		840F970327736428004979E9 /* NSObject+DeviceIP.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F958C27736427004979E9 /* NSObject+DeviceIP.m */; };
 		840F970427736428004979E9 /* NSObject+ChangeAppicon.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F959127736427004979E9 /* NSObject+ChangeAppicon.m */; };
-		840F970527736428004979E9 /* NSObject+Association.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F959327736427004979E9 /* NSObject+Association.m */; };
 		840F970627736428004979E9 /* 如何理解iOS的Runtime？ - 掘金.mht in Resources */ = {isa = PBXBuildFile; fileRef = 840F959427736427004979E9 /* 如何理解iOS的Runtime？ - 掘金.mht */; };
 		840F970727736428004979E9 /* toastLoading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 840F959727736427004979E9 /* toastLoading.gif */; };
 		840F970827736428004979E9 /* NSObject+WHToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F959827736427004979E9 /* NSObject+WHToast.m */; };
@@ -551,6 +550,8 @@
 		84A494D227906CC90002A837 /* 动态头像_2 尺寸126.gif in Resources */ = {isa = PBXBuildFile; fileRef = 84A494CE27906CC90002A837 /* 动态头像_2 尺寸126.gif */; };
 		84A494D427906D050002A837 /* 头像.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84A494D327906D050002A837 /* 头像.bundle */; };
 		84A494D627906D0B0002A837 /* Telegram.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84A494D527906D0B0002A837 /* Telegram.bundle */; };
+		84B9A6F6279564A50070DD20 /* AutoScrollLabelTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B9A6F5279564A50070DD20 /* AutoScrollLabelTestVC.m */; };
+		84B9A6F82795798F0070DD20 /* UILabel+AutoScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B9A6F1279564550070DD20 /* UILabel+AutoScroll.m */; };
 		84C94D97277EBAAB00C49CBA /* UIButton+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C94D95277EBAAB00C49CBA /* UIButton+Animation.m */; };
 		84CA5CCF2789587900E46E71 /* AppDelegate+Func.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA5CC72789587900E46E71 /* AppDelegate+Func.m */; };
 		84CA5CD02789587900E46E71 /* AppDelegate+UIApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA5CCA2789587900E46E71 /* AppDelegate+UIApplicationDelegate.m */; };
@@ -1229,9 +1230,7 @@
 		840F958D27736427004979E9 /* NSObject+DeviceIP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DeviceIP.h"; sourceTree = "<group>"; };
 		840F958F27736427004979E9 /* NSObject+ChangeAppicon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ChangeAppicon.h"; sourceTree = "<group>"; };
 		840F959127736427004979E9 /* NSObject+ChangeAppicon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ChangeAppicon.m"; sourceTree = "<group>"; };
-		840F959327736427004979E9 /* NSObject+Association.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Association.m"; sourceTree = "<group>"; };
 		840F959427736427004979E9 /* 如何理解iOS的Runtime？ - 掘金.mht */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "如何理解iOS的Runtime？ - 掘金.mht"; sourceTree = "<group>"; };
-		840F959527736427004979E9 /* NSObject+Association.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Association.h"; sourceTree = "<group>"; };
 		840F959727736427004979E9 /* toastLoading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = toastLoading.gif; sourceTree = "<group>"; };
 		840F959827736427004979E9 /* NSObject+WHToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+WHToast.m"; sourceTree = "<group>"; };
 		840F959927736427004979E9 /* NSObject+WHToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+WHToast.h"; sourceTree = "<group>"; };
@@ -1755,6 +1754,10 @@
 		84A4955527906E620002A837 /* JobsIM【Outlines 06】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsIM【Outlines 06】.png"; sourceTree = "<group>"; };
 		84A4955627906E620002A837 /* JobsIM【Outlines 10】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsIM【Outlines 10】.png"; sourceTree = "<group>"; };
 		84A4955727906E620002A837 /* JobsIM【Outlines 01】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsIM【Outlines 01】.png"; sourceTree = "<group>"; };
+		84B9A6F0279564550070DD20 /* UILabel+AutoScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+AutoScroll.h"; sourceTree = "<group>"; };
+		84B9A6F1279564550070DD20 /* UILabel+AutoScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+AutoScroll.m"; sourceTree = "<group>"; };
+		84B9A6F4279564A50070DD20 /* AutoScrollLabelTestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoScrollLabelTestVC.h; sourceTree = "<group>"; };
+		84B9A6F5279564A50070DD20 /* AutoScrollLabelTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoScrollLabelTestVC.m; sourceTree = "<group>"; };
 		84C94D95277EBAAB00C49CBA /* UIButton+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Animation.m"; sourceTree = "<group>"; };
 		84C94D96277EBAAB00C49CBA /* UIButton+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Animation.h"; sourceTree = "<group>"; };
 		84CA5CC72789587900E46E71 /* AppDelegate+Func.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Func.m"; sourceTree = "<group>"; };
@@ -4381,7 +4384,6 @@
 				840F9C6B2773688B004979E9 /* 一些私人订制 */,
 				840F956C27736427004979E9 /* NSObject+AFNReachability */,
 				840F954127736427004979E9 /* NSObject+Alert */,
-				840F959227736427004979E9 /* NSObject+Association */,
 				840F95A327736427004979E9 /* NSObject+CallBackInfoByBlock */,
 				840F958E27736427004979E9 /* NSObject+ChangeAppicon */,
 				840F959A27736427004979E9 /* NSObject+Class */,
@@ -4416,6 +4418,7 @@
 		840F953527736427004979E9 /* NSObject+Swizzling */ = {
 			isa = PBXGroup;
 			children = (
+				840F959427736427004979E9 /* 如何理解iOS的Runtime？ - 掘金.mht */,
 				840F953627736427004979E9 /* NSObject+Swizzling.h */,
 				840F953727736427004979E9 /* NSObject+Swizzling.m */,
 			);
@@ -4705,16 +4708,6 @@
 			children = (
 			);
 			path = Appicons;
-			sourceTree = "<group>";
-		};
-		840F959227736427004979E9 /* NSObject+Association */ = {
-			isa = PBXGroup;
-			children = (
-				840F959327736427004979E9 /* NSObject+Association.m */,
-				840F959427736427004979E9 /* 如何理解iOS的Runtime？ - 掘金.mht */,
-				840F959527736427004979E9 /* NSObject+Association.h */,
-			);
-			path = "NSObject+Association";
 			sourceTree = "<group>";
 		};
 		840F959627736427004979E9 /* NSObject+WHToast */ = {
@@ -6783,6 +6776,33 @@
 			path = Outlines;
 			sourceTree = "<group>";
 		};
+		84B9A6EF279564450070DD20 /* AutoScrollLabel */ = {
+			isa = PBXGroup;
+			children = (
+				84B9A6F7279564AA0070DD20 /* UILabel+AutoScroll */,
+				84B9A6F3279564890070DD20 /* AutoScrollLabelTestVC */,
+			);
+			path = AutoScrollLabel;
+			sourceTree = "<group>";
+		};
+		84B9A6F3279564890070DD20 /* AutoScrollLabelTestVC */ = {
+			isa = PBXGroup;
+			children = (
+				84B9A6F4279564A50070DD20 /* AutoScrollLabelTestVC.h */,
+				84B9A6F5279564A50070DD20 /* AutoScrollLabelTestVC.m */,
+			);
+			path = AutoScrollLabelTestVC;
+			sourceTree = "<group>";
+		};
+		84B9A6F7279564AA0070DD20 /* UILabel+AutoScroll */ = {
+			isa = PBXGroup;
+			children = (
+				84B9A6F0279564550070DD20 /* UILabel+AutoScroll.h */,
+				84B9A6F1279564550070DD20 /* UILabel+AutoScroll.m */,
+			);
+			path = "UILabel+AutoScroll";
+			sourceTree = "<group>";
+		};
 		84C94D94277EBAAB00C49CBA /* UIButton+Animation */ = {
 			isa = PBXGroup;
 			children = (
@@ -7533,6 +7553,7 @@
 		84CA609D278980E700E46E71 /* 功能模块 */ = {
 			isa = PBXGroup;
 			children = (
+				84B9A6EF279564450070DD20 /* AutoScrollLabel */,
 				84401A5727919E3B0038FF6F /* JobsSearchCore */,
 				84A4921027904ADA0002A837 /* JobsIM */,
 				8456256B278BF0A70067ABB9 /* JobsComment */,
@@ -8851,7 +8872,6 @@
 				840F968A27736428004979E9 /* BaseCollectionView.m in Sources */,
 				844B02122764C8EE00B0513D /* AppDelegate.m in Sources */,
 				84CA5FAE27897AFB00E46E71 /* XLChannelHeader.m in Sources */,
-				840F970527736428004979E9 /* NSObject+Association.m in Sources */,
 				840F970B27736428004979E9 /* NSObject+DefConfig.m in Sources */,
 				84CA5CCF2789587900E46E71 /* AppDelegate+Func.m in Sources */,
 				844B021E2764C8EE00B0513D /* JobsBaseConfig.xcdatamodeld in Sources */,
@@ -8866,6 +8886,7 @@
 				840F967527736428004979E9 /* UIView+BackgroundImage.m in Sources */,
 				84CA5F9027897AFB00E46E71 /* XLSphereView.m in Sources */,
 				844B08432764CF4800B0513D /* ZWPullMenuCell.m in Sources */,
+				84B9A6F6279564A50070DD20 /* AutoScrollLabelTestVC.m in Sources */,
 				8459CC322775D3E900125782 /* AppDelegate+Func.m in Sources */,
 				846DF03827806D230050468A /* JobsAppDoorVC.m in Sources */,
 				8459CE112776DB6600125782 /* UIView+UIBackgroundConfig.m in Sources */,
@@ -8890,6 +8911,7 @@
 				84868E1F2779DFE30098BE7A /* UILabel+Extra.m in Sources */,
 				84CA5FB027897AFB00E46E71 /* XLChannelItem.m in Sources */,
 				840F96AC27736428004979E9 /* MJRefreshConfigModel.m in Sources */,
+				84B9A6F82795798F0070DD20 /* UILabel+AutoScroll.m in Sources */,
 				84CA5FC027897AFB00E46E71 /* XDSDropDownMenu.m in Sources */,
 				845C799A2786D2FE009843EE /* JobsAppDoorInputViewBaseStyleModel.m in Sources */,
 				840F961527736427004979E9 /* ZFCustomControlView.m in Sources */,

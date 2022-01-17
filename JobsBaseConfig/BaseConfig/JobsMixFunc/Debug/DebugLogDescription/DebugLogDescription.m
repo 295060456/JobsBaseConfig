@@ -8,24 +8,6 @@
 #import "DebugLogDescription.h"
 
 #ifdef DEBUG
-static inline void sq_swizzleSelector(Class class,
-                                      SEL originalSelector,
-                                      SEL swizzledSelector) {
-    Method originalMethod = class_getInstanceMethod(class, originalSelector);
-    Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
-    BOOL didAddMethod = class_addMethod(class,
-                                        originalSelector,
-                                        method_getImplementation(swizzledMethod),
-                                        method_getTypeEncoding(swizzledMethod));
-    if (didAddMethod) {
-        class_replaceMethod(class,
-                            swizzledSelector,
-                            method_getImplementation(originalMethod),
-                            method_getTypeEncoding(originalMethod));
-    } else {
-        method_exchangeImplementations(originalMethod, swizzledMethod);
-    }
-}
 #pragma mark —— 打印model的内部属性内容
 @implementation NSObject (DebugDescription)
 
@@ -34,9 +16,9 @@ static inline void sq_swizzleSelector(Class class,
     //如果已经连接Xcode调试则不输出到文件
     if(isatty(STDOUT_FILENO)) return;
     
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    NSDateFormatter *dateFormatter = NSDateFormatter.new;
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSString *currentDateStr = [dateFormatter stringFromDate:[NSDate date]];
+    NSString *currentDateStr = [dateFormatter stringFromDate:NSDate.date];
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentDirectory = [paths objectAtIndex:0];
@@ -125,21 +107,18 @@ static inline void sq_swizzleSelector(Class class,
 }
 //在load方法中完成方法交换
 + (void)load {
-    
     //方法交换
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        
-        Class class = [self class];
-        sq_swizzleSelector(class,
-                           @selector(descriptionWithLocale:),
-                           @selector(printlog_descriptionWithLocale:));
-        sq_swizzleSelector(class,
-                           @selector(descriptionWithLocale:indent:),
-                           @selector(printlog_descriptionWithLocale:indent:));
-        sq_swizzleSelector(class,
-                           @selector(debugDescription),
-                           @selector(printlog_debugDescription));
+        MethodSwizzle([self class],
+                      @selector(descriptionWithLocale:),
+                      @selector(printlog_descriptionWithLocale:));
+        MethodSwizzle([self class],
+                      @selector(descriptionWithLocale:indent:),
+                      @selector(printlog_descriptionWithLocale:indent:));
+        MethodSwizzle([self class],
+                      @selector(debugDescription),
+                      @selector(printlog_debugDescription));
     });
 }
 
@@ -150,16 +129,15 @@ static inline void sq_swizzleSelector(Class class,
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        Class class = [self class];
-        sq_swizzleSelector(class,
-                           @selector(descriptionWithLocale:),
-                           @selector(printlog_descriptionWithLocale:));
-        sq_swizzleSelector(class,
-                           @selector(descriptionWithLocale:indent:),
-                           @selector(printlog_descriptionWithLocale:indent:));
-        sq_swizzleSelector(class,
-                           @selector(debugDescription),
-                           @selector(printlog_debugDescription));
+        MethodSwizzle([self class],
+                      @selector(descriptionWithLocale:),
+                      @selector(printlog_descriptionWithLocale:));
+        MethodSwizzle([self class],
+                      @selector(descriptionWithLocale:indent:),
+                      @selector(printlog_descriptionWithLocale:indent:));
+        MethodSwizzle([self class],
+                      @selector(debugDescription),
+                      @selector(printlog_debugDescription));
     });
 }
 //用此方法交换系统的 descriptionWithLocale: 方法。该方法在代码打印的时候调用。

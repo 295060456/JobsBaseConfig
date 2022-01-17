@@ -29,39 +29,16 @@ static JobsRecordPresentedViewController *static_JobsRecordPresentedVC = nil;
 @implementation UIViewController (SafeTransition)
 
 +(void)load{
-    SEL orig_present = @selector(presentViewController:animated:completion:);
-    SEL swiz_present = @selector(swiz_presentViewController:animated:completion:);
-    
-    SEL orig_dismiss = @selector(dismissViewControllerAnimated:completion:);
-    SEL swiz_dismiss = @selector(swiz_dismissViewControllerAnimated:completion:);
-    
-    [UIViewController swizzleMethods:self.class
-                    originalSelector:orig_present
-                    swizzledSelector:swiz_present];
-    
-    [UIViewController swizzleMethods:self.class
-                    originalSelector:orig_dismiss
-                    swizzledSelector:swiz_dismiss];
-}
-
-+(void)swizzleMethods:(Class)class
-     originalSelector:(SEL)origSel
-     swizzledSelector:(SEL)swizSel{
-    
-    Method origMethod = class_getInstanceMethod(class, origSel);
-    Method swizMethod = class_getInstanceMethod(class, swizSel);
-    
-    BOOL didAddMethod = class_addMethod(class, origSel,
-                                        method_getImplementation(swizMethod),
-                                        method_getTypeEncoding(swizMethod));
-    if (didAddMethod) {
-        class_replaceMethod(class,
-                            swizSel,
-                            method_getImplementation(origMethod),
-                            method_getTypeEncoding(origMethod));
-    } else {
-        method_exchangeImplementations(origMethod, swizMethod);
-    }
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        MethodSwizzle(self.class,
+                      @selector(presentViewController:animated:completion:),
+                      @selector(swiz_presentViewController:animated:completion:));
+        
+        MethodSwizzle(self.class,
+                      @selector(dismissViewControllerAnimated:completion:),
+                      @selector(swiz_dismissViewControllerAnimated:completion:));
+    });
 }
 
 -(void)swiz_dismissViewControllerAnimated:(BOOL)animated

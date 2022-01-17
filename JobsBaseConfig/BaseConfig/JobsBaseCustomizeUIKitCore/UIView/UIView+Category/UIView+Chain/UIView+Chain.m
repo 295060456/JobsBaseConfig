@@ -7,31 +7,16 @@
 //
 
 #import "UIView+Chain.h"
-#import <objc/runtime.h>
 
 @implementation UIView (Chain)
 
 + (void)load {
-    Class class = self;
-    Method originMethod = class_getInstanceMethod(class, @selector(hitTest:withEvent:));
-    Method targetMethod = class_getInstanceMethod(class, @selector(exchange_hitTest:withEvent:));
-    if (!originMethod || !targetMethod) {
-        NSLog(@"交换失败");
-        return;
-    }
-    BOOL didAddMethod = class_addMethod(class,
-                                        @selector(hitTest:withEvent:),
-                                        method_getImplementation(targetMethod),
-                                        method_getTypeEncoding(targetMethod));
- 
-    if (didAddMethod) {
-        class_replaceMethod(class,
-                            @selector(exchange_hitTest:withEvent:),
-                            method_getImplementation(originMethod),
-                            method_getTypeEncoding(originMethod));
-    } else {
-        method_exchangeImplementations(originMethod, targetMethod);
-    }
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        MethodSwizzle(self,
+                      @selector(hitTest:withEvent:),
+                      @selector(exchange_hitTest:withEvent:));
+    });
 }
  
 - (UIView *)exchange_hitTest:(CGPoint)point

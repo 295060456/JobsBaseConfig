@@ -10,14 +10,11 @@
 
 @implementation UITabBar (TLAnimation)
 
-// MARK: - 方法交换
-
 +(void)load {
     @synchronized(self){
-        Class cls = UITabBar.class;
-        Method method1 = class_getInstanceMethod(cls, @selector(setSelectedItem:));
-        Method method2 = class_getInstanceMethod(cls, @selector(tl_setSelectedItem:));
-        method_exchangeImplementations(method1, method2);
+        MethodSwizzle(UITabBar.class,
+                      @selector(setSelectedItem:),
+                      @selector(tl_setSelectedItem:));
     }
 }
 

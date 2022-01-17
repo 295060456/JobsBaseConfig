@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import <objc/runtime.h>
+#import "NSObject+Swizzling.h"
 #import "MacroDef_Log.h"
 
 #ifdef DEBUG

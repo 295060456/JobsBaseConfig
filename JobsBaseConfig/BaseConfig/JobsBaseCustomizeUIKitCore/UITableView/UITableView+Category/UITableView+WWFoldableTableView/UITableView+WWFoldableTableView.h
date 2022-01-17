@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import <objc/runtime.h>
 #import "MacroDef_SysWarning.h"
+#import "NSObject+Swizzling.h"
 
 @interface UITableView (WWFoldableTableView)
 
@@ -26,15 +27,6 @@
  */
 -(void)ww_foldSection:(NSInteger)section
                  fold:(BOOL)fold;
-
-@end
-
-@interface NSObject (WWExtension)
-
-+(void)ww_swizzInstanceMethod:(SEL)methodOrig
-                   withMethod:(SEL)methodNew;
-+(void)ww_swizzClassMethod:(SEL)methodOrig
-                withMethod:(SEL)methodNew;
 
 @end
 

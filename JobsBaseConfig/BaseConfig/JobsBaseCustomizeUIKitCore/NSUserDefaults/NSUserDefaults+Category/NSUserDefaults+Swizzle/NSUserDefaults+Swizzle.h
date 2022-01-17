@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import <objc/runtime.h>
+#import "NSObject+Swizzling.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

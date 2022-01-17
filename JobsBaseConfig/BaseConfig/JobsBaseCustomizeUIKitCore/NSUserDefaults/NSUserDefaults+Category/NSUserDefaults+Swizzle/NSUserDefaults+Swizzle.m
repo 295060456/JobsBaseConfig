@@ -10,50 +10,38 @@
 @implementation NSUserDefaults (Swizzle)
 
 +(void)load{
-    {// Object
-        {// 存
-            Method originalMethod = class_getInstanceMethod(NSUserDefaults.class,@selector(setObject:forKey:));
-            Method swizzledMethod = class_getInstanceMethod(NSUserDefaults.class,@selector(swizzleSetObject:forKey:));
-            method_exchangeImplementations(originalMethod, swizzledMethod);
-        }
-        {// 取
-            Method originalMethod = class_getInstanceMethod(NSUserDefaults.class, @selector(objectForKey:));
-            Method swizzledMethod = class_getInstanceMethod(NSUserDefaults.class, @selector(swizzleObjectForKey:));
-            method_exchangeImplementations(originalMethod, swizzledMethod);
-        }
-    }
     
-    {// Value
-        {// 存
-            Method originalMethod = class_getInstanceMethod(NSUserDefaults.class,@selector(setValue:forKey:));
-            Method swizzledMethod = class_getInstanceMethod(NSUserDefaults.class,@selector(swizzleSetValue:forKey:));
-            method_exchangeImplementations(originalMethod, swizzledMethod);
-        }
-        {// 取
-            Method originalMethod = class_getInstanceMethod(NSUserDefaults.class, @selector(valueForKey:));
-            Method swizzledMethod = class_getInstanceMethod(NSUserDefaults.class, @selector(swizzleValueForKey:));
-            method_exchangeImplementations(originalMethod, swizzledMethod);
-        }
-    }
-    
-    {// Bool
-        {// 存
-            Method originalMethod = class_getInstanceMethod(NSUserDefaults.class,@selector(setBool:forKey:));
-            Method swizzledMethod = class_getInstanceMethod(NSUserDefaults.class,@selector(swizzleSetBool:forKey:));
-            method_exchangeImplementations(originalMethod, swizzledMethod);
-        }
-        {// 取
-            Method originalMethod = class_getInstanceMethod(NSUserDefaults.class, @selector(boolForKey:));
-            Method swizzledMethod = class_getInstanceMethod(NSUserDefaults.class, @selector(swizzleBoolForKey:));
-            method_exchangeImplementations(originalMethod, swizzledMethod);
-        }
-    }
-    
-    {// Remove
-        Method originalMethod = class_getInstanceMethod(NSUserDefaults.class,@selector(removeObjectForKey:));
-        Method swizzledMethod = class_getInstanceMethod(NSUserDefaults.class,@selector(swizzleRemoveObjectForKey:));
-        method_exchangeImplementations(originalMethod, swizzledMethod);
-    }
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        /// Object 存
+        MethodSwizzle(NSUserDefaults.class,
+                      @selector(setObject:forKey:),
+                      @selector(swizzleSetObject:forKey:));
+        /// Object 取
+        MethodSwizzle(NSUserDefaults.class,
+                      @selector(objectForKey:),
+                      @selector(swizzleObjectForKey:));
+        /// Value 存
+        MethodSwizzle(NSUserDefaults.class,
+                      @selector(setValue:forKey:),
+                      @selector(swizzleSetValue:forKey:));
+        /// Value 取
+        MethodSwizzle(NSUserDefaults.class,
+                      @selector(valueForKey:),
+                      @selector(swizzleValueForKey:));
+        /// Bool 存
+        MethodSwizzle(NSUserDefaults.class,
+                      @selector(setBool:forKey:),
+                      @selector(swizzleSetBool:forKey:));
+        /// Bool 取
+        MethodSwizzle(NSUserDefaults.class,
+                      @selector(boolForKey:),
+                      @selector(swizzleBoolForKey:));
+        /// Remove
+        MethodSwizzle(NSUserDefaults.class,
+                      @selector(removeObjectForKey:),
+                      @selector(swizzleRemoveObjectForKey:));
+    });
 }
 #pragma mark —— Object
 -(void)swizzleSetObject:(id _Nonnull)object

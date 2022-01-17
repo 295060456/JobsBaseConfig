@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <objc/runtime.h>
-
+/**
+ 参考资料：https://juejin.cn/post/6869670856705081358
+ */
 @interface NSObject (Swizzling)
 /**
  Method Swizzling
@@ -22,8 +24,17 @@ Example:
               swizzledSelector:(SEL)swizzledSelector;
 
 @end
-
+/// 不同类的方法交换
 void TYFFSwizzleMethod(Class originalCls,
                        SEL originalSelector,
                        Class swizzledCls,
                        SEL swizzledSelector);
+/// 同一个类的方法交换
+void MethodSwizzle(Class c,
+                   SEL orig,
+                   SEL new);
+
+void objc_setAssociatedObject_weak(id _Nonnull object,
+                              const void * _Nonnull key,
+                              id _Nullable value,
+                              objc_AssociationPolicy associationPolicy);

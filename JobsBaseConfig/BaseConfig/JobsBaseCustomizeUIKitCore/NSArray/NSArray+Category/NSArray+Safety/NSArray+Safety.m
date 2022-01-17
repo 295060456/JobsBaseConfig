@@ -12,22 +12,23 @@
 
 + (void)load{
     [super load];
-    // 替换不可变数组中的方法 objectAtIndex
-    Method oldObjectAtIndex = class_getInstanceMethod(objc_getClass("__NSArrayI"), @selector(objectAtIndex:));
-    Method newObjectAtIndex = class_getInstanceMethod(objc_getClass("__NSArrayI"), @selector(newObjectAtIndex:));
-    method_exchangeImplementations(oldObjectAtIndex, newObjectAtIndex);
-    // 替换不可变数组中的方法 []调用的方法
-    Method oldMutableObjectAtIndex = class_getInstanceMethod(objc_getClass("__NSArrayI"), @selector(objectAtIndexedSubscript:));
-    Method newMutableObjectAtIndex =  class_getInstanceMethod(objc_getClass("__NSArrayI"), @selector(newObjectAtIndexedSubscript:));
-    method_exchangeImplementations(oldMutableObjectAtIndex, newMutableObjectAtIndex);
-    // 替换可变数组中的方法 objectAtIndex
-    Method oldMObjectAtIndex = class_getInstanceMethod(objc_getClass("__NSArrayM"), @selector(objectAtIndex:));
-    Method newMObjectAtIndex = class_getInstanceMethod(objc_getClass("__NSArrayM"), @selector(newMutableObjectAtIndex:));
-    method_exchangeImplementations(oldMObjectAtIndex, newMObjectAtIndex);
-    // 替换可变数组中的方法  []调用的方法
-    Method oldMMutableObjectAtIndex = class_getInstanceMethod(objc_getClass("__NSArrayM"), @selector(objectAtIndexedSubscript:));
-    Method newMMutableObjectAtIndex =  class_getInstanceMethod(objc_getClass("__NSArrayM"), @selector(newMutableObjectAtIndexedSubscript:));
-    method_exchangeImplementations(oldMMutableObjectAtIndex, newMMutableObjectAtIndex);
+    /// 替换不可变数组中的方法 objectAtIndex
+    MethodSwizzle(objc_getClass("__NSArrayI"),
+                  @selector(objectAtIndex:),
+                  @selector(newObjectAtIndex:));
+    /// 替换不可变数组中的方法 []调用的方法
+    MethodSwizzle(objc_getClass("__NSArrayI"),
+                  @selector(objectAtIndexedSubscript:),
+                  @selector(newObjectAtIndexedSubscript:));
+    /// 替换可变数组中的方法 objectAtIndex
+    MethodSwizzle(objc_getClass("__NSArrayI"),
+                  @selector(objectAtIndex:),
+                  @selector(newMutableObjectAtIndex:));
+    
+    /// 替换可变数组中的方法  []调用的方法
+    MethodSwizzle(objc_getClass("__NSArrayI"),
+                  @selector(objectAtIndexedSubscript:),
+                  @selector(newMutableObjectAtIndexedSubscript:));
 }
 
 - (id)newObjectAtIndex:(NSUInteger)index{
@@ -62,9 +63,7 @@
         } @catch (NSException *exception) {
             NSLog(@"可变数组越界了");
             return nil;
-        } @finally {
-            
-        }
+        } @finally {}
     } else return [self newMutableObjectAtIndex:index];
 }
 
@@ -75,8 +74,7 @@
         } @catch (NSException *exception) {
             NSLog(@"可变数组越界了");
             return nil;
-        } @finally {
-        }
+        } @finally {}
     }else return [self newMutableObjectAtIndexedSubscript:index];
 }
 

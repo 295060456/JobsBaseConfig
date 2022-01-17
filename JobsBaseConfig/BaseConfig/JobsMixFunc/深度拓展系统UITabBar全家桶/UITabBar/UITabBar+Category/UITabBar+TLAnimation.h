@@ -9,8 +9,9 @@
 
 #import <UIKit/UIKit.h>
 #import <objc/runtime.h>
-#import "UITabBarItem+TLAnimation.h"
 #import "TLAnimationProtocol.h"
+#import "UITabBarItem+TLAnimation.h"
+#import "NSObject+Swizzling.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
