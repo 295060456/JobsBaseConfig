@@ -10,6 +10,7 @@
 
 #import "AppToolsProtocol.h"
 #import "UIViewModelProtocol.h"
+#import "UITextModelProtocol.h"
 #import "NTESVerifyCodeManagerProtocol.h"
 
 #import "BaseProtocol.h"
