@@ -178,7 +178,7 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
                  deviceId:(NSString *_Nullable)deviceId
                  password:(NSString *_Nullable)password
                  validate:(NSString *_Nullable)validate{
-    
+    [NSNotificationCenter.defaultCenter postNotificationName:登录成功 object:@(YES)];
 }
 /// 网易云盾验证
 -(void)NTESVerifyCodeWithBlock:(MKDataBlock)block{

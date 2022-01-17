@@ -15,9 +15,6 @@ static char *BaseVC_BackBtn_backBtnCategory = "BaseVC_BackBtn_backBtnCategory";
 static char *BaseVC_BackBtn_backBtnCategoryItem = "BaseVC_BackBtn_backBtnCategoryItem";
 @dynamic backBtnCategoryItem;
 
-static char *BaseVC_BackBtn_backBtnTitle = "BaseVC_BackBtn_backBtnTitle";
-@dynamic backBtnTitle;
-
 /// GKNavigationBar 返回按钮点击方法
 -(void)backItemClick:(id)sender{
     [self backBtnClickEvent:sender];
@@ -48,18 +45,17 @@ static char *BaseVC_BackBtn_backBtnTitle = "BaseVC_BackBtn_backBtnTitle";
     UIButton *BackBtnCategory = objc_getAssociatedObject(self, BaseVC_BackBtn_backBtnCategory);
     if (!BackBtnCategory) {
         BackBtnCategory = UIButton.new;
-        [BackBtnCategory layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft
-                                         imageTitleSpace:JobsWidth(8)];
-        
-        [BackBtnCategory normalTitle:[NSString isNullString:self.backBtnTitle] ? Internationalization(@"返回") : self.backBtnTitle];
-        
-        NSString *imageName = self.gk_backStyle == GKNavigationBarBackStyleBlack ? @"btn_back_black" : @"btn_back_white";
+
         UIImage *backImage = KBuddleIMG(nil,
                                         @"Frameworks/GKNavigationBar.framework/GKNavigationBar",
                                         nil,
-                                        imageName);
-        [BackBtnCategory normalImage:backImage];
-        [BackBtnCategory normalTitleColor:self.gk_backStyle == GKNavigationBarBackStyleBlack ? UIColor.blackColor : UIColor.whiteColor];
+                                        self.gk_backStyle == GKNavigationBarBackStyleBlack ? @"btn_back_black" : @"btn_back_white");
+
+        [BackBtnCategory normalImage:self.viewModel.backBtnIMG ? : backImage];
+        [BackBtnCategory normalTitleColor:self.viewModel.backBtnTitleModel.textCor];
+        [BackBtnCategory normalTitle:self.viewModel.backBtnTitleModel.text];
+        [BackBtnCategory layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft
+                                         imageTitleSpace:JobsWidth(8)];
         BtnClickEvent(BackBtnCategory, [self backBtnClickEvent:x];);
         objc_setAssociatedObject(self,
                                  BaseVC_BackBtn_backBtnCategory,
@@ -91,18 +87,6 @@ static char *BaseVC_BackBtn_backBtnTitle = "BaseVC_BackBtn_backBtnTitle";
                                  BackBtnCategoryItem,
                                  OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }return BackBtnCategoryItem;
-}
-#pragma mark —— @property(nonatomic,strong)NSString *backBtnTitle;
--(void)setBackBtnTitle:(NSString *)backBtnTitle{
-    objc_setAssociatedObject(self,
-                             BaseVC_BackBtn_backBtnTitle,
-                             backBtnTitle,
-                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
--(NSString *)backBtnTitle{
-    NSString *BackBtnTitle = objc_getAssociatedObject(self, BaseVC_BackBtn_backBtnTitle);
-    return BackBtnTitle;
 }
 
 @end

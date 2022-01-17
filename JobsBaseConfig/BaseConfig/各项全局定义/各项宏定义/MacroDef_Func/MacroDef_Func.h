@@ -122,4 +122,12 @@ static inline id getSysSceneDelegate(){
 #define AvailableSysVersion(version) @available(iOS version, *)
 #endif
 
+//#ifndef JobsSynthesize
+//#define JobsSynthesize(property) @synthesize property = _property;
+//#endif
+//
+//#ifndef JobsDynamic
+//#define JobsDynamic(property) @dynamic property;
+//#endif
+
 #endif /* MacroDef_Func_h */

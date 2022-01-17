@@ -11,6 +11,7 @@
 #import "MacroDef_App.h"
 #import "MacroDef_Cor.h"
 #import "MacroDef_Size.h"
+#import "MacroDef_Func.h"
 #import "UIImage+Extras.h"
 
 #if __has_include(<ReactiveObjC/ReactiveObjC.h>)
@@ -78,6 +79,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)BOOL __block isMultiLineShows;// 是否多行行显示【默认单行显示】
 @property(nonatomic,assign)BOOL __block isTranslucent;//是否取消tabBar的透明效果
 @property(nonatomic,assign)BOOL __block visible;
+@property(nonatomic,strong,nullable)UIImage __block *backBtnIMG;//返回按钮的图标
 
 @end
 
@@ -137,6 +139,7 @@ NS_ASSUME_NONNULL_END
 @synthesize isMultiLineShows = _isMultiLineShows;\
 @synthesize isTranslucent = _isTranslucent;\
 @synthesize visible = _visible;\
+@synthesize backBtnIMG = _backBtnIMG;\
 
 #endif
 
@@ -193,6 +196,7 @@ NS_ASSUME_NONNULL_END
 @dynamic isMultiLineShows;\
 @dynamic isTranslucent;\
 @dynamic visible;\
+@dynamic backBtnIMG;\
 
 #endif
 

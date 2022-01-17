@@ -33,13 +33,14 @@ BaseViewControllerProtocol_synthesize
                          bundle:(NSBundle *)nibBundleOrNil {
     if(self = [super initWithNibName:nibNameOrNil
                               bundle:nibBundleOrNil]) {
-        self.isHiddenNavigationBar = YES;
-        self.setupNavigationBarHidden = YES;
+
     }return self;
 }
 
 -(void)loadView{
     [super loadView];
+    self.isHiddenNavigationBar = YES;
+    self.setupNavigationBarHidden = YES;
     self.viewModel = UIViewModel.new;
     self.currentPage = 1;
     self.bgImage = KIMG(@"洗码背景图");// 仅在loadView中配置有效

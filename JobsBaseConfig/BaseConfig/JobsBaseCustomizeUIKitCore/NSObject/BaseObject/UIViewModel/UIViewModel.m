@@ -31,8 +31,15 @@ NTESVerifyCodeManagerProtocol_synthesize
 -(UITextModel *)backBtnTitleModel{
     if (!_backBtnTitleModel) {
         _backBtnTitleModel = UITextModel.new;
-        _backBtnTitleModel.text = Internationalization(@"返回");
+        _backBtnTitleModel.text = Internationalization(@"Back");
+        _backBtnTitleModel.textCor = HEXCOLOR(0xD3B698);
     }return _backBtnTitleModel;
+}
+
+-(UIImage *)backBtnIMG{
+    if (!_backBtnIMG) {
+        _backBtnIMG = KIMG(@"全局返回箭头");
+    }return _backBtnIMG;
 }
 
 -(UIColor *)bgCor{

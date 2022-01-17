@@ -11,6 +11,7 @@
 #define debug 1//是否显示debug控件
 
 static NSString *退出登录 = @"退出登录";
+static NSString *登录成功 = @"登录成功";
 
 #define AppVersion @"100010017"
 #define categoryTitleViewHeight 50

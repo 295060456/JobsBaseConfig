@@ -25,11 +25,11 @@
 
 -(void)loadView{
     [super loadView];
+    self.setupNavigationBarHidden = YES;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.setupNavigationBarHidden = YES;
     self.view.backgroundColor = KYellowColor;
     self.scrollView.visible = YES;
     self.pageControl.visible = YES;
