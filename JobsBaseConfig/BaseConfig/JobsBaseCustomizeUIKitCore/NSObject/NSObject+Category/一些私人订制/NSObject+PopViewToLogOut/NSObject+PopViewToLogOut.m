@@ -20,10 +20,9 @@ static char *NSObject_PopViewToLogOut_logOutPopupVM = "NSObject_PopViewToLogOut_
     UIViewModel *LogOutPopupVM = objc_getAssociatedObject(self, NSObject_PopViewToLogOut_logOutPopupVM);
     if (!LogOutPopupVM) {
         LogOutPopupVM = UIViewModel.new;
-        LogOutPopupVM.text = Internationalization(@"Confirm to exit ?");
-        LogOutPopupVM.subText = @"";
-        LogOutPopupVM.font = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
-        LogOutPopupVM.textAlignment = NSTextAlignmentCenter;
+        LogOutPopupVM.textModel.text = Internationalization(@"Confirm to exit ?");
+        LogOutPopupVM.textModel.font = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
+        LogOutPopupVM.textModel.textAlignment = NSTextAlignmentCenter;
         LogOutPopupVM.bgCor = UIColor.whiteColor;
         objc_setAssociatedObject(self,
                                  NSObject_PopViewToLogOut_logOutPopupVM,

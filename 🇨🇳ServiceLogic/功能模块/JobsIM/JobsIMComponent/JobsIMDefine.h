@@ -29,12 +29,24 @@ static inline CGFloat JobsIMChatInfoTBVChatContentLabWidth(){
 static inline CGFloat JobsIMChatInfoTBVChatContentLabDefaultWidth(){
     return 30;
 }
-
-/** 消息显示位置 */
+/// 消息显示位置
 typedef NS_ENUM(NSInteger,InfoLocation) {
     InfoLocation_Unknown = 0,
     InfoLocation_Left = 1,
     InfoLocation_Right = 2
+};
+
+/// 消息的发送方向
+typedef NS_ENUM(NSInteger,JobsIMChatInfoDirection) {
+    JobsIMChatInfoDirection_Unknown = 0,
+    JobsIMChatInfoDirection_Send,/// 对方
+    JobsIMChatInfoDirection_Receive/// 自己
+};
+/// 消息类型
+typedef NS_ENUM(NSInteger,JobsIMChatMessageType) {
+    JobsIMChatMessageType_Text = 0,/// 文本
+    JobsIMChatMessageType_Gift,/// 礼物
+    JobsIMChatMessageType_expression,/// 表情
 };
 
 

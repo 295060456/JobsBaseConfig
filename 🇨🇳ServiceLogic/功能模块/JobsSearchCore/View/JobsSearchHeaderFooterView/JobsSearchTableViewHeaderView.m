@@ -34,7 +34,7 @@
 -(void)richElementsInViewWithModel:(UIViewModel *_Nullable)model{
     if ([model isKindOfClass:UIViewModel.class]) {
         self.viewModel = model;
-        self.titleLab.text = self.viewModel.text;
+        self.titleLab.text = self.viewModel.textModel.text;
         self.delBtn.alpha = 1;
     }
 }
@@ -46,14 +46,14 @@
 -(UILabel *)titleLab{
     if (!_titleLab) {
         _titleLab = UILabel.new;
-        _titleLab.textColor = self.viewModel.textCor;
+        _titleLab.textColor = self.viewModel.textModel.textCor;
         _titleLab.backgroundColor = self.viewModel.bgCor;
-        _titleLab.font = self.viewModel.font;
+        _titleLab.font = self.viewModel.textModel.font;
         _titleLab.textAlignment = NSTextAlignmentLeft;
         [self.contentView addSubview:_titleLab];
         [_titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.right.bottom.equalTo(self.contentView);
-            make.left.equalTo(self.contentView).offset(10);
+            make.left.equalTo(self.contentView).offset(JobsWidth(10));
         }];
     }return _titleLab;
 }
@@ -65,8 +65,8 @@
         BtnClickEvent(_delBtn, if(self.viewBlock)self.viewBlock(x););
         [self.contentView addSubview:_delBtn];
         [_delBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.size.mas_equalTo(CGSizeMake(16, 16));
-            make.right.equalTo(self.contentView).offset(-10);
+            make.size.mas_equalTo(CGSizeMake(JobsWidth(25), JobsWidth(25)));
+            make.right.equalTo(self.contentView).offset(-JobsWidth(10));
             make.centerY.equalTo(self.contentView);
         }];
     }return _delBtn;

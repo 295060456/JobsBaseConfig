@@ -48,7 +48,7 @@
     CGFloat height = 0;
     int row = 1;
     for (UIViewModel *viewModel in viewModelMutArr) {
-        CGSize size = [UILabel sizeWithText:viewModel.text
+        CGSize size = [UILabel sizeWithText:viewModel.textModel.text
                                        font:[UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular]
                                     maxSize:CGSizeZero];
         width += size.width + hotLabOffsetX;
@@ -112,7 +112,7 @@ shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
 didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"%s", __FUNCTION__);
     JobsHotLabelWithMultiLineCVCell *cell = (JobsHotLabelWithMultiLineCVCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    [WHToast toastSuccessMsg:cell.getViewModel.text];
+    [WHToast toastSuccessMsg:cell.getViewModel.textModel.text];
     if (self.viewBlock) self.viewBlock(cell.getViewModel);
 }
 /// 取消选中操作

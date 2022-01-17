@@ -17,7 +17,7 @@
 #import "JobsSearchResultDataListView.h"/// 逐字搜索返回数据结果下拉列表
 
 #import "UITableView+WWFoldableTableView.h"
-#import "TableViewCell.h"
+#import "JobsSearchTBVCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

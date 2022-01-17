@@ -21,21 +21,25 @@ static char *UIViewController_BaseVC_requestParams = "UIViewController_BaseVC_re
 static char *UIViewController_BaseVC_bgImage = "UIViewController_BaseVC_bgImage";
 @dynamic bgImage;
 
-static char *UIViewController_BaseVC_viewModel = "UIViewController_BaseVC_viewModel";
-@dynamic viewModel;
-
 #pragma mark —— 一些功能性的
 -(void)setGKNav{
-    self.gk_navTitle = self.viewModel.text;
+    self.gk_navTitle = self.viewModel.textModel.text;
     self.gk_navTitleColor = HEXCOLOR(0xD3B698);
-    self.gk_navBackgroundColor = HEXCOLOR(0x564533);
-    self.gk_backImage = KIMG(@"全局返回箭头");
     self.gk_navTitleFont = [UIFont systemFontOfSize:JobsWidth(18) weight:UIFontWeightRegular];
-    self.gk_navLeftBarButtonItem = [UIBarButtonItem.alloc initWithCustomView:self.backBtnCategory];
+    self.gk_navBackgroundColor = HEXCOLOR(0x564533);
     self.gk_navLineHidden = YES;
-    self.gk_backStyle = GKNavigationBarBackStyleBlack;
     self.gk_navItemLeftSpace = 20;
     [self hideNavLine];
+}
+
+-(void)setGKNavBackBtn{
+    if (self.navigationController.viewControllers.count - 1) {//从上个页面推过来才有返回键，直接的个人中心是没有的
+        self.gk_backImage = KIMG(@"全局返回箭头");/// 设置返回按钮图片（优先级高于gk_backStyle）
+        self.gk_backStyle = GKNavigationBarBackStyleBlack;
+        
+        self.backBtnTitle = self.viewModel.backBtnTitleModel.text;
+        self.gk_navLeftBarButtonItem = [UIBarButtonItem.alloc initWithCustomView:self.backBtnCategory];
+    }
 }
 #pragma mark —— present
 /// 简洁版强制present展现一个控制器页面【不需要正向传参】
@@ -84,36 +88,6 @@ static char *UIViewController_BaseVC_viewModel = "UIViewController_BaseVC_viewMo
           hidesBottomBarWhenPushed:YES
                           animated:YES
                            success:nil];
-}
-/**
-     推控制器的一种封装，可以适配App多语言化
-     
-     需要在具体的VC里面做如下配置：
-     -(void)loadView{
-         [super loadView];
-         if ([self.requestParams isKindOfClass:UIViewModel.class]) {
-             self.viewModel = (UIViewModel *)self.requestParams;
-         }
-     }
- */
--(void)comingToPushVC:(UIViewController *)viewController
-         withNavTitle:(NSString *)navTitle{
-    UIViewModel *viewModel = UIViewModel.new;
-    viewModel.text = navTitle;
-    viewModel.cls = viewController.class;
-    [self comingToPushVC:viewController
-           requestParams:viewModel];
-}
-/// 携带一个资源推控制器
--(void)comingToPushVC:(UIViewController *)viewController
-         withNavTitle:(NSString *)navTitle
-        requestParams:(id _Nullable)requestParams{
-    UIViewModel *viewModel = UIViewModel.new;
-    viewModel.text = navTitle;
-    viewModel.cls = viewController.class;
-    viewModel.data = requestParams;
-    [self comingToPushVC:viewController
-           requestParams:viewModel];
 }
 /**
  ❤️【强制推控制器】❤️
@@ -229,24 +203,6 @@ static char *UIViewController_BaseVC_viewModel = "UIViewController_BaseVC_viewMo
     objc_setAssociatedObject(self,
                              UIViewController_BaseVC_bgImage,
                              bgImage,
-                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-#pragma mark —— <FoundationProtocol> @property(nonatomic,strong)UIViewModel *viewModel;
--(UIViewModel *)viewModel{
-    UIViewModel *ViewModel = objc_getAssociatedObject(self, UIViewController_BaseVC_viewModel);
-    if (!ViewModel) {
-        ViewModel = UIViewModel.new;
-        objc_setAssociatedObject(self,
-                                 UIViewController_BaseVC_viewModel,
-                                 ViewModel,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }return ViewModel;
-}
-
--(void)setViewModel:(UIViewModel *)viewModel{
-    objc_setAssociatedObject(self,
-                             UIViewController_BaseVC_viewModel,
-                             viewModel,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 

@@ -30,6 +30,8 @@
         forCellWithReuseIdentifier:reuseIdentifier(BaseCollectionViewCell)];
     [self registerClass:JobsHotLabelWithMultiLineCVCell.class
         forCellWithReuseIdentifier:reuseIdentifier(JobsHotLabelWithMultiLineCVCell)];
+    [self registerClass:JobsSearchDataCVCell.class
+        forCellWithReuseIdentifier:reuseIdentifier(JobsSearchDataCVCell)];
 }
 
 @end

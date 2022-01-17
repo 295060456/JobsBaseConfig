@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "BaseCollectionViewCell.h"
 #import "JobsHotLabelWithMultiLineCVCell.h"
+#import "JobsSearchDataCVCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

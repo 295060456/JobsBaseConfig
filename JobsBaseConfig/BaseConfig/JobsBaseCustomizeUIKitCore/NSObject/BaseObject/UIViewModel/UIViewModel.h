@@ -8,6 +8,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#import "UITextModel.h"
+
 #import "NTESVerifyCodeManagerProtocol.h"
 #import "UIViewModelProtocol.h"
 

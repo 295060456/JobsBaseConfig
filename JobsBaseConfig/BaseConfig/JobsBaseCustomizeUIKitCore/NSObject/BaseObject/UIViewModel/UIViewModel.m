@@ -16,40 +16,29 @@ UIViewModelProtocol_synthesize
 NTESVerifyCodeManagerProtocol_synthesize
 
 #pragma mark —— lazyLoad
--(UIColor *)textCor{
-    if (!_textCor) {
-        _textCor = RGB_SAMECOLOR(51);
-    }return _textCor;
+-(UITextModel *)textModel{
+    if (!_textModel) {
+        _textModel = UITextModel.new;
+    }return _textModel;
 }
 
--(UIColor *)subTextCor{
-    if (!_subTextCor) {
-        _subTextCor = RGB_SAMECOLOR(88);
-    }return _subTextCor;
+-(UITextModel *)subTextModel{
+    if (!_subTextModel) {
+        _subTextModel = UITextModel.new;
+    }return _subTextModel;
+}
+
+-(UITextModel *)backBtnTitleModel{
+    if (!_backBtnTitleModel) {
+        _backBtnTitleModel = UITextModel.new;
+        _backBtnTitleModel.text = Internationalization(@"返回");
+    }return _backBtnTitleModel;
 }
 
 -(UIColor *)bgCor{
     if (!_bgCor) {
         _bgCor = RandomColor;
     }return _bgCor;
-}
-
--(UIFont *)font{
-    if (!_font) {
-        _font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular];
-    }return _font;
-}
-
--(NSString *)text{
-    if (!_text) {
-        _text = @"主文字默认占位内容";
-    }return _text;
-}
-
--(NSString *)subText{
-    if (!_subText) {
-        _subText = @"副文字默认占位内容";
-    }return _subText;
 }
 
 -(UIImage *)image{

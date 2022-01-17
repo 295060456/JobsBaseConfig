@@ -30,7 +30,7 @@
     CGFloat height = 0;
     int row = 1;
     for (UIViewModel *viewModel in model) {
-        CGSize size = [UILabel sizeWithText:viewModel.text
+        CGSize size = [UILabel sizeWithText:viewModel.textModel.text
                                        font:[UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular]
                                     maxSize:CGSizeZero];
         width += size.width + hotLabOffsetX;

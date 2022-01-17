@@ -24,13 +24,15 @@
     if ([self.requestParams isKindOfClass:UIViewModel.class]) {
         self.viewModel = (UIViewModel *)self.requestParams;
     }
+    self.setupNavigationBarHidden = YES;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.setupNavigationBarHidden = YES;
     self.view.backgroundColor = KYellowColor;
+    
     [self setGKNav];
+    [self setGKNavBackBtn];
     
     self.tableView.alpha = 1;
 }
@@ -69,9 +71,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UIViewModel *viewModel = UIViewModel.new;
     viewModel.image = [UIImage imageNamed:[NSString stringWithFormat:@"%ld.jpeg",indexPath.row]];
+    viewModel.backBtnTitleModel.text = @"B_VC";
     
     [self comingToPushVC:b
-            withNavTitle:@"B_VC"
            requestParams:viewModel];
 }
 

@@ -36,6 +36,9 @@
         self.viewModel = (UIViewModel *)self.requestParams;
         self.chatInfoModel = (JobsIMChatInfoModel *)self.viewModel.data;
         [self.chatInfoModelMutArr addObject:self.chatInfoModel];
+        
+        self.viewModel.textModel.text = self.chatInfoModel.userNameStr;
+        self.viewModel.backBtnTitleModel.text = Internationalization(@"聊天列表");
     }
 }
 
@@ -44,15 +47,8 @@
     self.view.backgroundColor = kWhiteColor;
     {
         [self setGKNav];
-        
-        self.gk_navTitle = self.chatInfoModel.userNameStr;
-        
-        if (self.navigationController.viewControllers.count - 1) {//从上个页面推过来才有返回键，直接的个人中心是没有的
-            self.gk_navLeftBarButtonItem = [UIBarButtonItem.alloc initWithCustomView:self.backBtnCategory];
-        }
-        
+        [self setGKNavBackBtn];
         self.gk_navRightBarButtonItems = @[self.shareBtnItem];
-        self.gk_navBackgroundColor = KLightGrayColor;
     }
 
     self.inputview.alpha = 1;

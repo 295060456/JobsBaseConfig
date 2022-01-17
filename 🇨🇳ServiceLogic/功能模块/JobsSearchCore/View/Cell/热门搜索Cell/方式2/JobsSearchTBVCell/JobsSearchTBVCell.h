@@ -1,20 +1,22 @@
 //
-//  DataCollectionViewCell.h
+//  TableViewCell.h
 //  JobsSearch
 //
 //  Created by Jobs on 2020/10/22.
 //
 
+#import <UIKit/UIKit.h>
 #import "BaseCellProtocol.h"
-#import "UIViewModelProtocol.h"
-#import "BaseCollectionViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DataCollectionViewCell : BaseCollectionViewCell
+@interface JobsSearchTBVCell : UITableViewCell
 <
 BaseCellProtocol
 ,UIViewModelProtocol
+,UICollectionViewDataSource
+,UICollectionViewDelegate
+,UICollectionViewDelegateFlowLayout
 >
 
 @end

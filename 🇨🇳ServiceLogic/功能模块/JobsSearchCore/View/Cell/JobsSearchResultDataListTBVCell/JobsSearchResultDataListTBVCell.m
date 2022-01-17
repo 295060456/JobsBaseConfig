@@ -33,7 +33,7 @@
 
 -(void)richElementsInCellWithModel:(UIViewModel *_Nullable)model{
     if ([model isKindOfClass:UIViewModel.class]) {
-        self.textLabel.text = model.text;
+        self.textLabel.text = model.textModel.text;
     }
 }
 #pragma mark —— UIGestureRecognizerDelegate

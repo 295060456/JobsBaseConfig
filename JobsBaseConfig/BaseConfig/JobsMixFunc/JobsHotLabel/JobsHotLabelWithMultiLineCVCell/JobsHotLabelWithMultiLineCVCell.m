@@ -50,8 +50,8 @@
 }
 /// 具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 +(CGSize)cellSizeWithModel:(UIViewModel *_Nullable)model{
-    return [UILabel sizeWithText:model.text
-                            font:model.font
+    return [UILabel sizeWithText:model.textModel.text
+                            font:model.textModel.font
                          maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
 }
 #pragma mark —— lazyLoad
@@ -59,9 +59,9 @@
     if (!_textLab) {
         _textLab = UILabel.new;
         _textLab.backgroundColor = self.viewModel.bgCor;
-        _textLab.textColor = self.viewModel.textCor;
+        _textLab.textColor = self.viewModel.textModel.textCor;
         _textLab.textAlignment = NSTextAlignmentCenter;
-        _textLab.text = self.viewModel.text;
+        _textLab.text = self.viewModel.textModel.text;
         [self.contentView addSubview:_textLab];
         [_textLab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.contentView);

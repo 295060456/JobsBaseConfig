@@ -6,25 +6,26 @@
 //
 
 #import "JobsSearchConfig.h"
-#import "TableViewCell.h"
-#import "DataCollectionViewCell.h"
+#import "JobsSearchTBVCell.h"
+#import "JobsSearchDataCVCell.h"
 
-@interface TableViewCell ()
+@interface JobsSearchTBVCell ()
 /// UI
 @property(nonatomic,strong)UICollectionView *collectionView;
 @property(nonatomic,strong)UICollectionViewFlowLayout *layout;
 /// Data
-@property(nonatomic,strong)NSArray <NSString *>*titleArr;
 
 @end
 
-@implementation TableViewCell
+@implementation JobsSearchTBVCell
+
+UIViewModelProtocol_synthesize
 
 #pragma mark —— BaseCellProtocol
 +(instancetype)cellWithTableView:(UITableView *)tableView{
-    TableViewCell *cell = (TableViewCell *)[tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
+    JobsSearchTBVCell *cell = (JobsSearchTBVCell *)[tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
     if (!cell) {
-        cell = [TableViewCell.alloc initWithStyle:UITableViewCellStyleDefault
+        cell = [JobsSearchTBVCell.alloc initWithStyle:UITableViewCellStyleDefault
                                   reuseIdentifier:ReuseIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }return cell;
@@ -36,9 +37,15 @@
     return rowNum * JobsSearchShowHotwordsTBVCellHeight;
 }
 
--(void)richElementsInCellWithModel:(id _Nullable)model{
-    self.titleArr = (NSArray *)model;
-    self.collectionView.alpha = 1;
+-(void)richElementsInCellWithModel:(NSMutableArray <UIViewModel *>*_Nullable)model{
+    
+    [_collectionView removeFromSuperview];
+    _collectionView = nil;
+    
+    if (model) {
+        self.viewModelMutArr = (NSMutableArray *)model;
+        self.collectionView.alpha = 1;
+    }
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -49,17 +56,17 @@
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView
                                    cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
 
-    DataCollectionViewCell *cell = [DataCollectionViewCell cellWithCollectionView:collectionView
-                                                                     forIndexPath:indexPath];
+    JobsSearchDataCVCell *cell = [JobsSearchDataCVCell cellWithCollectionView:collectionView
+                                                                 forIndexPath:indexPath];
 
     cell.indexPath = indexPath;
-    [cell richElementsInCellWithModel:self.titleArr[indexPath.row]];
+    [cell richElementsInCellWithModel:self.viewModelMutArr[indexPath.row]];
     return cell;
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section {
-    return self.titleArr.count;
+    return self.viewModelMutArr.count;
 }
 #pragma mark —— UICollectionViewDelegate
 /// 允许选中时，高亮
@@ -138,8 +145,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
                                                 collectionViewLayout:self.layout];
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
-        [_collectionView registerClass:DataCollectionViewCell.class
-            forCellWithReuseIdentifier:@"DataCollectionViewCell"];
+        [_collectionView registerCollectionViewClass];
         [self.contentView addSubview:_collectionView];
         [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.contentView);

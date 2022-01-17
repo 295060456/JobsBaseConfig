@@ -255,19 +255,19 @@
     self.frame = frame;
 }
 #pragma mark —— BaseViewProtocol
-//数据（字符串）定宽
+/// 数据（字符串）定宽
 +(CGFloat)widthByData:(UIViewModel *_Nonnull)data{
-    return [data.text getContentHeightOrWidthWithParagraphStyleLineSpacing:data.textLineSpacing
-                                                     calcLabelHeight_Width:CalcLabelWidth
-                                                                      font:data.font
-                                              boundingRectWithHeight_Width:data.jobsHeight];
+    return [data.textModel.text getContentHeightOrWidthWithParagraphStyleLineSpacing:data.textModel.textLineSpacing
+                                                               calcLabelHeight_Width:CalcLabelWidth
+                                                                                font:data.textModel.font
+                                                        boundingRectWithHeight_Width:data.jobsHeight];
 }
-//数据（字符串）定高
+/// 数据（字符串）定高
 +(CGFloat)heightByData:(UIViewModel *_Nonnull)data{
-    return [data.text getContentHeightOrWidthWithParagraphStyleLineSpacing:data.textLineSpacing
-                                                     calcLabelHeight_Width:CalcLabelHeight
-                                                                      font:data.font
-                                              boundingRectWithHeight_Width:data.jobsWidth];
+    return [data.textModel.text getContentHeightOrWidthWithParagraphStyleLineSpacing:data.textModel.textLineSpacing
+                                                               calcLabelHeight_Width:CalcLabelHeight
+                                                                                font:data.textModel.font
+                                                        boundingRectWithHeight_Width:data.jobsWidth];
 }
 
 @end

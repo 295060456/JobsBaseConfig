@@ -20,27 +20,17 @@
 #endif
 
 @class UIViewModel;
+@class UITextModel;
 
 NS_ASSUME_NONNULL_BEGIN
 /// 全局的共用的属性
 @protocol UIViewModelProtocol <NSObject>
 
 @optional
-/// 主、副标题文字
-@property(nonatomic,strong,nullable)NSString __block *text;//主文字内容
-@property(nonatomic,strong,nullable)NSString __block *subText;//副文字内容
-@property(nonatomic,strong,nullable)NSAttributedString __block *attributedText API_AVAILABLE(ios(6.0));//主文字富文本
-@property(nonatomic,strong,nullable)NSAttributedString __block *subAttributedText API_AVAILABLE(ios(6.0));//副文字富文本
-@property(nonatomic,strong,nullable)UIColor __block *textCor;//主字体颜色
-@property(nonatomic,strong,nullable)UIColor __block *subTextCor;//副字体颜色
-@property(nonatomic,strong,nullable)UIFont __block *font;//主文字字体
-@property(nonatomic,strong,nullable)UIFont __block *subFont;//副文字字体
-@property(nonatomic,assign)NSTextAlignment __block textAlignment;//主文字对齐方式
-@property(nonatomic,assign)NSTextAlignment __block subTextAlignment;//副文字对齐方式
-@property(nonatomic,assign)NSLineBreakMode __block lineBreakMode;//主文字提行方式
-@property(nonatomic,assign)NSLineBreakMode __block subLineBreakMode;//副文字提行方式
-@property(nonatomic,assign)CGFloat __block textLineSpacing;
-@property(nonatomic,assign)CGFloat __block subTextlineSpacing;
+/// 文字配置
+@property(nonatomic,strong,nullable)UITextModel *textModel;
+@property(nonatomic,strong,nullable)UITextModel *subTextModel;
+@property(nonatomic,strong,nullable)UITextModel *backBtnTitleModel;
 /// 图片和背景颜色
 @property(nonatomic,strong,nullable)UIImage __block *image;//图片
 @property(nonatomic,strong,nullable)UIImage __block *bgImage;//selected == NO，状态下的背景图片
@@ -97,20 +87,9 @@ NS_ASSUME_NONNULL_END
 #ifndef UIViewModelProtocol_synthesize
 #define UIViewModelProtocol_synthesize \
 \
-@synthesize text = _text;\
-@synthesize subText = _subText;\
-@synthesize attributedText = _attributedText;\
-@synthesize subAttributedText = _subAttributedText;\
-@synthesize textCor = _textCor;\
-@synthesize subTextCor = _subTextCor;\
-@synthesize font = _font;\
-@synthesize subFont = _subFont;\
-@synthesize textAlignment = _textAlignment;\
-@synthesize subTextAlignment = _subTextAlignment;\
-@synthesize lineBreakMode = _lineBreakMode;\
-@synthesize subLineBreakMode = _subLineBreakMode;\
-@synthesize textLineSpacing = _textLineSpacing;\
-@synthesize subTextlineSpacing = _subTextlineSpacing;\
+@synthesize textModel = _textModel;\
+@synthesize subTextModel = _subTextModel;\
+@synthesize backBtnTitleModel = _backBtnTitleModel;\
 \
 @synthesize image = _image;\
 @synthesize bgImage = _bgImage;\
@@ -164,20 +143,9 @@ NS_ASSUME_NONNULL_END
 #pragma mark —— @dynamic UIViewModelProtocol
 #ifndef UIViewModelProtocol_dynamic
 #define UIViewModelProtocol_dynamic \
-@dynamic text;\
-@dynamic subText;\
-@dynamic attributedText;\
-@dynamic subAttributedText;\
-@dynamic textCor;\
-@dynamic subTextCor;\
-@dynamic font;\
-@dynamic subFont;\
-@dynamic textAlignment;\
-@dynamic subTextAlignment;\
-@dynamic lineBreakMode;\
-@dynamic subLineBreakMode;\
-@dynamic textLineSpacing;\
-@dynamic subTextlineSpacing;\
+@dynamic textModel;\
+@dynamic subTextModel;\
+@dynamic backBtnTitleModel;\
 \
 @dynamic image;\
 @dynamic bgImage;\

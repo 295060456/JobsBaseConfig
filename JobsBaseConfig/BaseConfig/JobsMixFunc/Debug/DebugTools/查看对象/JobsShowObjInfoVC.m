@@ -24,13 +24,14 @@
 
 -(void)loadView{
     [super loadView];
+    self.setupNavigationBarHidden = YES;
+    self.viewModel.textModel.text = Internationalization(@"用户信息展示(开发测试专用)");
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.setupNavigationBarHidden = YES;
     [self setGKNav];
-    self.gk_navTitle = @"用户信息展示(开发测试专用)";
+    [self setGKNavBackBtn];
     self.tableView.alpha = 1;
 }
 
@@ -57,10 +58,10 @@
         NSMutableArray <NSString *>*propertyList = requestParams.printPropertyList;
         for (NSString *propertyName in propertyList) {
             UIViewModel *viewModel = UIViewModel.new;
-            viewModel.text = propertyName;
-            viewModel.subText = [requestParams valueForKey:propertyName];
-            viewModel.textCor = UIColor.blueColor;
-            viewModel.subTextCor = UIColor.redColor;
+            viewModel.textModel.text = propertyName;
+            viewModel.textModel.textCor = UIColor.blueColor;
+            viewModel.subTextModel.text = [requestParams valueForKey:propertyName];
+            viewModel.textModel.textCor = UIColor.redColor;
             [self.dataMutArr addObject:viewModel];
         }
     }
@@ -103,8 +104,8 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    UIPasteboard.generalPasteboard.string = self.dataMutArr[indexPath.row].subText;
-    [WHToast toastMsg:[NSString stringWithFormat:@"复制%@成功",self.dataMutArr[indexPath.row].text]];
+    UIPasteboard.generalPasteboard.string = self.dataMutArr[indexPath.row].subTextModel.text;
+    [WHToast toastMsg:[NSString stringWithFormat:@"复制%@成功",self.dataMutArr[indexPath.row].subTextModel.text]];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView

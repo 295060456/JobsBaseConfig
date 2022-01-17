@@ -12,6 +12,7 @@
 #import "JobsBlock.h"
 #import "MacroDef_Func.h"
 #import "LoadingImage.h"
+#import "NSObject+Extras.h"
 #import "UIViewModel.h"
 
 #if __has_include(<ReactiveObjC/RACmetamacros.h>)
@@ -57,23 +58,6 @@ BaseViewControllerProtocol
 -(void)comingToPushVC:(UIViewController *_Nonnull)viewController;
 /// 简洁版强制展现一个控制器页面【需要正向传参】
 -(void)comingToPushVC:(UIViewController *_Nonnull)viewController
-        requestParams:(id _Nullable)requestParams;
-/**
-     推控制器的一种封装，可以适配App多语言化
-     
-     需要在具体的VC里面做如下配置：
-     -(void)loadView{
-         [super loadView];
-         if ([self.requestParams isKindOfClass:UIViewModel.class]) {
-             self.viewModel = (UIViewModel *)self.requestParams;
-         }
-     }
- */
--(void)comingToPushVC:(UIViewController *)viewController
-         withNavTitle:(NSString *)navTitle;
-/// 携带一个资源推控制器
--(void)comingToPushVC:(UIViewController *)viewController
-         withNavTitle:(NSString *)navTitle
         requestParams:(id _Nullable)requestParams;
 /**
  ❤️【强制推控制器】❤️

@@ -12,8 +12,8 @@
 +(instancetype)cellWithTableView:(UITableView *)tableView{
     UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:reuseIdentifier(self.class)];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                      reuseIdentifier:reuseIdentifier(self.class)];
+        cell = [UITableViewCell.alloc initWithStyle:UITableViewCellStyleSubtitle
+                                    reuseIdentifier:reuseIdentifier(self.class)];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }return cell;
@@ -21,9 +21,9 @@
 
 -(void)richElementsInCellWithModel:(UIViewModel *_Nullable)model{
     if ([model isKindOfClass:UIViewModel.class]) {
-        self.textLabel.textColor = model.textCor;
-        self.textLabel.font = model.font;
-        self.textLabel.text = model.text;
+        self.textLabel.textColor = model.textModel.textCor;
+        self.textLabel.font = model.textModel.font;
+        self.textLabel.text = model.textModel.text;
         self.imageView.image = model.image;
     }
 }

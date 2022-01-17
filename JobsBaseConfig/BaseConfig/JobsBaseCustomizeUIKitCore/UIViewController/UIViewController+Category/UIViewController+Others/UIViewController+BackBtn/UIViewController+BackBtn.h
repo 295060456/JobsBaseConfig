@@ -9,8 +9,11 @@
 #import <objc/runtime.h>
 #import "LoadingImage.h"
 #import "MacroDef_Cor.h"
+#import "MacroDef_App.h"
+#import "MacroDef_String.h"
 #import "BaseViewControllerProtocol.h"
 #import "UIButton+ImageTitleSpacing.h"
+#import "UIButton+UI.h"
 
 #if __has_include(<GKNavigationBar/GKNavigationBar.h>)
 #import <GKNavigationBar/GKNavigationBar.h>

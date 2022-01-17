@@ -23,7 +23,7 @@
 }
 
 -(void)richElementsInCellWithModel:(UIViewModel *_Nullable)model{
-    self.textLabel.text = model.text;
+    self.textLabel.text = model.textModel.text;
     self.imageView.image = model.image;
 }
 

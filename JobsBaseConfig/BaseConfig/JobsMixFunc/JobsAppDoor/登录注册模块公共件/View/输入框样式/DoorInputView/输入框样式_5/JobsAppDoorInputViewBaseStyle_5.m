@@ -189,7 +189,7 @@
 -(ZYTextField *)textField{
     if (!_textField) {
         _textField = ZYTextField.new;
-        _textField.text = self.doorInputViewBaseStyleModel.text;
+        _textField.text = self.doorInputViewBaseStyleModel.textModel.text;
         _textField.delegate = self;
         @jobs_weakify(self)
         [[_textField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {

@@ -35,6 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)BOOL setupNavigationBarHidden;
 /// 设置GKNavigationBar
 -(void)setGKNav;
+-(void)setGKNavBackBtn;
 
 @end
 

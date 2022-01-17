@@ -28,15 +28,18 @@
     if ([self.requestParams isKindOfClass:UIViewModel.class]) {
         self.viewModel = (UIViewModel *)self.requestParams;
     }
+    
+    self.setupNavigationBarHidden = YES;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.setupNavigationBarHidden = YES;
     self.view.backgroundColor = KYellowColor;
-    [self setGKNav];
-    self.gk_navRightBarButtonItems = @[self.shareBtnItem];
-    [self hideNavLine];
+    {
+        [self setGKNav];
+        [self setGKNavBackBtn];
+        self.gk_navRightBarButtonItems = @[self.shareBtnItem];
+    }
     self.listView.alpha = 1;
 }
 
@@ -51,6 +54,23 @@
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
 }
+#pragma mark —— 一些私有方法
+-(UIViewModel *)makeData:(JobsIMListDataModel *)data{
+    
+    JobsIMChatInfoModel *chatInfoModel = JobsIMChatInfoModel.new;
+    chatInfoModel.chatTextStr = data.contentStr;
+    chatInfoModel.userNameStr = data.usernameStr;
+    {
+        JobsTimeModel *timeModel = self.makeSpecificTime;
+        chatInfoModel.chatTextTimeStr = [NSString stringWithFormat:@"%ld:%ld:%ld",timeModel.currentHour,timeModel.currentMin,timeModel.currentSec];
+    }
+    chatInfoModel.userIconIMG = data.userHeaderIMG;
+    chatInfoModel.identification = @"我是服务器";
+    
+    UIViewModel *viewModel = UIViewModel.new;
+    viewModel.data = chatInfoModel;
+    return viewModel;
+}
 #pragma mark —— lazyLoad
 -(JobsIMListView *)listView{
     if (!_listView) {
@@ -59,17 +79,8 @@
         [_listView richElementsInViewWithModel:nil];
         [_listView actionViewBlock:^(JobsIMListDataModel *data) {
             @jobs_strongify(self)
-            JobsIMChatInfoModel *chatInfoModel = JobsIMChatInfoModel.new;
-            chatInfoModel.chatTextStr = data.contentStr;
-            chatInfoModel.userNameStr = data.usernameStr;
-            JobsTimeModel *timeModel = self.makeSpecificTime;
-            chatInfoModel.chatTextTimeStr = [NSString stringWithFormat:@"%ld:%ld:%ld",timeModel.currentHour,timeModel.currentMin,timeModel.currentSec];
-            chatInfoModel.userIconIMG = data.userHeaderIMG;
-            chatInfoModel.identification = @"我是服务器";
-            
             [self comingToPushVC:JobsIMVC.new
-                    withNavTitle:data.usernameStr
-                   requestParams:chatInfoModel];
+                   requestParams:[self makeData:data]];
         }];
         [self.view addSubview:_listView];
         [_listView mas_makeConstraints:^(MASConstraintMaker *make) {

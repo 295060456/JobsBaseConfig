@@ -150,8 +150,8 @@
     if (!_titleLab) {
         _titleLab = UILabel.new;
         _titleLab.font = [UIFont systemFontOfSize:JobsWidth(11) weight:UIControlStateNormal];
-        _titleLab.text = self.doorInputViewBaseStyleModel.text;
-        _titleLab.textColor = self.doorInputViewBaseStyleModel.textCor;
+        _titleLab.text = self.doorInputViewBaseStyleModel.textModel.text;
+        _titleLab.textColor = self.doorInputViewBaseStyleModel.textModel.textCor;
         [self addSubview:_titleLab];
         [_titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.bottom.equalTo(self);

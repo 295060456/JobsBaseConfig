@@ -24,15 +24,16 @@
     if ([self.requestParams isKindOfClass:UIViewModel.class]) {
         self.viewModel = (UIViewModel *)self.requestParams;
     }
+    
+    self.setupNavigationBarHidden = YES;
 }
 
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
-    
-    self.setupNavigationBarHidden = YES;
     self.view.backgroundColor = KYellowColor;
+    
     [self setGKNav];
+    [self setGKNavBackBtn];
     
     [self view1]; //右斜边梯形
     [self view2]; //平行四边形

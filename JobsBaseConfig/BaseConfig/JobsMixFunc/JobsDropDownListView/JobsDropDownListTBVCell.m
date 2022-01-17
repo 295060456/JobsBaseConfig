@@ -38,18 +38,18 @@
 -(void)richElementsInCellWithModel:(UIViewModel *_Nullable)model{
     if (model) {
         self.viewModel = model;
-        self.textLabel.text = [NSString stringWithFormat:@"%@",model.text];
-        self.detailTextLabel.text = [NSString stringWithFormat:@"%@",model.subText];
+        self.textLabel.text = [NSString stringWithFormat:@"%@",model.textModel.text];
+        self.detailTextLabel.text = [NSString stringWithFormat:@"%@",model.subTextModel.text];
     }
 }
 
 +(CGFloat)cellHeightWithModel:(UIViewModel *_Nullable)model{
     
     UIViewModel *vm = UIViewModel.new;
-    vm.font = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
+    vm.textModel.font = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
     vm.jobsWidth = JobsSCREEN_WIDTH - JobsWidth(200);
-    vm.text = model.subText;
-    vm.textLineSpacing = 0;
+    vm.textModel.text = model.subTextModel.text;
+    vm.textModel.textLineSpacing = 0;
     
     return [UIView heightByData:vm] + JobsWidth(20);
 }

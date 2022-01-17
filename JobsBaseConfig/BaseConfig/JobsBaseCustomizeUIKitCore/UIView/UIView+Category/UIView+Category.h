@@ -8,7 +8,6 @@
 #ifndef UIView_Category_h
 #define UIView_Category_h
 
-#import "UIView+BaseView.h"
 #import "UIView+AutoSelfAdaptionSize.h"
 #import "UIView+Animation.h"
 #import "UIView+AOP.h"

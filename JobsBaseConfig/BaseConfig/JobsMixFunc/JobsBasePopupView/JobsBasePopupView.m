@@ -41,8 +41,8 @@
             self.backgroundColor = self.viewModel.bgCor;
         }
         
-        self.titleLab.text = self.viewModel.text;
-        self.subTitleLab.text = self.viewModel.subText;
+        self.titleLab.text = self.viewModel.textModel.text;
+        self.subTitleLab.text = self.viewModel.subTextModel.text;
         self.btn1.alpha = 1;
         self.btn2.alpha = 1;
         
@@ -58,9 +58,9 @@
 -(UILabel *)titleLab{
     if (!_titleLab) {
         _titleLab = UILabel.new;
-        _titleLab.font = self.viewModel.font;
-        _titleLab.textColor = self.viewModel.textCor;
-        _titleLab.textAlignment = self.viewModel.textAlignment;
+        _titleLab.font = self.viewModel.textModel.font;
+        _titleLab.textColor = self.viewModel.textModel.textCor;
+        _titleLab.textAlignment = self.viewModel.textModel.textAlignment;
         [self addSubview:_titleLab];
         [_titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(self);
@@ -72,9 +72,9 @@
 -(UILabel *)subTitleLab{
     if (!_subTitleLab) {
         _subTitleLab = UILabel.new;
-        _subTitleLab.font = self.viewModel.subFont;
-        _subTitleLab.textColor = self.viewModel.subTextCor;
-        _subTitleLab.textAlignment = self.viewModel.subTextAlignment;
+        _subTitleLab.font = self.viewModel.subTextModel.font;
+        _subTitleLab.textColor = self.viewModel.subTextModel.textCor;
+        _subTitleLab.textAlignment = self.viewModel.subTextModel.textAlignment;
         [self addSubview:_subTitleLab];
         [_subTitleLab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(self);

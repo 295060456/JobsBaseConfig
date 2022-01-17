@@ -101,28 +101,28 @@
         
         {
             UIViewModel *jobsPageViewModel = UIViewModel.new;
-            jobsPageViewModel.text = @"+855";
-            jobsPageViewModel.textCor = kWhiteColor;
+            jobsPageViewModel.textModel.text = @"+855";
+            jobsPageViewModel.textModel.textCor = kWhiteColor;
             jobsPageViewModel.bgCor = kClearColor;
-            jobsPageViewModel.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular];
+            jobsPageViewModel.textModel.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular];
             [_jobsPageViewDataMutArr addObject:jobsPageViewModel];
         }
         
         {
             UIViewModel *jobsPageViewModel = UIViewModel.new;
-            jobsPageViewModel.text = @"+87";
-            jobsPageViewModel.textCor = kWhiteColor;
+            jobsPageViewModel.textModel.text = @"+87";
+            jobsPageViewModel.textModel.textCor = kWhiteColor;
             jobsPageViewModel.bgCor = kClearColor;
-            jobsPageViewModel.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular];
+            jobsPageViewModel.textModel.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular];
             [_jobsPageViewDataMutArr addObject:jobsPageViewModel];
         }
         
         {
             UIViewModel *jobsPageViewModel = UIViewModel.new;
-            jobsPageViewModel.text = @"+88";
-            jobsPageViewModel.textCor = kWhiteColor;
+            jobsPageViewModel.textModel.text = @"+88";
+            jobsPageViewModel.textModel.textCor = kWhiteColor;
             jobsPageViewModel.bgCor = kClearColor;
-            jobsPageViewModel.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular];
+            jobsPageViewModel.textModel.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular];
             [_jobsPageViewDataMutArr addObject:jobsPageViewModel];
         }
         

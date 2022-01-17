@@ -27,13 +27,15 @@
     if ([self.requestParams isKindOfClass:UIViewModel.class]) {
         self.viewModel = (UIViewModel *)self.requestParams;
     }
+    
+    self.setupNavigationBarHidden = YES;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.setupNavigationBarHidden = YES;
     self.view.backgroundColor = KYellowColor;
     [self setGKNav];
+    [self setGKNavBackBtn];
     
     self.scrollView.alpha = 1;
     self.lab.alpha = 1;

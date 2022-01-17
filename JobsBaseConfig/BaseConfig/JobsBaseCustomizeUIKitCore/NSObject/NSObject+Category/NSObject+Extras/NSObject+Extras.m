@@ -258,22 +258,22 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
         data = NSMutableArray.array;
         {
             UIViewModel *viewModel = UIViewModel.new;
-            viewModel.text = @"111111111";
-            viewModel.subText = @"QQQQQQ";
+            viewModel.textModel.text = @"111111111";
+            viewModel.subTextModel.text = @"QQQQQQ";
             [data addObject:viewModel];
         }
         
         {
             UIViewModel *viewModel = UIViewModel.new;
-            viewModel.text = @"222222222";
-            viewModel.subText = @"WWWWWW";
+            viewModel.textModel.text = @"2222222222";
+            viewModel.subTextModel.text = @"wwwwwwwww";
             [data addObject:viewModel];
         }
         
         {
             UIViewModel *viewModel = UIViewModel.new;
-            viewModel.text = @"333333333";
-            viewModel.subText = @"EEEEEE";
+            viewModel.textModel.text = @"3333333333";
+            viewModel.subTextModel.text = @"sssssss";
             [data addObject:viewModel];
         }
     }

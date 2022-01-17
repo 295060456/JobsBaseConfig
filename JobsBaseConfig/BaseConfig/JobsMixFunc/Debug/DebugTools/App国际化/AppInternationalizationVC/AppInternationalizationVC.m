@@ -26,13 +26,13 @@
 -(void)loadView{
     [super loadView];
     self.setupNavigationBarHidden = YES;
+    self.viewModel.textModel.text = Internationalization(@"App language switch");
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.setupNavigationBarHidden = YES;
     [self setGKNav];
-    self.gk_navTitle = Internationalization(@"App language switch");
+    [self setGKNavBackBtn];
     self.tableView.alpha = 1;
 }
 
@@ -123,7 +123,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     cell.textLabel.textColor = UIColor.blackColor;
     
     UIViewModel *viewModel = UIViewModel.new;
-    viewModel.text = self.dataMutArr[indexPath.row];
+    viewModel.textModel.text = self.dataMutArr[indexPath.row];
     [cell richElementsInCellWithModel:viewModel];
     
     {

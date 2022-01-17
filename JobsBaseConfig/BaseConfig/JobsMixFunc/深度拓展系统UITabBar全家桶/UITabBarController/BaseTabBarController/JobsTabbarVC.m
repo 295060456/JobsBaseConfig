@@ -449,21 +449,21 @@ shouldSelectViewController:(UIViewController *)viewController {
         {
             UIViewModel *viewModel = UIViewModel.new;
             viewModel.image = KIMG(@"");
-            viewModel.text = @"111";
+            viewModel.textModel.text = @"111";
             [_pullListAutoSizeViewMutArr addObject:viewModel];
         }
         
         {
             UIViewModel *viewModel = UIViewModel.new;
             viewModel.image = KIMG(@"");
-            viewModel.text = @"222";
+            viewModel.textModel.text = @"222";
             [_pullListAutoSizeViewMutArr addObject:viewModel];
         }
         
         {
             UIViewModel *viewModel = UIViewModel.new;
             viewModel.image = KIMG(@"");
-            viewModel.text = @"333";
+            viewModel.textModel.text = @"333";
             [_pullListAutoSizeViewMutArr addObject:viewModel];
         }
         

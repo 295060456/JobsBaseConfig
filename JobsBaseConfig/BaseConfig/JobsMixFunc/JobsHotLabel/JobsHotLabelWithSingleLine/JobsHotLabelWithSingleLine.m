@@ -100,9 +100,9 @@
         [btn selectedBackgroundImage:vm.bgSelectedImage];
     }
     
-    [btn normalTitle:vm.text];
-    [btn titleFont:vm.font];
-    [btn normalTitleColor:vm.textCor];
+    [btn normalTitle:vm.textModel.text];
+    [btn titleFont:vm.textModel.font];
+    [btn normalTitleColor:vm.textModel.textCor];
     [btn buttonAutoFontByWidth];
     BtnClickEvent(btn, {
         [self changeButtonState];
@@ -113,8 +113,8 @@
 /// 内部依据数据源动态的计算一些局部变量的值
 -(void)dynamicCalculationWithDataArr:(NSArray <UIViewModel *>*)dataArr{
     for (UIViewModel *vm in dataArr) {
-        CGSize BtnSize = [UILabel sizeWithText:vm.text
-                                          font:vm.font
+        CGSize BtnSize = [UILabel sizeWithText:vm.textModel.text
+                                          font:vm.textModel.font
                                        maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
         
         if (CGSizeEqualToSize(vm.jobsSize, CGSizeZero)) {

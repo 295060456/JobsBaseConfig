@@ -25,13 +25,15 @@
         UIViewModel *viewModel = (UIViewModel *)self.requestParams;
         self.viewModel = (UIViewModel *)viewModel.data;
     }
+    
+    self.setupNavigationBarHidden = YES;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.setupNavigationBarHidden = YES;
     self.view.backgroundColor = KYellowColor;
     [self setGKNav];
+    [self setGKNavBackBtn];
     
     self.imageView.alpha = 1;
 }

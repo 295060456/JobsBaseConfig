@@ -29,9 +29,9 @@
 
 -(void)richElementsInCellWithModel:(UIViewModel *_Nullable)model{
     if (model) {
-        self.textLab.textColor = model.textCor;
-        self.textLab.text = model.text;
-        self.textLab.font = model.font;
+        self.textLab.textColor = model.textModel.textCor;
+        self.textLab.text = model.textModel.text;
+        self.textLab.font = model.textModel.font;
         self.textLab.backgroundColor = model.bgCor;
     //    self.imageView.image = (UIImage *)model[@"image"];
     }

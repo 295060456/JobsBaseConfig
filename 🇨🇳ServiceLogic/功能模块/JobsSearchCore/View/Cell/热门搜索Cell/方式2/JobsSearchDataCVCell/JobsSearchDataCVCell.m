@@ -5,9 +5,9 @@
 //  Created by Jobs on 2020/10/22.
 //
 
-#import "DataCollectionViewCell.h"
+#import "JobsSearchDataCVCell.h"
 
-@interface DataCollectionViewCell ()
+@interface JobsSearchDataCVCell ()
 
 @property(nonatomic,strong)UILabel *serialNumLab;
 @property(nonatomic,strong)UILabel *contentLab;
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation DataCollectionViewCell
+@implementation JobsSearchDataCVCell
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
@@ -26,9 +26,9 @@
     }return self;
 }
 #pragma mark —— BaseCellProtocol
--(void)richElementsInCellWithModel:(id _Nullable)model{
+-(void)richElementsInCellWithModel:(UIViewModel *_Nullable)model{
     self.serialStr = [NSString stringWithFormat:@"%ld",self.indexPath.row + 1];
-    self.contentStr = model;
+    self.viewModel = model;
     switch (self.indexPath.row) {
         case 0:{
             self.serialNumLabBGCor = RGB_COLOR(245, 58, 50);
@@ -68,7 +68,7 @@
 -(UILabel *)contentLab{
     if (!_contentLab) {
         _contentLab = UILabel.new;
-        _contentLab.text = self.contentStr;
+        _contentLab.text = self.viewModel.textModel.text;
         _contentLab.textColor = KLightGrayColor;
         [self.contentView addSubview:_contentLab];
         [_contentLab mas_makeConstraints:^(MASConstraintMaker *make) {
