@@ -14,5 +14,6 @@
 #import "UILabel+Gesture.h"
 #import "UILabel+Measure.h"
 #import "UILabel+Extra.h"
+#import "UILabel+AutoScroll.h"
 
 #endif /* JobsLabel_h */

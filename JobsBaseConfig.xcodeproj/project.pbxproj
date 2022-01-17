@@ -2762,6 +2762,7 @@
 		840F935327736426004979E9 /* UILabel+Category */ = {
 			isa = PBXGroup;
 			children = (
+				84B9A6F7279564AA0070DD20 /* UILabel+AutoScroll */,
 				84868E1C2779DFE30098BE7A /* UILabel+Extra */,
 				840F935427736426004979E9 /* UILabel+Gesture */,
 				840F935727736426004979E9 /* UILabel+Measure */,
@@ -6779,7 +6780,6 @@
 		84B9A6EF279564450070DD20 /* AutoScrollLabel */ = {
 			isa = PBXGroup;
 			children = (
-				84B9A6F7279564AA0070DD20 /* UILabel+AutoScroll */,
 				84B9A6F3279564890070DD20 /* AutoScrollLabelTestVC */,
 			);
 			path = AutoScrollLabel;

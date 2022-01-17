@@ -39,12 +39,10 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.label.alpha = 1;
-//    self.label.text = @"1234567890-098765432456789098765432";
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    self.label.text = @"1234567890-098765432456789098765432";
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -54,7 +52,7 @@
 -(UILabel *)label{
     if (!_label) {
         _label = UILabel.new;
-//        _label.text = @"1234567890-098765432456789098765432";
+        _label.text = @"1234567890-0987654321";
         _label.textColor = UIColor.blackColor;
         [self.view addSubview:_label];
         [_label mas_makeConstraints:^(MASConstraintMaker *make) {

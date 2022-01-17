@@ -10,7 +10,10 @@
 #import "NSObject+Swizzling.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
+/**
+    UILabel显示不全时循环滚动显示
+    参考资料：https://github.com/aYq524/AutoScrollLabel
+ */
 @interface UILabel (AutoScroll)
 
 @end
