@@ -25,7 +25,12 @@
 -(void)loadView{
     [super loadView];
     self.setupNavigationBarHidden = YES;
-    self.viewModel.textModel.text = Internationalization(@"用户信息展示(开发测试专用)");
+    if ([self.requestParams isKindOfClass:UIViewModel.class]) {
+        self.viewModel = (UIViewModel *)self.requestParams;
+        if ([NSString isNullString:self.viewModel.textModel.text]) {
+            self.viewModel.textModel.text = Internationalization(@"用户信息展示(开发测试专用)");
+        }
+    }
 }
 
 - (void)viewDidLoad {
@@ -53,8 +58,8 @@
 }
 /// 装载数据
 -(void)loadData{
-    if ([self.requestParams isKindOfClass:NSObject.class]) {
-        NSObject *requestParams = (NSObject *)self.requestParams;
+    if ([self.viewModel.requestParams isKindOfClass:NSObject.class]) {
+        NSObject *requestParams = (NSObject *)self.viewModel.requestParams;
         NSMutableArray <NSString *>*propertyList = requestParams.printPropertyList;
         for (NSString *propertyName in propertyList) {
             UIViewModel *viewModel = UIViewModel.new;

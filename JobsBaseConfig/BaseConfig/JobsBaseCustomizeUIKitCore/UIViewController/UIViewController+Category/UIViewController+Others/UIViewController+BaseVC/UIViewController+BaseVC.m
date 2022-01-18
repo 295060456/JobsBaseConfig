@@ -22,6 +22,17 @@ static char *UIViewController_BaseVC_bgImage = "UIViewController_BaseVC_bgImage"
 @dynamic bgImage;
 
 #pragma mark —— 一些功能性的
+-(void)showUserInfo{
+    if (JobsDebug) {
+        UIViewModel *viewModel = [self configViewModel:@"用户信息展示(开发测试专用)"];
+        viewModel.cls = JobsShowObjInfoVC.class;
+        viewModel.requestParams = self.readUserInfo;
+        
+        [self forceComingToPushVC:viewModel.cls.new
+                    requestParams:viewModel];// 测试专用
+    }
+}
+
 -(void)setGKNav{
     self.gk_navTitle = self.viewModel.textModel.text;
     self.gk_navTitleColor = HEXCOLOR(0xD3B698);

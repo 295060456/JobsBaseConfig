@@ -130,12 +130,26 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
     return appDelegate.tabBarVC.tabBar;
 }
 #pragma mark —— <AppToolsProtocol> 其他
+-(UIViewModel *)configViewModel:(NSString *)title{
+    UIViewModel *viewModel = UIViewModel.new;
+    
+    {
+        UITextModel *textModel = UITextModel.new;
+        textModel.text = Internationalization(title);
+        viewModel.textModel = textModel;
+        
+        UITextModel *subTextModel = UITextModel.new;
+        subTextModel.text = Internationalization(@"点击查看");
+        viewModel.subTextModel = subTextModel;
+        
+        UITextModel *backBtnTitleModel = UITextModel.new;
+        backBtnTitleModel.text = Internationalization(@"返回首页");
+        viewModel.backBtnTitleModel = backBtnTitleModel;
+    }return viewModel;
+}
+
 -(UIImage *)defaultHeaderImage{
-    if (self.isLogin) {
-        return KIMG(@"default_avatar_white");
-    }else{
-        return KIMG(@"未登录默认头像（灰）");
-    }
+    return self.isLogin ? KIMG(@"default_avatar_white") : KIMG(@"未登录默认头像（灰）");
 }
 
 -(NSString *)currentLanguage{

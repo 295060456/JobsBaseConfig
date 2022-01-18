@@ -36,6 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 设置GKNavigationBar
 -(void)setGKNav;
 -(void)setGKNavBackBtn;
+/// 查看用户数据
+-(void)showUserInfo;
 
 @end
 

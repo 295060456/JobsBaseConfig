@@ -551,6 +551,7 @@
 		84A494D427906D050002A837 /* 头像.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84A494D327906D050002A837 /* 头像.bundle */; };
 		84A494D627906D0B0002A837 /* Telegram.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84A494D527906D0B0002A837 /* Telegram.bundle */; };
 		84AA2AC42796B2C3000401C6 /* UIButton+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA2AC32796B2C3000401C6 /* UIButton+Extra.m */; };
+		84AA2C952796E9A8000401C6 /* UserData.json in Resources */ = {isa = PBXBuildFile; fileRef = 84AA2C942796E9A8000401C6 /* UserData.json */; };
 		84B9A8CE279680C80070DD20 /* TestLabelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B9A8CD279680C80070DD20 /* TestLabelVC.m */; };
 		84B9A8D227968DFF0070DD20 /* UIView+Masonry.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B9A8D127968DFF0070DD20 /* UIView+Masonry.m */; };
 		84B9A94F27969C330070DD20 /* BaseLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B9A94E27969C320070DD20 /* BaseLabel.m */; };
@@ -1758,6 +1759,7 @@
 		84A4955727906E620002A837 /* JobsIM【Outlines 01】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsIM【Outlines 01】.png"; sourceTree = "<group>"; };
 		84AA2AC22796B2C3000401C6 /* UIButton+Extra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extra.h"; sourceTree = "<group>"; };
 		84AA2AC32796B2C3000401C6 /* UIButton+Extra.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extra.m"; sourceTree = "<group>"; };
+		84AA2C942796E9A8000401C6 /* UserData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = UserData.json; sourceTree = "<group>"; };
 		84B9A6F0279564550070DD20 /* UILabel+AutoScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+AutoScroll.h"; sourceTree = "<group>"; };
 		84B9A6F1279564550070DD20 /* UILabel+AutoScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+AutoScroll.m"; sourceTree = "<group>"; };
 		84B9A8CC279680C80070DD20 /* TestLabelVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestLabelVC.h; sourceTree = "<group>"; };
@@ -7015,6 +7017,7 @@
 				84401D272791B9F90038FF6F /* 假数据.json */,
 				8456258F278BF2780067ABB9 /* CommentData.json */,
 				84CA642A2789C00300E46E71 /* data.json */,
+				84AA2C942796E9A8000401C6 /* UserData.json */,
 			);
 			path = "Json文件";
 			sourceTree = "<group>";
@@ -8317,6 +8320,7 @@
 				844B08652764CF4800B0513D /* 语音识别@3x.png in Resources */,
 				84CA5FE327897AFB00E46E71 /* App图标更换 in Resources */,
 				84CA5DFE27895B4700E46E71 /* Customer.xcassets in Resources */,
+				84AA2C952796E9A8000401C6 /* UserData.json in Resources */,
 				8459CF1F2776F87F00125782 /* 弹窗升级背景图@2x.png in Resources */,
 				84CA5FC827897AFB00E46E71 /* Use in Resources */,
 				840F970727736428004979E9 /* toastLoading.gif in Resources */,

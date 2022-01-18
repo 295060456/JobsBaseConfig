@@ -10,6 +10,7 @@
 @interface ViewController_1 ()
 /// UI
 @property(nonatomic,strong)UITableView *tableView;
+@property(nonatomic,strong)UIButton *userHeadBtn;
 /// Data
 @property(nonatomic,strong)NSMutableArray <UITableViewCell *>*tbvCellMutArr;
 @property(nonatomic,strong)NSMutableArray <UIViewModel *>*dataMutArr;
@@ -30,6 +31,11 @@
     }
     self.viewModel.textModel.text = Internationalization(@"相关功能列表");
     self.setupNavigationBarHidden = YES;
+    /// 装填用户信息数据
+    /// json生成器 ： https://www.site24x7.com/zhcn/tools/json-generator.html
+    NSDictionary *dic = @"UserData".readLocalFileWithName;
+    DDUserModel *userModel = [DDUserModel mj_objectWithKeyValues:dic];
+    [self saveUserInfo:userModel];// 保存全局唯一的一份用户档案
 }
 
 - (void)viewDidLoad {
@@ -37,6 +43,7 @@
     self.view.backgroundColor = RandomColor;
     [self setGKNav];
     [self setGKNavBackBtn];
+    self.gk_navLeftBarButtonItem = [UIBarButtonItem.alloc initWithCustomView:self.userHeadBtn];
     self.tableView.alpha = 1;
 }
 
@@ -53,23 +60,6 @@
     [super viewWillDisappear:animated];
 }
 #pragma mark —— 一些私有方法
--(UIViewModel *)configViewModel:(NSString *)title{
-    UIViewModel *viewModel = UIViewModel.new;
-    
-    {
-        UITextModel *textModel = UITextModel.new;
-        textModel.text = Internationalization(title);
-        viewModel.textModel = textModel;
-        
-        UITextModel *subTextModel = UITextModel.new;
-        subTextModel.text = Internationalization(@"点击查看");
-        viewModel.subTextModel = subTextModel;
-        
-        UITextModel *backBtnTitleModel = UITextModel.new;
-        backBtnTitleModel.text = Internationalization(@"返回首页");
-        viewModel.backBtnTitleModel = backBtnTitleModel;
-    }return viewModel;
-}
 #pragma mark —— BaseViewProtocol
 /// 下拉刷新 （子类要进行覆写）
 -(void)pullToRefresh{
@@ -119,6 +109,27 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
                                   cell:cell];
 }
 #pragma mark —— lazyLoad
+-(UIButton *)userHeadBtn{
+    if (!_userHeadBtn) {
+        _userHeadBtn = UIButton.new;
+        [_userHeadBtn normalImage:KIMG(@"首页_头像")];
+        [_userHeadBtn normalTitle:@""];
+        BtnClickEvent(_userHeadBtn, {
+
+            UIViewModel *viewModel = [self configViewModel:@"用户信息展示(开发测试专用)"];
+            viewModel.cls = JobsShowObjInfoVC.class;
+            viewModel.requestParams = self.readUserInfo;
+            
+            [self forceComingToPushVC:viewModel.cls.new
+                        requestParams:viewModel];// 测试专用
+            
+        })
+        _userHeadBtn.size = CGSizeMake(JobsWidth(32), JobsWidth(32));
+        [_userHeadBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft
+                                      imageTitleSpace:JobsWidth(1)];
+    }return _userHeadBtn;
+}
+
 -(UITableView *)tableView{
     if (!_tableView) {
         _tableView = UITableView.new;

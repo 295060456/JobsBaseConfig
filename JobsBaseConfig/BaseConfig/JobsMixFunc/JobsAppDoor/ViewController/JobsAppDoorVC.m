@@ -178,7 +178,21 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
                  deviceId:(NSString *_Nullable)deviceId
                  password:(NSString *_Nullable)password
                  validate:(NSString *_Nullable)validate{
+    DDUserModel *userModel = DDUserModel.new;
+    userModel.userName = account;
+    userModel.password = password;
+    userModel.deviceId = deviceId;
+    userModel.validate = validate;
+//    userModel.token = data.data;
+    [self saveUserInfo:userModel];// 保存全局唯一的一份用户档案
+
+    if (self.jobsAppDoorContentView.getStoreCodeBtn.selected) {
+        [self saveUserName:account];
+    }else{
+        [self deleteUserName:account];
+    }
     [NSNotificationCenter.defaultCenter postNotificationName:登录成功 object:@(YES)];
+    [self backBtnClickEvent:nil];
 }
 /// 网易云盾验证
 -(void)NTESVerifyCodeWithBlock:(MKDataBlock)block{
