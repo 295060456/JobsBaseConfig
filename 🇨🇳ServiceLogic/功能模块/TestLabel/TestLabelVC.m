@@ -8,12 +8,18 @@
 #import "TestLabelVC.h"
 
 @interface TestLabelVC ()
-
+/// UILabel
 @property(nonatomic,strong)BaseLabel *lab1;///【UILabelShowingType_01】 一行显示。定宽、定字体。多余部分用…表示（省略号的位置由NSLineBreakMode控制）
 @property(nonatomic,strong)BaseLabel *lab2;///【UILabelShowingType_02】 一行显示。定宽、定字体。多余部分scrollerView ❤️集成@implementation UILabel (AutoScroll)❤️
 @property(nonatomic,strong)BaseLabel *lab3;///【UILabelShowingType_03】 一行显示。定字体，不定宽。宽度自适应
 @property(nonatomic,strong)BaseLabel *lab4;///【UILabelShowingType_04】 一行显示。缩小字体方式全展示
 @property(nonatomic,strong)BaseLabel *lab5;///【UILabelShowingType_05】 多行显示。定宽、定字体
+/// UIButton
+@property(nonatomic,strong)BaseButton *btn1;///【UILabelShowingType_01】 一行显示。定宽、定字体。多余部分用…表示（省略号的位置由NSLineBreakMode控制）
+@property(nonatomic,strong)BaseButton *btn2;///【UILabelShowingType_02】 一行显示。定宽、定字体。多余部分scrollerView ❤️集成@implementation UILabel (AutoScroll)❤️
+@property(nonatomic,strong)BaseButton *btn3;///【UILabelShowingType_03】 一行显示。定字体，不定宽。宽度自适应
+@property(nonatomic,strong)BaseButton *btn4;///【UILabelShowingType_04】 一行显示。缩小字体方式全展示
+@property(nonatomic,strong)BaseButton *btn5;///【UILabelShowingType_05】 多行显示。定宽、定字体
 
 @end
 
@@ -39,18 +45,17 @@
     [self setGKNav];
     [self setGKNavBackBtn];
     
-//    self.lab1.alpha = 1;
-//    self.lab2.alpha = 1;
-//    self.lab3.alpha = 1;
-//    self.lab4.alpha = 1;
-//    self.lab5.alpha = 1;
-    
     [self.lab1 makeLabelByShowingType:UILabelShowingType_01];
     [self.lab2 makeLabelByShowingType:UILabelShowingType_02];
     [self.lab3 makeLabelByShowingType:UILabelShowingType_03];
     [self.lab4 makeLabelByShowingType:UILabelShowingType_04];
     [self.lab5 makeLabelByShowingType:UILabelShowingType_05];
 
+    [self.btn1 makeBtnLabelByShowingType:UILabelShowingType_01];
+    [self.btn2 makeBtnLabelByShowingType:UILabelShowingType_02];
+    [self.btn3 makeBtnLabelByShowingType:UILabelShowingType_03];
+    [self.btn4 makeBtnLabelByShowingType:UILabelShowingType_04];
+    [self.btn5 makeBtnLabelByShowingType:UILabelShowingType_05];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -66,6 +71,7 @@
     [super viewWillDisappear:animated];
 }
 #pragma mark —— lazyLoad
+#pragma mark —— BaseLabel
 /// 多余部分用…表示
 -(BaseLabel *)lab1{
     if (!_lab1) {
@@ -75,7 +81,7 @@
         [self.view addSubview:_lab1];
         [_lab1 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(100, 20));
-            make.top.equalTo(self.gk_navigationBar.mas_bottom).offset(50);
+            make.top.equalTo(self.gk_navigationBar.mas_bottom).offset(20);
             make.centerX.equalTo(self.view);
         }];
     }return _lab1;
@@ -135,6 +141,78 @@
             make.centerX.equalTo(self.view);
         }];
     }return _lab5;
+}
+#pragma mark —— BaseButton
+-(BaseButton *)btn1{
+    if (!_btn1) {
+        _btn1 = BaseButton.new;
+        _btn1.backgroundColor = UIColor.brownColor;
+        [_btn1 normalTitle:@"编译器自动管理内存地址，让程序员更加专注于APP的业务。"];
+        [self.view addSubview:_btn1];
+        [_btn1 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(100, 20));
+            make.top.equalTo(self.lab5.mas_bottom).offset(20);
+            make.centerX.equalTo(self.view);
+        }];
+    }return _btn1;
+}
+
+-(BaseButton *)btn2{
+    if (!_btn2) {
+        _btn2 = BaseButton.new;
+        _btn2.backgroundColor = UIColor.brownColor;
+        [_btn2 normalTitle:@"编译器自动管理内存地址，让程序员更加专注于APP的业务。"];
+        [self.view addSubview:_btn2];
+        [_btn2 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(100, 20));
+            make.top.equalTo(self.btn1.mas_bottom).offset(20);
+            make.centerX.equalTo(self.view);
+        }];
+    }return _btn2;
+}
+
+-(BaseButton *)btn3{
+    if (!_btn3) {
+        _btn3 = BaseButton.new;
+        _btn3.backgroundColor = UIColor.brownColor;
+        [_btn3 normalTitle:@"编译器自动管理内存地址，让程序员更加专注于APP的业务。"];
+        [self.view addSubview:_btn3];
+        [_btn3 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(100, 20));
+            make.top.equalTo(self.btn2.mas_bottom).offset(20);
+            make.centerX.equalTo(self.view);
+        }];
+    }return _btn3;
+}
+
+-(BaseButton *)btn4{
+    if (!_btn4) {
+        _btn4 = BaseButton.new;
+        _btn4.backgroundColor = UIColor.brownColor;
+        [_btn4 normalTitle:@"编译器自动管理内存地址，让程序员更加专注于APP的业务。"];
+        [self.view addSubview:_btn4];
+        [_btn4 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(100, 20));
+            make.top.equalTo(self.btn3.mas_bottom).offset(20);
+            make.centerX.equalTo(self.view);
+        }];
+    }return _btn4;
+}
+
+-(BaseButton *)btn5{
+    if (!_btn5) {
+        _btn5 = BaseButton.new;
+        _btn5.backgroundColor = UIColor.brownColor;
+        [_btn5 normalTitle:@"编译器自动管理内存地址，让程序员更加专注于APP的业务。"];
+        _btn5.titleLabel.numberOfLines = 0;
+        [_btn5 labelAutoWidthByFont];
+        [self.view addSubview:_btn5];
+        [_btn5 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(100, 20));
+            make.top.equalTo(self.btn4.mas_bottom).offset(20);
+            make.centerX.equalTo(self.view);
+        }];
+    }return _btn5;
 }
 
 @end

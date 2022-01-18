@@ -252,6 +252,9 @@ static char *UIView_Extras_visible = "UIView_Extras_visible";
 
 -(void)keyboardWillShow:(NSNotification *)notification {}
 -(void)keyboardWillHide:(NSNotification *)notification {}
+
+
+
 #pragma mark —— @property(nonatomic,assign)BOOL visible;
 -(BOOL)visible{
     BOOL Visible = [objc_getAssociatedObject(self, UIView_Extras_visible) boolValue];

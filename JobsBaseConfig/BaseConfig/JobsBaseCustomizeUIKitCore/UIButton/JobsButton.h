@@ -18,6 +18,8 @@
 /// 动画封装
 #import "UIButton+Animation.h"
 
+#import "UIButton+Extra.h"
+
 #pragma mark —— Base
 /// 不规则多边形按钮
 #import "IrregularBtn.h"

@@ -550,7 +550,7 @@
 		84A494D227906CC90002A837 /* 动态头像_2 尺寸126.gif in Resources */ = {isa = PBXBuildFile; fileRef = 84A494CE27906CC90002A837 /* 动态头像_2 尺寸126.gif */; };
 		84A494D427906D050002A837 /* 头像.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84A494D327906D050002A837 /* 头像.bundle */; };
 		84A494D627906D0B0002A837 /* Telegram.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84A494D527906D0B0002A837 /* Telegram.bundle */; };
-		84B9A6F6279564A50070DD20 /* AutoScrollLabelTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B9A6F5279564A50070DD20 /* AutoScrollLabelTestVC.m */; };
+		84AA2AC42796B2C3000401C6 /* UIButton+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AA2AC32796B2C3000401C6 /* UIButton+Extra.m */; };
 		84B9A8CE279680C80070DD20 /* TestLabelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B9A8CD279680C80070DD20 /* TestLabelVC.m */; };
 		84B9A8D227968DFF0070DD20 /* UIView+Masonry.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B9A8D127968DFF0070DD20 /* UIView+Masonry.m */; };
 		84B9A94F27969C330070DD20 /* BaseLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B9A94E27969C320070DD20 /* BaseLabel.m */; };
@@ -1756,10 +1756,10 @@
 		84A4955527906E620002A837 /* JobsIM【Outlines 06】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsIM【Outlines 06】.png"; sourceTree = "<group>"; };
 		84A4955627906E620002A837 /* JobsIM【Outlines 10】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsIM【Outlines 10】.png"; sourceTree = "<group>"; };
 		84A4955727906E620002A837 /* JobsIM【Outlines 01】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsIM【Outlines 01】.png"; sourceTree = "<group>"; };
+		84AA2AC22796B2C3000401C6 /* UIButton+Extra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extra.h"; sourceTree = "<group>"; };
+		84AA2AC32796B2C3000401C6 /* UIButton+Extra.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extra.m"; sourceTree = "<group>"; };
 		84B9A6F0279564550070DD20 /* UILabel+AutoScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+AutoScroll.h"; sourceTree = "<group>"; };
 		84B9A6F1279564550070DD20 /* UILabel+AutoScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+AutoScroll.m"; sourceTree = "<group>"; };
-		84B9A6F4279564A50070DD20 /* AutoScrollLabelTestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoScrollLabelTestVC.h; sourceTree = "<group>"; };
-		84B9A6F5279564A50070DD20 /* AutoScrollLabelTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoScrollLabelTestVC.m; sourceTree = "<group>"; };
 		84B9A8CC279680C80070DD20 /* TestLabelVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestLabelVC.h; sourceTree = "<group>"; };
 		84B9A8CD279680C80070DD20 /* TestLabelVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestLabelVC.m; sourceTree = "<group>"; };
 		84B9A8D027968DFF0070DD20 /* UIView+Masonry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Masonry.h"; sourceTree = "<group>"; };
@@ -2896,6 +2896,7 @@
 		840F937527736426004979E9 /* UIButton+Category */ = {
 			isa = PBXGroup;
 			children = (
+				84AA2AC52796B2EA000401C6 /* UIButton+Extra */,
 				84C94D94277EBAAB00C49CBA /* UIButton+Animation */,
 				840F937627736426004979E9 /* UIButton+UI */,
 				840F937927736426004979E9 /* UIButton+ImageTitleSpacing */,
@@ -2907,8 +2908,8 @@
 		840F937627736426004979E9 /* UIButton+UI */ = {
 			isa = PBXGroup;
 			children = (
-				840F937727736426004979E9 /* UIButton+UI.m */,
 				840F937827736426004979E9 /* UIButton+UI.h */,
+				840F937727736426004979E9 /* UIButton+UI.m */,
 			);
 			path = "UIButton+UI";
 			sourceTree = "<group>";
@@ -3066,8 +3067,8 @@
 		840F93A927736426004979E9 /* UIView+Category */ = {
 			isa = PBXGroup;
 			children = (
-				84B9A8CF27968DE50070DD20 /* UIView+Masonry */,
 				840F93CE27736426004979E9 /* UIView+Category.h */,
+				84B9A8CF27968DE50070DD20 /* UIView+Masonry */,
 				840F93CF27736426004979E9 /* UIView+Animation */,
 				840F93D527736426004979E9 /* UIView+AOP */,
 				840F93D227736426004979E9 /* UIView+AutoSelfAdaptionSize */,
@@ -6787,21 +6788,13 @@
 			path = Outlines;
 			sourceTree = "<group>";
 		};
-		84B9A6EF279564450070DD20 /* AutoScrollLabel */ = {
+		84AA2AC52796B2EA000401C6 /* UIButton+Extra */ = {
 			isa = PBXGroup;
 			children = (
-				84B9A6F3279564890070DD20 /* AutoScrollLabelTestVC */,
+				84AA2AC22796B2C3000401C6 /* UIButton+Extra.h */,
+				84AA2AC32796B2C3000401C6 /* UIButton+Extra.m */,
 			);
-			path = AutoScrollLabel;
-			sourceTree = "<group>";
-		};
-		84B9A6F3279564890070DD20 /* AutoScrollLabelTestVC */ = {
-			isa = PBXGroup;
-			children = (
-				84B9A6F4279564A50070DD20 /* AutoScrollLabelTestVC.h */,
-				84B9A6F5279564A50070DD20 /* AutoScrollLabelTestVC.m */,
-			);
-			path = AutoScrollLabelTestVC;
+			path = "UIButton+Extra";
 			sourceTree = "<group>";
 		};
 		84B9A6F7279564AA0070DD20 /* UILabel+AutoScroll */ = {
@@ -7591,7 +7584,6 @@
 			isa = PBXGroup;
 			children = (
 				84B9A8CA279680AA0070DD20 /* TestLabel */,
-				84B9A6EF279564450070DD20 /* AutoScrollLabel */,
 				84401A5727919E3B0038FF6F /* JobsSearchCore */,
 				84A4921027904ADA0002A837 /* JobsIM */,
 				8456256B278BF0A70067ABB9 /* JobsComment */,
@@ -8539,6 +8531,7 @@
 				840F96B027736428004979E9 /* LOTAnimationMJRefreshFooter.m in Sources */,
 				840F967827736428004979E9 /* UIView+Animation.m in Sources */,
 				840F96D127736428004979E9 /* CALayer+Anim.m in Sources */,
+				84AA2AC42796B2C3000401C6 /* UIButton+Extra.m in Sources */,
 				844B084F2764CF4800B0513D /* ECPrivacyCheckMediaAndAppleMusic.m in Sources */,
 				84D764B7278093660003F0E4 /* DataManager.m in Sources */,
 				840F96D927736428004979E9 /* CADisplayLink_TimerManager.m in Sources */,
@@ -8927,7 +8920,6 @@
 				84CA5F9027897AFB00E46E71 /* XLSphereView.m in Sources */,
 				844B08432764CF4800B0513D /* ZWPullMenuCell.m in Sources */,
 				84B9A8D227968DFF0070DD20 /* UIView+Masonry.m in Sources */,
-				84B9A6F6279564A50070DD20 /* AutoScrollLabelTestVC.m in Sources */,
 				8459CC322775D3E900125782 /* AppDelegate+Func.m in Sources */,
 				846DF03827806D230050468A /* JobsAppDoorVC.m in Sources */,
 				8459CE112776DB6600125782 /* UIView+UIBackgroundConfig.m in Sources */,

@@ -8,16 +8,11 @@
 #import <UIKit/UIKit.h>
 #import "JobsBlock.h"
 #import "BaseButtonProtocol.h"
+#import "UIButton+UI.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseButton : UIButton<BaseButtonProtocol>
-
-@property(nonatomic,copy)MKDataBlock baseButtonBlock;
-/*
-    用于以此为基类的View层上所有数据的回调,当然也可以用NSObject分类的方法定位于：@interface NSObject (CallBackInfoByBlock)
- */
--(void)actionBlockBaseButton:(MKDataBlock)baseButtonBlock;
 
 @end
 
