@@ -52,6 +52,24 @@
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
 }
+#pragma mark —— 一些私有方法
+-(UIViewModel *)configViewModel:(NSString *)title{
+    UIViewModel *viewModel = UIViewModel.new;
+    
+    {
+        UITextModel *textModel = UITextModel.new;
+        textModel.text = Internationalization(title);
+        viewModel.textModel = textModel;
+        
+        UITextModel *subTextModel = UITextModel.new;
+        subTextModel.text = Internationalization(@"点击查看");
+        viewModel.subTextModel = subTextModel;
+        
+        UITextModel *backBtnTitleModel = UITextModel.new;
+        backBtnTitleModel.text = Internationalization(@"返回首页");
+        viewModel.backBtnTitleModel = backBtnTitleModel;
+    }return viewModel;
+}
 #pragma mark —— BaseViewProtocol
 /// 下拉刷新 （子类要进行覆写）
 -(void)pullToRefresh{
@@ -178,340 +196,99 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         _dataMutArr = NSMutableArray.array;
 
         {
-            UIViewModel *viewModel = UIViewModel.new;
-            
-            {
-                UITextModel *textModel = UITextModel.new;
-                textModel.text = Internationalization(@"JobsAppDoor-1");
-                viewModel.textModel = textModel;
-                
-                UITextModel *subTextModel = UITextModel.new;
-                subTextModel.text = Internationalization(@"点击查看");
-                viewModel.subTextModel = subTextModel;
-                
-                UITextModel *backBtnTitleModel = UITextModel.new;
-                backBtnTitleModel.text = Internationalization(@"返回首页");
-                viewModel.backBtnTitleModel = backBtnTitleModel;
-            }
-            
+            UIViewModel *viewModel = [self configViewModel:@"JobsAppDoor-1"];
             viewModel.cls = JobsAppDoorVC.class;
             viewModel.requestParams = @(JobsAppDoorBgType_video);
             [_dataMutArr addObject:viewModel];
         }
         
         {
-            UIViewModel *viewModel = UIViewModel.new;
-            
-            {
-                UITextModel *textModel = UITextModel.new;
-                textModel.text = Internationalization(@"JobsAppDoor-2");
-                viewModel.textModel = textModel;
-                
-                UITextModel *subTextModel = UITextModel.new;
-                subTextModel.text = Internationalization(@"点击查看");
-                viewModel.subTextModel = subTextModel;
-                
-                UITextModel *backBtnTitleModel = UITextModel.new;
-                backBtnTitleModel.text = Internationalization(@"返回首页");
-                viewModel.backBtnTitleModel = backBtnTitleModel;
-            }
-            
+            UIViewModel *viewModel = [self configViewModel:@"JobsAppDoor-2"];
             viewModel.cls = JobsAppDoorVC_Style2.class;
             viewModel.requestParams = @(JobsAppDoorBgType_video);
             [_dataMutArr addObject:viewModel];
         }
 
         {
-            UIViewModel *viewModel = UIViewModel.new;
-
-            {
-                UITextModel *textModel = UITextModel.new;
-                textModel.text = Internationalization(@"TransparentRegion");
-                viewModel.textModel = textModel;
-                
-                UITextModel *subTextModel = UITextModel.new;
-                subTextModel.text = Internationalization(@"点击查看");
-                viewModel.subTextModel = subTextModel;
-                
-                UITextModel *backBtnTitleModel = UITextModel.new;
-                backBtnTitleModel.text = Internationalization(@"返回首页");
-                viewModel.backBtnTitleModel = backBtnTitleModel;
-            }
-            
+            UIViewModel *viewModel = [self configViewModel:@"TransparentRegion"];
             viewModel.cls = TransparentRegionVC.class;
-            
             [_dataMutArr addObject:viewModel];
         }
         
         {
-            UIViewModel *viewModel = UIViewModel.new;
-
-            {
-                UITextModel *textModel = UITextModel.new;
-                textModel.text = Internationalization(@"Douyin_ZFPlayer_1");
-                viewModel.textModel = textModel;
-                
-                UITextModel *subTextModel = UITextModel.new;
-                subTextModel.text = Internationalization(@"点击查看");
-                viewModel.subTextModel = subTextModel;
-                
-                UITextModel *backBtnTitleModel = UITextModel.new;
-                backBtnTitleModel.text = Internationalization(@"返回首页");
-                viewModel.backBtnTitleModel = backBtnTitleModel;
-            }
-            
+            UIViewModel *viewModel = [self configViewModel:@"Douyin_ZFPlayer_1"];
             viewModel.cls = Douyin_ZFPlayerVC_1.class;
             [_dataMutArr addObject:viewModel];
         }
         
         {
-            UIViewModel *viewModel = UIViewModel.new;
-
-            {
-                UITextModel *textModel = UITextModel.new;
-                textModel.text = Internationalization(@"Douyin_ZFPlayer_2");
-                viewModel.textModel = textModel;
-                
-                UITextModel *subTextModel = UITextModel.new;
-                subTextModel.text = Internationalization(@"点击查看");
-                viewModel.subTextModel = subTextModel;
-                
-                UITextModel *backBtnTitleModel = UITextModel.new;
-                backBtnTitleModel.text = Internationalization(@"返回首页");
-                viewModel.backBtnTitleModel = backBtnTitleModel;
-            }
-            
+            UIViewModel *viewModel = [self configViewModel:@"Douyin_ZFPlayer_2"];
             viewModel.cls = Douyin_ZFPlayerVC_2.class;
             [_dataMutArr addObject:viewModel];
         }
         
         {
-            UIViewModel *viewModel = UIViewModel.new;
-
-            {
-                UITextModel *textModel = UITextModel.new;
-                textModel.text = Internationalization(@"JobsComment");
-                viewModel.textModel = textModel;
-                
-                UITextModel *subTextModel = UITextModel.new;
-                subTextModel.text = Internationalization(@"点击查看");
-                viewModel.subTextModel = subTextModel;
-                
-                UITextModel *backBtnTitleModel = UITextModel.new;
-                backBtnTitleModel.text = Internationalization(@"返回首页");
-                viewModel.backBtnTitleModel = backBtnTitleModel;
-            }
-            
+            UIViewModel *viewModel = [self configViewModel:@"JobsComment"];
             viewModel.cls = JobsCommentVC.class;
             [_dataMutArr addObject:viewModel];
         }
     
         {
-            UIViewModel *viewModel = UIViewModel.new;
-
-            {
-                UITextModel *textModel = UITextModel.new;
-                textModel.text = Internationalization(@"JobsSearch");
-                viewModel.textModel = textModel;
-                
-                UITextModel *subTextModel = UITextModel.new;
-                subTextModel.text = Internationalization(@"点击查看");
-                viewModel.subTextModel = subTextModel;
-                
-                UITextModel *backBtnTitleModel = UITextModel.new;
-                backBtnTitleModel.text = Internationalization(@"返回首页");
-                viewModel.backBtnTitleModel = backBtnTitleModel;
-            }
-            
+            UIViewModel *viewModel = [self configViewModel:@"JobsSearch"];
             viewModel.cls = JobsSearchVC.class;
             [_dataMutArr addObject:viewModel];
         }
         
         {
-            UIViewModel *viewModel = UIViewModel.new;
-
-            {
-                UITextModel *textModel = UITextModel.new;
-                textModel.text = Internationalization(@"JobsTimer");
-                viewModel.textModel = textModel;
-                
-                UITextModel *subTextModel = UITextModel.new;
-                subTextModel.text = Internationalization(@"点击查看");
-                viewModel.subTextModel = subTextModel;
-                
-                UITextModel *backBtnTitleModel = UITextModel.new;
-                backBtnTitleModel.text = Internationalization(@"返回首页");
-                viewModel.backBtnTitleModel = backBtnTitleModel;
-            }
-            
+            UIViewModel *viewModel = [self configViewModel:@"JobsTimer"];
 //            viewModel.cls =
             [_dataMutArr addObject:viewModel];
         }
         
         {
-            UIViewModel *viewModel = UIViewModel.new;
-
-            {
-                UITextModel *textModel = UITextModel.new;
-                textModel.text = Internationalization(@"ShadowTBVCell");
-                viewModel.textModel = textModel;
-                
-                UITextModel *subTextModel = UITextModel.new;
-                subTextModel.text = Internationalization(@"点击查看");
-                viewModel.subTextModel = subTextModel;
-                
-                UITextModel *backBtnTitleModel = UITextModel.new;
-                backBtnTitleModel.text = Internationalization(@"返回首页");
-                viewModel.backBtnTitleModel = backBtnTitleModel;
-            }
-            
+            UIViewModel *viewModel = [self configViewModel:@"ShadowTBVCell"];
 //            viewModel.cls =
             [_dataMutArr addObject:viewModel];
         }
         
         {
-            UIViewModel *viewModel = UIViewModel.new;
-
-            {
-                UITextModel *textModel = UITextModel.new;
-                textModel.text = Internationalization(@"JobsShooting");
-                viewModel.textModel = textModel;
-                
-                UITextModel *subTextModel = UITextModel.new;
-                subTextModel.text = Internationalization(@"点击查看");
-                viewModel.subTextModel = subTextModel;
-                
-                UITextModel *backBtnTitleModel = UITextModel.new;
-                backBtnTitleModel.text = Internationalization(@"返回首页");
-                viewModel.backBtnTitleModel = backBtnTitleModel;
-            }
-            
+            UIViewModel *viewModel = [self configViewModel:@"JobsShooting"];
 //            viewModel.cls =
             [_dataMutArr addObject:viewModel];
         }
         
         {
-            UIViewModel *viewModel = UIViewModel.new;
-            
-            {
-                UITextModel *textModel = UITextModel.new;
-                textModel.text = Internationalization(@"DynamicView");
-                viewModel.textModel = textModel;
-                
-                UITextModel *subTextModel = UITextModel.new;
-                subTextModel.text = Internationalization(@"点击查看");
-                viewModel.subTextModel = subTextModel;
-                
-                UITextModel *backBtnTitleModel = UITextModel.new;
-                backBtnTitleModel.text = Internationalization(@"返回首页");
-                viewModel.backBtnTitleModel = backBtnTitleModel;
-            }
-            
+            UIViewModel *viewModel = [self configViewModel:@"DynamicView"];
             viewModel.cls = DynamicViewTestVC.class;
             [_dataMutArr addObject:viewModel];
         }
         
         {
-            UIViewModel *viewModel = UIViewModel.new;
-            
-            {
-                UITextModel *textModel = UITextModel.new;
-                textModel.text = Internationalization(@"Progress");
-                viewModel.textModel = textModel;
-                
-                UITextModel *subTextModel = UITextModel.new;
-                subTextModel.text = Internationalization(@"点击查看");
-                viewModel.subTextModel = subTextModel;
-                
-                UITextModel *backBtnTitleModel = UITextModel.new;
-                backBtnTitleModel.text = Internationalization(@"返回首页");
-                viewModel.backBtnTitleModel = backBtnTitleModel;
-            }
-            
+            UIViewModel *viewModel = [self configViewModel:@"Progress"];
             viewModel.cls = JobsProgressVC.class;
             [_dataMutArr addObject:viewModel];
         }
         
         {
-            UIViewModel *viewModel = UIViewModel.new;
-
-            {
-                UITextModel *textModel = UITextModel.new;
-                textModel.text = Internationalization(@"IrregularView");
-                viewModel.textModel = textModel;
-                
-                UITextModel *subTextModel = UITextModel.new;
-                subTextModel.text = Internationalization(@"点击查看");
-                viewModel.subTextModel = subTextModel;
-                
-                UITextModel *backBtnTitleModel = UITextModel.new;
-                backBtnTitleModel.text = Internationalization(@"返回首页");
-                viewModel.backBtnTitleModel = backBtnTitleModel;
-            }
-            
+            UIViewModel *viewModel = [self configViewModel:@"IrregularView"];
             viewModel.cls = TestIrregularViewTestVC.class;
             [_dataMutArr addObject:viewModel];
         }
         
         {
-            UIViewModel *viewModel = UIViewModel.new;
-            
-            {
-                UITextModel *textModel = UITextModel.new;
-                textModel.text = Internationalization(@"JobsTimer");
-                viewModel.textModel = textModel;
-                
-                UITextModel *subTextModel = UITextModel.new;
-                subTextModel.text = Internationalization(@"点击查看");
-                viewModel.subTextModel = subTextModel;
-                
-                UITextModel *backBtnTitleModel = UITextModel.new;
-                backBtnTitleModel.text = Internationalization(@"返回首页");
-                viewModel.backBtnTitleModel = backBtnTitleModel;
-            }
-            
+            UIViewModel *viewModel = [self configViewModel:@"JobsTimer"];
 //            viewModel.cls =
             [_dataMutArr addObject:viewModel];
         }
         
         {
-            UIViewModel *viewModel = UIViewModel.new;
-            
-            {
-                UITextModel *textModel = UITextModel.new;
-                textModel.text = Internationalization(@"JobsIM");
-                viewModel.textModel = textModel;
-                
-                UITextModel *subTextModel = UITextModel.new;
-                subTextModel.text = Internationalization(@"点击查看");
-                viewModel.subTextModel = subTextModel;
-                
-                UITextModel *backBtnTitleModel = UITextModel.new;
-                backBtnTitleModel.text = Internationalization(@"返回首页");
-                viewModel.backBtnTitleModel = backBtnTitleModel;
-            }
-            
+            UIViewModel *viewModel = [self configViewModel:@"JobsIMShowVC"];
             viewModel.cls = JobsIMShowVC.class;
             [_dataMutArr addObject:viewModel];
         }
         
         {
-            UIViewModel *viewModel = UIViewModel.new;
-            
-            {
-                UITextModel *textModel = UITextModel.new;
-                textModel.text = Internationalization(@"TestLabelVC");
-                viewModel.textModel = textModel;
-                
-                UITextModel *subTextModel = UITextModel.new;
-                subTextModel.text = Internationalization(@"点击查看");
-                viewModel.subTextModel = subTextModel;
-                
-                UITextModel *backBtnTitleModel = UITextModel.new;
-                backBtnTitleModel.text = Internationalization(@"返回首页");
-                viewModel.backBtnTitleModel = backBtnTitleModel;
-            }
-            
+            UIViewModel *viewModel = [self configViewModel:@"TestLabelVC"];
             viewModel.cls = TestLabelVC.class;
             [_dataMutArr addObject:viewModel];
         }

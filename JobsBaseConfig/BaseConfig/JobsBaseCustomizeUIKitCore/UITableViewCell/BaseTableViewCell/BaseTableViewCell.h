@@ -13,6 +13,8 @@
 #import "MacroDef_Func.h"
 #import "UIViewModel.h"
 
+#import "XYColorOC-umbrella.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseTableViewCell : UITableViewCell

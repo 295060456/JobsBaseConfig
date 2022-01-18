@@ -32,6 +32,10 @@ UIViewModelProtocol_synthesize
                     reuseIdentifier:reuseIdentifier]) {
         [self richElementsInCellWithModel:nil];
         self.selectionStyle = UITableViewCellSelectionStyleNone;// 取消点击效果 【不能在cellWithTableView里面写】
+        /// 适配iOS 13夜间模式/深色外观(Dark Mode)
+        self.backgroundColor = [UIColor xy_createWithLightColor:UIColor.whiteColor darkColor:UIColor.whiteColor];
+        self.detailTextLabel.textColor = UIColor.brownColor;
+        self.textLabel.textColor = UIColor.blackColor;
     }return self;
 }
 

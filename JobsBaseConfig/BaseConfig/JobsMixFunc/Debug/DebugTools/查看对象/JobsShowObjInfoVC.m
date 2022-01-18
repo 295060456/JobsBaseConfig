@@ -116,8 +116,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     BaseTableViewCell *cell = [BaseTableViewCell cellWithTableView:tableView];
-    /// 适配iOS 13夜间模式/深色外观(Dark Mode)
-    cell.backgroundColor = [UIColor xy_createWithLightColor:UIColor.whiteColor darkColor:UIColor.whiteColor];
     cell.detailTextLabel.numberOfLines = 0;
     cell.detailTextLabel.textColor = UIColor.brownColor;
     cell.textLabel.textColor = UIColor.blackColor;
