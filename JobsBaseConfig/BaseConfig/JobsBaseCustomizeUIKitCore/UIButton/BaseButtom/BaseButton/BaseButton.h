@@ -9,6 +9,8 @@
 #import "JobsBlock.h"
 #import "BaseButtonProtocol.h"
 #import "UIButton+UI.h"
+#import "UIView+Extras.h"
+#import "UILabel+Extra.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

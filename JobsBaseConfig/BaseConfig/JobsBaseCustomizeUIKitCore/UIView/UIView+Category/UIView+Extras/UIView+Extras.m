@@ -8,10 +8,6 @@
 
 #import "UIView+Extras.h"
 
-static const void *leftLittleButtonEventBlockKey = &leftLittleButtonEventBlockKey;
-static const void *leftButtonEventBlockKey = &leftButtonEventBlockKey;
-static const void *rightButtonEventBlockKey = &rightButtonEventBlockKey;
-
 @implementation UIView (Extras)
 
 static char *UIView_Extras_visible = "UIView_Extras_visible";
@@ -67,33 +63,25 @@ static char *UIView_Extras_visible = "UIView_Extras_visible";
         [view.layer addSublayer:layer];
     }
 }
-/**
- 切角
- 
- @param view TargetView
- @param cornerRadiusValue 切角参数
- */
+/// 切角
+/// @param view TargetView
+/// @param cornerRadiusValue 切角参数
 +(void)cornerCutToCircleWithView:(UIView *__nonnull)view
                  andCornerRadius:(CGFloat)cornerRadiusValue{
     view.layer.cornerRadius = cornerRadiusValue;
     view.layer.masksToBounds = YES;
 }
-/**
- 描边
- 
- @param view TargetView
- @param colour 颜色
- @param WidthOfBorder 边线宽度
- */
+/// 描边
+/// @param view TargetView
+/// @param colour 颜色
+/// @param WidthOfBorder 边线宽度
 +(void)colourToLayerOfView:(UIView *__nonnull)view
                 withColour:(UIColor *__nonnull)colour
             andBorderWidth:(CGFloat)WidthOfBorder{
     view.layer.borderColor = colour.CGColor;
     view.layer.borderWidth = WidthOfBorder;
 }
-/**
- *  指定圆切角
- */
+/// 指定圆切角
 +(void)appointCornerCutToCircleWithTargetView:(UIView *__nonnull)targetView
                             byRoundingCorners:(UIRectCorner)corners
                                   cornerRadii:(CGSize)cornerRadii{
@@ -124,10 +112,10 @@ static char *UIView_Extras_visible = "UIView_Extras_visible";
     //    [setTransform:40/180 forLable:label]
 }
 
-+ (UIImage *)getImageFromView:(UIView *)view{
++(UIImage *)getImageFromView:(UIView *)view{
     UIGraphicsBeginImageContextWithOptions(view.bounds.size,
                                            NO,
-                                           [UIScreen mainScreen].scale);
+                                           UIScreen.mainScreen.scale);
     [view.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
@@ -239,22 +227,128 @@ static char *UIView_Extras_visible = "UIView_Extras_visible";
 }
 /// 监听键盘事件
 -(void)monitorKeyboardAction{
-    [[NSNotificationCenter defaultCenter]addObserver:self
-                                            selector:@selector(keyboardWillShow:)
-                                                name:UIKeyboardWillShowNotification
-                                              object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self
-                                            selector:@selector(keyboardWillHide:)
-                                                name:UIKeyboardWillHideNotification
-                                              object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self
+                                           selector:@selector(keyboardWillShow:)
+                                               name:UIKeyboardWillShowNotification
+                                             object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self
+                                           selector:@selector(keyboardWillHide:)
+                                               name:UIKeyboardWillHideNotification
+                                             object:nil];
 
 }
 
 -(void)keyboardWillShow:(NSNotification *)notification {}
 -(void)keyboardWillHide:(NSNotification *)notification {}
+/// 根据文字长短自动判断是否需要显示TextLayer，并且滚动
+-(void)setTextLayerScroll{
+    CATextLayer * textLayer = self.getTextLayer;
+    if (self.shouldAutoScroll){
+        CABasicAnimation * ani = self.getAnimation;
+        [textLayer addAnimation:ani forKey:nil];
+        [self.layer addSublayer:textLayer];
+    }else{
+        [textLayer removeAllAnimations];
+        [textLayer removeFromSuperlayer];
+    }
+}
+/// runtime存放textLayer，避免多次生成
+-(CATextLayer *_Nonnull)getTextLayer{
+    CATextLayer * layer = objc_getAssociatedObject(self, _cmd);
+    if (!layer) {
+        layer = CATextLayer.layer;
+        objc_setAssociatedObject(self,
+                                 _cmd,
+                                 layer,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
 
+    if ([self isKindOfClass:UILabel.class]) {
+        UILabel *label = (UILabel *)self;
+        CGSize size = [label.text sizeWithAttributes:@{NSFontAttributeName:label.font}];
+        CGFloat stringWidth = size.width;
+        layer.frame = CGRectMake(0, 0, stringWidth, self.frame.size.height);
+        layer.alignmentMode = kCAAlignmentCenter;
+        layer.font = (__bridge CFTypeRef _Nullable)(label.font.fontName);
+        layer.fontSize = label.font.pointSize;
+        layer.foregroundColor = label.textColor.CGColor;
+        layer.string = label.text;
+    }else if ([self isKindOfClass:UIButton.class]){
+        UIButton *button = (UIButton *)self;
+        CGSize size = [button.titleForNormalState sizeWithAttributes:@{NSFontAttributeName:button.titleLabel.font}];
+        CGFloat stringWidth = size.width;
+        layer.frame = CGRectMake(0, 0, stringWidth, self.frame.size.height);
+        layer.alignmentMode = kCAAlignmentCenter;
+        layer.font = (__bridge CFTypeRef _Nullable)(button.titleLabel.font.fontName);
+        layer.fontSize = button.titleLabel.font.pointSize;
+        layer.foregroundColor = button.titleLabel.textColor.CGColor;
+        layer.string = button.titleForNormalState;
+    }else{}
+    layer.contentsScale = UIScreen.mainScreen.scale;// 不写这句可能导致layer的文字在某些情况下不清晰
+    return layer;
+}
+/// runtime存放动画对象，避免多次生成
+-(CABasicAnimation *_Nonnull)getAnimation{
+    
+    CABasicAnimation * ani = objc_getAssociatedObject(self, _cmd);
+    if (!ani) {
+        ani = [CABasicAnimation animationWithKeyPath:@"position.x"];
+        objc_setAssociatedObject(self,
+                                 _cmd,
+                                 ani,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    CATextLayer * textLayer = self.getTextLayer;
+    CGPoint point = textLayer.position;
+    CGFloat lenth = textLayer.frame.size.width - self.frame.size.width;
+    // 起点位置
+    CGPoint pointSrc = CGPointMake(point.x + 20, point.y);
+    // 终点位置
+    CGPoint pointDes = CGPointMake(pointSrc.x - lenth - 30, pointSrc.y);
+    id toValue = [NSValue valueWithCGPoint:pointDes];
+    id fromValue = [NSValue valueWithCGPoint:pointSrc];
+    ani.toValue = toValue;
+    ani.fromValue = fromValue;
+    ani.duration = 2;
+    ani.fillMode = kCAFillModeBoth;
+    ani.repeatCount = HUGE_VALF;
+    // 结束后逆向执行动画
+    ani.autoreverses = YES;
+    ani.removedOnCompletion = false;
+    return ani;
+}
+/// 判断是否需要滚动
+-(BOOL)shouldAutoScroll{
+    BOOL shouldScroll = false;
+    if ([self isKindOfClass:UILabel.class]) {
+        UILabel *label = (UILabel *)self;
+        if (label.numberOfLines == 1) {
+            CGSize size = [label.text sizeWithAttributes:@{NSFontAttributeName:label.font}];
+            CGFloat stringWidth = size.width;
+            CGFloat labelWidth = self.frame.size.width;
+            if (labelWidth < stringWidth) {
+                shouldScroll = true;
+            }
+        }
+    }else if ([self isKindOfClass:UIButton.class]){
+        UIButton *button = (UIButton *)self;
+        if (button.titleLabel.numberOfLines == 1) {
+            CGSize size = [button.titleForNormalState sizeWithAttributes:@{NSFontAttributeName:button.titleLabel.font}];
+            CGFloat stringWidth = size.width;
+            CGFloat labelWidth = self.frame.size.width;
+            if (labelWidth < stringWidth) {
+                shouldScroll = true;
+            }
+        }
+    }else{}
 
-
+    Class ModelClass = NSClassFromString(@"_UIAlertControllerActionView");
+    if ([self.superview.superview isKindOfClass:ModelClass]) {
+        shouldScroll = false;
+    }
+    
+    return shouldScroll;
+}
 #pragma mark —— @property(nonatomic,assign)BOOL visible;
 -(BOOL)visible{
     BOOL Visible = [objc_getAssociatedObject(self, UIView_Extras_visible) boolValue];
