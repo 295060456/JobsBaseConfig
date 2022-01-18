@@ -12,6 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 /**
     UILabel显示不全时循环滚动显示
+    不建议用，因为runtime交换方法，入侵性太高
     参考资料：https://github.com/aYq524/AutoScrollLabel
  */
 @interface UILabel (AutoScroll)

@@ -9,11 +9,11 @@
 #define JobsLabel_h
 
 #pragma mark —— Base
-// TODO
+#import "BaseLabel.h"
 #pragma mark —— Category
 #import "UILabel+Gesture.h"
 #import "UILabel+Measure.h"
 #import "UILabel+Extra.h"
-#import "UILabel+AutoScroll.h"
+//#import "UILabel+AutoScroll.h"
 
 #endif /* JobsLabel_h */

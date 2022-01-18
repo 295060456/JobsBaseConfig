@@ -516,6 +516,27 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             [_dataMutArr addObject:viewModel];
         }
         
+        {
+            UIViewModel *viewModel = UIViewModel.new;
+            
+            {
+                UITextModel *textModel = UITextModel.new;
+                textModel.text = Internationalization(@"TestLabelVC");
+                viewModel.textModel = textModel;
+                
+                UITextModel *subTextModel = UITextModel.new;
+                subTextModel.text = Internationalization(@"点击查看");
+                viewModel.subTextModel = subTextModel;
+                
+                UITextModel *backBtnTitleModel = UITextModel.new;
+                backBtnTitleModel.text = Internationalization(@"返回首页");
+                viewModel.backBtnTitleModel = backBtnTitleModel;
+            }
+            
+            viewModel.cls = TestLabelVC.class;
+            [_dataMutArr addObject:viewModel];
+        }
+        
     }return _dataMutArr;
 }
 

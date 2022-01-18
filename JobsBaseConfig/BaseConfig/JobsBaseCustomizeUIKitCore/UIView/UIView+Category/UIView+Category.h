@@ -25,5 +25,6 @@
 #import "UIView+ViewController.h"
 #import "UIView+ZFPlayer.h"
 #import "UIView+UIBackgroundConfig.h"
+#import "UIView+Masonry.h"
 
 #endif /* UIView_Category_h */
