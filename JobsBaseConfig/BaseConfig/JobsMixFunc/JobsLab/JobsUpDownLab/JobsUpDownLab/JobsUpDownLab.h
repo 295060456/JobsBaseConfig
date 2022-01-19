@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 接受外界的数据模型对象要求是：JobsUpDownLabModel 类型
 @interface JobsUpDownLab : BaseView
 
+-(UIButton *)getUpBtn;
+-(UIButton *)getDownBtn;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -26,7 +26,13 @@
         
     }return self;
 }
-//具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
+
+-(void)drawRect:(CGRect)rect{
+    [super drawRect:rect];
+    NSLog(@"");
+}
+#pragma mark —— BaseViewProtocol
+/// 具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 -(void)richElementsInViewWithModel:(JobsUpDownLabModel *_Nullable)model{
     self.upDownLabModel = model;
     [self textHeight];
@@ -35,21 +41,30 @@
         [self.downBtn normalTitle:self.upDownLabModel.downLabText];
         /// 单行ByWidth  多行ByFont
         if (self.upDownLabModel.isUpLabMultiLineShows) {
-            _upBtn.titleLabel.numberOfLines = 0;
-            [self.upBtn labelAutoWidthByFont];
+            [self.upBtn makeBtnLabelByShowingType:UILabelShowingType_05];
         }else{
             [self.upBtn buttonAutoFontByWidth];
         }
         
+//        self.downBtn.titleLabel.numberOfLines = 0;
+//        self.downBtn.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;/// 自动折行设置【默认】
+//        [self.downBtn uninstall:NSLayoutAttributeHeight];
+//        [self.downBtn mas_updateConstraints:^(MASConstraintMaker *make) {
+//            make.size.mas_equalTo([UILabel sizeWithText:self.downBtn.titleForNormalState
+//                                                   font:self.downBtn.titleLabel.font
+//                                                maxSize:CGSizeMake(self.downBtn.width, MAXFLOAT)]);
+//        }];
+        
+//        NSLog(@"AAA = %f",self.downBtn.width);
+        
         if (self.upDownLabModel.isDownLabMultiLineShows) {
-            _upBtn.titleLabel.numberOfLines = 0;
-            [self.downBtn labelAutoWidthByFont];
+            [self.downBtn makeBtnLabelByShowingType:UILabelShowingType_05];
         }else{
             [self.downBtn buttonAutoFontByWidth];
         }
     }
 }
-//具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
+/// 具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 +(CGSize)viewSizeWithModel:(JobsUpDownLabModel *_Nullable)model{
     CGFloat w = [model.upLabText getContentHeightOrWidthWithParagraphStyleLineSpacing:0
                                                                 calcLabelHeight_Width:CalcLabelWidth
@@ -57,7 +72,7 @@
                                                          boundingRectWithHeight_Width:(JobsWidth(35) + model.space)];
     return CGSizeMake(w, JobsWidth(35) + model.space);
 }
-
+#pragma mark —— 一些私有方法
 -(void)textHeight{
     leftTextHeight = [self.upDownLabModel.upLabText getContentHeightOrWidthWithParagraphStyleLineSpacing:0
                                                                                    calcLabelHeight_Width:CalcLabelHeight
@@ -71,6 +86,15 @@
     
     leftTextHeight = self.upDownLabModel.rate == 0.5 ? leftTextHeight : [JobsUpDownLab viewSizeWithModel:nil].height * self.upDownLabModel.rate;
     rightTextHeight = self.upDownLabModel.rate == 0.5 ? rightTextHeight : [JobsUpDownLab viewSizeWithModel:nil].height * (1 - self.upDownLabModel.rate);
+    NSLog(@"");
+}
+
+-(UIButton *)getUpBtn{
+    return _upBtn;
+}
+
+-(UIButton *)getDownBtn{
+    return _downBtn;
 }
 #pragma mark —— lazyLoad
 -(UIButton *)upBtn{
@@ -84,13 +108,9 @@
         _upBtn.backgroundColor = self.upDownLabModel.upLabBgCor;
         _upBtn.titleLabel.font = self.upDownLabModel.upLabFont;
 
-        if (self.upDownLabModel.isUpLabMultiLineShows) {
-            _upBtn.titleLabel.numberOfLines = 0;
-        }
-        
         [self addSubview:_upBtn];
         [_upBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.left.right.equalTo(self);
+            make.top.centerX.width.equalTo(self);
             make.height.mas_equalTo(leftTextHeight);
         }];
     }return _upBtn;
@@ -106,15 +126,11 @@
         [_downBtn normalBackgroundImage:self.upDownLabModel.downLabBgImage];
         _downBtn.backgroundColor = self.upDownLabModel.downLabBgCor;
         _downBtn.titleLabel.font = self.upDownLabModel.downLabFont;
-        
-        if (self.upDownLabModel.isDownLabMultiLineShows) {
-            _downBtn.titleLabel.numberOfLines = 0;
-        }
-        
+
         [self addSubview:_downBtn];
         [_downBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.upBtn.mas_bottom).offset(self.upDownLabModel.space);
-            make.bottom.left.right.equalTo(self);
+            make.bottom.centerX.width.equalTo(self);
         }];
     }return _downBtn;
 }
