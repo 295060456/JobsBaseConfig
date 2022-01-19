@@ -23,5 +23,12 @@
         return self;
     }return nil;
 }
+/// 将数组里的元素复制times次
+-(NSMutableArray *)copyElementBytimes:(NSInteger)times{
+    NSMutableArray *tempMutArr = NSMutableArray.array;
+    for (int i = 0; i < times; times++) {
+        [tempMutArr addObjectsFromArray:self];
+    }return tempMutArr;
+}
 
 @end

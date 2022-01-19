@@ -31,11 +31,13 @@
             self.titleLabel.numberOfLines = 0;
             self.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;/// 自动折行设置【默认】
             [self uninstall:NSLayoutAttributeHeight];
+            CGSize size = [UILabel sizeWithText:self.titleForNormalState
+                                           font:self.titleLabel.font
+                                        maxSize:CGSizeMake(self.width, MAXFLOAT)];
             [self mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.size.mas_equalTo([UILabel sizeWithText:self.titleForNormalState
-                                                       font:self.titleLabel.font
-                                                    maxSize:CGSizeMake(self.width, MAXFLOAT)]);
+                make.size.mas_equalTo(CGSizeMake(self.width, size.height));
             }];
+            if (self.viewBlock) self.viewBlock(@(size.height));
         }break;
             
         default:

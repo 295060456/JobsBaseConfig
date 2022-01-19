@@ -17,6 +17,7 @@
 @property(nonatomic,strong)NSMutableArray <UIButton *>*btnMutArr;
 /// Data
 @property(nonatomic,strong)NSArray <UIViewModel *>*viewModelDataArr;// 数据源
+@property(nonatomic,strong)NSMutableArray <NSNumber *>*btnHeightMutArr;
 
 @end
 
@@ -50,9 +51,39 @@
     }
 }
 #pragma mark —— 一些私有方法
--(void)changeButtonState{
-    for (UIButton *btn in self.btnMutArr) {
-        btn.selected = NO;
+/// 参考 Demo：https://github.com/PhonixYing/HorizontalScrollStackView
+-(void)createHotLabelWithArr:(NSArray <UIViewModel *>*)dataArr{
+    if (dataArr.count) {
+
+//        [self dynamicCalculationWithDataArr:dataArr];
+        for (UIViewModel *vm in dataArr) {
+            self.viewModel = vm;
+            // 其实item是button,因为button有相对于Label更为丰富的表现形式
+            UIButton *btn = [self configBtn:vm];
+            btn.size = btnSize;
+            [self.btnMutArr addObject:btn];
+            [self.stackView addArrangedSubview:btn];
+        }
+        /// 取最大的高度值使用
+        [self useHighestValue];
+    }
+}
+/// 内部依据数据源动态的计算一些局部变量的值
+-(void)dynamicCalculationWithDataArr:(NSArray <UIViewModel *>*)dataArr{
+    for (UIViewModel *vm in dataArr) {
+        CGSize BtnSize = [UILabel sizeWithText:vm.textModel.text
+                                          font:vm.textModel.font
+                                       maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
+        
+        if (CGSizeEqualToSize(vm.jobsSize, CGSizeZero)) {
+            btnSize = BtnSize;
+        }else{
+            // 两项比较取最大值。防止多语言化的时候，外文显示过长的问题
+            btnSize = CGSizeMake(MAX(BtnSize.width, vm.jobsSize.width),
+                                 MAX(BtnSize.height, vm.jobsSize.height));
+        }
+        
+        width += btnSize.width;
     }
 }
 /**
@@ -103,50 +134,43 @@
     [btn normalTitle:vm.textModel.text];
     [btn titleFont:vm.textModel.font];
     [btn normalTitleColor:vm.textModel.textCor];
-    [btn buttonAutoFontByWidth];
+    
     BtnClickEvent(btn, {
         [self changeButtonState];
         x.selected = !x.selected;
         if (self.viewBlock) self.viewBlock(x);
-    });return btn;
+    });
+
+    [btn actionViewBlock:^(id data) {
+        @jobs_strongify(self)
+        [self.btnHeightMutArr addObject:data];
+    }];
+    
+    btn.size = CGSizeMake((JobsSCREEN_WIDTH - JobsWidth(15 * 5)) / 4, JobsWidth(30));
+    
+    [btn makeBtnLabelByShowingType:self.labelShowingType];
+
+    return btn;
 }
-/// 内部依据数据源动态的计算一些局部变量的值
--(void)dynamicCalculationWithDataArr:(NSArray <UIViewModel *>*)dataArr{
-    for (UIViewModel *vm in dataArr) {
-        CGSize BtnSize = [UILabel sizeWithText:vm.textModel.text
-                                          font:vm.textModel.font
-                                       maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
-        
-        if (CGSizeEqualToSize(vm.jobsSize, CGSizeZero)) {
-            btnSize = BtnSize;
-        }else{
-            // 两项比较取最大值。防止多语言化的时候，外文显示过长的问题
-            btnSize = CGSizeMake(MAX(BtnSize.width, vm.jobsSize.width), MAX(BtnSize.height, vm.jobsSize.height));
+/// 取最大的高度值使用
+-(void)useHighestValue{
+    for (UIButton *btn in self.btnMutArr) {
+        /// 取最高的值
+        NSNumber *highestNum = @(self.hotLabelDefaultHeight);
+        for (NSNumber *num in self.btnHeightMutArr) {
+            highestNum = @(MAX(highestNum.floatValue, num.floatValue));
         }
         
-        width += btnSize.width;
+        [btn mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(highestNum.floatValue);
+            make.width.mas_equalTo((JobsSCREEN_WIDTH - JobsWidth(15 * 5)) / 4);
+        }];
     }
 }
-/// 参考 Demo:https://github.com/PhonixYing/HorizontalScrollStackView
--(void)createHotLabelWithArr:(NSArray <UIViewModel *>*)dataArr{
-    if (dataArr.count) {
-        
-//        NSMutableArray *dd = [NSMutableArray arrayWithArray:dataArr];
-//        for (int i = 0; i<6; i++) {
-//            [dd addObject:dataArr[0]];
-//        }
-//
-//        dataArr = dd;
-        
-        [self dynamicCalculationWithDataArr:dataArr];
-        for (UIViewModel *vm in dataArr) {
-            self.viewModel = vm;
-            // 其实item是button,因为button有相对于Label更为丰富的表现形式
-            UIButton *btn = [self configBtn:vm];
-            btn.size = btnSize;
-            [self.btnMutArr addObject:btn];
-            [self.stackView addArrangedSubview:btn];
-        }
+
+-(void)changeButtonState{
+    for (UIButton *btn in self.btnMutArr) {
+        btn.selected = NO;
     }
 }
 #pragma mark —— lazyLoad
@@ -224,6 +248,12 @@
     if (!_btnMutArr) {
         _btnMutArr = NSMutableArray.array;
     }return _btnMutArr;
+}
+
+-(NSMutableArray<NSNumber *> *)btnHeightMutArr{
+    if (!_btnHeightMutArr) {
+        _btnHeightMutArr = NSMutableArray.array;
+    }return _btnHeightMutArr;
 }
 
 @end

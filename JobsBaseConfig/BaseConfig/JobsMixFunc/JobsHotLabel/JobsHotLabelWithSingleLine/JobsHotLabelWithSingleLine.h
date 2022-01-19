@@ -10,6 +10,7 @@
 #import "BaseView.h"
 #import "UIViewModel.h"
 #import "CasinoCustomerContactModel.h"
+#import "UILabel+Extra.h"
 
 NS_ASSUME_NONNULL_BEGIN
 /**
@@ -20,6 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface JobsHotLabelWithSingleLine : BaseView
 
+@property(nonatomic,assign)UILabelShowingType labelShowingType;
+@property(nonatomic,assign)CGFloat hotLabelDefaultHeight;/// 子控件的默认高度
+
 @end
 
 NS_ASSUME_NONNULL_END
@@ -28,25 +32,50 @@ NS_ASSUME_NONNULL_END
  uses
  
  // Data
- @property(nonatomic,strong)JobsHotLabel *hl;
+ @property(nonatomic,strong)JobsHotLabelWithSingleLine *hl;
  @property(nonatomic,strong)NSMutableArray <UIViewModel *>*hotLabelDataMutArr;
  
- -(JobsHotLabel *)hl{
+ -(JobsHotLabelWithSingleLine *)hl{
      if (!_hl) {
-         _hl = JobsHotLabel.new;
+         _hl = JobsHotLabelWithSingleLine.new;
          _hl.backgroundColor = kClearColor;
-         _hl.viewModelDataArr = self.hotLabelDataMutArr;
-         [self addSubview:_hl];
-         [_hl mas_makeConstraints:^(MASConstraintMaker *make) {
-             make.centerX.equalTo(self.subTitleLab);
-             make.top.equalTo(self.subTitleLab.mas_bottom).offset(JobsWidth(29));
-             make.bottom.equalTo(self).offset(-JobsWidth(10));
-             make.width.mas_equalTo(250);
+         _hl.labelShowingType = UILabelShowingType_05;
+         _hl.hotLabelDefaultHeight = JobsWidth(30);
+         @jobs_weakify(self)
+         [_hl actionViewBlock:^(UIButton *btn) {
+             @jobs_strongify(self)
+             if ([btn.titleForNormalState isEqualToString:Internationalization(@"Top-up check in progress")]) {
+                 self.chargeOrderType = ChargeOrderType_processing;
+             }else if ([btn.titleForNormalState isEqualToString:Internationalization(@"Top-up success")]){
+                 self.chargeOrderType = ChargeOrderType_success;
+             }else if ([btn.titleForNormalState isEqualToString:Internationalization(@"Top-up cancel")]){
+                 self.chargeOrderType = ChargeOrderType_cancel;
+             }else if ([btn.titleForNormalState isEqualToString:Internationalization(@"All")]){
+                 self.chargeOrderType = ChargeOrderType_all;//ChargeOrderType_all;
+             }else{}
+             
+             [self chargeOrderChargeOrderList];/// 用户充值列表
          }];
-         
-         [self layoutIfNeeded];
-         NSLog(@"");
-         
+         [self.view addSubview:_hl];
+         [_hl mas_makeConstraints:^(MASConstraintMaker *make) {
+             make.centerX.equalTo(self.view);
+             make.width.mas_equalTo(JobsSCREEN_WIDTH);
+             make.top.equalTo(self.dropdownMenu.mas_bottom).offset(JobsWidth(5));
+             switch (self.currentLanguageType) {
+                 case HTTPRequestHeaderLanguageEn:{
+                     make.height.mas_equalTo(JobsWidth(60));
+                 }break;
+                 case HTTPRequestHeaderLanguageCN:{
+                     make.height.mas_equalTo(JobsWidth(30));
+                 }break;
+                     
+                 default:
+                     break;
+             }
+             
+         }];
+         [self.view layoutIfNeeded];
+         [_hl richElementsInViewWithModel:self.hotLabelDataMutArr];
      }return _hl;
  }
 

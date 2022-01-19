@@ -59,8 +59,12 @@
 #pragma mark —— 网络请求
 /// 获取客服联系方式
 -(void)customerContact:(MKDataBlock)block{
-    NSLog(@"获取客服联系方式 —— 网络请求");
-    if (block) block(@1);
+    @jobs_weakify(self)
+    [self getCustomerContact:^(DDResponseModel *data) {
+        @jobs_strongify(self)
+        self.customerContactModel = [CasinoCustomerContactModel mj_objectWithKeyValues:data.data];
+        if (block) block(self.customerContactModel);
+    }];
 }
 #pragma mark —— lazyLoad
 -(UILabel *)titleLab{
@@ -85,20 +89,13 @@
         _backToLoginBtn.titleLabel.font = [UIFont systemFontOfSize:JobsWidth(13)
                                                             weight:UIFontWeightMedium];
         _backToLoginBtn.alpha = 0.7f;
-        
-        [_backToLoginBtn setTitleColor:Cor3
-                              forState:UIControlStateNormal];
-        [_backToLoginBtn setTitle:Title1
-                         forState:UIControlStateNormal];
-        [_backToLoginBtn setImage:KIMG(@"用户名称")
-                         forState:UIControlStateNormal];
-        @jobs_weakify(self)
-        [[_backToLoginBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
-            NSLog(@"返回登录");
-            @jobs_strongify(self)
+        [_backToLoginBtn normalTitleColor:Cor3];
+        [_backToLoginBtn normalTitle:Title1];
+        [_backToLoginBtn normalImage:KIMG(@"用户名称")];
+        BtnClickEvent(_backToLoginBtn, {
             [self endEditing:YES];
             if (self.viewBlock) self.viewBlock(x);
-        }];
+        });
         [self addSubview:_backToLoginBtn];
         [_backToLoginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.right.bottom.equalTo(self);
@@ -114,10 +111,9 @@
 -(UIButton *)contactCustomerServiceBtn{
     if (!_contactCustomerServiceBtn) {
         _contactCustomerServiceBtn = UIButton.new;
-        [_contactCustomerServiceBtn setImage:KIMG(Internationalization(@"zaixiankefu_en"))
-                                    forState:UIControlStateNormal];
-        @jobs_weakify(self)
-        [[_contactCustomerServiceBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
+        [_contactCustomerServiceBtn normalImage:KIMG(Internationalization(@"zaixiankefu_en"))];
+
+        BtnClickEvent(_contactCustomerServiceBtn, {
             NSLog(@"返回登录");
             @jobs_strongify(self)
             if ([NSString isNullString:self.customerContactModel.onlineUrl.customerAccount]) {
@@ -127,7 +123,8 @@
             }
             [self endEditing:YES];
             if (self.viewBlock) self.viewBlock(x);
-        }];
+        });
+
         [self addSubview:_contactCustomerServiceBtn];
         [_contactCustomerServiceBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(JobsWidth(230), JobsWidth(50)));
