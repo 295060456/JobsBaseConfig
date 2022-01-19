@@ -156,14 +156,13 @@
 -(void)useHighestValue{
     for (UIButton *btn in self.btnMutArr) {
         /// 取最高的值
-        NSNumber *highestNum = @(self.hotLabelDefaultHeight);
+        NSNumber *highestNum = @(self.elementDefaultSize.height);
         for (NSNumber *num in self.btnHeightMutArr) {
             highestNum = @(MAX(highestNum.floatValue, num.floatValue));
         }
         
         [btn mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.height.mas_equalTo(highestNum.floatValue);
-            make.width.mas_equalTo((JobsSCREEN_WIDTH - JobsWidth(15 * 5)) / 4);
+            make.size.mas_equalTo(CGSizeMake(self.elementDefaultSize.width, highestNum.floatValue));
         }];
     }
 }

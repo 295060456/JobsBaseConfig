@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface JobsHotLabelWithSingleLine : BaseView
 
 @property(nonatomic,assign)UILabelShowingType labelShowingType;
-@property(nonatomic,assign)CGFloat hotLabelDefaultHeight;/// 子控件的默认高度
+@property(nonatomic,assign)CGSize elementDefaultSize;/// 内置元素Size的预设值
 
 @end
 

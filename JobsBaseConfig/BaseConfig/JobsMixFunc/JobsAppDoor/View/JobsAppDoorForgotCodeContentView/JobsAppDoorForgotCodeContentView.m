@@ -59,12 +59,7 @@
 #pragma mark —— 网络请求
 /// 获取客服联系方式
 -(void)customerContact:(MKDataBlock)block{
-    @jobs_weakify(self)
-    [self getCustomerContact:^(DDResponseModel *data) {
-        @jobs_strongify(self)
-        self.customerContactModel = [CasinoCustomerContactModel mj_objectWithKeyValues:data.data];
-        if (block) block(self.customerContactModel);
-    }];
+
 }
 #pragma mark —— lazyLoad
 -(UILabel *)titleLab{
@@ -158,14 +153,14 @@
     if (!_hl) {
         _hl = JobsHotLabelWithSingleLine.new;
         _hl.backgroundColor = kClearColor;
+        _hl.labelShowingType = UILabelShowingType_02;
+        _hl.elementDefaultSize = CGSizeMake(JobsWidth(46), JobsWidth(46));
         [self actionForHotLabel:_hl];
         [self addSubview:_hl];
         [_hl mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(self.subTitleLab);
             make.top.equalTo(self.subTitleLab.mas_bottom).offset(JobsWidth(29));
-//            make.bottom.equalTo(self).offset(-JobsWidth(10));
-            make.height.mas_equalTo(JobsWidth(50));
-            make.width.mas_equalTo(JobsWidth(250));
+            make.size.mas_equalTo(CGSizeMake(JobsWidth(250), JobsWidth(50)));
         }];
         [self layoutIfNeeded];
         [_hl richElementsInViewWithModel:self.hotLabelDataMutArr];
