@@ -1637,6 +1637,10 @@
 		8475918B279949740074B4BA /* JobsLabelDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsLabelDef.h; sourceTree = "<group>"; };
 		8475918E27997B2F0074B4BA /* JobsTimerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsTimerVC.h; sourceTree = "<group>"; };
 		8475918F27997B2F0074B4BA /* JobsTimerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsTimerVC.m; sourceTree = "<group>"; };
+		84759192279998470074B4BA /* UIPictureAndBackGroundCorProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIPictureAndBackGroundCorProtocol.h; sourceTree = "<group>"; };
+		847591932799989D0074B4BA /* UILocationProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UILocationProtocol.h; sourceTree = "<group>"; };
+		84759194279998EB0074B4BA /* UIMarkProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIMarkProtocol.h; sourceTree = "<group>"; };
+		84759195279999250074B4BA /* UIViewModelOthersProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIViewModelOthersProtocol.h; sourceTree = "<group>"; };
 		847A2E8A278EFEAA003F9A52 /* BaseViewControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewControllerProtocol.h; sourceTree = "<group>"; };
 		847A2E8B278EFEAA003F9A52 /* AppToolsProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppToolsProtocol.h; sourceTree = "<group>"; };
 		847A2E8C278EFEAA003F9A52 /* BaseButtonProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseButtonProtocol.h; sourceTree = "<group>"; };
@@ -6393,6 +6397,17 @@
 			path = JobsTimer;
 			sourceTree = "<group>";
 		};
+		84759191279997E70074B4BA /* UIViewModelSubProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				84759192279998470074B4BA /* UIPictureAndBackGroundCorProtocol.h */,
+				847591932799989D0074B4BA /* UILocationProtocol.h */,
+				84759194279998EB0074B4BA /* UIMarkProtocol.h */,
+				84759195279999250074B4BA /* UIViewModelOthersProtocol.h */,
+			);
+			path = UIViewModelSubProtocol;
+			sourceTree = "<group>";
+		};
 		847A2E89278EFEAA003F9A52 /* BaseProtocol <NSObject> */ = {
 			isa = PBXGroup;
 			children = (
@@ -6410,6 +6425,7 @@
 			isa = PBXGroup;
 			children = (
 				847A2E91278EFEAA003F9A52 /* UIViewModelProtocol.h */,
+				84759191279997E70074B4BA /* UIViewModelSubProtocol */,
 			);
 			path = "UIViewModelProtocol <NSObject>";
 			sourceTree = "<group>";

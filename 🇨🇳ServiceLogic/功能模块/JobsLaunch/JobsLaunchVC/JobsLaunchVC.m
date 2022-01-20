@@ -8,12 +8,14 @@
 #import "JobsLaunchVC.h"
 
 @interface JobsLaunchVC ()
-
+/// UI
 @property(nonatomic,strong,nullable)UIButton *skipBtn;
 @property(nonatomic,strong,nullable)UIImageView *bgImgV;
 @property(nonatomic,strong,nullable)ZFPlayerController *player;
 @property(nonatomic,strong,nullable)ZFAVPlayerManager *playerManager;
 @property(nonatomic,strong,nullable)CustomZFPlayerControlView *customPlayerControlView;
+/// Data
+@property(nonatomic,strong)ButtonTimerConfigModel *btnTimerConfigModel;
 
 @end
 
@@ -54,14 +56,13 @@ static dispatch_once_t static_launchVCOnceToken;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.view.backgroundColor = KYellowColor;
     self.skipBtn.alpha = 1;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
+    [self.skipBtn startTimer];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -122,14 +123,32 @@ static dispatch_once_t static_launchVCOnceToken;
 
 -(UIButton *)skipBtn{
     if (!_skipBtn) {
-        _skipBtn = UIButton.new;
+        _skipBtn = [UIButton.alloc initWithConfig:self.btnTimerConfigModel];
 
-        /// 普通文本
-        [_skipBtn normalTitle:LaunchConfig.text];
-        [_skipBtn normalTitleColor:LaunchConfig.textCor];
-        [_skipBtn titleFont:LaunchConfig.font];
-        /// 富文本
-        [_skipBtn normalAttributedTitle:LaunchConfig.attributedText];
+        BtnClickEvent(_skipBtn, {
+            [x timerDestroy];
+            [self backItemClick:x];
+        });
+        
+        [_skipBtn actionBlockTimerRunning:^(TimerProcessModel *data) {
+            @jobs_strongify(self)
+            NSLog(@"❤️❤️❤️❤️❤️%f",data.data.anticlockwiseTime);
+        }];
+        
+        [self.view addSubview:_skipBtn];
+        [_skipBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(JobsWidth(80), JobsWidth(25)));
+            make.top.equalTo(self.view).offset(JobsRectOfStatusbar());
+            make.right.equalTo(self.view).offset(-JobsWidth(25));
+        }];
+        [self.view bringSubviewToFront:_skipBtn];
+    }return _skipBtn;
+}
+
+-(ButtonTimerConfigModel *)btnTimerConfigModel{
+    if (!_btnTimerConfigModel) {
+        _btnTimerConfigModel = ButtonTimerConfigModel.new;
+        
         /// 未选中状态
         [_skipBtn sd_setImageWithURL:[NSURL URLWithString:LaunchConfig.imageURLString]
                             forState:UIControlStateNormal
@@ -144,27 +163,45 @@ static dispatch_once_t static_launchVCOnceToken;
         [_skipBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:LaunchConfig.bgSelectedImageURLString]
                                       forState:UIControlStateSelected
                               placeholderImage:LaunchConfig.bgSelectedImage];
-        /// 其他
-        _skipBtn.backgroundColor = UIColor.redColor;//LaunchConfig.bgCor;
+        /// 一些通用的设置
+        _btnTimerConfigModel.count = 5;
+        _btnTimerConfigModel.showTimeType = ShowTimeType_SS;//时间显示风格
+        _btnTimerConfigModel.countDownBtnType = TimerStyle_anticlockwise;// 时间方向
+        _btnTimerConfigModel.cequenceForShowTitleRuningStrType = CequenceForShowTitleRuningStrType_tail;//
+        _btnTimerConfigModel.labelShowingType = LaunchConfig.labelShowingType;//【换行模式】
         
-        BtnClickEvent(_skipBtn, {
-            [self backItemClick:x];
-        });
+        /// 计时器未开始【静态值】
+        _btnTimerConfigModel.readyPlayValue.layerBorderWidth = LaunchConfig.layerBorderWidth;
+        _btnTimerConfigModel.readyPlayValue.layerCornerRadius = JobsWidth(25 / 2);
+        _btnTimerConfigModel.readyPlayValue.bgCor = LaunchConfig.bgCor;
+        _btnTimerConfigModel.readyPlayValue.layerBorderCor = LaunchConfig.layerBorderColour;
+        _btnTimerConfigModel.readyPlayValue.titleCor = LaunchConfig.textCor;
+        _btnTimerConfigModel.readyPlayValue.titleStr = LaunchConfig.text;
+        _btnTimerConfigModel.readyPlayValue.titleLabelFont = LaunchConfig.font;
+        _btnTimerConfigModel.readyPlayValue.titleAttributedStr = LaunchConfig.attributedText;
         
-        [self.view addSubview:_skipBtn];
-        [_skipBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.size.mas_equalTo(CGSizeMake(JobsWidth(80), JobsWidth(25)));
-            make.top.equalTo(self.view).offset(JobsRectOfStatusbar());
-            make.right.equalTo(self.view).offset(-JobsWidth(25));
-        }];
-        [self.view bringSubviewToFront:_skipBtn];
-       
-        [_skipBtn makeBtnLabelByShowingType:LaunchConfig.labelShowingType];
-        [self.view layoutIfNeeded];
-        [_skipBtn cornerCutToCircleWithCornerRadius:LaunchConfig.cornerRadius ? : (_skipBtn.height / 2)];
-        [_skipBtn layerBorderColour:LaunchConfig.layerBorderColour
-                     andBorderWidth:LaunchConfig.layerBorderWidth];
-    }return _skipBtn;
+
+
+//        @property(nonatomic,strong)UIFont *titleLabelFont;
+//        @property(nonatomic,strong)UIColor *bgCor;
+//        @property(nonatomic,assign)CGFloat layerCornerRadius;
+//        @property(nonatomic,assign)CGFloat layerBorderWidth;
+//        /// Data
+
+        
+        /// 计时器进行中【动态值】
+        _btnTimerConfigModel.runningValue.bgCor = UIColor.cyanColor;
+        _btnTimerConfigModel.runningValue.titleStr = Internationalization(Title12);
+        _btnTimerConfigModel.runningValue.layerBorderCor = UIColor.redColor;
+        _btnTimerConfigModel.runningValue.titleCor = UIColor.blackColor;
+        /// 计时器结束【静态值】
+        _btnTimerConfigModel.endValue.bgCor = UIColor.yellowColor;;
+        _btnTimerConfigModel.endValue.titleStr = Internationalization(@"哈哈哈哈");
+        _btnTimerConfigModel.endValue.layerBorderCor = UIColor.purpleColor;
+        _btnTimerConfigModel.endValue.titleCor = UIColor.blackColor;
+        
+    }return _btnTimerConfigModel;
 }
+
 
 @end
