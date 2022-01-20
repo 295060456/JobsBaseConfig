@@ -148,17 +148,22 @@
         _nsTimerManager_color.timeInterval = self.color_timeInterval;
         _nsTimerManager_color.timerStyle = TimerStyle_clockwise;
         @jobs_weakify(self)
-        [_nsTimerManager_color actionNSTimerManagerRunningBlock:^(id data) {
-            NSLog(@"你好");
+        [_nsTimerManager_color actionNSTimerManagerRunningBlock:^(TimerProcessModel *data) {
             @jobs_strongify(self)
-            if ([data isKindOfClass:NSTimerManager.class]) {
-//                NSTimerManager *timerManager = (NSTimerManager *)data;
-//                timerManager.anticlockwiseTime;
-                [self timerFunc];
+            switch (data.timerProcessType) {
+                case TimerProcessType_ready:{
+                    
+                }break;
+                case TimerProcessType_running:{
+                    [self timerFunc];
+                }break;
+                case TimerProcessType_end:{
+                    NSLog(@"我死球了");
+                }break;
+                    
+                default:
+                    break;
             }
-        }];
-        [_nsTimerManager_color actionNSTimerManagerFinishBlock:^(id data) {
-            NSLog(@"我死球了");
         }];
     }return _nsTimerManager_color;
 }
@@ -170,30 +175,37 @@
         _nsTimerManager_length.timeSecIntervalSinceDate = self.length_timeSecIntervalSinceDate;
         _nsTimerManager_length.timerStyle = TimerStyle_clockwise;
         @jobs_weakify(self)
-        [_nsTimerManager_length actionNSTimerManagerRunningBlock:^(id data) {
+        [_nsTimerManager_length actionNSTimerManagerRunningBlock:^(TimerProcessModel *data) {
             NSLog(@"你好");
             @jobs_strongify(self)
-            if ([data isKindOfClass:NSTimerManager.class]) {
-//                NSTimerManager *timerManager = (NSTimerManager *)data;
-//                timerManager.anticlockwiseTime;
-                
-                if (self.progress < 1) {
-                    [self start];
+            
+            switch (data.timerProcessType) {
+                case TimerProcessType_ready:{
                     
-                    if (self.WGradientProgressBlock) {
-                        self.WGradientProgressBlock(@(self.progress),self.gradLayer);
+                }break;
+                case TimerProcessType_running:{
+                    if (self.progress < 1) {
+                        [self start];
+                        
+                        if (self.WGradientProgressBlock) {
+                            self.WGradientProgressBlock(@(self.progress),self.gradLayer);
+                        }
+                        
+                        self.progress += self.increment;
+                    }else{
+                        //销毁
+                        [self.nsTimerManager_length nsTimeDestroy];
                     }
+                }break;
+                case TimerProcessType_end:{
+                    NSLog(@"我死球了");
+                }break;
                     
-                    self.progress += self.increment;
-                }else{
-                    //销毁
-                    [self.nsTimerManager_length nsTimeDestroy];
-                }
+                default:
+                    break;
             }
         }];
-        [_nsTimerManager_length actionNSTimerManagerFinishBlock:^(id data) {
-            NSLog(@"我死球了");
-        }];
+
     }return _nsTimerManager_length;
 }
 

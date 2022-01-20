@@ -133,21 +133,21 @@
         _btnTimerConfigModel.showTimeType = ShowTimeType_SS;//时间显示风格
         _btnTimerConfigModel.countDownBtnType = TimerStyle_anticlockwise;// 时间方向
         _btnTimerConfigModel.cequenceForShowTitleRuningStrType = CequenceForShowTitleRuningStrType_tail;// 文本显示类型
-        _btnTimerConfigModel.countDownBtnNewLineType = CountDownBtnNewLineType_newLine;//【换行模式】
+        _btnTimerConfigModel.labelShowingType = UILabelShowingType_05;//【换行模式】
         
         /// 计时器未开始【静态值】
-        _btnTimerConfigModel.layerBorderReadyPlayWidth = 1;
-        _btnTimerConfigModel.layerCornerReadyPlayRadius = 18;
-        _btnTimerConfigModel.bgReadyPlayCor = KYellowColor;
-        _btnTimerConfigModel.layerBorderReadyPlayCor = kClearColor;
-        _btnTimerConfigModel.titleReadyPlayCor = kBlackColor;
-        _btnTimerConfigModel.titleReadyPlayStr = Title9;
-        _btnTimerConfigModel.titleLabelReadyPlayFont = [UIFont systemFontOfSize:JobsWidth(13)
-                                                                         weight:UIFontWeightMedium];
+        _btnTimerConfigModel.readyPlayValue.layerBorderWidth = 1;
+        _btnTimerConfigModel.readyPlayValue.layerCornerRadius = 18;
+        _btnTimerConfigModel.readyPlayValue.bgCor = KYellowColor;
+        _btnTimerConfigModel.readyPlayValue.layerBorderCor = kClearColor;
+        _btnTimerConfigModel.readyPlayValue.titleCor = kBlackColor;
+        _btnTimerConfigModel.readyPlayValue.titleStr = Title9;
+        _btnTimerConfigModel.readyPlayValue.titleLabelFont = [UIFont systemFontOfSize:JobsWidth(13)
+                                                                               weight:UIFontWeightMedium];
         /// 计时器进行中【动态值】
-        _btnTimerConfigModel.bgRunningCor = kCyanColor;
+        _btnTimerConfigModel.runningValue.bgCor = kCyanColor;
         /// 计时器结束【静态值】
-        _btnTimerConfigModel.bgEndCor = kRedColor;
+        _btnTimerConfigModel.endValue.bgCor = kRedColor;
         
     }return _btnTimerConfigModel;
 }
@@ -155,19 +155,10 @@
 -(UIButton *)authCodeBtn{
     if (!_authCodeBtn) {
         _authCodeBtn = [UIButton.alloc initWithConfig:self.btnTimerConfigModel];
-        @jobs_weakify(self)
-        [_authCodeBtn actionBlockTimerRunning:^(id data) {
+        BtnClickEvent(_authCodeBtn, [x startTimer];);//选择时机、触发启动
+        [_authCodeBtn actionBlockTimerRunning:^(TimerProcessModel *data) {
             @jobs_strongify(self)
         }];
-        
-        [_authCodeBtn actionBlockTimerFinish:^(id data) {
-            @jobs_strongify(self)
-        }];
-
-        [[_authCodeBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
-            [x startTimer];//选择时机、触发启动
-        }];
-        
         [self addSubview:_authCodeBtn];
         [_authCodeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(self).offset(-JobsWidth(50));

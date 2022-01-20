@@ -7,32 +7,28 @@
 
 #import "ButtonTimerConfigModel.h"
 
+@implementation ButtonTimerProcessValueModel
+
+@end
+
 @interface ButtonTimerConfigModel ()
 
-@property(nonatomic,copy)MKDataBlock timerRunningBlock;// 定时器运行时的Block
-@property(nonatomic,copy)MKDataBlock timerFinishBlock;// 定时器结束时候的Block
+@property(nonatomic,copy)MKDataBlock timerWorkingBlock;
 
 @end
 
 @implementation ButtonTimerConfigModel
-
-@synthesize countDownBtnType = _countDownBtnType;
-@synthesize count = _count;
-
-// 定时器运行时的Block
--(void)actionBlockTimerRunning:(MKDataBlock)timerRunningBlock{
-    self.timerRunningBlock = timerRunningBlock;
-}
-// 定时器结束时候的Block
--(void)actionBlockTimerFinish:(MKDataBlock)timerFinishBlock{
-    self.timerFinishBlock = timerFinishBlock;
+#pragma mark —— 一些私有方法
+-(void)actionBlocktimerWorking:(MKDataBlock)timerWorkingBlock{
+    self.timerWorkingBlock = timerWorkingBlock;
 }
 #pragma mark —— 重写set方法
+@synthesize countDownBtnType = _countDownBtnType;
 -(void)setCountDownBtnType:(TimerStyle)countDownBtnType{
     _countDownBtnType = countDownBtnType;
     _timerManager.timerStyle = _countDownBtnType;
 }
-
+@synthesize count = _count;
 -(void)setCount:(long)count{
     _count = count;
     _timerManager.anticlockwiseTime = _count;//逆时针模式（倒计时）的顶点时间
@@ -45,51 +41,17 @@
         _timerManager.anticlockwiseTime = self.count;//【逆时针模式：到这个时间点结束】、【顺时针模式：从这个时间点开始】
         @jobs_weakify(self)
         //倒计时启动
-        [_timerManager actionNSTimerManagerRunningBlock:^(id data) {
+        [_timerManager actionNSTimerManagerRunningBlock:^(TimerProcessModel *data) {
             @jobs_strongify(self)
             NSLog(@"正在倒计时...");
-            if (self.timerRunningBlock) {
-                self.timerRunningBlock(data);
-            }
+            if (self.timerWorkingBlock) self.timerWorkingBlock(data);
         }];
-        //倒计时结束
-        [_timerManager actionNSTimerManagerFinishBlock:^(id data) {
-            @jobs_strongify(self)
-            if (self.timerFinishBlock) {
-                self.timerFinishBlock(data);
-            }
-        }];
+
     }return _timerManager;
 }
-
--(long)count{
-    if (!_count) {
-        _count = 60;
-    }return _count;
-}
-
--(NSString *)titleRunningDefaultStr{
-    if (!_titleRunningDefaultStr) {
-        _titleRunningDefaultStr = @"    重新开始    ";
-    }return _titleRunningDefaultStr;
-}
-// 未用
--(NSAttributedString *)titleRunningDefaultAttributedStr{
-    if (!_titleRunningDefaultAttributedStr) {
-        _titleRunningDefaultAttributedStr = self.titleDefaultAttributedDataMutArr.count ? [self richTextWithDataConfigMutArr:self.titleDefaultAttributedDataMutArr] : nil;
-    }return _titleRunningDefaultAttributedStr;
-}
-
--(NSMutableArray<RichTextConfig *> *)titleDefaultAttributedDataMutArr{
-    if (!_titleDefaultAttributedDataMutArr) {
-        _titleDefaultAttributedDataMutArr = NSMutableArray.array;
-        // 需要配置默认值 详见 RichTextConfig 使用示例
-    }return _titleDefaultAttributedDataMutArr;
-}
-#pragma mark —— 最为关心的显示值
-/// 其他
+/// 根据ShowTimeType格式化以后的时间【内部使用】
 -(NSString *)formatTimeStr{
-    if (self.countDownBtnNewLineType == CountDownBtnNewLineType_newLine) {//提行模式
+    if (self.labelShowingType == UILabelShowingType_05) {//提行模式
         if (![_formatTimeStr containsString:@"\n"] && _formatTimeStr) {
             if (self.cequenceForShowTitleRuningStrType == CequenceForShowTitleRuningStrType_front) {
                 _formatTimeStr = [@"\n" stringByAppendingString:_formatTimeStr];
@@ -100,175 +62,84 @@
     }return _formatTimeStr;
 }
 /// 计时器未开始
--(NSString *)titleReadyPlayStr{
-    if (self.countDownBtnNewLineType == CountDownBtnNewLineType_newLine) {//提行模式
-        if (![_titleReadyPlayStr containsString:@"\n"] && _titleReadyPlayStr) {
-            _titleReadyPlayStr = [_titleReadyPlayStr stringByAppendingString:@"\n"];
+-(ButtonTimerProcessValueModel *)readyPlayValue{
+    if (!_readyPlayValue) {
+        _readyPlayValue = ButtonTimerProcessValueModel.new;
+        
+        _readyPlayValue.layerBorderCor = UIColor.whiteColor;
+        _readyPlayValue.titleCor = UIColor.whiteColor;
+        _readyPlayValue.titleLabelFont = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular];
+        _readyPlayValue.bgCor = UIColor.lightGrayColor;
+        _readyPlayValue.layerCornerRadius = JobsWidth(8);
+        _readyPlayValue.layerBorderWidth = 0.5f;
+
+        
+        _readyPlayValue.labelShowingType = UILabelShowingType_01;
+        /// 普通文本
+        _readyPlayValue.titleStr = Internationalization(@"准备开始");
+        /// 富文本相关
+        // _readyPlayValue.titleAttributedDataMutArr =
+        if (_readyPlayValue.titleAttributedDataMutArr.count) {
+            _readyPlayValue.titleAttributedStr = [self richTextWithDataConfigMutArr:_readyPlayValue.titleAttributedDataMutArr];
+        }else{
+            //_readyPlayValue.titleAttributedStr =
         }
-    }return _titleReadyPlayStr;
-}
-
--(NSAttributedString *)titleReadyPlayAttributedStr{
-    if (!_titleReadyPlayAttributedStr) {
-        _titleReadyPlayAttributedStr = self.titleReadyPlayAttributedDataMutArr.count ? [self richTextWithDataConfigMutArr:self.titleReadyPlayAttributedDataMutArr] : nil;
-    }return _titleReadyPlayAttributedStr;
-}
-
--(NSMutableArray<RichTextConfig *> *)titleReadyPlayAttributedDataMutArr{
-    if (!_titleReadyPlayAttributedDataMutArr) {
-        _titleReadyPlayAttributedDataMutArr = NSMutableArray.array;
-        // 需要配置默认值 详见 RichTextConfig 使用示例
-    }return _titleReadyPlayAttributedDataMutArr;
+        
+    }return _readyPlayValue;
 }
 /// 计时器进行中
--(NSString *)titleRunningStr{
-    if (!_titleRunningStr) {
-        _titleRunningStr = self.titleRunningDefaultStr;
-    }return _titleRunningStr;
-}
-
--(NSMutableArray<RichTextConfig *> *)titleRunningDataMutArr{
-    if (!_titleRunningDataMutArr) {
-        _titleRunningDataMutArr = self.titleReadyPlayAttributedDataMutArr;
-    }return _titleRunningDataMutArr;
-}
-
--(NSAttributedString *)titleRunningAttributedStr{
-    if (!_titleRunningAttributedStr) {
-        _titleRunningAttributedStr = self.titleRunningDataMutArr.count ? [self richTextWithDataConfigMutArr:self.titleRunningDataMutArr] : self.titleReadyPlayAttributedStr;
-    }return _titleRunningAttributedStr;
-}
-/// 计时器结束
--(NSString *)titleEndStr{
-    if (!_titleEndStr) {
-        _titleEndStr = self.titleReadyPlayStr;
-    }
-    if (self.countDownBtnNewLineType == CountDownBtnNewLineType_newLine) {//提行模式
-        if (![_titleEndStr containsString:@"\n"]) {
-            _titleEndStr = [_titleEndStr stringByAppendingString:@"\n"];
+-(ButtonTimerProcessValueModel *)runningValue{
+    if (!_runningValue) {
+        _runningValue = ButtonTimerProcessValueModel.new;
+        
+        _runningValue.layerBorderCor = UIColor.redColor;
+        _runningValue.titleCor = UIColor.greenColor;
+        _runningValue.titleLabelFont = [UIFont systemFontOfSize:JobsWidth(15) weight:UIFontWeightRegular];
+        _runningValue.bgCor = UIColor.cyanColor;
+        _runningValue.layerCornerRadius = JobsWidth(12);
+        _runningValue.layerBorderWidth = 1;
+        _runningValue.labelShowingType = UILabelShowingType_01;
+        /// 普通文本
+        _runningValue.titleStr = Internationalization(@"    重新开始    ");
+        /// 富文本相关
+        // _runningValue.titleAttributedDataMutArr =
+        if (_runningValue.titleAttributedDataMutArr.count) {
+            _runningValue.titleAttributedStr = [self richTextWithDataConfigMutArr:_runningValue.titleAttributedDataMutArr];
+        }else{
+            //_runningValue.titleAttributedStr =
         }
-    }return _titleEndStr;
-}
-
--(NSMutableArray<RichTextConfig *> *)titleEndDataMutArr{
-    if (!_titleEndDataMutArr) {
-        _titleEndDataMutArr = self.titleReadyPlayAttributedDataMutArr;
-    }return _titleEndDataMutArr;
-}
-
--(NSAttributedString *)titleEndAttributedStr{
-    if (!_titleEndAttributedStr) {
-        _titleEndAttributedStr = self.titleEndDataMutArr.count ? [self richTextWithDataConfigMutArr:self.titleEndDataMutArr] : self.titleReadyPlayAttributedStr;
-    }return _titleEndAttributedStr;
-}
-#pragma mark —— 次要关心的UI界面值
-/// 计时器未开始
--(UIColor *)layerBorderReadyPlayCor{
-    if (!_layerBorderReadyPlayCor) {
-        _layerBorderReadyPlayCor = UIColor.blueColor;
-    }return _layerBorderReadyPlayCor;
-}
-
--(UIColor *)titleReadyPlayCor{
-    if (!_titleReadyPlayCor) {
-        _titleReadyPlayCor = UIColor.greenColor;
-    }return _titleReadyPlayCor;
-}
-
--(UIFont *)titleLabelReadyPlayFont{
-    if (!_titleLabelReadyPlayFont) {
-        _titleLabelReadyPlayFont = [UIFont systemFontOfSize:5 weight:UIFontWeightRegular];
-    }return _titleLabelReadyPlayFont;
-}
-
--(UIColor *)bgReadyPlayCor{
-    if (!_bgReadyPlayCor) {
-        _bgReadyPlayCor = UIColor.redColor;
-    }return _bgReadyPlayCor;
-}
-
--(CGFloat)layerCornerReadyPlayRadius{
-    if (!_layerCornerReadyPlayRadius) {
-        _layerCornerReadyPlayRadius = 6.f;
-    }return _layerCornerReadyPlayRadius;
-}
-
--(CGFloat)layerBorderReadyPlayWidth{
-    if (!_layerBorderReadyPlayWidth) {
-        _layerBorderReadyPlayWidth = 0.5f;
-    }return _layerBorderReadyPlayWidth;
-}
-/// 计时器进行中
--(UIColor *)layerBorderRunningCor{
-    if (!_layerBorderRunningCor) {
-        _layerBorderRunningCor = self.layerBorderReadyPlayCor;
-    }return _layerBorderRunningCor;
-}
-
--(UIColor *)titleRunningCor{
-    if (!_titleRunningCor) {
-        _titleRunningCor = self.titleReadyPlayCor;
-    }return _titleRunningCor;
-}
-
--(UIFont *)titleLabelRunningFont{
-    if (!_titleLabelRunningFont) {
-        _titleLabelRunningFont = self.titleLabelReadyPlayFont;
-    }return _titleLabelRunningFont;
-}
-
--(UIColor *)bgRunningCor{
-    if (!_bgRunningCor) {
-        _bgRunningCor = self.bgReadyPlayCor;
-    }return _bgRunningCor;
-}
-
--(CGFloat)layerBorderRunningWidth{
-    if (!_layerBorderRunningWidth) {
-        _layerBorderRunningWidth = self.layerBorderReadyPlayWidth;
-    }return _layerBorderRunningWidth;
-}
-
--(CGFloat)layerCornerRunningRadius{
-    if (!_layerCornerRunningRadius) {
-        _layerCornerRunningRadius = self.layerCornerReadyPlayRadius;
-    }return _layerCornerRunningRadius;
+    }return _runningValue;
 }
 /// 计时器结束
--(UIColor *)layerBorderEndCor{
-    if (!_layerBorderEndCor) {
-        _layerBorderEndCor = self.layerBorderReadyPlayCor;
-    }return _layerBorderEndCor;
+-(ButtonTimerProcessValueModel *)endValue{
+    if (!_endValue) {
+        _endValue = ButtonTimerProcessValueModel.new;
+        
+        _endValue.layerBorderCor = self.readyPlayValue.layerBorderCor;
+        _endValue.titleCor = self.readyPlayValue.titleCor;
+        _endValue.titleLabelFont = self.readyPlayValue.titleLabelFont;
+        _endValue.bgCor = self.readyPlayValue.bgCor;
+        _endValue.layerCornerRadius = self.readyPlayValue.layerCornerRadius;
+        _endValue.layerBorderWidth = self.readyPlayValue.layerBorderWidth;
+        
+        _endValue.labelShowingType = UILabelShowingType_01;
+        /// 普通文本
+        _endValue.titleStr = Internationalization(@"    重新开始    ");
+        /// 富文本相关
+        // _endValue.titleAttributedDataMutArr =
+        if (_endValue.titleAttributedDataMutArr.count) {
+            _endValue.titleAttributedStr = [self richTextWithDataConfigMutArr:_endValue.titleAttributedDataMutArr];
+        }else{
+            //_endValue.titleAttributedStr =
+        }
+        
+    }return _endValue;
 }
 
--(UIColor *)titleEndCor{
-    if (!_titleEndCor) {
-        _titleEndCor = self.titleReadyPlayCor;
-    }return _titleEndCor;
-}
-
--(UIFont *)titleLabelEndFont{
-    if (!_titleLabelEndFont) {
-        _titleLabelEndFont = self.titleLabelReadyPlayFont;
-    }return _titleLabelEndFont;
-}
-
--(UIColor *)bgEndCor{
-    if (!_bgEndCor) {
-        _bgEndCor = self.bgReadyPlayCor;
-    }return _bgEndCor;
-}
-
--(CGFloat)layerCornerEndRadius{
-    if (!_layerCornerEndRadius) {
-        _layerCornerEndRadius = self.layerCornerReadyPlayRadius;
-    }return _layerCornerEndRadius;
-}
-
--(CGFloat)layerBorderEndWidth{
-    if (!_layerBorderEndWidth) {
-        _layerBorderEndWidth = self.layerBorderReadyPlayWidth;
-    }return _layerBorderEndWidth;
+-(NSInteger)count{
+    if (!_count) {
+        _count = 60;
+    }return _count;
 }
 
 @end

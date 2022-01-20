@@ -68,5 +68,18 @@
         str = @"";
     }return [self stringByAppendingString:str];
 }
+/// 获取到最后一个字符
+-(NSString *)getLastChars{
+    return [self substringFromIndex:self.length - 1];
+}
+/// 获取到最后一个非空格字符
+-(NSString *)getLastValuedChars{
+    NSString *valuedStr = [self stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];
+    return [valuedStr substringFromIndex:valuedStr.length - 1];
+}
+/// 去除最后一个字符
+-(NSString *)removeLastChars{
+    return [self substringToIndex:self.length - 1];
+}
 
 @end

@@ -251,12 +251,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         }
         
         {
-            UIViewModel *viewModel = [self configViewModel:@"JobsTimer"];
-//            viewModel.cls =
-            [_dataMutArr addObject:viewModel];
-        }
-        
-        {
             UIViewModel *viewModel = [self configViewModel:@"ShadowTBVCell"];
 //            viewModel.cls =
             [_dataMutArr addObject:viewModel];
@@ -288,7 +282,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         
         {
             UIViewModel *viewModel = [self configViewModel:@"JobsTimer"];
-//            viewModel.cls =
+            viewModel.cls = JobsTimerVC.class;
             [_dataMutArr addObject:viewModel];
         }
         

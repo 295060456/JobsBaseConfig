@@ -174,13 +174,22 @@ static JobsBitsMonitorCore *static_bitsMonitorCore = nil;
         _nsTimerManager.timerStyle = TimerStyle_clockwise;
         _nsTimerManager.timeInterval = 1;
         @jobs_weakify(self)
-        [_nsTimerManager actionNSTimerManagerRunningBlock:^(id data) {
+        [_nsTimerManager actionNSTimerManagerRunningBlock:^(TimerProcessModel *data) {
             @jobs_strongify(self)
-            NSLog(@"你好");
-            [self bitsSpeedMonitor];
-        }];
-        [_nsTimerManager actionNSTimerManagerFinishBlock:^(id data) {
-            NSLog(@"我死球了");
+            switch (data.timerProcessType) {
+                case TimerProcessType_ready:{
+                    
+                }break;
+                case TimerProcessType_running:{
+                    [self bitsSpeedMonitor];
+                }break;
+                case TimerProcessType_end:{
+                    NSLog(@"我死球了");
+                }break;
+                    
+                default:
+                    break;
+            }
         }];
     }return _nsTimerManager;
 }

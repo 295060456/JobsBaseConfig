@@ -12,7 +12,6 @@
 
 @property(nonatomic,strong)NSDate *date;
 @property(nonatomic,copy)MKDataBlock NSTimerManagerRunningBlock;
-@property(nonatomic,copy)MKDataBlock NSTimerManagerFinishBlock;
 @property(nonatomic,assign)NSTimerCurrentStatus timerCurrentStatus;// 定时器当前状态
 
 @end
@@ -31,15 +30,21 @@
         
     }return self;
 }
-
+#pragma mark —— 一些私有化方法
 -(void)actionNSTimerManagerRunningBlock:(MKDataBlock _Nullable)NSTimerManagerRunningBlock{
     self.NSTimerManagerRunningBlock = NSTimerManagerRunningBlock;
 }
 
--(void)actionNSTimerManagerFinishBlock:(MKDataBlock _Nullable)NSTimerManagerFinishBlock{
-    self.NSTimerManagerFinishBlock = NSTimerManagerFinishBlock;
+-(void)callBackRunning{
+    self.timerProcessModel.timerProcessType = TimerProcessType_running;
+    if (self.NSTimerManagerRunningBlock) self.NSTimerManagerRunningBlock(self.timerProcessModel);
 }
-///定时器启动：newTimer + 系统自动添加到RunLoop
+
+-(void)callBackEnd{
+    self.timerProcessModel.timerProcessType = TimerProcessType_end;
+    if (self.NSTimerManagerRunningBlock) self.NSTimerManagerRunningBlock(self.timerProcessModel);
+}
+/// 定时器启动：newTimer + 系统自动添加到RunLoop
 -(NSTimer *)nsTimeStartSysAutoInRunLoop{
     switch (self.timerType) {
         case ScheduledTimerType_0:{
@@ -53,22 +58,16 @@
                     switch (self.timerStyle) {
                         case TimerStyle_clockwise:{//顺时针模式
                             self.anticlockwiseTime += self.timeInterval;
-                            if (self.NSTimerManagerRunningBlock) {
-                                self.NSTimerManagerRunningBlock(self);//在这里可以将self.anticlockwiseTime回调出去，是当前时间
-                            }
+                            [self callBackRunning];
                         }break;
                         case TimerStyle_anticlockwise:{//逆时针模式（倒计时）
                             self.anticlockwiseTime -= self.timeInterval;
                             if (self.anticlockwiseTime >= 1) {
-                                if (self.NSTimerManagerRunningBlock) {
-                                    self.NSTimerManagerRunningBlock(self);//在这里可以将self.anticlockwiseTime回调出去，是当前时间
-                                }
+                                [self callBackRunning];
                             }else{
                                 if (weak_self.nsTimer) {
                                     [weak_self nsTimeDestroy];
-                                    if (self.NSTimerManagerFinishBlock) {
-                                        self.NSTimerManagerFinishBlock(self);
-                                    }
+                                    [self callBackEnd];
                                 }
                             }
                         }break;
@@ -104,7 +103,7 @@
         }break;
     }return self.nsTimer;
 }
-///定时器启动 手动添加定时器到RunLoop
+/// 定时器启动 手动添加定时器到RunLoop
 +(void)nsTimeStart:(NSTimerManager *_Nonnull)timerManager
        withRunLoop:(NSRunLoop *_Nullable)runLoop{
     if (timerManager.nsTimer) {
@@ -118,21 +117,21 @@
          NSAssert(0,@"属性 nsTimer 没有被成功创建,请检查");
     }
 }
-///定时器暂停
+/// 定时器暂停
 +(void)nsTimePause:(NSTimerManager *)timerManager{
     if (timerManager.nsTimer) {
         [timerManager.nsTimer setFireDate:NSDate.distantFuture];
         timerManager.timerCurrentStatus = NSTimerCurrentStatusPause;
     }
 }
-///定时器继续
+/// 定时器继续
 +(void)nsTimecontinue:(NSTimerManager *)timerManager{
     if (timerManager.nsTimer) {
         [timerManager.nsTimer setFireDate:NSDate.distantPast];
         timerManager.timerCurrentStatus = NSTimerCurrentStatusRun;
     }
 }
-///销毁定时器
+/// 销毁定时器
 -(void)nsTimeDestroy{
     if (_nsTimer) {
         [_nsTimer invalidate];//这个是唯一一个可以将计时器从runloop中移出的方法
@@ -141,6 +140,88 @@
     }
 }
 #pragma mark —— lazyLoad
+-(NSTimer *)nsTimer{
+    if (!_nsTimer) {
+        @jobs_weakify(self)
+        _nsTimer = [NSTimer.alloc initWithFireDate:self.date
+                                          interval:self.timeInterval
+                                           repeats:self.repeats
+                                             block:^(NSTimer * _Nonnull timer) {
+            @jobs_strongify(self)
+            switch (self.timerStyle) {
+                case TimerStyle_clockwise:{//顺时针模式
+                    [self callBackRunning];
+                }break;
+                case TimerStyle_anticlockwise:{//逆时针模式（倒计时）
+                    if (self.anticlockwiseTime >= 1) {
+                        [self callBackRunning];
+                        self.anticlockwiseTime -= self.timeInterval;
+                    }else{
+                        [self nsTimeDestroy];
+                        [self callBackEnd];
+                    }
+                }break;
+                    
+                default:
+                    break;
+            }
+        }];
+        self.timerCurrentStatus = NSTimerCurrentStatusRun;
+    }return _nsTimer;
+}
+
+-(TimerProcessModel *)timerProcessModel{
+    if (!_timerProcessModel) {
+        _timerProcessModel = TimerProcessModel.new;
+    }
+    @jobs_weakify(self)
+    _timerProcessModel.data = weak_self;
+    return _timerProcessModel;;
+}
+
+-(NSDate *)date{
+    if (!_date) {
+        _date = [NSObject getDateFromCurrentAfterTimeInterval:self.timeSecIntervalSinceDate];
+    }return _date;
+}
+
+-(NSTimeInterval)timeInterval{
+    if (_timeInterval == 0) {
+        _timeInterval = 1.0f;
+    }return _timeInterval;
+}
+
+-(BOOL)repeats{
+    if (!_repeats) {
+        _repeats = YES;
+    }return _repeats;
+}
+
+-(id)target{
+    @jobs_weakify(self)
+    if (!_target) {
+        _target = weak_self;
+    }return _target;
+}
+
+-(NSInvocation *)invocation{
+    if (!_invocation) {
+        /// TODO
+    }return _invocation;
+}
+
+-(TimerStyle)timerStyle{
+    if (_timerStyle == TimerStyle_anticlockwise) {
+        self.repeats = YES;
+    }return _timerStyle;
+}
+
+@end
+
+@implementation TimerProcessModel
+
+@end
+
 #pragma mark —— 系统Api暴露出来的未被废弃的 NSTimer 的初始化方法有如下几种:
 
 //+(NSTimer *)scheduledTimerWithTimeInterval:(NSTimeInterval)ti
@@ -180,78 +261,3 @@
 //                       interval:(NSTimeInterval)interval
 //                        repeats:(BOOL)repeats
 //                          block:(void (^)(NSTimer *timer))block;
-
--(NSTimer *)nsTimer{
-    if (!_nsTimer) {
-        @jobs_weakify(self)
-        _nsTimer = [[NSTimer alloc] initWithFireDate:self.date
-                                            interval:self.timeInterval
-                                             repeats:self.repeats
-                                               block:^(NSTimer * _Nonnull timer) {
-            @jobs_strongify(self)
-            switch (self.timerStyle) {
-                case TimerStyle_clockwise:{//顺时针模式
-                    if (self.NSTimerManagerRunningBlock) {
-                        self.NSTimerManagerRunningBlock(self);//在这里可以将self.anticlockwiseTime回调出去，是当前时间
-                    }
-                }break;
-                case TimerStyle_anticlockwise:{//逆时针模式（倒计时）
-                    if (self.anticlockwiseTime >= 1) {
-                        if (self.NSTimerManagerRunningBlock) {
-                            self.NSTimerManagerRunningBlock(self);//在这里可以将self.anticlockwiseTime回调出去，是当前时间
-                        }
-                        self.anticlockwiseTime -= self.timeInterval;
-                    }else{
-                        [self nsTimeDestroy];
-                        if (self.NSTimerManagerFinishBlock) {
-                            self.NSTimerManagerFinishBlock(self);
-                        }
-                    }
-                }break;
-                    
-                default:
-                    break;
-            }
-        }];
-        self.timerCurrentStatus = NSTimerCurrentStatusRun;
-    }return _nsTimer;
-}
-
--(NSDate *)date{
-    if (!_date) {
-        _date = [NSObject getDateFromCurrentAfterTimeInterval:self.timeSecIntervalSinceDate];
-    }return _date;
-}
-
--(NSTimeInterval)timeInterval{
-    if (_timeInterval == 0) {
-        _timeInterval = 1.0f;
-    }return _timeInterval;
-}
-
--(BOOL)repeats{
-    if (!_repeats) {
-        _repeats = YES;
-    }return _repeats;
-}
-
--(id)target{
-    @jobs_weakify(self)
-    if (!_target) {
-        _target = weak_self;
-    }return _target;
-}
-
--(NSInvocation *)invocation{
-    if (!_invocation) {
-        //需要补充
-    }return _invocation;
-}
-
--(TimerStyle)timerStyle{
-    if (_timerStyle == TimerStyle_anticlockwise) {
-        self.repeats = YES;
-    }return _timerStyle;
-}
-
-@end

@@ -100,22 +100,22 @@
         _btnTimerConfigModel.showTimeType = ShowTimeType_SS;//时间显示风格
         _btnTimerConfigModel.countDownBtnType = TimerStyle_anticlockwise;// 时间方向
         _btnTimerConfigModel.cequenceForShowTitleRuningStrType = CequenceForShowTitleRuningStrType_tail;//
-        _btnTimerConfigModel.titleRunningDefaultStr = Internationalization(Title12);
-        _btnTimerConfigModel.countDownBtnNewLineType = CountDownBtnNewLineType_newLine;//【换行模式】
+        _btnTimerConfigModel.labelShowingType = UILabelShowingType_05;//【换行模式】
         
         /// 计时器未开始【静态值】
-        _btnTimerConfigModel.layerBorderReadyPlayWidth = 1;
-        _btnTimerConfigModel.layerCornerReadyPlayRadius = JobsWidth(18);
-        _btnTimerConfigModel.bgReadyPlayCor = KYellowColor;
-        _btnTimerConfigModel.layerBorderReadyPlayCor = kClearColor;
-        _btnTimerConfigModel.titleReadyPlayCor = kBlackColor;
-        _btnTimerConfigModel.titleReadyPlayStr = Title9;
-        _btnTimerConfigModel.titleLabelReadyPlayFont = [UIFont systemFontOfSize:JobsWidth(13)
-                                                                         weight:UIFontWeightMedium];
+        _btnTimerConfigModel.readyPlayValue.layerBorderWidth = 1;
+        _btnTimerConfigModel.readyPlayValue.layerCornerRadius = JobsWidth(18);
+        _btnTimerConfigModel.readyPlayValue.bgCor = KYellowColor;
+        _btnTimerConfigModel.readyPlayValue.layerBorderCor = kClearColor;
+        _btnTimerConfigModel.readyPlayValue.titleCor = kBlackColor;
+        _btnTimerConfigModel.readyPlayValue.titleStr = Title9;
+        _btnTimerConfigModel.readyPlayValue.titleLabelFont = [UIFont systemFontOfSize:JobsWidth(13)
+                                                                               weight:UIFontWeightMedium];
         /// 计时器进行中【动态值】
-        _btnTimerConfigModel.bgRunningCor = kCyanColor;
+        _btnTimerConfigModel.runningValue.bgCor = kCyanColor;
+        _btnTimerConfigModel.runningValue.titleStr = Internationalization(Title12);
         /// 计时器结束【静态值】
-        _btnTimerConfigModel.bgEndCor = KYellowColor;
+        _btnTimerConfigModel.endValue.bgCor = KYellowColor;
         
     }return _btnTimerConfigModel;
 }
@@ -123,21 +123,17 @@
 -(UIButton *)countDownBtn{
     if (!_countDownBtn) {
         _countDownBtn = [UIButton.alloc initWithConfig:self.btnTimerConfigModel];
-        @jobs_weakify(self)
-        [_countDownBtn actionBlockTimerRunning:^(id data) {
-            @jobs_strongify(self)
-        }];
         
-        [_countDownBtn actionBlockTimerFinish:^(id data) {
-            @jobs_strongify(self)
-        }];
-
-        [[_countDownBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
+        BtnClickEvent(_countDownBtn, {
             [x startTimer];//选择时机、触发启动
 //            NSLog(@"SSSSS = 获取验证码");
             if (self.viewBlock) self.viewBlock(x);
-        }];
+        })
         
+        [_countDownBtn actionBlockTimerRunning:^(TimerProcessModel *data) {
+            @jobs_strongify(self)
+        }];
+
         [self addSubview:_countDownBtn];
         [_countDownBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(self).offset(-JobsWidth(10));
@@ -145,9 +141,6 @@
             make.bottom.equalTo(self).offset(-JobsWidth(8));
             make.width.mas_equalTo(JobsWidth(80));
         }];
-        
-//        [_countDownBtn appointCornerCutToCircleByRoundingCorners:UIRectCornerTopRight | UIRectCornerBottomRight
-//                                                     cornerRadii:CGSizeMake(_countDownBtn.height / 2, _countDownBtn.height / 2)];
         
     }return _countDownBtn;
 }

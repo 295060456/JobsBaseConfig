@@ -24,6 +24,12 @@ NS_ASSUME_NONNULL_BEGIN
 -(NSString *)urlProtect;
 /// 系统的stringByAppendingString方法在参数为nil的时候会崩溃
 -(NSString *)jobsStringByAppendingString:(NSString *_Nullable)str;
+/// 获取到最后一个字符
+-(NSString *)getLastChars;
+/// 获取到最后一个非空格字符
+-(NSString *)getLastValuedChars;
+/// 去除最后一个字符
+-(NSString *)removeLastChars;
 
 @end
 

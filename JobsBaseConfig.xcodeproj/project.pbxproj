@@ -499,6 +499,7 @@
 		846DF03C27806D230050468A /* 尝试高仿蜜柚.md in Resources */ = {isa = PBXBuildFile; fileRef = 846DF02027806D230050468A /* 尝试高仿蜜柚.md */; };
 		84758D0B279855710074B4BA /* JobsLaunchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84758C96279852500074B4BA /* JobsLaunchVC.m */; };
 		84758D10279922660074B4BA /* JobsLaunchConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 84758D0F279922660074B4BA /* JobsLaunchConfig.m */; };
+		8475919027997B2F0074B4BA /* JobsTimerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8475918F27997B2F0074B4BA /* JobsTimerVC.m */; };
 		84868DA32779DDA50098BE7A /* ZMJCells.m in Sources */ = {isa = PBXBuildFile; fileRef = 84868DA22779DDA50098BE7A /* ZMJCells.m */; };
 		84868E1F2779DFE30098BE7A /* UILabel+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 84868E1E2779DFE30098BE7A /* UILabel+Extra.m */; };
 		84868F19277ADF690098BE7A /* JobsDropDownListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84868F15277ADF690098BE7A /* JobsDropDownListView.m */; };
@@ -1634,6 +1635,8 @@
 		84758D0F279922660074B4BA /* JobsLaunchConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsLaunchConfig.m; sourceTree = "<group>"; };
 		84758D11279922840074B4BA /* JobsLaunchDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsLaunchDef.h; sourceTree = "<group>"; };
 		8475918B279949740074B4BA /* JobsLabelDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsLabelDef.h; sourceTree = "<group>"; };
+		8475918E27997B2F0074B4BA /* JobsTimerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsTimerVC.h; sourceTree = "<group>"; };
+		8475918F27997B2F0074B4BA /* JobsTimerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsTimerVC.m; sourceTree = "<group>"; };
 		847A2E8A278EFEAA003F9A52 /* BaseViewControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewControllerProtocol.h; sourceTree = "<group>"; };
 		847A2E8B278EFEAA003F9A52 /* AppToolsProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppToolsProtocol.h; sourceTree = "<group>"; };
 		847A2E8C278EFEAA003F9A52 /* BaseButtonProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseButtonProtocol.h; sourceTree = "<group>"; };
@@ -2940,9 +2943,9 @@
 			isa = PBXGroup;
 			children = (
 				840F937E27736426004979E9 /* ButtonTimerDefStructure.h */,
-				840F937F27736426004979E9 /* UIButton+Timer.m */,
 				840F938027736426004979E9 /* ButtonTimerModel */,
 				840F938327736426004979E9 /* UIButton+Timer.h */,
+				840F937F27736426004979E9 /* UIButton+Timer.m */,
 			);
 			path = "UIButton+Timer";
 			sourceTree = "<group>";
@@ -3529,8 +3532,8 @@
 		840F942F27736426004979E9 /* NSString+Others */ = {
 			isa = PBXGroup;
 			children = (
-				840F943027736426004979E9 /* NSString+Others.m */,
 				840F943127736426004979E9 /* NSString+Others.h */,
+				840F943027736426004979E9 /* NSString+Others.m */,
 			);
 			path = "NSString+Others";
 			sourceTree = "<group>";
@@ -6381,6 +6384,15 @@
 			path = JobsLaunchConfig;
 			sourceTree = "<group>";
 		};
+		8475918D27997B1C0074B4BA /* JobsTimer */ = {
+			isa = PBXGroup;
+			children = (
+				8475918E27997B2F0074B4BA /* JobsTimerVC.h */,
+				8475918F27997B2F0074B4BA /* JobsTimerVC.m */,
+			);
+			path = JobsTimer;
+			sourceTree = "<group>";
+		};
 		847A2E89278EFEAA003F9A52 /* BaseProtocol <NSObject> */ = {
 			isa = PBXGroup;
 			children = (
@@ -7625,6 +7637,7 @@
 		84CA609D278980E700E46E71 /* 功能模块 */ = {
 			isa = PBXGroup;
 			children = (
+				8475918D27997B1C0074B4BA /* JobsTimer */,
 				84758C93279849AD0074B4BA /* JobsLaunch */,
 				84B9A8CA279680AA0070DD20 /* TestLabel */,
 				84401A5727919E3B0038FF6F /* JobsSearchCore */,
@@ -8601,6 +8614,7 @@
 				840F96BD27736428004979E9 /* UIControl+XY.m in Sources */,
 				840F961627736427004979E9 /* JobsNoticePopupView.m in Sources */,
 				840F966327736428004979E9 /* BaseButton.m in Sources */,
+				8475919027997B2F0074B4BA /* JobsTimerVC.m in Sources */,
 				84401A7D27919E3B0038FF6F /* JobsSearchResultDataListView.m in Sources */,
 				844B08412764CF4800B0513D /* ZWPullMenuModel.m in Sources */,
 				84401A8B27919E3B0038FF6F /* JobsSearchVC.m in Sources */,

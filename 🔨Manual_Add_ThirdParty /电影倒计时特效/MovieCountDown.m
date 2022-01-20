@@ -8,9 +8,6 @@
 
 #import "MovieCountDown.h"
 
-#define JobsSCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
-#define JobsSCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
-
 @interface MovieCountDown ()
 
 @property(nonatomic,strong)UILabel *countDown;
@@ -26,7 +23,7 @@
     if (self = [super init]) {
     }return self;
 }
-
+#pragma mark —— 一些私有方法
 -(void)倒计时放大特效{
     [self makeTimer];
     [self secountDown];
@@ -69,7 +66,6 @@
 -(void)actionMovieCountDownFinishBlock:(MKDataBlock _Nullable)movieCountDownFinishBlock{
     _movieCountDownFinishBlock = movieCountDownFinishBlock;
 }
-
 #pragma mark —— lazyLoad
 -(NSTimerManager *)nsTimerManager{
     if (!_nsTimerManager) {
@@ -82,10 +78,12 @@
                 [self getCuntDown:(NSInteger)timerManager.anticlockwiseTime];
             }
         }];
-        [_nsTimerManager actionNSTimerManagerFinishBlock:^(id data) {
+        @jobs_weakify(self)
+        [_nsTimerManager actionNSTimerManagerRunningBlock:^(TimerProcessModel *data) {
+            @jobs_strongify(self)
             NSLog(@"结束回调");
-            if (self.movieCountDownFinishBlock) {
-                self.movieCountDownFinishBlock(data);
+            if (data.timerProcessType == TimerProcessType_end) {
+                if (self.movieCountDownFinishBlock) self.movieCountDownFinishBlock(data);
             }
         }];
     }return _nsTimerManager;

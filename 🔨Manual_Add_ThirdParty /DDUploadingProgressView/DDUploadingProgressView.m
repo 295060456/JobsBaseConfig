@@ -72,7 +72,7 @@ static DDUploadingProgressView *static_uploadingProgressView = nil;
     [self starAnimation];
 }
 
-- (void)dismiss{
+-(void)dismiss{
     self.hidden = YES;
     self.backView.hidden = YES;
     [self.shapLayer removeAnimationForKey:@"CLAnimation"];
@@ -98,9 +98,6 @@ static DDUploadingProgressView *static_uploadingProgressView = nil;
                 self.refreshLabel.text = [NSString stringWithFormat:@"%@.",self.refreshLabel.text];
             }
         }];
-        [_nsTimerManager actionNSTimerManagerFinishBlock:^(id data) {
-            NSLog(@"我死球了");
-        }];
     }return _nsTimerManager;
 }
 
@@ -124,7 +121,10 @@ static DDUploadingProgressView *static_uploadingProgressView = nil;
 
 -(UIBezierPath *)bezier{
     if (!_bezier) {
-        _bezier = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, self.radius,self.radius)];//画个圆
+        _bezier = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0,
+                                                                    0,
+                                                                    self.radius,
+                                                                    self.radius)];//画个圆
     }return _bezier;
 }
 
