@@ -28,7 +28,7 @@
 //        self.backgroundColor = kRedColor;
         self.titleStr_1 = @"点击";
         self.titleStr_2 = @"发送验证码";
-        [self colourToLayerwithColour:kWhiteColor andBorderWidth:1];
+        [self layerBorderColour:kWhiteColor andBorderWidth:1];
     }return self;
 }
 #pragma mark —— 一些私有方法

@@ -23,7 +23,7 @@
 - (instancetype)init{
     if (self = [super init]) {
 //        self.backgroundColor = kRedColor;
-        [self colourToLayerwithColour:Cor4 andBorderWidth:1];
+        [self layerBorderColour:Cor4 andBorderWidth:1];
     }return self;
 }
 #pragma mark —— 一些私有方法

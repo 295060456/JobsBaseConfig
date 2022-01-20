@@ -98,4 +98,22 @@ static dispatch_once_t static_launchConfigOnceToken;
     }return _textAlignment;
 }
 
+-(UIColor *)layerBorderColour{
+    if (!_layerBorderColour) {
+        _layerBorderColour = UIColor.whiteColor;
+    }return _layerBorderColour;
+}
+
+-(CGFloat)layerBorderWidth{
+    if (!_layerBorderWidth) {
+        _layerBorderWidth = 0.1f;
+    }return _layerBorderWidth;
+}
+
+-(UILabelShowingType)labelShowingType{
+    if (!_labelShowingType) {
+        _labelShowingType = UILabelShowingType_03;
+    }return _labelShowingType;
+}
+
 @end

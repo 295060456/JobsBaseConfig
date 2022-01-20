@@ -22,7 +22,7 @@
 - (instancetype)init{
     if (self = [super init]) {
 //        self.backgroundColor = kRedColor;
-        [self colourToLayerwithColour:kWhiteColor andBorderWidth:1];
+        [self layerBorderColour:kWhiteColor andBorderWidth:1];
     }return self;
 }
 

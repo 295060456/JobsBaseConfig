@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#import "JobsLabelDef.h"
 #import "MacroDef_App.h"
 #import "MacroDef_Cor.h"
 #import "MacroDef_Size.h"
@@ -90,6 +91,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)BOOL __block isMultiLineShows;/// 是否多行行显示【默认单行显示】
 @property(nonatomic,assign)BOOL __block isTranslucent;/// 是否取消tabBar的透明效果
 @property(nonatomic,assign)BOOL __block visible;
+@property(nonatomic,strong,nullable)UIColor __block *layerBorderColour;
+@property(nonatomic,assign)CGFloat layerBorderWidth;
+@property(nonatomic,assign)UILabelShowingType labelShowingType;
 
 @end
 
@@ -157,6 +161,9 @@ NS_ASSUME_NONNULL_END
 @synthesize isMultiLineShows = _isMultiLineShows;\
 @synthesize isTranslucent = _isTranslucent;\
 @synthesize visible = _visible;\
+@synthesize layerBorderColour = _layerBorderColour;\
+@synthesize layerBorderWidth = _layerBorderWidth;\
+@synthesize labelShowingType = _labelShowingType;\
 
 #endif
 
@@ -221,6 +228,9 @@ NS_ASSUME_NONNULL_END
 @dynamic isMultiLineShows;\
 @dynamic isTranslucent;\
 @dynamic visible;\
+@dynamic layerBorderColour;\
+@dynamic layerBorderWidth;\
+@dynamic labelShowingType;\
 
 #endif
 

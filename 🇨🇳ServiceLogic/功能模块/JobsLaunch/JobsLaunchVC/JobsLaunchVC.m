@@ -144,6 +144,8 @@ static dispatch_once_t static_launchVCOnceToken;
         [_skipBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:LaunchConfig.bgSelectedImageURLString]
                                       forState:UIControlStateSelected
                               placeholderImage:LaunchConfig.bgSelectedImage];
+        /// 其他
+        _skipBtn.backgroundColor = UIColor.redColor;//LaunchConfig.bgCor;
         
         BtnClickEvent(_skipBtn, {
             [self backItemClick:x];
@@ -151,14 +153,17 @@ static dispatch_once_t static_launchVCOnceToken;
         
         [self.view addSubview:_skipBtn];
         [_skipBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.size.mas_equalTo(CGSizeMake(JobsWidth(80), JobsWidth(50)));
+            make.size.mas_equalTo(CGSizeMake(JobsWidth(80), JobsWidth(25)));
             make.top.equalTo(self.view).offset(JobsRectOfStatusbar());
-            make.right.equalTo(self.view).offset(-JobsWidth(50));
+            make.right.equalTo(self.view).offset(-JobsWidth(25));
         }];
         [self.view bringSubviewToFront:_skipBtn];
-        [_skipBtn makeBtnLabelByShowingType:UILabelShowingType_03];
+       
+        [_skipBtn makeBtnLabelByShowingType:LaunchConfig.labelShowingType];
         [self.view layoutIfNeeded];
-        [_skipBtn cornerCutToCircleWithCornerRadius:LaunchConfig.cornerRadius];
+        [_skipBtn cornerCutToCircleWithCornerRadius:LaunchConfig.cornerRadius ? : (_skipBtn.height / 2)];
+        [_skipBtn layerBorderColour:LaunchConfig.layerBorderColour
+                     andBorderWidth:LaunchConfig.layerBorderWidth];
     }return _skipBtn;
 }
 

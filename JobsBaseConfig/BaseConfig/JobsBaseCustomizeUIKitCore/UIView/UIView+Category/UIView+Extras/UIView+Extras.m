@@ -69,11 +69,12 @@ static char *UIView_Extras_visible = "UIView_Extras_visible";
 }
 /// 描边
 /// @param colour 颜色
-/// @param WidthOfBorder 边线宽度
--(void)colourToLayerwithColour:(UIColor *__nonnull)colour
-                andBorderWidth:(CGFloat)WidthOfBorder{
+/// @param widthOfBorder 边线宽度
+/// layerBorderColour
+-(void)layerBorderColour:(UIColor *__nonnull)colour
+          andBorderWidth:(CGFloat)widthOfBorder{
     self.layer.borderColor = colour.CGColor;
-    self.layer.borderWidth = WidthOfBorder;
+    self.layer.borderWidth = widthOfBorder;
 }
 /// 指定圆切角
 -(void)appointCornerCutToCircleByRoundingCorners:(UIRectCorner)corners

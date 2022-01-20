@@ -124,7 +124,7 @@
         }];
         
         [_textField cornerCutToCircleWithCornerRadius:2];
-        [_textField colourToLayerwithColour:kBlueColor andBorderWidth:.05f];
+        [_textField layerBorderColour:kBlueColor andBorderWidth:.05f];
         
     }return _textField;
 }
@@ -140,7 +140,7 @@
                                       10,
                                       0,
                                       0);
-        [_cancelBtn colourToLayerwithColour:KGreenColor andBorderWidth:1];
+        [_cancelBtn layerBorderColour:KGreenColor andBorderWidth:1];
         [_cancelBtn cornerCutToCircleWithCornerRadius:8];
         BtnClickEvent(_cancelBtn, if (self.viewBlock) self.viewBlock(self.textField.text);)
     }return _cancelBtn;

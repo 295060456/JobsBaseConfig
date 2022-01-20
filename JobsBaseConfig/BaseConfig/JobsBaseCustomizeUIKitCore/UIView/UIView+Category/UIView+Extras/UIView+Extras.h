@@ -48,8 +48,8 @@ typedef NS_OPTIONS(NSUInteger, UIBorderSideType) {
 /// 描边
 /// @param colour 颜色
 /// @param WidthOfBorder 边线宽度
--(void)colourToLayerwithColour:(UIColor *__nonnull)colour
-                andBorderWidth:(CGFloat)WidthOfBorder;
+-(void)layerBorderColour:(UIColor *__nonnull)colour
+          andBorderWidth:(CGFloat)WidthOfBorder;
 /// 指定圆切角
 -(void)appointCornerCutToCircleByRoundingCorners:(UIRectCorner)corners
                                      cornerRadii:(CGSize)cornerRadii;

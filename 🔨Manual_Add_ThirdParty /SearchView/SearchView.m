@@ -39,7 +39,7 @@ UIScrollViewDelegate
             UIButton *btn = UIButton.new;
 //            btn.backgroundColor = RandomColor;
             [btn cornerCutToCircleWithCornerRadius:7.f];
-            [btn colourToLayerwithColour:KLightGrayColor andBorderWidth:.5f];
+            [btn layerBorderColour:KLightGrayColor andBorderWidth:.5f];
             
             if ([btnTitleMutArr[i] isKindOfClass:[UIImage class]]) {
                 [btn setBackgroundImage:btnTitleMutArr[i]

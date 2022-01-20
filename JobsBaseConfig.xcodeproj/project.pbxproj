@@ -1633,6 +1633,7 @@
 		84758D0E279922660074B4BA /* JobsLaunchConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsLaunchConfig.h; sourceTree = "<group>"; };
 		84758D0F279922660074B4BA /* JobsLaunchConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsLaunchConfig.m; sourceTree = "<group>"; };
 		84758D11279922840074B4BA /* JobsLaunchDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsLaunchDef.h; sourceTree = "<group>"; };
+		8475918B279949740074B4BA /* JobsLabelDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsLabelDef.h; sourceTree = "<group>"; };
 		847A2E8A278EFEAA003F9A52 /* BaseViewControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewControllerProtocol.h; sourceTree = "<group>"; };
 		847A2E8B278EFEAA003F9A52 /* AppToolsProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppToolsProtocol.h; sourceTree = "<group>"; };
 		847A2E8C278EFEAA003F9A52 /* BaseButtonProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseButtonProtocol.h; sourceTree = "<group>"; };
@@ -2772,6 +2773,7 @@
 			isa = PBXGroup;
 			children = (
 				840F935227736426004979E9 /* JobsLabel.h */,
+				8475918B279949740074B4BA /* JobsLabelDef.h */,
 				84B9A95027969C390070DD20 /* BaseLabel */,
 				840F935327736426004979E9 /* UILabel+Category */,
 			);

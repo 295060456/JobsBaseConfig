@@ -21,7 +21,7 @@
 - (instancetype)init{
     if (self = [super init]) {
         self.backgroundColor = kClearColor;
-        [self colourToLayerwithColour:kWhiteColor andBorderWidth:1];
+        [self layerBorderColour:kWhiteColor andBorderWidth:1];
     }return self;
 }
 
