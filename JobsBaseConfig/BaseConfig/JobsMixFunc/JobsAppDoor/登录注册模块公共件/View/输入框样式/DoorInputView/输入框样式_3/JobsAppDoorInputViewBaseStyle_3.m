@@ -22,9 +22,7 @@
 - (instancetype)init{
     if (self = [super init]) {
 //        self.backgroundColor = kRedColor;
-        [UIView colourToLayerOfView:self
-                         withColour:Cor4
-                     andBorderWidth:1];
+        [self colourToLayerwithColour:Cor4 andBorderWidth:1];
     }return self;
 }
 #pragma mark —— 一些私有方法

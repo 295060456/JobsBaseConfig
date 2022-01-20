@@ -26,10 +26,7 @@
 
         // 覆盖在mainImageView上的view（蒙板）
         self.coverView.alpha = 1;
-        
-        [UIView cornerCutToCircleWithView:self
-                          andCornerRadius:8.f];
-        
+        [self cornerCutToCircleWithCornerRadius:8.f];
     }return self;
 }
 

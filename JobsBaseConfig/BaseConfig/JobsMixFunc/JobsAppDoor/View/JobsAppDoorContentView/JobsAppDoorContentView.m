@@ -359,17 +359,9 @@
         [手机号码 changeTextFieldAnimationColor:self.toRegisterBtn.selected];
         [手机验证码 changeTextFieldAnimationColor:self.toRegisterBtn.selected];
         
-        [UIView colourToLayerOfView:用户名
-                         withColour:Cor4//self.toRegisterBtn.selected ? Cor2 : Cor1
-                     andBorderWidth:1];
-        
-        [UIView colourToLayerOfView:密码
-                         withColour:Cor4//self.toRegisterBtn.selected ? Cor2 : Cor1
-                     andBorderWidth:1];
-        
-        [UIView colourToLayerOfView:确认密码
-                         withColour:Cor4
-                     andBorderWidth:1];
+        [用户名 colourToLayerwithColour:Cor4 andBorderWidth:1];
+        [密码 colourToLayerwithColour:Cor4 andBorderWidth:1];
+        [确认密码 colourToLayerwithColour:Cor4 andBorderWidth:1];
     }
 }
 /// 核心方法
@@ -446,8 +438,7 @@
             if (self.viewBlock) self.viewBlock(x);
         });
         [self addSubview:_sendBtn];
-        [UIView cornerCutToCircleWithView:_sendBtn
-                          andCornerRadius:_sendBtn.height / 2];
+        [_sendBtn cornerCutToCircleWithCornerRadius:_sendBtn.height / 2];
     }return _sendBtn;
 }
 /// 记住登录成功的账号和密码

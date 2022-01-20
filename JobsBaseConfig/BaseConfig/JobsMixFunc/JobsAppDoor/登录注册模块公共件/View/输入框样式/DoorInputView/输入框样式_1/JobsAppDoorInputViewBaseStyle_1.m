@@ -28,9 +28,7 @@
 //        self.backgroundColor = kRedColor;
         self.titleStr_1 = @"点击";
         self.titleStr_2 = @"发送验证码";
-        [UIView colourToLayerOfView:self
-                         withColour:kWhiteColor
-                     andBorderWidth:1];
+        [self colourToLayerwithColour:kWhiteColor andBorderWidth:1];
     }return self;
 }
 #pragma mark —— 一些私有方法
@@ -148,10 +146,9 @@
             make.width.mas_equalTo(JobsWidth(80));
         }];
         
-//        [UIView appointCornerCutToCircleWithTargetView:_countDownBtn
-//                                     byRoundingCorners:UIRectCornerTopRight | UIRectCornerBottomRight
-//                                           cornerRadii:CGSizeMake(_countDownBtn.height / 2, _countDownBtn.height / 2)];
-
+//        [_countDownBtn appointCornerCutToCircleByRoundingCorners:UIRectCornerTopRight | UIRectCornerBottomRight
+//                                                     cornerRadii:CGSizeMake(_countDownBtn.height / 2, _countDownBtn.height / 2)];
+        
     }return _countDownBtn;
 }
 

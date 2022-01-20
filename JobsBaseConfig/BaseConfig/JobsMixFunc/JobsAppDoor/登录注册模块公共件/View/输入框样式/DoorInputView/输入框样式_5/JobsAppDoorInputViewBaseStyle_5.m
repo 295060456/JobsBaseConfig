@@ -28,10 +28,9 @@
 -(void)drawRect:(CGRect)rect{
     [super drawRect:rect];
     // 指定描边
-    [UIView setBorderWithView:self
-                  borderColor:RGBA_COLOR(162, 162, 162, 0.2f)
-                  borderWidth:1
-                   borderType:UIBorderSideTypeBottom];
+    [self setBorderWithColor:RGBA_COLOR(162, 162, 162, 0.2f)
+                 borderWidth:1
+                  borderType:UIBorderSideTypeBottom];
 }
 #pragma mark —— 一些私有方法
 -(void)configTextField{
@@ -176,12 +175,10 @@
             make.size.mas_equalTo(CGSizeMake(JobsWidth(78), JobsWidth(25)));
         }];
         
-        [UIView cornerCutToCircleWithView:_authCodeBtn
-                          andCornerRadius:25 / 2];
+        [_authCodeBtn cornerCutToCircleWithCornerRadius:25 / 2];
         
-//        [UIView appointCornerCutToCircleWithTargetView:_countDownBtn
-//                                     byRoundingCorners:UIRectCornerTopRight | UIRectCornerBottomRight
-//                                           cornerRadii:CGSizeMake(_countDownBtn.height / 2, _countDownBtn.height / 2)];
+//        [_countDownBtn appointCornerCutToCircleByRoundingCorners:UIRectCornerTopRight | UIRectCornerBottomRight
+//                                                     cornerRadii:CGSizeMake(_countDownBtn.height / 2, _countDownBtn.height / 2)];
 
     }return _authCodeBtn;
 }

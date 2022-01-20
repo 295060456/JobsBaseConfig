@@ -112,6 +112,9 @@ NS_ASSUME_NONNULL_BEGIN
 //注册和登录共用一个控制器DoorVC；忘记密码单独一个控制器
 @interface JobsAppDoorVC_Style2 : BaseViewController
 
++(void)destroyAppDoorSingleton;
++(instancetype)sharedInstance;
+
 @end
 
 NS_ASSUME_NONNULL_END

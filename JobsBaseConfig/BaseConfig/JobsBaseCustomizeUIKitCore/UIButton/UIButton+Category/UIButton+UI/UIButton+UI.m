@@ -43,9 +43,17 @@
 -(void)normalTitleColor:(UIColor *)titleColor{
     [self setTitleColor:titleColor forState:UIControlStateNormal];
 }
+
+-(void)normalAttributedTitle:(NSAttributedString *)title{
+    [self setAttributedTitle:title forState:UIControlStateNormal];
+}
 // get
 -(nullable NSString *)titleForNormalState{
     return [self titleForState:UIControlStateNormal];
+}
+
+-(nullable NSAttributedString *)attributedTitleForNormalState{
+    return [self attributedTitleForState:UIControlStateNormal];
 }
 
 -(nullable UIColor *)titleColorForNormalState{
@@ -76,9 +84,17 @@
 -(void)selectedTitleColor:(UIColor *)titleColor{
     [self setTitleColor:titleColor forState:UIControlStateSelected];
 }
+
+-(void)selectedAttributedTitle:(NSAttributedString *)title{
+    [self setAttributedTitle:title forState:UIControlStateSelected];
+}
 // get
 -(nullable NSString *)titleForSelectedState{
     return [self titleForState:UIControlStateSelected];
+}
+
+-(nullable NSAttributedString *)attributedTitleForSelectedState{
+    return [self attributedTitleForState:UIControlStateSelected];
 }
 
 -(nullable UIColor *)titleColorForSelectedState{

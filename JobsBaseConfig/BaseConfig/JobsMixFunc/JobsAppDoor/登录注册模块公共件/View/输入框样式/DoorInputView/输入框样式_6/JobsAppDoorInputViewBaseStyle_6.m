@@ -21,21 +21,17 @@
 - (instancetype)init{
     if (self = [super init]) {
         self.backgroundColor = kClearColor;
-        [UIView colourToLayerOfView:self
-                         withColour:kWhiteColor
-                     andBorderWidth:1];
+        [self colourToLayerwithColour:kWhiteColor andBorderWidth:1];
     }return self;
 }
 
 -(void)drawRect:(CGRect)rect{
     [super drawRect:rect];
-    [UIView appointCornerCutToCircleWithTargetView:self.authCodeLab
-                                 byRoundingCorners:UIRectCornerTopRight | UIRectCornerBottomRight
-                                       cornerRadii:CGSizeMake(self.authCodeLab.height / 2, self.authCodeLab.height / 2)];
-    [UIView setBorderWithView:self.authCodeLab
-                  borderColor:kWhiteColor
-                  borderWidth:1
-                   borderType:UIBorderSideTypeLeft];
+    [self.authCodeLab appointCornerCutToCircleByRoundingCorners:UIRectCornerTopRight | UIRectCornerBottomRight
+                                                    cornerRadii:CGSizeMake(self.authCodeLab.height / 2, self.authCodeLab.height / 2)];
+    [self.authCodeLab setBorderWithColor:kWhiteColor
+                             borderWidth:1
+                              borderType:UIBorderSideTypeLeft];
 }
 #pragma mark —— 一些私有方法
 -(void)configTextField{

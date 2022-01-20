@@ -36,34 +36,27 @@ typedef NS_OPTIONS(NSUInteger, UIBorderSideType) {
 
 @interface UIView (Extras)<UIViewModelProtocol>
 /// 指定描边
-/// @param view 作用view
 /// @param color 作用颜色
 /// @param width 线宽
 /// @param borderType 作用方向
-+ (void)setBorderWithView:(UIView *__nonnull)view
-              borderColor:(UIColor *__nonnull)color
+-(void)setBorderWithColor:(UIColor *__nonnull)color
               borderWidth:(CGFloat)width
                borderType:(UIBorderSideType)borderType;
 /// 切角
-/// @param view TargetView
 /// @param cornerRadiusValue 切角参数
-+(void)cornerCutToCircleWithView:(UIView *__nonnull)view
-                 andCornerRadius:(CGFloat)cornerRadiusValue;
+-(void)cornerCutToCircleWithCornerRadius:(CGFloat)cornerRadiusValue;
 /// 描边
-/// @param view TargetView
 /// @param colour 颜色
 /// @param WidthOfBorder 边线宽度
-+(void)colourToLayerOfView:(UIView *__nonnull)view
-                withColour:(UIColor *__nonnull)colour
-            andBorderWidth:(CGFloat)WidthOfBorder;
+-(void)colourToLayerwithColour:(UIColor *__nonnull)colour
+                andBorderWidth:(CGFloat)WidthOfBorder;
 /// 指定圆切角
-+(void)appointCornerCutToCircleWithTargetView:(UIView *__nonnull)targetView
-                            byRoundingCorners:(UIRectCorner)corners
-                                  cornerRadii:(CGSize)cornerRadii;
-/// 旋转
+-(void)appointCornerCutToCircleByRoundingCorners:(UIRectCorner)corners
+                                     cornerRadii:(CGSize)cornerRadii;
+
 -(void)transformByRadians:(CGFloat)radians;
-/// view 转 image
-+(UIImage *__nonnull)getImageFromView:(UIView *__nonnull)view;
+
+-(UIImage *_Nullable)getImage;
 /// iOS 阴影效果 添加了shadowPath后消除了离屏渲染问题 。特别提示：不能存在 -(void)drawRect:(CGRect)rect 或者在-(void)drawRect:(CGRect)rect里面写，否则无效
 /// @param targetShadowview 需要作用阴影效果的View
 /// @param superview 该阴影效果的View的父View

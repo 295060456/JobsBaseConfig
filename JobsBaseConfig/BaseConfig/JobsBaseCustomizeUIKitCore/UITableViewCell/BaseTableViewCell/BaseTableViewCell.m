@@ -22,7 +22,7 @@ UIViewModelProtocol_synthesize
     if (!cell) {
         cell = [BaseTableViewCell.alloc initWithStyle:UITableViewCellStyleValue1
                                       reuseIdentifier:reuseIdentifier(self.class)];
-//        [UIView cornerCutToCircleWithView:cell andCornerRadius:6];
+//        [UIView cornerCutToCircleWithCornerRadius:cell andCornerRadius:6];
     }return cell;
 }
 
@@ -128,9 +128,8 @@ makeFirstAndLastCell:(nonnull UITableViewCell *)cell
     /*
      
      同 ：指定圆切角
-    +(void)appointCornerCutToCircleWithTargetView:(UIView *__nonnull)targetView
-                                byRoundingCorners:(UIRectCorner)corners
-                                      cornerRadii:(CGSize)cornerRadii；
+     -(void)appointCornerCutToCircleByRoundingCorners:(UIRectCorner)corners
+                                          cornerRadii:(CGSize)cornerRadii;
      **/
     
     // 把已经绘制好的贝塞尔曲线路径赋值给图层，然后图层根据path进行图像渲染render

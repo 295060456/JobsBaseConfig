@@ -28,8 +28,7 @@ static char *UIViewController_SuspendBtn_suspendBtn = "UIViewController_SuspendB
                                        JobsWidth(100),
                                        JobsWidth(50),
                                        JobsWidth(50));
-        [UIView cornerCutToCircleWithView:SuspendBtn
-                          andCornerRadius:SuspendBtn.width / 2];
+        [SuspendBtn cornerCutToCircleWithCornerRadius:SuspendBtn.width / 2];
         objc_setAssociatedObject(self,
                                  UIViewController_SuspendBtn_suspendBtn,
                                  SuspendBtn,

@@ -55,7 +55,7 @@ NS_ASSUME_NONNULL_END
          }];
          [self.view layoutIfNeeded];
          _textView.indicateWordLimitLab.alpha = 1;
-         [UIView cornerCutToCircleWithView:_textView andCornerRadius:6];
+         [UIView cornerCutToCircleWithCornerRadius:_textView andCornerRadius:6];
      }return _textView;
  }
  

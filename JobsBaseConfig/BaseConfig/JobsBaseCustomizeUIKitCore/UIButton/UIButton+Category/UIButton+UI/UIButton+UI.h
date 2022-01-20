@@ -35,8 +35,10 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)normalBackgroundImage:(UIImage *)backgroundImage;
 -(void)normalTitle:(NSString *)title;
 -(void)normalTitleColor:(UIColor *)titleColor;
+-(void)normalAttributedTitle:(NSAttributedString *)title;
 // get
 -(nullable NSString *)titleForNormalState;
+-(nullable NSAttributedString *)attributedTitleForNormalState;
 -(nullable UIColor *)titleColorForNormalState;
 -(nullable UIImage *)imageForNormalState;
 -(nullable UIImage *)backgroundImageForNormalState;
@@ -46,8 +48,10 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)selectedBackgroundImage:(UIImage *)backgroundImage;
 -(void)selectedTitle:(NSString *)title;
 -(void)selectedTitleColor:(UIColor *)titleColor;
+-(void)selectedAttributedTitle:(NSAttributedString *)title;
 // get
 -(nullable NSString *)titleForSelectedState;
+-(nullable NSAttributedString *)attributedTitleForSelectedState;
 -(nullable UIColor *)titleColorForSelectedState;
 -(nullable UIImage *)imageForSelectedState;
 -(nullable UIImage *)backgroundImageForSelectedState;

@@ -123,11 +123,9 @@
             if (self.viewBlock) self.viewBlock(x);
         }];
         
-        [UIView cornerCutToCircleWithView:_textField
-                          andCornerRadius:2];
-        [UIView colourToLayerOfView:_textField
-                         withColour:kBlueColor
-                     andBorderWidth:0.05];
+        [_textField cornerCutToCircleWithCornerRadius:2];
+        [_textField colourToLayerwithColour:kBlueColor andBorderWidth:.05f];
+        
     }return _textField;
 }
 
@@ -142,9 +140,8 @@
                                       10,
                                       0,
                                       0);
-//        [UIView colourToLayerOfView:_cancelBtn WithColour:KGreenColor AndBorderWidth:1];
-        [UIView cornerCutToCircleWithView:_cancelBtn
-                          andCornerRadius:8];
+        [_cancelBtn colourToLayerwithColour:KGreenColor andBorderWidth:1];
+        [_cancelBtn cornerCutToCircleWithCornerRadius:8];
         BtnClickEvent(_cancelBtn, if (self.viewBlock) self.viewBlock(self.textField.text);)
     }return _cancelBtn;
 }

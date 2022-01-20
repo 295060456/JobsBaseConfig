@@ -86,8 +86,7 @@
             make.right.equalTo(self).offset(-10);
             make.width.mas_equalTo(50);
         }];
-        [UIView cornerCutToCircleWithView:_sendBtn
-                          andCornerRadius:3];
+        [_sendBtn cornerCutToCircleWithCornerRadius:3];
     }return _sendBtn;
 }
 
@@ -116,11 +115,8 @@
 
         [self layoutIfNeeded];
         
-        [UIView cornerCutToCircleWithView:_inputTextField
-                          andCornerRadius:_inputTextField.mj_h / 2];
-        [UIView colourToLayerOfView:_inputTextField
-                         withColour:kWhiteColor
-                     andBorderWidth:1];
+        [_inputTextField cornerCutToCircleWithCornerRadius:_inputTextField.mj_h / 2];
+        [_inputTextField colourToLayerwithColour:kWhiteColor andBorderWidth:1];
         
         @jobs_weakify(self)
         [[_inputTextField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {

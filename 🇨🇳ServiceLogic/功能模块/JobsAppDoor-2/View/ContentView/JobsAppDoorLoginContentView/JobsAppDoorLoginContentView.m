@@ -166,8 +166,7 @@
             make.bottom.mas_equalTo(self).offset(-JobsWidth(60));
         }];
         [self layoutIfNeeded];
-        [UIView cornerCutToCircleWithView:_sendBtn
-                          andCornerRadius:_sendBtn.height / 2];
+        [_sendBtn cornerCutToCircleWithCornerRadius:_sendBtn.height / 2];
         BtnClickEvent(_sendBtn, [WHToast toastSuccessMsg:Title7];);
     }return _sendBtn;
 }

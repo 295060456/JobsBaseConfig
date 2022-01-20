@@ -19,7 +19,6 @@
     if (!cell) {
         cell = [JobsDropDownListTBVCell.alloc initWithStyle:UITableViewCellStyleValue1
                                             reuseIdentifier:reuseIdentifier(self.class)];
-//        [UIView cornerCutToCircleWithView:cell andCornerRadius:6];
     }return cell;
 }
 

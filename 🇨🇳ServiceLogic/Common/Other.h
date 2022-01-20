@@ -49,5 +49,6 @@
 #import "JobsIMShowVC.h"
 #import "JobsSearchVC.h"
 #import "TestLabelVC.h"
+#import "JobsLaunchVC.h"
 
 #endif /* Other_h */

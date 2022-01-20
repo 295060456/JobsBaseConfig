@@ -17,8 +17,7 @@
 -(instancetype)init{
     if (self = [super init]) {
         self.backgroundColor = self.backgroundColor ? :kBlackColor;
-        [UIView cornerCutToCircleWithView:self
-                          andCornerRadius:8];
+        [self cornerCutToCircleWithCornerRadius:8];
     }return self;
 }
 

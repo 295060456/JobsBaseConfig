@@ -19,9 +19,9 @@
 @property(nonatomic,strong)JobsAppDoorContentView *jobsAppDoorContentView;/// 登录和注册
 @property(nonatomic,strong,nullable)JobsAppDoorForgotCodeContentView *forgotCodeContentView;/// 忘记密码
 @property(nonatomic,strong)UIButton *customerServiceBtn;
-@property(nonatomic,strong)UIImageView *bgImgV;
-@property(nonatomic,strong)ZFPlayerController *player;
-@property(nonatomic,strong)ZFAVPlayerManager *playerManager;
+@property(nonatomic,strong,nullable)UIImageView *bgImgV;
+@property(nonatomic,strong,nullable)ZFPlayerController *player;
+@property(nonatomic,strong,nullable)ZFAVPlayerManager *playerManager;
 @property(nonatomic,strong,nullable)CustomZFPlayerControlView *customPlayerControlView;
 //Data
 @property(nonatomic,assign)BOOL registerDoorInputEditing;
@@ -306,7 +306,7 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
                 }else{}
             }
         }];
-        [UIView cornerCutToCircleWithView:_forgotCodeContentView andCornerRadius:8];
+        [_forgotCodeContentView cornerCutToCircleWithCornerRadius:8];
     }return _forgotCodeContentView;
 }
 
@@ -394,8 +394,7 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
             }else{}
         }];
         [self.view addSubview:_jobsAppDoorContentView];
-        [UIView cornerCutToCircleWithView:_jobsAppDoorContentView
-                          andCornerRadius:8];
+        [_jobsAppDoorContentView cornerCutToCircleWithCornerRadius:8];
         [_jobsAppDoorContentView richElementsInViewWithModel:nil];
     }return _jobsAppDoorContentView;
 }
@@ -416,11 +415,8 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
         _customerServiceBtn.top = self.jobsAppDoorContentView.top + self.jobsAppDoorContentView.height + 20;
         self.customerServiceBtnY = _customerServiceBtn.y;
         BtnClickEvent(_customerServiceBtn, NSLog(@"点击客服按钮"););
-        [UIView cornerCutToCircleWithView:_customerServiceBtn
-                          andCornerRadius:_customerServiceBtn.height / 2];
-        [UIView colourToLayerOfView:_customerServiceBtn
-                         withColour:kWhiteColor
-                     andBorderWidth:2];
+        [_customerServiceBtn cornerCutToCircleWithCornerRadius:_customerServiceBtn.height / 2];
+        [_customerServiceBtn colourToLayerwithColour:kWhiteColor andBorderWidth:2];
     }return _customerServiceBtn;
 }
 

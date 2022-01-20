@@ -38,6 +38,18 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
++(void)destroyAppDoorSingleton{
+    static_jobsAppDoor_Style2OnceToken = 0;
+    appDoorVC_Style2 = nil;
+}
+static JobsAppDoorVC_Style2 *appDoorVC_Style2 = nil;
+static dispatch_once_t static_jobsAppDoor_Style2OnceToken;
++(instancetype)sharedInstance{
+    dispatch_once(&static_jobsAppDoor_Style2OnceToken, ^{
+        appDoorVC_Style2 = JobsAppDoorVC_Style2.new;
+    });return appDoorVC_Style2;
+}
+
 -(void)loadView{
     [super loadView];
     
@@ -221,8 +233,7 @@
                 
             }else{}
         }];
-        [UIView cornerCutToCircleWithView:_loginContentView
-                          andCornerRadius:8];
+        [_loginContentView cornerCutToCircleWithCornerRadius:8];
     }return _loginContentView;
 }
 
@@ -259,7 +270,7 @@
                 }else{}
             }
         }];
-        [UIView cornerCutToCircleWithView:_registerContentView andCornerRadius:8];
+        [_registerContentView cornerCutToCircleWithCornerRadius:8 ];
     }return _registerContentView;
 }
 
@@ -296,7 +307,7 @@
                 }else{}
             }
         }];
-        [UIView cornerCutToCircleWithView:_forgotCodeContentView andCornerRadius:8];
+        [_forgotCodeContentView cornerCutToCircleWithCornerRadius:8];
     }return _forgotCodeContentView;
 }
 
@@ -329,11 +340,8 @@
         }];
         [self.view layoutIfNeeded];
         self.loginCustomerServiceBtnY = _customerServiceBtn.y;
-        [UIView cornerCutToCircleWithView:_customerServiceBtn
-                          andCornerRadius:_customerServiceBtn.height / 2];
-        [UIView colourToLayerOfView:_customerServiceBtn
-                         withColour:kWhiteColor
-                     andBorderWidth:2];
+        [_customerServiceBtn cornerCutToCircleWithCornerRadius:_customerServiceBtn.height / 2];
+        [_customerServiceBtn colourToLayerwithColour:kWhiteColor andBorderWidth:2];
     }return _customerServiceBtn;
 }
 

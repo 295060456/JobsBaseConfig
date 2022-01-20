@@ -14,109 +14,102 @@ static char *UIView_Extras_visible = "UIView_Extras_visible";
 @dynamic visible;
 
 /// 指定描边
-/// @param view 作用view
 /// @param color 作用颜色
 /// @param width 线宽
 /// @param borderType 作用方向
-+ (void)setBorderWithView:(UIView *__nonnull)view
-              borderColor:(UIColor *__nonnull)color
+-(void)setBorderWithColor:(UIColor *__nonnull)color
               borderWidth:(CGFloat)width
                borderType:(UIBorderSideType)borderType{
     /// 左
     if (borderType & UIBorderSideTypeLeft) {
-        CALayer *layer = [CALayer layer];
+        CALayer *layer = CALayer.layer;
         layer.frame = CGRectMake(0,
                                  0,
                                  width,
-                                 view.frame.size.height);
+                                 self.frame.size.height);
         layer.backgroundColor = color.CGColor;
-        [view.layer addSublayer:layer];
+        [self.layer addSublayer:layer];
     }
     /// 右
     if (borderType & UIBorderSideTypeRight){
-        CALayer *layer = [CALayer layer];
-        layer.frame = CGRectMake(view.frame.size.width - width,
+        CALayer *layer = CALayer.layer;
+        layer.frame = CGRectMake(self.frame.size.width - width,
                                  0,
                                  width,
-                                 view.frame.size.height);
+                                 self.frame.size.height);
         layer.backgroundColor = color.CGColor;
-        [view.layer addSublayer:layer];
+        [self.layer addSublayer:layer];
     }
     /// 上
     if (borderType & UIBorderSideTypeTop) {
-        CALayer *layer = [CALayer layer];
+        CALayer *layer = CALayer.layer;
         layer.frame = CGRectMake(0,
                                  0,
-                                 view.frame.size.width,
+                                 self.frame.size.width,
                                  width);
         layer.backgroundColor = color.CGColor;
-        [view.layer addSublayer:layer];
+        [self.layer addSublayer:layer];
     }
     /// 下
     if (borderType & UIBorderSideTypeBottom) {
-        CALayer *layer = [CALayer layer];
+        CALayer *layer = CALayer.layer;
         layer.frame = CGRectMake(0,
-                                 view.frame.size.height - width,
-                                 view.frame.size.width,
+                                 self.frame.size.height - width,
+                                 self.frame.size.width,
                                  width);
         layer.backgroundColor = color.CGColor;
-        [view.layer addSublayer:layer];
+        [self.layer addSublayer:layer];
     }
 }
 /// 切角
-/// @param view TargetView
 /// @param cornerRadiusValue 切角参数
-+(void)cornerCutToCircleWithView:(UIView *__nonnull)view
-                 andCornerRadius:(CGFloat)cornerRadiusValue{
-    view.layer.cornerRadius = cornerRadiusValue;
-    view.layer.masksToBounds = YES;
+-(void)cornerCutToCircleWithCornerRadius:(CGFloat)cornerRadiusValue{
+    self.layer.cornerRadius = cornerRadiusValue;
+    self.layer.masksToBounds = YES;
 }
 /// 描边
-/// @param view TargetView
 /// @param colour 颜色
 /// @param WidthOfBorder 边线宽度
-+(void)colourToLayerOfView:(UIView *__nonnull)view
-                withColour:(UIColor *__nonnull)colour
-            andBorderWidth:(CGFloat)WidthOfBorder{
-    view.layer.borderColor = colour.CGColor;
-    view.layer.borderWidth = WidthOfBorder;
+-(void)colourToLayerwithColour:(UIColor *__nonnull)colour
+                andBorderWidth:(CGFloat)WidthOfBorder{
+    self.layer.borderColor = colour.CGColor;
+    self.layer.borderWidth = WidthOfBorder;
 }
 /// 指定圆切角
-+(void)appointCornerCutToCircleWithTargetView:(UIView *__nonnull)targetView
-                            byRoundingCorners:(UIRectCorner)corners
-                                  cornerRadii:(CGSize)cornerRadii{
-    //设置切哪个直角
+-(void)appointCornerCutToCircleByRoundingCorners:(UIRectCorner)corners
+                                     cornerRadii:(CGSize)cornerRadii{
+    // 设置切哪个直角
     //    UIRectCornerTopLeft     = 1 << 0,  左上角
     //    UIRectCornerTopRight    = 1 << 1,  右上角
     //    UIRectCornerBottomLeft  = 1 << 2,  左下角
     //    UIRectCornerBottomRight = 1 << 3,  右下角
     //    UIRectCornerAllCorners  = ~0UL     全部角
     if (CGSizeEqualToSize(cornerRadii, CGSizeZero)) {
-        cornerRadii = CGSizeMake(10,10);
+        cornerRadii = CGSizeMake(self.width / 2,self.height / 2);
     }
-    //得到view的遮罩路径
-    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:targetView.bounds
+    /// 得到view的遮罩路径
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds
                                                    byRoundingCorners:corners
                                                          cornerRadii:cornerRadii];
-    //创建 layer
-    CAShapeLayer *maskLayer = [CAShapeLayer new];
-    maskLayer.frame = targetView.bounds;
-    //赋值
+    /// 创建 layer
+    CAShapeLayer *maskLayer = CAShapeLayer.new;
+    maskLayer.frame = self.bounds;
+    /// 赋值
     maskLayer.path = maskPath.CGPath;
-    targetView.layer.mask = maskLayer;
+    self.layer.mask = maskLayer;
 }
 
 -(void)transformByRadians:(CGFloat)radians{
     self.transform = CGAffineTransformMakeRotation(M_PI * radians);
-    //    使用:例如逆时针旋转40度
-    //    [setTransform:40/180 forLable:label]
+    // 使用:例如逆时针旋转40度
+    // [setTransform:40/180 forLable:label]
 }
 
-+(UIImage *)getImageFromView:(UIView *)view{
-    UIGraphicsBeginImageContextWithOptions(view.bounds.size,
+-(UIImage *_Nullable)getImage{
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size,
                                            NO,
                                            UIScreen.mainScreen.scale);
-    [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;

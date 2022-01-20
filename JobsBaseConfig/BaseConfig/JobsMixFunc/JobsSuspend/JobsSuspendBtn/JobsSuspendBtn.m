@@ -20,8 +20,7 @@
         [self addTarget:self
                  action:@selector(addEvent:)
        forControlEvents:UIControlEventTouchUpInside];
-        [UIView cornerCutToCircleWithView:self
-                          andCornerRadius:8];
+        [self cornerCutToCircleWithCornerRadius:8];
     }return self;
 }
 

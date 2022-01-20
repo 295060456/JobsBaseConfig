@@ -310,7 +310,7 @@ willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {
 
 -(void)setupRowActionView:(UIView *)rowActionView{
     // 切割圆角
-    [UIView cornerCutToCircleWithView:rowActionView AndCornerRadius:20];
+    [rowActionView cornerCutToCircleWithCornerRadius:20];
     // 改变父 View 的frame，这句话是因为我在 contentView 里加了另一个 View，为了使划出的按钮能与其达到同一高度
     CGRect frame = rowActionView.frame;
     frame.origin.y += 7;
@@ -445,8 +445,7 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
         _shareBtn.mj_h = JobsWidth(23);
         [_shareBtn normalImage:KBuddleIMG(@"⚽️PicResource", @"Others", nil, @"分享")];
         [_shareBtn normalTitleColor:UIColor.whiteColor];
-        [UIView cornerCutToCircleWithView:_shareBtn
-                          andCornerRadius:23 / 2];
+        [_shareBtn cornerCutToCircleWithCornerRadius:23 / 2];
         BtnClickEvent(_shareBtn, {
             [WHToast toastMsg:@"正在研发中...敬请期待"];
         });

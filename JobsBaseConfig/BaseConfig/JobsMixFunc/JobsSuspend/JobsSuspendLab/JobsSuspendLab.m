@@ -21,8 +21,7 @@
                                        replaceStr:Internationalization(@"No Data")];
         self.internationalizationKEY = @"No Data";
         self.textAlignment = NSTextAlignmentCenter;
-        [UIView cornerCutToCircleWithView:self
-                          andCornerRadius:8];
+        [self cornerCutToCircleWithCornerRadius:8];
     }return self;
 }
 

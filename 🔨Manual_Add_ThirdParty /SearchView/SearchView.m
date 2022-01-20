@@ -38,11 +38,8 @@ UIScrollViewDelegate
         for (int i = 0; i < btnTitleMutArr.count; i++) {
             UIButton *btn = UIButton.new;
 //            btn.backgroundColor = RandomColor;
-            [UIView cornerCutToCircleWithView:btn
-                              andCornerRadius:7.f];
-            [UIView colourToLayerOfView:btn
-                             withColour:KLightGrayColor
-                         andBorderWidth:.5f];
+            [btn cornerCutToCircleWithCornerRadius:7.f];
+            [btn colourToLayerwithColour:KLightGrayColor andBorderWidth:.5f];
             
             if ([btnTitleMutArr[i] isKindOfClass:[UIImage class]]) {
                 [btn setBackgroundImage:btnTitleMutArr[i]

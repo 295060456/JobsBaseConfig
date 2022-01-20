@@ -54,7 +54,6 @@ NS_ASSUME_NONNULL_END
              make.top.equalTo(self.titleLab3.mas_bottom).offset(JobsWidth(4));
              make.left.equalTo(self.titleLab1);
          }];
-         [UIView cornerCutToCircleWithView:_btn1 andCornerRadius:JobsWidth(3)];
      }return _btn1;
  }
  

@@ -497,6 +497,8 @@
 		846DF03A27806D230050468A /* JobsAppDoorForgotCodeContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846DF01B27806D230050468A /* JobsAppDoorForgotCodeContentView.m */; };
 		846DF03B27806D230050468A /* JobsAppDoorContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 846DF01F27806D230050468A /* JobsAppDoorContentView.m */; };
 		846DF03C27806D230050468A /* 尝试高仿蜜柚.md in Resources */ = {isa = PBXBuildFile; fileRef = 846DF02027806D230050468A /* 尝试高仿蜜柚.md */; };
+		84758D0B279855710074B4BA /* JobsLaunchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84758C96279852500074B4BA /* JobsLaunchVC.m */; };
+		84758D10279922660074B4BA /* JobsLaunchConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 84758D0F279922660074B4BA /* JobsLaunchConfig.m */; };
 		84868DA32779DDA50098BE7A /* ZMJCells.m in Sources */ = {isa = PBXBuildFile; fileRef = 84868DA22779DDA50098BE7A /* ZMJCells.m */; };
 		84868E1F2779DFE30098BE7A /* UILabel+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 84868E1E2779DFE30098BE7A /* UILabel+Extra.m */; };
 		84868F19277ADF690098BE7A /* JobsDropDownListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84868F15277ADF690098BE7A /* JobsDropDownListView.m */; };
@@ -1625,6 +1627,12 @@
 		846DF01E27806D230050468A /* JobsAppDoorContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorContentView.h; sourceTree = "<group>"; };
 		846DF01F27806D230050468A /* JobsAppDoorContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorContentView.m; sourceTree = "<group>"; };
 		846DF02027806D230050468A /* 尝试高仿蜜柚.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "尝试高仿蜜柚.md"; sourceTree = "<group>"; };
+		84758C94279849CB0074B4BA /* JobsLaunch.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = JobsLaunch.md; sourceTree = "<group>"; };
+		84758C95279852500074B4BA /* JobsLaunchVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsLaunchVC.h; sourceTree = "<group>"; };
+		84758C96279852500074B4BA /* JobsLaunchVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsLaunchVC.m; sourceTree = "<group>"; };
+		84758D0E279922660074B4BA /* JobsLaunchConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsLaunchConfig.h; sourceTree = "<group>"; };
+		84758D0F279922660074B4BA /* JobsLaunchConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsLaunchConfig.m; sourceTree = "<group>"; };
+		84758D11279922840074B4BA /* JobsLaunchDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsLaunchDef.h; sourceTree = "<group>"; };
 		847A2E8A278EFEAA003F9A52 /* BaseViewControllerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewControllerProtocol.h; sourceTree = "<group>"; };
 		847A2E8B278EFEAA003F9A52 /* AppToolsProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppToolsProtocol.h; sourceTree = "<group>"; };
 		847A2E8C278EFEAA003F9A52 /* BaseButtonProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseButtonProtocol.h; sourceTree = "<group>"; };
@@ -5682,29 +5690,29 @@
 		844B08202764CF4800B0513D /* XHLaunchAd */ = {
 			isa = PBXGroup;
 			children = (
-				844B08212764CF4800B0513D /* XHLaunchAdController.h */,
 				844B08222764CF4800B0513D /* XHLaunchAd.h */,
-				844B08232764CF4800B0513D /* XHLaunchAdDownloader.h */,
-				844B08242764CF4800B0513D /* XHLaunchAdView.m */,
-				844B08252764CF4800B0513D /* XHLaunchAdCache.h */,
-				844B08262764CF4800B0513D /* XHLaunchAdConfiguration.h */,
-				844B08272764CF4800B0513D /* XHLaunchAdButton.m */,
-				844B08282764CF4800B0513D /* XHLaunchAdImageView+XHLaunchAdCache.h */,
-				844B08292764CF4800B0513D /* XHLaunchImageView.m */,
-				844B082A2764CF4800B0513D /* XHLaunchAdConst.m */,
-				844B082B2764CF4800B0513D /* XHLaunchAdImageManager.h */,
-				844B082C2764CF4800B0513D /* XHLaunchAd不用pod导入的情况说明.md */,
 				844B082D2764CF4800B0513D /* XHLaunchAd.m */,
-				844B082E2764CF4800B0513D /* XHLaunchAdController.m */,
-				844B082F2764CF4800B0513D /* XHLaunchAdDownloader.m */,
-				844B08302764CF4800B0513D /* XHLaunchImageView.h */,
-				844B08312764CF4800B0513D /* XHLaunchAdImageView+XHLaunchAdCache.m */,
-				844B08322764CF4800B0513D /* XHLaunchAdConfiguration.m */,
+				844B082C2764CF4800B0513D /* XHLaunchAd不用pod导入的情况说明.md */,
 				844B08332764CF4800B0513D /* XHLaunchAdButton.h */,
+				844B08272764CF4800B0513D /* XHLaunchAdButton.m */,
+				844B08252764CF4800B0513D /* XHLaunchAdCache.h */,
 				844B08342764CF4800B0513D /* XHLaunchAdCache.m */,
-				844B08352764CF4800B0513D /* XHLaunchAdView.h */,
-				844B08362764CF4800B0513D /* XHLaunchAdImageManager.m */,
+				844B08262764CF4800B0513D /* XHLaunchAdConfiguration.h */,
+				844B08322764CF4800B0513D /* XHLaunchAdConfiguration.m */,
 				844B08372764CF4800B0513D /* XHLaunchAdConst.h */,
+				844B082A2764CF4800B0513D /* XHLaunchAdConst.m */,
+				844B08212764CF4800B0513D /* XHLaunchAdController.h */,
+				844B082E2764CF4800B0513D /* XHLaunchAdController.m */,
+				844B08232764CF4800B0513D /* XHLaunchAdDownloader.h */,
+				844B082F2764CF4800B0513D /* XHLaunchAdDownloader.m */,
+				844B082B2764CF4800B0513D /* XHLaunchAdImageManager.h */,
+				844B08362764CF4800B0513D /* XHLaunchAdImageManager.m */,
+				844B08282764CF4800B0513D /* XHLaunchAdImageView+XHLaunchAdCache.h */,
+				844B08312764CF4800B0513D /* XHLaunchAdImageView+XHLaunchAdCache.m */,
+				844B08352764CF4800B0513D /* XHLaunchAdView.h */,
+				844B08242764CF4800B0513D /* XHLaunchAdView.m */,
+				844B08302764CF4800B0513D /* XHLaunchImageView.h */,
+				844B08292764CF4800B0513D /* XHLaunchImageView.m */,
 			);
 			path = XHLaunchAd;
 			sourceTree = "<group>";
@@ -5963,8 +5971,8 @@
 		8459CC292775D3E900125782 /* AppDelegate+Func */ = {
 			isa = PBXGroup;
 			children = (
-				8459CC2A2775D3E900125782 /* AppDelegate+Func.m */,
 				8459CC2B2775D3E900125782 /* AppDelegate+Func.h */,
+				8459CC2A2775D3E900125782 /* AppDelegate+Func.m */,
 			);
 			path = "AppDelegate+Func";
 			sourceTree = "<group>";
@@ -5972,8 +5980,8 @@
 		8459CC2C2775D3E900125782 /* AppDelegate+UIApplicationDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				8459CC2D2775D3E900125782 /* AppDelegate+UIApplicationDelegate.m */,
 				8459CC2E2775D3E900125782 /* AppDelegate+UIApplicationDelegate.h */,
+				8459CC2D2775D3E900125782 /* AppDelegate+UIApplicationDelegate.m */,
 			);
 			path = "AppDelegate+UIApplicationDelegate";
 			sourceTree = "<group>";
@@ -6340,6 +6348,35 @@
 				846DF01F27806D230050468A /* JobsAppDoorContentView.m */,
 			);
 			path = JobsAppDoorContentView;
+			sourceTree = "<group>";
+		};
+		84758C93279849AD0074B4BA /* JobsLaunch */ = {
+			isa = PBXGroup;
+			children = (
+				84758C94279849CB0074B4BA /* JobsLaunch.md */,
+				84758D12279922B40074B4BA /* JobsLaunchConfig */,
+				84758D11279922840074B4BA /* JobsLaunchDef.h */,
+				84758D092798545A0074B4BA /* JobsLaunchVC */,
+			);
+			path = JobsLaunch;
+			sourceTree = "<group>";
+		};
+		84758D092798545A0074B4BA /* JobsLaunchVC */ = {
+			isa = PBXGroup;
+			children = (
+				84758C95279852500074B4BA /* JobsLaunchVC.h */,
+				84758C96279852500074B4BA /* JobsLaunchVC.m */,
+			);
+			path = JobsLaunchVC;
+			sourceTree = "<group>";
+		};
+		84758D12279922B40074B4BA /* JobsLaunchConfig */ = {
+			isa = PBXGroup;
+			children = (
+				84758D0E279922660074B4BA /* JobsLaunchConfig.h */,
+				84758D0F279922660074B4BA /* JobsLaunchConfig.m */,
+			);
+			path = JobsLaunchConfig;
 			sourceTree = "<group>";
 		};
 		847A2E89278EFEAA003F9A52 /* BaseProtocol <NSObject> */ = {
@@ -7586,6 +7623,7 @@
 		84CA609D278980E700E46E71 /* 功能模块 */ = {
 			isa = PBXGroup;
 			children = (
+				84758C93279849AD0074B4BA /* JobsLaunch */,
 				84B9A8CA279680AA0070DD20 /* TestLabel */,
 				84401A5727919E3B0038FF6F /* JobsSearchCore */,
 				84A4921027904ADA0002A837 /* JobsIM */,
@@ -8853,6 +8891,7 @@
 				840F968B27736428004979E9 /* UICollectionViewCell+ShakeAnimation.m in Sources */,
 				840F96A127736428004979E9 /* UIViewController+JPImageresizerView.m in Sources */,
 				84CA5FAA27897AFB00E46E71 /* HWTextCodeView.m in Sources */,
+				84758D10279922660074B4BA /* JobsLaunchConfig.m in Sources */,
 				84401A8227919E3B0038FF6F /* JobsSearchTBVCell.m in Sources */,
 				84B9A94F27969C330070DD20 /* BaseLabel.m in Sources */,
 				840F96AD27736428004979E9 /* LOTAnimationMJRefreshHeader.m in Sources */,
@@ -8890,6 +8929,7 @@
 				84CA5FCC27897AFB00E46E71 /* UIImage+TBCityIconFont.m in Sources */,
 				840F967427736428004979E9 /* UIView+EmptyData.m in Sources */,
 				840F96CE27736428004979E9 /* NSCache+Extra.m in Sources */,
+				84758D0B279855710074B4BA /* JobsLaunchVC.m in Sources */,
 				840F963427736427004979E9 /* JobsUpDownLab.m in Sources */,
 				84869679277C68470098BE7A /* NSString+Check.m in Sources */,
 				840F96A027736428004979E9 /* UIViewController+BWShareView.m in Sources */,

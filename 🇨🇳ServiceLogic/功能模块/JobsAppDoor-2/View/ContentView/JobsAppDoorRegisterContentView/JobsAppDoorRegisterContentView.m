@@ -157,7 +157,7 @@
         _sendBtn.x = self.backToLoginBtn.width + JobsWidth(20);
         _sendBtn.size = CGSizeMake(self.width - self.backToLoginBtn.width - JobsWidth(40), ThingsHeight);
         _sendBtn.bottom = JobsAppDoorContentViewRegisterHeight - JobsWidth(20);
-        [UIView cornerCutToCircleWithView:_sendBtn andCornerRadius:_sendBtn.height / 2];
+        [_sendBtn cornerCutToCircleWithCornerRadius:_sendBtn.height / 2];
         [self addSubview:_sendBtn];
     }return _sendBtn;
 }

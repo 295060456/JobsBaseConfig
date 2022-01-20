@@ -22,17 +22,14 @@
 - (instancetype)init{
     if (self = [super init]) {
 //        self.backgroundColor = kRedColor;
-        [UIView colourToLayerOfView:self
-                         withColour:kWhiteColor
-                     andBorderWidth:1];
+        [self colourToLayerwithColour:kWhiteColor andBorderWidth:1];
     }return self;
 }
 
 -(void)drawRect:(CGRect)rect{
     [super drawRect:rect];
-    [UIView appointCornerCutToCircleWithTargetView:self.imageCodeView
-                                 byRoundingCorners:UIRectCornerTopRight | UIRectCornerBottomRight
-                                       cornerRadii:CGSizeMake(self.imageCodeView.height / 2, self.imageCodeView.height / 2)];
+    [self.imageCodeView appointCornerCutToCircleByRoundingCorners:UIRectCornerTopRight | UIRectCornerBottomRight
+                                                      cornerRadii:CGSizeMake(self.imageCodeView.height / 2, self.imageCodeView.height / 2)];
 }
 #pragma mark —— 一些私有方法
 -(void)configTextField{

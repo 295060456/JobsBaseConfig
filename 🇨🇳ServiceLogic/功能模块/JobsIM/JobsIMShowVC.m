@@ -107,8 +107,7 @@
         _shareBtn.mj_h = 23;
         [_shareBtn normalImage:KBuddleIMG(@"⚽️PicResource", @"Others", nil, @"PLUS")];
         [_shareBtn normalTitleColor:UIColor.whiteColor];
-        [UIView cornerCutToCircleWithView:_shareBtn
-                          andCornerRadius:23 / 2];
+        [_shareBtn cornerCutToCircleWithCornerRadius:23 / 2];
         BtnClickEvent(_shareBtn, {
             [WHToast toastMsg:@"此功能尚在开发中..."];
         });

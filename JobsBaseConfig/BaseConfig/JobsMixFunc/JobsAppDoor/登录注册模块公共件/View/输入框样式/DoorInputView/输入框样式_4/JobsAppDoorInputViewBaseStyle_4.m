@@ -22,9 +22,7 @@
 - (instancetype)init{
     if (self = [super init]) {
 //        self.backgroundColor = kRedColor;
-        [UIView colourToLayerOfView:self
-                         withColour:kWhiteColor
-                     andBorderWidth:1];
+        [self colourToLayerwithColour:kWhiteColor andBorderWidth:1];
     }return self;
 }
 #pragma mark —— 一些私有方法
@@ -98,8 +96,7 @@
             make.width.mas_equalTo(80);
         }];
         [self layoutIfNeeded];
-        [UIView cornerCutToCircleWithView:_imageCodeView
-                          andCornerRadius:20];
+        [_imageCodeView cornerCutToCircleWithCornerRadius:20];
     }return _imageCodeView;
 }
 

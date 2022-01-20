@@ -304,6 +304,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             [_dataMutArr addObject:viewModel];
         }
         
+        {
+            UIViewModel *viewModel = [self configViewModel:@"JobsLaunchVC"];
+            viewModel.cls = JobsLaunchVC.class;
+            viewModel.requestParams = @(JobsLaunchBgType_video);
+            [_dataMutArr addObject:viewModel];
+        }
     }return _dataMutArr;
 }
 

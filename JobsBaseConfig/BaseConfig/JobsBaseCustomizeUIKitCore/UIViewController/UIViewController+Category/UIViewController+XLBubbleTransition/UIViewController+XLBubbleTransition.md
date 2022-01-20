@@ -18,7 +18,7 @@ self.xl_popTranstion = [XLBubbleTransition transitionWithAnchorRect:self.postBtn
                                     JobsSCREEN_HEIGHT - 84 - 34 - TabBarHeight() - BottomSafeAreaHeight(),
                                     34,
                                     34);
-        [UIView cornerCutToCircleWithView:_postBtn
+        [UIView cornerCutToCircleWithCornerRadius:_postBtn
                           andCornerRadius:_postBtn.height / 2];
         [[_postBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof JobsSuspendBtn * _Nullable x) {
             @jobs_strongify(self)
