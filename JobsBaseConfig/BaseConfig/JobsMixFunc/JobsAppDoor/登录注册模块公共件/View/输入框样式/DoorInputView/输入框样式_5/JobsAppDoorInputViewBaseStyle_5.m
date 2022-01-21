@@ -139,10 +139,10 @@
         _btnTimerConfigModel.readyPlayValue.layerBorderWidth = 1;
         _btnTimerConfigModel.readyPlayValue.layerCornerRadius = 18;
         _btnTimerConfigModel.readyPlayValue.bgCor = KYellowColor;
-        _btnTimerConfigModel.readyPlayValue.layerBorderCor = kClearColor;
-        _btnTimerConfigModel.readyPlayValue.titleCor = kBlackColor;
-        _btnTimerConfigModel.readyPlayValue.titleStr = Title9;
-        _btnTimerConfigModel.readyPlayValue.titleLabelFont = [UIFont systemFontOfSize:JobsWidth(13)
+        _btnTimerConfigModel.readyPlayValue.layerBorderColour = kClearColor;
+        _btnTimerConfigModel.readyPlayValue.textCor = kBlackColor;
+        _btnTimerConfigModel.readyPlayValue.text = Title9;
+        _btnTimerConfigModel.readyPlayValue.font = [UIFont systemFontOfSize:JobsWidth(13)
                                                                                weight:UIFontWeightMedium];
         /// 计时器进行中【动态值】
         _btnTimerConfigModel.runningValue.bgCor = kCyanColor;

@@ -174,11 +174,11 @@ static dispatch_once_t static_launchVCOnceToken;
         _btnTimerConfigModel.readyPlayValue.layerBorderWidth = LaunchConfig.layerBorderWidth;
         _btnTimerConfigModel.readyPlayValue.layerCornerRadius = JobsWidth(25 / 2);
         _btnTimerConfigModel.readyPlayValue.bgCor = LaunchConfig.bgCor;
-        _btnTimerConfigModel.readyPlayValue.layerBorderCor = LaunchConfig.layerBorderColour;
-        _btnTimerConfigModel.readyPlayValue.titleCor = LaunchConfig.textCor;
-        _btnTimerConfigModel.readyPlayValue.titleStr = LaunchConfig.text;
-        _btnTimerConfigModel.readyPlayValue.titleLabelFont = LaunchConfig.font;
-        _btnTimerConfigModel.readyPlayValue.titleAttributedStr = LaunchConfig.attributedText;
+        _btnTimerConfigModel.readyPlayValue.layerBorderColour = LaunchConfig.layerBorderColour;
+        _btnTimerConfigModel.readyPlayValue.textCor = LaunchConfig.textCor;
+        _btnTimerConfigModel.readyPlayValue.text = LaunchConfig.text;
+        _btnTimerConfigModel.readyPlayValue.font = LaunchConfig.font;
+        _btnTimerConfigModel.readyPlayValue.attributedText = LaunchConfig.attributedText;
         
 
 
@@ -191,14 +191,14 @@ static dispatch_once_t static_launchVCOnceToken;
         
         /// 计时器进行中【动态值】
         _btnTimerConfigModel.runningValue.bgCor = UIColor.cyanColor;
-        _btnTimerConfigModel.runningValue.titleStr = Internationalization(Title12);
-        _btnTimerConfigModel.runningValue.layerBorderCor = UIColor.redColor;
-        _btnTimerConfigModel.runningValue.titleCor = UIColor.blackColor;
+        _btnTimerConfigModel.runningValue.text = Internationalization(Title12);
+        _btnTimerConfigModel.runningValue.layerBorderColour = UIColor.redColor;
+        _btnTimerConfigModel.runningValue.textCor = UIColor.blackColor;
         /// 计时器结束【静态值】
         _btnTimerConfigModel.endValue.bgCor = UIColor.yellowColor;;
-        _btnTimerConfigModel.endValue.titleStr = Internationalization(@"哈哈哈哈");
-        _btnTimerConfigModel.endValue.layerBorderCor = UIColor.purpleColor;
-        _btnTimerConfigModel.endValue.titleCor = UIColor.blackColor;
+        _btnTimerConfigModel.endValue.text = Internationalization(@"哈哈哈哈");
+        _btnTimerConfigModel.endValue.layerBorderColour = UIColor.purpleColor;
+        _btnTimerConfigModel.endValue.textCor = UIColor.blackColor;
         
     }return _btnTimerConfigModel;
 }

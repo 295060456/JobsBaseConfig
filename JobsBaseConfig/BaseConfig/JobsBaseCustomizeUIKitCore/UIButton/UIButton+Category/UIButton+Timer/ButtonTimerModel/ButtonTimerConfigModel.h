@@ -6,6 +6,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UIPictureAndBackGroundCorProtocol.h"
+#import "UITextModelProtocol.h"
+#import "UIViewModelOthersProtocol.h"
+
 #import "JobsBlock.h"
 #import "JobsTimerManager.h"//时间管理
 #import "NSObject+RichText.h"//富文本
@@ -41,19 +45,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 记录过程值
 @interface ButtonTimerProcessValueModel : NSObject
-/// UI
-@property(nonatomic,strong)UIColor *layerBorderCor;
-@property(nonatomic,strong)UIColor *titleCor;
-@property(nonatomic,strong)UIFont *titleLabelFont;
-@property(nonatomic,strong)UIColor *bgCor;
-@property(nonatomic,assign)CGFloat layerCornerRadius;
-@property(nonatomic,assign)CGFloat layerBorderWidth;
-/// Data
-@property(nonatomic,strong)NSString *titleStr;//与titleReadyPlayAttributedStr互斥
-@property(nonatomic,strong)NSAttributedString *titleAttributedStr;//富文本，与titleReadyPlayStr互斥
-@property(nonatomic,strong)NSMutableArray <RichTextConfig *>*titleAttributedDataMutArr;/// 对于富文本优先级：titleAttributedDataMutArr > titleAttributedStr
+<
+UIPictureAndBackGroundCorProtocol
+,UITextModelProtocol
+,UIViewModelOthersProtocol
+>
+
 @property(nonatomic,assign)TimerProcessType timerProcessType;
-@property(nonatomic,assign)UILabelShowingType labelShowingType;
 
 @end
 

@@ -33,9 +33,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)BOOL __block isMultiLineShows;/// 是否多行行显示【默认单行显示】
 @property(nonatomic,assign)BOOL __block isTranslucent;/// 是否取消tabBar的透明效果
 @property(nonatomic,assign)BOOL __block visible;
+@property(nonatomic,assign)UILabelShowingType labelShowingType;
+// Layer
 @property(nonatomic,strong,nullable)UIColor __block *layerBorderColour;
 @property(nonatomic,assign)CGFloat layerBorderWidth;
-@property(nonatomic,assign)UILabelShowingType labelShowingType;
+@property(nonatomic,assign)CGFloat layerCornerRadius;
+
 
 @end
 
@@ -56,9 +59,10 @@ NS_ASSUME_NONNULL_END
 @synthesize isMultiLineShows = _isMultiLineShows;\
 @synthesize isTranslucent = _isTranslucent;\
 @synthesize visible = _visible;\
+@synthesize labelShowingType = _labelShowingType;\
 @synthesize layerBorderColour = _layerBorderColour;\
 @synthesize layerBorderWidth = _layerBorderWidth;\
-@synthesize labelShowingType = _labelShowingType;\
+@synthesize layerCornerRadius = _layerCornerRadius;\
 
 #endif
 
@@ -77,9 +81,10 @@ NS_ASSUME_NONNULL_END
 @dynamic isMultiLineShows;\
 @dynamic isTranslucent;\
 @dynamic visible;\
+@dynamic labelShowingType;\
 @dynamic layerBorderColour;\
 @dynamic layerBorderWidth;\
-@dynamic labelShowingType;\
+@dynamic layerCornerRadius;\
 
 #endif
 

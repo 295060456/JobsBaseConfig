@@ -20,7 +20,7 @@ typedef enum : NSInteger {
     TimerProcessType_ready = 0,
     TimerProcessType_running,
     TimerProcessType_end
-} TimerProcessType;// 强制更新
+} TimerProcessType;
 
 //此类虽然为工具类，但是不允许用单例，因为timer需要被释放
 

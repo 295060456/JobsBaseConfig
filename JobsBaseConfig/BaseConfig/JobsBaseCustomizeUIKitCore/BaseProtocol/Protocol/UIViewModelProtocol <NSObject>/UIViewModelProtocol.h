@@ -104,9 +104,10 @@ NS_ASSUME_NONNULL_END
 @synthesize isMultiLineShows = _isMultiLineShows;\
 @synthesize isTranslucent = _isTranslucent;\
 @synthesize visible = _visible;\
+@synthesize labelShowingType = _labelShowingType;\
 @synthesize layerBorderColour = _layerBorderColour;\
 @synthesize layerBorderWidth = _layerBorderWidth;\
-@synthesize labelShowingType = _labelShowingType;\
+@synthesize layerCornerRadius = _layerCornerRadius;\
 
 #endif
 
@@ -171,9 +172,10 @@ NS_ASSUME_NONNULL_END
 @dynamic isMultiLineShows;\
 @dynamic isTranslucent;\
 @dynamic visible;\
+@dynamic labelShowingType;\
 @dynamic layerBorderColour;\
 @dynamic layerBorderWidth;\
-@dynamic labelShowingType;\
+@dynamic layerCornerRadius;\
 
 #endif
 

@@ -34,7 +34,7 @@ static char *UIButton_CountDownBtn_timerRunningBlock = "UIButton_CountDownBtn_ti
 #pragma mark —— UI配置
 /// 计时器未开始
 -(void)setLayerConfigReadyPlay{
-    self.layer.borderColor = self.btnTimerConfig.readyPlayValue.layerBorderCor.CGColor;
+    self.layer.borderColor = self.btnTimerConfig.readyPlayValue.layerBorderColour.CGColor;
     self.layer.cornerRadius = self.btnTimerConfig.readyPlayValue.layerCornerRadius;
     self.layer.borderWidth = self.btnTimerConfig.readyPlayValue.layerBorderWidth;
     self.backgroundColor = self.btnTimerConfig.readyPlayValue.bgCor;
@@ -42,26 +42,26 @@ static char *UIButton_CountDownBtn_timerRunningBlock = "UIButton_CountDownBtn_ti
 
 -(void)setTitleLabelConfigReadyPlay{
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
-    [self titleFont:self.btnTimerConfig.readyPlayValue.titleLabelFont];
-    [self normalTitleColor:self.btnTimerConfig.readyPlayValue.titleCor];
+    [self titleFont:self.btnTimerConfig.readyPlayValue.font];
+    [self normalTitleColor:self.btnTimerConfig.readyPlayValue.textCor];
     [self makeBtnLabelByShowingType:self.btnTimerConfig.labelShowingType];
 }
 /// 计时器进行中设置Layer层
 -(void)setLayerConfigRunning{
-    self.layer.borderColor = self.btnTimerConfig.runningValue.layerBorderCor.CGColor;
+    self.layer.borderColor = self.btnTimerConfig.runningValue.layerBorderColour.CGColor;
     self.layer.cornerRadius = self.btnTimerConfig.runningValue.layerCornerRadius;
     self.layer.borderWidth = self.btnTimerConfig.runningValue.layerBorderWidth;
 }
 /// 计时器进行中设置TitleLabel
 -(void)setTitleLabelConfigRunning{
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
-    [self titleFont:self.btnTimerConfig.runningValue.titleLabelFont];
-    [self normalTitleColor:self.btnTimerConfig.runningValue.titleCor];
+    [self titleFont:self.btnTimerConfig.runningValue.font];
+    [self normalTitleColor:self.btnTimerConfig.runningValue.textCor];
     [self makeBtnLabelByShowingType:self.btnTimerConfig.labelShowingType];
 }
 /// 计时器结束
 -(void)setLayerConfigEnd{
-    self.layer.borderColor = self.btnTimerConfig.endValue.layerBorderCor.CGColor;
+    self.layer.borderColor = self.btnTimerConfig.endValue.layerBorderColour.CGColor;
     self.layer.cornerRadius = self.btnTimerConfig.endValue.layerCornerRadius;
     self.layer.borderWidth = self.btnTimerConfig.endValue.layerBorderWidth;
 }
@@ -69,40 +69,40 @@ static char *UIButton_CountDownBtn_timerRunningBlock = "UIButton_CountDownBtn_ti
 -(void)setTitleLabelConfigEnd{
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.titleLabel.numberOfLines = 1;//不加这一句会有UI异常
-    [self titleFont:self.btnTimerConfig.endValue.titleLabelFont];
-    [self normalTitleColor:self.btnTimerConfig.endValue.titleCor];
+    [self titleFont:self.btnTimerConfig.endValue.font];
+    [self normalTitleColor:self.btnTimerConfig.endValue.textCor];
     [self makeBtnLabelByShowingType:self.btnTimerConfig.labelShowingType];
 }
 #pragma mark —— 设置普通标题或者富文本标题
 /// 计时器未开始
 -(void)setTitleReadyPlay{
     if (self.btnTimerConfig.readyPlayValue.titleAttributedDataMutArr.count ||
-        self.btnTimerConfig.readyPlayValue.titleAttributedStr) {
+        self.btnTimerConfig.readyPlayValue.attributedText) {
         //富文本
-        [self normalAttributedTitle:self.btnTimerConfig.readyPlayValue.titleAttributedStr];
+        [self normalAttributedTitle:self.btnTimerConfig.readyPlayValue.attributedText];
     }else{
-        [self normalTitle:self.btnTimerConfig.readyPlayValue.titleStr];
+        [self normalTitle:self.btnTimerConfig.readyPlayValue.text];
     }
 }
 /// 计时器进行中
 -(void)setTitleRunning{
     if (self.btnTimerConfig.runningValue.titleAttributedDataMutArr.count ||
-        self.btnTimerConfig.runningValue.titleAttributedStr) {
+        self.btnTimerConfig.runningValue.attributedText) {
         //富文本
-        [self normalAttributedTitle:self.btnTimerConfig.runningValue.titleAttributedStr];
+        [self normalAttributedTitle:self.btnTimerConfig.runningValue.attributedText];
     }else{
-        [self normalTitle:self.btnTimerConfig.runningValue.titleStr];
+        [self normalTitle:self.btnTimerConfig.runningValue.text];
     }
-    NSLog(@"☕️☕️☕️☕️ = %@",self.btnTimerConfig.runningValue.titleStr);
+    NSLog(@"☕️☕️☕️☕️ = %@",self.btnTimerConfig.runningValue.text);
 }
 /// 计时器结束
 -(void)setTitleEnd{
     if (self.btnTimerConfig.endValue.titleAttributedDataMutArr.count ||
-        self.btnTimerConfig.endValue.titleAttributedStr) {
+        self.btnTimerConfig.endValue.attributedText) {
         //富文本
-        [self normalAttributedTitle:self.btnTimerConfig.endValue.titleAttributedStr];
+        [self normalAttributedTitle:self.btnTimerConfig.endValue.attributedText];
     }else{
-        [self normalTitle:self.btnTimerConfig.endValue.titleStr];
+        [self normalTitle:self.btnTimerConfig.endValue.text];
     }
 }
 #pragma mark —— 时间方法
@@ -132,8 +132,8 @@ static char *UIButton_CountDownBtn_timerRunningBlock = "UIButton_CountDownBtn_ti
 
     // 清除上一次拼装的数据
     if (self.btnTimerConfig.formatTimeStr.length > 0 &&
-        [self.btnTimerConfig.runningValue.titleStr containsString:self.btnTimerConfig.formatTimeStr]) {
-        self.btnTimerConfig.runningValue.titleStr = [self.btnTimerConfig.runningValue.titleStr stringByReplacingOccurrencesOfString:self.btnTimerConfig.formatTimeStr withString:@""];
+        [self.btnTimerConfig.runningValue.text containsString:self.btnTimerConfig.formatTimeStr]) {
+        self.btnTimerConfig.runningValue.text = [self.btnTimerConfig.runningValue.text stringByReplacingOccurrencesOfString:self.btnTimerConfig.formatTimeStr withString:@""];
     }
     //显示数据的二次封装
     {
@@ -155,19 +155,19 @@ static char *UIButton_CountDownBtn_timerRunningBlock = "UIButton_CountDownBtn_ti
         //字符串拼接
         switch (self.btnTimerConfig.cequenceForShowTitleRuningStrType) {
             case CequenceForShowTitleRuningStrType_front:{//首在前
-                self.btnTimerConfig.runningValue.titleStr = [self.btnTimerConfig.runningValue.titleStr stringByAppendingString:self.btnTimerConfig.formatTimeStr];
+                self.btnTimerConfig.runningValue.text = [self.btnTimerConfig.runningValue.text stringByAppendingString:self.btnTimerConfig.formatTimeStr];
             }break;
             case CequenceForShowTitleRuningStrType_tail:{//首在后
-                self.btnTimerConfig.runningValue.titleStr = [self.btnTimerConfig.formatTimeStr stringByAppendingString:self.btnTimerConfig.runningValue.titleStr];
+                self.btnTimerConfig.runningValue.text = [self.btnTimerConfig.formatTimeStr stringByAppendingString:self.btnTimerConfig.runningValue.text];
             }break;
             default:
-                self.btnTimerConfig.runningValue.titleStr = Internationalization(@"异常值");
+                self.btnTimerConfig.runningValue.text = Internationalization(@"异常值");
                 break;
         }
     }
     // 富文本：锚定 titleRunningStr 和 formatTimeStr
     if(self.btnTimerConfig.runningValue.titleAttributedDataMutArr.count ||
-       self.btnTimerConfig.runningValue.titleAttributedStr){
+       self.btnTimerConfig.runningValue.attributedText){
         //富文本 每一次时间触发方法都刷新数据并赋值
         NSMutableArray *tempDataMutArr = NSMutableArray.array;
         
@@ -183,7 +183,7 @@ static char *UIButton_CountDownBtn_timerRunningBlock = "UIButton_CountDownBtn_ti
             default:
                 break;
         }
-        self.btnTimerConfig.runningValue.titleAttributedStr = [self richTextWithDataConfigMutArr:tempDataMutArr];
+        self.btnTimerConfig.runningValue.attributedText = [self richTextWithDataConfigMutArr:tempDataMutArr];
     }
     
     [self setTitleRunning];// 核心方法
@@ -193,7 +193,7 @@ static char *UIButton_CountDownBtn_timerRunningBlock = "UIButton_CountDownBtn_ti
 
 -(void)timerDestroy{
     self.enabled = YES;
-    NSLog(@"self.btnTimerConfig.titleEndStr = %@",self.btnTimerConfig.endValue.titleStr);
+    NSLog(@"self.btnTimerConfig.titleEndStr = %@",self.btnTimerConfig.endValue.text);
     [self setTitleEnd];
     [self setTitleLabelConfigEnd];
     [self setLayerConfigEnd];

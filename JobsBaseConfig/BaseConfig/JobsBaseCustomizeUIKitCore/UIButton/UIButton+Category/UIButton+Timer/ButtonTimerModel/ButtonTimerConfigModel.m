@@ -8,6 +8,8 @@
 #import "ButtonTimerConfigModel.h"
 
 @implementation ButtonTimerProcessValueModel
+UIPictureAndBackGroundCorProtocol_synthesize
+UITextModelProtocol_synthesize
 
 @end
 
@@ -66,9 +68,9 @@
     if (!_readyPlayValue) {
         _readyPlayValue = ButtonTimerProcessValueModel.new;
         
-        _readyPlayValue.layerBorderCor = UIColor.whiteColor;
-        _readyPlayValue.titleCor = UIColor.whiteColor;
-        _readyPlayValue.titleLabelFont = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular];
+        _readyPlayValue.layerBorderColour = UIColor.whiteColor;
+        _readyPlayValue.textCor = UIColor.whiteColor;
+        _readyPlayValue.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular];
         _readyPlayValue.bgCor = UIColor.lightGrayColor;
         _readyPlayValue.layerCornerRadius = JobsWidth(8);
         _readyPlayValue.layerBorderWidth = 0.5f;
@@ -76,11 +78,11 @@
         
         _readyPlayValue.labelShowingType = UILabelShowingType_01;
         /// 普通文本
-        _readyPlayValue.titleStr = Internationalization(@"准备开始");
+        _readyPlayValue.text = Internationalization(@"准备开始");
         /// 富文本相关
         // _readyPlayValue.titleAttributedDataMutArr =
         if (_readyPlayValue.titleAttributedDataMutArr.count) {
-            _readyPlayValue.titleAttributedStr = [self richTextWithDataConfigMutArr:_readyPlayValue.titleAttributedDataMutArr];
+            _readyPlayValue.attributedText = [self richTextWithDataConfigMutArr:_readyPlayValue.titleAttributedDataMutArr];
         }else{
             //_readyPlayValue.titleAttributedStr =
         }
@@ -92,19 +94,19 @@
     if (!_runningValue) {
         _runningValue = ButtonTimerProcessValueModel.new;
         
-        _runningValue.layerBorderCor = UIColor.redColor;
-        _runningValue.titleCor = UIColor.greenColor;
-        _runningValue.titleLabelFont = [UIFont systemFontOfSize:JobsWidth(15) weight:UIFontWeightRegular];
+        _runningValue.layerBorderColour = UIColor.redColor;
+        _runningValue.textCor = UIColor.greenColor;
+        _runningValue.font = [UIFont systemFontOfSize:JobsWidth(15) weight:UIFontWeightRegular];
         _runningValue.bgCor = UIColor.cyanColor;
         _runningValue.layerCornerRadius = JobsWidth(12);
         _runningValue.layerBorderWidth = 1;
         _runningValue.labelShowingType = UILabelShowingType_01;
         /// 普通文本
-        _runningValue.titleStr = Internationalization(@"    重新开始    ");
+        _runningValue.text = Internationalization(@"    重新开始    ");
         /// 富文本相关
         // _runningValue.titleAttributedDataMutArr =
         if (_runningValue.titleAttributedDataMutArr.count) {
-            _runningValue.titleAttributedStr = [self richTextWithDataConfigMutArr:_runningValue.titleAttributedDataMutArr];
+            _runningValue.attributedText = [self richTextWithDataConfigMutArr:_runningValue.titleAttributedDataMutArr];
         }else{
             //_runningValue.titleAttributedStr =
         }
@@ -115,20 +117,20 @@
     if (!_endValue) {
         _endValue = ButtonTimerProcessValueModel.new;
         
-        _endValue.layerBorderCor = self.readyPlayValue.layerBorderCor;
-        _endValue.titleCor = self.readyPlayValue.titleCor;
-        _endValue.titleLabelFont = self.readyPlayValue.titleLabelFont;
+        _endValue.layerBorderColour = self.readyPlayValue.layerBorderColour;
+        _endValue.textCor = self.readyPlayValue.textCor;
+        _endValue.font = self.readyPlayValue.font;
         _endValue.bgCor = self.readyPlayValue.bgCor;
         _endValue.layerCornerRadius = self.readyPlayValue.layerCornerRadius;
         _endValue.layerBorderWidth = self.readyPlayValue.layerBorderWidth;
         
         _endValue.labelShowingType = UILabelShowingType_01;
         /// 普通文本
-        _endValue.titleStr = Internationalization(@"    重新开始    ");
+        _endValue.text = Internationalization(@"    重新开始    ");
         /// 富文本相关
         // _endValue.titleAttributedDataMutArr =
         if (_endValue.titleAttributedDataMutArr.count) {
-            _endValue.titleAttributedStr = [self richTextWithDataConfigMutArr:_endValue.titleAttributedDataMutArr];
+            _endValue.attributedText = [self richTextWithDataConfigMutArr:_endValue.titleAttributedDataMutArr];
         }else{
             //_endValue.titleAttributedStr =
         }
