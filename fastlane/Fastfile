@@ -1,5 +1,5 @@
-desc 'LXFUpdatePodTool 航道用来自动化升级维护私有库'
-lane :LXFUpdatePodTool do |options|
+desc 'JobsBaseConfig 航道用来自动化升级维护私有库'
+lane :JobsBaseConfig do |options|
 
 tagNum = options[:tag]
 podspecName = options[:specName]
