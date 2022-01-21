@@ -179,16 +179,6 @@ static dispatch_once_t static_launchVCOnceToken;
         _btnTimerConfigModel.readyPlayValue.text = LaunchConfig.text;
         _btnTimerConfigModel.readyPlayValue.font = LaunchConfig.font;
         _btnTimerConfigModel.readyPlayValue.attributedText = LaunchConfig.attributedText;
-        
-
-
-//        @property(nonatomic,strong)UIFont *titleLabelFont;
-//        @property(nonatomic,strong)UIColor *bgCor;
-//        @property(nonatomic,assign)CGFloat layerCornerRadius;
-//        @property(nonatomic,assign)CGFloat layerBorderWidth;
-//        /// Data
-
-        
         /// 计时器进行中【动态值】
         _btnTimerConfigModel.runningValue.bgCor = UIColor.cyanColor;
         _btnTimerConfigModel.runningValue.text = Internationalization(Title12);
@@ -202,6 +192,5 @@ static dispatch_once_t static_launchVCOnceToken;
         
     }return _btnTimerConfigModel;
 }
-
 
 @end

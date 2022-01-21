@@ -44,3 +44,81 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
+/** 示例代码
+ 
+ -(UIButton *)skipBtn{
+     if (!_skipBtn) {
+         _skipBtn = [UIButton.alloc initWithConfig:self.btnTimerConfigModel];
+
+         BtnClickEvent(_skipBtn, {
+             [x timerDestroy];
+             [self backItemClick:x];
+         });
+         
+         [_skipBtn actionBlockTimerRunning:^(TimerProcessModel *data) {
+             @jobs_strongify(self)
+             NSLog(@"❤️❤️❤️❤️❤️%f",data.data.anticlockwiseTime);
+         }];
+         
+         [self.view addSubview:_skipBtn];
+         [_skipBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+             make.size.mas_equalTo(CGSizeMake(JobsWidth(80), JobsWidth(25)));
+             make.top.equalTo(self.view).offset(JobsRectOfStatusbar());
+             make.right.equalTo(self.view).offset(-JobsWidth(25));
+         }];
+         [self.view bringSubviewToFront:_skipBtn];
+     }return _skipBtn;
+ }
+
+ -(ButtonTimerConfigModel *)btnTimerConfigModel{
+     if (!_btnTimerConfigModel) {
+         _btnTimerConfigModel = ButtonTimerConfigModel.new;
+         
+         /// 未选中状态
+         [_skipBtn sd_setImageWithURL:[NSURL URLWithString:LaunchConfig.imageURLString]
+                             forState:UIControlStateNormal
+                     placeholderImage:LaunchConfig.image];
+         [_skipBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:LaunchConfig.bgImageURLString]
+                                       forState:UIControlStateNormal
+                               placeholderImage:LaunchConfig.bgImage];
+         /// 选中状态
+         [_skipBtn sd_setImageWithURL:[NSURL URLWithString:LaunchConfig.selectedImageURLString]
+                             forState:UIControlStateSelected
+                     placeholderImage:LaunchConfig.selectedImage];
+         [_skipBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:LaunchConfig.bgSelectedImageURLString]
+                                       forState:UIControlStateSelected
+                               placeholderImage:LaunchConfig.bgSelectedImage];
+         /// 一些通用的设置
+         _btnTimerConfigModel.count = 5;
+         _btnTimerConfigModel.showTimeType = ShowTimeType_SS;//时间显示风格
+         _btnTimerConfigModel.countDownBtnType = TimerStyle_anticlockwise;// 时间方向
+         _btnTimerConfigModel.cequenceForShowTitleRuningStrType = CequenceForShowTitleRuningStrType_tail;//
+         _btnTimerConfigModel.labelShowingType = LaunchConfig.labelShowingType;//【换行模式】
+         
+         /// 计时器未开始【静态值】
+         _btnTimerConfigModel.readyPlayValue.layerBorderWidth = LaunchConfig.layerBorderWidth;
+         _btnTimerConfigModel.readyPlayValue.layerCornerRadius = JobsWidth(25 / 2);
+         _btnTimerConfigModel.readyPlayValue.bgCor = LaunchConfig.bgCor;
+         _btnTimerConfigModel.readyPlayValue.layerBorderColour = LaunchConfig.layerBorderColour;
+         _btnTimerConfigModel.readyPlayValue.textCor = LaunchConfig.textCor;
+         _btnTimerConfigModel.readyPlayValue.text = LaunchConfig.text;
+         _btnTimerConfigModel.readyPlayValue.font = LaunchConfig.font;
+         _btnTimerConfigModel.readyPlayValue.attributedText = LaunchConfig.attributedText;
+         /// 计时器进行中【动态值】
+         _btnTimerConfigModel.runningValue.bgCor = UIColor.cyanColor;
+         _btnTimerConfigModel.runningValue.text = Internationalization(Title12);
+         _btnTimerConfigModel.runningValue.layerBorderColour = UIColor.redColor;
+         _btnTimerConfigModel.runningValue.textCor = UIColor.blackColor;
+         /// 计时器结束【静态值】
+         _btnTimerConfigModel.endValue.bgCor = UIColor.yellowColor;;
+         _btnTimerConfigModel.endValue.text = Internationalization(@"哈哈哈哈");
+         _btnTimerConfigModel.endValue.layerBorderColour = UIColor.purpleColor;
+         _btnTimerConfigModel.endValue.textCor = UIColor.blackColor;
+         
+     }return _btnTimerConfigModel;
+ }
+
+ 
+ 
+ */
