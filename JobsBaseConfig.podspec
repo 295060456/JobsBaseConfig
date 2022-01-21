@@ -1,137 +1,96 @@
-#
-#  Be sure to run `pod spec lint JobsBaseConfig.podspec' to ensure this is a
-#  valid spec and to remove all comments including this before submitting the spec.
-#
-#  To learn more about Podspec attributes see https://guides.cocoapods.org/syntax/podspec.html
-#  To see working Podspecs in the CocoaPods repo see https://github.com/CocoaPods/Specs/
-#
-
 Pod::Spec.new do |spec|
-
-  # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  These will help people to find your library, and whilst it
-  #  can feel like a chore to fill in it's definitely to your advantage. The
-  #  summary should be tweet-length, and the description more in depth.
-  #
-
+  # 框架名字：框架名字一定要写对，pod search "框架名"就是搜的这个
   spec.name         = "JobsBaseConfig"
   spec.version      = "0.0.1"
-  spec.summary      = ""
-
-  # This description is used to generate tags and improve search results.
-  #   * Think: What does it do? Why did you write it? What is the focus?
-  #   * Try to keep it short, snappy and to the point.
-  #   * Write the description between the DESC delimiters below.
-  #   * Finally, don't worry about the indent, CocoaPods strips it!
+  spec.summary      = "基础的配置"
   spec.description  = <<-DESC
+          所有的项目根据这个根来进行统一配置和调用
+          做到全局的一致和统一 
+          千万要保证这个工程的编译通过，以后项目直接进行引用
                    DESC
-
   spec.homepage     = "https://github.com/295060456/JobsBaseConfig"
-  # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
+  
+  # 框架遵守的开源协议
+  spec.license      = {:type => 'MIT', :file => 'LICENSE'}
+  # 作者信息
+  spec.author             = {"Jobs" => "lg295060456@gmail.com"}
+  spec.social_media_url   = "https://github.com/295060456"
 
+  spec.ios.deployment_target = "10.0"
+  # 框架支持的最低平台版本
+  spec.platform     = :ios, '7.0'
+  # 框架是否需要支持ARC
+  spec.requires_arc = true
+  # 框架公开的头文件
+  spec.public_header_files = 'yoowei/**/*.h'   
 
-  # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Licensing your code is important. See https://choosealicense.com for more info.
-  #  CocoaPods will detect a license file if there is a named LICENSE*
-  #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
-  #
+  # 框架的资源路径：路径可以指向远端代码库，也可以指向本地项目，例如：
+  ## 1、指向Git远端代码库：spec.source = {:git => "git@git.oschina.net:yoowei/yoowei.git", :tag => "1.0.0"}
+  ## 2、指向本地项目：spec.source = {:path => 'yoowei',}
+  ## 3、本地文件 spec.source = {:git => '~/Desktop/ChartboostSDK'}    
+  ## 4、zip：spec.source = {:http=> 'http://xxx.zip', :tag => "1.0.0"}
+  ## 5、svn：spec.source = {:svn=> 'http://path', :tag => "1.0.0"}
 
-  spec.license      = "MIT (example)"
-  # spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
-
-
-  # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Specify the authors of the library, with email addresses. Email addresses
-  #  of the authors are extracted from the SCM log. E.g. $ git log. CocoaPods also
-  #  accepts just a name if you'd rather not provide an email address.
-  #
-  #  Specify a social_media_url where others can refer to, for example a twitter
-  #  profile URL.
-  #
-
-  spec.author             = { "Jobs" => "email@address.com" }
-  # Or just: spec.author    = "Jobs"
-  # spec.authors            = { "Jobs" => "email@address.com" }
-  # spec.social_media_url   = "https://twitter.com/Jobs"
-
-  # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  If this Pod runs only on iOS or OS X, then specify the platform and
-  #  the deployment target. You can optionally include the target after the platform.
-  #
-
-  # spec.platform     = :ios
-  # spec.platform     = :ios, "5.0"
-
-  #  When using multiple platforms
-  # spec.ios.deployment_target = "5.0"
-  # spec.osx.deployment_target = "10.7"
-  # spec.watchos.deployment_target = "2.0"
-  # spec.tvos.deployment_target = "9.0"
-
-
-  # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Specify the location from where the source should be retrieved.
-  #  Supports git, hg, bzr, svn and HTTP.
-  #
-
-  spec.source       = { :git => "https://github.com/295060456/JobsBaseConfig.git", :commit => "a3320f5dde48bd21512f3b4410b0c9f5c6f119e2" }
-
-
-  # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  CocoaPods is smart about how it includes source code. For source files
-  #  giving a folder will include any swift, h, m, mm, c & cpp files.
-  #  For header files it will include any header in the folder.
-  #  Not including the public_header_files will make all headers public.
-  #
-
+  # spec.source       = {:git => "https://github.com/295060456/JobsBaseConfig.git",:tag => "#{spec.version}",:commit => "a3320f5dde48bd21512f3b4410b0c9f5c6f119e2"}
+  spec.source = {:path => 'JobsBaseConfig',:tag => "#{spec.version}"}
   spec.source_files  = "Classes", "Classes/**/*.{h,m}"
   spec.exclude_files = "Classes/Exclude"
 
-  # spec.public_header_files = "Classes/**/*.h"
+  spec.user_target_xcconfig = {'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'}
+  # 框架依赖的framework
+  spec.frameworks   = 'UIKit','Foundation'
+  # 框架依赖的其他第三方库
+  spec.dependency 'SDWebImage' # "~> 1.4"
+  spec.dependency 'XYColorOC'
+  spec.dependency 'IQKeyboardManager'
+  spec.dependency 'Masonry'
+  spec.dependency 'AFNetworking'
+  spec.dependency 'Reachability'
+  spec.dependency 'ReactiveObjC'
+  spec.dependency 'MJRefresh'
+  spec.dependency 'MJExtension'
+  spec.dependency 'YQImageTool'
+  spec.dependency 'OpenUDID'
+  spec.dependency 'TABAnimated'
+  spec.dependency 'GKNavigationBar'
+  spec.dependency 'GKPhotoBrowser'
+  spec.dependency 'JXCategoryView'
+  spec.dependency 'JXPagingView/Pager'
+  spec.dependency 'SPAlertController'
+  spec.dependency 'TFPopup'
+  spec.dependency 'ZMJGanttChart'
+  spec.dependency 'LMJDropdownMenu'
+  spec.dependency 'WMZBanner'
+  spec.dependency 'MGSwipeTableCell'
+  spec.dependency 'Shimmer'
+  spec.dependency 'RQShineLabel'
+  spec.dependency 'SZTextView'
+  spec.dependency 'BRPickerView'
+  spec.dependency 'LYEmptyView'
+  spec.dependency 'FLAnimatedImageView+RGWrapper'
+  spec.dependency 'PPBadgeView'
+  spec.dependency 'WHToast'
+  spec.dependency 'BEMCheckBox'
+  spec.dependency 'YYImage'
+  spec.dependency 'pop'
+  spec.dependency 'ZFPlayer'
+  spec.dependency 'ZFPlayer/ControlView'
+  spec.dependency 'ZFPlayer/AVPlayer'
+  spec.dependency 'ZFPlayer/ijkplayer'
+  spec.dependency 'NTESVerifyCode'
+  spec.dependency 'TXFileOperation'
+  spec.dependency 'HXPhotoPicker'
+  spec.dependency 'BMLongPressDragCellCollectionView'
+  spec.dependency 'JPImageresizerView'
+  spec.dependency 'lottie-ios' "~> 2.5.3"# 这是OC终极版本
+  spec.dependency 'AYCheckVersion'
+  # spec.dependency 'WCDB'
+  # spec.dependency 'FMDB'
 
-
-  # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  A list of resources included with the Pod. These are copied into the
-  #  target bundle with a build phase script. Anything else will be cleaned.
-  #  You can preserve files from being cleaned, please don't preserve
-  #  non-essential files like tests, examples and documentation.
-  #
-
-  # spec.resource  = "icon.png"
-  # spec.resources = "Resources/*.png"
-
-  # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
-
-
-  # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Link your library with frameworks, or libraries. Libraries do not include
-  #  the lib prefix of their name.
-  #
-
-  # spec.framework  = "SomeFramework"
-  # spec.frameworks = "SomeFramework", "AnotherFramework"
-
-  # spec.library   = "iconv"
   # spec.libraries = "iconv", "xml2"
-
-
-  # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  If your library depends on compiler flags you can set them in the xcconfig hash
-  #  where they will only apply to your library. If you depend on other Podspecs
-  #  you can include multiple dependencies to ensure it works.
-
-  # spec.requires_arc = true
-
-  # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # spec.dependency "JSONKit", "~> 1.4"
+  # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
+  # spec.resources = "Resources/*.png"
+  # spec.preserve_paths = "FilesToSave", "MoreFilesToSave" # 需要保留的文件路径
+  # spec.vendored_libraries # 对外提供的.a。在打成.a库时有用
 
 end
