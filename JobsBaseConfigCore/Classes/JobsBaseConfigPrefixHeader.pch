@@ -1,0 +1,52 @@
+//
+//  JobsBaseConfigPrefixHeader.pch
+//  JobsBaseConfig
+//
+//  Created by Jobs on 2021/12/18.
+//
+
+#ifndef JobsBaseConfigPrefixHeader_pch
+#define JobsBaseConfigPrefixHeader_pch
+
+#pragma mark —— 系统SDK
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import <objc/runtime.h>
+#import <CoreTelephony/CTTelephonyNetworkInfo.h>
+#import <CoreTelephony/CTCarrier.h>
+#import <QuartzCore/QuartzCore.h>
+#import <VideoToolbox/VideoToolbox.h>//FFmpeg 需要
+#import <CoreData/CoreData.h>
+#import <Photos/Photos.h>
+#import <ImageIO/ImageIO.h>
+#import <CoreImage/CoreImage.h>
+#import <AVFoundation/AVAsset.h>
+#import <AVFoundation/AVAssetImageGenerator.h>
+#import <AVFoundation/AVTime.h>
+#import <sys/sysctl.h>
+#import <mach/mach.h>
+
+#pragma mark —— 各项全局定义
+/// JobsBaseConfigNotificationManager
+#import "JobsBaseConfigNotificationManager.h"
+/// 各项宏定义
+#import "MacroDef_App.h"
+#import "MacroDef_Cor.h"
+#import "MacroDef_Size.h"
+#import "MacroDef_Func.h"
+#import "MacroDef_Sys.h"
+///  其他的一些全局定义文件
+#import "JobsBlock.h"
+#import "APIKey.h"
+#import "DefineStructure.h"
+#pragma mark —— JobsBaseCustomizeUIKitCore
+#import "JobsBaseCustomizeUIKitCoreHeader.h"
+#pragma mark —— JobsMixFunc
+#import "JobsMixFunc.h"
+#pragma mark —— Pods
+#import "DDPods.h"
+#import "DDPodsManual.h"
+/// 数据模型层
+#import "DAO.h"
+
+#endif /* JobsBaseConfigPrefixHeader_pch */
