@@ -22,7 +22,7 @@ Pod::Spec.new do |spec|
   # 框架是否需要支持ARC
   spec.requires_arc = true
   # 框架公开的头文件
-  spec.public_header_files = 'yoowei/**/*.h'   
+  # spec.public_header_files = 'yoowei/**/*.h'   
 
   # 框架的资源路径：路径可以指向远端代码库，也可以指向本地项目，例如：
   ## 1、指向Git远端代码库：spec.source = {:git => "git@git.oschina.net:yoowei/yoowei.git", :tag => "1.0.0"}
@@ -31,12 +31,23 @@ Pod::Spec.new do |spec|
   ## 4、zip：spec.source = {:http=> 'http://xxx.zip', :tag => "1.0.0"}
   ## 5、svn：spec.source = {:svn=> 'http://path', :tag => "1.0.0"}
 
-  # spec.source       = {:git => "https://github.com/295060456/JobsBaseConfig.git",:tag => "#{spec.version}",:commit => "a3320f5dde48bd21512f3b4410b0c9f5c6f119e2"}
-  spec.source = {:path => 'JobsBaseConfig',:tag => "#{spec.version}"}
-  spec.source_files  = "Classes", "Classes/**/*.{h,m}"
-  spec.exclude_files = "Classes/Exclude"
+  spec.source       = {:git => "https://github.com/295060456/JobsBaseConfig.git",:tag => "#{spec.version}",:commit => "a3320f5dde48bd21512f3b4410b0c9f5c6f119e2"}
+  # spec.source = {:path => 'JobsBaseConfigCore',:tag => "#{spec.version}"}
+  spec.source_files  = 'JobsBaseConfigCore/Classes/**/*'
+  # 不包含的文件列表
+  # spec.exclude_files = "Classes/Exclude"
 
-  spec.user_target_xcconfig = {'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'}
+  spec.user_target_xcconfig = {'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES','EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'}
+  # spec.default_subspec = 'BaseConfig'
+
+  # spec.BaseConfig 'BaseConfig' do |baseConfig|
+  #     core.source_files = 'JobsBaseConfigCore/Classes/BaseConfig/**/*'
+  #     core.public_header_files = 'JobsBaseConfigCore/Classes/JobsBaseConfigPrefixHeader.pch'
+  #     core.frameworks = 'UIKit','AVFoundation'
+  # end
+
+  spec.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+
   # 框架依赖的framework
   spec.frameworks   = 'UIKit','Foundation'
   # 框架依赖的其他第三方库
