@@ -103,20 +103,35 @@
     [self pullToRefresh];
 }
 /// 逐字搜索功能
--(void)searchByString:(NSString *)string{
-    //每次都清数据
-    [self.listViewData removeAllObjects];
-    //在此可以网络请求
-    //也可以对本地的一个数据库文件进行遍历
-    NSDictionary *dic = @"假数据".readLocalFileWithName;
-    NSArray *arr = dic[@"data"];
-    for (NSString *str in arr) {
-        if (self.isOpenLetterCase ? [str.lowercaseString containsString:string.lowercaseString] : [str containsString:string]) {
-            UIViewModel *viewModel = UIViewModel.new;
-            viewModel.textModel.text = str;
-            [self.listViewData addObject:viewModel];
+//-(void)searchByString:(NSString *)string{
+//    //每次都清数据
+//    [self.listViewData removeAllObjects];
+//    //在此可以网络请求
+//    //也可以对本地的一个数据库文件进行遍历
+//    NSDictionary *dic = @"假数据".readLocalFileWithName;
+//    NSArray *arr = dic[@"data"];
+//    for (NSString *str in arr) {
+//        if (self.isOpenLetterCase ? [str.lowercaseString containsString:string.lowercaseString] : [str containsString:string]) {
+//            UIViewModel *viewModel = UIViewModel.new;
+//            viewModel.textModel.text = str;
+//            [self.listViewData addObject:viewModel];
+//        }
+//    }
+//}
+/// 数据过滤。对照数据一样返回YES，反之返回NO
+/// @param viewModel 准备取这个数据源对象里的某个属性值
+/// @param dataArr 需要进行对照检查的数据源数组
+/// @param propertyName 需要检查的属性名
+-(BOOL)filtrationData:(UIViewModel *)viewModel
+            atDataArr:(NSArray <UIViewModel *>*)dataArr
+       byPropertyName:(NSString *)propertyName{
+    NSString *str1 = [self checkTargetObj:viewModel.textModel propertyName:propertyName];
+    for (UIViewModel *vm in dataArr) {
+        NSString *str2 = [self checkTargetObj:vm.textModel propertyName:propertyName];
+        if ([str1 isEqualToString:str2]) {
+            return YES;
         }
-    }
+    }return NO;
 }
 
 -(void)cancelBtnEvent{
@@ -241,7 +256,12 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
                         @jobs_strongify(self)
                         self.jobsSearchBar.getTextField.text = data.textModel.text;
                         /// 点选了推荐，则映入输入框＋存入历史
-                        [self.listViewData addObject:data];
+                        /// 防止相同的元素存入
+                        if (![self filtrationData:data
+                                        atDataArr:self.listViewData
+                                   byPropertyName:@"text"]) {
+                            [self.listViewData addObject:data];
+                        }
                         [self endDropDownListView];
                     }];
                     return cell;
@@ -275,7 +295,6 @@ heightForHeaderInSection:(NSInteger)section{
 
 -(UIView *)tableView:(UITableView *)tableView
 viewForHeaderInSection:(NSInteger)section{
-    
     JobsSearchTableViewHeaderView *header = JobsSearchTableViewHeaderView.jobsInitWithReuseIdentifier;
     [header richElementsInViewWithModel:self.sectionTitleMutArr[section]];
     if (section == 1) {
@@ -288,7 +307,7 @@ viewForHeaderInSection:(NSInteger)section{
                                       fold:![self.tableView ww_isSectionFolded:section]];//设置可折叠
             /// 删除历史过往记录
             [self.listViewData removeAllObjects];
-            
+
 //            UserDefaultModel *userDefaultModel = UserDefaultModel.new;
 //            userDefaultModel.key = JobsSearchHistoryData;
 //            userDefaultModel.obj = self.historySearchMutArr;
@@ -306,7 +325,7 @@ viewForHeaderInSection:(NSInteger)section{
 
     self.scrollViewClass = BaseTableView.class;//这一属性决定UITableViewHeaderFooterView是否悬停
     return header;
-    
+
 //    {
 //        Class headerClass = self.isHoveringHeaderView ? JobsSearchHoveringHeaderView.class : JobsSearchTableViewHeaderView.class;
 //        UIView *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass(headerClass)];
@@ -326,8 +345,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 #pragma mark —— lazyLoad
 -(BaseTableView *)tableView{
     if (!_tableView) {
-        _tableView = BaseTableView.new;
-//        [BaseTableView.alloc initWithFrame:CGRectZero style:UITableViewStylePlain];
+        /// 值得注意：只能用这样的初始化方式传入UITableViewStyleGrouped进行
+        /// 否则viewForHeaderInSection 和 tableHeaderView 之间会有一段距离
+        _tableView = [BaseTableView.alloc initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         _tableView.backgroundColor = self.bgColour;
         _tableView.delegate = self;
         _tableView.dataSource = self;
@@ -409,6 +429,26 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
             }
         }];
     }return _jobsSearchBar;
+}
+
+-(UIButton *)scanBtn{
+    if (!_scanBtn) {
+        _scanBtn = UIButton.new;
+        [_scanBtn normalBackgroundImage:KIMG(@"扫描")];
+        BtnClickEvent(_scanBtn, [WHToast toastMsg:Internationalization(@"此功能尚未开发")];);
+    }return _scanBtn;
+}
+
+-(UIColor *)bgColour{
+    if (!_bgColour) {
+        _bgColour = [UIColor colorWithPatternImage:KBuddleIMG(nil, @"Telegram",nil, @"1")];
+    }return _bgColour;
+}
+
+-(NSMutableArray<UIViewModel *> *)listViewData{
+    if (!_listViewData) {
+        _listViewData = NSMutableArray.new;
+    }return _listViewData;
 }
 
 -(NSMutableArray<UIViewModel *> *)sectionTitleMutArr{
@@ -564,26 +604,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
             [_hotSearchMutArr addObject:viewModel];
         }
     }return _hotSearchMutArr;
-}
-
--(UIButton *)scanBtn{
-    if (!_scanBtn) {
-        _scanBtn = UIButton.new;
-        [_scanBtn normalBackgroundImage:KIMG(@"扫描")];
-        BtnClickEvent(_scanBtn, [WHToast toastMsg:Internationalization(@"此功能尚未开发")];);
-    }return _scanBtn;
-}
-
--(UIColor *)bgColour{
-    if (!_bgColour) {
-        _bgColour = [UIColor colorWithPatternImage:KBuddleIMG(nil, @"Telegram",nil, @"1")];
-    }return _bgColour;
-}
-
--(NSMutableArray<UIViewModel *> *)listViewData{
-    if (!_listViewData) {
-        _listViewData = NSMutableArray.new;
-    }return _listViewData;
 }
 
 @end

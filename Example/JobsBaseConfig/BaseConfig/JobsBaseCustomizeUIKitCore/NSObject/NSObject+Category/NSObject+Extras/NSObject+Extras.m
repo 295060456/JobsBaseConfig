@@ -138,6 +138,15 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
 -(instancetype _Nonnull)jobsInitWithReuseIdentifierClass:(Class _Nonnull)cls{
     return [cls.alloc initWithReuseIdentifier:NSStringFromClass(cls)];
 }
+/// 索取对象obj里面属性名为propertyName的值，如果没有这个属性则查找返回nil
+/// @param obj 索取对象
+/// @param propertyName 需要查找的属性值
+-(id _Nullable)checkTargetObj:(NSObject *_Nullable)obj
+                 propertyName:(NSString *_Nullable)propertyName{
+    if ([obj.printPropertyList containsObject:propertyName]) {
+        return [obj valueForKey:propertyName];;
+    }return nil;
+}
 /// 版本号比较 版本号的格式：数字中间由点隔开
 /// @param versionNumber1 版本号1
 /// @param versionNumber2 版本号2

@@ -147,6 +147,11 @@ BaseProtocol
 #pragma mark —— 功能性的
 +(instancetype _Nonnull)jobsInitWithReuseIdentifier;
 -(instancetype _Nonnull)jobsInitWithReuseIdentifierClass:(Class _Nonnull)cls;
+/// 索取对象obj里面属性名为propertyName的值，如果没有这个属性则查找返回nil
+/// @param obj 索取对象
+/// @param propertyName 需要查找的属性值
+-(id _Nullable)checkTargetObj:(NSObject *_Nullable)obj
+                 propertyName:(NSString *_Nullable)propertyName;
 /// 版本号比较
 /// @param versionNumber1 版本号1
 /// @param versionNumber2 版本号2
