@@ -29,7 +29,7 @@
 
 - (void)dealloc {
     NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
-    [self end];
+    [self endDropDownListView];
 }
 
 -(void)loadView{
@@ -65,6 +65,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    /// 加在这里，否则要停顿一秒左右才移除
+    [self endDropDownListView];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
@@ -81,10 +83,11 @@
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches
           withEvent:(UIEvent *)event{
-    [self end];
+    [self endDropDownListView];
 }
 #pragma mark —— 一些私有化方法
--(void)end{
+/// 移除掉这个下拉列表
+-(void)endDropDownListView{
     [self.view endEditing:YES];
     [_dropDownListView dropDownListViewDisappear];
     _dropDownListView = nil;
@@ -239,7 +242,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
                         self.jobsSearchBar.getTextField.text = data.textModel.text;
                         /// 点选了推荐，则映入输入框＋存入历史
                         [self.listViewData addObject:data];
-                        [self end];
+                        [self endDropDownListView];
                     }];
                     return cell;
                 }break;
@@ -360,7 +363,7 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass(JobsSearchTableViewHeaderVi
         @jobs_weakify(self)
         [_tableView actionViewBlock:^(id data) {
             @jobs_strongify(self)
-            [self end];
+            [self endDropDownListView];
         }];
 
         [self.view addSubview:_tableView];
@@ -389,6 +392,8 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass(JobsSearchTableViewHeaderVi
         [_jobsSearchBar actionViewBlock:^(NSString *data) {
             @jobs_strongify(self)
             if (self.listViewData.count) {
+                /// 必须先移除，否则反复添加无法正常移除
+                [self endDropDownListView];
                 self.dropDownListView = [self motivateFromView:weak_self.jobsSearchBar
                                                           data:self.listViewData
                                             motivateViewOffset:JobsWidth(5)

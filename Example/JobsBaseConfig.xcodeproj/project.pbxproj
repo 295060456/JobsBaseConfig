@@ -5163,9 +5163,9 @@
 			isa = PBXGroup;
 			children = (
 				84401A902791A95A0038FF6F /* JobsSearchConfig.h */,
-				84409F1627A007060089EE40 /* Resource */,
 				84401A8F27919EA50038FF6F /* JobsSearchVC */,
 				844022172792B2350038FF6F /* OutLines */,
+				84409F1627A007060089EE40 /* Resource */,
 				84401A5827919E3B0038FF6F /* View */,
 			);
 			path = JobsSearchCore;

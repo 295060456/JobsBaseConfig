@@ -55,6 +55,7 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    /// 加在这里，否则要停顿一秒左右才移除
     [self endDropDownListView];
 }
 
@@ -78,12 +79,19 @@
         _btn.backgroundColor = UIColor.orangeColor;
         [_btn buttonAutoWidthByFont];
         BtnClickEvent(_btn, {
-            self.dropDownListView = [self motivateFromView:x
-                                                      data:self.listViewData
-                                        motivateViewOffset:JobsWidth(5)
-                                               finishBlock:^(UIViewModel *data) {
-                NSLog(@"data = %@",data);
-            }];
+            NSLog(@"AAA = %@",self.dropDownListView);
+            x.selected = !x.selected;
+            if (x.selected) {
+                /// ❤️只能让它执行一次❤️
+                self.dropDownListView = [self motivateFromView:x
+                                                          data:self.listViewData
+                                            motivateViewOffset:JobsWidth(5)
+                                                   finishBlock:^(UIViewModel *data) {
+                    NSLog(@"data = %@",data);
+                }];
+            }else{
+                [self endDropDownListView];
+            }
         });
         [self.view addSubview:_btn];
         [_btn mas_makeConstraints:^(MASConstraintMaker *make) {
