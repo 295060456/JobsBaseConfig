@@ -36,11 +36,11 @@ static JobsCommentConfig *static_jobsCommentConfig = nil;
 }
 
 -(UIFont *)titleFont{
-    return kFontSize(13);
+    return JobsFontRegular(13);
 }
 
 -(UIFont *)subTitleFont{
-    return kFontSize(15);
+    return JobsFontRegular(15);
 }
 
 -(UIColor *)titleCor{

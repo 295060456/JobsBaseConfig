@@ -1,11 +1,11 @@
 -(JhtBannerView *)bannerView{
     if (!_bannerView) {
-        _bannerView = [[JhtBannerView alloc] initWithFrame:CGRectMake([NSObject measureSubview:JobsSCREEN_WIDTH * 2 / 3 superview:JobsSCREEN_WIDTH],
-                                                                      JobsSCREEN_HEIGHT - 98,
-                                                                      JobsSCREEN_WIDTH * 2 / 3,
+        _bannerView = [[JhtBannerView alloc] initWithFrame:CGRectMake([NSObject measureSubview:JobsMainScreen_WIDTH() * 2 / 3 superview:JobsMainScreen_WIDTH()],
+                                                                      JobsMainScreen_HEIGHT() - 98,
+                                                                      JobsMainScreen_WIDTH() * 2 / 3,
                                                                       40)];
         
-        _bannerView.JhtBannerCardViewSize = CGSizeMake(JobsSCREEN_WIDTH * 2 / 9, 40);
+        _bannerView.JhtBannerCardViewSize = CGSizeMake(JobsMainScreen_WIDTH() * 2 / 9, 40);
         [self.view addSubview:_bannerView];
         // 假数据
         NSArray *array = @[@"拍摄 1 分钟",

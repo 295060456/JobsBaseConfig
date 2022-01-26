@@ -27,10 +27,10 @@ static DDUploadingProgressView *static_uploadingProgressView = nil;
 +(instancetype)sharedInstance{
     @synchronized(self){
         if (!static_uploadingProgressView) {
-            static_uploadingProgressView = [[DDUploadingProgressView alloc] initWithFrame:CGRectMake((JobsSCREEN_WIDTH - 267) / 2,
-                                                                                                     JobsSCREEN_HEIGHT / 2 - 76,
-                                                                                                     267,
-                                                                                                     76)];
+            static_uploadingProgressView = [DDUploadingProgressView.alloc initWithFrame:CGRectMake((JobsMainScreen_WIDTH() - 267) / 2,
+                                                                                                   JobsMainScreen_HEIGHT() / 2 - 76,
+                                                                                                   267,
+                                                                                                   76)];
         }
     }return static_uploadingProgressView;
 }

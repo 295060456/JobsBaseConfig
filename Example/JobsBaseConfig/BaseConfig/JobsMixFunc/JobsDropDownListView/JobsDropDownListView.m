@@ -21,6 +21,10 @@
 
 @implementation JobsDropDownListView
 
+- (void)dealloc {
+    NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
+}
+
 -(instancetype)init{
     if (self = [super init]) {
         self.tableView.alpha = 1;
@@ -54,7 +58,10 @@
 }
 
 -(void)dropDownListViewDisappear{
+    [_tableView removeFromSuperview];
+    _tableView = nil;
     [self removeFromSuperview];
+    NSLog(@"");
 }
 
 -(void)richElementsInViewWithModel:(NSMutableArray <UIViewModel *>*_Nullable)model{
@@ -71,8 +78,9 @@
 - (CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     /// self.tbvCell_cls没有值的时候等于调用 [JobsDropDownListTBVCell cellHeightWithModel:Nil];
+    @jobs_weakify(self)
     NSNumber *d = [NSObject methodName:@"cellHeightWithModel:"
-                             targetObj:self.tbvCell_cls ? self.tbvCell_cls.class : JobsDropDownListTBVCell.class
+                             targetObj:weak_self.tbvCell_cls ? weak_self.tbvCell_cls.class : JobsDropDownListTBVCell.class
                            paramarrays:nil];
     return d.floatValue;
 }
@@ -123,9 +131,10 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
     if (!_tbvCellMutArr) {
         _tbvCellMutArr = NSMutableArray.array;
         NSInteger dataMutArrCount = self.dataMutArr.count;
+        @jobs_weakify(self)
         do {
             UITableViewCell *tableViewCell = (UITableViewCell *)[NSObject methodName:@"cellWithTableView:"
-                                                                           targetObj:self.tbvCell_cls ? self.tbvCell_cls.class : JobsDropDownListTBVCell.class
+                                                                           targetObj:weak_self.tbvCell_cls ? weak_self.tbvCell_cls.class : JobsDropDownListTBVCell.class
                                                                          paramarrays:@[self.tableView]];
             [_tbvCellMutArr addObject:tableViewCell];
             dataMutArrCount -= 1;

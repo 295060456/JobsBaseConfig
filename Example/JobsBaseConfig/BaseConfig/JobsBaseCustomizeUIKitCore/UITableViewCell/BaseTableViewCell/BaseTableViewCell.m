@@ -51,7 +51,7 @@ UIViewModelProtocol_synthesize
     
     UIViewModel *vm = UIViewModel.new;
     vm.textModel.font = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
-    vm.jobsWidth = JobsSCREEN_WIDTH - JobsWidth(200);
+    vm.jobsWidth = JobsMainScreen_WIDTH() - JobsWidth(200);
     vm.textModel.text = model.subTextModel.text;
     vm.textModel.textLineSpacing = 0;
     

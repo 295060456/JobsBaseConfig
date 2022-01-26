@@ -24,7 +24,7 @@ static char *UIViewController_BaseVC_bgImage = "UIViewController_BaseVC_bgImage"
 #pragma mark —— 一些功能性的
 -(void)showUserInfo{
     if (JobsDebug) {
-        UIViewModel *viewModel = [self configViewModel:@"用户信息展示(开发测试专用)"];
+        UIViewModel *viewModel = [self configViewModelWithTitle:@"用户信息展示(开发测试专用)" subTitle:nil];
         viewModel.cls = JobsShowObjInfoVC.class;
         viewModel.requestParams = self.readUserInfo;
         

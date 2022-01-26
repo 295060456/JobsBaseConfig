@@ -48,14 +48,14 @@
     CGFloat heigh = self.menuCellHeight * self.menuItem.count;
     if (self.QPetFrame.origin.x == 0) {//Q宠在左边
         menuX = self.menuWidth;
-        if (self.QPetFrame.origin.y < JobsSCREEN_HEIGHT / 2) {//菜单出现在下边 OK
+        if (self.QPetFrame.origin.y < JobsMainScreen_HEIGHT() / 2) {//菜单出现在下边 OK
             menuY = self.QPetFrame.size.height;
         }else{//菜单出现在上边
             menuY = self.QPetFrame.origin.y - self.QPetFrame.size.height - self.menuItem.count * self.menuCellHeight;
         }
     }else{//Q宠在右边
-        menuX = JobsSCREEN_WIDTH - self.menuWidth;
-        if (self.QPetFrame.origin.y < JobsSCREEN_HEIGHT / 2) {//菜单出现在下边
+        menuX = JobsMainScreen_WIDTH() - self.menuWidth;
+        if (self.QPetFrame.origin.y < JobsMainScreen_HEIGHT() / 2) {//菜单出现在下边
             menuY = self.QPetFrame.size.height;
         }else{//菜单出现在上边
             menuY = self.QPetFrame.origin.y - self.QPetFrame.size.height - self.menuItem.count * self.menuCellHeight;

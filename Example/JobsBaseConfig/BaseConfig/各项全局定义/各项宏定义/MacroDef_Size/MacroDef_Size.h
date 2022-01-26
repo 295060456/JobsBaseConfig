@@ -9,46 +9,49 @@
 #define MacroDef_Size_h
 
 #import <UIKit/UIKit.h>
-#import "MacroDef_Func.h"
 #import "MacroDef_SysWarning.h"
 #import "MacroDef_AppDeviceScreenSize.h"
 
-#ifndef MainScreen
-#define MainScreen UIScreen.mainScreen.bounds.size
-#endif
+static inline CGSize JobsMainScreen(){
+    return UIScreen.mainScreen.bounds.size;
+}
 
-#ifndef JobsSCREEN_WIDTH
-#define JobsSCREEN_WIDTH UIScreen.mainScreen.bounds.size.width
-#endif
+static inline CGFloat JobsMainScreen_WIDTH(){
+    return JobsMainScreen().width;
+}
 
-#ifndef JobsSCREEN_HEIGHT
-#define JobsSCREEN_HEIGHT UIScreen.mainScreen.bounds.size.height
-#endif
+static inline CGFloat JobsMainScreen_HEIGHT(){
+    return JobsMainScreen().height;
+}
 
-#ifndef SCREEN_MAX_LENGTH
-#define SCREEN_MAX_LENGTH (MAX(JobsSCREEN_WIDTH, JobsSCREEN_HEIGHT))
-#endif
+static inline CGFloat SCREEN_MAX_LENGTH(){
+    return MAX(JobsMainScreen_WIDTH(), JobsMainScreen_HEIGHT());
+}
 
-#ifndef SCREEN_MIN_LENGTH
-#define SCREEN_MIN_LENGTH (MIN(JobsSCREEN_WIDTH, JobsSCREEN_HEIGHT))
-#endif
+static inline CGFloat SCREEN_MIN_LENGTH(){
+    return MIN(JobsMainScreen_WIDTH(), JobsMainScreen_HEIGHT());
+}
+/// 输入原型图上的宽和高，对外输出App对应的移动设备的真实宽高
+static inline CGFloat JobsWidth(CGFloat width){
+    return (MIN(JobsMainScreen_WIDTH(), JobsMainScreen_HEIGHT()) / 375) * width; //375 对应原型图的宽
+}
 
+static inline CGFloat JobsHeight(CGFloat height){
+    return (JobsMainScreen_HEIGHT() / 743) * height; //743 对应原型图的高
+}
+#import "MacroDef_Func.h"/// 提到最前面，就会因为编译顺序的问题报错
 #pragma mark —— 安全区域
 /// 顶部的安全距离
 static inline CGFloat JobsTopSafeAreaHeight(){
     if (@available(iOS 11.0, *)) {
         return getMainWindow().safeAreaInsets.top;
-    } else {
-        return 0.f;
-    }
+    } else return 0.f;
 }
 /// 底部的安全距离，全面屏手机为34pt，非全面屏手机为0pt
 static inline CGFloat JobsBottomSafeAreaHeight(){
     if (@available(iOS 11.0, *)) {
         return getMainWindow().safeAreaInsets.bottom;
-    } else {
-        return 0.f;
-    }
+    } else return 0.f;
 }
 #pragma mark —— 状态栏高度：全面屏手机的状态栏高度为44pt，非全面屏手机的状态栏高度为20pt
 /// 方法一：状态栏高度
@@ -57,26 +60,20 @@ static inline CGFloat JobsRectOfStatusbar(){
         if (@available(iOS 13.0, *)){
             UIStatusBarManager *statusBarManager = getMainWindow().windowScene.statusBarManager;
             return statusBarManager.statusBarHidden ? 0 : statusBarManager.statusBarFrame.size.height;
-        }else{
-            return UIApplication.sharedApplication.statusBarFrame.size.height;
-        });
+        }else return UIApplication.sharedApplication.statusBarFrame.size.height;);
 }
 /// 方法二：状态栏高度
 static inline CGFloat JobsStatusBarHeight(){
     if (@available(iOS 11.0, *)) {
         return getMainWindow().safeAreaInsets.top;
-    } else {
-        return JobsRectOfStatusbar();
-    }
+    } else return JobsRectOfStatusbar();
 }
 /// 导航栏高度
 /// @param navigationController 传nil为系统默认navigationController高度；因为navigationController可以自定义高度，传自定义navigationController返回自定义的navigationController的高度
 static inline CGFloat JobsNavigationHeight(UINavigationController * _Nullable navigationController){
     if (navigationController) {
         return navigationController.navigationBar.frame.size.height;
-    }else{
-        return 44.f;
-    }
+    }else return 44.f;
 }
 /// 状态栏 + 导航栏高度
 /// 非刘海屏：状态栏高度(20.f) + 导航栏高度(44.f) = 64.f
@@ -90,9 +87,7 @@ static inline CGFloat JobsTabBarHeight(UITabBarController * _Nullable tabBarCont
     //因为tabbar可以自定义高度，所以这个地方返回系统默认的49像素的高度
     if (tabBarController) {
         return tabBarController.tabBar.frame.size.height;
-    }else{
-        return 49.f;
-    }
+    }else return 49.f;
 }
 /// tabbar高度：【包括了底部安全区域的TabBar高度，一般用这个】
 static inline CGFloat JobsTabBarHeightByBottomSafeArea(UITabBarController * _Nullable tabBarController){
@@ -103,7 +98,7 @@ static inline CGFloat JobsContentAreaHeight(UITabBarController * _Nullable tabBa
                                             UINavigationController * _Nullable navigationController){
     CGFloat tabBarHeightByBottomSafeArea = JobsTabBarHeightByBottomSafeArea(tabBarController);
     CGFloat navigationBarAndStatusBarHeight = JobsNavigationBarAndStatusBarHeight(navigationController);
-    return JobsSCREEN_HEIGHT - tabBarHeightByBottomSafeArea - navigationBarAndStatusBarHeight;
+    return JobsMainScreen_HEIGHT() - tabBarHeightByBottomSafeArea - navigationBarAndStatusBarHeight;
 }
 
 #endif /* MacroDef_Size_h */

@@ -68,8 +68,8 @@ static char *NSObject_Popup_popupParameter = "NSObject_Popup_popupParameter";
     JobsNoticePopupView *PopupView = objc_getAssociatedObject(self, NSObject_Popup_popupView);
     if (!PopupView) {
         PopupView = JobsNoticePopupView.new;
-        PopupView.mj_h = JobsSCREEN_HEIGHT * 2 / 3;
-        PopupView.mj_w = JobsSCREEN_WIDTH - 12 * 2;
+        PopupView.mj_h = JobsMainScreen_HEIGHT() * 2 / 3;
+        PopupView.mj_w = JobsMainScreen_WIDTH() - 12 * 2;
         [PopupView richElementsInViewWithModel:UIViewModel.new];
         objc_setAssociatedObject(self,
                                  NSObject_Popup_popupView,

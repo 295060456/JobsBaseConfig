@@ -46,8 +46,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 跳到首页
 -(void)jumpToHome;
 #pragma mark —— <AppToolsProtocol> 其他
-
--(UIViewModel *)configViewModel:(NSString *)title;
+-(UIViewModel *)configViewModelWithTitle:(NSString *_Nullable)title
+                                subTitle:(NSString *_Nullable)subTitle;
 /// 打开游戏
 -(void)openGameWithUrl:(NSString *)url;
 /// 默认头像👤

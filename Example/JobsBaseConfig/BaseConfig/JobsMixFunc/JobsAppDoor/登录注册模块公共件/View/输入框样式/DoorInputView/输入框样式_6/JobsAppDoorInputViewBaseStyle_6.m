@@ -95,7 +95,7 @@
         _authCodeLab = AuthCodeLab.new;
         _authCodeLab.textAlignment = NSTextAlignmentCenter;
         _authCodeLab.text = @"ss";
-        _authCodeLab.font = kFontSize(16);
+        _authCodeLab.font = JobsFontRegular(16);
         _authCodeLab.alpha = 0.7;
         _authCodeLab.textColor = kWhiteColor;
         _authCodeLab.backgroundColor = kBlackColor;

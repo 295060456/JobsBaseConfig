@@ -116,7 +116,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         [_userHeadBtn normalTitle:@""];
         BtnClickEvent(_userHeadBtn, {
 
-            UIViewModel *viewModel = [self configViewModel:@"用户信息展示(开发测试专用)"];
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"用户信息展示(开发测试专用)" subTitle:nil];
             viewModel.cls = JobsShowObjInfoVC.class;
             viewModel.requestParams = self.readUserInfo;
             
@@ -207,103 +207,110 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         _dataMutArr = NSMutableArray.array;
 
         {
-            UIViewModel *viewModel = [self configViewModel:@"JobsAppDoor-1"];
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"JobsAppDoor-1" subTitle:Internationalization(@"登录注册的第一种表现形式")];
             viewModel.cls = JobsAppDoorVC.class;
             viewModel.requestParams = @(JobsAppDoorBgType_video);
             [_dataMutArr addObject:viewModel];
         }
         
         {
-            UIViewModel *viewModel = [self configViewModel:@"JobsAppDoor-2"];
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"JobsAppDoor-2" subTitle:Internationalization(@"登录注册的第二种表现形式")];
             viewModel.cls = JobsAppDoorVC_Style2.class;
             viewModel.requestParams = @(JobsAppDoorBgType_video);
             [_dataMutArr addObject:viewModel];
         }
 
         {
-            UIViewModel *viewModel = [self configViewModel:@"TransparentRegion"];
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"TransparentRegion" subTitle:Internationalization(@"镂空特效")];
             viewModel.cls = TransparentRegionVC.class;
             [_dataMutArr addObject:viewModel];
         }
         
         {
-            UIViewModel *viewModel = [self configViewModel:@"Douyin_ZFPlayer_1"];
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"Douyin_ZFPlayer_1" subTitle:Internationalization(@"播放效果 1")];
             viewModel.cls = Douyin_ZFPlayerVC_1.class;
             [_dataMutArr addObject:viewModel];
         }
         
         {
-            UIViewModel *viewModel = [self configViewModel:@"Douyin_ZFPlayer_2"];
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"Douyin_ZFPlayer_2" subTitle:Internationalization(@"播放效果 2")];
             viewModel.cls = Douyin_ZFPlayerVC_2.class;
             [_dataMutArr addObject:viewModel];
         }
         
         {
-            UIViewModel *viewModel = [self configViewModel:@"JobsComment"];
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"JobsComment" subTitle:Internationalization(@"📃评论功能")];
             viewModel.cls = JobsCommentVC.class;
             [_dataMutArr addObject:viewModel];
         }
     
         {
-            UIViewModel *viewModel = [self configViewModel:@"JobsSearch"];
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"JobsSearch" subTitle:Internationalization(@"🔍搜索功能")];
             viewModel.cls = JobsSearchVC.class;
             [_dataMutArr addObject:viewModel];
         }
         
         {
-            UIViewModel *viewModel = [self configViewModel:@"ShadowTBVCell"];
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"ShadowTBVCell" subTitle:nil];
 //            viewModel.cls =
             [_dataMutArr addObject:viewModel];
         }
         
         {
-            UIViewModel *viewModel = [self configViewModel:@"JobsShooting"];
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"JobsShooting" subTitle:Internationalization(@"📹拍摄功能")];
 //            viewModel.cls =
             [_dataMutArr addObject:viewModel];
         }
         
         {
-            UIViewModel *viewModel = [self configViewModel:@"DynamicView"];
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"DynamicView" subTitle:Internationalization(@"gif图片读取")];
             viewModel.cls = DynamicViewTestVC.class;
             [_dataMutArr addObject:viewModel];
         }
         
         {
-            UIViewModel *viewModel = [self configViewModel:@"Progress"];
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"Progress" subTitle:Internationalization(@"进度条")];
             viewModel.cls = JobsProgressVC.class;
             [_dataMutArr addObject:viewModel];
         }
         
         {
-            UIViewModel *viewModel = [self configViewModel:@"IrregularView"];
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"IrregularView" subTitle:Internationalization(@"不规则的按钮")];
             viewModel.cls = TestIrregularViewTestVC.class;
             [_dataMutArr addObject:viewModel];
         }
         
         {
-            UIViewModel *viewModel = [self configViewModel:@"JobsTimer"];
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"JobsTimer" subTitle:Internationalization(@"时间模块")];
             viewModel.cls = JobsTimerVC.class;
             [_dataMutArr addObject:viewModel];
         }
         
         {
-            UIViewModel *viewModel = [self configViewModel:@"JobsIMShowVC"];
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"JobsIMShowVC" subTitle:Internationalization(@"IM模块")];
             viewModel.cls = JobsIMShowVC.class;
             [_dataMutArr addObject:viewModel];
         }
         
         {
-            UIViewModel *viewModel = [self configViewModel:@"TestLabelVC"];
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"TestLabelVC" subTitle:Internationalization(@"Label的科学管理")];
             viewModel.cls = TestLabelVC.class;
             [_dataMutArr addObject:viewModel];
         }
         
         {
-            UIViewModel *viewModel = [self configViewModel:@"JobsLaunchVC"];
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"JobsLaunchVC" subTitle:Internationalization(@"App启动广告模块")];
             viewModel.cls = JobsLaunchVC.class;
             viewModel.requestParams = @(JobsLaunchBgType_video);
             [_dataMutArr addObject:viewModel];
         }
+        
+        {
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"JobsDropDownListVC" subTitle:Internationalization(@"下拉列表")];
+            viewModel.cls = JobsDropDownListVC.class;
+            [_dataMutArr addObject:viewModel];
+        }
+        
     }return _dataMutArr;
 }
 

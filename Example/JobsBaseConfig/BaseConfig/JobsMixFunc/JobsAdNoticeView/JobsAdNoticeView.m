@@ -31,7 +31,7 @@
 }
 
 +(CGSize)viewSizeWithModel:(id _Nullable)model{
-    return CGSizeMake(JobsSCREEN_WIDTH, 30);
+    return CGSizeMake(JobsMainScreen_WIDTH(), 30);
 }
 #pragma mark —— lazyLoad
 -(UILabel *)adNoticeLab{

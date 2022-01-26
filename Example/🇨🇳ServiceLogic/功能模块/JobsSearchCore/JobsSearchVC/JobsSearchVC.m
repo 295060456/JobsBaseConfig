@@ -12,12 +12,11 @@
 @property(nonatomic,strong)UIButton *scanBtn;
 @property(nonatomic,strong)BaseTableView *tableView;
 @property(nonatomic,strong)JobsSearchBar *jobsSearchBar;
-@property(nonatomic,strong)JobsSearchResultDataListView *jobsSearchResultDataListView;
+@property(nonatomic,strong)JobsDropDownListView *dropDownListView;
 /// Data
 @property(nonatomic,strong)NSMutableArray <UIViewModel *>*sectionTitleMutArr;
 @property(nonatomic,strong)NSMutableArray <UIViewModel *>*hotSearchMutArr;
-@property(nonatomic,strong)NSMutableArray <UIViewModel *>*historySearchMutArr;
-@property(nonatomic,strong)NSMutableArray <UIViewModel *>*searchResDataMutArr;
+@property(nonatomic,strong)NSMutableArray <UIViewModel *>*listViewData;
 @property(nonatomic,strong)UIColor *bgColour;
 @property(nonatomic,assign)NSString *titleStr;//标题
 @property(nonatomic,assign)CGRect tableViewRect;
@@ -30,6 +29,7 @@
 
 - (void)dealloc {
     NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
+    [self end];
 }
 
 -(void)loadView{
@@ -73,19 +73,22 @@
 
 -(void)viewWillLayoutSubviews{
     [super viewWillLayoutSubviews];
-    NSLog(@"");
 }
 
 -(void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
-    NSLog(@"");
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches
           withEvent:(UIEvent *)event{
-    [self.view endEditing:YES];
+    [self end];
 }
 #pragma mark —— 一些私有化方法
+-(void)end{
+    [self.view endEditing:YES];
+    [_dropDownListView dropDownListViewDisappear];
+    _dropDownListView = nil;
+}
 ///下拉刷新 （子类要进行覆写）
 -(void)pullToRefresh{
     [NSObject feedbackGenerator];//震动反馈
@@ -99,8 +102,7 @@
 /// 逐字搜索功能
 -(void)searchByString:(NSString *)string{
     //每次都清数据
-    [self.searchResDataMutArr removeAllObjects];
-    [self.jobsSearchResultDataListView.searchResDataMutArr removeAllObjects];
+    [self.listViewData removeAllObjects];
     //在此可以网络请求
     //也可以对本地的一个数据库文件进行遍历
     NSDictionary *dic = @"假数据".readLocalFileWithName;
@@ -109,16 +111,9 @@
         if (self.isOpenLetterCase ? [str.lowercaseString containsString:string.lowercaseString] : [str containsString:string]) {
             UIViewModel *viewModel = UIViewModel.new;
             viewModel.textModel.text = str;
-            [self.searchResDataMutArr addObject:viewModel];
+            [self.listViewData addObject:viewModel];
         }
     }
-    self.jobsSearchResultDataListView.searchResDataMutArr = self.searchResDataMutArr;
-    [self.jobsSearchResultDataListView.tableView reloadData];
-}
-/// 点击自己 自己移除自己的最正确做法，直接置nil 是不成功的
--(void)deallocJobsSearchResultDataListView{
-    [_jobsSearchResultDataListView removeFromSuperview];
-    _jobsSearchResultDataListView = nil;
 }
 
 -(void)cancelBtnEvent{
@@ -188,7 +183,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
             }
         }break;
         case 1:{
-            return [JobsSearchShowHistoryDataTBVCell cellHeightWithModel:self.historySearchMutArr];
+            return [JobsSearchShowHistoryDataTBVCell cellHeightWithModel:self.listViewData];
         }break;
         default:
             return 0;
@@ -210,7 +205,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
             return 1;
         }break;
         case 1:{
-            return self.historySearchMutArr.count;
+            return self.listViewData.count;
         }break;
         default:
             return 0;
@@ -220,6 +215,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 -(UITableViewCell *)tableView:(UITableView *)tableView
         cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    @jobs_weakify(self)
     switch (indexPath.section) {
         case 0:{/// 热门搜索
             switch (self.hotSearchStyle) {
@@ -227,18 +223,24 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
                     JobsSearchShowHotwordsTBVCell *cell = [JobsSearchShowHotwordsTBVCell cellWithTableView:tableView];
                     cell.indexPath = indexPath;
                     [cell richElementsInCellWithModel:self.hotSearchMutArr];
-                    @jobs_weakify(self)
                     /// 点击的哪个btn？
                     [cell actionViewBlock:^(UIViewModel *data) {
                         @jobs_strongify(self)
                         self.jobsSearchBar.getTextField.text = data.textModel.text;
-                        self.jobsSearchResultDataListView.alpha = 1;
+
                     }];return cell;
                 }break;
                 case HotSearchStyle_2:{
                     JobsSearchTBVCell *cell = [JobsSearchTBVCell cellWithTableView:tableView];
                     cell.indexPath = indexPath;
                     [cell richElementsInCellWithModel:self.hotSearchMutArr];
+                    [cell actionViewBlock:^(UIViewModel *data) {
+                        @jobs_strongify(self)
+                        self.jobsSearchBar.getTextField.text = data.textModel.text;
+                        /// 点选了推荐，则映入输入框＋存入历史
+                        [self.listViewData addObject:data];
+                        [self end];
+                    }];
                     return cell;
                 }break;
                     
@@ -250,7 +252,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
         case 1:{/// 搜索历史
             JobsSearchShowHistoryDataTBVCell *cell = [JobsSearchShowHistoryDataTBVCell cellWithTableView:tableView];
             cell.indexPath = indexPath;
-            [cell richElementsInCellWithModel:self.historySearchMutArr[indexPath.row]];
+            [cell richElementsInCellWithModel:self.listViewData[indexPath.row]];
             return cell;
         }break;
         default:
@@ -281,20 +283,20 @@ viewForHeaderInSection:(NSInteger)section{
             [self.tableView ww_foldSection:section
                                       fold:![self.tableView ww_isSectionFolded:section]];//设置可折叠
             /// 删除历史过往记录
-            [self.historySearchMutArr removeAllObjects];
+            [self.listViewData removeAllObjects];
             
-            UserDefaultModel *userDefaultModel = UserDefaultModel.new;
-            userDefaultModel.key = @"JobsSearchHistoryData";
-            userDefaultModel.obj = self.historySearchMutArr;
-            
-            [NSUserDefaults updateWithModel:userDefaultModel];
-            
-            if (self.historySearchMutArr.count == 0) {
-                [self.sectionTitleMutArr removeAllObjects];
-                self->_sectionTitleMutArr = nil;
-            }
-            
-            [self.tableView reloadData];
+//            UserDefaultModel *userDefaultModel = UserDefaultModel.new;
+//            userDefaultModel.key = JobsSearchHistoryData;
+//            userDefaultModel.obj = self.historySearchMutArr;
+//
+//            [NSUserDefaults updateWithModel:userDefaultModel];
+//
+//            if (self.historySearchMutArr.count == 0) {
+//                [self.sectionTitleMutArr removeAllObjects];
+//                self->_sectionTitleMutArr = nil;
+//            }
+//
+//            [self.tableView reloadData];
         }];
     }
 
@@ -316,26 +318,6 @@ viewForHeaderInSection:(NSInteger)section{
   willDisplayCell:(UITableViewCell *)cell
 forRowAtIndexPath:(NSIndexPath *)indexPath {
     cell.img = KIMG(@"删除");
-    @jobs_weakify(self)
-    [cell customAccessoryView:^(id data) {
-        @jobs_strongify(self)
-        JobsSearchShowHistoryDataTBVCell *cell = (JobsSearchShowHistoryDataTBVCell *)data;
-
-        [self.historySearchMutArr removeObjectAtIndex:cell.indexPath.row];
-
-        UserDefaultModel *userDefaultModel = UserDefaultModel.new;
-        userDefaultModel.key = @"JobsSearchHistoryData";
-        userDefaultModel.obj = self.historySearchMutArr;
-        
-        [NSUserDefaults updateWithModel:userDefaultModel];
-        
-        if (self.historySearchMutArr.count == 0) {
-            [self.sectionTitleMutArr removeAllObjects];
-            self->_sectionTitleMutArr = nil;
-        }
-        
-        [self.tableView reloadData];
-    }];
 }
 #pragma mark —— lazyLoad
 -(BaseTableView *)tableView{
@@ -355,11 +337,11 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass(JobsSearchTableViewHeaderVi
         
         {
             MJRefreshConfigModel *refreshConfigHeader = MJRefreshConfigModel.new;
-            refreshConfigHeader.stateIdleTitle = @"下拉可以刷新";
-            refreshConfigHeader.pullingTitle = @"下拉可以刷新";
-            refreshConfigHeader.refreshingTitle = @"松开立即刷新";
-            refreshConfigHeader.willRefreshTitle = @"刷新数据中";
-            refreshConfigHeader.noMoreDataTitle = @"下拉可以刷新";
+            refreshConfigHeader.stateIdleTitle = Internationalization(@"下拉可以刷新");
+            refreshConfigHeader.pullingTitle = Internationalization(@"下拉可以刷新");
+            refreshConfigHeader.refreshingTitle = Internationalization(@"松开立即刷新");
+            refreshConfigHeader.willRefreshTitle = Internationalization(@"刷新数据中");
+            refreshConfigHeader.noMoreDataTitle = Internationalization(@"下拉可以刷新");
 
             MJRefreshConfigModel *refreshConfigFooter = MJRefreshConfigModel.new;
             refreshConfigFooter.stateIdleTitle = @"";
@@ -378,7 +360,7 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass(JobsSearchTableViewHeaderVi
         @jobs_weakify(self)
         [_tableView actionViewBlock:^(id data) {
             @jobs_strongify(self)
-            [self.view endEditing:YES];
+            [self end];
         }];
 
         [self.view addSubview:_tableView];
@@ -403,113 +385,18 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass(JobsSearchTableViewHeaderVi
         _jobsSearchBar = JobsSearchBar.new;
         _jobsSearchBar.size = [JobsSearchBar viewSizeWithModel:nil];
         [_jobsSearchBar richElementsInViewWithModel:nil];
-//        @jobs_weakify(self)
-//        [_jobsSearchBar actionViewBlock:^(id data) {
-//
-//        }];
-        
-        
-//        [_jobsSearchBar actionBlockJobsSearchBar:^(id data,//方法名
-//                                                   id data2) {//值
-//            NSLog(@"HHH data = %@,data2 = %@",data,data2);
-//            if ([data isKindOfClass:NSString.class]) {
-//                NSString *str = (NSString *)data;
-//                if ([str isEqualToString:@"textFieldShouldEndEditing:"]) {//正常位
-//                    NSLog(@"textFieldShouldEndEditing:");
-//                    /*
-//                     *    使用弹簧的描述时间曲线来执行动画 ,当dampingRatio == 1 时,动画会平稳的减速到最终的模型值,而不会震荡.
-//                     *    小于1的阻尼比在达到完全停止之前会震荡的越来越多.
-//                     *    如果你可以使用初始的 spring velocity 来 指定模拟弹簧末端的对象在加载之前移动的速度.
-//                     *    他是一个单位坐标系统,其中2被定义为在一秒内移动整个动画距离.
-//                     *    如果你在动画中改变一个物体的位置,你想在动画开始前移动到 100 pt/s 你会超过0.5,
-//                     *    dampingRatio 阻尼
-//                     *    velocity 速度
-//                     */
-//                    [UIView animateWithDuration:1
-//                                          delay:0
-//                         usingSpringWithDamping:1
-//                          initialSpringVelocity:20
-//                                        options:UIViewAnimationOptionCurveEaseInOut
-//                                     animations:^{
-//                        @jobs_strongify(self)
-//                        self->_jobsSearchBar.textField.frame = CGRectMake(10,
-//                                                                   10,
-//                                                                   JobsSCREEN_WIDTH - 20,
-//                                                                   self->_jobsSearchBar.mj_h - 20);
-//                        self->_jobsSearchBar.cancelBtn.frame = CGRectMake(JobsSCREEN_WIDTH - 10,
-//                                                                          10,
-//                                                                          0,
-//                                                                          0);
-//                    } completion:^(BOOL finished) {
-//
-//                    }];
-//                }
-//                else if([str isEqualToString:@"textFieldShouldBeginEditing:"]){//编辑期
-//                    NSLog(@"textFieldShouldBeginEditing:");
-//                    /*
-//                     *    使用弹簧的描述时间曲线来执行动画 ,当dampingRatio == 1 时,动画会平稳的减速到最终的模型值,而不会震荡.
-//                     *    小于1的阻尼比在达到完全停止之前会震荡的越来越多.
-//                     *    如果你可以使用初始的 spring velocity 来 指定模拟弹簧末端的对象在加载之前移动的速度.
-//                     *    他是一个单位坐标系统,其中2被定义为在一秒内移动整个动画距离.
-//                     *    如果你在动画中改变一个物体的位置,你想在动画开始前移动到 100 pt/s 你会超过0.5,
-//                     *    dampingRatio 阻尼
-//                     *    velocity 速度
-//                     */
-//                    [UIView animateWithDuration:1
-//                                          delay:0
-//                         usingSpringWithDamping:1
-//                          initialSpringVelocity:20
-//                                        options:UIViewAnimationOptionCurveEaseInOut
-//                                     animations:^{
-//                        @jobs_strongify(self)
-//                        self->_jobsSearchBar.textField.frame = CGRectMake(10,
-//                                                                   10,
-//                                                                   JobsSCREEN_WIDTH - 20 - 80 - 10,
-//                                                                   self->_jobsSearchBar.mj_h - 20);
-//
-//                        self->_jobsSearchBar.cancelBtn.frame = CGRectMake(JobsSCREEN_WIDTH - 80 - 10,
-//                                                                          10,
-//                                                                          80,
-//                                                                          self->_jobsSearchBar.mj_h - 20);
-//                    } completion:^(BOOL finished) {
-//
-//                    }];
-//                }
-//                else if ([str isEqualToString:@"textFieldDidEndEditing:"]){
-//                    NSLog(@"textFieldDidEndEditing:");
-//                    @jobs_strongify(self)
-//                    [self.historySearchMutArr removeAllObjects];
-//
-//                    NSArray *jobsSearchHistoryDataArr = (NSArray *)[NSUserDefaults readWithKey:@"JobsSearchHistoryData"];
-//                    self->_historySearchMutArr = [NSMutableArray arrayWithArray:jobsSearchHistoryDataArr];
-//
-//                    [self.sectionTitleMutArr removeAllObjects];
-//                    self->_sectionTitleMutArr = nil;
-//                    [self.tableView reloadData];
-//
-//                    [self goUpAndDown:YES];
-//                }
-//                else if ([str isEqualToString:@"cancelBtn"]){//取消按钮点击事件
-//                    NSLog(@"cancelBtn");
-//                    @jobs_strongify(self)
-//                    [self.view endEditing:YES];
-//                    [self cancelBtnEvent];
-//                    [self deallocJobsSearchResultDataListView];
-//                }
-//                else if ([str isEqualToString:@"textField:shouldChangeCharactersInRange:replacementString:"]){
-//                    NSLog(@"textField:shouldChangeCharactersInRange:replacementString:");
-//                    //正向输入的非零字符
-//                    //正在编辑ing
-//                    if ([data2 isKindOfClass:NSString.class]) {
-//                        NSString *text = (NSString *)data2;
-//                        [self searchByString:(NSString *)text];
-//                    }
-//
-//                    [self goUpAndDown:YES];
-//                }
-//                else{}
-//            }
-//        }];
+        @jobs_weakify(self)
+        [_jobsSearchBar actionViewBlock:^(NSString *data) {
+            @jobs_strongify(self)
+            if (self.listViewData.count) {
+                self.dropDownListView = [self motivateFromView:weak_self.jobsSearchBar
+                                                          data:self.listViewData
+                                            motivateViewOffset:JobsWidth(5)
+                                                   finishBlock:^(UIViewModel *data) {
+                    NSLog(@"data = %@",data);
+                }];
+            }
+        }];
     }return _jobsSearchBar;
 }
 
@@ -518,19 +405,19 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass(JobsSearchTableViewHeaderVi
         _sectionTitleMutArr = NSMutableArray.array;
     
         UIViewModel *viewModel = UIViewModel.new;
-        viewModel.textModel.text = @"热门搜索";
+        viewModel.textModel.text = Internationalization(@"热门搜索");
         viewModel.textModel.textCor = UIColor.lightGrayColor;
         viewModel.bgCor = UIColor.whiteColor;
-        viewModel.textModel.font = kFontSize(20);
+        viewModel.textModel.font = JobsFontRegular(20);
         
         [_sectionTitleMutArr addObject:viewModel];
         
-        if (self.historySearchMutArr.count) {
+        if (self.listViewData.count) {
             UIViewModel *viewModel = UIViewModel.new;
-            viewModel.textModel.text = @"搜索历史";
+            viewModel.textModel.text = Internationalization(@"搜索历史");
             viewModel.textModel.textCor = UIColor.lightGrayColor;
             viewModel.bgCor = UIColor.whiteColor;
-            viewModel.textModel.font = kFontSize(20);
+            viewModel.textModel.font = JobsFontRegular(20);
             
             [_sectionTitleMutArr addObject:viewModel];
         }
@@ -546,7 +433,7 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass(JobsSearchTableViewHeaderVi
             viewModel.textModel.text = @"Java";
             viewModel.textModel.textCor = RandomColor;
             viewModel.bgCor = RandomColor;
-            viewModel.textModel.font = kFontSize(20);
+            viewModel.textModel.font = JobsFontRegular(20);
             [_hotSearchMutArr addObject:viewModel];
         }
         
@@ -555,7 +442,7 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass(JobsSearchTableViewHeaderVi
             viewModel.textModel.text = @"Python";
             viewModel.textModel.textCor = RandomColor;
             viewModel.bgCor = RandomColor;
-            viewModel.textModel.font = kFontSize(20);
+            viewModel.textModel.font = JobsFontRegular(20);
             [_hotSearchMutArr addObject:viewModel];
         }
         
@@ -564,7 +451,7 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass(JobsSearchTableViewHeaderVi
             viewModel.textModel.text = @"Objective-C";
             viewModel.textModel.textCor = RandomColor;
             viewModel.bgCor = RandomColor;
-            viewModel.textModel.font = kFontSize(20);
+            viewModel.textModel.font = JobsFontRegular(20);
             [_hotSearchMutArr addObject:viewModel];
         }
         
@@ -573,7 +460,7 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass(JobsSearchTableViewHeaderVi
             viewModel.textModel.text = @"Swift";
             viewModel.textModel.textCor = RandomColor;
             viewModel.bgCor = RandomColor;
-            viewModel.textModel.font = kFontSize(20);
+            viewModel.textModel.font = JobsFontRegular(20);
             [_hotSearchMutArr addObject:viewModel];
         }
         
@@ -582,7 +469,7 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass(JobsSearchTableViewHeaderVi
             viewModel.textModel.text = @"C";
             viewModel.textModel.textCor = RandomColor;
             viewModel.bgCor = RandomColor;
-            viewModel.textModel.font = kFontSize(20);
+            viewModel.textModel.font = JobsFontRegular(20);
             [_hotSearchMutArr addObject:viewModel];
         }
         {
@@ -590,7 +477,7 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass(JobsSearchTableViewHeaderVi
             viewModel.textModel.text = @"C++";
             viewModel.textModel.textCor = RandomColor;
             viewModel.bgCor = RandomColor;
-            viewModel.textModel.font = kFontSize(20);
+            viewModel.textModel.font = JobsFontRegular(20);
             [_hotSearchMutArr addObject:viewModel];
         }
         
@@ -599,7 +486,7 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass(JobsSearchTableViewHeaderVi
             viewModel.textModel.text = @"PHP";
             viewModel.textModel.textCor = RandomColor;
             viewModel.bgCor = RandomColor;
-            viewModel.textModel.font = kFontSize(20);
+            viewModel.textModel.font = JobsFontRegular(20);
             [_hotSearchMutArr addObject:viewModel];
         }
         
@@ -608,7 +495,7 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass(JobsSearchTableViewHeaderVi
             viewModel.textModel.text = @"C#";
             viewModel.textModel.textCor = RandomColor;
             viewModel.bgCor = RandomColor;
-            viewModel.textModel.font = kFontSize(20);
+            viewModel.textModel.font = JobsFontRegular(20);
             [_hotSearchMutArr addObject:viewModel];
         }
         
@@ -617,7 +504,7 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass(JobsSearchTableViewHeaderVi
             viewModel.textModel.text = @"Perl";
             viewModel.textModel.textCor = RandomColor;
             viewModel.bgCor = RandomColor;
-            viewModel.textModel.font = kFontSize(20);
+            viewModel.textModel.font = JobsFontRegular(20);
             [_hotSearchMutArr addObject:viewModel];
         }
         
@@ -626,7 +513,7 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass(JobsSearchTableViewHeaderVi
             viewModel.textModel.text = @"Go";
             viewModel.textModel.textCor = RandomColor;
             viewModel.bgCor = RandomColor;
-            viewModel.textModel.font = kFontSize(20);
+            viewModel.textModel.font = JobsFontRegular(20);
             [_hotSearchMutArr addObject:viewModel];
         }
         
@@ -635,7 +522,7 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass(JobsSearchTableViewHeaderVi
             viewModel.textModel.text = @"JavaScript";
             viewModel.textModel.textCor = RandomColor;
             viewModel.bgCor = RandomColor;
-            viewModel.textModel.font = kFontSize(20);
+            viewModel.textModel.font = JobsFontRegular(20);
             [_hotSearchMutArr addObject:viewModel];
         }
         
@@ -644,7 +531,7 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass(JobsSearchTableViewHeaderVi
             viewModel.textModel.text = @"Ruby";
             viewModel.textModel.textCor = RandomColor;
             viewModel.bgCor = RandomColor;
-            viewModel.textModel.font = kFontSize(20);
+            viewModel.textModel.font = JobsFontRegular(20);
             [_hotSearchMutArr addObject:viewModel];
         }
         
@@ -653,7 +540,7 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass(JobsSearchTableViewHeaderVi
             viewModel.textModel.text = @"R";
             viewModel.textModel.textCor = RandomColor;
             viewModel.bgCor = RandomColor;
-            viewModel.textModel.font = kFontSize(20);
+            viewModel.textModel.font = JobsFontRegular(20);
             [_hotSearchMutArr addObject:viewModel];
         }
         
@@ -662,62 +549,18 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass(JobsSearchTableViewHeaderVi
             viewModel.textModel.text = @"MATLAB";
             viewModel.textModel.textCor = RandomColor;
             viewModel.bgCor = RandomColor;
-            viewModel.textModel.font = kFontSize(20);
+            viewModel.textModel.font = JobsFontRegular(20);
             [_hotSearchMutArr addObject:viewModel];
         }
     }return _hotSearchMutArr;
-}
-
--(NSMutableArray<UIViewModel *> *)historySearchMutArr{
-    if (!_historySearchMutArr) {
-        NSArray *jobsSearchHistoryDataArr = (NSArray *)[NSUserDefaults readWithKey:@"JobsSearchHistoryData"];
-        if (jobsSearchHistoryDataArr) {
-            _historySearchMutArr = [NSMutableArray arrayWithArray:jobsSearchHistoryDataArr];
-        }else{
-            _historySearchMutArr = NSMutableArray.array;
-        }
-    }return _historySearchMutArr;
 }
 
 -(UIButton *)scanBtn{
     if (!_scanBtn) {
         _scanBtn = UIButton.new;
         [_scanBtn normalBackgroundImage:KIMG(@"扫描")];
-        BtnClickEvent(_scanBtn, [WHToast toastMsg:@"此功能尚未开发"];);
+        BtnClickEvent(_scanBtn, [WHToast toastMsg:Internationalization(@"此功能尚未开发")];);
     }return _scanBtn;
-}
-
--(JobsSearchResultDataListView *)jobsSearchResultDataListView{
-    if (!_jobsSearchResultDataListView) {
-        _jobsSearchResultDataListView = JobsSearchResultDataListView.new;
-        _jobsSearchResultDataListView.backgroundColor = UIColor.lightGrayColor;
-        @jobs_weakify(self)
-        [_jobsSearchResultDataListView actionViewBlock:^(id data) {
-            @jobs_strongify(self)
-            if ([data isKindOfClass:JobsSearchResultDataListView.class]){//滚动
-                NSLog(@"");
-            }else if ([data isKindOfClass:NSString.class] &&
-                ![NSString isNullString:(NSString *)data]) {
-                
-                self.jobsSearchBar.getTextField.text = (NSString *)data;//先赋值，最后才存数据
-                [self deallocJobsSearchResultDataListView];
-                
-                [self.view endEditing:YES];//这里结束编辑调用结束完成的协议方法，在此以后才涉及到存历史数据
-                
-            }else if ([data isKindOfClass:UITapGestureRecognizer.class]) {
-                NSLog(@"");
-            }else if ([data isKindOfClass:UIScrollView.class]) {//完全停止滚动
-                NSLog(@"");
-            }else{}
-        }];
-        
-        [self.view addSubview:_jobsSearchResultDataListView];
-        [_jobsSearchResultDataListView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.jobsSearchBar.mas_bottom);
-            make.left.right.equalTo(self.view);
-            make.bottom.equalTo(self.tableView);
-        }];
-    }return _jobsSearchResultDataListView;
 }
 
 -(UIColor *)bgColour{
@@ -726,10 +569,10 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass(JobsSearchTableViewHeaderVi
     }return _bgColour;
 }
 
--(NSMutableArray<UIViewModel *> *)searchResDataMutArr{
-    if (!_searchResDataMutArr) {
-        _searchResDataMutArr = NSMutableArray.array;
-    }return _searchResDataMutArr;
+-(NSMutableArray<UIViewModel *> *)listViewData{
+    if (!_listViewData) {
+        _listViewData = NSMutableArray.new;
+    }return _listViewData;
 }
 
 @end

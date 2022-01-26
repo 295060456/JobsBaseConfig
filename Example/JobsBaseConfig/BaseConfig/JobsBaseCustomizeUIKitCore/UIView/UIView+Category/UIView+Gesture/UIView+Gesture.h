@@ -111,9 +111,9 @@ NS_ASSUME_NONNULL_END
          _mainIMGV.image = KIMG(@"社区图_2");
          [self.view addSubview:_mainIMGV];
          [_mainIMGV mas_makeConstraints:^(MASConstraintMaker *make) {
-             make.size.mas_equalTo(CGSizeMake(JobsSCREEN_WIDTH, JobsSCREEN_WIDTH));
+             make.size.mas_equalTo(CGSizeMake(JobsMainScreen_WIDTH(), JobsMainScreen_WIDTH()));
              make.centerX.equalTo(self.view);
-             make.top.equalTo(self.titleIMGV.mas_bottom).offset(-JobsHeight(10));
+             make.top.equalTo(self.titleIMGV.mas_bottom).offset(-JobsHeight()(10));
          }];
      }return _mainIMGV;
  }

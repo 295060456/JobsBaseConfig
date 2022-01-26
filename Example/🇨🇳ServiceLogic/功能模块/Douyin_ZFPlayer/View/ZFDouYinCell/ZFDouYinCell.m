@@ -34,7 +34,7 @@
         NSDictionary *dic = (NSDictionary *)model;
         UITableView *tbv = (UITableView *)dic[@"tableView"];
         return tbv.mj_h;
-    }return JobsSCREEN_HEIGHT;
+    }return JobsMainScreen_HEIGHT();
 }
 
 -(void)richElementsInCellWithModel:(id _Nullable)model{
@@ -77,12 +77,12 @@
 -(MKRightBtnView *)rbView{
     if (!_rbView) {
         _rbView = MKRightBtnView.new;
-        _rbView.MKRightBtnViewSize = CGSizeMake(50, JobsSCREEN_HEIGHT/ 4);
+        _rbView.MKRightBtnViewSize = CGSizeMake(50, JobsMainScreen_HEIGHT()/ 4);
         _rbView.offset = 15;
         [self.contentView addSubview:_rbView];
         [_rbView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.bottom.equalTo(self.contentView);
-            make.size.mas_equalTo(CGSizeMake(50, JobsSCREEN_HEIGHT/ 4));
+            make.size.mas_equalTo(CGSizeMake(50, JobsMainScreen_HEIGHT()/ 4));
         }];
     }return _rbView;
 }

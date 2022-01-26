@@ -5,9 +5,7 @@
 //  Created by Jobs on 2020/10/22.
 //
 
-#import "JobsSearchConfig.h"
 #import "JobsSearchTBVCell.h"
-#import "JobsSearchDataCVCell.h"
 
 @interface JobsSearchTBVCell ()
 /// UI
@@ -101,6 +99,10 @@ shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
 - (void)collectionView:(UICollectionView *)collectionView
 didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"%s", __FUNCTION__);
+    JobsSearchDataCVCell *cvcell = (JobsSearchDataCVCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    if (self.viewBlock) self.viewBlock(cvcell.viewModel);
+    /// 点击即存入数据
+    JobsSearchStorageData(cvcell.viewModel.textModel.text);
 }
 /// 取消选中操作
 -(void)collectionView:(UICollectionView *)collectionView
@@ -111,7 +113,7 @@ didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(JobsSCREEN_WIDTH / 2, JobsSearchShowHotwordsTBVCellHeight);
+    return CGSizeMake(JobsMainScreen_WIDTH() / 2, JobsSearchShowHotwordsTBVCellHeight);
 }
 /// 每个item之间的间距 横（行）间距
 - (CGFloat)collectionView:(UICollectionView *)collectionView
@@ -142,7 +144,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
 -(UICollectionView *)collectionView{
     if (!_collectionView) {
         _collectionView = [UICollectionView.alloc initWithFrame:CGRectZero
-                                                collectionViewLayout:self.layout];
+                                           collectionViewLayout:self.layout];
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
         [_collectionView registerCollectionViewClass];

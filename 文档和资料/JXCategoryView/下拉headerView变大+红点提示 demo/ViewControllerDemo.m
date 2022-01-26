@@ -126,7 +126,7 @@ didSelectedItemAtIndex:(NSInteger)index {
 -(PagingViewTableHeaderView *)userHeaderView{
     if (!_userHeaderView) {
         _userHeaderView = PagingViewTableHeaderView.new;
-        _userHeaderView.frame = CGRectMake(0, 0, JobsSCREEN_WIDTH, JXTableHeaderViewHeight);
+        _userHeaderView.frame = CGRectMake(0, 0, JobsMainScreen_WIDTH(), JXTableHeaderViewHeight);
         _userHeaderView.isZoom = YES;
     }return _userHeaderView;
 }
@@ -134,7 +134,7 @@ didSelectedItemAtIndex:(NSInteger)index {
 -(JXCategoryDotView *)categoryTitleView{
     if (!_categoryTitleView) {
         _categoryTitleView = JXCategoryDotView.new;
-        _categoryTitleView.mj_w = JobsSCREEN_WIDTH;
+        _categoryTitleView.mj_w = JobsMainScreen_WIDTH();
         _categoryTitleView.mj_h = JXheightForHeaderInSection;
         _categoryTitleView.backgroundColor = kWhiteColor;
         _categoryTitleView.titles = self.titlesMutArr;

@@ -7,6 +7,8 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseCellProtocol.h"
+#import "JobsSearchConfig.h"
+#import "JobsSearchDataCVCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

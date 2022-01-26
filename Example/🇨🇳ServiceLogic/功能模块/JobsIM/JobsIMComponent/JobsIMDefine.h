@@ -23,7 +23,7 @@ static inline CGFloat JobsIMChatInfoTBVDefaultCellHeight(){
 }
 
 static inline CGFloat JobsIMChatInfoTBVChatContentLabWidth(){
-    return JobsSCREEN_WIDTH - JobsIMChatInfoTimeLabWidth() - (JobsIMChatInfoTBVDefaultCellHeight() - 5) - 20;
+    return JobsMainScreen_WIDTH() - JobsIMChatInfoTimeLabWidth() - (JobsIMChatInfoTBVDefaultCellHeight() - 5) - 20;
 }
 
 static inline CGFloat JobsIMChatInfoTBVChatContentLabDefaultWidth(){

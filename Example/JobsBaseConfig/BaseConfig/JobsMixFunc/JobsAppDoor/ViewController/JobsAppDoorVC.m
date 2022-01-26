@@ -410,8 +410,8 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
         [_customerServiceBtn setImage:KIMG(@"客服")
                              forState:UIControlStateNormal];
         [self.view addSubview:_customerServiceBtn];
-        _customerServiceBtn.size = CGSizeMake(JobsSCREEN_WIDTH / 3, JobsSCREEN_WIDTH / 9);
-        _customerServiceBtn.centerX = JobsSCREEN_WIDTH / 2;
+        _customerServiceBtn.size = CGSizeMake(JobsMainScreen_WIDTH() / 3, JobsMainScreen_WIDTH() / 9);
+        _customerServiceBtn.centerX = JobsMainScreen_WIDTH() / 2;
         _customerServiceBtn.top = self.jobsAppDoorContentView.top + self.jobsAppDoorContentView.height + 20;
         self.customerServiceBtnY = _customerServiceBtn.y;
         BtnClickEvent(_customerServiceBtn, NSLog(@"点击客服按钮"););

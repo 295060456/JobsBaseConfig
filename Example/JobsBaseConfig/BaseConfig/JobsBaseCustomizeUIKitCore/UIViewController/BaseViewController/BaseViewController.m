@@ -19,8 +19,13 @@ UIViewModelProtocol_synthesize
 BaseViewControllerProtocol_synthesize
 
 - (void)dealloc{
-    NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
     [NSNotificationCenter.defaultCenter removeObserver:self];
+    [self.view endEditing:YES];
+    if (JobsDebug) {
+        [WHToast toastMsg:[NSString stringWithFormat:@"成功销毁了控制器:%@",NSStringFromClass(self.class)]];
+        NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
+        PrintRetainCount(self)
+    }
 }
 
 - (instancetype)init{

@@ -11,6 +11,7 @@
 #import "JobsBlock.h"
 #import "JobsBaseConfigNotificationManager.h"
 #import "MacroDef_Notification.h"
+#import "MacroDef_Log.h"
 
 #import "UIView+Category.h"
 #import "UIViewController+Category.h"
