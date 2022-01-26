@@ -1,6 +1,6 @@
 #  UICollectionViewFlowLayout
 
-_layout.minimumLineSpacing = JobsHeight(35);// Y轴方向的Cell之间的间距
+_layout.minimumLineSpacing = JobsHeight()(35);// Y轴方向的Cell之间的间距
 _layout.minimumInteritemSpacing = JobsWidth(20);// X轴方向的Cell之间的间距
 
 xxxxx sizeForItemAtIndexPath:(NSIndexPath *)indexPath

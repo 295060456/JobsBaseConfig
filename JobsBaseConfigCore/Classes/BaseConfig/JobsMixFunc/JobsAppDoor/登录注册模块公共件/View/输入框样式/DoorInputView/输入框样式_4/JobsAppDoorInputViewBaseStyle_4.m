@@ -85,7 +85,7 @@
 -(ImageCodeView *)imageCodeView{
     if (!_imageCodeView) {
         _imageCodeView = ImageCodeView.new;
-        _imageCodeView.font = kFontSize(16);
+        _imageCodeView.font = JobsFontRegular(16);
         _imageCodeView.alpha = 0.7;
         _imageCodeView.bgColor = kWhiteColor;
         [self addSubview:_imageCodeView];

@@ -41,7 +41,7 @@
 //            self.navigationBar.titleTextAttributes = @{
 //                NSForegroundColorAttributeName:kBlackColor,
 //                NSShadowAttributeName:self.shadow,
-//                NSFontAttributeName:kFontSize(18)
+//                NSFontAttributeName:JobsFontRegular(18)
 //            };//设置导航上的title显示样式
 //        }
     }return self;

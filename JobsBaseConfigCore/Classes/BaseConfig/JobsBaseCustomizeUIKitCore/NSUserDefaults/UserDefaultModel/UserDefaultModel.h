@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UserDefaultModel : NSObject
 // 对象
-@property(nonatomic,strong,nullable)id obj;
+@property(nonatomic,strong,nullable)NSObject *obj;
 // 基本数据类型
 @property(nonatomic,assign)int intValue;
 @property(nonatomic,assign)float floatValue;

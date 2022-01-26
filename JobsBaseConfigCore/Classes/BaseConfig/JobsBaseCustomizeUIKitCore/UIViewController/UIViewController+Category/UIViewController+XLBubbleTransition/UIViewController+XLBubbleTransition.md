@@ -14,8 +14,8 @@ self.xl_popTranstion = [XLBubbleTransition transitionWithAnchorRect:self.postBtn
         @jobs_weakify(self)
         self.view.vc = weak_self;
         [self.view addSubview:_postBtn];
-        _postBtn.frame = CGRectMake(JobsSCREEN_WIDTH - 43 - 34,
-                                    JobsSCREEN_HEIGHT - 84 - 34 - TabBarHeight() - BottomSafeAreaHeight(),
+        _postBtn.frame = CGRectMake(JobsMainScreen_WIDTH() - 43 - 34,
+                                    JobsMainScreen_HEIGHT() - 84 - 34 - TabBarHeight() - BottomSafeAreaHeight(),
                                     34,
                                     34);
         [UIView cornerCutToCircleWithCornerRadius:_postBtn

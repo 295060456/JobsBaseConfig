@@ -120,8 +120,8 @@ static char *UIView_BaseView_NTESVerifyCodeCloseBtn = "UIView_BaseView_NTESVerif
     if (!btn) {
         btn = UIButton.new;
         [btn normalImage:KBuddleIMG(nil,@"ZYTextField",@"", @"CloseCircle（大号）.png")];
-        btn.frame = CGRectMake(JobsSCREEN_WIDTH - JobsWidth(50),
-                               JobsSCREEN_HEIGHT / 4,
+        btn.frame = CGRectMake(JobsMainScreen_WIDTH() - JobsWidth(50),
+                               JobsMainScreen_HEIGHT() / 4,
                                JobsWidth(30),
                                JobsWidth(30));
         BtnClickEvent(btn, {

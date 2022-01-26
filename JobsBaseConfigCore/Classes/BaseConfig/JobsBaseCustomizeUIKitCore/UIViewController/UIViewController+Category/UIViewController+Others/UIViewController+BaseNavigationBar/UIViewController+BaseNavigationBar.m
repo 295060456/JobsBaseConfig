@@ -249,7 +249,7 @@ static char *UIViewController_NavigationBar_shadowCor = "UIViewController_Naviga
 -(UIFont *)fontAttributeName{
     UIFont *FontAttributeName = objc_getAssociatedObject(self, UIViewController_NavigationBar_fontAttributeName);
     if (!FontAttributeName) {
-        FontAttributeName = kFontSize(18);
+        FontAttributeName = [UIFont systemFontOfSize:JobsWidth(18) weight:UIFontWeightRegular];
         objc_setAssociatedObject(self,
                                  UIViewController_NavigationBar_fontAttributeName,
                                  FontAttributeName,

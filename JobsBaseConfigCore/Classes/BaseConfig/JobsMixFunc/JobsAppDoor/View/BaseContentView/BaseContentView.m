@@ -43,7 +43,7 @@
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
         @jobs_strongify(self)
-        self.centerX = JobsSCREEN_WIDTH / 2;
+        self.centerX = JobsMainScreen_WIDTH() / 2;
         self.centerY -= offsetY;
     } completion:^(BOOL finished) {
         

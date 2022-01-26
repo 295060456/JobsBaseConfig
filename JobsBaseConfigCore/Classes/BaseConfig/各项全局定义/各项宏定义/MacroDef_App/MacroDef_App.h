@@ -8,8 +8,6 @@
 #ifndef MacroDef_App_h
 #define MacroDef_App_h
 
-#define debug 1//是否显示debug控件
-
 static NSString *退出登录 = @"退出登录";
 static NSString *登录成功 = @"登录成功";
 
@@ -45,10 +43,6 @@ static NSString *登录成功 = @"登录成功";
 #define AppMainCor_19 RGB_SAMECOLOR(155)
 #define AppMainCor_20 HEXCOLOR(0xF7F7F7)
 #define AppLightGrayCor HEXCOLOR(0xCCCCCC)
-
-//输入原型图上的宽和高，对外输出App对应的移动设备的真实宽高
-#define JobsWidth(width) (MIN(JobsSCREEN_WIDTH, JobsSCREEN_HEIGHT) / 375) * (width) //375 对应原型图的宽
-#define JobsHeight(height) (JobsSCREEN_HEIGHT / 743) * (height) //743 对应原型图的高
 
 #define isiPhoneX_seriesBottom 34
 #define isiPhoneX_seriesTop 44

@@ -41,7 +41,7 @@
 -(void)touchesBegan:(NSSet<UITouch *> *)touches
           withEvent:(UIEvent *)event{
     NSLog(@"");
-//    if (self.baseTableViewBlock) self.baseTableViewBlock();
+    if (self.viewBlock) self.viewBlock(@1);
 }
 /// 专治UITableView相应链断裂【核心代码】
 - (UIView *)hitTest:(CGPoint)point

@@ -130,7 +130,8 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
     return appDelegate.tabBarVC.tabBar;
 }
 #pragma mark —— <AppToolsProtocol> 其他
--(UIViewModel *)configViewModel:(NSString *)title{
+-(UIViewModel *)configViewModelWithTitle:(NSString *_Nullable)title
+                                subTitle:(NSString *_Nullable)subTitle{
     UIViewModel *viewModel = UIViewModel.new;
     
     {
@@ -139,7 +140,7 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
         viewModel.textModel = textModel;
         
         UITextModel *subTextModel = UITextModel.new;
-        subTextModel.text = Internationalization(@"点击查看");
+        subTextModel.text = Internationalization([NSString isNullString:subTitle] ? @"点击查看" : subTitle);
         viewModel.subTextModel = subTextModel;
         
         UITextModel *backBtnTitleModel = UITextModel.new;
