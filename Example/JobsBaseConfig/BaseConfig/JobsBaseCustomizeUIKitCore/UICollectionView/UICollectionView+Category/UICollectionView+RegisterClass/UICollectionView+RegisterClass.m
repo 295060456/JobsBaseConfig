@@ -6,32 +6,36 @@
 //
 
 #import "UICollectionView+RegisterClass.h"
-#import "JobsHotLabelWithMultiLineCVCell.h"
 
 @implementation UICollectionView (RegisterClass)
 
 -(void)registerCollectionViewClass{
     // CollectionReusableView
     /// Header
-//    [self registerClass:CasinoGameCollectionReusableView.class
-//    forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
-//    withReuseIdentifier:reuseIdentifier(CasinoGameCollectionReusableView)];
-//    [self registerClass:CasinoAgencyRecommendCRView.class
-//    forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
-//    withReuseIdentifier:reuseIdentifier(CasinoAgencyRecommendCRView)];
-//    /// Footer
-//    [self registerClass:CasinoAgencyRecommendTipsCRView.class
-//    forSupplementaryViewOfKind:UICollectionElementKindSectionFooter
-//    withReuseIdentifier:reuseIdentifier(CasinoAgencyRecommendTipsCRView)];
+    //[self registerCollectionElementKindSectionHeaderClass:CasinoGameCollectionReusableView.class];
+    /// Footer
+    //[self registerCollectionElementKindSectionFooterClass:CasinoAgencyRecommendTipsCRView.class];
     // CollectionViewCell
-    [self registerClass:UICollectionViewCell.class
-        forCellWithReuseIdentifier:reuseIdentifier(UICollectionViewCell)];
-    [self registerClass:BaseCollectionViewCell.class
-        forCellWithReuseIdentifier:reuseIdentifier(BaseCollectionViewCell)];
-    [self registerClass:JobsHotLabelWithMultiLineCVCell.class
-        forCellWithReuseIdentifier:reuseIdentifier(JobsHotLabelWithMultiLineCVCell)];
-    [self registerClass:JobsSearchDataCVCell.class
-        forCellWithReuseIdentifier:reuseIdentifier(JobsSearchDataCVCell)];
+    [self registerCollectionViewCellClass:UICollectionViewCell.class];
+    [self registerCollectionViewCellClass:BaseCollectionViewCell.class];
+    [self registerCollectionViewCellClass:JobsHotLabelWithMultiLineCVCell.class];
+    [self registerCollectionViewCellClass:JobsSearchDataCVCell.class];
+}
+/// 注册 UICollectionViewCell 及其子类
+-(void)registerCollectionViewCellClass:(Class)cls{
+    [self registerClass:cls forCellWithReuseIdentifier:cls.description];
+}
+/// 注册 UICollectionElementKindSectionFooter 及其子类
+-(void)registerCollectionElementKindSectionFooterClass:(Class)cls{
+    [self registerClass:cls
+    forSupplementaryViewOfKind:UICollectionElementKindSectionFooter
+    withReuseIdentifier:cls.description];
+}
+/// 注册 UICollectionElementKindSectionHeader 及其子类
+-(void)registerCollectionElementKindSectionHeaderClass:(Class)cls{
+    [self registerClass:cls
+    forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+    withReuseIdentifier:cls.description];
 }
 
 @end

@@ -11,6 +11,7 @@
 #pragma mark —— Base
 #import "BaseTableView.h"
 #pragma mark —— Category
+#import "UITableView+RegisterClass.h"
 #import "UITableView+Expand.h"
 // UITableView 折叠功能
 #import "UITableView+WWFoldableTableView.h"

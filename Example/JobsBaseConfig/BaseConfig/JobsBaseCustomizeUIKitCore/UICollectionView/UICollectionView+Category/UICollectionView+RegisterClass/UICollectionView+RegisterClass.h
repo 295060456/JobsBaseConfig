@@ -9,6 +9,7 @@
 #import "BaseCollectionViewCell.h"
 #import "JobsHotLabelWithMultiLineCVCell.h"
 #import "JobsSearchDataCVCell.h"
+#import "JobsHotLabelWithMultiLineCVCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

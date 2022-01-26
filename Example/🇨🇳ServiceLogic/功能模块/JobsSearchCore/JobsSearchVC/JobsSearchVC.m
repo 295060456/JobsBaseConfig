@@ -275,7 +275,8 @@ heightForHeaderInSection:(NSInteger)section{
 
 -(UIView *)tableView:(UITableView *)tableView
 viewForHeaderInSection:(NSInteger)section{
-    JobsSearchTableViewHeaderView *header = [JobsSearchTableViewHeaderView.alloc initWithReuseIdentifier:NSStringFromClass(JobsSearchTableViewHeaderView.class)];
+    
+    JobsSearchTableViewHeaderView *header = JobsSearchTableViewHeaderView.jobsInitWithReuseIdentifier;
     [header richElementsInViewWithModel:self.sectionTitleMutArr[section]];
     if (section == 1) {
         header.getDelBtn.visible = YES;
@@ -326,6 +327,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 -(BaseTableView *)tableView{
     if (!_tableView) {
         _tableView = BaseTableView.new;
+//        [BaseTableView.alloc initWithFrame:CGRectZero style:UITableViewStylePlain];
         _tableView.backgroundColor = self.bgColour;
         _tableView.delegate = self;
         _tableView.dataSource = self;
@@ -334,10 +336,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         _tableView.tableHeaderView = self.jobsSearchBar;
         _tableView.tableFooterView = UIView.new;
         _tableView.ww_foldable = YES;//设置可折叠
-        
-        [_tableView registerClass:JobsSearchTableViewHeaderView.class
-forHeaderFooterViewReuseIdentifier:NSStringFromClass(JobsSearchTableViewHeaderView.class)];
-        
+        [_tableView registerTableViewClass];
+
         {
             MJRefreshConfigModel *refreshConfigHeader = MJRefreshConfigModel.new;
             refreshConfigHeader.stateIdleTitle = Internationalization(@"下拉可以刷新");
@@ -365,6 +365,12 @@ forHeaderFooterViewReuseIdentifier:NSStringFromClass(JobsSearchTableViewHeaderVi
             @jobs_strongify(self)
             [self endDropDownListView];
         }];
+        
+        if(@available(iOS 11.0, *)) {
+            _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }else{
+            SuppressWdeprecatedDeclarationsWarning(self.automaticallyAdjustsScrollViewInsets = NO);
+        }
 
         [self.view addSubview:_tableView];
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {

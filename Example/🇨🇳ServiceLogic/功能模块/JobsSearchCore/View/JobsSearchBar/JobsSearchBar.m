@@ -59,16 +59,22 @@
         _textField.leftViewOffsetX = JobsWidth(5);
         _textField.offset = JobsWidth(3);
         [self addSubview:_textField];
-//        _tf.isShowHistoryDataList = YES;//一句代码实现下拉历史列表：这句一定要写在addSubview之后，否则找不到父控件会崩溃
         _textField.frame = CGRectMake(10,
                                10,
                                JobsMainScreen_WIDTH() - 20,
                                self.mj_h - 20);
-        
+        _textField.x = JobsWidth(10);
+        _textField.y = JobsWidth(10);
+        CGFloat TextFieldWidth = JobsMainScreen_WIDTH() - JobsWidth(20);
+        _textField.size = CGSizeMake(TextFieldWidth,
+                                     self.mj_h - JobsWidth(30));
         @jobs_weakify(self)
         [[_textField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
             @jobs_strongify(self)
-            self.cancelBtn.alpha = 1;
+            if (![NSString isNullString:self.textField.text]) {
+                self.cancelBtn.alpha = 1;
+                self.textField.width = TextFieldWidth - (self.cancelBtn.size.width + JobsWidth(5));
+            }
             return YES;
         }] subscribeNext:^(NSString * _Nullable x) {
             @jobs_strongify(self)
@@ -76,7 +82,7 @@
             if (self.viewBlock) self.viewBlock(x);
         }];
         
-        [_textField cornerCutToCircleWithCornerRadius:2];
+        [_textField cornerCutToCircleWithCornerRadius:JobsWidth(8)];
         [_textField layerBorderColour:kBlueColor andBorderWidth:.05f];
         
     }return _textField;
@@ -85,16 +91,16 @@
 -(UIButton *)cancelBtn{
     if (!_cancelBtn) {
         _cancelBtn = UIButton.new;
-        _cancelBtn.backgroundColor = KGreenColor;
+        _cancelBtn.backgroundColor = UIColor.lightGrayColor;
         [_cancelBtn normalTitle:Internationalization(@"取消")];
         [_cancelBtn titleFont:[UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular]];
         [_cancelBtn normalTitleColor:HEXCOLOR(0x0F81FE)];
 //        [_cancelBtn buttonAutoWidthByFont]; // 无效
         [self addSubview:_cancelBtn];
-        _cancelBtn.x = JobsMainScreen_WIDTH() - JobsWidth(80);
-        _cancelBtn.y = JobsWidth(10);
-        _cancelBtn.size = CGSizeMake(JobsWidth(50), JobsWidth(50));
-        [_cancelBtn layerBorderColour:KGreenColor andBorderWidth:1];
+        _cancelBtn.size = CGSizeMake(JobsWidth(50), JobsWidth(30));
+        _cancelBtn.x = JobsMainScreen_WIDTH() - _cancelBtn.size.width - JobsWidth(5);
+        _cancelBtn.centerY = self.textField.centerY;
+        [_cancelBtn layerBorderColour:UIColor.whiteColor andBorderWidth:1];
         [_cancelBtn cornerCutToCircleWithCornerRadius:8];
         BtnClickEvent(_cancelBtn, if (self.viewBlock) self.viewBlock(self.textField.text);)
     }return _cancelBtn;

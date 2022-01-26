@@ -145,6 +145,8 @@ BaseProtocol
 /// 添加监听【针对UIScrollView 的 ContentOffset 属性】
 -(void)monitorContentOffsetScrollView:(UIScrollView *_Nonnull)scrollView;
 #pragma mark —— 功能性的
++(instancetype _Nonnull)jobsInitWithReuseIdentifier;
+-(instancetype _Nonnull)jobsInitWithReuseIdentifierClass:(Class _Nonnull)cls;
 /// 版本号比较
 /// @param versionNumber1 版本号1
 /// @param versionNumber2 版本号2

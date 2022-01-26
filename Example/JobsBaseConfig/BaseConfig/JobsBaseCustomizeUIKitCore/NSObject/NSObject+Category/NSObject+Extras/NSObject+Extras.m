@@ -131,6 +131,13 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
                     context:nil];
 }
 #pragma mark —— 功能性的
++(instancetype _Nonnull)jobsInitWithReuseIdentifier{
+    return [self.class.alloc initWithReuseIdentifier:NSStringFromClass(self.class)];
+}
+
+-(instancetype _Nonnull)jobsInitWithReuseIdentifierClass:(Class _Nonnull)cls{
+    return [cls.alloc initWithReuseIdentifier:NSStringFromClass(cls)];
+}
 /// 版本号比较 版本号的格式：数字中间由点隔开
 /// @param versionNumber1 版本号1
 /// @param versionNumber2 版本号2
