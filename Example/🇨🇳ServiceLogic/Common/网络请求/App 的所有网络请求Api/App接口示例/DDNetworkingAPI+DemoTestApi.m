@@ -11,8 +11,8 @@
 
 NSString *appInterfaceTesting;
 +(void)appInterfaceTesting:(id)parameters
-              successBlock:(MKDataBlock _Nullable)successBlock
-              failureBlock:(MKDataBlock _Nullable)failureBlock{
+              successBlock:(jobsByIDBlock _Nullable)successBlock
+              failureBlock:(jobsByIDBlock _Nullable)failureBlock{
 //    NSDictionary *parameterss = @{};
 //    NSDictionary *headers = @{};
     

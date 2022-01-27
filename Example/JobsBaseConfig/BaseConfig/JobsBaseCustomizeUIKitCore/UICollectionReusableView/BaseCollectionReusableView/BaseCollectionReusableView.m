@@ -22,7 +22,7 @@
 -(void)touchesBegan:(NSSet<UITouch *> *)touches
           withEvent:(UIEvent *)event{
     @jobs_weakify(self)
-    if (self.viewBlock) self.viewBlock(weak_self);
+    if (self.objectBlock) self.objectBlock(weak_self);
 }
 //由具体的子类进行覆写
 +(CGSize)viewSizeWithModel:(id _Nullable)model{

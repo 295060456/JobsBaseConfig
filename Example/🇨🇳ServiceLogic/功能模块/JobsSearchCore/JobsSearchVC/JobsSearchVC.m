@@ -88,7 +88,7 @@
 #pragma mark —— 一些私有化方法
 /// 移除掉这个下拉列表
 -(void)endDropDownListView{
-    [self.view endEditing:YES];
+//    [self.view endEditing:YES];
     [_dropDownListView dropDownListViewDisappear];
     _dropDownListView = nil;
 }
@@ -211,7 +211,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
 -(void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self.view endEditing:YES];
+//    [self.view endEditing:YES];
     JobsSearchShowHistoryDataTBVCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     self.jobsSearchBar.getTextField.text = cell.textLabel.text;
 }
@@ -242,7 +242,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
                     cell.indexPath = indexPath;
                     [cell richElementsInCellWithModel:self.hotSearchMutArr];
                     /// 点击的哪个btn？
-                    [cell actionViewBlock:^(UIViewModel *data) {
+                    [cell actionObjectBlock:^(UIViewModel *data) {
                         @jobs_strongify(self)
                         self.jobsSearchBar.getTextField.text = data.textModel.text;
 
@@ -252,7 +252,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
                     JobsSearchTBVCell *cell = [JobsSearchTBVCell cellWithTableView:tableView];
                     cell.indexPath = indexPath;
                     [cell richElementsInCellWithModel:self.hotSearchMutArr];
-                    [cell actionViewBlock:^(UIViewModel *data) {
+                    [cell actionObjectBlock:^(UIViewModel *data) {
                         @jobs_strongify(self)
                         self.jobsSearchBar.getTextField.text = data.textModel.text;
                         /// 点选了推荐，则映入输入框＋存入历史
@@ -300,9 +300,9 @@ viewForHeaderInSection:(NSInteger)section{
     if (section == 1) {
         header.getDelBtn.visible = YES;
         @jobs_weakify(self)
-        [header actionViewBlock:^(id data) {
+        [header actionObjectBlock:^(id data) {
             @jobs_strongify(self)
-            [self.view endEditing:YES];
+//            [self.view endEditing:YES];
             [self.tableView ww_foldSection:section
                                       fold:![self.tableView ww_isSectionFolded:section]];//设置可折叠
             /// 删除历史过往记录
@@ -381,7 +381,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         }
         
         @jobs_weakify(self)
-        [_tableView actionViewBlock:^(id data) {
+        [_tableView actionObjectBlock:^(id data) {
             @jobs_strongify(self)
             [self endDropDownListView];
         }];
@@ -415,17 +415,30 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         _jobsSearchBar.size = [JobsSearchBar viewSizeWithModel:nil];
         [_jobsSearchBar richElementsInViewWithModel:nil];
         @jobs_weakify(self)
-        [_jobsSearchBar actionViewBlock:^(NSString *data) {
+        [_jobsSearchBar actionObjectBlock:^(NSString *data) {
             @jobs_strongify(self)
-            if (self.listViewData.count) {
-                /// 必须先移除，否则反复添加无法正常移除
-                [self endDropDownListView];
-                self.dropDownListView = [self motivateFromView:weak_self.jobsSearchBar
-                                                          data:self.listViewData
-                                            motivateViewOffset:JobsWidth(5)
-                                                   finishBlock:^(UIViewModel *data) {
-                    NSLog(@"data = %@",data);
-                }];
+
+        }];
+        
+        [_jobsSearchBar actionNSIntegerBlock:^(UITextFieldFocusType data) {
+            @jobs_strongify(self)
+            switch (data) {
+                case UITextFieldGetFocus:{/// 输入框获得焦点
+                    if (self.listViewData.count) {
+                        /// 必须先移除，否则反复添加无法正常移除
+                        self.dropDownListView = [self motivateFromView:weak_self.jobsSearchBar
+                                                                  data:self.listViewData
+                                                    motivateViewOffset:JobsWidth(5)
+                                                           finishBlock:^(UIViewModel *data) {
+                            NSLog(@"data = %@",data);
+                        }];
+                    }
+                }break;
+                case UITextFieldLoseFocus:{/// 输入框失去焦点
+                    [self endDropDownListView];
+                }break;
+                default:
+                    break;
             }
         }];
     }return _jobsSearchBar;

@@ -13,7 +13,7 @@
 @property(nonatomic,strong)UILabel *countDown;
 @property(nonatomic,strong)UIView *aphView;
 @property(nonatomic,strong)NSTimerManager *nsTimerManager;
-@property(nonatomic,copy)MKDataBlock movieCountDownFinishBlock;
+@property(nonatomic,copy)jobsByIDBlock movieCountDownFinishBlock;
 
 @end
 
@@ -63,7 +63,7 @@
     }];
 }
 
--(void)actionMovieCountDownFinishBlock:(MKDataBlock _Nullable)movieCountDownFinishBlock{
+-(void)actionMovieCountDownFinishBlock:(jobsByIDBlock _Nullable)movieCountDownFinishBlock{
     _movieCountDownFinishBlock = movieCountDownFinishBlock;
 }
 #pragma mark —— lazyLoad

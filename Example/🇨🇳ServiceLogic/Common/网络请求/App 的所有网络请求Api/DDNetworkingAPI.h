@@ -26,28 +26,28 @@ NS_ASSUME_NONNULL_BEGIN
 /// 【只有Body参数、不需要错误回调】
 +(void)requestApi:(NSString *_Nonnull)requestApi
        parameters:(id _Nullable)parameters
-     successBlock:(MKDataBlock _Nullable)successBlock;
+     successBlock:(jobsByIDBlock _Nullable)successBlock;
 ///【只有Body参数、需要错误回调的】
 +(void)requestApi:(NSString *_Nonnull)requestApi
        parameters:(id _Nullable)parameters
-     successBlock:(MKDataBlock _Nullable)successBlock
-     failureBlock:(MKDataBlock _Nullable)failureBlock;
+     successBlock:(jobsByIDBlock _Nullable)successBlock
+     failureBlock:(jobsByIDBlock _Nullable)failureBlock;
 #pragma mark —— 特殊的上传文件的网络请求
 /// 上传【图片】文件的网络请求
 +(void)requestApi:(NSString *_Nonnull)requestApi
 uploadImagesParamArr:(NSArray *_Nullable)uploadImagesParamArr
-     successBlock:(MKDataBlock _Nullable)successBlock
-     failureBlock:(MKDataBlock _Nullable)failureBlock;
+     successBlock:(jobsByIDBlock _Nullable)successBlock
+     failureBlock:(jobsByIDBlock _Nullable)failureBlock;
 /// 上传【视频】文件的网络请求
 +(void)requestApi:(NSString *_Nonnull)requestApi
 uploadVideosParamArr:(NSArray *_Nullable)uploadVideosParamArr
-     successBlock:(MKDataBlock _Nullable)successBlock
-     failureBlock:(MKDataBlock _Nullable)failureBlock;
+     successBlock:(jobsByIDBlock _Nullable)successBlock
+     failureBlock:(jobsByIDBlock _Nullable)failureBlock;
 /// 请求成功的处理代码
 +(void)networkingSuccessHandleWithData:(DDResponseModel *_Nullable)responseObject
                                request:(ZBURLRequest *_Nullable)request
-                          successBlock:(MKDataBlock _Nullable)successBlock
-                          failureBlock:(MKDataBlock _Nullable)failureBlock;
+                          successBlock:(jobsByIDBlock _Nullable)successBlock
+                          failureBlock:(jobsByIDBlock _Nullable)failureBlock;
 #pragma mark —— 错误处理
 +(void)handleError:(id)error;
 
@@ -74,7 +74,7 @@ NS_ASSUME_NONNULL_END
  
  /// 邀请好友
  +(void)userInfoInviteFriendPOST:(id)parameters
-                    successBlock:(MKDataBlock _Nullable)successBlock{
+                    successBlock:(jobsByIDBlock _Nullable)successBlock{
  //    NSDictionary *parameterss = @{};
  //    NSDictionary *headers = @{};
      
@@ -147,8 +147,8 @@ NS_ASSUME_NONNULL_END
  
 +(void)postUploadImagePOST:(id)parameters
        uploadImageDatas:(NSMutableArray<UIImage *> *)uploadImageDatas
-           successBlock:(MKDataBlock _Nullable)successBlock
-           failureBlock:(MKDataBlock _Nullable)failureBlock{
+           successBlock:(jobsByIDBlock _Nullable)successBlock
+           failureBlock:(jobsByIDBlock _Nullable)failureBlock{
  
  NSMutableArray *uploadDatas = NSMutableArray.array;
  for (int i = 0; i < uploadImageDatas.count; i++) {
@@ -224,8 +224,8 @@ NS_ASSUME_NONNULL_END
  NSString *postuploadVideoPOST;
  +(void)postuploadVideoPOST:(id)parameters
                 uploadVideo:(NSMutableArray <NSData *>*)videoDatas
-               successBlock:(MKDataBlock _Nullable)successBlock
-               failureBlock:(MKDataBlock _Nullable)failureBlock{
+               successBlock:(jobsByIDBlock _Nullable)successBlock
+               failureBlock:(jobsByIDBlock _Nullable)failureBlock{
      NSMutableArray *uploadDatas = NSMutableArray.array;
      for (int i = 0; i < videoDatas.count; i++) {
          NSInteger time = NSDate.date.timeIntervalSince1970 * 1000;

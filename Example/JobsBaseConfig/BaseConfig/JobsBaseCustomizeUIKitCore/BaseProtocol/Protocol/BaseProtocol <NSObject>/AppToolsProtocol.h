@@ -58,8 +58,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(HTTPRequestHeaderLanguageType)currentLanguageType;
 /// App 升级弹窗：在根控制器下实现，做到覆盖全局的统一
 -(void)appUpdateWithData:(CasinoGetiOSNewestVersionModel *_Nonnull)updateData
-               sureBlock:(MKDataBlock _Nullable)sureBlock
-             cancelBlock:(MKDataBlock _Nullable)cancelBlock;
+               sureBlock:(jobsByIDBlock _Nullable)sureBlock
+             cancelBlock:(jobsByIDBlock _Nullable)cancelBlock;
 
 -(void)actionForHotLabel:(JobsHotLabelWithSingleLine *)hl;
 

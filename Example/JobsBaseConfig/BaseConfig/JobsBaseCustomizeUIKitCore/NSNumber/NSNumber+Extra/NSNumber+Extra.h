@@ -30,7 +30,7 @@ typedef enum : NSInteger {
 
 @interface NSNumber (Extra)
 
--(NSString *)toString:(MKIntegerBlock _Nullable)block;
+-(NSString *)toString:(jobsByNSIntegerBlock _Nullable)block;
 
 @end
 

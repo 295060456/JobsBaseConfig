@@ -61,7 +61,6 @@
     [_tableView removeFromSuperview];
     _tableView = nil;
     [self removeFromSuperview];
-    NSLog(@"");
 }
 
 -(void)richElementsInViewWithModel:(NSMutableArray <UIViewModel *>*_Nullable)model{
@@ -87,7 +86,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (self.viewBlock) self.viewBlock(self.dataMutArr[indexPath.row]);
+    if (self.objectBlock) self.objectBlock(self.dataMutArr[indexPath.row]);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView

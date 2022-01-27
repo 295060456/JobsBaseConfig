@@ -28,7 +28,7 @@
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches
           withEvent:(UIEvent *)event{
-    if (self.viewBlock) self.viewBlock(@1);
+    if (self.objectBlock) self.objectBlock(@1);
 }
 
 @end

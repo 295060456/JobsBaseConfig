@@ -191,7 +191,7 @@ BaseProtocol
 -(JobsDropDownListView *_Nullable)motivateFromView:(UIView * _Nonnull)motivateFromView
                                               data:(NSMutableArray <UIViewModel *>* _Nullable)data
                                 motivateViewOffset:(CGFloat)motivateViewOffset
-                                       finishBlock:(MKDataBlock _Nullable)finishBlock;
+                                       finishBlock:(jobsByIDBlock _Nullable)finishBlock;
 /// iOS 获取任意控件在屏幕中的坐标
 +(CGRect)getWindowFrameByView:(UIView *_Nonnull)view;
 /// 依据View上铆定的internationalizationKEY来全局更改文字以适配国际化
@@ -219,7 +219,7 @@ BaseProtocol
 /// @param fileName Plist文件名
 -(nullable NSDictionary *)readLocalPlistWithFileName:(nullable NSString *)fileName;
 /// 监听程序被杀死前的时刻，进行一些需要异步的操作：磁盘读写、网络请求...
--(void)terminalCheck:(MKDataBlock _Nullable)checkBlock;
+-(void)terminalCheck:(jobsByIDBlock _Nullable)checkBlock;
 /// Object转换为NSData
 +(NSData *_Nullable)transformToData:(id _Nullable)object;
 /// 获取当前设备可用内存
@@ -342,7 +342,7 @@ BaseProtocol
      NSString *arg1 = @"a";
      NSString *arg2 = @"b";
      NSString *arg3 = @"c";
-     MKDataBlock arg4 = ^(id data){
+     jobsByIDBlock arg4 = ^(id data){
          NSLog(@"嗯，不错");
      };
      
@@ -360,7 +360,7 @@ BaseProtocol
  - (NSString *)test:(NSString *)arg1
            withArg2:(NSString *)arg2
             andArg3:(NSString *)arg3
-              block:(MKDataBlock)block{
+              block:(jobsByIDBlock)block{
  
      NSLog(@"%@---%@---%@", arg1, arg2, arg3);
      if (block) {

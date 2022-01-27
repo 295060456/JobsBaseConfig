@@ -12,7 +12,7 @@ static const CGFloat OffsetBetweenStateLabelAndAnimationView = 5;//StateLabel å’
 @interface LOTAnimationMJRefreshHeader ()
 
 @property(nonatomic,strong)LOTAnimationView *animationView;
-@property(nonatomic,copy)MKDataBlock refreshHeaderBlock;
+@property(nonatomic,copy)jobsByIDBlock refreshHeaderBlock;
 
 @end
 
@@ -96,7 +96,7 @@ static const CGFloat OffsetBetweenStateLabelAndAnimationView = 5;//StateLabel å’
     }
 }
 
--(void)actionBlockRefreshHeader:(MKDataBlock)refreshHeaderBlock{
+-(void)actionBlockRefreshHeader:(jobsByIDBlock)refreshHeaderBlock{
     self.refreshHeaderBlock = refreshHeaderBlock;
 }
 #pragma mark â€”â€” lazyLoad

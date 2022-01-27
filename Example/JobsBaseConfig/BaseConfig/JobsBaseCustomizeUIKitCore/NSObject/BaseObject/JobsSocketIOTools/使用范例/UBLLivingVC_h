@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UBLLivingVC : UBLBaseViewController
 
 @property(nonatomic,strong)UBLLivingModel *livingModel;
--(void)actionBlockLivingVC:(MKDataBlock _Nullable)livingVCBlock;
+-(void)actionBlockLivingVC:(jobsByIDBlock _Nullable)livingVCBlock;
 
 @end
 

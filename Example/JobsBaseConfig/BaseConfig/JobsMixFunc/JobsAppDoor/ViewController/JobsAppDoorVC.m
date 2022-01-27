@@ -195,10 +195,10 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
     [self backBtnClickEvent:nil];
 }
 /// 网易云盾验证
--(void)NTESVerifyCodeWithBlock:(MKDataBlock)block{
+-(void)NTESVerifyCodeWithBlock:(jobsByIDBlock)block{
     [self openVerifyCodeView:self.view];
     @jobs_weakify(self)
-    [self setViewBlock:^(UIViewModel *data) {
+    [self actionObjectBlock:^(UIViewModel *data) {
         @jobs_strongify(self)
         if ([data isKindOfClass:UIViewModel.class]) {
             UIViewModel *vm = (UIViewModel *)data;
@@ -285,7 +285,7 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
         [self.view addSubview:_forgotCodeContentView];
         [_forgotCodeContentView richElementsInViewWithModel:UIViewModel.new];
         @jobs_weakify(self)
-        [_forgotCodeContentView actionViewBlock:^(id data) {
+        [_forgotCodeContentView actionObjectBlock:^(id data) {
             @jobs_strongify(self)
             if ([data isKindOfClass:UIButton.class]) {
                 UIButton *btn = (UIButton *)data;
@@ -322,7 +322,7 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
         _jobsAppDoorContentView.backgroundColor = Cor2;
         @jobs_weakify(self)
         //监测输入字符回调 和 激活的textField 和 toRegisterBtn/abandonLoginBtn点击事件
-        [_jobsAppDoorContentView actionViewBlock:^(id data) {
+        [_jobsAppDoorContentView actionObjectBlock:^(id data) {
             @jobs_strongify(self)
             if ([data isKindOfClass:UIButton.class]) {
                 [self.view endEditing:YES];

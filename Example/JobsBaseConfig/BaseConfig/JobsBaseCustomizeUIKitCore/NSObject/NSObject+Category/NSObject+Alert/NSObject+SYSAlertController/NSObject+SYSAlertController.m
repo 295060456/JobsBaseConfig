@@ -18,8 +18,8 @@
 /// @param alertVCBlock 返回这个UIAlertController *
 /// @param completionBlock 结束完成以后的block
 +(void)showSYSAlertViewConfig:(nonnull SYSAlertControllerConfig *)config
-                 alertVCBlock:(nullable MKDataBlock)alertVCBlock
-              completionBlock:(nullable NoResultBlock)completionBlock{
+                 alertVCBlock:(nullable jobsByIDBlock)alertVCBlock
+              completionBlock:(nullable jobsByVoidBlock)completionBlock{
 //    @weakify(config)
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:config.title
                                                                              message:config.message
@@ -70,8 +70,8 @@
 /// @param alertVCBlock 返回这个UIAlertController *
 /// @param completionBlock 结束完成以后的block
 +(void)showSYSActionSheetConfig:(nonnull SYSAlertControllerConfig *)config
-                   alertVCBlock:(nullable MKDataBlock)alertVCBlock
-                completionBlock:(nullable NoResultBlock)completionBlock{
+                   alertVCBlock:(nullable jobsByIDBlock)alertVCBlock
+                completionBlock:(nullable jobsByVoidBlock)completionBlock{
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:config.title
                                                                              message:config.message
                                                                       preferredStyle:UIAlertControllerStyleActionSheet];

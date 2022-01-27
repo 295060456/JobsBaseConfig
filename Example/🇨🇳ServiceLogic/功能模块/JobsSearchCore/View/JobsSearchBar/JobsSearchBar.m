@@ -74,12 +74,16 @@
             if (![NSString isNullString:self.textField.text]) {
                 self.cancelBtn.alpha = 1;
                 self.textField.width = TextFieldWidth - (self.cancelBtn.size.width + JobsWidth(5));
-            }
-            return YES;
+            }return ![NSString isNullString:value];
         }] subscribeNext:^(NSString * _Nullable x) {
             @jobs_strongify(self)
             NSLog(@"输入的字符为 = %@",x);
-            if (self.viewBlock) self.viewBlock(x);
+            if (self.objectBlock) self.objectBlock(x);
+        }];
+        
+        [_textField actionNSIntegerBlock:^(UITextFieldFocusType data) {
+            NSLog(@"%ld",(long)data);
+            if (self.NSIntegerBlock) self.NSIntegerBlock(data);
         }];
         
         [_textField cornerCutToCircleWithCornerRadius:JobsWidth(8)];
@@ -102,7 +106,8 @@
         _cancelBtn.centerY = self.textField.centerY;
         [_cancelBtn layerBorderColour:UIColor.whiteColor andBorderWidth:1];
         [_cancelBtn cornerCutToCircleWithCornerRadius:8];
-        BtnClickEvent(_cancelBtn, if (self.viewBlock) self.viewBlock(self.textField.text);)
+//        BtnClickEvent(_cancelBtn, if (self.objectBlock) self.objectBlock(self.textField.text);)
+        BtnClickEvent(_cancelBtn,[self.textField resignFirstResponder];);
     }return _cancelBtn;
 }
 

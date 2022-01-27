@@ -34,8 +34,8 @@ MFMessageComposeViewControllerDelegate
 /// @param failBlock 失败回调
 -(void)dialWithTelephoneNumber:(NSString *_Nullable)telephoneNumber
            dialFinishBackToApp:(BOOL)dialFinishBackToApp
-                  successBlock:(MKDataBlock _Nullable)successBlock
-                     failBlock:(MKDataBlock _Nullable)failBlock;
+                  successBlock:(jobsByIDBlock _Nullable)successBlock
+                     failBlock:(jobsByIDBlock _Nullable)failBlock;
 /**
     跳转系统设置
     在iOS10更新后，跳转到系统设置的具体的子页面被禁用，只能跳转到系统设置根目录
@@ -46,19 +46,19 @@ MFMessageComposeViewControllerDelegate
 -(void)openURL:(NSString *_Nullable)URLStr;
 /// 软性打开URL：【只处理打开成功的情况】
 -(void)openURL:(NSString *_Nullable)URLStr
-  successBlock:(MKDataBlock _Nullable)successBlock;
+  successBlock:(jobsByIDBlock _Nullable)successBlock;
 /// 软性打开URL：【只处理打开失败的情况】
 -(void)openURL:(NSString *_Nullable)URLStr
-     failBlock:(MKDataBlock _Nullable)failBlock;
+     failBlock:(jobsByIDBlock _Nullable)failBlock;
 /// 软性打开URL：【会处理打开成功和打开失败两种情况】如果URL有误，可以做其他事，比如打开一个备用URL
 -(void)openURL:(NSString *_Nullable)URLStr
-  successBlock:(MKDataBlock _Nullable)successBlock
-     failBlock:(MKDataBlock _Nullable)failBlock;
+  successBlock:(jobsByIDBlock _Nullable)successBlock
+     failBlock:(jobsByIDBlock _Nullable)failBlock;
 /// 硬性打开URL：【会处理打开成功和打开失败两种情况】如果URL有误，可以做其他事，比如打开一个备用URL
 -(BOOL)openURL:(NSString *_Nullable)URLStr
        options:(NSDictionary<UIApplicationOpenExternalURLOptionsKey, id> *_Nullable)options
-completionOpenSuccessHandler:(NoResultBlock _Nullable)openSuccessBlock
-completionOpenFailHandler:(NoResultBlock _Nullable)openFailBlock;
+completionOpenSuccessHandler:(jobsByVoidBlock _Nullable)openSuccessBlock
+completionOpenFailHandler:(jobsByVoidBlock _Nullable)openFailBlock;
 
 @end
 

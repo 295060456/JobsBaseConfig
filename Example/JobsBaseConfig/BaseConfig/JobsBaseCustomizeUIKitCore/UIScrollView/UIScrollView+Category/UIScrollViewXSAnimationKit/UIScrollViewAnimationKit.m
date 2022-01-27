@@ -42,8 +42,8 @@
 }
 
 +(void)moveAnimWithScrollView:(nonnull UIScrollView *)scrollView
-               animationBlock:(nullable NoResultBlock)animationBlock
-              completionBlock:(nullable MKDataBlock)completionBlock{
+               animationBlock:(nullable jobsByVoidBlock)animationBlock
+              completionBlock:(nullable jobsByIDBlock)completionBlock{
     
     NSArray *cells = [UIScrollView cellsWithScrollView:scrollView];
     CGFloat totalTime = 0.3;
@@ -72,8 +72,8 @@
 }
 
 +(void)moveSpringAnim:(nonnull UIScrollView *)scrollView
-       animationBlock:(nullable NoResultBlock)animationBlock
-      completionBlock:(nullable MKDataBlock)completionBlock{
+       animationBlock:(nullable jobsByVoidBlock)animationBlock
+      completionBlock:(nullable jobsByIDBlock)completionBlock{
     NSArray <UIView *>*cells = [UIScrollView cellsWithScrollView:scrollView];
     CGFloat totalTime = 0.4;
     for (int i = 0; i < cells.count; i++) {
@@ -102,8 +102,8 @@
 }
 
 +(void)alphaAnim:(nonnull UIScrollView *)scrollView
-  animationBlock:(nullable NoResultBlock)animationBlock
- completionBlock:(nullable MKDataBlock)completionBlock{
+  animationBlock:(nullable jobsByVoidBlock)animationBlock
+ completionBlock:(nullable jobsByIDBlock)completionBlock{
     NSArray *cells = [UIScrollView cellsWithScrollView:scrollView];
     for (int i = 0; i < cells.count; i++) {
         UIView *cell = [UIScrollView cellWithScrollView:scrollView atIndex:i];
@@ -129,8 +129,8 @@
 }
 
 +(void)fallAnim:(nonnull UIScrollView *)scrollView
- animationBlock:(nullable NoResultBlock)animationBlock
-    completionBlock:(nullable MKDataBlock)completionBlock{
+ animationBlock:(nullable jobsByVoidBlock)animationBlock
+    completionBlock:(nullable jobsByIDBlock)completionBlock{
     NSArray *cells = [UIScrollView cellsWithScrollView:scrollView];
     NSTimeInterval totalTime = 0.8;
     for (int i = 0; i < cells.count; i++) {
@@ -157,8 +157,8 @@
 }
 
 +(void)shakeAnim:(nonnull UIScrollView *)scrollView
-  animationBlock:(nullable NoResultBlock)animationBlock
- completionBlock:(nullable MKDataBlock)completionBlock{
+  animationBlock:(nullable jobsByVoidBlock)animationBlock
+ completionBlock:(nullable jobsByIDBlock)completionBlock{
     NSArray *cells = [UIScrollView cellsWithScrollView:scrollView];
     for (int i = 0; i < cells.count; i++) {
         UIView *cell = [UIScrollView cellWithScrollView:scrollView atIndex:i];
@@ -190,8 +190,8 @@
 }
 
 +(void)overTurnAnim:(nonnull UIScrollView *)scrollView
-     animationBlock:(nullable NoResultBlock)animationBlock
-    completionBlock:(nullable MKDataBlock)completionBlock{
+     animationBlock:(nullable jobsByVoidBlock)animationBlock
+    completionBlock:(nullable jobsByIDBlock)completionBlock{
     NSArray *cells = [UIScrollView cellsWithScrollView:scrollView];
     NSTimeInterval totalTime = 0.7;
     for (int i = 0; i < cells.count; i++) {
@@ -220,8 +220,8 @@
 }
 
 +(void)toTopAnim:(nonnull UIScrollView *)scrollView
-  animationBlock:(nullable NoResultBlock)animationBlock
- completionBlock:(nullable MKDataBlock)completionBlock{
+  animationBlock:(nullable jobsByVoidBlock)animationBlock
+ completionBlock:(nullable jobsByIDBlock)completionBlock{
     NSArray *cells = [UIScrollView cellsWithScrollView:scrollView];
     NSTimeInterval totalTime = 0.8;
     for (int i = 0; i < cells.count; i++) {
@@ -248,8 +248,8 @@
 }
 
 +(void)springListAnim:(nonnull UIScrollView *)scrollView
-       animationBlock:(nullable NoResultBlock)animationBlock
-      completionBlock:(nullable MKDataBlock)completionBlock{
+       animationBlock:(nullable jobsByVoidBlock)animationBlock
+      completionBlock:(nullable jobsByIDBlock)completionBlock{
     NSArray *cells = [UIScrollView cellsWithScrollView:scrollView];
     NSTimeInterval totalTime = 1.0;
     for (int i = 0; i < cells.count; i++) {
@@ -279,7 +279,7 @@
 }
 
 +(void)shrinkToTopAnim:(nonnull UIScrollView *)scrollView
-        animationBlock:(nullable NoResultBlock)animationBlock{
+        animationBlock:(nullable jobsByVoidBlock)animationBlock{
     NSArray *cells = [UIScrollView cellsWithScrollView:scrollView];
     for (int i = 0; i < cells.count; i++) {
         UIView *cell = [UIScrollView cellWithScrollView:scrollView atIndex:i];
@@ -302,8 +302,8 @@
 }
 
 +(void)layDownAnim:(nonnull UIScrollView *)scrollView
-    animationBlock:(nullable NoResultBlock)animationBlock
-   completionBlock:(nullable MKDataBlock)completionBlock{
+    animationBlock:(nullable jobsByVoidBlock)animationBlock
+   completionBlock:(nullable jobsByIDBlock)completionBlock{
     NSArray *cells = [UIScrollView cellsWithScrollView:scrollView];
     NSMutableArray *rectArr = NSMutableArray.array;
     for (int i = 0; i < cells.count; i++) {
@@ -339,8 +339,8 @@
 }
 
 +(void)roteAnim:(nonnull UIScrollView *)scrollView
- animationBlock:(nullable NoResultBlock)animationBlock
-    completionBlock:(nullable MKDataBlock)completionBlock{
+ animationBlock:(nullable jobsByVoidBlock)animationBlock
+    completionBlock:(nullable jobsByIDBlock)completionBlock{
     NSArray *cells = [UIScrollView cellsWithScrollView:scrollView];
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.y"];
     animation.fromValue = @(-M_PI);

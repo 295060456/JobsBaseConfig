@@ -357,7 +357,7 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
     if (!_inputview) {
         _inputview = JobsIMInputview.new;
         @jobs_weakify(self)
-        [_inputview actionViewBlock:^(id data) {
+        [_inputview actionObjectBlock:^(id data) {
             @jobs_strongify(self)
             if ([data isKindOfClass:ZYTextField.class]){
                 ZYTextField *tf = (ZYTextField *)data;

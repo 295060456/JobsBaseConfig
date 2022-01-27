@@ -36,8 +36,8 @@
  */
 typedef void(^clickInsideCardView)(NSInteger index);
 /** 点击ScrollView内部卡片 */
--(void)clickScrollViewInsideCardView:(MKDataBlock)clickBlock;
+-(void)clickScrollViewInsideCardView:(jobsByIDBlock)clickBlock;
 /** 滚动ScrollView内部卡片 */
--(void)scrollViewIndex:(MKDataBlock)scrollBlock;
+-(void)scrollViewIndex:(jobsByIDBlock)scrollBlock;
 
 @end

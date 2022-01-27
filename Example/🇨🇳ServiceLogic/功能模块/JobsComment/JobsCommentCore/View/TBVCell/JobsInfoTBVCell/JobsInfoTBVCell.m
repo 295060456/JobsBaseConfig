@@ -77,7 +77,7 @@
         _LikeBtn.thumpNum = 0;
 
         BtnClickEvent(_LikeBtn, {
-            if (self.viewBlock) self.viewBlock(x);
+            if (self.objectBlock) self.objectBlock(x);
             if (self->_LikeBtn.selected) {
                 [self->_LikeBtn setThumbWithSelected:NO
                                             thumbNum:self->_LikeBtn.thumpNum - 1

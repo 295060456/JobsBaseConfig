@@ -36,7 +36,7 @@ static char *UIView_BaseView_NTESVerifyCodeCloseBtn = "UIView_BaseView_NTESVerif
 -(void)verifyCodeInitFinish{
     UIViewModel *viewModel = UIViewModel.new;
     viewModel.ntesVerifyCodeManagerStyle = VerifyCodeInitFinish;
-    if (self.viewBlock) self.viewBlock(viewModel);
+    if (self.objectBlock) self.objectBlock(viewModel);
 }
 /**
  * 验证码组件初始化出错
@@ -47,7 +47,7 @@ static char *UIView_BaseView_NTESVerifyCodeCloseBtn = "UIView_BaseView_NTESVerif
     UIViewModel *viewModel = UIViewModel.new;
     viewModel.ntesVerifyCodeManagerStyle = VerifyCodeInitFailed;
     viewModel.ntesVerifyCodeError = error;
-    if (self.viewBlock) self.viewBlock(viewModel);
+    if (self.objectBlock) self.objectBlock(viewModel);
 }
 /**
  * 完成验证之后的回调
@@ -68,7 +68,7 @@ static char *UIView_BaseView_NTESVerifyCodeCloseBtn = "UIView_BaseView_NTESVerif
     viewModel.ntesVerifyCodeFinishResult = result;
     viewModel.ntesVerifyCodeValidate = validate;
     viewModel.ntesVerifyCodeMessage = message;
-    if (self.viewBlock) self.viewBlock(viewModel);
+    if (self.objectBlock) self.objectBlock(viewModel);
 }
 /**
  * 关闭验证码窗口后的回调
@@ -79,7 +79,7 @@ static char *UIView_BaseView_NTESVerifyCodeCloseBtn = "UIView_BaseView_NTESVerif
     UIViewModel *viewModel = UIViewModel.new;
     viewModel.ntesVerifyCodeManagerStyle = VerifyCodeCloseWindow;
     viewModel.ntesVerifyCodeClose = close;
-    if (self.viewBlock) self.viewBlock(viewModel);
+    if (self.objectBlock) self.objectBlock(viewModel);
 }
 #pragma mark —— @property (nonatomic,strong)NTESVerifyCodeManager *ntesVerifyCodeManager;
 -(NTESVerifyCodeManager *)ntesVerifyCodeManager{

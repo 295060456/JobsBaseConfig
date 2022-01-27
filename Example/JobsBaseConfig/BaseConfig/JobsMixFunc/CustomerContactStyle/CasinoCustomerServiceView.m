@@ -107,7 +107,7 @@ static CasinoCustomerServiceView *static_customerServiceView = nil;
                 [NSObject openURL:self.customerContactModel.onlineUrl.customerAccount];
             }
             [self endEditing:YES];
-            if (self.viewBlock) self.viewBlock(x);
+            if (self.objectBlock) self.objectBlock(x);
         }];
         [self.backgroundImageView addSubview:_contactCustomerServiceBtn];
         [_contactCustomerServiceBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -123,7 +123,7 @@ static CasinoCustomerServiceView *static_customerServiceView = nil;
     if (!_closeBtn) {
         _closeBtn = UIButton.new;
         [_closeBtn normalBackgroundImage:KIMG(@"客服_关闭按钮")];
-        BtnClickEvent(_closeBtn, if(self.viewBlock) self.viewBlock(x););
+        BtnClickEvent(_closeBtn, if(self.objectBlock) self.objectBlock(x););
         [self.backgroundImageView addSubview:_closeBtn];
         [_closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(JobsWidth(24), JobsWidth(24)));

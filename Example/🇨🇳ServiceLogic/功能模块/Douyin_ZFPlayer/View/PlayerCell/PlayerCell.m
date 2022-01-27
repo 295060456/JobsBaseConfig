@@ -15,7 +15,7 @@
 @property(nonatomic,strong,nullable)CustomZFPlayerControlView *customPlayerControlView;
 /// Data
 @property(nonatomic,strong,nullable)ZFAVPlayerManager *playerManager;
-@property(nonatomic,copy)TwoDataBlock playerCellBlock;
+@property(nonatomic,copy)jobsByTwoIDBlock playerCellBlock;
 @property(nonatomic,strong)VideoModel_Core *videoModel_Core;
 
 @end
@@ -66,7 +66,7 @@
     }
 }
 
--(void)actionBlockPlayerCell:(TwoDataBlock _Nullable)playerCellBlock{
+-(void)actionBlockPlayerCell:(jobsByTwoIDBlock _Nullable)playerCellBlock{
     self.playerCellBlock = playerCellBlock;
 }
 #pragma mark —— lazyLoad

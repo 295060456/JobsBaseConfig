@@ -19,11 +19,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface BaseCollectionView : UICollectionView<BaseViewProtocol>
 
-@property(nonatomic,copy)MKDataBlock baseCollectionViewBlock;
+@property(nonatomic,copy)jobsByIDBlock baseCollectionViewBlock;
 /*
     用于以此为基类的UICollectionView具体子类上所有数据的回调,当然也可以用NSObject分类的方法定位于：@interface NSObject (CallBackInfoByBlock)
  */
--(void)actionBlockBaseCollectionView:(MKDataBlock)baseCollectionViewBlock;
+-(void)actionBlockBaseCollectionView:(jobsByIDBlock)baseCollectionViewBlock;
 
 @end
 

@@ -55,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)MJRefreshConfigModel *refreshConfigModel;
 @property(nonatomic,assign)CGSize lOTAnimationViewSize;
 
--(void)actionBlockRefreshFooter:(MKDataBlock)refreshFooterBlock;//开始刷新和结束刷新可以做的动作
+-(void)actionBlockRefreshFooter:(jobsByIDBlock)refreshFooterBlock;//开始刷新和结束刷新可以做的动作
 
 @end
 

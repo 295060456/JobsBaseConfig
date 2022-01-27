@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)UIImage *img;
 @property(nonatomic,assign)CGSize size;
 /// 必须 self.accessoryType = UITableViewCellAccessoryDisclosureIndicator; 打开后才可以启用
--(void)customAccessoryView:(MKDataBlock)customAccessoryViewBlock;
+-(void)customAccessoryView:(jobsByIDBlock)customAccessoryViewBlock;
 
 @end
 

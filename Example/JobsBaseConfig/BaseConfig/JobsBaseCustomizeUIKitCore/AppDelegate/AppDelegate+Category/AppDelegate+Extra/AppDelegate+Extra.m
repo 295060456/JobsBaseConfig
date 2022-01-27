@@ -87,7 +87,7 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
             [self.tabBarTitleMutArr addObject:config.title];
         }
         
-        [TabBarVC setReturnViewControllerBlock:^id(id data) {
+        [TabBarVC actionReturnObjectBlock:^id(id data) {
             if ([data isKindOfClass:NSNumber.class]) {
                 NSNumber *num = (NSNumber *)data;
                 
@@ -102,7 +102,7 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
                     if (self.customerContactModel.customerList.count) {
                         /// 单例模式防止重复添加
                         CasinoCustomerServiceView *customerServiceView = CasinoCustomerServiceView.sharedInstance;
-                        [customerServiceView actionViewBlock:^(id data) {
+                        [customerServiceView actionObjectBlock:^(id data) {
                             [customerServiceView tf_hide];
                         }];
                         customerServiceView.size = [CasinoCustomerServiceView viewSizeWithModel:self.hotLabelDataMutArr];

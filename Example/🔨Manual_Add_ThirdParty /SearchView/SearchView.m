@@ -15,7 +15,7 @@
 UIScrollViewDelegate
 >
 
-@property(nonatomic,copy)MKDataBlock block;
+@property(nonatomic,copy)jobsByIDBlock block;
 @property(nonatomic,assign)CGFloat BtnWidth;
 @property(nonatomic,strong)UIButton *tempBtn;
 
@@ -89,7 +89,7 @@ UIScrollViewDelegate
     }return self;
 }
 
--(void)actionBlock:(MKDataBlock _Nullable)block{
+-(void)actionBlock:(jobsByIDBlock _Nullable)block{
     self.block = block;
 }
 #pragma mark —— UIScrollViewDelegate

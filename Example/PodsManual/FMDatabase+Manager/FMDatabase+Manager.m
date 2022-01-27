@@ -85,7 +85,7 @@
 /// @param dbPath 依据路径索引到数据库文件
 /// @param doWithBlock 具体做的事情
 -(void)handleMultiThreadedProtectionDB:(NSString *_Nullable)dbPath
-                                doWith:(MKDataBlock)doWithBlock{
+                                doWith:(jobsByIDBlock)doWithBlock{
     FMDatabaseQueue *dbQueue = [FMDatabaseQueue databaseQueueWithPath:dbPath];
     if ([[self createDataBaseWithPath:dbPath] open]) {
         [dbQueue inDatabase:^(FMDatabase * _Nonnull db) {

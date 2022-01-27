@@ -62,7 +62,7 @@
     if (!_delBtn) {
         _delBtn = UIButton.new;
         [_delBtn normalImage:KIMG(@"垃圾箱")];
-        BtnClickEvent(_delBtn, if(self.viewBlock)self.viewBlock(x););
+        BtnClickEvent(_delBtn, if(self.objectBlock)self.objectBlock(x););
         [self.contentView addSubview:_delBtn];
         [_delBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(JobsWidth(25), JobsWidth(25)));

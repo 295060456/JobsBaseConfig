@@ -24,7 +24,7 @@ UIViewModelProtocol_synthesize
     JobsSearchTBVCell *cell = (JobsSearchTBVCell *)[tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
     if (!cell) {
         cell = [JobsSearchTBVCell.alloc initWithStyle:UITableViewCellStyleDefault
-                                  reuseIdentifier:ReuseIdentifier];
+                                      reuseIdentifier:ReuseIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }return cell;
 }
@@ -45,7 +45,6 @@ UIViewModelProtocol_synthesize
         self.collectionView.alpha = 1;
     }
 }
-
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
@@ -100,7 +99,7 @@ shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
 didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"%s", __FUNCTION__);
     JobsSearchDataCVCell *cvcell = (JobsSearchDataCVCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    if (self.viewBlock) self.viewBlock(cvcell.viewModel);
+    if (self.objectBlock) self.objectBlock(cvcell.viewModel);
     /// 点击即存入数据
     JobsSearchStorageData(cvcell.viewModel.textModel.text);
 }

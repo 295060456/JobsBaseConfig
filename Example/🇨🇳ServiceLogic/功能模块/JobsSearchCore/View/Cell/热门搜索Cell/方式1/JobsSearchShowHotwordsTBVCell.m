@@ -55,9 +55,9 @@
     if (!_jobsHotLabel) {
         _jobsHotLabel = JobsHotLabelWithMultiLine.new;
         @jobs_weakify(self)
-        [_jobsHotLabel actionViewBlock:^(UIViewModel *data) {
+        [_jobsHotLabel actionObjectBlock:^(UIViewModel *data) {
             @jobs_strongify(self)
-            if (self.viewBlock) self.viewBlock(data);
+            if (self.objectBlock) self.objectBlock(data);
         }];
         [self.contentView addSubview:_jobsHotLabel];
         [_jobsHotLabel mas_makeConstraints:^(MASConstraintMaker *make) {

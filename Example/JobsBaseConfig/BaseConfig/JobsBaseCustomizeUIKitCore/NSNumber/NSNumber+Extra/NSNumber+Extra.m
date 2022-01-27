@@ -9,7 +9,7 @@
 
 @implementation NSNumber (Extra)
 
--(NSString *)toString:(MKIntegerBlock _Nullable)block{
+-(NSString *)toString:(jobsByNSIntegerBlock _Nullable)block{
     NSNumber *b = (NSNumber *)self;
     if (strcmp([self objCType], @encode(BOOL)) == 0) {// Bool 类型
         if (block) block(NSNumber_Bool);

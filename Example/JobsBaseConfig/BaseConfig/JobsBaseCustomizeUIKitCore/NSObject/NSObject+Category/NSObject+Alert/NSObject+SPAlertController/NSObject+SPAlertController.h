@@ -64,8 +64,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param alertVCBlock alertVCBlock
 /// @param completionBlock completionBlock
 +(SPAlertController *)showSPAlertControllerConfig:(SPAlertControllerConfig *)config
-                                     alertVCBlock:(nullable TwoDataBlock)alertVCBlock
-                                  completionBlock:(nullable NoResultBlock)completionBlock;
+                                     alertVCBlock:(nullable jobsByTwoIDBlock)alertVCBlock
+                                  completionBlock:(nullable jobsByVoidBlock)completionBlock;
 
 @end
 

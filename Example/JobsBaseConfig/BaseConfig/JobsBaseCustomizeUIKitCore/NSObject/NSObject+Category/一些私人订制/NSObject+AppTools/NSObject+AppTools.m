@@ -176,13 +176,13 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
 }
 /// App 升级弹窗：在根控制器下实现，做到覆盖全局的统一
 -(void)appUpdateWithData:(CasinoGetiOSNewestVersionModel *_Nonnull)updateData
-               sureBlock:(MKDataBlock _Nullable)sureBlock
-             cancelBlock:(MKDataBlock _Nullable)cancelBlock{
+               sureBlock:(jobsByIDBlock _Nullable)sureBlock
+             cancelBlock:(jobsByIDBlock _Nullable)cancelBlock{
     CasinoUpgradePopupView *upgradePopupView = CasinoUpgradePopupView.new;
     upgradePopupView.size = [CasinoUpgradePopupView viewSizeWithModel:nil];
     [upgradePopupView richElementsInViewWithModel:updateData];
     
-    [upgradePopupView actionViewBlock:^(UIButton *data) {
+    [upgradePopupView actionObjectBlock:^(UIButton *data) {
         if ([[data titleForNormalState] isEqualToString:Internationalization(@"Cancel")]) {
             if (cancelBlock) cancelBlock(@1);
         }else if ([[data titleForNormalState] isEqualToString:Internationalization(@"Sure")]){
@@ -196,7 +196,7 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
 
 -(void)actionForHotLabel:(JobsHotLabelWithSingleLine *)hl{
 //    @jobs_weakify(self)
-    [hl actionViewBlock:^(UIButton *btn) {
+    [hl actionObjectBlock:^(UIButton *btn) {
 //        @jobs_strongify(self)
         if([btn.objBindingParams isKindOfClass:CasinoCustomerContactElementModel.class]){
             CasinoCustomerContactElementModel *customerContactElementModel = (CasinoCustomerContactElementModel *)btn.objBindingParams;

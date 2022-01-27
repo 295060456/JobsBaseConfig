@@ -18,8 +18,8 @@ JhtBannerScrollViewDelegate
 ,JhtBannerScrollViewDataSource
 >
 
-@property(nonatomic,copy)MKDataBlock scrollBlock;
-@property(nonatomic,copy)MKDataBlock clickBlock;
+@property(nonatomic,copy)jobsByIDBlock scrollBlock;
+@property(nonatomic,copy)jobsByIDBlock clickBlock;
 
 @end
 
@@ -42,11 +42,11 @@ JhtBannerScrollViewDelegate
    
 }
 #pragma mark - Public Method
--(void)clickScrollViewInsideCardView:(MKDataBlock)clickBlock{
+-(void)clickScrollViewInsideCardView:(jobsByIDBlock)clickBlock{
     self.clickBlock = clickBlock;
 }
 
--(void)scrollViewIndex:(MKDataBlock)scrollBlock{
+-(void)scrollViewIndex:(jobsByIDBlock)scrollBlock{
     self.scrollBlock = scrollBlock;
 }
 #pragma mark - JhtBannerViewDelegate

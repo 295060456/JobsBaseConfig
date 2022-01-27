@@ -32,8 +32,8 @@ static char *UITextView_Extend_resStr = "UITextView_Extend_resStr";
  /// @param valueBlock 回调TextView的确定值，以表明占位符有值
  /// @param invalidBlock 回调占位符无值的状态
  */
--(void)markedTextValue:(MKDataBlock)valueBlock
-          invalidBlock:(NoResultBlock)invalidBlock{
+-(void)markedTextValue:(jobsByIDBlock)valueBlock
+          invalidBlock:(jobsByVoidBlock)invalidBlock{
     NSString *placeholderValue = [self textInRange:self.markedTextRange];
     if (placeholderValue.length) {//占位符有值
         NSString *str = [self.text stringByReplacingOccurrencesOfString:placeholderValue
@@ -52,9 +52,9 @@ static char *UITextView_Extend_resStr = "UITextView_Extend_resStr";
     对提行、删除【包含删除Emoji表情】、正向输入【包含汉字拼音输入法中的占位符】操作进行区分
  */
 -(BOOL)replacementText:(NSString *)replacementText
-     beginNewLineBlock:(MKDataBlock)beginNewLineBlock
-              delBlock:(MKDataBlock)delBlock
-      normalInputBlock:(MKDataBlock)normalInputBlock{
+     beginNewLineBlock:(jobsByIDBlock)beginNewLineBlock
+              delBlock:(jobsByIDBlock)delBlock
+      normalInputBlock:(jobsByIDBlock)normalInputBlock{
     self.replacementText = replacementText;
     if ([replacementText isEqualToString:@"\n"]) {//提行
         if (beginNewLineBlock) {

@@ -228,7 +228,7 @@ static JobsTabbarVC *static_tabbarVC = nil;
                             self.selectedIndex += 2;
                         }
                         // 向外回调需要做的事
-                        if (self.returnViewControllerBlock) A = [self.returnViewControllerBlock(indexNUM) boolValue];
+                        if (self.returnObjectBlock) A = [self.returnObjectBlock(indexNUM) boolValue];
                     }return;
                 }
                 // 手势从右到左
@@ -240,7 +240,7 @@ static JobsTabbarVC *static_tabbarVC = nil;
                             self.selectedIndex -= 2;
                         }
                         // 向外回调需要做的事
-                        if (self.returnViewControllerBlock) A = [self.returnViewControllerBlock(indexNUM) boolValue];
+                        if (self.returnObjectBlock) A = [self.returnObjectBlock(indexNUM) boolValue];
                     }return;
                 }
             }
@@ -371,7 +371,7 @@ shouldSelectViewController:(UIViewController *)viewController {
         [viewController lottieImagePlay];
     }
     
-    if (self.returnViewControllerBlock) A = [self.returnViewControllerBlock(@(index)) boolValue];
+    if (self.returnObjectBlock) A = [self.returnObjectBlock(@(index)) boolValue];
     return [self forcedLoginIndex:index] ? (A && self.isLogin) : A;
 }
 

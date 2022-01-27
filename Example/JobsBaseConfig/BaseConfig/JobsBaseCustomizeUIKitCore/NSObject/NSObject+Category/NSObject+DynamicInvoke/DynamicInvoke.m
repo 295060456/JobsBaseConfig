@@ -233,16 +233,16 @@
 -(void)test6:(NSString *)str1 str2:(NSString *)str2 str3:(NSString *)str3 str4:(NSString *)str4{
     NSLog(@"void-test6");
 }
--(void)test7:(MKDataBlock)block1{
+-(void)test7:(jobsByIDBlock)block1{
     NSLog(@"void-test7");
 }
--(void)test8:(MKDataBlock)block1 block2:(MKDataBlock)block2{
+-(void)test8:(jobsByIDBlock)block1 block2:(jobsByIDBlock)block2{
     NSLog(@"void-test8");
 }
--(void)test9:(MKDataBlock)block1 block2:(MKDataBlock)block2 block3:(MKDataBlock)block3{
+-(void)test9:(jobsByIDBlock)block1 block2:(jobsByIDBlock)block2 block3:(jobsByIDBlock)block3{
     NSLog(@"void-test9");
 }
--(void)test10:(MKDataBlock)block1 block2:(MKDataBlock)block2 block3:(MKDataBlock)block3 block4:(MKDataBlock)block4{
+-(void)test10:(jobsByIDBlock)block1 block2:(jobsByIDBlock)block2 block3:(jobsByIDBlock)block3 block4:(jobsByIDBlock)block4{
     NSLog(@"void-test10");
 }
 #pragma mark —— 实例方法（带返回值）
@@ -270,19 +270,19 @@
     NSLog(@"NSString-test16+str1+str2+str3+str4");
     return @"NSString-test16+str1+str2+str3+str4";
 }
--(NSString *)test17:(MKDataBlock)block1{
+-(NSString *)test17:(jobsByIDBlock)block1{
     NSLog(@"NSString-test17+block1");
     return @"NSString-test17+block1";
 }
--(NSString *)test18:(MKDataBlock)block1 block2:(MKDataBlock)block2{
+-(NSString *)test18:(jobsByIDBlock)block1 block2:(jobsByIDBlock)block2{
     NSLog(@"NSString-test18+block1+block2");
     return @"NSString-test18+block1+block2";
 }
--(NSString *)test19:(MKDataBlock)block1 block2:(MKDataBlock)block2 block3:(MKDataBlock)block3{
+-(NSString *)test19:(jobsByIDBlock)block1 block2:(jobsByIDBlock)block2 block3:(jobsByIDBlock)block3{
     NSLog(@"NSString-test19+block1+block2+block3");
     return @"NSString-test19+block1+block2+block3";
 }
--(NSString *)test20:(MKDataBlock)block1 block2:(MKDataBlock)block2 block3:(MKDataBlock)block3 block4:(MKDataBlock)block4{
+-(NSString *)test20:(jobsByIDBlock)block1 block2:(jobsByIDBlock)block2 block3:(jobsByIDBlock)block3 block4:(jobsByIDBlock)block4{
     NSLog(@"NSString-test20+block1+block2+block3+block4");
     return @"NSString-test20+block1+block2+block3+block4";
 }
@@ -305,16 +305,16 @@
 +(void)Test6:(NSString *)str1 str2:(NSString *)str2 str3:(NSString *)str3 str4:(NSString *)str4{
     NSLog(@"void+Test6+str1+str2+str3+str4");
 }
-+(void)Test7:(MKDataBlock)block1{
++(void)Test7:(jobsByIDBlock)block1{
     NSLog(@"void+Test7+block1");
 }
-+(void)Test8:(MKDataBlock)block1 block2:(MKDataBlock)block2{
++(void)Test8:(jobsByIDBlock)block1 block2:(jobsByIDBlock)block2{
     NSLog(@"void+Test8+block1+block2");
 }
-+(void)Test9:(MKDataBlock)block1 block2:(MKDataBlock)block2 block3:(MKDataBlock)block3{
++(void)Test9:(jobsByIDBlock)block1 block2:(jobsByIDBlock)block2 block3:(jobsByIDBlock)block3{
     NSLog(@"void+Test9+block1+block2+block3");
 }
-+(void)Test10:(MKDataBlock)block1 block2:(MKDataBlock)block2 block3:(MKDataBlock)block3 block4:(MKDataBlock)block4{
++(void)Test10:(jobsByIDBlock)block1 block2:(jobsByIDBlock)block2 block3:(jobsByIDBlock)block3 block4:(jobsByIDBlock)block4{
     NSLog(@"void+Test10+block1+block2+block3+block4");
 }
 #pragma mark —— 类方法（带返回值）
@@ -342,19 +342,19 @@
     NSLog(@"void+Test16+str1+str2+str3+str4");
     return @"void+Test16+str1+str2+str3+str4";
 }
-+(NSString *)Test17:(MKDataBlock)block1{
++(NSString *)Test17:(jobsByIDBlock)block1{
     NSLog(@"void+Test17+block1");
     return @"void+Test17+block1";
 }
-+(NSString *)Test18:(MKDataBlock)block1 block2:(MKDataBlock)block2{
++(NSString *)Test18:(jobsByIDBlock)block1 block2:(jobsByIDBlock)block2{
     NSLog(@"void+Test18+block1+block2");
     return @"void+Test18+block1+block2";
 }
-+(NSString *)Test19:(MKDataBlock)block1 block2:(MKDataBlock)block2 block3:(MKDataBlock)block3{
++(NSString *)Test19:(jobsByIDBlock)block1 block2:(jobsByIDBlock)block2 block3:(jobsByIDBlock)block3{
     NSLog(@"void+Test19+block1+block2+block3");
     return @"void+Test19+block1+block2+block3";
 }
-+(NSString *)Test20:(MKDataBlock)block1 block2:(MKDataBlock)block2 block3:(MKDataBlock)block3 block4:(MKDataBlock)block4{
++(NSString *)Test20:(jobsByIDBlock)block1 block2:(jobsByIDBlock)block2 block3:(jobsByIDBlock)block3 block4:(jobsByIDBlock)block4{
     NSLog(@"void+Test20+block1+block2+block3+block4");
     return @"void+Test20+block1+block2+block3+block4";
 }

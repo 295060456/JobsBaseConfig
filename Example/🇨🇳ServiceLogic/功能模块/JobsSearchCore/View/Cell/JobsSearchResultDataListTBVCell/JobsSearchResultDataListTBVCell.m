@@ -45,7 +45,7 @@
  *  此时需要在cell子类里面重写touchesBegan 或者手势响应 方法以便触发
  */
 -(void)tapGRHandleSingleFingerAction:(UITapGestureRecognizer *_Nullable)sender{
-    self.viewBlock(self.textLabel.text);
+    self.objectBlock(self.textLabel.text);
 }
 #pragma mark —— lazyLoad
 -(UITapGestureRecognizer *)tapGR{//单击一下

@@ -44,11 +44,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSURL *JPImageresizerView_url;
 @property(nonatomic,strong)AVURLAsset *JPImageresizerView_avURLAsset;
 ///Block回调
-@property(nonatomic,copy)MKDataBlock makeBlock;
-@property(nonatomic,copy)MKDataBlock fixErrorBlock;
-@property(nonatomic,copy)MKDataBlock fixStartBlock;
-@property(nonatomic,copy)MKDataBlock fixProgressBlock;
-@property(nonatomic,copy)MKDataBlock fixCompleteBlock;
+@property(nonatomic,copy)jobsByIDBlock makeBlock;
+@property(nonatomic,copy)jobsByIDBlock fixErrorBlock;
+@property(nonatomic,copy)jobsByIDBlock fixStartBlock;
+@property(nonatomic,copy)jobsByIDBlock fixProgressBlock;
+@property(nonatomic,copy)jobsByIDBlock fixCompleteBlock;
 
 @end
 

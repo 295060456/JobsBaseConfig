@@ -10,7 +10,7 @@
 
 @interface CustomZFPlayerControlView ()
 
-@property(nonatomic,copy)TwoDataBlock customZFPlayerControlViewBlock;
+@property(nonatomic,copy)jobsByTwoIDBlock customZFPlayerControlViewBlock;
 
 @end
 
@@ -59,7 +59,7 @@
     NSLog(@"");
 }
 
--(void)actionCustomZFPlayerControlViewBlock:(TwoDataBlock _Nullable)customZFPlayerControlViewBlock{
+-(void)actionCustomZFPlayerControlViewBlock:(jobsByTwoIDBlock _Nullable)customZFPlayerControlViewBlock{
     self.customZFPlayerControlViewBlock = customZFPlayerControlViewBlock;
 }
 

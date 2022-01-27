@@ -87,7 +87,7 @@
     self.maskView.frame = self.bounds;
 }
 
--(void)HWTextCodeViewActionBlock:(MKDataBlock)hwTextCodeViewBlock{
+-(void)HWTextCodeViewActionBlock:(jobsByIDBlock)hwTextCodeViewBlock{
     self.HWTextCodeViewBlock = hwTextCodeViewBlock;
 }
 

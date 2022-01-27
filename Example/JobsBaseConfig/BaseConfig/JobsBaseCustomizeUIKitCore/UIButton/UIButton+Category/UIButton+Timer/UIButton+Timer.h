@@ -26,14 +26,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIButton (Timer)
 
-@property(nonatomic,copy)MKDataBlock countDownClickEventBlock;//点击事件回调，就不要用系统的addTarget/action/forControlEvents
-@property(nonatomic,copy)MKDataBlock timerRunningBlock;// 定时器运行时的Block
+@property(nonatomic,copy)jobsByIDBlock countDownClickEventBlock;//点击事件回调，就不要用系统的addTarget/action/forControlEvents
+@property(nonatomic,copy)jobsByIDBlock timerRunningBlock;// 定时器运行时的Block
 @property(nonatomic,strong)ButtonTimerConfigModel *btnTimerConfig;
 
 // 定时器运行时的Block
--(void)actionBlockTimerRunning:(MKDataBlock _Nullable)timerRunningBlock;
+-(void)actionBlockTimerRunning:(jobsByIDBlock _Nullable)timerRunningBlock;
 // 点击事件回调，就不要用系统的addTarget/action/forControlEvents
--(void)actionCountDownClickEventBlock:(MKDataBlock _Nullable)countDownClickEventBlock;
+-(void)actionCountDownClickEventBlock:(jobsByIDBlock _Nullable)countDownClickEventBlock;
 
 -(void)startTimer:(NSInteger)timeCount;//开启计时【从某个时间】
 -(void)startTimer;//开启计时【用初始化时间】

@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_END
          _hl.labelShowingType = UILabelShowingType_05;
          _hl.hotLabelDefaultHeight = JobsWidth(30);
          @jobs_weakify(self)
-         [_hl actionViewBlock:^(UIButton *btn) {
+         [_hl actionObjectBlock:^(UIButton *btn) {
              @jobs_strongify(self)
              if ([btn.titleForNormalState isEqualToString:Internationalization(@"Top-up check in progress")]) {
                  self.chargeOrderType = ChargeOrderType_processing;

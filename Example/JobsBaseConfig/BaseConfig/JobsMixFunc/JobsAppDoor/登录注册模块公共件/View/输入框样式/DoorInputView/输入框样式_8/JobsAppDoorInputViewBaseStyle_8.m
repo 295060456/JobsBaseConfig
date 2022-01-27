@@ -60,7 +60,7 @@
 
     textField.objBindingParams = self.textFieldInputModel;
     
-    if (self.viewBlock) self.viewBlock(textField);
+    if (self.objectBlock) self.objectBlock(textField);
 }
 #pragma mark —— BaseViewProtocol
 /// 具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】

@@ -227,7 +227,7 @@ viewForHeaderInSection:(NSInteger)section{
         _userHeaderView.frame = [UITableViewHeaderFooterView viewFrameWithModel:nil];
         [_userHeaderView richElementsInViewWithModel:UIViewModel.new];
 //        @jobs_weakify(self)
-        [_userHeaderView actionViewBlock:^(id data) {
+        [_userHeaderView actionObjectBlock:^(id data) {
 //            @jobs_strongify(self)
         }];
     }return _userHeaderView;

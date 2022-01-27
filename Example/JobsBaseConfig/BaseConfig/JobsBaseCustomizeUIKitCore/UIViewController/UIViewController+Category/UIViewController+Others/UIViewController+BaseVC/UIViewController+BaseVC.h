@@ -79,7 +79,7 @@ BaseViewControllerProtocol
                         requestParams:(id _Nullable)requestParams
              hidesBottomBarWhenPushed:(BOOL)hidesBottomBarWhenPushed
                              animated:(BOOL)animated
-                              success:(MKDataBlock _Nullable)successBlock;
+                              success:(jobsByIDBlock _Nullable)successBlock;
 
 @end
 

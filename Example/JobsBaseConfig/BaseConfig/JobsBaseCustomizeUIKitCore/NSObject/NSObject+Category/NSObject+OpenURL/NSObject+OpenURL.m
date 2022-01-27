@@ -56,8 +56,8 @@ static char *NSObject_OpenURL_mailComposeVC = "NSObject_OpenURL_mailComposeVC";
 /// @param failBlock 失败回调
 -(void)dialWithTelephoneNumber:(NSString *_Nullable)telephoneNumber
            dialFinishBackToApp:(BOOL)dialFinishBackToApp
-                  successBlock:(MKDataBlock _Nullable)successBlock
-                     failBlock:(MKDataBlock _Nullable)failBlock{
+                  successBlock:(jobsByIDBlock _Nullable)successBlock
+                     failBlock:(jobsByIDBlock _Nullable)failBlock{
     /// WKWebView默认禁止了跳转到appStore, 拨打电话, 唤起邮箱等一系列操作
     NSString *tel = dialFinishBackToApp ? @"telprompt://" : @"tel://";
     [NSObject openURL:[tel stringByAppendingString:telephoneNumber]
@@ -86,7 +86,7 @@ completionOpenFailHandler:nil];
 }
 /// 软性打开URL：【只处理打开成功的情况】
 -(void)openURL:(NSString *_Nullable)URLStr
-  successBlock:(MKDataBlock _Nullable)successBlock{
+  successBlock:(jobsByIDBlock _Nullable)successBlock{
     [self openURL:URLStr
               options:@{}
 completionOpenSuccessHandler:^{
@@ -96,7 +96,7 @@ completionOpenFailHandler:nil];
 }
 /// 软性打开URL：【只处理打开失败的情况】
 -(void)openURL:(NSString *_Nullable)URLStr
-     failBlock:(MKDataBlock _Nullable)failBlock{
+     failBlock:(jobsByIDBlock _Nullable)failBlock{
     [self openURL:URLStr
               options:@{}
 completionOpenSuccessHandler:nil
@@ -106,8 +106,8 @@ completionOpenFailHandler:^{
 }
 /// 软性打开URL：【会处理打开成功和打开失败两种情况】如果URL有误，可以做其他事，比如打开一个备用URL
 -(void)openURL:(NSString *_Nullable)URLStr
-  successBlock:(MKDataBlock _Nullable)successBlock
-     failBlock:(MKDataBlock _Nullable)failBlock{
+  successBlock:(jobsByIDBlock _Nullable)successBlock
+     failBlock:(jobsByIDBlock _Nullable)failBlock{
     [self openURL:URLStr
               options:@{}
 completionOpenSuccessHandler:^{
@@ -120,8 +120,8 @@ completionOpenFailHandler:^{
 /// 硬性打开URL：【会处理打开成功和打开失败两种情况】如果URL有误，可以做其他事，比如打开一个备用URL
 -(BOOL)openURL:(NSString *_Nullable)URLStr
        options:(NSDictionary<UIApplicationOpenExternalURLOptionsKey, id> *_Nullable)options
-completionOpenSuccessHandler:(NoResultBlock _Nullable)openSuccessBlock
-completionOpenFailHandler:(NoResultBlock _Nullable)openFailBlock{
+completionOpenSuccessHandler:(jobsByVoidBlock _Nullable)openSuccessBlock
+completionOpenFailHandler:(jobsByVoidBlock _Nullable)openFailBlock{
     /**
      URLStr不是字符串、为空、不能打开均不走以下逻辑判断
      */

@@ -7,6 +7,11 @@
 #import "MacroDef_Cor.h"
 #import "TextFieldDefine.h"
 
+typedef enum : NSInteger {
+    UITextFieldLoseFocus = 0,/// 输入框失去焦点
+    UITextFieldGetFocus,/// 输入框获得焦点
+} UITextFieldFocusType;// 强制更新
+
 @interface ZYTextField : UITextField
 
 @property(nonatomic,assign)CGFloat TFRiseHeight; /// 键盘在此手机上的最高弹起，区别于全面屏结合非全面屏，有一个安全区域34

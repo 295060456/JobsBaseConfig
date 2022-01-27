@@ -12,7 +12,7 @@ static const CGFloat OffsetBetweenStateLabelAndAnimationView = 5;//StateLabel å’
 @interface LOTAnimationMJRefreshFooter ()
 
 @property(nonatomic,strong)LOTAnimationView *animationView;
-@property(nonatomic,copy)MKDataBlock refreshFooterBlock;
+@property(nonatomic,copy)jobsByIDBlock refreshFooterBlock;
 
 @end
 
@@ -94,7 +94,7 @@ static const CGFloat OffsetBetweenStateLabelAndAnimationView = 5;//StateLabel å’
     }
 }
 
--(void)actionBlockRefreshFooter:(MKDataBlock)refreshFooterBlock{
+-(void)actionBlockRefreshFooter:(jobsByIDBlock)refreshFooterBlock{
     self.refreshFooterBlock = refreshFooterBlock;
 }
 #pragma mark â€”â€” lazyLoad

@@ -31,7 +31,7 @@
     self.userInteractionEnabled = self.isAllowDrag;
 }
 
--(void)actionSuspendViewBlock:(MKDataBlock _Nullable)suspendLabBlock{
+-(void)actionSuspendViewBlock:(jobsByIDBlock _Nullable)suspendLabBlock{
     self.suspendLabBlock = suspendLabBlock;
 }
 

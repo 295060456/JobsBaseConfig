@@ -9,7 +9,7 @@
 
 @interface BaseNavigationBar ()
 
-@property(nonatomic,copy)MKDataBlock baseNavigationBarBlock;
+@property(nonatomic,copy)jobsByIDBlock baseNavigationBarBlock;
 
 @end
 
@@ -40,7 +40,7 @@
     }
 }
 
--(void)actionBlockBaseNavigationBar:(MKDataBlock)baseNavigationBarBlock{
+-(void)actionBlockBaseNavigationBar:(jobsByIDBlock)baseNavigationBarBlock{
     self.baseNavigationBarBlock = baseNavigationBarBlock;
 }
 

@@ -39,16 +39,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIViewController (Shake)
 
-@property(nonatomic,copy)MKDataBlock UIViewControllerShakeBeganBlock;
-@property(nonatomic,copy)MKDataBlock UIViewControllerShakeCancelBlock;
-@property(nonatomic,copy)MKDataBlock UIViewControllerShakeEndBlock;
+@property(nonatomic,copy)jobsByIDBlock UIViewControllerShakeBeganBlock;
+@property(nonatomic,copy)jobsByIDBlock UIViewControllerShakeCancelBlock;
+@property(nonatomic,copy)jobsByIDBlock UIViewControllerShakeEndBlock;
 @property(nonatomic,strong)CMMotionManager *motionManager;
 
 -(void)invokeWhenViewDidLoadUsingSysFunc;
 -(void)invokeWhenViewDidAppearUsingCMMotionManager;
--(void)VC_ShakeBegan:(MKDataBlock)UIViewControllerShakeBeganBlock;
--(void)VC_ShakeCancel:(MKDataBlock)UIViewControllerShakeCancelBlock;
--(void)VC_ShakeEnd:(MKDataBlock)UIViewControllerShakeEndBlock;
+-(void)VC_ShakeBegan:(jobsByIDBlock)UIViewControllerShakeBeganBlock;
+-(void)VC_ShakeCancel:(jobsByIDBlock)UIViewControllerShakeCancelBlock;
+-(void)VC_ShakeEnd:(jobsByIDBlock)UIViewControllerShakeEndBlock;
 
 @end
 

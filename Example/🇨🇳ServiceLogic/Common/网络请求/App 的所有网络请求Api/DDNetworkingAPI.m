@@ -14,7 +14,7 @@
 /// 【只有Body参数、不需要错误回调】
 +(void)requestApi:(NSString *_Nonnull)requestApi
        parameters:(id _Nullable)parameters
-     successBlock:(MKDataBlock _Nullable)successBlock{
+     successBlock:(jobsByIDBlock _Nullable)successBlock{
     
     NSLog(@"接口名：%@，请求参数打印 %@",requestApi,parameters);
     
@@ -40,8 +40,8 @@
 ///【只有Body参数、需要错误回调的】
 +(void)requestApi:(NSString *_Nonnull)requestApi
        parameters:(id _Nullable)parameters
-     successBlock:(MKDataBlock _Nullable)successBlock
-     failureBlock:(MKDataBlock _Nullable)failureBlock{
+     successBlock:(jobsByIDBlock _Nullable)successBlock
+     failureBlock:(jobsByIDBlock _Nullable)failureBlock{
     
     NSLog(@"接口名：%@，请求参数打印 %@",requestApi,parameters);
     
@@ -74,8 +74,8 @@
 /// 上传【图片】文件的网络请求 POST
 +(void)requestApi:(NSString *_Nonnull)requestApi
 uploadImagesParamArr:(NSArray *_Nullable)uploadImagesParamArr
-     successBlock:(MKDataBlock _Nullable)successBlock
-     failureBlock:(MKDataBlock _Nullable)failureBlock{
+     successBlock:(jobsByIDBlock _Nullable)successBlock
+     failureBlock:(jobsByIDBlock _Nullable)failureBlock{
 
     NSMutableArray *paramMutArr = nil;
     
@@ -101,8 +101,8 @@ uploadImagesParamArr:(NSArray *_Nullable)uploadImagesParamArr
 /// 上传【视频】文件的网络请求 POST
 +(void)requestApi:(NSString *_Nonnull)requestApi
 uploadVideosParamArr:(NSArray *_Nullable)uploadVideosParamArr
-     successBlock:(MKDataBlock _Nullable)successBlock
-     failureBlock:(MKDataBlock _Nullable)failureBlock{
+     successBlock:(jobsByIDBlock _Nullable)successBlock
+     failureBlock:(jobsByIDBlock _Nullable)failureBlock{
     
     NSMutableArray *paramMutArr = nil;
     
@@ -128,8 +128,8 @@ uploadVideosParamArr:(NSArray *_Nullable)uploadVideosParamArr
 /// 请求成功的处理代码
 +(void)networkingSuccessHandleWithData:(DDResponseModel *_Nullable)responseObject
                                request:(ZBURLRequest *_Nullable)request
-                          successBlock:(MKDataBlock _Nullable)successBlock
-                          failureBlock:(MKDataBlock _Nullable)failureBlock{
+                          successBlock:(jobsByIDBlock _Nullable)successBlock
+                          failureBlock:(jobsByIDBlock _Nullable)failureBlock{
 
     if ([responseObject isKindOfClass:DDResponseModel.class]) {
         // 公共请求错误直接抛出

@@ -46,7 +46,7 @@
     if (!_cancelBtn) {
         _cancelBtn = UIButton.new;
         [_cancelBtn normalImage:KBuddleIMG(@"bundle", @"Others", nil, @"删除")];
-        BtnClickEvent(_cancelBtn,  if (self.viewBlock) self.viewBlock(x););
+        BtnClickEvent(_cancelBtn,  if (self.objectBlock) self.objectBlock(x););
         [self addSubview:_cancelBtn];
         [_cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self);

@@ -13,20 +13,18 @@
 + (UIImage *)MKImageNamed:(NSString *)name{
     __block UIImage *image = nil;
     
-    ResultBlock UIImageBlock_2 = ^UIImage *{
+    JobsReturnIDByVoidBlock UIImageBlock_2 = ^UIImage *{
         image = [UIImage imageNamed:@"nodata"];//替换图片 保证一定要有
         if (!image) {
             image = nil;
         }return image;
     };
     
-    mkDataBlock UIImageBlock_1 = ^UIImage *(NSString *name){//name 在这里一定不为空 过滤条件在上一层
+    JobsReturnIDByIDBlock UIImageBlock_1 = ^UIImage *(NSString *name){//name 在这里一定不为空 过滤条件在上一层
         image = [UIImage imageNamed:name];
         if (!image) {
             NSLog(@"缺失的图片资源名:%@",name);
-            if (UIImageBlock_2) {
-                UIImageBlock_2();
-            }
+            if (UIImageBlock_2) UIImageBlock_2();
         }return image;
     };
     

@@ -1354,6 +1354,10 @@
 		8440A1A127A1053C0089EE40 /* JobsDropDownListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsDropDownListVC.m; sourceTree = "<group>"; };
 		8440A36F27A158BC0089EE40 /* UITableView+RegisterClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+RegisterClass.h"; sourceTree = "<group>"; };
 		8440A37027A158BC0089EE40 /* UITableView+RegisterClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableView+RegisterClass.m"; sourceTree = "<group>"; };
+		8440A45F27A272390089EE40 /* ReturnByCertainParameters.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReturnByCertainParameters.h; sourceTree = "<group>"; };
+		8440A46027A272820089EE40 /* VoidByCertainParameters.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VoidByCertainParameters.h; sourceTree = "<group>"; };
+		8440A54727A273690089EE40 /* ReturnByUnCertainParameters.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReturnByUnCertainParameters.h; sourceTree = "<group>"; };
+		8440A54827A273740089EE40 /* VoidByUnCertainParameters.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VoidByUnCertainParameters.h; sourceTree = "<group>"; };
 		84432B94278C284E0028A27D /* UIWindow+Extra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Extra.h"; sourceTree = "<group>"; };
 		84432B95278C284E0028A27D /* UIWindow+Extra.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Extra.m"; sourceTree = "<group>"; };
 		84432C0A278C45C30028A27D /* 热度.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "热度.gif"; sourceTree = "<group>"; };
@@ -1542,9 +1546,7 @@
 		845625A4278BF2BB0067ABB9 /* JobsCommentVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsCommentVC.m; sourceTree = "<group>"; };
 		84562619278BF4FB0067ABB9 /* JobsCommentCoreHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsCommentCoreHeader.h; sourceTree = "<group>"; };
 		8456261F278BF61C0067ABB9 /* PopUpVC.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PopUpVC.md; sourceTree = "<group>"; };
-		845669262784284000636967 /* DetermineParametersBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetermineParametersBlock.h; sourceTree = "<group>"; };
 		845669272784284000636967 /* JobsBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBlock.h; sourceTree = "<group>"; };
-		845669282784284000636967 /* NODetermineParametersBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NODetermineParametersBlock.h; sourceTree = "<group>"; };
 		84566B022784833100636967 /* UINavigationController+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Extra.h"; sourceTree = "<group>"; };
 		84566B032784833100636967 /* UINavigationController+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Extra.m"; sourceTree = "<group>"; };
 		8458D274278DBDD40063A76E /* LMJDropdownMenu+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LMJDropdownMenu+Extra.h"; sourceTree = "<group>"; };
@@ -5372,6 +5374,24 @@
 			path = "UITableView+RegisterClass";
 			sourceTree = "<group>";
 		};
+		8440A45C27A271A50089EE40 /* 确定参数的Block */ = {
+			isa = PBXGroup;
+			children = (
+				8440A45F27A272390089EE40 /* ReturnByCertainParameters.h */,
+				8440A46027A272820089EE40 /* VoidByCertainParameters.h */,
+			);
+			path = "确定参数的Block";
+			sourceTree = "<group>";
+		};
+		8440A45D27A271B00089EE40 /* 不定参数的Block */ = {
+			isa = PBXGroup;
+			children = (
+				8440A54727A273690089EE40 /* ReturnByUnCertainParameters.h */,
+				8440A54827A273740089EE40 /* VoidByUnCertainParameters.h */,
+			);
+			path = "不定参数的Block";
+			sourceTree = "<group>";
+		};
 		84432B93278C283D0028A27D /* UIWindow */ = {
 			isa = PBXGroup;
 			children = (
@@ -6034,9 +6054,9 @@
 		845669252784284000636967 /* JobsBlock */ = {
 			isa = PBXGroup;
 			children = (
-				845669262784284000636967 /* DetermineParametersBlock.h */,
+				8440A45D27A271B00089EE40 /* 不定参数的Block */,
+				8440A45C27A271A50089EE40 /* 确定参数的Block */,
 				845669272784284000636967 /* JobsBlock.h */,
-				845669282784284000636967 /* NODetermineParametersBlock.h */,
 			);
 			path = JobsBlock;
 			sourceTree = "<group>";

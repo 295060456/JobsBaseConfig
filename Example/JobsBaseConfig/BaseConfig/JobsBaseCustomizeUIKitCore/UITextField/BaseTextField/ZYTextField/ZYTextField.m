@@ -33,12 +33,18 @@
 //    UIMenuController.sharedMenuController.menuVisible = self.isShowMenu;
     return self.isShowMenu;
 }
+/// 特别说明：
+/// 聚焦和失焦的时候都会走下列👇🏻方法
+/// [_textField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {}] subscribeNext:^(NSString * _Nullable x) {}]
+///  所以需要Block回调定位
 /// 当前文本框聚焦时就会调用
 -(BOOL)becomeFirstResponder{
+    if (self.NSIntegerBlock) self.NSIntegerBlock(UITextFieldGetFocus);
     return [super becomeFirstResponder];
 }
 /// 当前文本框失去焦点时就会调用
 -(BOOL)resignFirstResponder{
+    if (self.NSIntegerBlock) self.NSIntegerBlock(UITextFieldLoseFocus);
     return [super resignFirstResponder];
 }
 /// 必须在self有具体frame的时候才管用

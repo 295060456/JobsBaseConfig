@@ -138,10 +138,10 @@
     BtnClickEvent(btn, {
         [self changeButtonState];
         x.selected = !x.selected;
-        if (self.viewBlock) self.viewBlock(x);
+        if (self.objectBlock) self.objectBlock(x);
     });
 
-    [btn actionViewBlock:^(id data) {
+    [btn actionObjectBlock:^(id data) {
         @jobs_strongify(self)
         [self.btnHeightMutArr addObject:data];
     }];

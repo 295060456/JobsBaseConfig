@@ -17,7 +17,7 @@
 @property(nonatomic,strong)NSTimerManager *nsTimerManager_color;//主管线条颜色的翻滚
 @property(nonatomic,strong)NSTimerManager *nsTimerManager_length;//主管线条长度的递增
 @property(nonatomic,strong)NSMutableArray *colors;
-@property(nonatomic,copy)TwoDataBlock WGradientProgressBlock;
+@property(nonatomic,copy)jobsByTwoIDBlock WGradientProgressBlock;
 
 @end
 
@@ -114,7 +114,7 @@
     self.gradLayer.colors = copyArray;
 }
 
--(void)actionWGradientProgressBlock:(TwoDataBlock _Nullable)WGradientProgressBlock{
+-(void)actionWGradientProgressBlock:(jobsByTwoIDBlock _Nullable)WGradientProgressBlock{
     _WGradientProgressBlock = WGradientProgressBlock;
 }
 #pragma mark —— lazyLoad

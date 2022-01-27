@@ -25,7 +25,7 @@ typedef NS_ENUM(NSUInteger, MKRightBtnViewBtnType) {
 @property(nonatomic,assign)CGFloat offset;
 
 //点击的是哪一个按钮
--(void)actionBlockMKRightBtnView:(MKDataBlock _Nullable)MKRightBtnViewBlock;
+-(void)actionBlockMKRightBtnView:(jobsByIDBlock _Nullable)MKRightBtnViewBlock;
 
 @end
 

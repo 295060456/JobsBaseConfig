@@ -27,9 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
     对提行、删除【包含删除Emoji表情】、正向输入【包含汉字拼音输入法中的占位符】操作进行区分
  */
 -(BOOL)replacementText:(NSString *)replacementText
-     beginNewLineBlock:(MKDataBlock)beginNewLineBlock
-              delBlock:(MKDataBlock)delBlock
-      normalInputBlock:(MKDataBlock)normalInputBlock;
+     beginNewLineBlock:(jobsByIDBlock)beginNewLineBlock
+              delBlock:(jobsByIDBlock)delBlock
+      normalInputBlock:(jobsByIDBlock)normalInputBlock;
 /*
     用于终值部分，对应协议方法:textViewDidChange
     因为在- (void)textViewDidChange:(UITextView *)textView里面的textView.text = textView确定值 + 输入法拼音模式下的占位符值
@@ -37,8 +37,8 @@ NS_ASSUME_NONNULL_BEGIN
  /// @param valueBlock 回调TextView的确定值，以表明占位符有值
  /// @param invalidBlock 回调占位符无值的状态
  */
--(void)markedTextValue:(MKDataBlock)valueBlock
-          invalidBlock:(NoResultBlock)invalidBlock;
+-(void)markedTextValue:(jobsByIDBlock)valueBlock
+          invalidBlock:(jobsByVoidBlock)invalidBlock;
 
 @end
 

@@ -60,7 +60,7 @@
     self.textFieldInputModel.PlaceHolder = self.doorInputViewBaseStyleModel.placeHolderStr;
     textField.objBindingParams = self.textFieldInputModel;
     
-    if (self.viewBlock) self.viewBlock(textField);// 对外统一传出TF
+    if (self.objectBlock) self.objectBlock(textField);// 对外统一传出TF
 }
 /// 倒计时按钮（需要销毁定时器）
 -(UIButton *)getCountDownBtn{
@@ -127,7 +127,7 @@
         BtnClickEvent(_countDownBtn, {
             [x startTimer];//选择时机、触发启动
 //            NSLog(@"SSSSS = 获取验证码");
-            if (self.viewBlock) self.viewBlock(x);
+            if (self.objectBlock) self.objectBlock(x);
         })
         
         [_countDownBtn actionBlockTimerRunning:^(TimerProcessModel *data) {

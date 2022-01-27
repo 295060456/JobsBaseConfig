@@ -65,7 +65,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
 -(void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (self.viewBlock) self.viewBlock(self.jobsIMListMutArr[indexPath.row]);
+    if (self.objectBlock) self.objectBlock(self.jobsIMListMutArr[indexPath.row]);
 }
 
 -(NSInteger)tableView:(UITableView *)tableView

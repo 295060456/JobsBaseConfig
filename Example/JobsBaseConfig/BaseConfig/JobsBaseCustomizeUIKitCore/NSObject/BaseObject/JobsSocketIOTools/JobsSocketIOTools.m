@@ -32,7 +32,7 @@ static JobsSocketIOTools *static_socketTools = nil;
 }
 /// 链接后台
 -(void)linkServerWithInfo:(id)info
-              serverBlock:(MKDataBlock)serverBlock{
+              serverBlock:(jobsByIDBlock)serverBlock{
     if ([NSString isNullString:self.urlStr]) {
         NSLog(@"链接的URL为空,请检查");
     }else{
@@ -89,7 +89,7 @@ static JobsSocketIOTools *static_socketTools = nil;
 /// @param returnBlock 发送链接成功即返回
 -(void)sendInfoToServer:(id)info
             channelName:(NSString *)channelName
-        withReturnBlock:(MKDataBlock)returnBlock{
+        withReturnBlock:(jobsByIDBlock)returnBlock{
     [self.socketIOClient emit:channelName
                          with:@[info]
                    completion:^{
@@ -103,7 +103,7 @@ static JobsSocketIOTools *static_socketTools = nil;
 /// @param channelName 监听的频道名字
 /// @param serverDataBlock 服务器返回值
 -(void)recevieInfoFromChannelName:(NSString *)channelName
-              withServerDataBlock:(MKDataBlock)serverDataBlock{
+              withServerDataBlock:(jobsByIDBlock)serverDataBlock{
     [self.socketIOClient on:channelName
                    callback:^(NSArray *data,
                               SocketAckEmitter *ack) {

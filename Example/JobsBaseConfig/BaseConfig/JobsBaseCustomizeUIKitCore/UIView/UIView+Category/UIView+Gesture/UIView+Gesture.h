@@ -64,7 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIView (Gesture)
 // config
 @property(nonatomic,weak,nullable)id target;
-@property(nonatomic,assign)ThreeDataBlock callbackBlock;//手势触发方法
+@property(nonatomic,assign)jobsByThreeIDBlock callbackBlock;//手势触发方法
 @property(nonatomic,assign)NSUInteger numberOfTapsRequired;//设置轻拍次数【UILongPressGestureRecognizer】【UITapGestureRecognizer】
 @property(nonatomic,assign)NSUInteger numberOfTouchesRequired;//设置手指字数【UILongPressGestureRecognizer】【UITapGestureRecognizer】
 @property(nonatomic,assign)NSTimeInterval minimumPressDuration;//longPressGR最小长按时间【UILongPressGestureRecognizer】

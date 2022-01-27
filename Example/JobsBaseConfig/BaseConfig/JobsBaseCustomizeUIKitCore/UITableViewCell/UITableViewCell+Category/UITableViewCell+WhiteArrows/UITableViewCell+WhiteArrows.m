@@ -16,7 +16,7 @@ static char *UITableViewCell_WhiteArrows_img = "UITableViewCell_WhiteArrows_img"
 static char *UITableViewCell_WhiteArrows_size = "UITableViewCell_WhiteArrows_size";
 @dynamic size;
 /// 必须 self.accessoryType = UITableViewCellAccessoryDisclosureIndicator; 打开后才可以启用
--(void)customAccessoryView:(MKDataBlock)customAccessoryViewBlock{
+-(void)customAccessoryView:(jobsByIDBlock)customAccessoryViewBlock{
     // 不用系统自带的箭头
     if (self.accessoryType == UITableViewCellAccessoryDisclosureIndicator) {
         UIButton *btn = UIButton.new;

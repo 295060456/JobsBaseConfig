@@ -15,13 +15,13 @@ UITextModelProtocol_synthesize
 
 @interface ButtonTimerConfigModel ()
 
-@property(nonatomic,copy)MKDataBlock timerWorkingBlock;
+@property(nonatomic,copy)jobsByIDBlock timerWorkingBlock;
 
 @end
 
 @implementation ButtonTimerConfigModel
 #pragma mark —— 一些私有方法
--(void)actionBlocktimerWorking:(MKDataBlock)timerWorkingBlock{
+-(void)actionBlocktimerWorking:(jobsByIDBlock)timerWorkingBlock{
     self.timerWorkingBlock = timerWorkingBlock;
 }
 #pragma mark —— 重写set方法

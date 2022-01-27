@@ -26,7 +26,7 @@ static char *BaseVC_BRStringPickerView_addressPickerView = "BaseVC_BRStringPicke
 @dynamic customStyle;
 @dynamic addressPickerView;//地址选择器
 
--(void)BRStringPickerViewBlock:(MKDataBlock)block{
+-(void)BRStringPickerViewBlock:(jobsByIDBlock)block{
     self.brStringPickerViewBlock = block;
 }
 #pragma mark SET | GET
@@ -74,12 +74,12 @@ static char *BaseVC_BRStringPickerView_addressPickerView = "BaseVC_BRStringPicke
                              [NSNumber numberWithInteger:brStringPickerMode],
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-#pragma mark —— @property(nonatomic,copy)MKDataBlock brStringPickerViewBlock;
--(MKDataBlock)brStringPickerViewBlock{
+#pragma mark —— @property(nonatomic,copy)jobsByIDBlock brStringPickerViewBlock;
+-(jobsByIDBlock)brStringPickerViewBlock{
     return objc_getAssociatedObject(self, BaseVC_BRStringPickerView_brStringPickerViewBlock);
 }
 
--(void)setBrStringPickerViewBlock:(MKDataBlock)brStringPickerViewBlock{
+-(void)setBrStringPickerViewBlock:(jobsByIDBlock)brStringPickerViewBlock{
     objc_setAssociatedObject(self,
                              BaseVC_BRStringPickerView_brStringPickerViewBlock,
                              brStringPickerViewBlock,

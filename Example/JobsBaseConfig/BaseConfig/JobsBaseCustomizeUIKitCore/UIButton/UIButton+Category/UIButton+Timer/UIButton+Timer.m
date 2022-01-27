@@ -202,11 +202,11 @@ static char *UIButton_CountDownBtn_timerRunningBlock = "UIButton_CountDownBtn_ti
 }
 #pragma mark —— Block
 /// 点击事件回调，就不要用系统的addTarget/action/forControlEvents
--(void)actionCountDownClickEventBlock:(MKDataBlock _Nullable)countDownClickEventBlock{
+-(void)actionCountDownClickEventBlock:(jobsByIDBlock _Nullable)countDownClickEventBlock{
     self.countDownClickEventBlock = countDownClickEventBlock;
 }
 /// 定时器运行时的Block
--(void)actionBlockTimerRunning:(MKDataBlock _Nullable)timerRunningBlock{
+-(void)actionBlockTimerRunning:(jobsByIDBlock _Nullable)timerRunningBlock{
     self.timerRunningBlock = timerRunningBlock;
 }
 #pragma mark SET | GET
@@ -252,23 +252,23 @@ static char *UIButton_CountDownBtn_timerRunningBlock = "UIButton_CountDownBtn_ti
                              btnTimerConfig,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-#pragma mark —— @property(nonatomic,copy)MKDataBlock countDownClickEventBlock;
--(MKDataBlock)countDownClickEventBlock{
+#pragma mark —— @property(nonatomic,copy)jobsByIDBlock countDownClickEventBlock;
+-(jobsByIDBlock)countDownClickEventBlock{
     return objc_getAssociatedObject(self, UIButton_CountDownBtn_countDownClickEventBlock);
 }
 
--(void)setCountDownClickEventBlock:(MKDataBlock)countDownClickEventBlock{
+-(void)setCountDownClickEventBlock:(jobsByIDBlock)countDownClickEventBlock{
     objc_setAssociatedObject(self,
                              UIButton_CountDownBtn_countDownClickEventBlock,
                              countDownClickEventBlock,
                              OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
-#pragma mark —— @property(nonatomic,copy)MKDataBlock timerRunningBlock;// 定时器运行时的Block
--(MKDataBlock)timerRunningBlock{
+#pragma mark —— @property(nonatomic,copy)jobsByIDBlock timerRunningBlock;// 定时器运行时的Block
+-(jobsByIDBlock)timerRunningBlock{
     return objc_getAssociatedObject(self, UIButton_CountDownBtn_timerRunningBlock);
 }
 
--(void)setTimerRunningBlock:(MKDataBlock)timerRunningBlock{
+-(void)setTimerRunningBlock:(jobsByIDBlock)timerRunningBlock{
     objc_setAssociatedObject(self,
                              UIButton_CountDownBtn_timerRunningBlock,
                              timerRunningBlock,

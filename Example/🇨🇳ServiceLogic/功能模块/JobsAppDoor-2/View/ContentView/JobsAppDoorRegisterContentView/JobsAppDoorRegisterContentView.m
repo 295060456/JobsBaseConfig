@@ -100,9 +100,9 @@
         JobsAppDoorInputViewBaseStyle *inputView = cls.new;
         [self.registerDoorInputViewBaseStyleMutArr addObject:inputView];
         @jobs_weakify(self)
-        [inputView actionViewBlock:^(id data) {
+        [inputView actionObjectBlock:^(id data) {
             @jobs_strongify(self)
-            if (self.viewBlock) self.viewBlock(data);
+            if (self.objectBlock) self.objectBlock(data);
         }];return inputView;
     }return nil;
 }
@@ -118,7 +118,7 @@
         [_backToLoginBtn normalImage:KIMG(@"用户名称")];
         BtnClickEvent(_backToLoginBtn, {
             [self endEditing:YES];
-            if (self.viewBlock) self.viewBlock(x);
+            if (self.objectBlock) self.objectBlock(x);
         })
         [self addSubview:_backToLoginBtn];
         [_backToLoginBtn mas_makeConstraints:^(MASConstraintMaker *make) {

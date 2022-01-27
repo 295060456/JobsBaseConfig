@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param dbPath 依据路径索引到数据库文件
 /// @param doWithBlock 具体做的事情
 -(void)handleMultiThreadedProtectionDB:(NSString *_Nullable)dbPath
-                                doWith:(MKDataBlock)doWithBlock;
+                                doWith:(jobsByIDBlock)doWithBlock;
 
 
 @end

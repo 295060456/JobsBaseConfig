@@ -27,10 +27,10 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)test4:(NSString *)str1 str2:(NSString *)str2;
 -(void)test5:(NSString *)str1 str2:(NSString *)str2 str3:(NSString *)str3;
 -(void)test6:(NSString *)str1 str2:(NSString *)str2 str3:(NSString *)str3 str4:(NSString *)str4;
--(void)test7:(MKDataBlock)block1;
--(void)test8:(MKDataBlock)block1 block2:(MKDataBlock)block2;
--(void)test9:(MKDataBlock)block1 block2:(MKDataBlock)block2 block3:(MKDataBlock)block3;
--(void)test10:(MKDataBlock)block1 block2:(MKDataBlock)block2 block3:(MKDataBlock)block3 block4:(MKDataBlock)block4;
+-(void)test7:(jobsByIDBlock)block1;
+-(void)test8:(jobsByIDBlock)block1 block2:(jobsByIDBlock)block2;
+-(void)test9:(jobsByIDBlock)block1 block2:(jobsByIDBlock)block2 block3:(jobsByIDBlock)block3;
+-(void)test10:(jobsByIDBlock)block1 block2:(jobsByIDBlock)block2 block3:(jobsByIDBlock)block3 block4:(jobsByIDBlock)block4;
 #pragma mark —— 实例方法（带返回值）
 -(NSString *)test11;
 -(NSString *)test12;
@@ -38,10 +38,10 @@ NS_ASSUME_NONNULL_BEGIN
 -(NSString *)test14:(NSString *)str1 str2:(NSString *)str2;
 -(NSString *)test15:(NSString *)str1 str2:(NSString *)str2 str3:(NSString *)str3;
 -(NSString *)test16:(NSString *)str1 str2:(NSString *)str2 str3:(NSString *)str3 str4:(NSString *)str4;
--(NSString *)test17:(MKDataBlock)block1;
--(NSString *)test18:(MKDataBlock)block1 block2:(MKDataBlock)block2;
--(NSString *)test19:(MKDataBlock)block1 block2:(MKDataBlock)block2 block3:(MKDataBlock)block3;
--(NSString *)test20:(MKDataBlock)block1 block2:(MKDataBlock)block2 block3:(MKDataBlock)block3 block4:(MKDataBlock)block4;
+-(NSString *)test17:(jobsByIDBlock)block1;
+-(NSString *)test18:(jobsByIDBlock)block1 block2:(jobsByIDBlock)block2;
+-(NSString *)test19:(jobsByIDBlock)block1 block2:(jobsByIDBlock)block2 block3:(jobsByIDBlock)block3;
+-(NSString *)test20:(jobsByIDBlock)block1 block2:(jobsByIDBlock)block2 block3:(jobsByIDBlock)block3 block4:(jobsByIDBlock)block4;
 #pragma mark —— 类方法（不带返回值）
 +(void)Test1;
 +(void)Test2;
@@ -49,10 +49,10 @@ NS_ASSUME_NONNULL_BEGIN
 +(void)Test4:(NSString *)str1 str2:(NSString *)str2;
 +(void)Test5:(NSString *)str1 str2:(NSString *)str2 str3:(NSString *)str3;
 +(void)Test6:(NSString *)str1 str2:(NSString *)str2 str3:(NSString *)str3 str4:(NSString *)str4;
-+(void)Test7:(MKDataBlock)block1;
-+(void)Test8:(MKDataBlock)block1 block2:(MKDataBlock)block2;
-+(void)Test9:(MKDataBlock)block1 block2:(MKDataBlock)block2 block3:(MKDataBlock)block3;
-+(void)Test10:(MKDataBlock)block1 block2:(MKDataBlock)block2 block3:(MKDataBlock)block3 block4:(MKDataBlock)block4;
++(void)Test7:(jobsByIDBlock)block1;
++(void)Test8:(jobsByIDBlock)block1 block2:(jobsByIDBlock)block2;
++(void)Test9:(jobsByIDBlock)block1 block2:(jobsByIDBlock)block2 block3:(jobsByIDBlock)block3;
++(void)Test10:(jobsByIDBlock)block1 block2:(jobsByIDBlock)block2 block3:(jobsByIDBlock)block3 block4:(jobsByIDBlock)block4;
 #pragma mark —— 类方法（带返回值）
 +(NSString *)Test11;
 +(NSString *)Test12;
@@ -60,10 +60,10 @@ NS_ASSUME_NONNULL_BEGIN
 +(NSString *)Test14:(NSString *)str1 str2:(NSString *)str2;
 +(NSString *)Test15:(NSString *)str1 str2:(NSString *)str2 str3:(NSString *)str3;
 +(NSString *)Test16:(NSString *)str1 str2:(NSString *)str2 str3:(NSString *)str3 str4:(NSString *)str4;
-+(NSString *)Test17:(MKDataBlock)block1;
-+(NSString *)Test18:(MKDataBlock)block1 block2:(MKDataBlock)block2;
-+(NSString *)Test19:(MKDataBlock)block1 block2:(MKDataBlock)block2 block3:(MKDataBlock)block3;
-+(NSString *)Test20:(MKDataBlock)block1 block2:(MKDataBlock)block2 block3:(MKDataBlock)block3 block4:(MKDataBlock)block4;
++(NSString *)Test17:(jobsByIDBlock)block1;
++(NSString *)Test18:(jobsByIDBlock)block1 block2:(jobsByIDBlock)block2;
++(NSString *)Test19:(jobsByIDBlock)block1 block2:(jobsByIDBlock)block2 block3:(jobsByIDBlock)block3;
++(NSString *)Test20:(jobsByIDBlock)block1 block2:(jobsByIDBlock)block2 block3:(jobsByIDBlock)block3 block4:(jobsByIDBlock)block4;
 
 @end
 

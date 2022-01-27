@@ -18,8 +18,8 @@
 /// @param alertVCBlock alertVCBlock
 /// @param completionBlock completionBlock
 +(SPAlertController *)showSPAlertControllerConfig:(SPAlertControllerConfig *)config
-                                     alertVCBlock:(nullable TwoDataBlock)alertVCBlock
-                                  completionBlock:(nullable NoResultBlock)completionBlock{
+                                     alertVCBlock:(nullable jobsByTwoIDBlock)alertVCBlock
+                                  completionBlock:(nullable jobsByVoidBlock)completionBlock{
     SPAlertController *vc = nil;
     switch (config.SPAlertControllerInitType) {
         case NSObject_SPAlertControllerInitType_1:{

@@ -43,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (AFNReachability)
 
-+(void)AFNReachability:(MKIntegerBlock)statusBlock;
++(void)AFNReachability:(jobsByNSIntegerBlock)statusBlock;
 
 @end
 

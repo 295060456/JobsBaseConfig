@@ -350,56 +350,56 @@ static char *BaseVC_JPImageresizerView_fixCompleteBlock = "BaseVC_JPImageresizer
                              JPImageresizerView_avURLAsset,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-#pragma mark —— @property(nonatomic,copy)MKDataBlock makeBlock;
--(MKDataBlock)makeBlock{
+#pragma mark —— @property(nonatomic,copy)jobsByIDBlock makeBlock;
+-(jobsByIDBlock)makeBlock{
     return objc_getAssociatedObject(self, BaseVC_JPImageresizerView_makeBlock);
 }
 
--(void)setMakeBlock:(MKDataBlock)makeBlock{
+-(void)setMakeBlock:(jobsByIDBlock)makeBlock{
     objc_setAssociatedObject(self,
                              BaseVC_JPImageresizerView_makeBlock,
                              makeBlock,
                              OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
-#pragma mark —— @property(nonatomic,copy)MKDataBlock fixErrorBlock;
--(MKDataBlock)fixErrorBlock{
+#pragma mark —— @property(nonatomic,copy)jobsByIDBlock fixErrorBlock;
+-(jobsByIDBlock)fixErrorBlock{
     return objc_getAssociatedObject(self, BaseVC_JPImageresizerView_fixErrorBlock);
 }
 
--(void)setFixErrorBlock:(MKDataBlock)fixErrorBlock{
+-(void)setFixErrorBlock:(jobsByIDBlock)fixErrorBlock{
     objc_setAssociatedObject(self,
                              BaseVC_JPImageresizerView_fixErrorBlock,
                              fixErrorBlock,
                              OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
-#pragma mark —— @property(nonatomic,copy)MKDataBlock fixStartBlock;
--(MKDataBlock)fixStartBlock{
+#pragma mark —— @property(nonatomic,copy)jobsByIDBlock fixStartBlock;
+-(jobsByIDBlock)fixStartBlock{
     return objc_getAssociatedObject(self, BaseVC_JPImageresizerView_fixStartBlock);
 }
 
--(void)setFixStartBlock:(MKDataBlock)fixStartBlock{
+-(void)setFixStartBlock:(jobsByIDBlock)fixStartBlock{
     objc_setAssociatedObject(self,
                              BaseVC_JPImageresizerView_fixStartBlock,
                              fixStartBlock,
                              OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
-#pragma mark —— @property(nonatomic,copy)MKDataBlock fixProgressBlock;
--(MKDataBlock)fixProgressBlock{
+#pragma mark —— @property(nonatomic,copy)jobsByIDBlock fixProgressBlock;
+-(jobsByIDBlock)fixProgressBlock{
     return objc_getAssociatedObject(self, BaseVC_JPImageresizerView_fixProgressBlock);
 }
 
--(void)setFixProgressBlock:(MKDataBlock)fixProgressBlock{
+-(void)setFixProgressBlock:(jobsByIDBlock)fixProgressBlock{
     objc_setAssociatedObject(self,
                              BaseVC_JPImageresizerView_fixProgressBlock,
                              fixProgressBlock,
                              OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
-#pragma mark —— @property(nonatomic,copy)MKDataBlock fixCompleteBlock;
--(MKDataBlock)fixCompleteBlock{
+#pragma mark —— @property(nonatomic,copy)jobsByIDBlock fixCompleteBlock;
+-(jobsByIDBlock)fixCompleteBlock{
     return objc_getAssociatedObject(self, BaseVC_JPImageresizerView_fixCompleteBlock);
 }
 
--(void)setFixCompleteBlock:(MKDataBlock)fixCompleteBlock{
+-(void)setFixCompleteBlock:(jobsByIDBlock)fixCompleteBlock{
     objc_setAssociatedObject(self,
                              BaseVC_JPImageresizerView_fixCompleteBlock,
                              fixCompleteBlock,

@@ -592,8 +592,8 @@ bundleFileSuffix:(NSString *__nonnull)bundleFileSuffix
 }
 /// 相册
 +(void)createAlbumFolder:(NSString *)folderName
-       ifExitFolderBlock:(MKDataBlock)ifExitFolderBlock
-       completionHandler:(TwoDataBlock)completionBlock{
+       ifExitFolderBlock:(jobsByIDBlock)ifExitFolderBlock
+       completionHandler:(jobsByTwoIDBlock)completionBlock{
     if (![FileFolderHandleTool isExistFolder:folderName]){
         [PHPhotoLibrary.sharedPhotoLibrary performChanges:^{
             [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:folderName];
@@ -715,7 +715,7 @@ didFinishSavingWithError:(NSError *)error
 }
 /// 仅获取PHAsset里面的视频
 +(void)getVideoFromPHAsset:(PHAsset *)phAsset
-                  complete:(MKDataBlock)completeBlock{
+                  complete:(jobsByIDBlock)completeBlock{
     if (phAsset.mediaType == PHAssetMediaTypeVideo){
         PHVideoRequestOptions *options = PHVideoRequestOptions.new;
         options.version = PHVideoRequestOptionsVersionCurrent;
@@ -739,14 +739,14 @@ didFinishSavingWithError:(NSError *)error
 }
 /// 获取PHAsset里面的相片
 +(void)getPicFromPHAsset:(PHAsset *)phAsset
-                complete:(MKDataBlock)completeBlock{
+                complete:(jobsByIDBlock)completeBlock{
     if (phAsset.mediaType == PHAssetMediaTypeImage){
         
     }
 }
 /// 获取PHAsset里面的声音
 +(void)getAudioFromPHAsset:(PHAsset *)phAsset
-                  complete:(MKDataBlock)completeBlock{
+                  complete:(jobsByIDBlock)completeBlock{
     if (phAsset.mediaType == PHAssetMediaTypeAudio){
         
     }

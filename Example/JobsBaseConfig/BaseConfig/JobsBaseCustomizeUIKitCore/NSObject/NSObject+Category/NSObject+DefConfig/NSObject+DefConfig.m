@@ -9,13 +9,13 @@
 
 @implementation NSObject (DefConfig)
 /// 回到主线程
--(void)getMainQueue:(NoResultBlock)block{
+-(void)getMainQueue:(jobsByVoidBlock)block{
     dispatch_async(dispatch_get_main_queue(), ^{
         if (block) block();
     });
 }
 /// 开启一个子线程
--(void)getGlobalQueue:(NoResultBlock)block{
+-(void)getGlobalQueue:(jobsByVoidBlock)block{
     dispatch_async(dispatch_get_global_queue(0,0), ^{
         if (block) block();
     });
@@ -24,7 +24,7 @@
 /// @param delay 从现在开始，等待的时间
 /// @param doSthBlock 去做的一件事情
 -(void)delay:(CGFloat)delay
-       doSth:(MKDataBlock)doSthBlock{
+       doSth:(jobsByIDBlock)doSthBlock{
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW,
                                  (int64_t)(delay * NSEC_PER_SEC)),
                    dispatch_get_main_queue(),

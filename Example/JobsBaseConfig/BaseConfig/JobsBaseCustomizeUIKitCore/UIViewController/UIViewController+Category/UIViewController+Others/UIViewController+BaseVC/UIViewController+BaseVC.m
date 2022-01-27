@@ -118,7 +118,7 @@ static char *UIViewController_BaseVC_bgImage = "UIViewController_BaseVC_bgImage"
                         requestParams:(id _Nullable)requestParams
              hidesBottomBarWhenPushed:(BOOL)hidesBottomBarWhenPushed
                              animated:(BOOL)animated
-                              success:(MKDataBlock _Nullable)successBlock{
+                              success:(jobsByIDBlock _Nullable)successBlock{
     if (toVC) {
         toVC.requestParams = requestParams;
 

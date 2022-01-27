@@ -27,19 +27,19 @@ NS_ASSUME_NONNULL_BEGIN
 +(instancetype)sharedInstance;
 /// 链接后台
 -(void)linkServerWithInfo:(id)info
-              serverBlock:(MKDataBlock)serverBlock;
+              serverBlock:(jobsByIDBlock)serverBlock;
 /// 发送消息
 /// @param info 消息内容 (注意最外层是数组格式)
 /// @param channelName 发送的频道名字
 /// @param returnBlock 发送链接成功即返回
 -(void)sendInfoToServer:(id)info
             channelName:(NSString *)channelName
-        withReturnBlock:(MKDataBlock)returnBlock;
+        withReturnBlock:(jobsByIDBlock)returnBlock;
 /// 接收消息
 /// @param channelName 监听的频道名字
 /// @param serverDataBlock 服务器返回值
 -(void)recevieInfoFromChannelName:(NSString *)channelName
-              withServerDataBlock:(MKDataBlock)serverDataBlock;
+              withServerDataBlock:(jobsByIDBlock)serverDataBlock;
 
 @end
 

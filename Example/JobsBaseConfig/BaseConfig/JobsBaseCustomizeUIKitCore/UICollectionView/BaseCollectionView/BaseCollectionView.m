@@ -64,7 +64,7 @@
 /**
     用于以此为基类的UICollectionView具体子类上所有数据的回调,当然也可以用NSObject分类的方法定位于：@interface NSObject (CallBackInfoByBlock)
  */
--(void)actionBlockBaseCollectionView:(MKDataBlock)baseCollectionViewBlock{
+-(void)actionBlockBaseCollectionView:(jobsByIDBlock)baseCollectionViewBlock{
     self.baseCollectionViewBlock = baseCollectionViewBlock;
 }
 

@@ -58,7 +58,7 @@
 }
 #pragma mark —— 网络请求
 /// 获取客服联系方式
--(void)customerContact:(MKDataBlock)block{
+-(void)customerContact:(jobsByIDBlock)block{
 
 }
 #pragma mark —— lazyLoad
@@ -89,7 +89,7 @@
         [_backToLoginBtn normalImage:KIMG(@"用户名称")];
         BtnClickEvent(_backToLoginBtn, {
             [self endEditing:YES];
-            if (self.viewBlock) self.viewBlock(x);
+            if (self.objectBlock) self.objectBlock(x);
         });
         [self addSubview:_backToLoginBtn];
         [_backToLoginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -117,7 +117,7 @@
                 [NSObject openURL:self.customerContactModel.onlineUrl.customerAccount];
             }
             [self endEditing:YES];
-            if (self.viewBlock) self.viewBlock(x);
+            if (self.objectBlock) self.objectBlock(x);
         });
 
         [self addSubview:_contactCustomerServiceBtn];

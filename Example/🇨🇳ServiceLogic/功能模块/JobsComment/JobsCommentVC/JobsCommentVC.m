@@ -54,7 +54,7 @@
 -(void)makeJobsCommentCoreVC{    //触发
     JobsCommentCoreVC *jobsCommentCoreVC = JobsCommentCoreVC.new;
 //        @jobs_weakify(self)
-    [jobsCommentCoreVC actionViewBlock:^(id data) {
+    [jobsCommentCoreVC actionObjectBlock:^(id data) {
 //            @jobs_strongify(self)
         NSLog(@"您点击了关注");
     }];

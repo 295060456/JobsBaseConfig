@@ -68,9 +68,7 @@
 #pragma mark —— UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     if (self.scrollView.contentOffset.x > JobsMainScreen_WIDTH() * 2.8){
-        if (self.viewControllerBlock) {
-            self.viewControllerBlock(@1);
-        }
+        if (self.objectBlock) self.objectBlock(@1);
     }
 }
 

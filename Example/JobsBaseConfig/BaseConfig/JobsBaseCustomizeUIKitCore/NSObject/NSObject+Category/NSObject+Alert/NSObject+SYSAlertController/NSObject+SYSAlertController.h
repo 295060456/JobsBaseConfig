@@ -80,15 +80,15 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param alertVCBlock 返回这个UIAlertController *
 /// @param completionBlock 结束完成以后的block
 +(void)showSYSAlertViewConfig:(nonnull SYSAlertControllerConfig *)config
-                 alertVCBlock:(nullable MKDataBlock)alertVCBlock
-              completionBlock:(nullable NoResultBlock)completionBlock;
+                 alertVCBlock:(nullable jobsByIDBlock)alertVCBlock
+              completionBlock:(nullable jobsByVoidBlock)completionBlock;
 /// 屏幕下部出现的Alert
 /// @param config 配置文件
 /// @param alertVCBlock 返回这个UIAlertController *
 /// @param completionBlock 结束完成以后的block
 +(void)showSYSActionSheetConfig:(nonnull SYSAlertControllerConfig *)config
-                   alertVCBlock:(nullable MKDataBlock)alertVCBlock
-                completionBlock:(nullable NoResultBlock)completionBlock;
+                   alertVCBlock:(nullable jobsByIDBlock)alertVCBlock
+                completionBlock:(nullable jobsByVoidBlock)completionBlock;
 
 +(void)showLoginAlertViewWithTargetVC:(UIViewController *)targetVC;
 

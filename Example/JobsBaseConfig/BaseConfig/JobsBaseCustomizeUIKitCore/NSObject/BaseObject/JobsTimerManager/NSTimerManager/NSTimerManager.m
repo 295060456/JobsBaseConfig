@@ -11,7 +11,7 @@
 @interface NSTimerManager ()
 
 @property(nonatomic,strong)NSDate *date;
-@property(nonatomic,copy)MKDataBlock NSTimerManagerRunningBlock;
+@property(nonatomic,copy)jobsByIDBlock NSTimerManagerRunningBlock;
 @property(nonatomic,assign)NSTimerCurrentStatus timerCurrentStatus;// 定时器当前状态
 
 @end
@@ -31,7 +31,7 @@
     }return self;
 }
 #pragma mark —— 一些私有化方法
--(void)actionNSTimerManagerRunningBlock:(MKDataBlock _Nullable)NSTimerManagerRunningBlock{
+-(void)actionNSTimerManagerRunningBlock:(jobsByIDBlock _Nullable)NSTimerManagerRunningBlock{
     self.NSTimerManagerRunningBlock = NSTimerManagerRunningBlock;
 }
 

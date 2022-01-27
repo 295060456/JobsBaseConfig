@@ -65,7 +65,7 @@
         [_cancelBtn normalTitle:Internationalization(@"Cancel")];
         [_cancelBtn normalTitleColor:HEXCOLOR(0x502600)];
         [_cancelBtn titleFont:[UIFont systemFontOfSize:JobsWidth(14) weight:UIControlStateNormal]];
-        BtnClickEvent(_cancelBtn, if(self.viewBlock) self.viewBlock(x););
+        BtnClickEvent(_cancelBtn, if(self.objectBlock) self.objectBlock(x););
         [_cancelBtn normalBackgroundImage:KIMG(@"弹窗取消按钮背景图")];
         [self addSubview:_cancelBtn];
         [_cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -82,7 +82,7 @@
         [_sureBtn normalTitle:Internationalization(@"Sure")];
         [_sureBtn normalTitleColor:HEXCOLOR(0x502600)];
         [_sureBtn titleFont:[UIFont systemFontOfSize:JobsWidth(14) weight:UIControlStateNormal]];
-        BtnClickEvent(_sureBtn, if(self.viewBlock) self.viewBlock(x););
+        BtnClickEvent(_sureBtn, if(self.objectBlock) self.objectBlock(x););
         [_sureBtn normalBackgroundImage:KIMG(@"弹窗确定按钮背景图")];
         [self addSubview:_sureBtn];
         [_sureBtn mas_makeConstraints:^(MASConstraintMaker *make) {

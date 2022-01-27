@@ -61,7 +61,7 @@
 }
 /// 获取通知授权和设置
 -(void)userNotificationCenter:(UNUserNotificationCenter *_Nonnull)userNotificationCenter
-     authorizationStatusBlock:(MKDataBlock _Nullable)authorizationStatusBlock{
+     authorizationStatusBlock:(jobsByIDBlock _Nullable)authorizationStatusBlock{
     if (!userNotificationCenter) {
         userNotificationCenter = self.notificationCenter;
     }

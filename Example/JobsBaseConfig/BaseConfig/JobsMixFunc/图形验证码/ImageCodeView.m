@@ -13,7 +13,7 @@
 @interface ImageCodeView ()
 
 @property(nonatomic,strong)UITapGestureRecognizer *changeCodeTap;
-@property(nonatomic,copy)MKDataBlock imageCodeViewBlock;
+@property(nonatomic,copy)jobsByIDBlock imageCodeViewBlock;
 
 @end
 
@@ -102,7 +102,7 @@
 //    }];
 }
 
--(void)actionBlockImageCodeView:(MKDataBlock _Nullable)imageCodeViewBlock{
+-(void)actionBlockImageCodeView:(jobsByIDBlock _Nullable)imageCodeViewBlock{
     _imageCodeViewBlock = imageCodeViewBlock;
 }
 

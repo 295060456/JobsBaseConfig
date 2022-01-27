@@ -24,15 +24,15 @@ static char *UIViewController_ShakeCancel = "UIViewController_ShakeCancel";
 static char *UIViewController_ShakeEnd = "UIViewController_ShakeEnd";
 @dynamic UIViewControllerShakeEndBlock;
 
--(void)VC_ShakeBegan:(MKDataBlock)UIViewControllerShakeBeganBlock{
+-(void)VC_ShakeBegan:(jobsByIDBlock)UIViewControllerShakeBeganBlock{
     self.UIViewControllerShakeBeganBlock = UIViewControllerShakeBeganBlock;
 }
 
--(void)VC_ShakeCancel:(MKDataBlock)UIViewControllerShakeCancelBlock{
+-(void)VC_ShakeCancel:(jobsByIDBlock)UIViewControllerShakeCancelBlock{
     self.UIViewControllerShakeCancelBlock = UIViewControllerShakeCancelBlock;
 }
 
--(void)VC_ShakeEnd:(MKDataBlock)UIViewControllerShakeEndBlock{
+-(void)VC_ShakeEnd:(jobsByIDBlock)UIViewControllerShakeEndBlock{
     self.UIViewControllerShakeEndBlock = UIViewControllerShakeEndBlock;
 }
 
@@ -153,34 +153,34 @@ static char *UIViewController_ShakeEnd = "UIViewController_ShakeEnd";
                              motionManager,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-#pragma mark —— @property(nonatomic,copy)MKDataBlock UIViewControllerShakeBeganBlock;
--(MKDataBlock)UIViewControllerShakeBeganBlock{
+#pragma mark —— @property(nonatomic,copy)jobsByIDBlock UIViewControllerShakeBeganBlock;
+-(jobsByIDBlock)UIViewControllerShakeBeganBlock{
     return objc_getAssociatedObject(self, UIViewController_ShakeBegan);
 }
 
--(void)setUIViewControllerShakeBeganBlock:(MKDataBlock)UIViewControllerShakeBeganBlock{
+-(void)setUIViewControllerShakeBeganBlock:(jobsByIDBlock)UIViewControllerShakeBeganBlock{
     objc_setAssociatedObject(self,
                              UIViewController_ShakeBegan,
                              UIViewControllerShakeBeganBlock,
                              OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
-#pragma mark —— @property(nonatomic,copy)MKDataBlock UIViewControllerShakeCancelBlock;
--(MKDataBlock)UIViewControllerShakeCancelBlock{
+#pragma mark —— @property(nonatomic,copy)jobsByIDBlock UIViewControllerShakeCancelBlock;
+-(jobsByIDBlock)UIViewControllerShakeCancelBlock{
     return objc_getAssociatedObject(self, UIViewController_ShakeCancel);
 }
 
--(void)setUIViewControllerShakeCancelBlock:(MKDataBlock)UIViewControllerShakeCancelBlock{
+-(void)setUIViewControllerShakeCancelBlock:(jobsByIDBlock)UIViewControllerShakeCancelBlock{
     objc_setAssociatedObject(self,
                              UIViewController_ShakeCancel,
                              UIViewControllerShakeCancelBlock,
                              OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
-#pragma mark —— @property(nonatomic,copy)MKDataBlock UIViewControllerShakeEndBlock;
--(MKDataBlock)UIViewControllerShakeEndBlock{
+#pragma mark —— @property(nonatomic,copy)jobsByIDBlock UIViewControllerShakeEndBlock;
+-(jobsByIDBlock)UIViewControllerShakeEndBlock{
     return objc_getAssociatedObject(self, UIViewController_ShakeEnd);
 }
 
--(void)setUIViewControllerShakeEndBlock:(MKDataBlock)UIViewControllerShakeEndBlock{
+-(void)setUIViewControllerShakeEndBlock:(jobsByIDBlock)UIViewControllerShakeEndBlock{
     objc_setAssociatedObject(self,
                              UIViewController_ShakeEnd,
                              UIViewControllerShakeEndBlock,

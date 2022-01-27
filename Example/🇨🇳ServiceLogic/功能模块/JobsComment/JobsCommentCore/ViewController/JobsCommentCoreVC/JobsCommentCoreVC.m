@@ -29,7 +29,7 @@
 -(void)loadView{
     [super loadView];
     @jobs_weakify(self)
-    [getMainWindow() actionViewBlock:^(id data) {
+    [getMainWindow() actionObjectBlock:^(id data) {
         @jobs_strongify(self)
         [self dismissViewControllerAnimated:YES
                                  completion:Nil];
@@ -164,7 +164,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
         JobsInfoTBVCell *cell = [JobsInfoTBVCell cellWithTableView:tableView];
         [cell richElementsInCellWithModel:childCommentModel];
 //        @jobs_weakify(self)
-        [cell actionViewBlock:^(id data) {
+        [cell actionObjectBlock:^(id data) {
 //            @jobs_strongify(self)
         }];return cell;
     }else{
@@ -173,7 +173,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
             JobsInfoTBVCell *cell = [JobsInfoTBVCell cellWithTableView:tableView];
             [cell richElementsInCellWithModel:childCommentModel];
 //            @jobs_weakify(self)
-            [cell actionViewBlock:^(id data) {
+            [cell actionObjectBlock:^(id data) {
 //                @jobs_strongify(self)
             }];return cell;
         }else{
@@ -201,7 +201,7 @@ viewForHeaderInSection:(NSInteger)section{
     [header richElementsInViewWithModel:self.mjModel.listDataArr[section]];//一级评论数据 展示在viewForHeaderInSection
     @jobs_weakify(self)
     // 一级标题点击事件
-    [header actionViewBlock:^(id data) {
+    [header actionObjectBlock:^(id data) {
         @jobs_strongify(self)
         [self 一级标题点击事件];
     }];return header;
@@ -211,7 +211,7 @@ viewForHeaderInSection:(NSInteger)section{
     if (!_titleHeaderView) {
         _titleHeaderView = JobsCommentTitleHeaderView.new;
         @jobs_weakify(self)
-        [_titleHeaderView actionViewBlock:^(id data) {
+        [_titleHeaderView actionObjectBlock:^(id data) {
             @jobs_strongify(self)
             [self dismissViewControllerAnimated:YES
                                      completion:Nil];

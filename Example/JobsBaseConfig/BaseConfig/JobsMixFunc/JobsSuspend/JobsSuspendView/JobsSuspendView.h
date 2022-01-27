@@ -17,9 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface JobsSuspendView : UIView
 
 @property(nonatomic,assign)BOOL isAllowDrag;//是否允许托拽手势
-@property(nonatomic,copy)MKDataBlock suspendViewBlock;
+@property(nonatomic,copy)jobsByIDBlock suspendViewBlock;
 
--(void)actionSuspendViewBlock:(MKDataBlock _Nullable)suspendLabBlock;
+-(void)actionSuspendViewBlock:(jobsByIDBlock _Nullable)suspendLabBlock;
 
 @end
 

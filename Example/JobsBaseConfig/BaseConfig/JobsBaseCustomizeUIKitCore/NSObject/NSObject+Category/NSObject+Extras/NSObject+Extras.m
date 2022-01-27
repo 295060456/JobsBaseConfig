@@ -254,10 +254,10 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
 -(JobsDropDownListView *_Nullable)motivateFromView:(UIView * _Nonnull)motivateFromView
                                               data:(NSMutableArray <UIViewModel *>* _Nullable)data
                                 motivateViewOffset:(CGFloat)motivateViewOffset
-                                       finishBlock:(MKDataBlock _Nullable)finishBlock{
+                                       finishBlock:(jobsByIDBlock _Nullable)finishBlock{
     
     JobsDropDownListView *dropDownListView = JobsDropDownListView.new;
-    [dropDownListView actionViewBlock:^(id data) {
+    [dropDownListView actionObjectBlock:^(id data) {
         if ([motivateFromView isKindOfClass:UIButton.class]) {
             UIButton *btn = (UIButton *)motivateFromView;
             btn.selected = !btn.selected;
@@ -504,7 +504,7 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
     }return nil;
 }
 /// 监听程序被杀死前的时刻，进行一些需要异步的操作：磁盘读写、网络请求...
--(void)terminalCheck:(MKDataBlock _Nullable)checkBlock{
+-(void)terminalCheck:(jobsByIDBlock _Nullable)checkBlock{
     [NSNotificationCenter.defaultCenter addObserver:self
                                            selector:selectorBlocks(^(id  _Nullable weakSelf,
                                                                      id  _Nullable arg) {

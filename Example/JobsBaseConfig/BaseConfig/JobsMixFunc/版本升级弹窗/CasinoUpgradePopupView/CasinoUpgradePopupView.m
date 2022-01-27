@@ -61,9 +61,9 @@
         _upgradeContentView = CasinoUpgradeContentView.new;
         [_upgradeContentView richElementsInViewWithModel:nil];
         @jobs_weakify(self)
-        [_upgradeContentView actionViewBlock:^(id data) {
+        [_upgradeContentView actionObjectBlock:^(id data) {
             @jobs_strongify(self)
-            if (self.viewBlock) self.viewBlock(data);
+            if (self.objectBlock) self.objectBlock(data);
         }];
         [self addSubview:_upgradeContentView];
         [_upgradeContentView mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -52,7 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)BOOL repeats;
 @property(nonatomic,strong,nullable)NSTimer *__block nsTimer;
 ///需要定时器做的事情，回调
--(void)actionNSTimerManagerRunningBlock:(MKDataBlock _Nullable)NSTimerManagerRunningBlock;
+-(void)actionNSTimerManagerRunningBlock:(jobsByIDBlock _Nullable)NSTimerManagerRunningBlock;
 ///定时器启动 手动添加定时器到RunLoop
 +(void)nsTimeStart:(NSTimerManager *_Nonnull)timerManager
        withRunLoop:(NSRunLoop *_Nullable)runLoop;//currentRunLoop可调用子线程；mainrunloop主线程

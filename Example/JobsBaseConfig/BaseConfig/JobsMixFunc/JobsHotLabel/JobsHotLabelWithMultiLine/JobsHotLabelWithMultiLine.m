@@ -113,7 +113,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"%s", __FUNCTION__);
     JobsHotLabelWithMultiLineCVCell *cell = (JobsHotLabelWithMultiLineCVCell *)[collectionView cellForItemAtIndexPath:indexPath];
     [WHToast toastSuccessMsg:cell.getViewModel.textModel.text];
-    if (self.viewBlock) self.viewBlock(cell.getViewModel);
+    if (self.objectBlock) self.objectBlock(cell.getViewModel);
 }
 /// 取消选中操作
 -(void)collectionView:(UICollectionView *)collectionView

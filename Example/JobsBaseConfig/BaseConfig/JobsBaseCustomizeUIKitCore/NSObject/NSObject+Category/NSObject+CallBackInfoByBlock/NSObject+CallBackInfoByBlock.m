@@ -8,112 +8,549 @@
 #import "NSObject+CallBackInfoByBlock.h"
 
 @implementation NSObject (CallBackInfoByBlock)
-#pragma mark —— 无返回值的回调
-static char *NSObject_CallBackInfoByBlock_objectBlock = "NSObject_CallBackInfoByBlock_objectBlock";
-@dynamic objectBlock;
-
-static char *NSObject_CallBackInfoByBlock_viewBlock = "NSObject_CallBackInfoByBlock_viewBlock";
-@dynamic viewBlock;
-
-static char *NSObject_CallBackInfoByBlock_viewControllerBlock = "NSObject_CallBackInfoByBlock_viewControllerBlock";
-@dynamic viewControllerBlock;
-#pragma mark —— 有返回值的回调
-static char *NSObject_CallBackInfoByBlock_returnObjectBlock = "NSObject_CallBackInfoByBlock_returnObjectBlock";
-@dynamic returnObjectBlock;
-
-static char *NSObject_CallBackInfoByBlock_returnViewBlock = "NSObject_CallBackInfoByBlock_returnViewBlock";
-@dynamic returnViewBlock;
-
-static char *NSObject_CallBackInfoByBlock_returnViewControllerBlock = "NSObject_CallBackInfoByBlock_returnViewControllerBlock";
-@dynamic returnViewControllerBlock;
-// 用于任何对象数据的回调
--(void)actionObjectBlock:(MKDataBlock)objectBlock{
+#pragma mark —— block的set
+-(void)actionObjectBlock:(jobsByIDBlock)objectBlock{
     self.objectBlock = objectBlock;
 }
 
--(void)actionReturnObjectBlock:(mkDataBlock)returnObjectBlock{
+-(void)actionNSIntegerBlock:(jobsByNSIntegerBlock)NSIntegerBlock{
+    self.NSIntegerBlock = NSIntegerBlock;
+}
+
+-(void)actionNSUIntegerBlock:(jobsByNSUIntegerBlock)NSUIntegerBlock{
+    self.NSUIntegerBlock = NSUIntegerBlock;
+}
+
+-(void)actionCGFloatBlock:(jobsByCGFloatBlock)CGFloatBlock{
+    self.CGFloatBlock = CGFloatBlock;
+}
+
+-(void)actionBOOLBlock:(jobsByBOOLBlock)BOOLBlock{
+    self.BOOLBlock = BOOLBlock;
+}
+
+-(void)actionIntBlock:(jobsByIntBlock)IntBlock{
+    self.IntBlock = IntBlock;
+}
+
+-(void)actionUnsignedIntBlock:(jobsByUnsignedIntBlock)UnsignedIntBlock{
+    self.UnsignedIntBlock = UnsignedIntBlock;
+}
+
+-(void)actionFloatBlock:(jobsByFloatBlock)FloatBlock{
+    self.FloatBlock = FloatBlock;
+}
+
+-(void)actionDoubleBlock:(jobsByDoubleBlock)DoubleBlock{
+    self.DoubleBlock = DoubleBlock;
+}
+
+-(void)actionCharBlock:(jobsByCharBlock)CharBlock{
+    self.CharBlock = CharBlock;
+}
+
+-(void)actionUnsignedCharBlock:(jobsByUnsignedCharBlock)UnsignedCharBlock{
+    self.UnsignedCharBlock = UnsignedCharBlock;
+}
+
+-(void)actionShortBlock:(jobsByShortBlock)ShortBlock{
+    self.ShortBlock = ShortBlock;
+}
+
+-(void)actionUnsignedShortBlock:(jobsByUnsignedShortBlock)UnsignedShortBlock{
+    self.UnsignedShortBlock = UnsignedShortBlock;
+}
+
+-(void)actionLongBlock:(jobsByLongBlock)LongBlock{
+    self.LongBlock = LongBlock;
+}
+
+-(void)actionUnsignedLongBlock:(jobsByUnsignedLongBlock)UnsignedLongBlock{
+    self.UnsignedLongBlock = UnsignedLongBlock;
+}
+
+-(void)actionUnsignedLongLongBlock:(jobsByUnsignedLongLongBlock)UnsignedLongLongBlock{
+    self.UnsignedLongLongBlock = UnsignedLongLongBlock;
+}
+/// =============================❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️=============================
+-(void)actionReturnObjectBlock:(JobsReturnIDByIDBlock)returnObjectBlock{
     self.returnObjectBlock = returnObjectBlock;
 }
-// 用于UIView数据的回调
--(void)actionViewBlock:(MKDataBlock)viewBlock{
-    self.viewBlock = viewBlock;
+
+-(void)actionReturnNSIntegerBlock:(JobsReturnByNSIntegerBlock)returnNSIntegerBlock{
+    self.returnNSIntegerBlock = returnNSIntegerBlock;
 }
 
--(void)actionReturnViewBlock:(mkDataBlock)returnViewBlock{
-    self.returnViewBlock = returnViewBlock;
-}
-// 用于UIViewController数据的回调
--(void)actionViewControllerBlock:(MKDataBlock)viewControllerBlock{
-    self.viewControllerBlock = viewControllerBlock;
+-(void)actionReturnNSUIntegerBlock:(JobsReturnByNSUIntegerBlock)returnNSUIntegerBlock{
+    self.returnNSUIntegerBlock = returnNSUIntegerBlock;
 }
 
--(void)actionReturnViewControllerBlock:(mkDataBlock)returnViewControllerBlock{
-    self.returnViewControllerBlock = returnViewControllerBlock;
+-(void)actionReturnCGFloatBlock:(JobsReturnByCGFloatBlock)returnCGFloatBlock{
+    self.returnCGFloatBlock = returnCGFloatBlock;
 }
-#pragma mark —— @property(nonatomic,assign)MKDataBlock objectBlock;
--(MKDataBlock)objectBlock{
+
+-(void)actionReturnBOOLBlock:(JobsReturnByBOOLBlock)returnBOOLBlock{
+    self.returnBOOLBlock = returnBOOLBlock;
+}
+
+-(void)actionReturnIntBlock:(JobsReturnByIntBlock)returnIntBlock{
+    self.returnIntBlock = returnIntBlock;
+}
+
+-(void)actionReturnUnsignedIntBlock:(JobsReturnByUnsignedIntBlock)returnUnsignedIntBlock{
+    self.returnUnsignedIntBlock = returnUnsignedIntBlock;
+}
+
+-(void)actionReturnFloatBlock:(JobsReturnByFloatBlock)returnFloatBlock{
+    self.returnFloatBlock = returnFloatBlock;
+}
+
+-(void)actionReturnDoubleBlock:(JobsReturnByDoubleBlock)returnDoubleBlock{
+    self.returnDoubleBlock = returnDoubleBlock;
+}
+
+-(void)actionReturnCharBlock:(JobsReturnByCharBlock)returnCharBlock{
+    self.returnCharBlock = returnCharBlock;
+}
+
+-(void)actionReturnUnsignedCharBlock:(JobsReturnByUnsignedCharBlock)returnUnsignedCharBlock{
+    self.returnUnsignedCharBlock = returnUnsignedCharBlock;
+}
+
+-(void)actionReturnShortBlock:(JobsReturnByShortBlock)returnShortBlock{
+    self.returnShortBlock = returnShortBlock;
+}
+
+-(void)actionReturnUnsignedShortBlock:(JobsReturnByUnsignedShortBlock)returnUnsignedShortBlock{
+    self.returnUnsignedShortBlock = returnUnsignedShortBlock;
+}
+
+-(void)actionReturnLongBlock:(JobsReturnByLongBlock)returnLongBlock{
+    self.returnLongBlock = returnLongBlock;
+}
+
+-(void)actionReturnUnsignedLongBlock:(JobsReturnByUnsignedLongBlock)returnUnsignedLongBlock{
+    self.returnUnsignedLongBlock = returnUnsignedLongBlock;
+}
+
+-(void)actionReturnUnsignedLongLongBlock:(JobsReturnByUnsignedLongLongBlock)returnUnsignedLongLongBlock{
+    self.returnUnsignedLongLongBlock = returnUnsignedLongLongBlock;
+}
+#pragma mark —— @property(nonatomic,assign)jobsByIDBlock objectBlock;/// 入参为ID类型，无返回值的回调
+static char *NSObject_CallBackInfoByBlock_objectBlock = "NSObject_CallBackInfoByBlock_objectBlock";
+@dynamic objectBlock;
+-(jobsByIDBlock)objectBlock{
     return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_objectBlock);
 }
 
--(void)setObjectBlock:(MKDataBlock)objectBlock{
+-(void)setObjectBlock:(jobsByIDBlock)objectBlock{
     objc_setAssociatedObject(self,
                              NSObject_CallBackInfoByBlock_objectBlock,
                              objectBlock,
                              OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
-#pragma mark —— @property(nonatomic,assign)MKDataBlock viewBlock;
--(MKDataBlock)viewBlock{
-    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_viewBlock);
+#pragma mark —— @property(nonatomic,assign)jobsByNSIntegerBlock NSIntegerBlock;/// 入参为NSInteger，无返回值的回调
+static char *NSObject_CallBackInfoByBlock_NSIntegerBlock = "NSObject_CallBackInfoByBlock_NSIntegerBlock";
+@dynamic NSIntegerBlock;
+-(jobsByNSIntegerBlock)NSIntegerBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_NSIntegerBlock);
 }
 
--(void)setViewBlock:(MKDataBlock)viewBlock{
+-(void)setNSIntegerBlock:(jobsByNSIntegerBlock)NSIntegerBlock{
     objc_setAssociatedObject(self,
-                             NSObject_CallBackInfoByBlock_viewBlock,
-                             viewBlock,
+                             NSObject_CallBackInfoByBlock_NSIntegerBlock,
+                             NSIntegerBlock,
                              OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
-#pragma mark —— @property(nonatomic,assign)MKDataBlock viewControllerBlock;
--(MKDataBlock)viewControllerBlock{
-    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_viewControllerBlock);
+#pragma mark —— @property(nonatomic,assign)jobsByNSUIntegerBlock NSUIntegerBlock;/// 入参为NSUInteger，无返回值的回调
+static char *NSObject_CallBackInfoByBlock_NSUIntegerBlock = "NSObject_CallBackInfoByBlock_NSUIntegerBlock";
+@dynamic NSUIntegerBlock;
+-(jobsByNSUIntegerBlock)NSUIntegerBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_NSUIntegerBlock);
 }
 
--(void)setViewControllerBlock:(MKDataBlock)viewControllerBlock{
+-(void)setNSUIntegerBlock:(jobsByNSUIntegerBlock)NSUIntegerBlock{
     objc_setAssociatedObject(self,
-                             NSObject_CallBackInfoByBlock_viewControllerBlock,
-                             viewControllerBlock,
+                             NSObject_CallBackInfoByBlock_NSUIntegerBlock,
+                             NSUIntegerBlock,
                              OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
-#pragma mark —— @property(nonatomic,assign)mkDataBlock returnObjectBlock;
--(mkDataBlock)returnObjectBlock{
+#pragma mark —— @property(nonatomic,assign)jobsByCGFloatBlock CGFloatBlock;/// 入参CGFloat，无返回值的回调
+static char *NSObject_CallBackInfoByBlock_CGFloatBlock = "NSObject_CallBackInfoByBlock_CGFloatBlock";
+@dynamic CGFloatBlock;
+-(jobsByCGFloatBlock)CGFloatBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_CGFloatBlock);
+}
+
+-(void)setCGFloatBlock:(jobsByCGFloatBlock)CGFloatBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_CGFloatBlock,
+                             CGFloatBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)jobsByBOOLBlock BOOLBlock;/// 入参为BOOL，无返回值的回调
+static char *NSObject_CallBackInfoByBlock_BOOLBlock = "NSObject_CallBackInfoByBlock_BOOLBlock";
+@dynamic BOOLBlock;
+-(jobsByBOOLBlock)BOOLBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_BOOLBlock);
+}
+
+-(void)setBOOLBlock:(jobsByBOOLBlock)BOOLBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_BOOLBlock,
+                             BOOLBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)jobsByIntBlock IntBlock;/// 入参为Int，无返回值的回调
+static char *NSObject_CallBackInfoByBlock_IntBlock = "NSObject_CallBackInfoByBlock_IntBlock";
+@dynamic IntBlock;
+-(jobsByIntBlock)IntBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_IntBlock);
+}
+
+-(void)setIntBlock:(jobsByIntBlock)IntBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_IntBlock,
+                             IntBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)jobsByUnsignedIntBlock UnsignedIntBlock;/// 入参为UnsignedInt，无返回值的回调
+static char *NSObject_CallBackInfoByBlock_UnsignedIntBlock = "NSObject_CallBackInfoByBlock_UnsignedIntBlock";
+@dynamic UnsignedIntBlock;
+-(jobsByUnsignedIntBlock)UnsignedIntBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_UnsignedIntBlock);
+}
+
+-(void)setUnsignedIntBlock:(jobsByUnsignedIntBlock)UnsignedIntBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_UnsignedIntBlock,
+                             UnsignedIntBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)jobsByFloatBlock FloatBlock;/// 入参为Float，无返回值的回调
+static char *NSObject_CallBackInfoByBlock_FloatBlock = "NSObject_CallBackInfoByBlock_FloatBlock";
+@dynamic FloatBlock;
+-(jobsByFloatBlock)FloatBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_FloatBlock);
+}
+
+-(void)setFloatBlock:(jobsByFloatBlock)FloatBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_FloatBlock,
+                             FloatBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)jobsByDoubleBlock DoubleBlock;/// 入参为Double，无返回值的回调
+static char *NSObject_CallBackInfoByBlock_DoubleBlock = "NSObject_CallBackInfoByBlock_DoubleBlock";
+@dynamic DoubleBlock;
+-(jobsByDoubleBlock)DoubleBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_DoubleBlock);
+}
+
+-(void)setDoubleBlock:(jobsByDoubleBlock)DoubleBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_DoubleBlock,
+                             DoubleBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)jobsByCharBlock CharBlock;/// 入参为Char，无返回值的回调
+static char *NSObject_CallBackInfoByBlock_CharBlock = "NSObject_CallBackInfoByBlock_CharBlock";
+@dynamic CharBlock;
+-(jobsByCharBlock)CharBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_CharBlock);
+}
+
+-(void)setCharBlock:(jobsByCharBlock)CharBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_CharBlock,
+                             CharBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)jobsByUnsignedCharBlock UnsignedCharBlock;/// 入参为IUnsignedChar，无返回值的回调
+static char *NSObject_CallBackInfoByBlock_UnsignedCharBlock = "NSObject_CallBackInfoByBlock_UnsignedCharBlock";
+@dynamic UnsignedCharBlock;
+-(jobsByUnsignedCharBlock)UnsignedCharBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_UnsignedCharBlock);
+}
+
+-(void)setUnsignedCharBlock:(jobsByUnsignedCharBlock)UnsignedCharBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_UnsignedCharBlock,
+                             UnsignedCharBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)jobsByShortBlock ShortBlock;/// 入参为Short，无返回值的回调
+static char *NSObject_CallBackInfoByBlock_ShortBlock = "NSObject_CallBackInfoByBlock_ShortBlock";
+@dynamic ShortBlock;
+-(jobsByShortBlock)ShortBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_ShortBlock);
+}
+
+-(void)setShortBlock:(jobsByShortBlock)ShortBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_ShortBlock,
+                             ShortBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)jobsByUnsignedShortBlock UnsignedShortBlock;/// 入参为UnsignedShort，无返回值的回调
+static char *NSObject_CallBackInfoByBlock_UnsignedShortBlock = "NSObject_CallBackInfoByBlock_UnsignedShortBlock";
+@dynamic UnsignedShortBlock;
+-(jobsByUnsignedShortBlock)UnsignedShortBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_UnsignedShortBlock);
+}
+
+-(void)setUnsignedShortBlock:(jobsByUnsignedShortBlock)UnsignedShortBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_UnsignedShortBlock,
+                             UnsignedShortBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)jobsByLongBlock LongBlock;/// 入参为Long，无返回值的回调
+static char *NSObject_CallBackInfoByBlock_LongBlock = "NSObject_CallBackInfoByBlock_LongBlock";
+@dynamic LongBlock;
+-(jobsByLongBlock)LongBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_LongBlock);
+}
+
+-(void)setLongBlock:(jobsByLongBlock)LongBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_LongBlock,
+                             LongBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)jobsByUnsignedLongBlock UnsignedLongBlock;/// 入参为UnsignedLong，无返回值的回调
+static char *NSObject_CallBackInfoByBlock_UnsignedLongBlock = "NSObject_CallBackInfoByBlock_UnsignedLongBlock";
+@dynamic UnsignedLongBlock;
+-(jobsByUnsignedLongBlock)UnsignedLongBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_UnsignedLongBlock);
+}
+
+-(void)setUnsignedLongBlock:(jobsByUnsignedLongBlock)UnsignedLongBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_UnsignedLongBlock,
+                             UnsignedLongBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)jobsByUnsignedLongLongBlock UnsignedLongLongBlock;/// 入参为IUnsignedLongLong，无返回值的回调
+static char *NSObject_CallBackInfoByBlock_UnsignedLongLongBlock = "NSObject_CallBackInfoByBlock_UnsignedLongLongBlock";
+@dynamic UnsignedLongLongBlock;
+-(jobsByUnsignedLongLongBlock)UnsignedLongLongBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_UnsignedLongLongBlock);
+}
+
+-(void)setUnsignedLongLongBlock:(jobsByUnsignedLongLongBlock)UnsignedLongLongBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_UnsignedLongLongBlock,
+                             UnsignedLongLongBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+/// =============================❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️=============================
+#pragma mark —— @property(nonatomic,assign)JobsReturnIDByIDBlock returnObjectBlock;
+static char *NSObject_CallBackInfoByBlock_returnObjectBlock = "NSObject_CallBackInfoByBlock_returnObjectBlock";
+@dynamic returnObjectBlock;
+-(JobsReturnIDByIDBlock)returnObjectBlock{
     return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnObjectBlock);
 }
 
--(void)setReturnObjectBlock:(mkDataBlock)returnObjectBlock{
+-(void)setReturnObjectBlock:(JobsReturnIDByIDBlock)returnObjectBlock{
     objc_setAssociatedObject(self,
                              NSObject_CallBackInfoByBlock_returnObjectBlock,
                              returnObjectBlock,
                              OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
-#pragma mark —— @property(nonatomic,assign)mkDataBlock returnViewBlock;
--(mkDataBlock)returnViewBlock{
-    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnViewBlock);
+#pragma mark —— @property(nonatomic,assign)JobsReturnByNSIntegerBlock returnNSIntegerBlock;/// 返回值为NSInteger的回调
+static char *NSObject_CallBackInfoByBlock_returnNSIntegerBlock = "NSObject_CallBackInfoByBlock_returnNSIntegerBlock";
+@dynamic returnNSIntegerBlock;
+-(JobsReturnByNSIntegerBlock)returnNSIntegerBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnNSIntegerBlock);
 }
 
--(void)setReturnViewBlock:(mkDataBlock)returnViewBlock{
+-(void)setReturnNSIntegerBlock:(JobsReturnByNSIntegerBlock)returnNSIntegerBlock{
     objc_setAssociatedObject(self,
-                             NSObject_CallBackInfoByBlock_returnViewBlock,
-                             returnViewBlock,
+                             NSObject_CallBackInfoByBlock_returnNSIntegerBlock,
+                             returnNSIntegerBlock,
                              OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
-#pragma mark —— @property(nonatomic,assign)mkDataBlock returnViewControllerBlock;
--(mkDataBlock)returnViewControllerBlock{
-    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnViewControllerBlock);
+#pragma mark —— @property(nonatomic,assign)JobsReturnByUIntegerBlock returnNSUIntegerBlock;/// 返回值为UInteger的回调
+static char *NSObject_CallBackInfoByBlock_returnNSUIntegerBlock = "NSObject_CallBackInfoByBlock_returnNSUIntegerBlock";
+@dynamic returnNSUIntegerBlock;
+-(JobsReturnByNSUIntegerBlock)returnNSUIntegerBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnNSUIntegerBlock);
 }
 
--(void)setReturnViewControllerBlock:(mkDataBlock)returnViewControllerBlock{
+-(void)setReturnUIntegerBlock:(JobsReturnByNSUIntegerBlock)returnNSUIntegerBlock{
     objc_setAssociatedObject(self,
-                             NSObject_CallBackInfoByBlock_returnViewControllerBlock,
-                             returnViewControllerBlock,
+                             NSObject_CallBackInfoByBlock_returnNSUIntegerBlock,
+                             returnNSUIntegerBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnByCGFloatBlock returnCGFloatBlock;/// 返回值为CGFloat的回调
+static char *NSObject_CallBackInfoByBlock_returnCGFloatBlock = "NSObject_CallBackInfoByBlock_returnCGFloatBlock";
+@dynamic returnCGFloatBlock;
+-(JobsReturnByCGFloatBlock)returnCGFloatBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnCGFloatBlock);
+}
+
+-(void)setReturnCGFloatBlock:(JobsReturnByCGFloatBlock)returnCGFloatBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnCGFloatBlock,
+                             returnCGFloatBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnByBOOLBlock returnBOOLBlock;/// 返回值为BOOL的回调
+static char *NSObject_CallBackInfoByBlock_returnBOOLBlock = "NSObject_CallBackInfoByBlock_returnBOOLBlock";
+@dynamic returnBOOLBlock;
+-(JobsReturnByBOOLBlock)returnBOOLBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnBOOLBlock);
+}
+
+-(void)setReturnBOOLBlock:(JobsReturnByBOOLBlock)returnBOOLBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnBOOLBlock,
+                             returnBOOLBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnByIntBlock returnIntBlock;/// 返回值为Int的回调
+static char *NSObject_CallBackInfoByBlock_returnIntBlock = "NSObject_CallBackInfoByBlock_returnIntBlock";
+@dynamic returnIntBlock;
+-(JobsReturnByIntBlock)returnIntBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnIntBlock);
+}
+
+-(void)setReturnIntBlock:(JobsReturnByIntBlock)returnIntBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnIntBlock,
+                             returnIntBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnByUnsignedIntBlock returnUnsignedIntBlock;/// 返回值为UnsignedInt的回调
+static char *NSObject_CallBackInfoByBlock_returnUnsignedIntBlock = "NSObject_CallBackInfoByBlock_returnUnsignedIntBlock";
+@dynamic returnUnsignedIntBlock;
+-(JobsReturnByUnsignedIntBlock)returnUnsignedIntBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnUnsignedIntBlock);
+}
+
+-(void)setReturnUnsignedIntBlock:(JobsReturnByUnsignedIntBlock)returnUnsignedIntBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnUnsignedIntBlock,
+                             returnUnsignedIntBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnByFloatBlock returnFloatBlock;/// 返回值为Float的回调
+static char *NSObject_CallBackInfoByBlock_returnFloatBlock = "NSObject_CallBackInfoByBlock_returnFloatBlock";
+@dynamic returnFloatBlock;
+-(JobsReturnByFloatBlock)returnFloatBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnFloatBlock);
+}
+
+-(void)setReturnFloatBlock:(JobsReturnByFloatBlock)returnFloatBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnFloatBlock,
+                             returnFloatBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnByDoubleBlock returnDoubleBlock;/// 返回值为Double的回调
+static char *NSObject_CallBackInfoByBlock_returnDoubleBlock = "NSObject_CallBackInfoByBlock_returnDoubleBlock";
+@dynamic returnDoubleBlock;
+-(JobsReturnByDoubleBlock)returnDoubleBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnDoubleBlock);
+}
+
+-(void)setReturnDoubleBlock:(JobsReturnByDoubleBlock)returnDoubleBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnDoubleBlock,
+                             returnDoubleBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnByCharBlock returnCharBlock;/// 返回值为Char的回调
+static char *NSObject_CallBackInfoByBlock_returnCharBlock = "NSObject_CallBackInfoByBlock_returnCharBlock";
+@dynamic returnCharBlock;
+-(JobsReturnByCharBlock)returnCharBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnCharBlock);
+}
+
+-(void)setReturnCharBlock:(JobsReturnByCharBlock)returnCharBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnCharBlock,
+                             returnCharBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnByUnsignedCharBlock returnUnsignedCharBlock;/// 返回值为UnsignedChar的回调
+static char *NSObject_CallBackInfoByBlock_returnUnsignedCharBlock = "NSObject_CallBackInfoByBlock_returnUnsignedCharBlock";
+@dynamic returnUnsignedCharBlock;
+-(JobsReturnByUnsignedCharBlock)returnUnsignedCharBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnUnsignedCharBlock);
+}
+
+-(void)setReturnUnsignedCharBlock:(JobsReturnByUnsignedCharBlock)returnUnsignedCharBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnUnsignedCharBlock,
+                             returnUnsignedCharBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnByShortBlock returnShortBlock;/// 返回值为Short的回调
+static char *NSObject_CallBackInfoByBlock_returnShortBlock = "NSObject_CallBackInfoByBlock_returnShortBlock";
+@dynamic returnShortBlock;
+-(JobsReturnByShortBlock)returnShortBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnShortBlock);
+}
+
+-(void)setReturnShortBlock:(JobsReturnByShortBlock)returnShortBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnShortBlock,
+                             returnShortBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnByUnsignedShortBlock returnUnsignedShortBlock;/// 返回值为UnsignedShort的回调
+static char *NSObject_CallBackInfoByBlock_returnUnsignedShortBlock = "NSObject_CallBackInfoByBlock_returnUnsignedShortBlock";
+@dynamic returnUnsignedShortBlock;
+-(JobsReturnByUnsignedShortBlock)returnUnsignedShortBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnUnsignedShortBlock);
+}
+
+-(void)setReturnUnsignedShortBlock:(JobsReturnByUnsignedShortBlock)returnUnsignedShortBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnUnsignedShortBlock,
+                             returnUnsignedShortBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnByLongBlock returnLongBlock;/// 返回值为Long的回调
+static char *NSObject_CallBackInfoByBlock_returnLongBlock = "NSObject_CallBackInfoByBlock_returnLongBlock";
+@dynamic returnLongBlock;
+-(JobsReturnByNSIntegerBlock)returnLongBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnLongBlock);
+}
+
+-(void)setReturnLongBlock:(JobsReturnByNSIntegerBlock)returnLongBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnLongBlock,
+                             returnLongBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnByUnsignedLongBlock returnUnsignedLongBlock;/// 返回值为UnsignedLong的回调
+static char *NSObject_CallBackInfoByBlock_returnUnsignedLongBlock = "NSObject_CallBackInfoByBlock_returnUnsignedLongBlock";
+@dynamic returnUnsignedLongBlock;
+-(JobsReturnByUnsignedLongBlock)returnUnsignedLongBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnUnsignedLongBlock);
+}
+
+-(void)setReturnUnsignedLongBlock:(JobsReturnByUnsignedLongBlock)returnUnsignedLongBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnUnsignedLongBlock,
+                             returnUnsignedLongBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnByUnsignedLongLongBlock returnUnsignedLongLongBlock;/// 返回值为UnsignedLongLong的回调
+static char *NSObject_CallBackInfoByBlock_returnUnsignedLongLongBlock = "NSObject_CallBackInfoByBlock_returnUnsignedLongLongBlock";
+@dynamic returnUnsignedLongLongBlock;
+-(JobsReturnByUnsignedLongLongBlock)returnUnsignedLongLongBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnUnsignedLongLongBlock);
+}
+
+-(void)setReturnUnsignedLongLongBlock:(JobsReturnByUnsignedLongLongBlock)returnUnsignedLongLongBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnUnsignedLongLongBlock,
+                             returnUnsignedLongLongBlock,
                              OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 

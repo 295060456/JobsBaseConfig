@@ -9,7 +9,7 @@
 
 @implementation NSObject (AFNReachability)
 
-+(void)AFNReachability:(MKIntegerBlock)statusBlock{
++(void)AFNReachability:(jobsByNSIntegerBlock)statusBlock{
     //监听网络状态的改变
     /*
      AFNetworkReachabilityStatusUnknown          = 未知

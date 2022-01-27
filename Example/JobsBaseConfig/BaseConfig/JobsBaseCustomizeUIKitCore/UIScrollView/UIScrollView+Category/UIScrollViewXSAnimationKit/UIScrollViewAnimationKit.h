@@ -30,67 +30,67 @@ NS_ASSUME_NONNULL_BEGIN
 +(void)moveAnimationWithScrollView:(nonnull UIScrollView *)scrollView;
 
 +(void)moveAnimWithScrollView:(nonnull UIScrollView *)scrollView
-               animationBlock:(nullable NoResultBlock)animationBlock
-              completionBlock:(nullable MKDataBlock)completionBlock;
+               animationBlock:(nullable jobsByVoidBlock)animationBlock
+              completionBlock:(nullable jobsByIDBlock)completionBlock;
 #pragma mark —— moveSpringAnimation
 +(void)moveSpringAnimationWithCollectionView:(nonnull UIScrollView *)scrollView;
 
 +(void)moveSpringAnim:(nonnull UIScrollView *)scrollView
-       animationBlock:(nullable NoResultBlock)animationBlock
-      completionBlock:(nullable MKDataBlock)completionBlock;
+       animationBlock:(nullable jobsByVoidBlock)animationBlock
+      completionBlock:(nullable jobsByIDBlock)completionBlock;
 #pragma mark —— alphaAnimation
 +(void)alphaAnimationWithCollectionView:(nonnull UIScrollView *)scrollView;
 
 +(void)alphaAnim:(nonnull UIScrollView *)scrollView
-  animationBlock:(nullable NoResultBlock)animationBlock
- completionBlock:(nullable MKDataBlock)completionBlock;
+  animationBlock:(nullable jobsByVoidBlock)animationBlock
+ completionBlock:(nullable jobsByIDBlock)completionBlock;
 #pragma mark —— fallAnimation
 +(void)fallAnimationWithCollectionView:(nonnull UIScrollView *)scrollView;
 
 +(void)fallAnim:(nonnull UIScrollView *)scrollView
- animationBlock:(nullable NoResultBlock)animationBlock
-completionBlock:(nullable MKDataBlock)completionBlock;
+ animationBlock:(nullable jobsByVoidBlock)animationBlock
+completionBlock:(nullable jobsByIDBlock)completionBlock;
 #pragma mark —— shakeAnimation
 +(void)shakeAnimationWithCollectionView:(nonnull UIScrollView *)scrollView;
 
 +(void)shakeAnim:(nonnull UIScrollView *)scrollView
-  animationBlock:(nullable NoResultBlock)animationBlock
- completionBlock:(nullable MKDataBlock)completionBlock;
+  animationBlock:(nullable jobsByVoidBlock)animationBlock
+ completionBlock:(nullable jobsByIDBlock)completionBlock;
 #pragma mark —— overTurnAnimation
 +(void)overTurnAnimationWithCollectionView:(nonnull UIScrollView *)scrollView;
 
 +(void)overTurnAnim:(nonnull UIScrollView *)scrollView
-     animationBlock:(nullable NoResultBlock)animationBlock
-    completionBlock:(nullable MKDataBlock)completionBlock;
+     animationBlock:(nullable jobsByVoidBlock)animationBlock
+    completionBlock:(nullable jobsByIDBlock)completionBlock;
 #pragma mark —— toTopAnimation
 +(void)toTopAnimationWithCollectionView:(nonnull UIScrollView *)scrollView;
 
 +(void)toTopAnim:(nonnull UIScrollView *)scrollView
-  animationBlock:(nullable NoResultBlock)animationBlock
- completionBlock:(nullable MKDataBlock)completionBlock;
+  animationBlock:(nullable jobsByVoidBlock)animationBlock
+ completionBlock:(nullable jobsByIDBlock)completionBlock;
 #pragma mark —— springListAnimation
 +(void)springListAnimationWithCollectionView:(nonnull UIScrollView *)scrollView;
 
 +(void)springListAnim:(nonnull UIScrollView *)scrollView
-       animationBlock:(nullable NoResultBlock)animationBlock
-      completionBlock:(nullable MKDataBlock)completionBlock;
+       animationBlock:(nullable jobsByVoidBlock)animationBlock
+      completionBlock:(nullable jobsByIDBlock)completionBlock;
 #pragma mark —— shrinkToTopAnimation
 +(void)shrinkToTopAnimationWithCollectionView:(nonnull UIScrollView *)scrollView;
 
 +(void)shrinkToTopAnim:(nonnull UIScrollView *)scrollView
-        animationBlock:(nullable NoResultBlock)animationBlock;
+        animationBlock:(nullable jobsByVoidBlock)animationBlock;
 #pragma mark —— layDownAnimation
 +(void)layDownAnimationWithCollectionView:(nonnull UIScrollView *)scrollView;
 
 +(void)layDownAnim:(nonnull UIScrollView *)scrollView
-    animationBlock:(nullable NoResultBlock)animationBlock
-   completionBlock:(nullable MKDataBlock)completionBlock;
+    animationBlock:(nullable jobsByVoidBlock)animationBlock
+   completionBlock:(nullable jobsByIDBlock)completionBlock;
 #pragma mark —— roteAnimation
 +(void)roteAnimationWithCollectionView:(nonnull UIScrollView *)scrollView;
 
 +(void)roteAnim:(nonnull UIScrollView *)scrollView
- animationBlock:(nullable NoResultBlock)animationBlock
-completionBlock:(nullable MKDataBlock)completionBlock;
+ animationBlock:(nullable jobsByVoidBlock)animationBlock
+completionBlock:(nullable jobsByIDBlock)completionBlock;
 
 @end
 

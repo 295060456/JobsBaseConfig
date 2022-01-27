@@ -37,7 +37,7 @@
             [self mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.size.mas_equalTo(CGSizeMake(self.width, size.height));
             }];
-            if (self.viewBlock) self.viewBlock(@(size.height));
+            if (self.objectBlock) self.objectBlock(@(size.height));
         }break;
             
         default:

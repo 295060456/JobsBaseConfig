@@ -218,8 +218,8 @@ bundleFileSuffix:(NSString *__nonnull)bundleFileSuffix
 +(PHAsset *)gettingLastResource:(NSString *)Key;
 /// 相册
 +(void)createAlbumFolder:(NSString *)folderName
-       ifExitFolderBlock:(MKDataBlock)ifExitFolderBlock
-       completionHandler:(TwoDataBlock)completionBlock;
+       ifExitFolderBlock:(jobsByIDBlock)ifExitFolderBlock
+       completionHandler:(jobsByTwoIDBlock)completionBlock;
 /// 创建一个名为folderName的相册，并且以路径pathStr保存文件
 +(void)createAlbumFolder:(NSString *)folderName
                     path:(NSString *)pathStr;
@@ -241,13 +241,13 @@ didFinishSavingWithError:(NSError *)error
  contextInfo:(void *)contextInfo;
 /// 仅获取PHAsset里面的视频
 +(void)getVideoFromPHAsset:(PHAsset *)phAsset
-                  complete:(MKDataBlock)completeBlock;
+                  complete:(jobsByIDBlock)completeBlock;
 /// 获取PHAsset里面的相片
 +(void)getPicFromPHAsset:(PHAsset *)phAsset
-                complete:(MKDataBlock)completeBlock;
+                complete:(jobsByIDBlock)completeBlock;
 /// 获取PHAsset里面的声音
 +(void)getAudioFromPHAsset:(PHAsset *)phAsset
-                  complete:(MKDataBlock)completeBlock;
+                  complete:(jobsByIDBlock)completeBlock;
 /// AVAsset 转 NSData
 +(NSData *)AVAssetToData:(AVAsset *)asset;
 #pragma mark —— 获取文件属性

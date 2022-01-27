@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,strong,nullable)ZFPlayerController *player;
 
--(void)actionBlockPlayerCell:(TwoDataBlock _Nullable)playerCellBlock;
+-(void)actionBlockPlayerCell:(jobsByTwoIDBlock _Nullable)playerCellBlock;
 
 @end
 

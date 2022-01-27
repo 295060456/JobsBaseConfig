@@ -189,7 +189,7 @@
             if ([x isContainsSpecialSymbolsString:nil]) {
                 [WHToast toastMsg:Internationalization(@"Do not enter special characters")];
             }else{
-                if (self.viewBlock) self.viewBlock(self->_textField);
+                if (self.objectBlock) self.objectBlock(self->_textField);
             }
         }];
 

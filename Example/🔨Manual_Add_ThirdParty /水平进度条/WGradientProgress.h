@@ -31,7 +31,7 @@ typedef enum : NSUInteger {
 -(void)showOnParent;// 启动色彩翻滚
 -(void)hide;
 
--(void)actionWGradientProgressBlock:(TwoDataBlock _Nullable)WGradientProgressBlock;
+-(void)actionWGradientProgressBlock:(jobsByTwoIDBlock _Nullable)WGradientProgressBlock;
 
 -(void)start;
 -(void)pause;

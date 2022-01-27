@@ -48,7 +48,7 @@ static char *NSObject_PopViewToLogOut_logOutPopupVM = "NSObject_PopViewToLogOut_
         [LogOutPopupView richElementsInViewWithModel:self.logOutPopupVM];
         
         @jobs_weakify(self)
-        [LogOutPopupView actionViewBlock:^(UIButton *data) {
+        [LogOutPopupView actionObjectBlock:^(UIButton *data) {
             @jobs_strongify(self)
             if (data.tag == 666) {// 取消
                 NSLog(@"手滑了");

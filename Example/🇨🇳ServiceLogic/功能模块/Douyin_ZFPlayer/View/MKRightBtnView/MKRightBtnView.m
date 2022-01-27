@@ -14,7 +14,7 @@
 @property(nonatomic,strong)UIButton *mkCommentView;
 @property(nonatomic,strong)UIButton *mkShareView;
 
-@property(nonatomic,copy)MKDataBlock MKRightBtnViewBlock;
+@property(nonatomic,copy)jobsByIDBlock MKRightBtnViewBlock;
 @property(nonatomic,strong)NSMutableArray <UIButton *>*mutArr;
 
 @end
@@ -34,7 +34,7 @@
     self.mkShareView.alpha = 1;
 }
 //点击的是哪一个按钮
--(void)actionBlockMKRightBtnView:(MKDataBlock _Nullable)MKRightBtnViewBlock{
+-(void)actionBlockMKRightBtnView:(jobsByIDBlock _Nullable)MKRightBtnViewBlock{
     _MKRightBtnViewBlock = MKRightBtnViewBlock;
 }
 

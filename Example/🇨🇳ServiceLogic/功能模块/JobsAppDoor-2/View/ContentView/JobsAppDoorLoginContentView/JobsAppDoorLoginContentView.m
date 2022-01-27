@@ -61,10 +61,10 @@
         [self.loginDoorInputViewBaseStyleMutArr addObject:inputView];
         [inputView richElementsInViewWithModel:self.loginDoorInputViewBaseStyleModelMutArr[i]];
         @jobs_weakify(self)
-        [inputView actionViewBlock:^(id data) {
+        [inputView actionObjectBlock:^(id data) {
             @jobs_strongify(self)
-            if (self.viewBlock) {
-                self.viewBlock(data);//data：监测输入字符回调 和 激活的textField
+            if (self.objectBlock) {
+                self.objectBlock(data);//data：监测输入字符回调 和 激活的textField
             }
         }];
 
@@ -109,7 +109,7 @@
         [_toRegisterBtn normalImage:KIMG(@"用户名称")];
         BtnClickEvent(_toRegisterBtn, {
             [self endEditing:YES];
-            if (self.viewBlock) self.viewBlock(x);
+            if (self.objectBlock) self.objectBlock(x);
         });
         [self addSubview:_toRegisterBtn];
         [_toRegisterBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -148,7 +148,7 @@
             make.height.mas_equalTo(JobsWidth(15));
             make.bottom.mas_equalTo(self).offset(-JobsWidth(30));
         }];
-        BtnClickEvent(_abandonLoginBtn, if (self.viewBlock) self.viewBlock(x););
+        BtnClickEvent(_abandonLoginBtn, if (self.objectBlock) self.objectBlock(x););
     }return _abandonLoginBtn;
 }
 
@@ -193,7 +193,7 @@
                                        imageTitleSpace:JobsWidth(3)];
         BtnClickEvent(_storeCodeBtn, {
             x.selected = !x.selected;
-            if (self.viewBlock) self.viewBlock(x);
+            if (self.objectBlock) self.objectBlock(x);
         })
     }return _storeCodeBtn;
 }
@@ -211,7 +211,7 @@
             make.right.equalTo(inputView).offset(-JobsWidth(20));
             make.top.equalTo(inputView.mas_bottom).offset(JobsWidth(20));
         }];
-        BtnClickEvent(_findCodeBtn, if (self.viewBlock) self.viewBlock(x););
+        BtnClickEvent(_findCodeBtn, if (self.objectBlock) self.objectBlock(x););
     }return _findCodeBtn;
 }
 

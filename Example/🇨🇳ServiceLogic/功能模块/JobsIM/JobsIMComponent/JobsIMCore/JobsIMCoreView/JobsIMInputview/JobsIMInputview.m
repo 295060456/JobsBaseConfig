@@ -53,7 +53,7 @@
 //询问委托人文本字段是否应处理按下返回按钮
 - (BOOL)textFieldShouldReturn:(ZYTextField *)textField{
     [self endEditing:YES];
-    if (self.viewBlock) self.viewBlock(textField);
+    if (self.objectBlock) self.objectBlock(textField);
     return YES;
 }
 #pragma mark —— lazyLoad
@@ -73,7 +73,7 @@
             if (![NSString isNullString:self.inputTextField.text]) {
                 [NSObject playSoundEffect:@"Sound"
                                      type:@"wav"];
-                if (self.viewBlock) self.viewBlock(self.inputTextField);
+                if (self.objectBlock) self.objectBlock(self.inputTextField);
             }
             self.inputTextField.text = @"";
             x.enabled = NO;

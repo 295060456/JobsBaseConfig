@@ -29,7 +29,7 @@ JXCategoryTitleViewDataSource
 @property(nonatomic,strong)NSMutableArray <NSNumber *>*dotStatesMutArr;
 @property(nonatomic,assign)BOOL isNeedIndicatorPositionChangeItem;
 @property(nonatomic,assign)__block BOOL isShowBackBtn;
-@property(nonatomic,copy)MKDataBlock livingVCBlock;
+@property(nonatomic,copy)jobsByIDBlock livingVCBlock;
 
 @end
 
@@ -224,7 +224,7 @@ didScrollSelectedItemAtIndex:(NSInteger)index {
     return self.titlesMutArr.count;
 }
 
--(void)actionBlockLivingVC:(MKDataBlock _Nullable)livingVCBlock{
+-(void)actionBlockLivingVC:(jobsByIDBlock _Nullable)livingVCBlock{
     self.livingVCBlock = livingVCBlock;
 }
 #pragma mark —— lazyLoad

@@ -122,7 +122,7 @@
         [inputView richElementsInViewWithModel:inputViewStyleModel];
         @jobs_weakify(self)
         // 监测输入字符回调 和 激活的textField
-        [inputView actionViewBlock:^(id data) {
+        [inputView actionObjectBlock:^(id data) {
             @jobs_strongify(self)
             if ([data isKindOfClass:NSDictionary.class]) {
                 NSDictionary *dic = (NSDictionary *)data;
@@ -172,7 +172,7 @@
         [inputView richElementsInViewWithModel:inputViewStyleModel];
         @jobs_weakify(self)
         // 监测输入字符回调 和 激活的textField
-        [inputView actionViewBlock:^(id data) {
+        [inputView actionObjectBlock:^(id data) {
             @jobs_strongify(self)
             if ([data isKindOfClass:NSDictionary.class]) {
                 NSDictionary *dic = (NSDictionary *)data;
