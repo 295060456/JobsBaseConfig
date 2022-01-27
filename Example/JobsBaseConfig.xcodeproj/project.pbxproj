@@ -2893,9 +2893,9 @@
 		840F935A27736426004979E9 /* UITableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				840F936A27736426004979E9 /* BaseTableViewCell */,
 				840F935B27736426004979E9 /* JobsTableViewCell.h */,
 				840F935C27736426004979E9 /* UITableViewCell+Category */,
-				840F936A27736426004979E9 /* BaseTableViewCell */,
 			);
 			path = UITableViewCell;
 			sourceTree = "<group>";
@@ -2904,8 +2904,8 @@
 			isa = PBXGroup;
 			children = (
 				840F935D27736426004979E9 /* UITableViewCell+BaseCellProtocol */,
-				840F936027736426004979E9 /* UITableViewCell+WhiteArrows */,
 				840F936627736426004979E9 /* UITableViewCell+Margin */,
+				840F936027736426004979E9 /* UITableViewCell+WhiteArrows */,
 			);
 			path = "UITableViewCell+Category";
 			sourceTree = "<group>";
@@ -2913,8 +2913,8 @@
 		840F935D27736426004979E9 /* UITableViewCell+BaseCellProtocol */ = {
 			isa = PBXGroup;
 			children = (
-				840F935E27736426004979E9 /* UITableViewCell+BaseCellProtocol.m */,
 				840F935F27736426004979E9 /* UITableViewCell+BaseCellProtocol.h */,
+				840F935E27736426004979E9 /* UITableViewCell+BaseCellProtocol.m */,
 			);
 			path = "UITableViewCell+BaseCellProtocol";
 			sourceTree = "<group>";
@@ -3484,9 +3484,9 @@
 		840F941027736426004979E9 /* UICollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				840F941927736426004979E9 /* BaseCollectionViewCell */,
 				840F941127736426004979E9 /* JobsCollectionViewCell.h */,
 				840F941227736426004979E9 /* UICollectionViewCell+Category */,
-				840F941927736426004979E9 /* BaseCollectionViewCell */,
 			);
 			path = UICollectionViewCell;
 			sourceTree = "<group>";

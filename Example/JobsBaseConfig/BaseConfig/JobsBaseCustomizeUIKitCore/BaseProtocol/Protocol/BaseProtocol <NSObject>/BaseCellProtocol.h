@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @optional
 
++(instancetype)initTableViewCellWithStyle:(UITableViewCellStyle)style;
 +(instancetype)cellWithTableView:(UITableView *)tableView;
 +(instancetype)cellWithCollectionView:(nonnull UICollectionView *)collectionView
                          forIndexPath:(nonnull NSIndexPath *)indexPath;

@@ -15,10 +15,9 @@
 
 #pragma mark —— BaseCellProtocol
 +(instancetype)cellWithTableView:(UITableView *)tableView{
-    JobsDropDownListTBVCell *cell = (JobsDropDownListTBVCell *)[tableView dequeueReusableCellWithIdentifier:reuseIdentifier(self.class)];
+    JobsDropDownListTBVCell *cell = (JobsDropDownListTBVCell *)[tableView tableViewCellClass:JobsDropDownListTBVCell.class];
     if (!cell) {
-        cell = [JobsDropDownListTBVCell.alloc initWithStyle:UITableViewCellStyleValue1
-                                            reuseIdentifier:reuseIdentifier(self.class)];
+        cell = [JobsDropDownListTBVCell initTableViewCellWithStyle:UITableViewCellStyleValue1];
     }return cell;
 }
 

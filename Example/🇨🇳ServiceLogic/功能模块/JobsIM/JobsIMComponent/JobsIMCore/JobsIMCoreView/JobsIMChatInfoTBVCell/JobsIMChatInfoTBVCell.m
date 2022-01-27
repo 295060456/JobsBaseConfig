@@ -54,10 +54,9 @@
 }
 #pragma mark —— BaseCellProtocol
 +(instancetype)cellWithTableView:(UITableView *)tableView{
-    JobsIMChatInfoTBVCell *cell = (JobsIMChatInfoTBVCell *)[tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
+    JobsIMChatInfoTBVCell *cell = (JobsIMChatInfoTBVCell *)[tableView tableViewCellClass:JobsIMChatInfoTBVCell.class];
     if (!cell) {
-        cell = [[JobsIMChatInfoTBVCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                            reuseIdentifier:ReuseIdentifier];
+        cell = [JobsIMChatInfoTBVCell initTableViewCellWithStyle:UITableViewCellStyleDefault];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.contentView.backgroundColor = kClearColor;
         cell.backgroundColor = kClearColor;

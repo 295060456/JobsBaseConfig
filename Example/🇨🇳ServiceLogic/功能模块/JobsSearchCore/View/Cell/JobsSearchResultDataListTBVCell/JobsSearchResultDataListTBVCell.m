@@ -16,10 +16,9 @@
 @implementation JobsSearchResultDataListTBVCell
 
 +(instancetype)cellWithTableView:(UITableView *)tableView{
-    JobsSearchResultDataListTBVCell *cell = (JobsSearchResultDataListTBVCell *)[tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
+    JobsSearchResultDataListTBVCell *cell = (JobsSearchResultDataListTBVCell *)[tableView tableViewCellClass:JobsSearchResultDataListTBVCell.class];
     if (!cell) {
-        cell = [JobsSearchResultDataListTBVCell.alloc initWithStyle:UITableViewCellStyleDefault
-                                                    reuseIdentifier:ReuseIdentifier];
+        cell = [JobsSearchResultDataListTBVCell initTableViewCellWithStyle:UITableViewCellStyleDefault];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
 //        cell.contentView.backgroundColor = RandomColor;
         cell.imageView.image = KIMG(@"放大镜");

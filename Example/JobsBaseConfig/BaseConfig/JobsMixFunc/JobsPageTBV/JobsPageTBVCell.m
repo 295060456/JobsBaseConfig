@@ -17,10 +17,9 @@
 @implementation JobsPageTBVCell
 
 +(instancetype)cellWithTableView:(UITableView *)tableView{
-    JobsPageTBVCell *cell = (JobsPageTBVCell *)[tableView dequeueReusableCellWithIdentifier:reuseIdentifier(self.class)];
+    JobsPageTBVCell *cell = (JobsPageTBVCell *)[tableView tableViewCellClass:JobsPageTBVCell.class];
     if (!cell) {
-        cell = [[JobsPageTBVCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                      reuseIdentifier:reuseIdentifier(self.class)];
+        cell = [JobsPageTBVCell initTableViewCellWithStyle:UITableViewCellStyleSubtitle];
 //        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.backgroundColor = cell.contentView.backgroundColor = kClearColor;

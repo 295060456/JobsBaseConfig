@@ -28,15 +28,11 @@
 }
 
 +(instancetype)cellWithTableView:(UITableView *)tableView{
-    
-    PlayerCell *cell = (PlayerCell *)[tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
+    PlayerCell *cell = (PlayerCell *)[tableView tableViewCellClass:PlayerCell.class];
     if (!cell) {
-        cell = [PlayerCell.alloc initWithStyle:UITableViewCellStyleSubtitle
-                               reuseIdentifier:ReuseIdentifier];
-        
+        cell = [PlayerCell initTableViewCellWithStyle:UITableViewCellStyleSubtitle];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.contentView.backgroundColor = RandomColor;
-        
         [NSNotificationCenter.defaultCenter addObserver:self
                                                selector:@selector(noti1)
                                                    name:@"noti1"

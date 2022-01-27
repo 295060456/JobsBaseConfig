@@ -20,10 +20,9 @@
 
 #pragma mark —— BaseCellProtocol
 +(instancetype)cellWithTableView:(UITableView *)tableView{
-    JobsInfoTBVCell *cell = (JobsInfoTBVCell *)[tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
+    JobsInfoTBVCell *cell = (JobsInfoTBVCell *)[tableView tableViewCellClass:JobsInfoTBVCell.class];
     if (!cell) {
-        cell = [JobsInfoTBVCell.alloc initWithStyle:UITableViewCellStyleSubtitle
-                                reuseIdentifier:ReuseIdentifier];
+        cell = [JobsInfoTBVCell initTableViewCellWithStyle:UITableViewCellStyleSubtitle];;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.contentView.backgroundColor = JobsCommentConfig.sharedInstance.bgCor;
     }return cell;

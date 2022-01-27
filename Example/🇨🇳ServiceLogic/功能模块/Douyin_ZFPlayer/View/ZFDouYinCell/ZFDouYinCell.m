@@ -20,10 +20,9 @@
 @implementation ZFDouYinCell
 
 +(instancetype)cellWithTableView:(UITableView *)tableView{
-    ZFDouYinCell *cell = (ZFDouYinCell *)[tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
+    ZFDouYinCell *cell = (ZFDouYinCell *)[tableView tableViewCellClass:ZFDouYinCell.class];
     if (!cell) {
-        cell = [[ZFDouYinCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                   reuseIdentifier:ReuseIdentifier];
+        cell = [ZFDouYinCell initTableViewCellWithStyle:UITableViewCellStyleSubtitle];;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.contentView.backgroundColor = RandomColor;
     }return cell;

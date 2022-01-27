@@ -9,11 +9,14 @@
 
 @implementation UITableViewCell (BaseCellProtocol)
 
++(instancetype)initTableViewCellWithStyle:(UITableViewCellStyle)style{
+    return [self.alloc initWithStyle:style reuseIdentifier:self.class.description];
+}
+
 +(instancetype)cellWithTableView:(UITableView *)tableView{
-    UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:reuseIdentifier(self.class)];
+    UITableViewCell *cell = (UITableViewCell *)[tableView tableViewCellClass:UITableViewCell.class];
     if (!cell) {
-        cell = [UITableViewCell.alloc initWithStyle:UITableViewCellStyleSubtitle
-                                    reuseIdentifier:reuseIdentifier(self.class)];
+        cell = [UITableViewCell initTableViewCellWithStyle:UITableViewCellStyleSubtitle];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }return cell;

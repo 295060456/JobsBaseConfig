@@ -24,10 +24,9 @@
 @implementation JobsIMListTBVCell
 
 +(instancetype)cellWithTableView:(UITableView *)tableView{
-    JobsIMListTBVCell *cell = (JobsIMListTBVCell *)[tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
+    JobsIMListTBVCell *cell = (JobsIMListTBVCell *)[tableView tableViewCellClass:JobsIMListTBVCell.class];
     if (!cell) {
-        cell = [[JobsIMListTBVCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                        reuseIdentifier:ReuseIdentifier];
+        cell = [JobsIMListTBVCell initTableViewCellWithStyle:UITableViewCellStyleSubtitle];;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.contentView.backgroundColor = kWhiteColor;
         cell.backgroundColor = kWhiteColor;

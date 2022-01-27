@@ -15,10 +15,9 @@
 @implementation JobsSearchShowHistoryDataTBVCell
 #pragma mark —— BaseCellProtocol
 +(instancetype)cellWithTableView:(UITableView *)tableView{
-    JobsSearchShowHistoryDataTBVCell *cell = (JobsSearchShowHistoryDataTBVCell *)[tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
+    JobsSearchShowHistoryDataTBVCell *cell = (JobsSearchShowHistoryDataTBVCell *)[tableView tableViewCellClass:JobsSearchShowHistoryDataTBVCell.class];
     if (!cell) {
-        cell = [JobsSearchShowHistoryDataTBVCell.alloc initWithStyle:UITableViewCellStyleDefault
-                                                     reuseIdentifier:ReuseIdentifier];
+        cell = [JobsSearchShowHistoryDataTBVCell initTableViewCellWithStyle:UITableViewCellStyleDefault];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 //        cell.contentView.backgroundColor = RandomColor;

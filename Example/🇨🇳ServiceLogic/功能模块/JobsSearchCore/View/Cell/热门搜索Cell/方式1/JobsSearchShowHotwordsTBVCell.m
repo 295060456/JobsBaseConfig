@@ -17,10 +17,9 @@
 
 #pragma mark —— BaseCellProtocol
 +(instancetype)cellWithTableView:(UITableView *)tableView{
-    JobsSearchShowHotwordsTBVCell *cell = (JobsSearchShowHotwordsTBVCell *)[tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
+    JobsSearchShowHotwordsTBVCell *cell = (JobsSearchShowHotwordsTBVCell *)[tableView tableViewCellClass:JobsSearchShowHotwordsTBVCell.class];
     if (!cell) {
-        cell = [JobsSearchShowHotwordsTBVCell.alloc initWithStyle:UITableViewCellStyleDefault
-                                                  reuseIdentifier:ReuseIdentifier];
+        cell = [JobsSearchShowHotwordsTBVCell initTableViewCellWithStyle:UITableViewCellStyleDefault];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }return cell;
 }

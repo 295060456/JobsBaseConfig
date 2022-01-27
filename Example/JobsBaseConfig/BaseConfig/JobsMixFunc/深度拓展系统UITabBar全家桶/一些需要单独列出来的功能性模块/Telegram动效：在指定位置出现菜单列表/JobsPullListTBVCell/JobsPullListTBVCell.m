@@ -14,10 +14,9 @@
 @implementation JobsPullListTBVCell
 
 +(instancetype)cellWithTableView:(UITableView *)tableView{
-    JobsPullListTBVCell *cell = (JobsPullListTBVCell *)[tableView dequeueReusableCellWithIdentifier:reuseIdentifier(self.class)];
+    JobsPullListTBVCell *cell = (JobsPullListTBVCell *)[tableView tableViewCellClass:JobsPullListTBVCell.class];
     if (!cell) {
-        cell = [[JobsPullListTBVCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                          reuseIdentifier:reuseIdentifier(self.class)];
+        cell = [JobsPullListTBVCell initTableViewCellWithStyle:UITableViewCellStyleDefault];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }return cell;
 }

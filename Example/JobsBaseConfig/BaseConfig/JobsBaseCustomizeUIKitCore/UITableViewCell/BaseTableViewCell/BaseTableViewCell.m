@@ -18,10 +18,9 @@
 UIViewModelProtocol_synthesize
 
 +(instancetype)cellWithTableView:(UITableView *)tableView{
-    BaseTableViewCell *cell = (BaseTableViewCell *)[tableView dequeueReusableCellWithIdentifier:reuseIdentifier(self.class)];
+    BaseTableViewCell *cell = (BaseTableViewCell *)[tableView tableViewCellClass:BaseTableViewCell.class];
     if (!cell) {
-        cell = [BaseTableViewCell.alloc initWithStyle:UITableViewCellStyleValue1
-                                      reuseIdentifier:reuseIdentifier(self.class)];
+        cell = [BaseTableViewCell initTableViewCellWithStyle:UITableViewCellStyleValue1];
 //        [UIView cornerCutToCircleWithCornerRadius:cell andCornerRadius:6];
     }return cell;
 }

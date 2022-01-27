@@ -15,10 +15,9 @@
 @implementation MyFansTBVCell
 
 +(instancetype)cellWithTableView:(UITableView *)tableView{
-    MyFansTBVCell *cell = (MyFansTBVCell *)[tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
+    MyFansTBVCell *cell = (MyFansTBVCell *)[tableView tableViewCellClass:MyFansTBVCell.class];
     if (!cell) {
-        cell = [[MyFansTBVCell alloc]initWithStyle:UITableViewCellStyleDefault
-                                   reuseIdentifier:ReuseIdentifier];
+        cell = [MyFansTBVCell initTableViewCellWithStyle:UITableViewCellStyleDefault];
         cell.offsetXForEach = 10;
         cell.offsetYForEach = 20;
         //加阴影立体效果

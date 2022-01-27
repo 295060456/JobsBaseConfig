@@ -21,10 +21,9 @@ UIViewModelProtocol_synthesize
 
 #pragma mark —— BaseCellProtocol
 +(instancetype)cellWithTableView:(UITableView *)tableView{
-    JobsSearchTBVCell *cell = (JobsSearchTBVCell *)[tableView dequeueReusableCellWithIdentifier:ReuseIdentifier];
+    JobsSearchTBVCell *cell = (JobsSearchTBVCell *)[tableView tableViewCellClass:JobsSearchTBVCell.class];
     if (!cell) {
-        cell = [JobsSearchTBVCell.alloc initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:ReuseIdentifier];
+        cell = [JobsSearchTBVCell initTableViewCellWithStyle:UITableViewCellStyleDefault];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }return cell;
 }

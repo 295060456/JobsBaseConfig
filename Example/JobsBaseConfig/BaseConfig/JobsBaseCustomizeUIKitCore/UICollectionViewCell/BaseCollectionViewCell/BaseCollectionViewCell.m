@@ -19,13 +19,10 @@
 #pragma mark —— BaseCellProtocol
 +(instancetype)cellWithCollectionView:(nonnull UICollectionView *)collectionView
                          forIndexPath:(nonnull NSIndexPath *)indexPath{
-    BaseCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier(self.class)
-                                                                             forIndexPath:indexPath];
+    BaseCollectionViewCell *cell = (BaseCollectionViewCell *)[collectionView collectionViewCellClass:BaseCollectionViewCell.class forIndexPath:indexPath];
     if (!cell) {
-        [collectionView registerClass:self.class
-           forCellWithReuseIdentifier:reuseIdentifier(self.class)];
-        [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier(self.class)
-                                                  forIndexPath:indexPath];
+        [collectionView registerCollectionViewCellClass:BaseCollectionViewCell.class];
+        cell = (JobsHotLabelWithMultiLineCVCell *)[collectionView collectionViewCellClass:BaseCollectionViewCell.class forIndexPath:indexPath];
     }
     
     cell.indexPath = indexPath;
