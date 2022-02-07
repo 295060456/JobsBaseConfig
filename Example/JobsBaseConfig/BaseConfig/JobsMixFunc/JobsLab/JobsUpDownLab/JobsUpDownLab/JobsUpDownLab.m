@@ -29,16 +29,21 @@
 
 -(void)drawRect:(CGRect)rect{
     [super drawRect:rect];
-    NSLog(@"");
 }
 #pragma mark —— BaseViewProtocol
 /// 具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 -(void)richElementsInViewWithModel:(JobsUpDownLabModel *_Nullable)model{
+    
+    [_upBtn removeFromSuperview];
+    _upBtn = nil;
+    
+    [_downBtn removeFromSuperview];
+    _downBtn = nil;
+    
     self.upDownLabModel = model;
     [self textHeight];
     if (model) {
         [self.upBtn normalTitle:self.upDownLabModel.upLabText];
-        [self.downBtn normalTitle:self.upDownLabModel.downLabText];
         /// 单行ByWidth  多行ByFont
         if (self.upDownLabModel.isUpLabMultiLineShows) {
             [self.upBtn makeBtnLabelByShowingType:UILabelShowingType_05];
@@ -46,17 +51,7 @@
             [self.upBtn buttonAutoFontByWidth];
         }
         
-//        self.downBtn.titleLabel.numberOfLines = 0;
-//        self.downBtn.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;/// 自动折行设置【默认】
-//        [self.downBtn uninstall:NSLayoutAttributeHeight];
-//        [self.downBtn mas_updateConstraints:^(MASConstraintMaker *make) {
-//            make.size.mas_equalTo([UILabel sizeWithText:self.downBtn.titleForNormalState
-//                                                   font:self.downBtn.titleLabel.font
-//                                                maxSize:CGSizeMake(self.downBtn.width, MAXFLOAT)]);
-//        }];
-        
-//        NSLog(@"AAA = %f",self.downBtn.width);
-        
+        [self.downBtn normalTitle:self.upDownLabModel.downLabText];
         if (self.upDownLabModel.isDownLabMultiLineShows) {
             [self.downBtn makeBtnLabelByShowingType:UILabelShowingType_05];
         }else{
@@ -106,12 +101,28 @@
         [_upBtn normalTitleColor:self.upDownLabModel.upLabTextCor];
         [_upBtn normalBackgroundImage:self.upDownLabModel.upLabBgImage];
         _upBtn.backgroundColor = self.upDownLabModel.upLabBgCor;
-        _upBtn.titleLabel.font = self.upDownLabModel.upLabFont;
+        [_upBtn titleFont:self.upDownLabModel.upLabFont];
 
         [self addSubview:_upBtn];
         [_upBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.centerX.width.equalTo(self);
-            make.height.mas_equalTo(leftTextHeight);
+            make.centerX.width.equalTo(self);
+            if (!self.upDownLabModel.isDownLabMultiLineShows) {
+                /// 单行显示定高
+                make.height.mas_equalTo(leftTextHeight);
+            }
+            switch (self.upDownLabModel.upDownLabAlign) {
+                case JobsUpDownLabAlign_TopLeft:{
+                    make.top.equalTo(self);
+                }break;
+                case JobsUpDownLabAlign_MiddleLine:{//
+                    make.bottom.equalTo(self.mas_centerY);
+                }break;
+                case JobsUpDownLabAlign_BottomRight:{
+                    make.bottom.equalTo(self.downBtn.mas_top).offset(-self.upDownLabModel.space / 2);
+                }break;
+                default:
+                    break;
+            }
         }];
     }return _upBtn;
 }
@@ -125,12 +136,28 @@
         [_downBtn normalTitleColor:self.upDownLabModel.downLabTextCor];
         [_downBtn normalBackgroundImage:self.upDownLabModel.downLabBgImage];
         _downBtn.backgroundColor = self.upDownLabModel.downLabBgCor;
-        _downBtn.titleLabel.font = self.upDownLabModel.downLabFont;
+        [_downBtn titleFont:self.upDownLabModel.downLabFont];
 
         [self addSubview:_downBtn];
         [_downBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.upBtn.mas_bottom).offset(self.upDownLabModel.space);
-            make.bottom.centerX.width.equalTo(self);
+            make.centerX.width.equalTo(self);
+            if (!self.upDownLabModel.isDownLabMultiLineShows) {
+                /// 单行显示定高
+                make.height.mas_equalTo(rightTextHeight);
+            }
+            switch (self.upDownLabModel.upDownLabAlign) {
+                case JobsUpDownLabAlign_TopLeft:{
+                    make.top.equalTo(self.upBtn.mas_bottom).offset(self.upDownLabModel.space);
+                }break;
+                case JobsUpDownLabAlign_MiddleLine:{
+                    make.top.equalTo(self.mas_centerY);
+                }break;
+                case JobsUpDownLabAlign_BottomRight:{
+                    make.bottom.equalTo(self);
+                }break;
+                default:
+                    break;
+            }
         }];
     }return _downBtn;
 }

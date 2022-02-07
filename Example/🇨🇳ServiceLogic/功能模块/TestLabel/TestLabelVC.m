@@ -72,7 +72,7 @@
 }
 #pragma mark —— lazyLoad
 #pragma mark —— BaseLabel
-/// 多余部分用…表示
+/// 一行显示。定宽、定高、定字体。多余部分用…表示（省略号的位置由NSLineBreakMode控制）
 -(BaseLabel *)lab1{
     if (!_lab1) {
         _lab1 = BaseLabel.new;
@@ -86,12 +86,12 @@
         }];
     }return _lab1;
 }
-/// 多余部分scrollerView ❤️集成@implementation UILabel (AutoScroll)❤️
+/// 一行显示。定宽、定高、定字体。多余部分scrollerView ❤️集成@implementation UILabel (AutoScroll)❤️
 -(BaseLabel *)lab2{
     if (!_lab2) {
         _lab2 = BaseLabel.new;
         _lab2.backgroundColor = UIColor.redColor;
-        _lab2.text = @"qqqqqqqwwwwweeeee";
+        _lab2.text = @"编译器自动管理内存地址，让程序员更加专注于APP的业务。";
         [self.view addSubview:_lab2];
         [_lab2 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(100, 20));
@@ -100,7 +100,7 @@
         }];
     }return _lab2;
 }
-/// 定高，宽度自适应
+/// 一行显示。不定宽、定高、定字体。宽度自适应
 -(BaseLabel *)lab3{
     if (!_lab3) {
         _lab3 = BaseLabel.new;
@@ -108,13 +108,13 @@
         _lab3.text = @"编译器自动管理内存地址，让程序员更加专注于APP的业务。";
         [self.view addSubview:_lab3];
         [_lab3 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.size.mas_equalTo(CGSizeMake(100, 20));
+            make.height.mas_equalTo(20);
             make.top.equalTo(self.lab2.mas_bottom).offset(20);
             make.centerX.equalTo(self.view);
         }];
     }return _lab3;
 }
-/// 缩小字体方式全展示
+/// 一行显示。定宽、定高。缩小字体方式全展示
 -(BaseLabel *)lab4{
     if (!_lab4) {
         _lab4 = BaseLabel.new;
@@ -128,7 +128,7 @@
         }];
     }return _lab4;
 }
-/// 定宽，多行显示
+/// 多行显示。定宽、不定高、定字体
 -(BaseLabel *)lab5{
     if (!_lab5) {
         _lab5 = BaseLabel.new;
@@ -136,13 +136,14 @@
         _lab5.text = @"编译器自动管理内存地址，让程序员更加专注于APP的业务。";
         [self.view addSubview:_lab5];
         [_lab5 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.size.mas_equalTo(CGSizeMake(100, 20));
+            make.width.mas_equalTo(100);
             make.top.equalTo(self.lab4.mas_bottom).offset(20);
             make.centerX.equalTo(self.view);
         }];
     }return _lab5;
 }
 #pragma mark —— BaseButton
+/// 一行显示。定宽、定高、定字体。多余部分用…表示（省略号的位置由NSLineBreakMode控制）
 -(BaseButton *)btn1{
     if (!_btn1) {
         _btn1 = BaseButton.new;
@@ -156,7 +157,7 @@
         }];
     }return _btn1;
 }
-
+/// 一行显示。定宽、定高、定字体。多余部分scrollerView ❤️集成@implementation UILabel (AutoScroll)❤️
 -(BaseButton *)btn2{
     if (!_btn2) {
         _btn2 = BaseButton.new;
@@ -170,7 +171,7 @@
         }];
     }return _btn2;
 }
-
+/// 一行显示。不定宽、定高、定字体。宽度自适应
 -(BaseButton *)btn3{
     if (!_btn3) {
         _btn3 = BaseButton.new;
@@ -184,7 +185,7 @@
         }];
     }return _btn3;
 }
-
+/// 一行显示。定宽、定高。缩小字体方式全展示
 -(BaseButton *)btn4{
     if (!_btn4) {
         _btn4 = BaseButton.new;
@@ -198,7 +199,7 @@
         }];
     }return _btn4;
 }
-
+/// 多行显示。定宽、不定高、定字体
 -(BaseButton *)btn5{
     if (!_btn5) {
         _btn5 = BaseButton.new;

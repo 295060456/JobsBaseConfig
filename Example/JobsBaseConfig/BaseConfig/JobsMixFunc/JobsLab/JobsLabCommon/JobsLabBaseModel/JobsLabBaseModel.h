@@ -9,10 +9,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef enum : NSInteger {
+    JobsUpDownLabAlign_TopLeft = 0,// 以头部或者左边为对齐基准
+    JobsUpDownLabAlign_MiddleLine,// 以中心线为对齐基准
+    JobsUpDownLabAlign_BottomRight,// 以底部或者右边为对齐基准
+} JobsUpDownLabAlign;// JobsUpDownLabStyle的对齐基准
+
 @interface JobsLabBaseModel : UIViewModel
 
 @property(nonatomic,assign)CGFloat rate;// UpLab 和 DownLab的上下占比,默认为0.5（上下均等分）
-@property(nonatomic,assign)CGFloat space;// 间距
+@property(nonatomic,assign)CGFloat space;// 间距 【当对齐基准为JobsUpDownLabAlign_MiddleLine失效】
+@property(nonatomic,assign)JobsUpDownLabAlign upDownLabAlign;// 对齐基准
 #pragma mark —— UpLab / LeftLab
 @property(nonatomic,strong)UIColor *upLabTextCor;
 @property(nonatomic,strong)UIColor *upLabBgCor;
