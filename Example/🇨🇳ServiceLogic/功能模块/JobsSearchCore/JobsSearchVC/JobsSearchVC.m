@@ -298,7 +298,7 @@ viewForHeaderInSection:(NSInteger)section{
     JobsSearchTableViewHeaderView *header = JobsSearchTableViewHeaderView.jobsInitWithReuseIdentifier;
     [header richElementsInViewWithModel:self.sectionTitleMutArr[section]];
     if (section == 1) {
-        header.getDelBtn.visible = YES;
+        header.getDelBtn.jobsVisible = YES;
         @jobs_weakify(self)
         [header actionObjectBlock:^(id data) {
             @jobs_strongify(self)

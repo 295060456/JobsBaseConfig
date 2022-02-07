@@ -208,7 +208,7 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
             }
             
             if (vm.ntesVerifyCodeManagerStyle == VerifyCodeInitFinish) {
-                self.NTESVerifyCodeCloseBtn.visible = YES;
+                self.NTESVerifyCodeCloseBtn.jobsVisible = YES;
             }
         }
     }];

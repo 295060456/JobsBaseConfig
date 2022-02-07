@@ -79,7 +79,7 @@
         [self.dataMutArr removeAllObjects];
     }
     [self loadData];
-    self.visible = YES;
+    self.isVisible = YES;
     if (self.dataMutArr.count) {
         [self endRefreshing:self.tableView];
     }else{
@@ -131,7 +131,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 -(void)tableView:(UITableView *)tableView
  willDisplayCell:(UITableViewCell *)cell
 forRowAtIndexPath:(NSIndexPath *)indexPath{
-    cell.alpha = self.visible;
+    cell.alpha = self.isVisible;
 }
 #pragma mark —— lazyLoad
 -(UITableView *)tableView{

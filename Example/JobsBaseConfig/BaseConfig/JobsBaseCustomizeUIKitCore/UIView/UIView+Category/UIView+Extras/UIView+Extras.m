@@ -9,10 +9,6 @@
 #import "UIView+Extras.h"
 
 @implementation UIView (Extras)
-
-static char *UIView_Extras_visible = "UIView_Extras_visible";
-@dynamic visible;
-
 /// 指定描边
 /// @param color 作用颜色
 /// @param width 线宽
@@ -70,7 +66,6 @@ static char *UIView_Extras_visible = "UIView_Extras_visible";
 /// 描边
 /// @param colour 颜色
 /// @param widthOfBorder 边线宽度
-/// layerBorderColour
 -(void)layerBorderColour:(UIColor *__nonnull)colour
           andBorderWidth:(CGFloat)widthOfBorder{
     self.layer.borderColor = colour.CGColor;
@@ -343,18 +338,20 @@ static char *UIView_Extras_visible = "UIView_Extras_visible";
     
     return shouldScroll;
 }
-#pragma mark —— @property(nonatomic,assign)BOOL visible;
--(BOOL)visible{
-    BOOL Visible = [objc_getAssociatedObject(self, UIView_Extras_visible) boolValue];
-    return Visible;
+/// 设置控件是否可见，对影响可视化的hidden 和 alpha属性进行操作
+/// 需要特别注意的是：这个地方的jobsVisible不能属性化，否则在某些情况下会出现异常（只会走子类方法不会走分类方法）
+static char *UIView_Extras_jobsVisible = "UIView_Extras_jobsVisible";
+-(BOOL)jobsVisible{
+    BOOL JobsVisible = [objc_getAssociatedObject(self, UIView_Extras_jobsVisible) boolValue];
+    return JobsVisible;
 }
 
--(void)setVisible:(BOOL)visible{
-    self.hidden = !visible;
-    self.alpha = visible;
+-(void)setJobsVisible:(BOOL)jobsVisible{
+    self.hidden = !jobsVisible;
+    self.alpha = jobsVisible;
     objc_setAssociatedObject(self,
-                             UIView_Extras_visible,
-                             [NSNumber numberWithBool:visible],
+                             UIView_Extras_jobsVisible,
+                             [NSNumber numberWithBool:jobsVisible],
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 

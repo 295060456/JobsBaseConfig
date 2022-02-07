@@ -23,8 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 注册 UICollectionElementKindSectionHeader 及其子类
 -(void)registerCollectionElementKindSectionHeaderClass:(Class)cls;
 /// 依据字符串取UICollectionElementKindSectionFooter
--(__kindof UICollectionReusableView *)collectionElementKindSectionFooterClass:(Class)cls
-                                                                 forIndexPath:(NSIndexPath *)indexPath;
+-(__kindof UICollectionReusableView *)UICollectionElementKindSectionFooterClass:(Class)cls
+                                                                   forIndexPath:(NSIndexPath *)indexPath;
 /// 依据字符串取UICollectionElementKindSectionHeader
 -(__kindof UICollectionReusableView *)UICollectionElementKindSectionHeaderClass:(Class)cls
                                                                    forIndexPath:(NSIndexPath *)indexPath;

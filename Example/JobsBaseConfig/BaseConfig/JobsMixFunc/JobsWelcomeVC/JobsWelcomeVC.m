@@ -31,8 +31,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = KYellowColor;
-    self.scrollView.visible = YES;
-    self.pageControl.visible = YES;
+    self.scrollView.jobsVisible = YES;
+    self.pageControl.jobsVisible = YES;
 
     [self loadPhoto];
 }

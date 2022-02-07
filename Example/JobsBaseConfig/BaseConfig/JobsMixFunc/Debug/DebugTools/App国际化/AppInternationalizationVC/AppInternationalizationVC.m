@@ -56,7 +56,7 @@
         [self.dataMutArr remove];
         _dataMutArr = nil;
     }
-    self.visible = YES;
+    self.isVisible = YES;
     if (self.dataMutArr.count) {
         [self endRefreshing:self.tableView];
     }else{
@@ -158,7 +158,7 @@ heightForHeaderInSection:(NSInteger)section{
 - (void)tableView:(UITableView *)tableView
   willDisplayCell:(UITableViewCell *)cell
 forRowAtIndexPath:(NSIndexPath *)indexPath{
-    cell.alpha = self.visible;
+    cell.alpha = self.isVisible;
     [tableView hideSeparatorLineAtLast:indexPath
                                   cell:cell];
 }

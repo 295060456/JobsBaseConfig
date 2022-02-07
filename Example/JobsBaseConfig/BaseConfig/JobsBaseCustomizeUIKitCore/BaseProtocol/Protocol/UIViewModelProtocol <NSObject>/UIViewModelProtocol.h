@@ -103,7 +103,7 @@ NS_ASSUME_NONNULL_END
 @synthesize selected = _selected;\
 @synthesize isMultiLineShows = _isMultiLineShows;\
 @synthesize isTranslucent = _isTranslucent;\
-@synthesize visible = _visible;\
+@synthesize isVisible = _isVisible;\
 @synthesize labelShowingType = _labelShowingType;\
 @synthesize layerBorderColour = _layerBorderColour;\
 @synthesize layerBorderWidth = _layerBorderWidth;\
@@ -171,7 +171,7 @@ NS_ASSUME_NONNULL_END
 @dynamic selected;\
 @dynamic isMultiLineShows;\
 @dynamic isTranslucent;\
-@dynamic visible;\
+@dynamic isVisible;\
 @dynamic labelShowingType;\
 @dynamic layerBorderColour;\
 @dynamic layerBorderWidth;\

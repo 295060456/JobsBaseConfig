@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)BOOL __block selected;
 @property(nonatomic,assign)BOOL __block isMultiLineShows;/// 是否多行行显示【默认单行显示】
 @property(nonatomic,assign)BOOL __block isTranslucent;/// 是否取消tabBar的透明效果
-@property(nonatomic,assign)BOOL __block visible;
+@property(nonatomic,assign)BOOL __block isVisible;/// ❤️只是一个标记是否可见，如果需要设置请移步@interface UIView (Extras) ：-(BOOL)jobsVisible; 和 -(void)setJobsVisible:(BOOL)jobsVisible;
 @property(nonatomic,assign)UILabelShowingType labelShowingType;
 // Layer
 @property(nonatomic,strong,nullable)UIColor __block *layerBorderColour;
@@ -58,7 +58,7 @@ NS_ASSUME_NONNULL_END
 @synthesize selected = _selected;\
 @synthesize isMultiLineShows = _isMultiLineShows;\
 @synthesize isTranslucent = _isTranslucent;\
-@synthesize visible = _visible;\
+@synthesize isVisible = _isVisible;\
 @synthesize labelShowingType = _labelShowingType;\
 @synthesize layerBorderColour = _layerBorderColour;\
 @synthesize layerBorderWidth = _layerBorderWidth;\
@@ -80,7 +80,7 @@ NS_ASSUME_NONNULL_END
 @dynamic selected;\
 @dynamic isMultiLineShows;\
 @dynamic isTranslucent;\
-@dynamic visible;\
+@dynamic isVisible;\
 @dynamic labelShowingType;\
 @dynamic layerBorderColour;\
 @dynamic layerBorderWidth;\

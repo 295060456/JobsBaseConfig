@@ -33,7 +33,7 @@
 }
 
 -(void)changeEditing{
-    self.placeholderAnimationLbl.visible = self.placeholdAnimationable && ![self.text isEqualToString:@""];
+    self.placeholderAnimationLbl.jobsVisible = self.placeholdAnimationable && ![self.text isEqualToString:@""];
 }
 /// ⚠️当一个TF1->TF2，先获得焦点再失去焦点
 /// 这个方法里面，正在获得、但还没有获得焦点，此时的self.isFirstResponder == NO
@@ -55,7 +55,7 @@
         [UIView animateWithDuration:self.animationTime
                          animations:^{
             @jobs_strongify(self)
-            self.placeholderAnimationLbl.visible = YES;
+            self.placeholderAnimationLbl.jobsVisible = YES;
             self.placeholderAnimationLbl.frame = targetFrame;
             if (self.attributedPlaceholder && !self.placeholder) {
                 self.placeholderAnimationLbl.attributedText = self.attributedPlaceholder;
@@ -85,7 +85,7 @@
         [UIView animateWithDuration:self.animationTime
                          animations:^{
             @jobs_strongify(self)
-            self.placeholderAnimationLbl.visible = NO;
+            self.placeholderAnimationLbl.jobsVisible = NO;
             self.placeholderAnimationLbl.frame = targetFrame;
             if (self.attributedPlaceholder && !self.placeholder) {
                 self.placeholderAnimationLbl.attributedText = self.attributedPlaceholder;
@@ -111,7 +111,7 @@
 -(UILabel *)placeholderAnimationLbl{
     if (!_placeholderAnimationLbl) {
         _placeholderAnimationLbl = UILabel.new;
-        _placeholderAnimationLbl.visible = YES;
+        _placeholderAnimationLbl.jobsVisible = YES;
         _placeholderAnimationLbl.frame = CGRectMake(self.placeHolderOffset + self.leftViewOffsetX,
                                                     self.y,
                                                     self.width,

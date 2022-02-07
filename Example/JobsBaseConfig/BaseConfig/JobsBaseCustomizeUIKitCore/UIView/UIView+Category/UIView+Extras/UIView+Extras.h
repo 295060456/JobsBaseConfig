@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIViewModelProtocol.h"
 #import "UIView+Measure.h"
 #import "MacroDef_App.h"
 #import "MacroDef_Size.h"
@@ -34,7 +33,7 @@ typedef NS_OPTIONS(NSUInteger, UIBorderSideType) {
     UIBorderSideTypeRight = 1 << 3,
 };
 
-@interface UIView (Extras)<UIViewModelProtocol>
+@interface UIView (Extras)
 /// 指定描边
 /// @param color 作用颜色
 /// @param width 线宽
@@ -89,5 +88,9 @@ typedef NS_OPTIONS(NSUInteger, UIBorderSideType) {
 -(CABasicAnimation *_Nonnull)getAnimation;
 /// 判断是否需要滚动
 -(BOOL)shouldAutoScroll;
+/// 设置控件是否可见，对影响可视化的hidden 和 alpha属性进行操作
+/// 需要特别注意的是：这个地方的jobsVisible不能属性化，否则在某些情况下会出现异常（只会走子类方法不会走分类方法）
+-(BOOL)jobsVisible;
+-(void)setJobsVisible:(BOOL)jobsVisible;
 
 @end

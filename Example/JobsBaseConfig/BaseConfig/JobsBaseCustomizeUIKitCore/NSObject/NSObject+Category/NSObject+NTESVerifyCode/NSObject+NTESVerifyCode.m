@@ -61,7 +61,7 @@ static char *UIView_BaseView_NTESVerifyCodeCloseBtn = "UIView_BaseView_NTESVerif
                        validate:(NSString *)validate
                         message:(NSString *)message{
     
-    self.NTESVerifyCodeCloseBtn.visible = NO;
+    self.NTESVerifyCodeCloseBtn.jobsVisible = NO;
     
     UIViewModel *viewModel = UIViewModel.new;
     viewModel.ntesVerifyCodeManagerStyle = VerifyCodeValidateFinish;
@@ -126,7 +126,7 @@ static char *UIView_BaseView_NTESVerifyCodeCloseBtn = "UIView_BaseView_NTESVerif
                                JobsWidth(30));
         BtnClickEvent(btn, {
             [self closeVerifyCodeView];
-            x.visible = NO;
+            x.jobsVisible = NO;
         });
         [getMainWindow() addSubview:btn];
         

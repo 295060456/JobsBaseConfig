@@ -38,18 +38,31 @@
     withReuseIdentifier:cls.description];
 }
 /// 依据字符串取UICollectionElementKindSectionFooter
--(__kindof UICollectionReusableView *)collectionElementKindSectionFooterClass:(Class)cls
-                                                                 forIndexPath:(NSIndexPath *)indexPath{
-    return [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter
-                                    withReuseIdentifier:cls.description
-                                           forIndexPath:indexPath];
+-(__kindof UICollectionReusableView *)UICollectionElementKindSectionFooterClass:(Class)cls
+                                                                   forIndexPath:(NSIndexPath *)indexPath{
+    UICollectionReusableView *collectionReusableView = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter
+                                                                                withReuseIdentifier:cls.description
+                                                                                       forIndexPath:indexPath];
+    if (!collectionReusableView) {
+        [self registerCollectionElementKindSectionFooterClass:cls];
+        collectionReusableView = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter
+                                                          withReuseIdentifier:cls.description
+                                                                 forIndexPath:indexPath];
+    }return collectionReusableView;
 }
 /// 依据字符串取UICollectionElementKindSectionHeader
 -(__kindof UICollectionReusableView *)UICollectionElementKindSectionHeaderClass:(Class)cls
                                                                    forIndexPath:(NSIndexPath *)indexPath{
-    return [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
-                                    withReuseIdentifier:cls.description
-                                           forIndexPath:indexPath];
+    
+    UICollectionReusableView *collectionReusableView = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+                                                                                withReuseIdentifier:cls.description
+                                                                                       forIndexPath:indexPath];
+    if (!collectionReusableView) {
+        [self registerCollectionElementKindSectionHeaderClass:cls];
+        collectionReusableView = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+                                                          withReuseIdentifier:cls.description
+                                                                 forIndexPath:indexPath];
+    }return collectionReusableView;
 }
 /// 先用UICollectionViewLayout生成CollectionView。frame后面设置
 +(instancetype)initWithCollectionViewLayout:(UICollectionViewLayout *)layout{
@@ -57,8 +70,8 @@
                 collectionViewLayout:layout];
 }
 /// 一种用字符串取UICollectionViewCell及其子类的方法❤️复用字符串是目标类的类名❤️
--(__kindof UICollectionViewCell *)collectionViewCellClass:(Class)cls
-                                             forIndexPath:(NSIndexPath *)indexPath{
+-(UICollectionViewCell *)collectionViewCellClass:(Class)cls
+                                    forIndexPath:(NSIndexPath *)indexPath{
     return [self dequeueReusableCellWithReuseIdentifier:cls.description
                                            forIndexPath:indexPath];
 }
