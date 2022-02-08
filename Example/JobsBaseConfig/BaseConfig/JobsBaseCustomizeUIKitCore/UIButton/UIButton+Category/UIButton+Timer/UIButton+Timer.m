@@ -124,7 +124,7 @@ static char *UIButton_CountDownBtn_timerRunningBlock = "UIButton_CountDownBtn_ti
 }
 /// 核心方法
 -(void)timerRuning:(long)currentTime {
-    //其他一些基础设置
+    // 其他一些基础设置
     {
         self.enabled = self.btnTimerConfig.isCanBeClickWhenTimerCycle;//倒计时期间，默认不接受任何的点击事件
         self.backgroundColor = self.btnTimerConfig.runningValue.bgCor;
@@ -135,7 +135,7 @@ static char *UIButton_CountDownBtn_timerRunningBlock = "UIButton_CountDownBtn_ti
         [self.btnTimerConfig.runningValue.text containsString:self.btnTimerConfig.formatTimeStr]) {
         self.btnTimerConfig.runningValue.text = [self.btnTimerConfig.runningValue.text stringByReplacingOccurrencesOfString:self.btnTimerConfig.formatTimeStr withString:@""];
     }
-    //显示数据的二次封装
+    // 显示数据的二次封装
     {
         // 显示的时间格式
         switch (self.btnTimerConfig.showTimeType) {
@@ -143,16 +143,16 @@ static char *UIButton_CountDownBtn_timerRunningBlock = "UIButton_CountDownBtn_ti
                 self.btnTimerConfig.formatTimeStr = [NSString stringWithFormat:@"%ld %@",(long)currentTime,Internationalization(@"Sec")];
             }break;
             case ShowTimeType_MMSS:{
-                self.btnTimerConfig.formatTimeStr = [NSObject getMMSSFromStr:[NSString stringWithFormat:@"%ld",(long)currentTime]];
+                self.btnTimerConfig.formatTimeStr = [self getMMSSFromStr:[NSString stringWithFormat:@"%ld",(long)currentTime] formatTime:nil];
             }break;
             case ShowTimeType_HHMMSS:{
-                self.btnTimerConfig.formatTimeStr = [NSObject getHHMMSSFromStr:[NSString stringWithFormat:@"%ld",(long)currentTime]];
+                self.btnTimerConfig.formatTimeStr = [self getHHMMSSFromStr:[NSString stringWithFormat:@"%ld",(long)currentTime] formatTime:nil];
             }break;
             default:
                 self.btnTimerConfig.formatTimeStr = Internationalization(@"异常值");
                 break;
         }
-        //字符串拼接
+        // 字符串拼接
         switch (self.btnTimerConfig.cequenceForShowTitleRuningStrType) {
             case CequenceForShowTitleRuningStrType_front:{//首在前
                 self.btnTimerConfig.runningValue.text = [self.btnTimerConfig.runningValue.text stringByAppendingString:self.btnTimerConfig.formatTimeStr];

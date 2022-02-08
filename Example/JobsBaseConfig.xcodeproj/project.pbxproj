@@ -317,6 +317,7 @@
 		840F9C66277367B1004979E9 /* 此类主要封装一些本App常用的、可以替换资源的函数调用或者是鉴权机制.md in Resources */ = {isa = PBXBuildFile; fileRef = 840F9C64277367B1004979E9 /* 此类主要封装一些本App常用的、可以替换资源的函数调用或者是鉴权机制.md */; };
 		840F9C6A277367E8004979E9 /* NSObject+UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F9C69277367E8004979E9 /* NSObject+UserInfo.m */; };
 		840F9C72277368AE004979E9 /* NSObject+URLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F9C6D277368AE004979E9 /* NSObject+URLManager.m */; };
+		8416F28427B23118008D10E2 /* JobsFormatTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 8416F28327B23118008D10E2 /* JobsFormatTime.m */; };
 		842D299C276C9547003B6C8E /* JobsBaseConfigNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D299B276C9547003B6C8E /* JobsBaseConfigNotificationManager.m */; };
 		844019902791997C0038FF6F /* NSMutableArray+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 8440198E2791997C0038FF6F /* NSMutableArray+Extra.m */; };
 		84401A7F27919E3B0038FF6F /* JobsSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 84401A5B27919E3B0038FF6F /* JobsSearchBar.m */; };
@@ -1309,6 +1310,8 @@
 		840F9C69277367E8004979E9 /* NSObject+UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+UserInfo.m"; sourceTree = "<group>"; };
 		840F9C6D277368AE004979E9 /* NSObject+URLManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+URLManager.m"; sourceTree = "<group>"; };
 		840F9C6E277368AE004979E9 /* NSObject+URLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+URLManager.h"; sourceTree = "<group>"; };
+		8416F28227B23118008D10E2 /* JobsFormatTime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsFormatTime.h; sourceTree = "<group>"; };
+		8416F28327B23118008D10E2 /* JobsFormatTime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsFormatTime.m; sourceTree = "<group>"; };
 		842D299A276C9547003B6C8E /* JobsBaseConfigNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBaseConfigNotificationManager.h; sourceTree = "<group>"; };
 		842D299B276C9547003B6C8E /* JobsBaseConfigNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsBaseConfigNotificationManager.m; sourceTree = "<group>"; };
 		8440198E2791997C0038FF6F /* NSMutableArray+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Extra.m"; sourceTree = "<group>"; };
@@ -4337,6 +4340,7 @@
 				840F953127736427004979E9 /* CLLanguageManager */,
 				840F952227736427004979E9 /* DeleteSystemUITabBarButton */,
 				840F950627736427004979E9 /* FileFolderHandleTool */,
+				8416F2F927B23492008D10E2 /* JobsFormatTime */,
 				840F952A27736427004979E9 /* JobsMonitorNetwoking */,
 				840F951C27736427004979E9 /* JobsSocketIOTools */,
 				840F952E27736427004979E9 /* JobsTimeModel+JobsTimeFormatterModel */,
@@ -5154,6 +5158,15 @@
 				840F9C6E277368AE004979E9 /* NSObject+URLManager.h */,
 			);
 			path = "NSObject+URLManager";
+			sourceTree = "<group>";
+		};
+		8416F2F927B23492008D10E2 /* JobsFormatTime */ = {
+			isa = PBXGroup;
+			children = (
+				8416F28227B23118008D10E2 /* JobsFormatTime.h */,
+				8416F28327B23118008D10E2 /* JobsFormatTime.m */,
+			);
+			path = JobsFormatTime;
 			sourceTree = "<group>";
 		};
 		8440198D2791997C0038FF6F /* NSMutableArray */ = {
@@ -9283,6 +9296,7 @@
 				84401A8227919E3B0038FF6F /* JobsSearchTBVCell.m in Sources */,
 				84B9A94F27969C330070DD20 /* BaseLabel.m in Sources */,
 				840F96AD27736428004979E9 /* LOTAnimationMJRefreshHeader.m in Sources */,
+				8416F28427B23118008D10E2 /* JobsFormatTime.m in Sources */,
 				84CA65FD2789D3B500E46E71 /* JobsAppDoorRegisterContentView.m in Sources */,
 				844B083E2764CF4800B0513D /* JXCategoryTimelineCellModel.m in Sources */,
 				840F96BE27736428004979E9 /* NSArray+Safety.m in Sources */,

@@ -13,7 +13,7 @@
 #import "RequestTool.h"
 /// App语言国际化
 #import "CLLanguageManager.h"
-///  文件夹操作
+/// 文件夹操作
 #import "FileFolderHandleTool.h"
 /// 时间管理
 #import "JobsTimerManager.h"
@@ -29,6 +29,8 @@
 #import "DeleteSystemUITabBarButton.h"
 /// 本类是自定义类，但是是对系统类的仿写，目的是承接上下文数据 成一束，方便管理
 #import "UIViewModel.h"
+/// 时间格式化
+#import "JobsFormatTime.h"
 
 #pragma mark —— Category
 /// runtime方式获取对象的一些属性

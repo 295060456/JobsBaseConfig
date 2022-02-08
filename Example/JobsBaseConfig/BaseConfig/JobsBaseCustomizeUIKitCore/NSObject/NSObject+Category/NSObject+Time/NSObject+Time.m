@@ -8,6 +8,8 @@
 
 #import "NSObject+Time.h"
 
+NSString *const App当日首次进入 = @"App当日首次进入";
+
 @implementation NSObject (Time)
 
 #pragma mark —— 时间格式转换
@@ -82,24 +84,54 @@
 }
 /// NSString * ---> NSString *   格式转换为   小时：分钟：秒
 /// @param totalTime 传入 秒
--(NSString *)getHHMMSSFromStr:(NSString *_Nonnull)totalTime{
-    NSInteger seconds = [totalTime integerValue];
+-(NSString *)getHHMMSSFromStr:(NSString *_Nonnull)totalTime
+                   formatTime:(JobsFormatTime *_Nullable)formatTime{
+    NSInteger seconds = totalTime.integerValue;
     NSString *str_hour = [NSString stringWithFormat:@"%02ld",seconds / 3600];//format of hour
     NSString *str_minute = [NSString stringWithFormat:@"%02ld",(seconds % 3600) / 60];//format of minute
     NSString *str_second = [NSString stringWithFormat:@"%02ld",seconds % 60];//format of second
-    NSString *format_time = [NSString stringWithFormat:@"%@:%@:%@",str_hour,str_minute,str_second];//format of time
-    NSLog(@"format_time : %@",format_time);
-    return format_time;
+    
+    if (!formatTime) {
+        formatTime = JobsFormatTime.new;
+        formatTime.year = Internationalization(@":");
+        formatTime.month = Internationalization(@":");
+        formatTime.day = Internationalization(@":");
+        formatTime.hour = Internationalization(@":");
+        formatTime.minute = Internationalization(@":");
+        formatTime.second = Internationalization(@":");
+    }
+    
+    return [formatTime formatTimeWithYear:nil
+                                    month:nil
+                                      day:nil
+                                     hour:str_hour
+                                   minute:str_minute
+                                   second:str_second];
 }
 /// NSString * ---> NSString * 格式转换为  分钟：秒
 /// @param totalTime 传入 秒
--(NSString *)getMMSSFromStr:(NSString *_Nonnull)totalTime{
-    NSInteger seconds = [totalTime integerValue];
+-(NSString *)getMMSSFromStr:(NSString *_Nonnull)totalTime
+                 formatTime:(JobsFormatTime *_Nullable)formatTime{
+    NSInteger seconds = totalTime.integerValue;
     NSString *str_minute = [NSString stringWithFormat:@"%ld",seconds / 60];//format of minute
     NSString *str_second = [NSString stringWithFormat:@"%ld",seconds % 60];//format of second
-    NSString *format_time = [NSString stringWithFormat:@"%@分钟%@秒",str_minute,str_second];//format of time
-    NSLog(@"format_time : %@",format_time);
-    return format_time;
+    
+    if (!formatTime) {
+        formatTime = JobsFormatTime.new;
+        formatTime.year = Internationalization(@":");
+        formatTime.month = Internationalization(@":");
+        formatTime.day = Internationalization(@":");
+        formatTime.hour = Internationalization(@":");
+        formatTime.minute = Internationalization(@":");
+        formatTime.second = Internationalization(@":");
+    }
+    
+    return [formatTime formatTimeWithYear:nil
+                                    month:nil
+                                      day:nil
+                                     hour:nil
+                                   minute:str_minute
+                                   second:str_second];
 }
 /// 转换为指定时间格式（时间格式：缺省值@"yyyy-MM-dd HH:mm:ss"、毫秒级
 /// @param timeStamp 时间戳
@@ -109,9 +141,9 @@
                            intervalStyle:(IntervalStyle)intervalStyle{
     NSDate *date = nil;
     if (intervalStyle == intervalBySec) {
-        date = [NSDate dateWithTimeIntervalSince1970:[timeStamp longLongValue]];
+        date = [NSDate dateWithTimeIntervalSince1970:timeStamp.longLongValue];
     }else if(intervalStyle == intervalByMilliSec){
-        date = [NSDate dateWithTimeIntervalSince1970:[timeStamp longLongValue] / 1000];
+        date = [NSDate dateWithTimeIntervalSince1970:timeStamp.longLongValue / 1000];
     }
     NSDateFormatter *formatter = NSDateFormatter.new;
     
@@ -125,7 +157,7 @@
 }
 /// 以当前手机系统时间（包含了时区）为基准，给定一个日期偏移值（正值代表未来，负值代表过去，0代表现在），返回字符串特定格式的“星期几”
 -(NSString *)whatDayOfWeekDistanceNow:(NSInteger)offsetDay{
-    JobsTimeModel *timeModel = [JobsTimeModel makeSpecificTime];
+    JobsTimeModel *timeModel = JobsTimeModel.makeSpecificTime;
     NSInteger currentWeekday = timeModel.currentWeekday;//当前时间是周几？1代表周日 2代表周一 7代表周六
     NSInteger offsetResDay = currentWeekday + offsetDay;//偏移量以后的值，对这个值进行分析和讨论
     NSInteger resResWeekDay = 0;//处理的结果落在0~6
@@ -146,29 +178,29 @@
 
     switch (resResWeekDay) {
         case 0:{
-            return @"星期六";
+            return Internationalization(@"星期六");
         }break;
         case 1:{
-            return @"星期日";
+            return Internationalization(@"星期日");
         }break;
         case 2:{
-            return @"星期一";
+            return Internationalization(@"星期一");
         }break;
         case 3:{
-            return @"星期二";
+            return Internationalization(@"星期二");
         }break;
         case 4:{
-            return @"星期三";
+            return Internationalization(@"星期三");
         }break;
         case 5:{
-            return @"星期四";
+            return Internationalization(@"星期四");
         }break;
         case 6:{
-            return @"星期五";
+            return Internationalization(@"星期五");
         }break;
             
         default:
-            return @"异常数据";
+            return Internationalization(@"异常数据");
             break;
     }
 }
@@ -217,11 +249,10 @@
                          intervalStyle:(IntervalStyle)intervalStyle{
     NSTimeInterval interval = 0;
     if (intervalStyle == intervalBySec) {
-        interval = [NSObject strByDate:dateStr timeFormatter:timeFormatter].timeIntervalSince1970 ;
+        interval = [self strByDate:dateStr timeFormatter:timeFormatter].timeIntervalSince1970;
     }else if (intervalStyle == intervalByMilliSec){
-        interval = [NSObject strByDate:dateStr timeFormatter:timeFormatter].timeIntervalSince1970 * 1000;
-    }else{}
-    return interval;
+        interval = [self strByDate:dateStr timeFormatter:timeFormatter].timeIntervalSince1970 * 1000;
+    }else{}return interval;
 }
 /// NSTimeInterval ---> NSDate *
 -(NSDate *)dateByTimeInterval:(NSTimeInterval)interval{
@@ -442,7 +473,13 @@
                                            toDate:date2
                                           options:0];
     // 3.输出结果
-    NSLog(@"两个时间相差%ld年%ld月%ld日%ld小时%ld分钟%ld秒", (long)cmps.year, (long)cmps.month, (long)cmps.day, (long)cmps.hour, (long)cmps.minute, (long)cmps.second);
+    NSLog(@"两个时间相差%ld年%ld月%ld日%ld小时%ld分钟%ld秒",
+          (long)cmps.year,
+          (long)cmps.month,
+          (long)cmps.day,
+          (long)cmps.hour,
+          (long)cmps.minute,
+          (long)cmps.second);
     return cmps;
 }
 /**
@@ -498,61 +535,19 @@
     NSArray *array = [DateTime componentsSeparatedByString:@"-"];
     return array;
 }
-/**
- *  判断是否当日第一次启动App
- */
-//+(BOOL)isFirstLaunchApp{
-//
-//    NSDateFormatter *format = [[NSDateFormatter alloc]init];
-//    [format setDateFormat:@"yyyy-MM-dd"];
-//
-//    //取本机时间
-//    NSDate *date_localMachine = [NSDate date];
-//    BOOL c = [[NSCalendar currentCalendar] isDateInToday:date_localMachine];//永真
-//    //----------将nsdate按formatter格式转成nsstring
-//    NSString *currentTimeString = [format stringFromDate:date_localMachine];
-//
-//    //取本地数据库中时间
-//    NSDate *date_local = [format dateFromString:GetUserDefaultWithKey(@"daytime")];
-//    NSString *currentTimeString_0 = [format stringFromDate:date_local];
-//    BOOL b = [[NSCalendar currentCalendar] isDateInToday:date_local];
-//
-//
-//    NSString *str_1 = GetUserDefaultWithKey(@"daytime");
-//    //更新本地记录
-//    SetUserDefaultKeyWithObject(@"daytime",[NSString getTimeString:currentTimeString]);
-//    UserDefaultSynchronize;
-//
-//    //再取本地数据库时间
-//
-//    NSString *str_0 = GetUserDefaultWithKey(@"daytime");
-//
-//    NSDate *date_local_01 = [format dateFromString:GetUserDefaultWithKey(@"daytime")];
-//    NSString *currentTimeString_01 = [format stringFromDate:date_local_01];
-//
-//    if (c != b ) {//第一次
-//        return YES;
-//    }else return NO;
-//}
 /// 判断是否当日第一次启动App
 -(BOOL)isFirstLaunchApp{
     BOOL flag;
-    NSDate *oldDate =  [NSUserDefaults readWithKey:@"APPFirstStartKey"];
-    if (oldDate == nil) {
-        NSLog(@"未启动过，第一次启动");
+    NSDate *oldDate = (NSDate *)[NSUserDefaults readWithKey:App当日首次进入];
+    if (oldDate) {
+        flag = ![self isToday:oldDate];
+    }else{
+        NSLog(@"未启动过，今日第一次启动");
         flag = YES;
-    }else {
-        if ([self isToday:oldDate]) {
-            NSLog(@"今日  已启动过");
-            flag = NO;
-        }else {
-            NSLog(@"今天第一次启动");
-            flag = YES;
-        }
     }
     // 保存启动时间
     UserDefaultModel *userDefaultModel = UserDefaultModel.new;
-    userDefaultModel.key = @"APPFirstStartKey";
+    userDefaultModel.key = App当日首次进入;
     userDefaultModel.obj = NSDate.date;
     
     [NSUserDefaults updateWithModel:userDefaultModel];

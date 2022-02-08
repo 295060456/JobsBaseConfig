@@ -17,7 +17,7 @@ NSString *const 用户名数组 = @"用户名数组";
   【return】 YES(已经登录)、NO（未登录）
  */
 -(BOOL)isLogin{
-    UserDefaultModel *obj = [NSUserDefaults readWithKey:用户信息];
+    UserDefaultModel *obj = (UserDefaultModel *)[NSUserDefaults readWithKey:用户信息];
     if (obj) {
         DDUserModel *userModel = [DDUserModel mj_objectWithKeyValues:obj];
         return ![NSString isNullString:userModel.token];

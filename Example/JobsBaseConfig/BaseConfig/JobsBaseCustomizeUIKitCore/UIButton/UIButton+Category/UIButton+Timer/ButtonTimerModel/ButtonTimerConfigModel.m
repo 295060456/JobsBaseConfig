@@ -10,6 +10,7 @@
 @implementation ButtonTimerProcessValueModel
 UIPictureAndBackGroundCorProtocol_synthesize
 UITextModelProtocol_synthesize
+UIViewModelOthersProtocol_synthesize
 
 @end
 

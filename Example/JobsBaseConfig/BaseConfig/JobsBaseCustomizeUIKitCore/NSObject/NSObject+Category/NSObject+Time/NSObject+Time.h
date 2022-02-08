@@ -11,8 +11,11 @@
 #import "NSObject+Time.h"
 #import "NSUserDefaults+Manager.h"
 #import "JobsTimeModel.h"
+#import "JobsFormatTime.h"
 
 NS_ASSUME_NONNULL_BEGIN
+
+FOUNDATION_EXTERN NSString * _Nonnull const App当日首次进入;
 
 @interface NSObject (Time)
 
@@ -33,10 +36,12 @@ NS_ASSUME_NONNULL_BEGIN
 -(NSString *)timeIntervalByInterval:(NSTimeInterval)interval;
 /// NSString * ---> NSString *   格式转换为   小时：分钟：秒
 /// @param totalTime 传入 秒
--(NSString *)getHHMMSSFromStr:(NSString *_Nonnull)totalTime;
+-(NSString *)getHHMMSSFromStr:(NSString *_Nonnull)totalTime
+                   formatTime:(JobsFormatTime *_Nullable)formatTime;
 /// NSString * ---> NSString * 格式转换为  分钟：秒
 /// @param totalTime 传入 秒
--(NSString *)getMMSSFromStr:(NSString *_Nonnull)totalTime;
+-(NSString *)getMMSSFromStr:(NSString *_Nonnull)totalTime
+                 formatTime:(JobsFormatTime *_Nullable)formatTime;
 /// 转换为指定时间格式（时间格式：缺省值@"yyyy-MM-dd HH:mm:ss"、毫秒级
 /// @param timeStamp 时间戳
 /// @param timeFormatter  时间格式：缺省值@"yyyy-MM-dd HH:mm:ss"

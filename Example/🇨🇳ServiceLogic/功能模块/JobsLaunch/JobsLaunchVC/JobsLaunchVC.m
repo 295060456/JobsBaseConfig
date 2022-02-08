@@ -148,7 +148,6 @@ static dispatch_once_t static_launchVCOnceToken;
 -(ButtonTimerConfigModel *)btnTimerConfigModel{
     if (!_btnTimerConfigModel) {
         _btnTimerConfigModel = ButtonTimerConfigModel.new;
-        
         /// 未选中状态
         [_skipBtn sd_setImageWithURL:[NSURL URLWithString:LaunchConfig.imageURLString]
                             forState:UIControlStateNormal
@@ -165,11 +164,10 @@ static dispatch_once_t static_launchVCOnceToken;
                               placeholderImage:LaunchConfig.bgSelectedImage];
         /// 一些通用的设置
         _btnTimerConfigModel.count = 5;
-        _btnTimerConfigModel.showTimeType = ShowTimeType_SS;//时间显示风格
+        _btnTimerConfigModel.showTimeType = ShowTimeType_SS;// 时间显示风格
         _btnTimerConfigModel.countDownBtnType = TimerStyle_anticlockwise;// 时间方向
         _btnTimerConfigModel.cequenceForShowTitleRuningStrType = CequenceForShowTitleRuningStrType_tail;//
         _btnTimerConfigModel.labelShowingType = LaunchConfig.labelShowingType;//【换行模式】
-        
         /// 计时器未开始【静态值】
         _btnTimerConfigModel.readyPlayValue.layerBorderWidth = LaunchConfig.layerBorderWidth;
         _btnTimerConfigModel.readyPlayValue.layerCornerRadius = JobsWidth(25 / 2);
@@ -186,7 +184,7 @@ static dispatch_once_t static_launchVCOnceToken;
         _btnTimerConfigModel.runningValue.textCor = UIColor.blackColor;
         /// 计时器结束【静态值】
         _btnTimerConfigModel.endValue.bgCor = UIColor.yellowColor;;
-        _btnTimerConfigModel.endValue.text = Internationalization(@"哈哈哈哈");
+        _btnTimerConfigModel.endValue.text = Internationalization(@"点击跳过");
         _btnTimerConfigModel.endValue.layerBorderColour = UIColor.purpleColor;
         _btnTimerConfigModel.endValue.textCor = UIColor.blackColor;
         

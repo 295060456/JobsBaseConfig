@@ -58,7 +58,7 @@ UIPictureAndBackGroundCorProtocol
 @interface ButtonTimerConfigModel : NSObject
 /**
     ❤️如果配置了富文本，则优先显示富文本属性
- **/
+ */
 #pragma mark —— 一些通用的设置
 //倒计时开始前的背景色直接对此控件进行赋值 backgroundColor
 @property(nonatomic,strong)NSTimerManager *timerManager;
