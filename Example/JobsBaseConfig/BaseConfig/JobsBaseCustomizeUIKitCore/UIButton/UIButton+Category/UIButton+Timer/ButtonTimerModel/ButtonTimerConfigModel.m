@@ -21,6 +21,7 @@ UIViewModelOthersProtocol_synthesize
 @end
 
 @implementation ButtonTimerConfigModel
+UILocationProtocol_synthesize
 #pragma mark —— 一些私有方法
 -(void)actionBlocktimerWorking:(jobsByIDBlock)timerWorkingBlock{
     self.timerWorkingBlock = timerWorkingBlock;
@@ -143,6 +144,12 @@ UIViewModelOthersProtocol_synthesize
     if (!_count) {
         _count = 60;
     }return _count;
+}
+
+-(CGFloat)widthCompensationValue{
+    if (!_widthCompensationValue) {
+        _widthCompensationValue = self.jobsSize.height / 2;
+    }return _widthCompensationValue;
 }
 
 @end

@@ -137,7 +137,7 @@ static dispatch_once_t static_launchVCOnceToken;
         
         [self.view addSubview:_skipBtn];
         [_skipBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.size.mas_equalTo(CGSizeMake(JobsWidth(80), JobsWidth(25)));
+            make.size.mas_equalTo(self.btnTimerConfigModel.jobsSize);
             make.top.equalTo(self.view).offset(JobsRectOfStatusbar());
             make.right.equalTo(self.view).offset(-JobsWidth(25));
         }];
@@ -164,10 +164,12 @@ static dispatch_once_t static_launchVCOnceToken;
                               placeholderImage:LaunchConfig.bgSelectedImage];
         /// 一些通用的设置
         _btnTimerConfigModel.count = 5;
+        _btnTimerConfigModel.jobsSize = CGSizeMake(JobsWidth(80), JobsWidth(25));// 在这里设置按钮的初始尺寸
         _btnTimerConfigModel.showTimeType = ShowTimeType_SS;// 时间显示风格
         _btnTimerConfigModel.countDownBtnType = TimerStyle_anticlockwise;// 时间方向
         _btnTimerConfigModel.cequenceForShowTitleRuningStrType = CequenceForShowTitleRuningStrType_tail;//
         _btnTimerConfigModel.labelShowingType = LaunchConfig.labelShowingType;//【换行模式】
+//        _btnTimerConfigModel.widthCompensationValue = _btnTimerConfigModel.jobsSize.height;
         /// 计时器未开始【静态值】
         _btnTimerConfigModel.readyPlayValue.layerBorderWidth = LaunchConfig.layerBorderWidth;
         _btnTimerConfigModel.readyPlayValue.layerCornerRadius = JobsWidth(25 / 2);

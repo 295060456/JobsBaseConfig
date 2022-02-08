@@ -31,47 +31,64 @@ static char *UIButton_CountDownBtn_timerRunningBlock = "UIButton_CountDownBtn_ti
     }return self;
 }
 #pragma clang diagnostic pop
+/// 当设置了圆角的时候，会造成UI的一些畸形，这个地方的补偿值正好等于按钮的高的一半
+-(void)extraWidth:(CGFloat)offsetWidth{
+    if (self.layer.cornerRadius) {
+        [self mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(self.btnTimerConfig.jobsSize.width + offsetWidth ? : self.btnTimerConfig.widthCompensationValue);
+        }];
+    }
+}
 #pragma mark —— UI配置
-/// 计时器未开始
+/// 1.1、【计时器未开始】设置Layer层 和 背景颜色
 -(void)setLayerConfigReadyPlay{
     self.layer.borderColor = self.btnTimerConfig.readyPlayValue.layerBorderColour.CGColor;
     self.layer.cornerRadius = self.btnTimerConfig.readyPlayValue.layerCornerRadius;
     self.layer.borderWidth = self.btnTimerConfig.readyPlayValue.layerBorderWidth;
+    
     self.backgroundColor = self.btnTimerConfig.readyPlayValue.bgCor;
 }
-
+/// 1.2、【计时器未开始】设置文字
 -(void)setTitleLabelConfigReadyPlay{
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     [self titleFont:self.btnTimerConfig.readyPlayValue.font];
     [self normalTitleColor:self.btnTimerConfig.readyPlayValue.textCor];
     [self makeBtnLabelByShowingType:self.btnTimerConfig.labelShowingType];
+    
+    [self extraWidth:JobsWidth(8)];
 }
-/// 计时器进行中设置Layer层
+/// 2.1、【计时器进行中】设置Layer层 和 背景颜色
 -(void)setLayerConfigRunning{
     self.layer.borderColor = self.btnTimerConfig.runningValue.layerBorderColour.CGColor;
     self.layer.cornerRadius = self.btnTimerConfig.runningValue.layerCornerRadius;
     self.layer.borderWidth = self.btnTimerConfig.runningValue.layerBorderWidth;
+    
+    self.backgroundColor = self.btnTimerConfig.runningValue.bgCor;
 }
-/// 计时器进行中设置TitleLabel
+/// 2.2、【计时器进行中】设置文字
 -(void)setTitleLabelConfigRunning{
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     [self titleFont:self.btnTimerConfig.runningValue.font];
     [self normalTitleColor:self.btnTimerConfig.runningValue.textCor];
     [self makeBtnLabelByShowingType:self.btnTimerConfig.labelShowingType];
+    [self extraWidth:0];
 }
-/// 计时器结束
+/// 3.1、【计时器结束】设置Layer层 和 背景颜色
 -(void)setLayerConfigEnd{
     self.layer.borderColor = self.btnTimerConfig.endValue.layerBorderColour.CGColor;
     self.layer.cornerRadius = self.btnTimerConfig.endValue.layerCornerRadius;
     self.layer.borderWidth = self.btnTimerConfig.endValue.layerBorderWidth;
+    
+    self.backgroundColor = self.btnTimerConfig.endValue.bgCor;
 }
-
+/// 3.2、【计时器结束】设置文字
 -(void)setTitleLabelConfigEnd{
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.titleLabel.numberOfLines = 1;//不加这一句会有UI异常
     [self titleFont:self.btnTimerConfig.endValue.font];
     [self normalTitleColor:self.btnTimerConfig.endValue.textCor];
     [self makeBtnLabelByShowingType:self.btnTimerConfig.labelShowingType];
+    [self extraWidth:JobsWidth(8)];
 }
 #pragma mark —— 设置普通标题或者富文本标题
 /// 计时器未开始
@@ -123,7 +140,7 @@ static char *UIButton_CountDownBtn_timerRunningBlock = "UIButton_CountDownBtn_ti
     [self.btnTimerConfig.timerManager nsTimeStartSysAutoInRunLoop];
 }
 /// 核心方法
--(void)timerRuning:(long)currentTime {
+-(void)timerRuning:(long)currentTime{
     // 其他一些基础设置
     {
         self.enabled = self.btnTimerConfig.isCanBeClickWhenTimerCycle;//倒计时期间，默认不接受任何的点击事件

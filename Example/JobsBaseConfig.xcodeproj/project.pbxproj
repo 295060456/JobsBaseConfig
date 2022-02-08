@@ -6760,8 +6760,8 @@
 			isa = PBXGroup;
 			children = (
 				84758C94279849CB0074B4BA /* JobsLaunch.md */,
-				84758D12279922B40074B4BA /* JobsLaunchConfig */,
 				84758D11279922840074B4BA /* JobsLaunchDef.h */,
+				84758D12279922B40074B4BA /* JobsLaunchConfig */,
 				84758D092798545A0074B4BA /* JobsLaunchVC */,
 			);
 			path = JobsLaunch;
