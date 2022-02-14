@@ -65,9 +65,9 @@
                                range:config.range];
         }
         //添加文字颜色 & 设置作用域
-        if (config.cor) {
+        if (config.textCor) {
             [attrString addAttribute:NSForegroundColorAttributeName
-                               value:config.cor
+                               value:config.textCor
                                range:config.range];
         }
         //添加下划线 & 设置作用域
@@ -78,6 +78,12 @@
         if (config.paragraphStyle) {
             [attrString addAttribute:NSParagraphStyleAttributeName
                                value:config.paragraphStyle
+                               range:config.range];
+        }
+        //添加文字背景颜色
+        if (config.textBgCor) {
+            [attrString addAttribute:NSBackgroundColorAttributeName
+                               value:config.textBgCor
                                range:config.range];
         }
         //添加链接 & 设置作用域

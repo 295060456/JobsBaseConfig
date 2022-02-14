@@ -151,12 +151,12 @@
         
         RichTextConfig *config_01 = RichTextConfig.new;
         config_01.font = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightMedium];
-        config_01.cor = kBlueColor;
+        config_01.textCor = kBlueColor;
         config_01.targetString = self.titleStr_1;
         
         RichTextConfig *config_02 = RichTextConfig.new;
         config_02.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightMedium];
-        config_02.cor = kRedColor;
+        config_02.textCor = kRedColor;
         config_02.targetString = self.titleStr_2;
         
         [_richLabelDataStringsMutArr addObject:config_01];

@@ -84,7 +84,7 @@ static char *UITextField_Placeholder_defaultAttributedDataMutArr = "UITextField_
             RichTextConfig *richTextConfig = RichTextConfig.new;
             richTextConfig.targetString = self.placeholder;
             richTextConfig.font = [UIFont systemFontOfSize:JobsWidth(10) weight:UIFontWeightRegular];
-            richTextConfig.cor = UIColor.blueColor;
+            richTextConfig.textCor = UIColor.blueColor;
     //        richTextConfig.underlineStyle;
     //        richTextConfig.paragraphStyle;
     //        richTextConfig.urlStr;
