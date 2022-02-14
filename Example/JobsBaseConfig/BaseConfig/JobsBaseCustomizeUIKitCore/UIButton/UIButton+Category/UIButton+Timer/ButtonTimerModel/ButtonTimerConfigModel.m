@@ -23,7 +23,7 @@ UIViewModelOthersProtocol_synthesize
 @implementation ButtonTimerConfigModel
 UILocationProtocol_synthesize
 #pragma mark —— 一些私有方法
--(void)actionBlocktimerWorking:(jobsByIDBlock)timerWorkingBlock{
+-(void)actionBlockTimerWorking:(jobsByIDBlock)timerWorkingBlock{
     self.timerWorkingBlock = timerWorkingBlock;
 }
 #pragma mark —— 重写set方法

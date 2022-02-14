@@ -13,13 +13,15 @@
 @property(nonatomic,strong)BaseLabel *lab2;///【UILabelShowingType_02】 一行显示。定宽、定字体。多余部分scrollerView ❤️集成@implementation UILabel (AutoScroll)❤️
 @property(nonatomic,strong)BaseLabel *lab3;///【UILabelShowingType_03】 一行显示。定字体，不定宽。宽度自适应
 @property(nonatomic,strong)BaseLabel *lab4;///【UILabelShowingType_04】 一行显示。缩小字体方式全展示
-@property(nonatomic,strong)BaseLabel *lab5;///【UILabelShowingType_05】 多行显示。定宽、定字体
+@property(nonatomic,strong)BaseLabel *lab5;///【UILabelShowingType_05】 多行显示，自动提行。定宽、定字体
+@property(nonatomic,strong)BaseLabel *lab6;///【UILabelShowingType_05】 多行显示，手动\n提行。定宽、定字体
 /// UIButton
 @property(nonatomic,strong)BaseButton *btn1;///【UILabelShowingType_01】 一行显示。定宽、定字体。多余部分用…表示（省略号的位置由NSLineBreakMode控制）
 @property(nonatomic,strong)BaseButton *btn2;///【UILabelShowingType_02】 一行显示。定宽、定字体。多余部分scrollerView ❤️集成@implementation UILabel (AutoScroll)❤️
 @property(nonatomic,strong)BaseButton *btn3;///【UILabelShowingType_03】 一行显示。定字体，不定宽。宽度自适应
 @property(nonatomic,strong)BaseButton *btn4;///【UILabelShowingType_04】 一行显示。缩小字体方式全展示
-@property(nonatomic,strong)BaseButton *btn5;///【UILabelShowingType_05】 多行显示。定宽、定字体
+@property(nonatomic,strong)BaseButton *btn5;///【UILabelShowingType_05】 多行显示，自动提行。定宽、定字体
+@property(nonatomic,strong)BaseButton *btn6;///【UILabelShowingType_05】 多行显示，手动\n提行。定宽、定字体
 
 @end
 
@@ -50,17 +52,18 @@
     [self.lab3 makeLabelByShowingType:UILabelShowingType_03];
     [self.lab4 makeLabelByShowingType:UILabelShowingType_04];
     [self.lab5 makeLabelByShowingType:UILabelShowingType_05];
-
+    [self.lab6 makeLabelByShowingType:UILabelShowingType_05];
+    
     [self.btn1 makeBtnLabelByShowingType:UILabelShowingType_01];
     [self.btn2 makeBtnLabelByShowingType:UILabelShowingType_02];
     [self.btn3 makeBtnLabelByShowingType:UILabelShowingType_03];
     [self.btn4 makeBtnLabelByShowingType:UILabelShowingType_04];
     [self.btn5 makeBtnLabelByShowingType:UILabelShowingType_05];
+    [self.btn6 makeBtnLabelByShowingType:UILabelShowingType_05];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -142,6 +145,20 @@
         }];
     }return _lab5;
 }
+/// 多行显示，手动\n提行。定宽（宽要足够长，否则就面临自动提行）、定字体
+-(BaseLabel *)lab6{
+    if (!_lab6) {
+        _lab6 = BaseLabel.new;
+        _lab6.backgroundColor = UIColor.redColor;
+        _lab6.text = @"编译器自动管理内存地址，\n让程序员更加专注于\nAPP的业务。";
+        [self.view addSubview:_lab6];
+        [_lab6 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(JobsMainScreen_WIDTH());
+            make.top.equalTo(self.lab5.mas_bottom).offset(20);
+            make.centerX.equalTo(self.view);
+        }];
+    }return _lab6;
+}
 #pragma mark —— BaseButton
 /// 一行显示。定宽、定高、定字体。多余部分用…表示（省略号的位置由NSLineBreakMode控制）
 -(BaseButton *)btn1{
@@ -152,7 +169,7 @@
         [self.view addSubview:_btn1];
         [_btn1 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(100, 20));
-            make.top.equalTo(self.lab5.mas_bottom).offset(20);
+            make.top.equalTo(self.lab6.mas_bottom).offset(20);
             make.centerX.equalTo(self.view);
         }];
     }return _btn1;
@@ -214,6 +231,22 @@
             make.centerX.equalTo(self.view);
         }];
     }return _btn5;
+}
+/// 多行显示，手动\n提行。定宽（宽要足够长，否则就面临自动提行）、定字体
+-(BaseButton *)btn6{
+    if (!_btn6) {
+        _btn6 = BaseButton.new;
+        _btn6.backgroundColor = UIColor.brownColor;
+        [_btn6 normalTitle:@"编译器自动管理内存地址，\n让程序员更加专注于\nAPP的业务。"];
+        _btn6.titleLabel.numberOfLines = 0;
+        [_btn6 labelAutoWidthByFont];
+        [self.view addSubview:_btn6];
+        [_btn6 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(JobsMainScreen_WIDTH(), 20));
+            make.top.equalTo(self.btn5.mas_bottom).offset(20);
+            make.centerX.equalTo(self.view);
+        }];
+    }return _btn6;
 }
 
 @end

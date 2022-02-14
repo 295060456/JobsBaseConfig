@@ -241,7 +241,7 @@ static char *UIButton_CountDownBtn_timerRunningBlock = "UIButton_CountDownBtn_ti
     }
     // 定时器运行时的Block
     @jobs_weakify(self)
-    [BtnTimerConfig actionBlocktimerWorking:^(TimerProcessModel *data) {
+    [BtnTimerConfig actionBlockTimerWorking:^(TimerProcessModel *data) {
         @jobs_strongify(self)
         switch (data.timerProcessType) {
             case TimerProcessType_ready:{

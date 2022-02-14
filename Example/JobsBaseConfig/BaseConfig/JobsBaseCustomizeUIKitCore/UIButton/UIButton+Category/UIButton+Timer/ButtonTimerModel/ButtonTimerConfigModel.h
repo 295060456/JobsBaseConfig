@@ -80,7 +80,7 @@ UIPictureAndBackGroundCorProtocol
 @property(nonatomic,strong)NSString *formatTimeStr;// 根据ShowTimeType格式化以后的时间【内部使用】
 @property(nonatomic,strong)NSString *appendingStrByFormatTimeStr;// formatTimeStr后缀拼接的字符串。因为formatTimeStr是内部使用
 /// 【Button内部使用】不要直接调用
--(void)actionBlocktimerWorking:(jobsByIDBlock)timerWorkingBlock;
+-(void)actionBlockTimerWorking:(jobsByIDBlock)timerWorkingBlock;
 
 @end
 
