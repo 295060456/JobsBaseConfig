@@ -9,7 +9,7 @@
 
 @implementation UIButton (Extra)
 
--(void)makeBtnLabelByShowingType:(UILabelShowingType)labelShowingType{
+-(id)makeBtnLabelByShowingType:(UILabelShowingType)labelShowingType{
     [self.superview layoutIfNeeded];
     self.titleLabel.labelShowingType = labelShowingType;
     switch (labelShowingType) {
@@ -42,7 +42,7 @@
             
         default:
             break;
-    }
+    }return self;
 }
 
 @end

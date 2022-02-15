@@ -131,6 +131,20 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
                     context:nil];
 }
 #pragma mark —— 功能性的
+-(void)addNotificationObserverWithName:(NSString *_Nonnull)notificationName
+                         selectorBlock:(jobsByTwoIDBlock _Nullable)selectorBlock{
+    [NSNotificationCenter.defaultCenter addObserver:self
+                                           selector:selectorBlocks(^(id  _Nullable weakSelf,
+                                                                     id  _Nullable arg) {
+        NSNotification *notification = (NSNotification *)arg;
+        NSNumber *b = notification.object;
+        NSLog(@"SSS = %d",b.boolValue);
+        if (selectorBlock) selectorBlock(weakSelf,arg);
+    }, self)
+                                               name:notificationName
+                                             object:nil];
+}
+
 +(instancetype _Nonnull)jobsInitWithReuseIdentifier{
     return [self.class.alloc initWithReuseIdentifier:NSStringFromClass(self.class)];
 }

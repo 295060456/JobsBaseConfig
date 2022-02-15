@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIButton (Extra)
 
--(void)makeBtnLabelByShowingType:(UILabelShowingType)labelShowingType;
+-(id)makeBtnLabelByShowingType:(UILabelShowingType)labelShowingType;
 
 @end
 

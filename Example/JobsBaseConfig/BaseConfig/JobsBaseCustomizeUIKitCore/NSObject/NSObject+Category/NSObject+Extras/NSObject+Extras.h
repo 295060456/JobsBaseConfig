@@ -98,7 +98,6 @@ typedef void (^callback)(id _Nullable weakSelf, id _Nullable arg);
 BaseProtocol
 ,UIViewModelProtocol
 >
-
 #pragma mark —— 宏
 /// App 国际化相关系统宏二次封装 + 设置缺省值
 +(NSString *_Nullable)localStringWithKey:(nonnull NSString *)key;
@@ -145,6 +144,8 @@ BaseProtocol
 /// 添加监听【针对UIScrollView 的 ContentOffset 属性】
 -(void)monitorContentOffsetScrollView:(UIScrollView *_Nonnull)scrollView;
 #pragma mark —— 功能性的
+-(void)addNotificationObserverWithName:(NSString *_Nonnull)notificationName
+                         selectorBlock:(jobsByTwoIDBlock _Nullable)selectorBlock;
 +(instancetype _Nonnull)jobsInitWithReuseIdentifier;
 -(instancetype _Nonnull)jobsInitWithReuseIdentifierClass:(Class _Nonnull)cls;
 /// 索取对象obj里面属性名为propertyName的值，如果没有这个属性则查找返回nil

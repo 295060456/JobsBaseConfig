@@ -130,8 +130,7 @@
 
 -(UITapGestureRecognizer *)changeCodeTap{
     if (!_changeCodeTap) {
-        _changeCodeTap = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                 action:@selector(changeCode:)];
+        _changeCodeTap = [UITapGestureRecognizer.alloc initWithTarget:self action:@selector(changeCode:)];
         [self addGestureRecognizer:_changeCodeTap];
     }return _changeCodeTap;
 }
@@ -150,11 +149,7 @@
 }
 
 -(UIColor *)bgColor{
-    if (_bgColor) {
-        return _bgColor;
-    }else{
-        return RandomColor;
-    }
+    return _bgColor ? : RandomColor;
 }
 
 @end
