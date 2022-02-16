@@ -83,7 +83,7 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
 
         for (JobsTabBarControllerConfig *config in self.configMutArr) {
             [TabBarVC.tabBarControllerConfigMutArr addObject:config];
-            [TabBarVC.childMutArr addObject:config.vc];
+            [TabBarVC.childVCMutArr addObject:config.vc];
             [self.tabBarTitleMutArr addObject:config.title];
         }
         

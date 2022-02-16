@@ -136,7 +136,8 @@ uploadVideosParamArr:(NSArray *_Nullable)uploadVideosParamArr
         if (responseObject.code == HTTPResponseCodeSuccess) {
             NSLog(@"请求成功");
             if (successBlock) successBlock(responseObject);
-        }else{// 请求成功但是因为未登录等涉及到用户token的原因导致的失败
+        }else{// 请求成功但是因为未登录、被踢线下等涉及到用户token的原因导致的失败
+            [DDNetworkingAPI handleError:responseObject];
             if (failureBlock) failureBlock(responseObject);
         }
     }else{
@@ -151,7 +152,7 @@ uploadVideosParamArr:(NSArray *_Nullable)uploadVideosParamArr
         [WHToast toastErrMsg:err.description];
     }else if ([error isKindOfClass:DDResponseModel.class]){
         DDResponseModel *responseModel = (DDResponseModel *)error;
-        NSLog(@"code = %d",responseModel.code);
+        NSLog(@"code = %lu",(unsigned long)responseModel.code);
         extern BOOL xhLaunchAdShowFinish;
         switch (responseModel.code) {
             case HTTPResponseCodeServeError:{// 服务器异常
@@ -162,11 +163,9 @@ uploadVideosParamArr:(NSArray *_Nullable)uploadVideosParamArr
                     if (self.isLogin) {
                         [WHToast toastErrMsg:Internationalization(@"Login has expired. Please log in again")];
                         [self logOut];
-                        [self forcedLogin];
-                    }else{
-                        [WHToast toastMsg:Internationalization(@"Please log in")];
-                    }
+                    }[self forcedLogin];
                 }
+                [NSNotificationCenter.defaultCenter postNotificationName:退出登录 object:@(NO)];
             }break;
             case HTTPResponseCodeAuthorizationFailure:{// 授权失败
                 [WHToast toastErrMsg:Internationalization(@"Authorization failure")];
@@ -182,14 +181,12 @@ uploadVideosParamArr:(NSArray *_Nullable)uploadVideosParamArr
             }break;
             case HTTPResponseCodeOffline:{// 帐号已在其他设备登录
                 if (xhLaunchAdShowFinish) {
+                    [WHToast toastErrMsg:Internationalization(@"The account has been logged in to another device")];
                     if (self.isLogin) {
-                        [WHToast toastErrMsg:Internationalization(@"The account has been logged in to another device")];
                         /// 清除本地的用户数据，并转向登录页面
                         [self logOut];
-                        [self forcedLogin];
-                    }else{
-                        [WHToast toastMsg:Internationalization(@"Please log in")];
                     }
+                    [self toLogin];
                 }
             }break;
                 

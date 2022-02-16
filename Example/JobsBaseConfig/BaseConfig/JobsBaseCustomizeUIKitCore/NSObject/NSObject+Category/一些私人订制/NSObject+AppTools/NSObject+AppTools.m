@@ -21,8 +21,8 @@ static char *NSObject_AppTools_hotLabelDataMutArr = "NSObject_AppTools_hotLabelD
     extern AppDelegate *appDelegate;
     NSMutableArray <Class>*tempDataArr = NSMutableArray.array;
     
-    for (UIViewController *viewController in appDelegate.tabBarVC.childMutArr) {
-        NSUInteger index = [appDelegate.tabBarVC.childMutArr indexOfObject:viewController];
+    for (UIViewController *viewController in appDelegate.tabBarVC.childVCMutArr) {
+        NSUInteger index = [appDelegate.tabBarVC.childVCMutArr indexOfObject:viewController];
         
         if ([appDelegate.tabBarVC.noNeedLoginArr containsObject:@(index)]) {
             Class cls = viewController.class;
@@ -55,10 +55,6 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
 //-(void)languageSwitchNotification:(nonnull NSNotification *)notification{
 //    NSLog(@"通知传递过来的 = %@",notification.object);
 //}
-/// 返回YES：不触发AppDoor的页面
--(BOOL)unrestrictedLogin:(NSArray <Class>*_Nullable)dataArr{
-    return [dataArr containsObject:self.class];
-}
 #pragma mark —— <AppToolsProtocol> 关于注册登录
 /// 去登录？去注册？
 -(void)toLoginOrRegister:(CurrentPage)appDoorContentType{
@@ -90,7 +86,7 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
 /// 限制条件：在某些页面（noNeedLoginArr）不调取登录页
 -(void)toLoginOrRegisterWithRestricted:(NSArray <Class>*_Nullable)dataArr
                     appDoorContentType:(CurrentPage)appDoorContentType{
-    if (![self unrestrictedLogin:dataArr]) return;/// 返回YES：不触发AppDoor的页面
+    if ([dataArr containsObject:self.class]) return;/// 包含则不触发AppDoor的页面
     [self toLoginOrRegister:appDoorContentType];
 }
 /// 触发退出登录模块之前，弹窗提示二次确认，确认以后再删除本地用户数据

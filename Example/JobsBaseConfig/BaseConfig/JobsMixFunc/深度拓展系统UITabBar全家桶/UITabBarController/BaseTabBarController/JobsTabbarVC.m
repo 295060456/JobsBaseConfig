@@ -152,7 +152,7 @@ static JobsTabbarVC *static_tabbarVC = nil;
 //            [self addLottieImage:config.lottieName];// 有Lottie动画名，则优先创建Lottie动画
 //        }
         
-        UIViewController *viewController = self.childMutArr[i];
+        UIViewController *viewController = self.childVCMutArr[i];
         viewController.title = config.title;
         viewController.tabBarItem = [JobsTabBarItem.alloc initWithConfig:config];
         
@@ -168,11 +168,11 @@ static JobsTabbarVC *static_tabbarVC = nil;
         if (![viewController isKindOfClass:UINavigationController.class]) {//防止UIImagePickerController崩
             BaseNavigationVC *nav = [BaseNavigationVC.alloc initWithRootViewController:viewController];
             nav.title = config.title;
-            [self.childMutArr replaceObjectAtIndex:i withObject:nav];//替换元素，每个VC加Navigation
+            [self.childVCMutArr replaceObjectAtIndex:i withObject:nav];//替换元素，每个VC加Navigation
         }
     }
     /// ❤️这句话走了以后 才会有self.tabBar
-    self.viewControllers = self.childMutArr;
+    self.viewControllers = self.childVCMutArr;
     
     for (UIView *subView in self.tabBar.subviews) {
         if ([subView isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
@@ -181,7 +181,7 @@ static JobsTabbarVC *static_tabbarVC = nil;
         }
     }
     /// 根据config.lottieName 方法-config.lottieName:offsetY:lottieName:内部做了判空处理
-    for (int i = 0; i < self.childMutArr.count; i++) {
+    for (int i = 0; i < self.childVCMutArr.count; i++) {
         JobsTabBarControllerConfig *config = (JobsTabBarControllerConfig *)self.tabBarControllerConfigMutArr[i];
         [self.tabBar addLottieImage:i
                             offsetY:-config.humpOffsetY / 2
@@ -192,7 +192,7 @@ static JobsTabbarVC *static_tabbarVC = nil;
     if (self.firstUI_selectedIndex < self.viewControllers.count) {
         self.selectedIndex = self.firstUI_selectedIndex;//初始显示哪个
         if ([self judgeLottieWithIndex:self.selectedIndex]) {
-            [self.childMutArr[self.firstUI_selectedIndex] lottieImagePlay];
+            [self.childVCMutArr[self.firstUI_selectedIndex] lottieImagePlay];
             [self.tabBar animationLottieImage:self.firstUI_selectedIndex];
         }
     }
@@ -364,7 +364,7 @@ static JobsTabbarVC *static_tabbarVC = nil;
 - (BOOL)tabBarController:(UITabBarController *)tabBarController
 shouldSelectViewController:(UIViewController *)viewController {
 
-    NSInteger index = [self.childMutArr indexOfObject:viewController];
+    NSInteger index = [self.childVCMutArr indexOfObject:viewController];
     
     if ([viewController isKindOfClass:UIViewController.class] &&
         [self judgeLottieWithIndex:index]) {
@@ -430,10 +430,10 @@ shouldSelectViewController:(UIViewController *)viewController {
     }return _UITabBarButtonMutArr;
 }
 
--(NSMutableArray<UIViewController *> *)childMutArr{
-    if (!_childMutArr) {
-        _childMutArr = NSMutableArray.array;
-    }return _childMutArr;
+-(NSMutableArray<UIViewController *> *)childVCMutArr{
+    if (!_childVCMutArr) {
+        _childVCMutArr = NSMutableArray.array;
+    }return _childVCMutArr;
 }
 
 -(NSMutableArray<JobsTabBarControllerConfig *> *)tabBarControllerConfigMutArr{
