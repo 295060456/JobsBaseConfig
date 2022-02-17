@@ -18,6 +18,7 @@
 #import "MacroDef_Func.h"
 #import "MacroDef_SysWarning.h"
 #import "FileFolderHandleTool.h"
+#import "NSObject+Class.h"
 
 #if __has_include(<WHToast/WHToast.h>)
 #import <WHToast/WHToast.h>
@@ -148,6 +149,11 @@ BaseProtocol
                          selectorBlock:(jobsByTwoIDBlock _Nullable)selectorBlock;
 +(instancetype _Nonnull)jobsInitWithReuseIdentifier;
 -(instancetype _Nonnull)jobsInitWithReuseIdentifierClass:(Class _Nonnull)cls;
+/// 模糊查询
+/// @param data 模糊查询的数据源
+/// @param keywords 关键词
+-(NSMutableSet *_Nullable)dimSearchWithData:(id _Nonnull)data
+                                   keywords:(NSString *_Nonnull)keywords;
 /// 索取对象obj里面属性名为propertyName的值，如果没有这个属性则查找返回nil
 /// @param obj 索取对象
 /// @param propertyName 需要查找的属性值

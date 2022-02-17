@@ -152,6 +152,48 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
 -(instancetype _Nonnull)jobsInitWithReuseIdentifierClass:(Class _Nonnull)cls{
     return [cls.alloc initWithReuseIdentifier:NSStringFromClass(cls)];
 }
+/// 模糊查询
+/// @param data 模糊查询的数据源
+/// @param keywords 关键词
+-(NSMutableSet *_Nullable)dimSearchWithData:(id _Nonnull)data
+                                   keywords:(NSString *_Nonnull)keywords{
+    NSMutableSet *__block resMutSet = NSMutableSet.set;
+    
+    JobsReturnIDByIDBlock dimSearchBlock = ^(id data){
+        for (id obj in data) {// 系统Api提供的基础对象元素
+            if ([obj isKindOfClass:NSNumber.class] ||
+                [obj isKindOfClass:NSString.class]) {
+                if ([[obj stringValue] containsString:keywords]) {
+                    [resMutSet addObject:obj];
+                }
+            }else{// 自定义的对象
+                NSObject *customObj = (NSObject *)obj;
+                NSMutableArray <NSString *>*propertyList = customObj.printPropertyList;
+                for (NSString *str in propertyList) {
+                    if ([[[customObj valueForKey:str] stringValue] containsString:keywords]) {
+                        [resMutSet addObject:customObj];
+                    }
+                }
+            }
+        }return resMutSet;
+    };
+    
+    if ([data isKindOfClass:NSDictionary.class]){
+        NSDictionary *dataDic = (NSDictionary *)data;
+        [dataDic enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key,
+                                                     id  _Nonnull obj,
+                                                     BOOL * _Nonnull stop) {
+            /// Key-Value，value包含关键词则存储对外输出
+            if ([[obj stringValue] containsString:keywords]) {
+                /// 用Set保证对外输出的唯一性
+                [resMutSet addObject:obj];
+            }
+        }];
+    }else if([data isKindOfClass:NSArray.class] ||
+             [data isKindOfClass:NSSet.class]){
+        if(dimSearchBlock) resMutSet = dimSearchBlock(data);
+    }else{}return resMutSet;
+}
 /// 索取对象obj里面属性名为propertyName的值，如果没有这个属性则查找返回nil
 /// @param obj 索取对象
 /// @param propertyName 需要查找的属性值
