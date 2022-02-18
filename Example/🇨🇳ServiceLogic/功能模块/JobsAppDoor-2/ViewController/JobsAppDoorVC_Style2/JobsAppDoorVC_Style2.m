@@ -221,7 +221,7 @@ static dispatch_once_t static_jobsAppDoor_Style2OnceToken;
                     [UIViewController comingFromVC:self
                                               toVC:DDForgetCodeVC.new
                                        comingStyle:ComingStyle_PUSH
-                                 presentationStyle:UIModalPresentationFullScreen//[UIDevice currentDevice].systemVersion.doubleValue >= 13.0 ? UIModalPresentationAutomatic : UIModalPresentationFullScreen
+                                 presentationStyle:UIModalPresentationFullScreen//UIDevice.currentDevice.systemVersion.doubleValue >= 13.0 ? UIModalPresentationAutomatic : UIModalPresentationFullScreen
                                      requestParams:nil
                           hidesBottomBarWhenPushed:YES
                                           animated:YES

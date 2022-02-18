@@ -20,7 +20,6 @@ static char *UIViewController_BaseVC_requestParams = "UIViewController_BaseVC_re
 
 static char *UIViewController_BaseVC_bgImage = "UIViewController_BaseVC_bgImage";
 @dynamic bgImage;
-
 #pragma mark —— 一些功能性的
 -(void)showUserInfo{
     if (JobsDebug) {
@@ -56,7 +55,7 @@ static char *UIViewController_BaseVC_bgImage = "UIViewController_BaseVC_bgImage"
     [UIViewController comingFromVC:self
                               toVC:viewController
                        comingStyle:ComingStyle_PRESENT
-                 presentationStyle:[UIDevice currentDevice].systemVersion.doubleValue >= 13.0 ? UIModalPresentationAutomatic : UIModalPresentationFullScreen
+                 presentationStyle:UIDevice.currentDevice.systemVersion.doubleValue >= 13.0 ? UIModalPresentationAutomatic : UIModalPresentationFullScreen
                      requestParams:nil
           hidesBottomBarWhenPushed:YES
                           animated:YES
@@ -68,7 +67,7 @@ static char *UIViewController_BaseVC_bgImage = "UIViewController_BaseVC_bgImage"
     [UIViewController comingFromVC:self
                               toVC:viewController
                        comingStyle:ComingStyle_PRESENT
-                 presentationStyle:[UIDevice currentDevice].systemVersion.doubleValue >= 13.0 ? UIModalPresentationAutomatic : UIModalPresentationFullScreen
+                 presentationStyle:UIDevice.currentDevice.systemVersion.doubleValue >= 13.0 ? UIModalPresentationAutomatic : UIModalPresentationFullScreen
                      requestParams:requestParams
           hidesBottomBarWhenPushed:YES
                           animated:YES
@@ -80,7 +79,7 @@ static char *UIViewController_BaseVC_bgImage = "UIViewController_BaseVC_bgImage"
     [UIViewController comingFromVC:self
                               toVC:viewController
                        comingStyle:ComingStyle_PUSH
-                 presentationStyle:[UIDevice currentDevice].systemVersion.doubleValue >= 13.0 ? UIModalPresentationAutomatic : UIModalPresentationFullScreen
+                 presentationStyle:UIDevice.currentDevice.systemVersion.doubleValue >= 13.0 ? UIModalPresentationAutomatic : UIModalPresentationFullScreen
                      requestParams:nil
           hidesBottomBarWhenPushed:YES
                           animated:YES
@@ -92,7 +91,7 @@ static char *UIViewController_BaseVC_bgImage = "UIViewController_BaseVC_bgImage"
     [UIViewController comingFromVC:self
                               toVC:viewController
                        comingStyle:ComingStyle_PUSH
-                 presentationStyle:[UIDevice currentDevice].systemVersion.doubleValue >= 13.0 ? UIModalPresentationAutomatic : UIModalPresentationFullScreen
+                 presentationStyle:UIDevice.currentDevice.systemVersion.doubleValue >= 13.0 ? UIModalPresentationAutomatic : UIModalPresentationFullScreen
                      requestParams:requestParams
           hidesBottomBarWhenPushed:YES
                           animated:YES
@@ -120,10 +119,15 @@ static char *UIViewController_BaseVC_bgImage = "UIViewController_BaseVC_bgImage"
                              animated:(BOOL)animated
                               success:(jobsByIDBlock _Nullable)successBlock{
     if (toVC) {
-        toVC.requestParams = requestParams;
-
-        toVC.fromVC = fromVC;// 【承上启下】下一个页面记录是从哪里来的
-        
+        if([toVC isKindOfClass:UINavigationController.class]){
+            UINavigationController *navVC = (UINavigationController *)toVC;
+            navVC.rootViewController.requestParams = requestParams;
+            navVC.rootViewController.fromVC = fromVC;// 【承上启下】下一个页面记录是从哪里来的
+        }else{
+            toVC.requestParams = requestParams;
+            NSLog(@"%@",toVC.requestParams);
+            toVC.fromVC = fromVC;// 【承上启下】下一个页面记录是从哪里来的
+        }
         @jobs_weakify(fromVC)
         switch (comingStyle) {
             case ComingStyle_PUSH:{
@@ -171,7 +175,6 @@ static char *UIViewController_BaseVC_bgImage = "UIViewController_BaseVC_bgImage"
                              fromVC,
                              OBJC_ASSOCIATION_ASSIGN);
 }
-
 #pragma mark —— <BaseViewControllerProtocol> @property(nonatomic,assign)ComingStyle pushOrPresent;
 -(ComingStyle)pushOrPresent{
     return [objc_getAssociatedObject(self, UIViewController_BaseVC_pushOrPresent) integerValue];
@@ -195,7 +198,6 @@ static char *UIViewController_BaseVC_bgImage = "UIViewController_BaseVC_bgImage"
                              requestParams,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-
 #pragma mark —— <UIViewModelProtocol> @property(nonatomic,strong)UIImage *bgImage;
 -(UIImage *)bgImage{
     UIImage *BgImage = objc_getAssociatedObject(self, UIViewController_BaseVC_bgImage);

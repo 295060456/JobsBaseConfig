@@ -28,8 +28,8 @@
     }
   
     if (![textField.text length] &&
-        ([[[UIDevice currentDevice] systemVersion] intValue] == 8) &&
-        ([[[UIDevice currentDevice] systemVersion] floatValue] < 8.3f)) {
+        ([[UIDevice.currentDevice systemVersion] intValue] == 8) &&
+        ([[UIDevice.currentDevice systemVersion] floatValue] < 8.3f)) {
         [self deleteBackward];
     }return shouldDelete;
 }

@@ -25,7 +25,7 @@ self.xl_popTranstion = [XLBubbleTransition transitionWithAnchorRect:self.postBtn
             [UIViewController comingFromVC:self
                                       toVC:DDPostVC.new
                                comingStyle:ComingStyle_PUSH
-                         presentationStyle:UIModalPresentationFullScreen//[UIDevice currentDevice].systemVersion.doubleValue >= 13.0 ? UIModalPresentationAutomatic : UIModalPresentationFullScreen
+                         presentationStyle:UIModalPresentationFullScreen//UIDevice.currentDevice.systemVersion.doubleValue >= 13.0 ? UIModalPresentationAutomatic : UIModalPresentationFullScreen
                              requestParams:nil
                   hidesBottomBarWhenPushed:YES
                                   animated:YES

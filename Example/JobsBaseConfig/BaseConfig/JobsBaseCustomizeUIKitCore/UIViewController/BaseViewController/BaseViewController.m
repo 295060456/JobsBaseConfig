@@ -13,6 +13,7 @@
 
 @implementation BaseViewController
 
+@synthesize modalPresentationStyle = _modalPresentationStyle;
 #pragma mark —— UIViewModelProtocol
 UIViewModelProtocol_synthesize
 #pragma mark —— BaseViewControllerProtocol
@@ -48,7 +49,8 @@ BaseViewControllerProtocol_synthesize
     self.setupNavigationBarHidden = YES;
     self.viewModel = UIViewModel.new;
     self.currentPage = 1;
-    self.bgImage = KIMG(@"洗码背景图");// 仅在loadView中配置有效
+    self.bgImage = KIMG(@"洗码背景图");/// 仅在loadView中配置有效
+    self.modalInPresentation = NO;/// 禁用下拉手势dismiss画面需要将此属性设置为YES
 }
 
 - (void)viewDidLoad {
@@ -152,6 +154,10 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
 /// 接收通知相应的方法【在分类或者基类中实现会屏蔽具体子类的相关实现】
 -(void)languageSwitchNotification:(nonnull NSNotification *)notification{
     NSLog(@"通知传递过来的 = %@",notification.object);
+}
+
+-(void)setModalPresentationStyle:(UIModalPresentationStyle)modalPresentationStyle{
+    _modalPresentationStyle = modalPresentationStyle;//UIModalPresentationFullScreen
 }
 #pragma mark —— lazyLoad
 -(UIImageView *)bgImageView{

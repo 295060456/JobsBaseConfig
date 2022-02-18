@@ -36,7 +36,7 @@
     NSString *platform = [self platform];
     
     if (!platform) {
-        return [UIDevice currentDevice].model; // e.g. @"iPhone", @"iPod touch"
+        return UIDevice.currentDevice.model; // e.g. @"iPhone", @"iPod touch"
     }
     
     // iPhone
@@ -132,8 +132,8 @@
     if ([platform isEqualToString:@"AppleTV5,3"])    return @"Apple TV 4";
     
     // Simulator
-    if ([platform isEqualToString:@"i386"])         return [NSString stringWithFormat:@"%@ Simulator", [UIDevice currentDevice].model];
-    if ([platform isEqualToString:@"x86_64"])       return [NSString stringWithFormat:@"%@ Simulator", [UIDevice currentDevice].model];
+    if ([platform isEqualToString:@"i386"])         return [NSString stringWithFormat:@"%@ Simulator", UIDevice.currentDevice.model];
+    if ([platform isEqualToString:@"x86_64"])       return [NSString stringWithFormat:@"%@ Simulator", UIDevice.currentDevice.model];
     
     // For new device, return the hardware string directly.
     return platform;

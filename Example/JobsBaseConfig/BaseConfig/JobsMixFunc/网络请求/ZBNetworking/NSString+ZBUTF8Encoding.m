@@ -11,7 +11,7 @@
 @implementation NSString (ZBUTF8Encoding)
 
 + (NSString *)zb_stringUTF8Encoding:(NSString *)urlString{
-    if ([[UIDevice currentDevice] systemVersion].floatValue >= 9.0){
+    if ([UIDevice.currentDevice systemVersion].floatValue >= 9.0){
         return [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     }else{
         return [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
