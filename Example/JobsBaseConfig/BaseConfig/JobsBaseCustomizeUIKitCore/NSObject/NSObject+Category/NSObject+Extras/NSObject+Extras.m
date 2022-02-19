@@ -152,10 +152,12 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
 -(instancetype _Nonnull)jobsInitWithReuseIdentifierClass:(Class _Nonnull)cls{
     return [cls.alloc initWithReuseIdentifier:NSStringFromClass(cls)];
 }
-/// 模糊查询
-/// @param data 模糊查询的数据源
+/// 查询算法
+/// @param data 查询的数据源
+/// @param searchStrategy 查询策略
 /// @param keywords 关键词
 -(NSMutableSet *_Nullable)dimSearchWithData:(id _Nonnull)data
+                             searchStrategy:(JobsSearchStrategy)searchStrategy
                                    keywords:(NSString *_Nonnull)keywords{
     NSMutableSet *__block resMutSet = NSMutableSet.set;
     
@@ -170,8 +172,22 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
                 NSObject *customObj = (NSObject *)obj;
                 NSMutableArray <NSString *>*propertyList = customObj.printPropertyList;
                 for (NSString *str in propertyList) {
-                    if ([[[customObj valueForKey:str] stringValue] containsString:keywords]) {
-                        [resMutSet addObject:customObj];
+                    switch (searchStrategy) {
+                        case JobsSearchStrategy_Accurate:{
+                            /// 精确查询
+                            if ([[[customObj valueForKey:str] stringValue].lowercaseString containsString:keywords.lowercaseString]) {
+                                [resMutSet addObject:customObj];
+                            }
+                        }break;
+                        case JobsSearchStrategy_Fuzzy:{
+                            /// 模糊查询
+                            if ([[[customObj valueForKey:str] stringValue] containsString:keywords]) {
+                                [resMutSet addObject:customObj];
+                            }
+                        }break;
+                            
+                        default:
+                            break;
                     }
                 }
             }

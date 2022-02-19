@@ -155,9 +155,9 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
 -(void)languageSwitchNotification:(nonnull NSNotification *)notification{
     NSLog(@"通知传递过来的 = %@",notification.object);
 }
-
+#pragma mark —— Set方法
 -(void)setModalPresentationStyle:(UIModalPresentationStyle)modalPresentationStyle{
-    _modalPresentationStyle = modalPresentationStyle;//UIModalPresentationFullScreen
+    _modalPresentationStyle = UIModalPresentationPopover;
 }
 #pragma mark —— lazyLoad
 -(UIImageView *)bgImageView{

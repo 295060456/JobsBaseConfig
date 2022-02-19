@@ -76,6 +76,11 @@ typedef NS_ENUM(NSInteger, CompareRes) {
     CompareRes_LessThan// <
 };
 
+typedef NS_ENUM(NSInteger, JobsSearchStrategy) {
+    JobsSearchStrategy_Accurate = 0,/// 精确查询
+    JobsSearchStrategy_Fuzzy/// 模糊查询
+};
+
 typedef NS_ENUM(NSInteger, ScrollDirection) {
     ScrollDirectionNone = 0,
     ScrollDirectionRight,// 右👉🏻
@@ -149,10 +154,12 @@ BaseProtocol
                          selectorBlock:(jobsByTwoIDBlock _Nullable)selectorBlock;
 +(instancetype _Nonnull)jobsInitWithReuseIdentifier;
 -(instancetype _Nonnull)jobsInitWithReuseIdentifierClass:(Class _Nonnull)cls;
-/// 模糊查询
-/// @param data 模糊查询的数据源
+/// 查询算法
+/// @param data 查询的数据源
+/// @param searchStrategy 查询策略
 /// @param keywords 关键词
 -(NSMutableSet *_Nullable)dimSearchWithData:(id _Nonnull)data
+                             searchStrategy:(JobsSearchStrategy)searchStrategy
                                    keywords:(NSString *_Nonnull)keywords;
 /// 索取对象obj里面属性名为propertyName的值，如果没有这个属性则查找返回nil
 /// @param obj 索取对象
