@@ -330,6 +330,12 @@
 		842475AE27C0D67000831270 /* YTKBaseRequest+AnimatingAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 842475A727C0D67000831270 /* YTKBaseRequest+AnimatingAccessory.m */; };
 		842475B527C0DE6100831270 /* YTKRequest+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 842475B427C0DE6100831270 /* YTKRequest+Custom.m */; };
 		8424771527C0FDCA00831270 /* GetCustomerContactApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 8424771427C0FDCA00831270 /* GetCustomerContactApi.m */; };
+		8424779227C1141900831270 /* CoreTextLearningVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8424779127C1141900831270 /* CoreTextLearningVC.m */; };
+		8424779B27C1147E00831270 /* NotifiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8424779727C1147E00831270 /* NotifiView.m */; };
+		8424779C27C1147E00831270 /* CutomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8424779927C1147E00831270 /* CutomView.m */; };
+		842477A427C114BE00831270 /* NotifiOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8424779E27C114BD00831270 /* NotifiOperation.m */; };
+		842477A527C114BE00831270 /* NotifiViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 842477A027C114BD00831270 /* NotifiViewFactory.m */; };
+		842477A627C114BE00831270 /* NotifiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 842477A127C114BD00831270 /* NotifiManager.m */; };
 		842D299C276C9547003B6C8E /* JobsBaseConfigNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D299B276C9547003B6C8E /* JobsBaseConfigNotificationManager.m */; };
 		844019902791997C0038FF6F /* NSMutableArray+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 8440198E2791997C0038FF6F /* NSMutableArray+Extra.m */; };
 		84401A7F27919E3B0038FF6F /* JobsSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 84401A5B27919E3B0038FF6F /* JobsSearchBar.m */; };
@@ -1348,6 +1354,18 @@
 		842475B427C0DE6100831270 /* YTKRequest+Custom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "YTKRequest+Custom.m"; sourceTree = "<group>"; };
 		8424771327C0FDCA00831270 /* GetCustomerContactApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetCustomerContactApi.h; sourceTree = "<group>"; };
 		8424771427C0FDCA00831270 /* GetCustomerContactApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetCustomerContactApi.m; sourceTree = "<group>"; };
+		8424779027C1141900831270 /* CoreTextLearningVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreTextLearningVC.h; sourceTree = "<group>"; };
+		8424779127C1141900831270 /* CoreTextLearningVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreTextLearningVC.m; sourceTree = "<group>"; };
+		8424779627C1147E00831270 /* NotifiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotifiView.h; sourceTree = "<group>"; };
+		8424779727C1147E00831270 /* NotifiView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotifiView.m; sourceTree = "<group>"; };
+		8424779927C1147E00831270 /* CutomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CutomView.m; sourceTree = "<group>"; };
+		8424779A27C1147E00831270 /* CutomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CutomView.h; sourceTree = "<group>"; };
+		8424779E27C114BD00831270 /* NotifiOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotifiOperation.m; sourceTree = "<group>"; };
+		8424779F27C114BD00831270 /* NotifiViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotifiViewFactory.h; sourceTree = "<group>"; };
+		842477A027C114BD00831270 /* NotifiViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotifiViewFactory.m; sourceTree = "<group>"; };
+		842477A127C114BD00831270 /* NotifiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotifiManager.m; sourceTree = "<group>"; };
+		842477A227C114BE00831270 /* NotifiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotifiManager.h; sourceTree = "<group>"; };
+		842477A327C114BE00831270 /* NotifiOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotifiOperation.h; sourceTree = "<group>"; };
 		842D299A276C9547003B6C8E /* JobsBaseConfigNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBaseConfigNotificationManager.h; sourceTree = "<group>"; };
 		842D299B276C9547003B6C8E /* JobsBaseConfigNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsBaseConfigNotificationManager.m; sourceTree = "<group>"; };
 		8440198E2791997C0038FF6F /* NSMutableArray+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Extra.m"; sourceTree = "<group>"; };
@@ -5347,6 +5365,89 @@
 			path = GetCustomerContactApi;
 			sourceTree = "<group>";
 		};
+		8424778F27C113FE00831270 /* CoreTextLearning */ = {
+			isa = PBXGroup;
+			children = (
+				8424779D27C114B400831270 /* CoreTextLearningCore */,
+				8424779427C1146A00831270 /* ViewController */,
+				8424779327C1145D00831270 /* View */,
+			);
+			path = CoreTextLearning;
+			sourceTree = "<group>";
+		};
+		8424779327C1145D00831270 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8424779827C1147E00831270 /* CutomView */,
+				8424779527C1147E00831270 /* NotifiView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8424779427C1146A00831270 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8424779027C1141900831270 /* CoreTextLearningVC.h */,
+				8424779127C1141900831270 /* CoreTextLearningVC.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		8424779527C1147E00831270 /* NotifiView */ = {
+			isa = PBXGroup;
+			children = (
+				8424779627C1147E00831270 /* NotifiView.h */,
+				8424779727C1147E00831270 /* NotifiView.m */,
+			);
+			path = NotifiView;
+			sourceTree = "<group>";
+		};
+		8424779827C1147E00831270 /* CutomView */ = {
+			isa = PBXGroup;
+			children = (
+				8424779927C1147E00831270 /* CutomView.m */,
+				8424779A27C1147E00831270 /* CutomView.h */,
+			);
+			path = CutomView;
+			sourceTree = "<group>";
+		};
+		8424779D27C114B400831270 /* CoreTextLearningCore */ = {
+			isa = PBXGroup;
+			children = (
+				842477A927C114D300831270 /* NotifiViewFactory */,
+				842477A827C114CC00831270 /* NotifiOperation */,
+				842477A727C114C300831270 /* NotifiManager */,
+			);
+			path = CoreTextLearningCore;
+			sourceTree = "<group>";
+		};
+		842477A727C114C300831270 /* NotifiManager */ = {
+			isa = PBXGroup;
+			children = (
+				842477A227C114BE00831270 /* NotifiManager.h */,
+				842477A127C114BD00831270 /* NotifiManager.m */,
+			);
+			path = NotifiManager;
+			sourceTree = "<group>";
+		};
+		842477A827C114CC00831270 /* NotifiOperation */ = {
+			isa = PBXGroup;
+			children = (
+				842477A327C114BE00831270 /* NotifiOperation.h */,
+				8424779E27C114BD00831270 /* NotifiOperation.m */,
+			);
+			path = NotifiOperation;
+			sourceTree = "<group>";
+		};
+		842477A927C114D300831270 /* NotifiViewFactory */ = {
+			isa = PBXGroup;
+			children = (
+				8424779F27C114BD00831270 /* NotifiViewFactory.h */,
+				842477A027C114BD00831270 /* NotifiViewFactory.m */,
+			);
+			path = NotifiViewFactory;
+			sourceTree = "<group>";
+		};
 		8440198D2791997C0038FF6F /* NSMutableArray */ = {
 			isa = PBXGroup;
 			children = (
@@ -8196,6 +8297,7 @@
 		84CA609D278980E700E46E71 /* 功能模块 */ = {
 			isa = PBXGroup;
 			children = (
+				8424778F27C113FE00831270 /* CoreTextLearning */,
 				8424731227C0C19700831270 /* 探究猿题库网络框架（YTKNetwork） */,
 				84CA642C2789C0F700E46E71 /* Douyin_ZFPlayer */,
 				84CA63C62789B1C600E46E71 /* DynamicView */,
@@ -9219,6 +9321,7 @@
 				84CA5FE227897AFB00E46E71 /* FSAppIconManager.m in Sources */,
 				840F96ED27736428004979E9 /* NSObject+UserNotifications.m in Sources */,
 				84CA63D12789B3CC00E46E71 /* TestIrregularViewTestVC.m in Sources */,
+				842477A627C114BE00831270 /* NotifiManager.m in Sources */,
 				842475AB27C0D67000831270 /* YTKChainRequest+AnimatingAccessory.m in Sources */,
 				840F96D727736428004979E9 /* NSTimerManager.m in Sources */,
 				840F96FD27736428004979E9 /* NSObject+IDFA.m in Sources */,
@@ -9267,6 +9370,7 @@
 				844B083B2764CF4800B0513D /* JXCategoryTitleBackgroundCell.m in Sources */,
 				844B08502764CF4800B0513D /* ECPrivacyCheckPhotos.m in Sources */,
 				840F960B27736427004979E9 /* BWShareView.m in Sources */,
+				8424779227C1141900831270 /* CoreTextLearningVC.m in Sources */,
 				8459CE242776DD4000125782 /* SceneDelegate+UISceneDelegate.m in Sources */,
 				844B083A2764CF4800B0513D /* JXCategoryTitleBackgroundCellModel.m in Sources */,
 				844B083C2764CF4800B0513D /* JXCategoryTitleBackgroundView.m in Sources */,
@@ -9275,8 +9379,10 @@
 				844B08792764CF4800B0513D /* XHLaunchAdButton.m in Sources */,
 				840F970427736428004979E9 /* NSObject+ChangeAppicon.m in Sources */,
 				840F96FB27736428004979E9 /* NSObject+UUID.m in Sources */,
+				8424779B27C1147E00831270 /* NotifiView.m in Sources */,
 				84CA64BE2789C80600E46E71 /* ZFDouYinCell.m in Sources */,
 				84CA5FA227897AFB00E46E71 /* AES.m in Sources */,
+				842477A527C114BE00831270 /* NotifiViewFactory.m in Sources */,
 				840F968127736428004979E9 /* UITextView+IndicateWordLimit.m in Sources */,
 				840F969527736428004979E9 /* NSString+Statistics.m in Sources */,
 				84D764AF2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel.m in Sources */,
@@ -9402,6 +9508,7 @@
 				840F960F27736427004979E9 /* ZBURLRequest.m in Sources */,
 				84CA64C82789C94400E46E71 /* ZFTableData.m in Sources */,
 				840F967227736428004979E9 /* UIView+Chain.m in Sources */,
+				8424779C27C1147E00831270 /* CutomView.m in Sources */,
 				844B12892764E5C200B0513D /* URLManagerModel.m in Sources */,
 				840F960427736427004979E9 /* TransitionController.m in Sources */,
 				8459D61C2779A88A00125782 /* CasinoCustomerContactModel.m in Sources */,
@@ -9487,6 +9594,7 @@
 				8459CF1A2776F7C600125782 /* CasinoUpgradePopupView.m in Sources */,
 				844B08422764CF4800B0513D /* ZWPullMenuView.m in Sources */,
 				840F968C27736428004979E9 /* UICollectionViewCell+Default.m in Sources */,
+				842477A427C114BE00831270 /* NotifiOperation.m in Sources */,
 				840F966227736428004979E9 /* LGiOSBtn.m in Sources */,
 				846DF03727806D230050468A /* JobsAppDoorModel.m in Sources */,
 				840F969F27736428004979E9 /* UIViewController+XLBubbleTransition.m in Sources */,

@@ -53,5 +53,6 @@
 #import "JobsTimerVC.h"
 #import "JobsDropDownListVC.h"
 #import "YTKNetworkStudyVC.h"
+#import "CoreTextLearningVC.h"
 
 #endif /* Other_h */

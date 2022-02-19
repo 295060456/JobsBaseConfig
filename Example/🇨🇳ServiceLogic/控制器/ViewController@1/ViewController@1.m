@@ -335,6 +335,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             [_dataMutArr addObject:viewModel];
         }
         
+        {
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"CoreTextLearningVC"
+                                                           subTitle:Internationalization(@"探究CoreText")];
+            viewModel.cls = CoreTextLearningVC.class;
+            [_dataMutArr addObject:viewModel];
+        }
+        
     }return _dataMutArr;
 }
 
