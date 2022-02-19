@@ -39,6 +39,12 @@
 
 #import "XYColorOC-umbrella.h"
 
+#if __has_include(<YTKNetwork/YTKNetwork.h>)
+#import <YTKNetwork/YTKNetwork.h>
+#else
+#import "YTKNetwork.h"
+#endif
+
 #if __has_include(<ZMJGanttChart/ZMJGanttChart.h>)
 #import <ZMJGanttChart/ZMJGanttChart.h>
 #else

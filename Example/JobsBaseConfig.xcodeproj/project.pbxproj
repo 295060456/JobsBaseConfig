@@ -318,6 +318,18 @@
 		840F9C6A277367E8004979E9 /* NSObject+UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F9C69277367E8004979E9 /* NSObject+UserInfo.m */; };
 		840F9C72277368AE004979E9 /* NSObject+URLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F9C6D277368AE004979E9 /* NSObject+URLManager.m */; };
 		8416F28427B23118008D10E2 /* JobsFormatTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 8416F28327B23118008D10E2 /* JobsFormatTime.m */; };
+		8424743527C0C32B00831270 /* YTKNetworkStudyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8424743427C0C32B00831270 /* YTKNetworkStudyVC.m */; };
+		8424743F27C0CAEB00831270 /* GetImageApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 8424743827C0CAEA00831270 /* GetImageApi.m */; };
+		8424744027C0CAEB00831270 /* YTKUrlArgumentsFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8424743927C0CAEA00831270 /* YTKUrlArgumentsFilter.m */; };
+		8424744127C0CAEB00831270 /* RegisterApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 8424743D27C0CAEA00831270 /* RegisterApi.m */; };
+		8424744227C0CAEB00831270 /* GetUserInfoApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 8424743E27C0CAEA00831270 /* GetUserInfoApi.m */; };
+		8424752D27C0D30700831270 /* UploadImageApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 8424752C27C0D30700831270 /* UploadImageApi.m */; };
+		842475AB27C0D67000831270 /* YTKChainRequest+AnimatingAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 842475A327C0D66F00831270 /* YTKChainRequest+AnimatingAccessory.m */; };
+		842475AC27C0D67000831270 /* YTKBatchRequest+AnimatingAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 842475A427C0D66F00831270 /* YTKBatchRequest+AnimatingAccessory.m */; };
+		842475AD27C0D67000831270 /* YTKAnimatingRequestAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 842475A627C0D67000831270 /* YTKAnimatingRequestAccessory.m */; };
+		842475AE27C0D67000831270 /* YTKBaseRequest+AnimatingAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 842475A727C0D67000831270 /* YTKBaseRequest+AnimatingAccessory.m */; };
+		842475B527C0DE6100831270 /* YTKRequest+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 842475B427C0DE6100831270 /* YTKRequest+Custom.m */; };
+		8424771527C0FDCA00831270 /* GetCustomerContactApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 8424771427C0FDCA00831270 /* GetCustomerContactApi.m */; };
 		842D299C276C9547003B6C8E /* JobsBaseConfigNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 842D299B276C9547003B6C8E /* JobsBaseConfigNotificationManager.m */; };
 		844019902791997C0038FF6F /* NSMutableArray+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 8440198E2791997C0038FF6F /* NSMutableArray+Extra.m */; };
 		84401A7F27919E3B0038FF6F /* JobsSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 84401A5B27919E3B0038FF6F /* JobsSearchBar.m */; };
@@ -1312,6 +1324,30 @@
 		840F9C6E277368AE004979E9 /* NSObject+URLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+URLManager.h"; sourceTree = "<group>"; };
 		8416F28227B23118008D10E2 /* JobsFormatTime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsFormatTime.h; sourceTree = "<group>"; };
 		8416F28327B23118008D10E2 /* JobsFormatTime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsFormatTime.m; sourceTree = "<group>"; };
+		8424743327C0C32B00831270 /* YTKNetworkStudyVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTKNetworkStudyVC.h; sourceTree = "<group>"; };
+		8424743427C0C32B00831270 /* YTKNetworkStudyVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTKNetworkStudyVC.m; sourceTree = "<group>"; };
+		8424743727C0CAE900831270 /* YTKUrlArgumentsFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKUrlArgumentsFilter.h; sourceTree = "<group>"; };
+		8424743827C0CAEA00831270 /* GetImageApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetImageApi.m; sourceTree = "<group>"; };
+		8424743927C0CAEA00831270 /* YTKUrlArgumentsFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKUrlArgumentsFilter.m; sourceTree = "<group>"; };
+		8424743A27C0CAEA00831270 /* RegisterApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterApi.h; sourceTree = "<group>"; };
+		8424743B27C0CAEA00831270 /* GetUserInfoApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserInfoApi.h; sourceTree = "<group>"; };
+		8424743C27C0CAEA00831270 /* GetImageApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetImageApi.h; sourceTree = "<group>"; };
+		8424743D27C0CAEA00831270 /* RegisterApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterApi.m; sourceTree = "<group>"; };
+		8424743E27C0CAEA00831270 /* GetUserInfoApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserInfoApi.m; sourceTree = "<group>"; };
+		8424752B27C0D30700831270 /* UploadImageApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadImageApi.h; sourceTree = "<group>"; };
+		8424752C27C0D30700831270 /* UploadImageApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadImageApi.m; sourceTree = "<group>"; };
+		842475A327C0D66F00831270 /* YTKChainRequest+AnimatingAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YTKChainRequest+AnimatingAccessory.m"; sourceTree = "<group>"; };
+		842475A427C0D66F00831270 /* YTKBatchRequest+AnimatingAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YTKBatchRequest+AnimatingAccessory.m"; sourceTree = "<group>"; };
+		842475A527C0D67000831270 /* YTKAnimatingRequestAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKAnimatingRequestAccessory.h; sourceTree = "<group>"; };
+		842475A627C0D67000831270 /* YTKAnimatingRequestAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKAnimatingRequestAccessory.m; sourceTree = "<group>"; };
+		842475A727C0D67000831270 /* YTKBaseRequest+AnimatingAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YTKBaseRequest+AnimatingAccessory.m"; sourceTree = "<group>"; };
+		842475A827C0D67000831270 /* YTKChainRequest+AnimatingAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YTKChainRequest+AnimatingAccessory.h"; sourceTree = "<group>"; };
+		842475A927C0D67000831270 /* YTKBatchRequest+AnimatingAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YTKBatchRequest+AnimatingAccessory.h"; sourceTree = "<group>"; };
+		842475AA27C0D67000831270 /* YTKBaseRequest+AnimatingAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YTKBaseRequest+AnimatingAccessory.h"; sourceTree = "<group>"; };
+		842475B327C0DE6100831270 /* YTKRequest+Custom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YTKRequest+Custom.h"; sourceTree = "<group>"; };
+		842475B427C0DE6100831270 /* YTKRequest+Custom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "YTKRequest+Custom.m"; sourceTree = "<group>"; };
+		8424771327C0FDCA00831270 /* GetCustomerContactApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GetCustomerContactApi.h; sourceTree = "<group>"; };
+		8424771427C0FDCA00831270 /* GetCustomerContactApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetCustomerContactApi.m; sourceTree = "<group>"; };
 		842D299A276C9547003B6C8E /* JobsBaseConfigNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBaseConfigNotificationManager.h; sourceTree = "<group>"; };
 		842D299B276C9547003B6C8E /* JobsBaseConfigNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsBaseConfigNotificationManager.m; sourceTree = "<group>"; };
 		8440198E2791997C0038FF6F /* NSMutableArray+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Extra.m"; sourceTree = "<group>"; };
@@ -1625,7 +1661,6 @@
 		845D3652279FE80700F40A9E /* MyVCModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyVCModel.h; sourceTree = "<group>"; };
 		845D3654279FE80700F40A9E /* 20190619125944370.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 20190619125944370.png; sourceTree = "<group>"; };
 		845D3655279FE80700F40A9E /* File */ = {isa = PBXFileReference; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
-		845D3656279FE80700F40A9E /* Xcode 资料下载.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Xcode 资料下载.h"; sourceTree = "<group>"; };
 		845D3658279FE80700F40A9E /* File */ = {isa = PBXFileReference; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
 		845D365A279FE80700F40A9E /* 获取当前视图控制器.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "获取当前视图控制器.png"; sourceTree = "<group>"; };
 		845D365B279FE80700F40A9E /* 精确度量 iOS App 的启动时间.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "精确度量 iOS App 的启动时间.md"; sourceTree = "<group>"; };
@@ -5169,6 +5204,149 @@
 			path = JobsFormatTime;
 			sourceTree = "<group>";
 		};
+		8424731227C0C19700831270 /* 探究猿题库网络框架（YTKNetwork） */ = {
+			isa = PBXGroup;
+			children = (
+				8424743327C0C32B00831270 /* YTKNetworkStudyVC.h */,
+				8424743427C0C32B00831270 /* YTKNetworkStudyVC.m */,
+				8424743627C0CAD900831270 /* YTKNetworkTools */,
+			);
+			path = "探究猿题库网络框架（YTKNetwork）";
+			sourceTree = "<group>";
+		};
+		8424743627C0CAD900831270 /* YTKNetworkTools */ = {
+			isa = PBXGroup;
+			children = (
+				842475A127C0D65800831270 /* Accessory */,
+				842475A227C0D65C00831270 /* Api */,
+				842475B627C0DE6F00831270 /* YTKRequest+Custom */,
+				8424744627C0CB0800831270 /* YTKUrlArgumentsFilter */,
+			);
+			path = YTKNetworkTools;
+			sourceTree = "<group>";
+		};
+		8424744327C0CAEF00831270 /* GetImageApi */ = {
+			isa = PBXGroup;
+			children = (
+				8424743C27C0CAEA00831270 /* GetImageApi.h */,
+				8424743827C0CAEA00831270 /* GetImageApi.m */,
+			);
+			path = GetImageApi;
+			sourceTree = "<group>";
+		};
+		8424744427C0CAF700831270 /* GetUserInfoApi */ = {
+			isa = PBXGroup;
+			children = (
+				8424743B27C0CAEA00831270 /* GetUserInfoApi.h */,
+				8424743E27C0CAEA00831270 /* GetUserInfoApi.m */,
+			);
+			path = GetUserInfoApi;
+			sourceTree = "<group>";
+		};
+		8424744527C0CB0000831270 /* RegisterApi */ = {
+			isa = PBXGroup;
+			children = (
+				8424743A27C0CAEA00831270 /* RegisterApi.h */,
+				8424743D27C0CAEA00831270 /* RegisterApi.m */,
+			);
+			path = RegisterApi;
+			sourceTree = "<group>";
+		};
+		8424744627C0CB0800831270 /* YTKUrlArgumentsFilter */ = {
+			isa = PBXGroup;
+			children = (
+				8424743727C0CAE900831270 /* YTKUrlArgumentsFilter.h */,
+				8424743927C0CAEA00831270 /* YTKUrlArgumentsFilter.m */,
+			);
+			path = YTKUrlArgumentsFilter;
+			sourceTree = "<group>";
+		};
+		8424752E27C0D30D00831270 /* UploadImageApi */ = {
+			isa = PBXGroup;
+			children = (
+				8424752B27C0D30700831270 /* UploadImageApi.h */,
+				8424752C27C0D30700831270 /* UploadImageApi.m */,
+			);
+			path = UploadImageApi;
+			sourceTree = "<group>";
+		};
+		842475A127C0D65800831270 /* Accessory */ = {
+			isa = PBXGroup;
+			children = (
+				842475B227C0D69300831270 /* YTKChainRequest+AnimatingAccessory */,
+				842475B127C0D68600831270 /* YTKBatchRequest+AnimatingAccessory */,
+				842475B027C0D67E00831270 /* YTKBaseRequest+AnimatingAccessory */,
+				842475AF27C0D67700831270 /* YTKAnimatingRequestAccessory */,
+			);
+			path = Accessory;
+			sourceTree = "<group>";
+		};
+		842475A227C0D65C00831270 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				8424771627C0FDCF00831270 /* GetCustomerContactApi */,
+				8424744327C0CAEF00831270 /* GetImageApi */,
+				8424744427C0CAF700831270 /* GetUserInfoApi */,
+				8424744527C0CB0000831270 /* RegisterApi */,
+				8424752E27C0D30D00831270 /* UploadImageApi */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		842475AF27C0D67700831270 /* YTKAnimatingRequestAccessory */ = {
+			isa = PBXGroup;
+			children = (
+				842475A527C0D67000831270 /* YTKAnimatingRequestAccessory.h */,
+				842475A627C0D67000831270 /* YTKAnimatingRequestAccessory.m */,
+			);
+			path = YTKAnimatingRequestAccessory;
+			sourceTree = "<group>";
+		};
+		842475B027C0D67E00831270 /* YTKBaseRequest+AnimatingAccessory */ = {
+			isa = PBXGroup;
+			children = (
+				842475AA27C0D67000831270 /* YTKBaseRequest+AnimatingAccessory.h */,
+				842475A727C0D67000831270 /* YTKBaseRequest+AnimatingAccessory.m */,
+			);
+			path = "YTKBaseRequest+AnimatingAccessory";
+			sourceTree = "<group>";
+		};
+		842475B127C0D68600831270 /* YTKBatchRequest+AnimatingAccessory */ = {
+			isa = PBXGroup;
+			children = (
+				842475A927C0D67000831270 /* YTKBatchRequest+AnimatingAccessory.h */,
+				842475A427C0D66F00831270 /* YTKBatchRequest+AnimatingAccessory.m */,
+			);
+			path = "YTKBatchRequest+AnimatingAccessory";
+			sourceTree = "<group>";
+		};
+		842475B227C0D69300831270 /* YTKChainRequest+AnimatingAccessory */ = {
+			isa = PBXGroup;
+			children = (
+				842475A827C0D67000831270 /* YTKChainRequest+AnimatingAccessory.h */,
+				842475A327C0D66F00831270 /* YTKChainRequest+AnimatingAccessory.m */,
+			);
+			path = "YTKChainRequest+AnimatingAccessory";
+			sourceTree = "<group>";
+		};
+		842475B627C0DE6F00831270 /* YTKRequest+Custom */ = {
+			isa = PBXGroup;
+			children = (
+				842475B327C0DE6100831270 /* YTKRequest+Custom.h */,
+				842475B427C0DE6100831270 /* YTKRequest+Custom.m */,
+			);
+			path = "YTKRequest+Custom";
+			sourceTree = "<group>";
+		};
+		8424771627C0FDCF00831270 /* GetCustomerContactApi */ = {
+			isa = PBXGroup;
+			children = (
+				8424771327C0FDCA00831270 /* GetCustomerContactApi.h */,
+				8424771427C0FDCA00831270 /* GetCustomerContactApi.m */,
+			);
+			path = GetCustomerContactApi;
+			sourceTree = "<group>";
+		};
 		8440198D2791997C0038FF6F /* NSMutableArray */ = {
 			isa = PBXGroup;
 			children = (
@@ -5587,15 +5765,15 @@
 		844B07AC2764CF4700B0513D /* PodsManual */ = {
 			isa = PBXGroup;
 			children = (
-				8458D273278DBDD40063A76E /* LMJDropdownMenu */,
-				844B07AD2764CF4700B0513D /* RAC_Define */,
-				844B07B42764CF4700B0513D /* JXCategoryView */,
-				844B07C32764CF4700B0513D /* ZWPullMenuView */,
-				844B07CE2764CF4700B0513D /* FMDatabase+Manager */,
-				844B07D12764CF4700B0513D /* LYEmptyView */,
 				844B07D42764CF4700B0513D /* ECPrivacyCheckTools */,
-				844B081A2764CF4800B0513D /* ZMJCell+CustomView */,
+				844B07CE2764CF4700B0513D /* FMDatabase+Manager */,
+				844B07B42764CF4700B0513D /* JXCategoryView */,
+				8458D273278DBDD40063A76E /* LMJDropdownMenu */,
+				844B07D12764CF4700B0513D /* LYEmptyView */,
+				844B07AD2764CF4700B0513D /* RAC_Define */,
 				844B08202764CF4800B0513D /* XHLaunchAd */,
+				844B081A2764CF4800B0513D /* ZMJCell+CustomView */,
+				844B07C32764CF4700B0513D /* ZWPullMenuView */,
 			);
 			path = PodsManual;
 			sourceTree = "<group>";
@@ -6359,7 +6537,6 @@
 				845D364C279FE80700F40A9E /* 关于响应链的一些研究成果 */,
 				845D364E279FE80700F40A9E /* MJExtension用法 */,
 				845D3653279FE80700F40A9E /* FFmpeg */,
-				845D3656279FE80700F40A9E /* Xcode 资料下载.h */,
 				845D3657279FE80700F40A9E /* 读取本地plist */,
 				845D3659279FE80700F40A9E /* 其他 */,
 				845D3670279FE80700F40A9E /* JXCategoryView */,
@@ -8019,6 +8196,7 @@
 		84CA609D278980E700E46E71 /* 功能模块 */ = {
 			isa = PBXGroup;
 			children = (
+				8424731227C0C19700831270 /* 探究猿题库网络框架（YTKNetwork） */,
 				84CA642C2789C0F700E46E71 /* Douyin_ZFPlayer */,
 				84CA63C62789B1C600E46E71 /* DynamicView */,
 				84CA65F02789D39700E46E71 /* JobsAppDoor-2 */,
@@ -8963,6 +9141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8424752D27C0D30700831270 /* UploadImageApi.m in Sources */,
 				845C79912786D2FE009843EE /* JobsAppDoorInputViewBaseStyle_1.m in Sources */,
 				84CA5FB127897AFB00E46E71 /* HAHandleDemoView.m in Sources */,
 				840F966D27736428004979E9 /* UIView+SuspendView.m in Sources */,
@@ -9040,6 +9219,7 @@
 				84CA5FE227897AFB00E46E71 /* FSAppIconManager.m in Sources */,
 				840F96ED27736428004979E9 /* NSObject+UserNotifications.m in Sources */,
 				84CA63D12789B3CC00E46E71 /* TestIrregularViewTestVC.m in Sources */,
+				842475AB27C0D67000831270 /* YTKChainRequest+AnimatingAccessory.m in Sources */,
 				840F96D727736428004979E9 /* NSTimerManager.m in Sources */,
 				840F96FD27736428004979E9 /* NSObject+IDFA.m in Sources */,
 				840F967927736428004979E9 /* UIView+AutoSelfAdaptionSize.m in Sources */,
@@ -9119,6 +9299,7 @@
 				84CA5FAC27897AFB00E46E71 /* XLChannelControl.m in Sources */,
 				840F967B27736428004979E9 /* UIView+MJRefresh.m in Sources */,
 				84A4920E27904A970002A837 /* JobsIMListTBVCell.m in Sources */,
+				8424744127C0CAEB00831270 /* RegisterApi.m in Sources */,
 				840F960027736427004979E9 /* JobsPullListTBVCell.m in Sources */,
 				84CA5FBA27897AFB00E46E71 /* WBPopMenuView.m in Sources */,
 				840F964627736427004979E9 /* UIImage+Extras.m in Sources */,
@@ -9246,6 +9427,7 @@
 				844B084B2764CF4800B0513D /* ECPrivacyCheckFilesAndFolders.m in Sources */,
 				840F95E627736427004979E9 /* UITabBarItem+TLAnimation.m in Sources */,
 				840F969627736428004979E9 /* NSString+Decoration.m in Sources */,
+				842475AD27C0D67000831270 /* YTKAnimatingRequestAccessory.m in Sources */,
 				84562598278BF2780067ABB9 /* JobsPopUpVC.m in Sources */,
 				84868F19277ADF690098BE7A /* JobsDropDownListView.m in Sources */,
 				840F969827736428004979E9 /* NSString+Judgment.m in Sources */,
@@ -9309,16 +9491,20 @@
 				846DF03727806D230050468A /* JobsAppDoorModel.m in Sources */,
 				840F969F27736428004979E9 /* UIViewController+XLBubbleTransition.m in Sources */,
 				844B084C2764CF4800B0513D /* ECPrivacyCheckCalendars.m in Sources */,
+				842475AC27C0D67000831270 /* YTKBatchRequest+AnimatingAccessory.m in Sources */,
 				840F95E227736427004979E9 /* ImageCodeView.m in Sources */,
+				8424744227C0CAEB00831270 /* GetUserInfoApi.m in Sources */,
 				840F967727736428004979E9 /* UIView+JHGestureBlock.m in Sources */,
 				844022972792B6340038FF6F /* JobsHotLabelWithMultiLineCVCell.m in Sources */,
 				840F967E27736428004979E9 /* NSMutableDictionary+Ordered.m in Sources */,
 				84CA619C2789856C00E46E71 /* MyFansTBVCell.m in Sources */,
 				84CA5FBC27897AFB00E46E71 /* WBTableViewCell.m in Sources */,
 				844B083F2764CF4800B0513D /* JXCategoryTimelineCell.m in Sources */,
+				842475AE27C0D67000831270 /* YTKBaseRequest+AnimatingAccessory.m in Sources */,
 				840F960127736427004979E9 /* JobsPullListAutoSizeView.m in Sources */,
 				84CA64A42789C1F100E46E71 /* Douyin_ZFPlayerVC@1.m in Sources */,
 				844B084A2764CF4800B0513D /* ECPrivacyCheckLocationServices.m in Sources */,
+				8424743F27C0CAEB00831270 /* GetImageApi.m in Sources */,
 				840F965B27736428004979E9 /* ButtonTimerConfigModel.m in Sources */,
 				840F96BF27736428004979E9 /* NSArray+Tools.m in Sources */,
 				840F965727736428004979E9 /* UIButton+UI.m in Sources */,
@@ -9333,6 +9519,7 @@
 				840F96CE27736428004979E9 /* NSCache+Extra.m in Sources */,
 				84758D0B279855710074B4BA /* JobsLaunchVC.m in Sources */,
 				840F963427736427004979E9 /* JobsUpDownLab.m in Sources */,
+				8424743527C0C32B00831270 /* YTKNetworkStudyVC.m in Sources */,
 				84869679277C68470098BE7A /* NSString+Check.m in Sources */,
 				840F96A027736428004979E9 /* UIViewController+BWShareView.m in Sources */,
 				84CA5FC627897AFB00E46E71 /* JhtBannerScrollView.m in Sources */,
@@ -9361,6 +9548,7 @@
 				840F95E727736427004979E9 /* JobsTabBarControllerConfig.m in Sources */,
 				840F96EE27736428004979E9 /* NSObject+DataSave.m in Sources */,
 				840F961327736427004979E9 /* NSString+ZBUTF8Encoding.m in Sources */,
+				8424771527C0FDCA00831270 /* GetCustomerContactApi.m in Sources */,
 				840F963F27736427004979E9 /* JobsSuspendLab.m in Sources */,
 				840F970127736428004979E9 /* NSObject+RichText.m in Sources */,
 				840F967527736428004979E9 /* UIView+BackgroundImage.m in Sources */,
@@ -9379,6 +9567,7 @@
 				845C798F2786D2FE009843EE /* AuthCodeLab.m in Sources */,
 				840F96FC27736428004979E9 /* NSObject+UDID.m in Sources */,
 				840F96B727736428004979E9 /* UITableView+WWFoldableTableView.m in Sources */,
+				842475B527C0DE6100831270 /* YTKRequest+Custom.m in Sources */,
 				84CA5CD02789587900E46E71 /* AppDelegate+UIApplicationDelegate.m in Sources */,
 				848AAD6E2788213400856087 /* UIScrollViewAnimationKit.m in Sources */,
 				840F96F327736428004979E9 /* NSObject+CurrentDevice.m in Sources */,
@@ -9386,6 +9575,7 @@
 				846DEFD927806BC50050468A /* NSObject+PopViewToLogOut.m in Sources */,
 				84CA5FC527897AFB00E46E71 /* JhtBannerView.m in Sources */,
 				844B08722764CF4800B0513D /* ECPrivacyCheckGatherTool.m in Sources */,
+				8424744027C0CAEB00831270 /* YTKUrlArgumentsFilter.m in Sources */,
 				84868DA32779DDA50098BE7A /* ZMJCells.m in Sources */,
 				844B02152764C8EE00B0513D /* SceneDelegate.m in Sources */,
 				84868E1F2779DFE30098BE7A /* UILabel+Extra.m in Sources */,

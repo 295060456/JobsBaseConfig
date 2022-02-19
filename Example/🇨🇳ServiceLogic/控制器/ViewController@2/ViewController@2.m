@@ -36,17 +36,6 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
-    if( [@"Some String" caseInsensitiveCompare:@"some string"] == NSOrderedSame ) {
-      // strings are equal except for possibly case
-        NSLog(@"");
-    }
-    
-    if( [@"Some String" caseInsensitiveCompare:@"some"] == NSOrderedSame ) {
-      // strings are equal except for possibly case
-        NSLog(@"");
-    }
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated{

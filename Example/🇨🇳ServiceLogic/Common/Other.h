@@ -52,5 +52,6 @@
 #import "JobsLaunchVC.h"
 #import "JobsTimerVC.h"
 #import "JobsDropDownListVC.h"
+#import "YTKNetworkStudyVC.h"
 
 #endif /* Other_h */
