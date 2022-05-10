@@ -96,7 +96,8 @@
         configure.gk_navItemLeftSpace = 12.0f;
         configure.gk_navItemRightSpace = 12.0f;
         
-        configure.shiledItemSpaceVCs = @[@"PUPhotoPickerHostViewController"];
+#warning 这里的Api有变化 先注释，否则无法编译通过
+//        configure.shiledItemSpaceVCs = @[@"PUPhotoPickerHostViewController"];
     }];
 }
 #pragma mark —— 网络环境监测

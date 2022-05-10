@@ -1,5 +1,4 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
 
 # 下面两行是指明依赖库的来源地址
 # source 'https://github.com/CocoaPods/Specs.git'# 使用官方默认地址（默认）
@@ -128,11 +127,12 @@ def database
   end
 # 基础的公共配置
 def cocoPodsConfig
+  # ❤️新工程需要修改这里❤️
   target 'JobsBaseConfigTests' do
     inherit! :search_paths # abstract! 指示当前的target是抽象的，因此不会直接链接Xcode target。与其相对应的是 inherit！
     # Pods for testing
     end
-  
+  # ❤️新工程需要修改这里❤️
   target 'JobsBaseConfigUITests' do
     inherit! :search_paths
     # Pods for testing
@@ -157,7 +157,7 @@ def cocoPodsConfig
     
   end
 end
-
+# ❤️新工程需要修改这里❤️
 target 'JobsBaseConfig' do
   # Pods for JobsBaseConfig
 #  testApp # 单元测试框架
