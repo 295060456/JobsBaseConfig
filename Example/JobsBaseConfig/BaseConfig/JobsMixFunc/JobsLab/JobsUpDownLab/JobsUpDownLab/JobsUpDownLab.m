@@ -96,6 +96,22 @@
     if (!_upBtn) {
         _upBtn = UIButton.new;
         _upBtn.titleLabel.textAlignment = self.upDownLabModel.upLabTextAlignment;
+        
+        switch (self.upDownLabModel.downLabTextAlignment) {
+            case NSTextAlignmentLeft:{
+                _upBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+            }break;
+            case NSTextAlignmentCenter:{
+                _upBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+            }break;
+            case NSTextAlignmentRight:{
+                _upBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+            }break;
+                
+            default:
+                break;
+        }
+        
         [_upBtn normalTitle:self.upDownLabModel.upLabText];
         [_upBtn normalImage:self.upDownLabModel.upLabImage];
         [_upBtn normalTitleColor:self.upDownLabModel.upLabTextCor];
@@ -131,6 +147,22 @@
     if (!_downBtn) {
         _downBtn = UIButton.new;
         _downBtn.titleLabel.textAlignment = self.upDownLabModel.downLabTextAlignment;
+        
+        switch (self.upDownLabModel.downLabTextAlignment) {
+            case NSTextAlignmentLeft:{
+                _downBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+            }break;
+            case NSTextAlignmentCenter:{
+                _downBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+            }break;
+            case NSTextAlignmentRight:{
+                _downBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+            }break;
+                
+            default:
+                break;
+        }
+        
         [_downBtn normalTitle:self.upDownLabModel.downLabText];
         [_downBtn normalImage:self.upDownLabModel.downLabImage];
         [_downBtn normalTitleColor:self.upDownLabModel.downLabTextCor];

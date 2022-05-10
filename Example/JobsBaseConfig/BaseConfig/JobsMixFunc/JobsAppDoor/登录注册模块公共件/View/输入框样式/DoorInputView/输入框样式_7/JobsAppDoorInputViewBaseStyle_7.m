@@ -28,17 +28,22 @@
 }
 #pragma mark —— 一些私有方法
 -(void)configTextField{
+//    _textField.leftView;
+//    _textField.leftViewMode;
+    _textField.leftViewOffsetX = self.doorInputViewBaseStyleModel.leftViewOffsetX ? :  JobsWidth(17);
     _textField.placeholder = self.doorInputViewBaseStyleModel.placeHolderStr;
-    _textField.returnKeyType = self.doorInputViewBaseStyleModel.returnKeyType;
+    _textField.placeholderColor = self.doorInputViewBaseStyleModel.placeholderColor;
+    _textField.placeholderFont = self.doorInputViewBaseStyleModel.placeholderFont;
+    _textField.placeHolderAlignment = self.doorInputViewBaseStyleModel.placeHolderAlignment ? : PlaceHolderAlignmentLeft;
+    _textField.placeHolderOffset = self.doorInputViewBaseStyleModel.placeHolderOffset ? : JobsWidth(20);
     _textField.keyboardType = self.doorInputViewBaseStyleModel.keyboardType;
     _textField.keyboardAppearance = self.doorInputViewBaseStyleModel.keyboardAppearance;
+    _textField.returnKeyType = self.doorInputViewBaseStyleModel.returnKeyType;
     _textField.textColor = self.doorInputViewBaseStyleModel.titleStrCor;
     _textField.useCustomClearButton = self.doorInputViewBaseStyleModel.useCustomClearButton;
     _textField.isShowDelBtn = self.doorInputViewBaseStyleModel.isShowDelBtn;
     _textField.rightViewOffsetX = self.doorInputViewBaseStyleModel.rightViewOffsetX;// 删除按钮的偏移量
     _textField.objBindingParams = self.textFieldInputModel;
-    _textField.placeholderColor = self.doorInputViewBaseStyleModel.placeholderColor;
-    _textField.placeholderFont = self.doorInputViewBaseStyleModel.placeholderFont;
     _textField.offset = self.doorInputViewBaseStyleModel.offset ? : JobsWidth(1);
     _textField.animationColor = self.doorInputViewBaseStyleModel.animationColor ? : Cor4;
     _textField.moveDistance = self.doorInputViewBaseStyleModel.moveDistance ? : JobsWidth(35);
@@ -99,28 +104,28 @@
         
         {
             UIViewModel *jobsPageViewModel = UIViewModel.new;
-            jobsPageViewModel.textModel.text = @"+855";
-            jobsPageViewModel.textModel.textCor = kWhiteColor;
+            jobsPageViewModel.textModel.text = Internationalization(@"請選擇區號");
+            jobsPageViewModel.textModel.textCor = HEXCOLOR(0xC4C4C4);
             jobsPageViewModel.bgCor = kClearColor;
-            jobsPageViewModel.textModel.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular];
+            jobsPageViewModel.textModel.font = [UIFont systemFontOfSize:JobsWidth(16) weight:UIFontWeightRegular];
             [_jobsPageViewDataMutArr addObject:jobsPageViewModel];
         }
         
         {
             UIViewModel *jobsPageViewModel = UIViewModel.new;
             jobsPageViewModel.textModel.text = @"+87";
-            jobsPageViewModel.textModel.textCor = kWhiteColor;
+            jobsPageViewModel.textModel.textCor = HEXCOLOR(0xC4C4C4);
             jobsPageViewModel.bgCor = kClearColor;
-            jobsPageViewModel.textModel.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular];
+            jobsPageViewModel.textModel.font = [UIFont systemFontOfSize:JobsWidth(16) weight:UIFontWeightRegular];
             [_jobsPageViewDataMutArr addObject:jobsPageViewModel];
         }
         
         {
             UIViewModel *jobsPageViewModel = UIViewModel.new;
             jobsPageViewModel.textModel.text = @"+88";
-            jobsPageViewModel.textModel.textCor = kWhiteColor;
+            jobsPageViewModel.textModel.textCor = HEXCOLOR(0xC4C4C4);
             jobsPageViewModel.bgCor = kClearColor;
-            jobsPageViewModel.textModel.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular];
+            jobsPageViewModel.textModel.font = [UIFont systemFontOfSize:JobsWidth(16) weight:UIFontWeightRegular];
             [_jobsPageViewDataMutArr addObject:jobsPageViewModel];
         }
         
@@ -134,7 +139,7 @@
         [_jobsPageView richElementsInViewWithModel:self.jobsPageViewDataMutArr];
         [self addSubview:_jobsPageView];
         [_jobsPageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.leftIMGV.mas_right).offset(JobsWidth(3));
+            make.left.equalTo(self.leftIMGV.mas_right).offset(JobsWidth(20));
             make.centerY.equalTo(self);
             make.height.mas_equalTo(JobsWidth(16));
             make.width.mas_equalTo([UIView widthByData:self.jobsPageViewDataMutArr[0]]);

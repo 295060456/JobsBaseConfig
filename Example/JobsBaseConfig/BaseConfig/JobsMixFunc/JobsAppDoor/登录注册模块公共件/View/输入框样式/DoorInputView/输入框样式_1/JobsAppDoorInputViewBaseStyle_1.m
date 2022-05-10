@@ -16,7 +16,7 @@
 @property(nonatomic,strong)NSString *titleStr_1;
 @property(nonatomic,strong)NSString *titleStr_2;
 @property(nonatomic,strong)JobsAppDoorInputViewBaseStyleModel *doorInputViewBaseStyleModel;
-@property(nonatomic,strong)NSMutableArray <RichTextConfig *>*richLabelDataStringsMutArr;
+//@property(nonatomic,strong)NSMutableArray <RichTextConfig *>*richLabelDataStringsMutArr;
 @property(nonatomic,strong)ButtonTimerConfigModel *btnTimerConfigModel;
 
 @end
@@ -30,6 +30,11 @@
         self.titleStr_2 = @"发送验证码";
         [self layerBorderColour:kWhiteColor andBorderWidth:1];
     }return self;
+}
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    _countDownBtn.width = 80;
 }
 #pragma mark —— 一些私有方法
 -(void)configTextField{
@@ -49,7 +54,7 @@
     _textField.leftViewOffsetX = self.doorInputViewBaseStyleModel.leftViewOffsetX ? :  JobsWidth(17);
     _textField.animationColor = self.doorInputViewBaseStyleModel.animationColor ? : Cor4;
     _textField.placeHolderAlignment = self.doorInputViewBaseStyleModel.placeHolderAlignment ? : PlaceHolderAlignmentLeft;
-    _textField.placeHolderOffset = self.doorInputViewBaseStyleModel.placeHolderOffset ? : JobsWidth(20);
+    _textField.placeHolderOffset = self.doorInputViewBaseStyleModel.placeHolderOffset ? : JobsWidth(39);
     _textField.moveDistance = self.doorInputViewBaseStyleModel.moveDistance ? : JobsWidth(35);
 }
 
@@ -97,25 +102,25 @@
         
         /// 一些通用的设置
         _btnTimerConfigModel.count = 50;
-        _btnTimerConfigModel.showTimeType = ShowTimeType_SS;//时间显示风格
+        _btnTimerConfigModel.showTimeType = ShowTimeType_SS;// 时间显示风格
         _btnTimerConfigModel.countDownBtnType = TimerStyle_anticlockwise;// 时间方向
         _btnTimerConfigModel.cequenceForShowTitleRuningStrType = CequenceForShowTitleRuningStrType_tail;//
-        _btnTimerConfigModel.labelShowingType = UILabelShowingType_05;//【换行模式】
+        _btnTimerConfigModel.labelShowingType = UILabelShowingType_01;//【换行模式】
         
         /// 计时器未开始【静态值】
         _btnTimerConfigModel.readyPlayValue.layerBorderWidth = 1;
         _btnTimerConfigModel.readyPlayValue.layerCornerRadius = JobsWidth(18);
-        _btnTimerConfigModel.readyPlayValue.bgCor = KYellowColor;
+        _btnTimerConfigModel.readyPlayValue.bgCor = UIColor.clearColor;
         _btnTimerConfigModel.readyPlayValue.layerBorderColour = kClearColor;
-        _btnTimerConfigModel.readyPlayValue.textCor = kBlackColor;
+        _btnTimerConfigModel.readyPlayValue.textCor = HEXCOLOR_ALPHA(0xAE8330, 1);
         _btnTimerConfigModel.readyPlayValue.text = Title9;
-        _btnTimerConfigModel.readyPlayValue.font = [UIFont systemFontOfSize:JobsWidth(13)
+        _btnTimerConfigModel.readyPlayValue.font = [UIFont systemFontOfSize:JobsWidth(14)
                                                                                weight:UIFontWeightMedium];
         /// 计时器进行中【动态值】
-        _btnTimerConfigModel.runningValue.bgCor = kCyanColor;
+        _btnTimerConfigModel.runningValue.bgCor = UIColor.clearColor;
         _btnTimerConfigModel.runningValue.text = Internationalization(Title12);
         /// 计时器结束【静态值】
-        _btnTimerConfigModel.endValue.bgCor = KYellowColor;
+        _btnTimerConfigModel.endValue.bgCor = UIColor.clearColor;
         
     }return _btnTimerConfigModel;
 }
@@ -136,7 +141,7 @@
 
         [self addSubview:_countDownBtn];
         [_countDownBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(self).offset(-JobsWidth(10));
+            make.right.equalTo(self).offset(-JobsWidth(80));
             make.top.equalTo(self).offset(JobsWidth(8));
             make.bottom.equalTo(self).offset(-JobsWidth(8));
             make.width.mas_equalTo(JobsWidth(80));
@@ -145,25 +150,25 @@
     }return _countDownBtn;
 }
 
--(NSMutableArray<RichTextConfig *> *)richLabelDataStringsMutArr{
-    if (!_richLabelDataStringsMutArr) {
-        _richLabelDataStringsMutArr = NSMutableArray.array;
-        
-        RichTextConfig *config_01 = RichTextConfig.new;
-        config_01.font = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightMedium];
-        config_01.textCor = kBlueColor;
-        config_01.targetString = self.titleStr_1;
-        
-        RichTextConfig *config_02 = RichTextConfig.new;
-        config_02.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightMedium];
-        config_02.textCor = kRedColor;
-        config_02.targetString = self.titleStr_2;
-        
-        [_richLabelDataStringsMutArr addObject:config_01];
-        [_richLabelDataStringsMutArr addObject:config_02];
-        
-    }return _richLabelDataStringsMutArr;
-}
+//-(NSMutableArray<RichTextConfig *> *)richLabelDataStringsMutArr{
+//    if (!_richLabelDataStringsMutArr) {
+//        _richLabelDataStringsMutArr = NSMutableArray.array;
+//
+//        RichTextConfig *config_01 = RichTextConfig.new;
+//        config_01.font = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightMedium];
+//        config_01.cor = kBlueColor;
+//        config_01.targetString = self.titleStr_1;
+//
+//        RichTextConfig *config_02 = RichTextConfig.new;
+//        config_02.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightMedium];
+//        config_02.cor = kRedColor;
+//        config_02.targetString = self.titleStr_2;
+//
+//        [_richLabelDataStringsMutArr addObject:config_01];
+//        [_richLabelDataStringsMutArr addObject:config_02];
+//
+//    }return _richLabelDataStringsMutArr;
+//}
 
 -(JobsMagicTextField *)textField{
     if (!_textField) {
