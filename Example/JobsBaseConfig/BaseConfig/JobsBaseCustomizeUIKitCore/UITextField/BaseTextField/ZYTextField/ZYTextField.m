@@ -33,18 +33,12 @@
 //    UIMenuController.sharedMenuController.menuVisible = self.isShowMenu;
     return self.isShowMenu;
 }
-/// 特别说明：
-/// 聚焦和失焦的时候都会走下列👇🏻方法
-/// [_textField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {}] subscribeNext:^(NSString * _Nullable x) {}]
-///  所以需要Block回调定位
 /// 当前文本框聚焦时就会调用
 -(BOOL)becomeFirstResponder{
-    if (self.NSIntegerBlock) self.NSIntegerBlock(UITextFieldGetFocus);
     return [super becomeFirstResponder];
 }
 /// 当前文本框失去焦点时就会调用
 -(BOOL)resignFirstResponder{
-    if (self.NSIntegerBlock) self.NSIntegerBlock(UITextFieldLoseFocus);
     return [super resignFirstResponder];
 }
 /// 必须在self有具体frame的时候才管用
@@ -121,11 +115,11 @@
                               bounds.size.height);
     return inset;
 }
-/// editing——Rect【编辑状态下的起始位置】
+/// editing——Rect【编辑状态下的起始位置】、UIFieldEditor的位置大小
 -(CGRect)editingRectForBounds:(CGRect)bounds{
     CGRect inset = CGRectMake((bounds.origin.x + self.offset) + (self.leftView.origin.x + self.leftView.size.width + self.leftViewOffsetX),
                               bounds.origin.y,
-                              bounds.size.width - (self.offset + self.leftViewOffsetX + self.rightViewOffsetX),
+                              bounds.size.width - (self.offset + self.leftViewOffsetX + self.rightViewOffsetX + self.fieldEditorOffset),
                               bounds.size.height);
     return inset;
 }
@@ -158,6 +152,12 @@
     if (!_ZYTextFieldBorderColor) {
         _ZYTextFieldBorderColor = kBlackColor;
     }return _ZYTextFieldBorderColor;
+}
+
+-(CGFloat)fieldEditorOffset{
+    if (!_fieldEditorOffset) {
+        _fieldEditorOffset = JobsWidth(50);
+    }return _fieldEditorOffset;
 }
 
 @end

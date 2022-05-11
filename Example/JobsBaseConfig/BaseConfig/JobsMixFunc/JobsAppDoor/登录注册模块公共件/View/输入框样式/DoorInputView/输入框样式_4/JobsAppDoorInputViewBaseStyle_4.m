@@ -19,11 +19,25 @@
 
 @implementation JobsAppDoorInputViewBaseStyle_4
 
+@synthesize thisViewSize = _thisViewSize;
+
 - (instancetype)init{
     if (self = [super init]) {
 //        self.backgroundColor = kRedColor;
         [self layerBorderColour:kWhiteColor andBorderWidth:1];
     }return self;
+}
+#pragma mark —— BaseViewProtocol
+- (instancetype)initWithSize:(CGSize)thisViewSize{
+    if (self = [super init]) {
+//        self.backgroundColor = kRedColor;
+        self.thisViewSize = thisViewSize;
+        [self layerBorderColour:kWhiteColor andBorderWidth:1];
+    }return self;
+}
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
 }
 #pragma mark —— 一些私有方法
 -(void)configTextField{
@@ -36,7 +50,7 @@
     _textField.textColor = self.doorInputViewBaseStyleModel.titleStrCor;
     _textField.useCustomClearButton = self.doorInputViewBaseStyleModel.useCustomClearButton;
     _textField.isShowDelBtn = self.doorInputViewBaseStyleModel.isShowDelBtn;
-    _textField.rightViewOffsetX = self.doorInputViewBaseStyleModel.rightViewOffsetX;// 删除按钮的偏移量
+    _textField.rightViewOffsetX = self.doorInputViewBaseStyleModel.rightViewOffsetX ? : JobsWidth(8);// 删除按钮的偏移量
     _textField.placeholderColor = self.doorInputViewBaseStyleModel.placeholderColor;
     _textField.placeholderFont = self.doorInputViewBaseStyleModel.placeholderFont;
     _textField.objBindingParams = self.textFieldInputModel;
@@ -45,6 +59,7 @@
     _textField.moveDistance = self.doorInputViewBaseStyleModel.moveDistance ? : JobsWidth(35);
     _textField.placeHolderAlignment = self.doorInputViewBaseStyleModel.placeHolderAlignment ? : PlaceHolderAlignmentLeft;
     _textField.placeHolderOffset = self.doorInputViewBaseStyleModel.placeHolderOffset ? : JobsWidth(20);
+    _textField.fieldEditorOffset = self.doorInputViewBaseStyleModel.fieldEditorOffset ? : JobsWidth(50);
 }
 
 -(void)block:(JobsMagicTextField *)textField

@@ -24,6 +24,17 @@
 -(void)dealloc{
     [_authCodeBtn timerDestroy];
 }
+#pragma mark —— BaseViewProtocol
+- (instancetype)initWithSize:(CGSize)thisViewSize{
+    if (self = [super init]) {
+//        self.backgroundColor = kRedColor;
+        self.thisViewSize = thisViewSize;
+    }return self;
+}
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
+}
 
 -(void)drawRect:(CGRect)rect{
     [super drawRect:rect];
@@ -40,7 +51,7 @@
     _textField.textColor = self.doorInputViewBaseStyleModel.ZYtextColor;
     _textField.useCustomClearButton = self.doorInputViewBaseStyleModel.useCustomClearButton;
     _textField.isShowDelBtn = self.doorInputViewBaseStyleModel.isShowDelBtn;
-    _textField.rightViewOffsetX = self.doorInputViewBaseStyleModel.rightViewOffsetX;// 删除按钮的偏移量
+    _textField.rightViewOffsetX = self.doorInputViewBaseStyleModel.rightViewOffsetX ? : JobsWidth(8);// 删除按钮的偏移量
     _textField.placeHolderAlignment = self.doorInputViewBaseStyleModel.placeHolderAlignment;
     _textField.placeHolderOffset = self.doorInputViewBaseStyleModel.placeHolderOffset;
     _textField.leftViewOffsetX = self.doorInputViewBaseStyleModel.leftViewOffsetX;
@@ -48,6 +59,7 @@
     _textField.objBindingParams = self.textFieldInputModel;
     _textField.placeholderColor = self.doorInputViewBaseStyleModel.placeholderColor;
     _textField.placeholderFont = self.doorInputViewBaseStyleModel.placeholderFont;
+    _textField.fieldEditorOffset = self.doorInputViewBaseStyleModel.fieldEditorOffset ? : JobsWidth(50);
 }
 #pragma mark —— BaseViewProtocol
 /// 具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】

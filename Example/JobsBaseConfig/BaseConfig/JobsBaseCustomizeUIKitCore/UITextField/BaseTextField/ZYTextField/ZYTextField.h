@@ -7,18 +7,14 @@
 #import "MacroDef_Cor.h"
 #import "TextFieldDefine.h"
 
-typedef enum : NSInteger {
-    UITextFieldLoseFocus = 0,/// 输入框失去焦点
-    UITextFieldGetFocus,/// 输入框获得焦点
-} UITextFieldFocusType;// 强制更新
-
 @interface ZYTextField : UITextField
 
 @property(nonatomic,assign)CGFloat TFRiseHeight; /// 键盘在此手机上的最高弹起，区别于全面屏结合非全面屏，有一个安全区域34
-@property(nonatomic,assign)CGFloat offset; /// 光标的起始距离距离控件左边的差值
-@property(nonatomic,assign)CGFloat leftViewOffsetX;
-@property(nonatomic,assign)CGFloat rightViewOffsetX;
-@property(nonatomic,assign)PlaceHolderAlignment placeHolderAlignment; ///PlaceHolder的位置
+@property(nonatomic,assign)CGFloat offset; /// 光标的起始距离距离控件最左边(不包括leftView)的差值
+@property(nonatomic,assign)CGFloat leftViewOffsetX; /// leftView 距离控件最左边的差值
+@property(nonatomic,assign)CGFloat rightViewOffsetX; /// TextField的删除按钮距离控件最右边的差值
+@property(nonatomic,assign)CGFloat fieldEditorOffset; /// 因为设置了leftView后fieldEditor所需的偏移量
+@property(nonatomic,assign)PlaceHolderAlignment placeHolderAlignment; /// PlaceHolder的位置（左/中/右）
 @property(nonatomic,assign)CGFloat placeHolderOffset; /// 左/右/居中 对齐的时候的偏移量 传正值
 @property(nonatomic,assign)CGFloat ZYTextFieldCornerRadius;
 @property(nonatomic,assign)CGFloat ZYTextFieldBorderWidth;
@@ -26,7 +22,7 @@ typedef enum : NSInteger {
 @property(nonatomic,assign)BOOL ZYTextFieldMasksToBounds;
 @property(nonatomic,assign)BOOL isShowDelBtn;/// 是否显示删除按钮，默认不显示
 @property(nonatomic,assign)BOOL useCustomClearButton;/// 是否使用自定义的删除按钮 默认不使用
-@property(nonatomic,assign)BOOL isShowMenu; ///是否显示菜单 默认不显示
+@property(nonatomic,assign)BOOL isShowMenu; /// 是否显示菜单 默认不显示
 
 @end
 

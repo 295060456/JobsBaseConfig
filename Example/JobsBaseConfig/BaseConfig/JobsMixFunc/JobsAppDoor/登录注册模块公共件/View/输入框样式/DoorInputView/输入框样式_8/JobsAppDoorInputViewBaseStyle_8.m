@@ -25,6 +25,17 @@
 
     }return self;
 }
+#pragma mark —— BaseViewProtocol
+- (instancetype)initWithSize:(CGSize)thisViewSize{
+    if (self = [super init]) {
+        self.backgroundColor = kClearColor;
+        [self layerBorderColour:Cor4 andBorderWidth:1];
+    }return self;
+}
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
+}
 #pragma mark —— 一些私有方法
 -(void)configTextField{
     if (![NSString isNullString:self.doorInputViewBaseStyleModel.inputStr]) {
@@ -43,13 +54,14 @@
     _textField.keyboardAppearance = self.doorInputViewBaseStyleModel.keyboardAppearance;
     _textField.useCustomClearButton = self.doorInputViewBaseStyleModel.useCustomClearButton;
     _textField.isShowDelBtn = self.doorInputViewBaseStyleModel.isShowDelBtn;
-    _textField.rightViewOffsetX = self.doorInputViewBaseStyleModel.rightViewOffsetX;// 删除按钮的偏移量
+    _textField.rightViewOffsetX = self.doorInputViewBaseStyleModel.rightViewOffsetX ? : JobsWidth(8);// 删除按钮的偏移量
     _textField.placeHolderAlignment = self.doorInputViewBaseStyleModel.placeHolderAlignment ? : PlaceHolderAlignmentLeft;
     _textField.placeHolderOffset = self.doorInputViewBaseStyleModel.placeHolderOffset ? : JobsWidth(20);
     _textField.placeholderColor = self.doorInputViewBaseStyleModel.placeholderColor;
     _textField.placeholderFont = self.doorInputViewBaseStyleModel.placeholderFont;
     _textField.objBindingParams = self.textFieldInputModel;
     _textField.leftViewOffsetX = self.doorInputViewBaseStyleModel.leftViewOffsetX ? : JobsWidth(17);
+    _textField.fieldEditorOffset = self.doorInputViewBaseStyleModel.fieldEditorOffset ? : JobsWidth(50);
 }
 
 -(void)block:(ZYTextField *)textField

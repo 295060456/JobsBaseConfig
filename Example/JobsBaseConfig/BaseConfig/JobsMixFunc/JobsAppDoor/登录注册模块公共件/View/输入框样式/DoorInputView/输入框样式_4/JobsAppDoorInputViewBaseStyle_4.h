@@ -14,7 +14,7 @@
 #import "JobsMagicTextField.h"
 
 NS_ASSUME_NONNULL_BEGIN
-/// 输入框样式_4
+
 @interface JobsAppDoorInputViewBaseStyle_4 : JobsAppDoorInputViewBaseStyle
 
 @end

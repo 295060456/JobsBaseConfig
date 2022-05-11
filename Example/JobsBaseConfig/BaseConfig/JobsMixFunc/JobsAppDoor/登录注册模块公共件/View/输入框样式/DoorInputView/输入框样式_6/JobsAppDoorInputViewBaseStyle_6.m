@@ -24,11 +24,22 @@
         [self layerBorderColour:kWhiteColor andBorderWidth:1];
     }return self;
 }
+#pragma mark —— BaseViewProtocol
+- (instancetype)initWithSize:(CGSize)thisViewSize{
+    if (self = [super init]) {
+        self.backgroundColor = kClearColor;
+        [self layerBorderColour:kWhiteColor andBorderWidth:1];
+    }return self;
+}
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
+}
 
 -(void)drawRect:(CGRect)rect{
     [super drawRect:rect];
     [self.authCodeLab appointCornerCutToCircleByRoundingCorners:UIRectCornerTopRight | UIRectCornerBottomRight
-                                                    cornerRadii:CGSizeMake(self.authCodeLab.height / 2, self.authCodeLab.height / 2)];
+                                                 cornerRadii:CGSizeMake(self.authCodeLab.height / 2, self.authCodeLab.height / 2)];
     [self.authCodeLab setBorderWithColor:kWhiteColor
                              borderWidth:1
                               borderType:UIBorderSideTypeLeft];
@@ -44,7 +55,7 @@
     _textField.keyboardAppearance = self.doorInputViewBaseStyleModel.keyboardAppearance;
     _textField.useCustomClearButton = self.doorInputViewBaseStyleModel.useCustomClearButton;
     _textField.isShowDelBtn = self.doorInputViewBaseStyleModel.isShowDelBtn;
-    _textField.rightViewOffsetX = self.doorInputViewBaseStyleModel.rightViewOffsetX;// 删除按钮的偏移量
+    _textField.rightViewOffsetX = self.doorInputViewBaseStyleModel.rightViewOffsetX ? : JobsWidth(8);// 删除按钮的偏移量
     _textField.placeholderColor = self.doorInputViewBaseStyleModel.placeholderColor;
     _textField.placeholderFont = self.doorInputViewBaseStyleModel.placeholderFont;
     _textField.objBindingParams = self.textFieldInputModel;
@@ -53,6 +64,7 @@
     _textField.placeHolderAlignment = self.doorInputViewBaseStyleModel.placeHolderAlignment ? : PlaceHolderAlignmentLeft;
     _textField.placeHolderOffset = self.doorInputViewBaseStyleModel.placeHolderOffset ? : JobsWidth(20);
     _textField.moveDistance = self.doorInputViewBaseStyleModel.moveDistance ? : JobsWidth(40);
+    _textField.fieldEditorOffset = self.doorInputViewBaseStyleModel.fieldEditorOffset ? : JobsWidth(50);
 }
 
 -(void)block:(JobsMagicTextField *)textField

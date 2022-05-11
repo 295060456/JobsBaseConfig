@@ -23,8 +23,10 @@
 /// @param text 标签显示的文字
 -(void)autoScrollSetText:(NSString *)text{
     [self autoScrollSetText:text];
-    // 这句是为了让textlayer超出label的部分不显示
-    self.layer.masksToBounds = true;
+    if(self.labelShowingType == UILabelShowingType_02){
+        // 这句是为了让textlayer超出label的部分不显示
+        self.layer.masksToBounds = true;
+    }
 }
 /// 用于替换系统setTextColor方法
 /// @param color 文字颜色
@@ -40,7 +42,9 @@
 /// @param frame 坐标
 -(void)autoScrollSetFrame:(CGRect)frame{
     [self autoScrollSetFrame:frame];
-    [self setTextLayerScroll];
+    if (self.labelShowingType == UILabelShowingType_02) {/// 一行显示。定宽、定高、定字体。多余部分scrollerView
+        [self setTextLayerScroll];
+    }
 }
 /// 用于替换系统的drawText方法
 /// @param rect frame
@@ -52,14 +56,16 @@
 }
 /// 根据文字长短自动判断是否需要显示TextLayer，并且滚动
 -(void)setTextLayerScroll{
-    CATextLayer * textLayer = self.getTextLayer;
-    if (self.shouldAutoScroll){
-        CABasicAnimation * ani = self.getAnimation;
-        [textLayer addAnimation:ani forKey:nil];
-        [self.layer addSublayer:textLayer];
-    }else{
-        [textLayer removeAllAnimations];
-        [textLayer removeFromSuperlayer];
+    if (self.labelShowingType == UILabelShowingType_02) {/// 一行显示。定宽、定高、定字体。多余部分scrollerView
+        CATextLayer * textLayer = self.getTextLayer;
+        if (self.shouldAutoScroll){
+            CABasicAnimation * ani = self.getAnimation;
+            [textLayer addAnimation:ani forKey:nil];
+            [self.layer addSublayer:textLayer];
+        }else{
+            [textLayer removeAllAnimations];
+            [textLayer removeFromSuperlayer];
+        }
     }
 }
 /// runtime存放textLayer，避免多次生成
@@ -129,9 +135,7 @@
     Class ModelClass = NSClassFromString(@"_UIAlertControllerActionView");
     if ([self.superview.superview isKindOfClass:ModelClass]) {
         shouldScroll = false;
-    }
-    
-    return shouldScroll;
+    }return shouldScroll;
 }
 
 @end

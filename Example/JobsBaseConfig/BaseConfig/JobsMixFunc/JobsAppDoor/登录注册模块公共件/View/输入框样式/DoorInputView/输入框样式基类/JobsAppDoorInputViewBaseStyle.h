@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JobsDoorInputViewProtocol.h"
 #import "BaseView.h"
 #import "JobsAppDoorInputViewBaseStyleModel.h"
 

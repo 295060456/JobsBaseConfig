@@ -14,8 +14,11 @@
 #import "JobsMagicTextField.h"
 
 NS_ASSUME_NONNULL_BEGIN
-/// 输入框样式_1
+
 @interface JobsAppDoorInputViewBaseStyle_1 : JobsAppDoorInputViewBaseStyle
+
+@property(nonatomic,assign)CGFloat countDownBtnWidth;
+@property(nonatomic,assign)CGFloat textFieldWidth;
 /// 倒计时按钮（需要销毁定时器）
 -(UIButton *)getCountDownBtn;
 

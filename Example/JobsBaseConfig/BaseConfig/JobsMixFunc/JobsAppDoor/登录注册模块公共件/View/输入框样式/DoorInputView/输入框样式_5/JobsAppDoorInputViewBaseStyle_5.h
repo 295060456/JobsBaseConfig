@@ -16,7 +16,7 @@ typedef enum : NSUInteger {
     InputViewStyle_5_1 = 0,
     InputViewStyle_5_2
 } InputViewStyle_5;
-/// 输入框样式_5
+
 @interface JobsAppDoorInputViewBaseStyle_5 : JobsAppDoorInputViewBaseStyle
 
 @property(nonatomic,assign)InputViewStyle_5 style_5;

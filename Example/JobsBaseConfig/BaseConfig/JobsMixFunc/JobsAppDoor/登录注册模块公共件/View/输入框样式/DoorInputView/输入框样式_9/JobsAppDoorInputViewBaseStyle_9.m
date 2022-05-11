@@ -1,17 +1,16 @@
 //
-//  JobsAppDoorInputViewBaseStyle_1.m
-//  My_BaseProj
+//  JobsAppDoorInputViewBaseStyle_9.m
+//  BaiShaEntertainmentProj
 //
-//  Created by Jobs on 2020/12/4.
-//  Copyright © 2020 Jobs. All rights reserved.
+//  Created by Jobs on 2022/5/11.
 //
 
-#import "JobsAppDoorInputViewBaseStyle_1.h"
+#import "JobsAppDoorInputViewBaseStyle_9.h"
 
-@interface JobsAppDoorInputViewBaseStyle_1 ()
+@interface JobsAppDoorInputViewBaseStyle_9 ()
 //UI
 @property(nonatomic,strong)UIButton *countDownBtn;
-@property(nonatomic,strong)JobsMagicTextField *textField;
+@property(nonatomic,strong)ZYTextField *textField;
 //Data
 @property(nonatomic,strong)NSString *titleStr_1;
 @property(nonatomic,strong)NSString *titleStr_2;
@@ -21,18 +20,9 @@
 
 @end
 
-@implementation JobsAppDoorInputViewBaseStyle_1
+@implementation JobsAppDoorInputViewBaseStyle_9
 
 @synthesize thisViewSize = _thisViewSize;
-
-- (instancetype)init{
-    if (self = [super init]) {
-//        self.backgroundColor = kRedColor;
-        self.titleStr_1 = @"点击";
-        self.titleStr_2 = @"发送验证码";
-        [self layerBorderColour:kWhiteColor andBorderWidth:1];
-    }return self;
-}
 #pragma mark —— BaseViewProtocol
 - (instancetype)initWithSize:(CGSize)thisViewSize{
     if (self = [super init]) {
@@ -46,8 +36,9 @@
 
 -(void)layoutSubviews{
     [super layoutSubviews];
+    /// 因为是子控件，所以要防止约束使用中间过程值，避免代码冗余，这里固定写死
     self.countDownBtn.width = self.countDownBtnWidth ? : JobsWidth(80);
-    self.textField.width = self.textFieldWidth ? : JobsWidth(180);
+    self.textField.width = self.textFieldWidth ? : JobsWidth(220);
 }
 #pragma mark —— 一些私有方法
 -(void)configTextField{
@@ -64,15 +55,13 @@
     _textField.objBindingParams = self.textFieldInputModel;
     _textField.placeholderColor = self.doorInputViewBaseStyleModel.placeholderColor;
     _textField.placeholderFont = self.doorInputViewBaseStyleModel.placeholderFont;
-    _textField.leftViewOffsetX = self.doorInputViewBaseStyleModel.leftViewOffsetX ? :  JobsWidth(17);
-    _textField.animationColor = self.doorInputViewBaseStyleModel.animationColor ? : Cor4;
+    _textField.leftViewOffsetX = self.doorInputViewBaseStyleModel.leftViewOffsetX ? : JobsWidth(17);
     _textField.placeHolderAlignment = self.doorInputViewBaseStyleModel.placeHolderAlignment ? : PlaceHolderAlignmentLeft;
     _textField.placeHolderOffset = self.doorInputViewBaseStyleModel.placeHolderOffset ? : JobsWidth(39);
-    _textField.moveDistance = self.doorInputViewBaseStyleModel.moveDistance ? : JobsWidth(35);
     _textField.fieldEditorOffset = self.doorInputViewBaseStyleModel.fieldEditorOffset ? : JobsWidth(50);
 }
 
--(void)block:(JobsMagicTextField *)textField
+-(void)block:(ZYTextField *)textField
        value:(NSString *)value{
     
     self.textFieldInputModel.resString = value;
@@ -88,7 +77,7 @@
 #pragma mark —— BaseViewProtocol
 /// 具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 +(CGSize)viewSizeWithModel:(id _Nullable)model{
-    return CGSizeMake(JobsWidth(345), JobsWidth(30));
+    return CGSizeMake(JobsWidth(343), JobsWidth(52));
 }
 
 -(void)richElementsInViewWithModel:(JobsAppDoorInputViewBaseStyleModel *_Nullable)doorInputViewBaseStyleModel{
@@ -98,11 +87,7 @@
     [self configTextField];
 }
 #pragma mark —— JobsDoorInputViewProtocol
--(void)changeTextFieldAnimationColor:(BOOL)toRegisterBtnSelected{
-    self.textField.animationColor = toRegisterBtnSelected ? Cor4 : Cor4;
-}
-
--(JobsMagicTextField *_Nullable)getTextField{
+-(ZYTextField *_Nullable)getTextField{
     return _textField;
 }
 
@@ -163,7 +148,7 @@
             make.right.equalTo(self).offset(-JobsWidth(120));
             make.top.equalTo(self).offset(JobsWidth(8));
             make.bottom.equalTo(self).offset(-JobsWidth(8));
-            make.width.mas_equalTo(JobsWidth(80));
+            make.width.mas_equalTo(self.countDownBtnWidth);
         }];
         
     }return _countDownBtn;
@@ -172,26 +157,26 @@
 //-(NSMutableArray<RichTextConfig *> *)richLabelDataStringsMutArr{
 //    if (!_richLabelDataStringsMutArr) {
 //        _richLabelDataStringsMutArr = NSMutableArray.array;
-//        
+//
 //        RichTextConfig *config_01 = RichTextConfig.new;
 //        config_01.font = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightMedium];
 //        config_01.cor = kBlueColor;
 //        config_01.targetString = self.titleStr_1;
-//        
+//
 //        RichTextConfig *config_02 = RichTextConfig.new;
 //        config_02.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightMedium];
 //        config_02.cor = kRedColor;
 //        config_02.targetString = self.titleStr_2;
-//        
+//
 //        [_richLabelDataStringsMutArr addObject:config_01];
 //        [_richLabelDataStringsMutArr addObject:config_02];
-//        
+//
 //    }return _richLabelDataStringsMutArr;
 //}
 
--(JobsMagicTextField *)textField{
+-(ZYTextField *)textField{
     if (!_textField) {
-        _textField = JobsMagicTextField.new;
+        _textField = ZYTextField.new;
         _textField.delegate = self;
         @jobs_weakify(self)
         [_textField.rac_textSignal subscribeNext:^(NSString * _Nullable x) {
@@ -208,5 +193,4 @@
         }];
     }return _textField;
 }
-
 @end

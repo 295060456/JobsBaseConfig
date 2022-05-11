@@ -26,6 +26,17 @@
         [self layerBorderColour:Cor4 andBorderWidth:1];
     }return self;
 }
+#pragma mark —— BaseViewProtocol
+- (instancetype)initWithSize:(CGSize)thisViewSize{
+    if (self = [super init]) {
+        self.backgroundColor = kClearColor;
+        [self layerBorderColour:Cor4 andBorderWidth:1];
+    }return self;
+}
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
+}
 #pragma mark —— 一些私有方法
 -(void)configTextField{
 //    _textField.leftView;
@@ -42,11 +53,12 @@
     _textField.textColor = self.doorInputViewBaseStyleModel.titleStrCor;
     _textField.useCustomClearButton = self.doorInputViewBaseStyleModel.useCustomClearButton;
     _textField.isShowDelBtn = self.doorInputViewBaseStyleModel.isShowDelBtn;
-    _textField.rightViewOffsetX = self.doorInputViewBaseStyleModel.rightViewOffsetX;// 删除按钮的偏移量
+    _textField.rightViewOffsetX = self.doorInputViewBaseStyleModel.rightViewOffsetX ? : JobsWidth(8);// 删除按钮的偏移量
     _textField.objBindingParams = self.textFieldInputModel;
     _textField.offset = self.doorInputViewBaseStyleModel.offset ? : JobsWidth(1);
     _textField.animationColor = self.doorInputViewBaseStyleModel.animationColor ? : Cor4;
     _textField.moveDistance = self.doorInputViewBaseStyleModel.moveDistance ? : JobsWidth(35);
+    _textField.fieldEditorOffset = self.doorInputViewBaseStyleModel.fieldEditorOffset ? : JobsWidth(50);
 }
 
 -(void)block:(JobsMagicTextField *)textField
