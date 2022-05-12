@@ -166,7 +166,8 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
         _bgImageView.frame = self.view.bounds;
         _bgImageView.image = self.bgImage;
         _bgImageView.userInteractionEnabled = YES;
-        self.view = _bgImageView;
+//        self.view = _bgImageView; // 有时候不正确
+        [self.view insertSubview:_bgImageView atIndex:0];
     }return _bgImageView;
 }
 

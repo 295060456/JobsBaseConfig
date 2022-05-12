@@ -170,6 +170,42 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
         return HTTPRequestHeaderLanguageOther;
     }
 }
+#pragma mark —— 弹出框。为了防止业务层的变化，弹出框定义在NSObject层
+/// Debug模式下的弹出框 及其相关的数据封装
+-(UIViewModel *)testPopViewData{
+    UIViewModel *viewModel = UIViewModel.new;
+    
+    {
+        UITextModel *textModel = UITextModel.new;
+        textModel.text = Internationalization(@"主标题");
+        viewModel.textModel = textModel;
+    }
+    
+    {
+        UITextModel *textModel = UITextModel.new;
+        textModel.text = Internationalization(@"副标题");
+        viewModel.subTextModel = textModel;
+    }
+    return viewModel;
+}
+
+-(void)testPopView:(UIViewModel *_Nullable)viewModel{
+    
+    JobsBaseConfigTestPopupView *testPopupView = JobsBaseConfigTestPopupView.new;
+    testPopupView.size = [CasinoUpgradePopupView viewSizeWithModel:nil];
+    [testPopupView richElementsInViewWithModel:viewModel ? : self.testPopViewData];
+    
+    [testPopupView actionObjectBlock:^(UIButton *data) {
+        if ([[data titleForNormalState] isEqualToString:Internationalization(@"Cancel")]) {
+            
+        }else if ([[data titleForNormalState] isEqualToString:Internationalization(@"Sure")]){
+            
+        }else{}
+        [testPopupView tf_hide];
+    }];
+    
+    [self popupWithView:testPopupView];
+}
 /// App 升级弹窗：在根控制器下实现，做到覆盖全局的统一
 -(void)appUpdateWithData:(CasinoGetiOSNewestVersionModel *_Nonnull)updateData
                sureBlock:(jobsByIDBlock _Nullable)sureBlock

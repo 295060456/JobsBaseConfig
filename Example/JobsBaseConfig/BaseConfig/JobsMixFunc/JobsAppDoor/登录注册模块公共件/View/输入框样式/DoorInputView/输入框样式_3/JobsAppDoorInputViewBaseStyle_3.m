@@ -117,12 +117,12 @@
     if (!_securityModeBtn) {
         _securityModeBtn = UIButton.new;
 
-        [_securityModeBtn normalImage:self.doorInputViewBaseStyleModel.selectedSecurityBtnIMG ? : [UIImage imageWithColor:UIColor.redColor]];
-        [_securityModeBtn normalImage:self.doorInputViewBaseStyleModel.unSelectedSecurityBtnIMG ? : [UIImage imageWithColor:UIColor.blueColor]];
+        _securityModeBtn.selectedImage = self.doorInputViewBaseStyleModel.selectedSecurityBtnIMG ? : [UIImage imageWithColor:UIColor.redColor];
+        _securityModeBtn.normalImage = self.doorInputViewBaseStyleModel.unSelectedSecurityBtnIMG ? : [UIImage imageWithColor:UIColor.blueColor];
 
         BtnClickEvent(_securityModeBtn, {
             x.selected = !x.selected;
-            self.textField.secureTextEntry = x.selected;
+            self.textField.secureTextEntry = !x.selected;
             if (x.selected && !self.textField.isEditing) {
                 self.textField.placeholder = self.doorInputViewBaseStyleModel.placeHolderStr;
             }
@@ -131,7 +131,7 @@
         [self addSubview:_securityModeBtn];
         [_securityModeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.right.bottom.equalTo(self);
-            make.width.mas_equalTo(40);
+            make.width.mas_equalTo(JobsWidth(40));
         }];
     }return _securityModeBtn;
 }
@@ -140,6 +140,9 @@
     if (!_textField) {
         _textField = JobsMagicTextField.new;
         _textField.delegate = self;
+        
+        self.textField.secureTextEntry = self.doorInputViewBaseStyleModel.isShowSecurityBtn;
+        
         @jobs_weakify(self)
         [[_textField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
             NSLog(@"SSS = %@",self.textFieldInputModel.PlaceHolder);

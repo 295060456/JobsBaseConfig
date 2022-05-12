@@ -1,15 +1,18 @@
 //
-//  JobsAppDoorInputView.h
-//  My_BaseProj
+//  JobsAppDoorInputViewHeader.h
+//  JobsBaseConfig
 //
-//  Created by Jobs on 2020/12/4.
-//  Copyright © 2020 Jobs. All rights reserved.
+//  Created by Jobs on 2022/5/12.
 //
 
-#ifndef JobsAppDoorInputView_h
-#define JobsAppDoorInputView_h
+#ifndef JobsAppDoorInputViewHeader_h
+#define JobsAppDoorInputViewHeader_h
 
 #import "JobsDoorInputViewProtocol.h"
+
+static inline CGSize inputSize(){
+    return CGSizeMake(JobsWidth(343), JobsWidth(52));
+}
 
 #import "JobsAppDoorInputViewBaseStyle.h"
 #import "JobsAppDoorInputViewBaseStyle_1.h"
@@ -22,4 +25,4 @@
 #import "JobsAppDoorInputViewBaseStyle_8.h"
 #import "JobsAppDoorInputViewBaseStyle_9.h"
 
-#endif /* JobsAppDoorInputView_h */
+#endif /* JobsAppDoorInputViewHeader_h */

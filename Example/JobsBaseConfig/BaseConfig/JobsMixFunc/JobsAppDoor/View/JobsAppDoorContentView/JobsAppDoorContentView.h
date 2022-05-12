@@ -10,7 +10,7 @@
 #import "BaseContentView.h"
 #import "UIView+Extras.h"
 #import "UIView+AutoSelfAdaptionSize.h"
-#import "JobsAppDoorInputView.h"
+#import "JobsAppDoorInputViewHeader.h"
 #import "JobsAppDoorConfig.h"
 #import "JobsAppDoorModel.h"
 #import "JobsAppDoorInputViewBaseStyleModel.h"

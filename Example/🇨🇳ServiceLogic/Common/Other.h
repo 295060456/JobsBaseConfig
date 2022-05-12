@@ -28,6 +28,7 @@
 #import "ViewController@5.h"
 
 #import "NSObject+CasinoCheck.h"// 数据检验
+#import "JobsBaseConfigPopupViewHeader.h"// 本App相关的自定义弹出框
 
 // 测试专用
 #import "JobsShowObjInfoVC.h"// 查看对象

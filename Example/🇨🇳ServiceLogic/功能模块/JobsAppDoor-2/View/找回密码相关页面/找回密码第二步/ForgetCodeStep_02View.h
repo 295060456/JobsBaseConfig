@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseView.h"
-#import "JobsAppDoorInputView.h"
+#import "JobsAppDoorInputViewHeader.h"
 #import "JobsAppDoorInputViewBaseStyle.h"
 
 NS_ASSUME_NONNULL_BEGIN

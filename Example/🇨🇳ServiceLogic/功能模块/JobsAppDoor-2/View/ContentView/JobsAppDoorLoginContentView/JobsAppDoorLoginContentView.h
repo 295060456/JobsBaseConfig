@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "JobsDoorInputViewProtocol.h"
 #import "BaseViewProtocol.h"
-#import "JobsAppDoorInputView.h"
+#import "JobsAppDoorInputViewHeader.h"
 #import "JobsAppDoorConfig.h"
 #import "BaseContentView.h"
 

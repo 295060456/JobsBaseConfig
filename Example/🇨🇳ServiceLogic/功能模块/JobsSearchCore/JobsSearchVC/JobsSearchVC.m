@@ -420,27 +420,27 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 
         }];
         
-        [_jobsSearchBar actionNSIntegerBlock:^(UITextFieldFocusType data) {
-            @jobs_strongify(self)
-            switch (data) {
-                case UITextFieldGetFocus:{/// 输入框获得焦点
-                    if (self.listViewData.count) {
-                        /// 必须先移除，否则反复添加无法正常移除
-                        self.dropDownListView = [self motivateFromView:weak_self.jobsSearchBar
-                                                                  data:self.listViewData
-                                                    motivateViewOffset:JobsWidth(5)
-                                                           finishBlock:^(UIViewModel *data) {
-                            NSLog(@"data = %@",data);
-                        }];
-                    }
-                }break;
-                case UITextFieldLoseFocus:{/// 输入框失去焦点
-                    [self endDropDownListView];
-                }break;
-                default:
-                    break;
-            }
-        }];
+//        [_jobsSearchBar actionNSIntegerBlock:^(UITextFieldFocusType data) {
+//            @jobs_strongify(self)
+//            switch (data) {
+//                case UITextFieldGetFocus:{/// 输入框获得焦点
+//                    if (self.listViewData.count) {
+//                        /// 必须先移除，否则反复添加无法正常移除
+//                        self.dropDownListView = [self motivateFromView:weak_self.jobsSearchBar
+//                                                                  data:self.listViewData
+//                                                    motivateViewOffset:JobsWidth(5)
+//                                                           finishBlock:^(UIViewModel *data) {
+//                            NSLog(@"data = %@",data);
+//                        }];
+//                    }
+//                }break;
+//                case UITextFieldLoseFocus:{/// 输入框失去焦点
+//                    [self endDropDownListView];
+//                }break;
+//                default:
+//                    break;
+//            }
+//        }];
     }return _jobsSearchBar;
 }
 

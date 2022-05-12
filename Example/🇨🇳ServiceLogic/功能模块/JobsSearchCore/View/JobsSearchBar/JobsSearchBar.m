@@ -81,10 +81,10 @@
             if (self.objectBlock) self.objectBlock(x);
         }];
         
-        [_textField actionNSIntegerBlock:^(UITextFieldFocusType data) {
-            NSLog(@"%ld",(long)data);
-            if (self.NSIntegerBlock) self.NSIntegerBlock(data);
-        }];
+//        [_textField actionNSIntegerBlock:^(UITextFieldFocusType data) {
+//            NSLog(@"%ld",(long)data);
+//            if (self.NSIntegerBlock) self.NSIntegerBlock(data);
+//        }];
         
         [_textField cornerCutToCircleWithCornerRadius:JobsWidth(8)];
         [_textField layerBorderColour:kBlueColor andBorderWidth:.05f];

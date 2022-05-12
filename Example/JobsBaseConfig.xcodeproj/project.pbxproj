@@ -694,18 +694,34 @@
 		84D764B3278092C10003F0E4 /* RequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D764B2278092C00003F0E4 /* RequestTool.m */; };
 		84D764B7278093660003F0E4 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D764B6278093650003F0E4 /* DataManager.m */; };
 		ABB2A8B711CC6C1FEF7A4899 /* Pods_JobsBaseConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 013934AB50FCDA373FFA6597 /* Pods_JobsBaseConfig.framework */; };
-		C55329DA282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_8.m in Sources */ = {isa = PBXBuildFile; fileRef = C55329AD282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_8.m */; };
-		C55329DD282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_6.m in Sources */ = {isa = PBXBuildFile; fileRef = C55329B3282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_6.m */; };
-		C55329DE282B975A005B63BA /* AuthCodeLab.m in Sources */ = {isa = PBXBuildFile; fileRef = C55329B6282B975A005B63BA /* AuthCodeLab.m */; };
-		C55329E0282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_1.m in Sources */ = {isa = PBXBuildFile; fileRef = C55329BA282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_1.m */; };
-		C55329E1282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_7.m in Sources */ = {isa = PBXBuildFile; fileRef = C55329BC282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_7.m */; };
-		C55329E3282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_9.m in Sources */ = {isa = PBXBuildFile; fileRef = C55329C0282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_9.m */; };
-		C55329E6282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_2.m in Sources */ = {isa = PBXBuildFile; fileRef = C55329C6282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_2.m */; };
-		C55329E9282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_5.m in Sources */ = {isa = PBXBuildFile; fileRef = C55329CB282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_5.m */; };
-		C55329EA282B975A005B63BA /* JobsAppDoorInputViewBaseStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = C55329CE282B975A005B63BA /* JobsAppDoorInputViewBaseStyle.m */; };
-		C55329EB282B975A005B63BA /* JobsAppDoorInputViewBaseStyleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55329CF282B975A005B63BA /* JobsAppDoorInputViewBaseStyleModel.m */; };
-		C55329EC282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_4.m in Sources */ = {isa = PBXBuildFile; fileRef = C55329D2282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_4.m */; };
-		C55329EE282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_3.m in Sources */ = {isa = PBXBuildFile; fileRef = C55329D6282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_3.m */; };
+		C57A2034282CB59F0032156B /* ZLGestureLockView.m in Sources */ = {isa = PBXBuildFile; fileRef = C57A2025282CB59E0032156B /* ZLGestureLockView.m */; };
+		C57A2035282CB59F0032156B /* gesture_headIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C57A2027282CB59E0032156B /* gesture_headIcon@2x.png */; };
+		C57A2036282CB59F0032156B /* gesture_indicator_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C57A2028282CB59E0032156B /* gesture_indicator_normal@2x.png */; };
+		C57A2037282CB59F0032156B /* gesture_indicator_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C57A2029282CB59E0032156B /* gesture_indicator_selected@2x.png */; };
+		C57A2038282CB59F0032156B /* gesture_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C57A202A282CB59E0032156B /* gesture_normal@2x.png */; };
+		C57A2039282CB59F0032156B /* gesture_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C57A202B282CB59E0032156B /* gesture_selected@2x.png */; };
+		C57A203A282CB59F0032156B /* 灰色椭圆.png in Resources */ = {isa = PBXBuildFile; fileRef = C57A202C282CB59E0032156B /* 灰色椭圆.png */; };
+		C57A203B282CB59F0032156B /* 红色椭圆.png in Resources */ = {isa = PBXBuildFile; fileRef = C57A202D282CB59E0032156B /* 红色椭圆.png */; };
+		C57A203C282CB59F0032156B /* 橙色椭圆.png in Resources */ = {isa = PBXBuildFile; fileRef = C57A202E282CB59E0032156B /* 橙色椭圆.png */; };
+		C57A203D282CB59F0032156B /* ZLGestureLockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C57A202F282CB59E0032156B /* ZLGestureLockViewController.m */; };
+		C57A203E282CB59F0032156B /* ZLGestureLockIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = C57A2030282CB59E0032156B /* ZLGestureLockIndicator.m */; };
+		C5932EC7282D26E500B3B053 /* JobsBaseConfigTestPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5932EC0282D26E500B3B053 /* JobsBaseConfigTestPopupView.m */; };
+		C5932EC8282D26E500B3B053 /* 测试弹窗的背景图@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5932EC2282D26E500B3B053 /* 测试弹窗的背景图@3x.png */; };
+		C5932EC9282D26E500B3B053 /* 测试弹窗的背景图@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5932EC3282D26E500B3B053 /* 测试弹窗的背景图@2x.png */; };
+		C5932ECA282D26E500B3B053 /* 测试弹窗的确定按钮@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5932EC4282D26E500B3B053 /* 测试弹窗的确定按钮@3x.png */; };
+		C5932ECB282D26E500B3B053 /* 测试弹窗的确定按钮@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5932EC5282D26E500B3B053 /* 测试弹窗的确定按钮@2x.png */; };
+		C5AA8B67282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_8.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AA8B31282CE2EF0057EB84 /* JobsAppDoorInputViewBaseStyle_8.m */; };
+		C5AA8B6B282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_6.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AA8B38282CE2EF0057EB84 /* JobsAppDoorInputViewBaseStyle_6.m */; };
+		C5AA8B6C282CE2F00057EB84 /* AuthCodeLab.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AA8B3B282CE2EF0057EB84 /* AuthCodeLab.m */; };
+		C5AA8B6F282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_1.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AA8B40282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_1.m */; };
+		C5AA8B71282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_7.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AA8B43282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_7.m */; };
+		C5AA8B73282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_9.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AA8B47282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_9.m */; };
+		C5AA8B78282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_2.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AA8B4F282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_2.m */; };
+		C5AA8B7C282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_5.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AA8B55282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_5.m */; };
+		C5AA8B7D282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AA8B58282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle.m */; };
+		C5AA8B7E282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AA8B59282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyleModel.m */; };
+		C5AA8B7F282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_4.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AA8B5C282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_4.m */; };
+		C5AA8B83282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_3.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AA8B62282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_3.m */; };
 		F65541EC060397D8F6D09547 /* Pods_JobsBaseConfigUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -2123,42 +2139,72 @@
 		84D764B6278093650003F0E4 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		84ED5203278C09F5009A22C1 /* 二级标题.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "二级标题.md"; sourceTree = "<group>"; };
 		949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JobsBaseConfigUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C55329AC282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputViewBaseStyle_8.h; sourceTree = "<group>"; };
-		C55329AD282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_8.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorInputViewBaseStyle_8.m; sourceTree = "<group>"; };
-		C55329AE282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobsAppDoorInputViewBaseStyle_8.png; sourceTree = "<group>"; };
-		C55329AF282B975A005B63BA /* JobsDoorInputViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsDoorInputViewProtocol.h; sourceTree = "<group>"; };
-		C55329B1282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputViewBaseStyle_6.h; sourceTree = "<group>"; };
-		C55329B2282B975A005B63BA /* 输入框样式_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入框样式_6.png"; sourceTree = "<group>"; };
-		C55329B3282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorInputViewBaseStyle_6.m; sourceTree = "<group>"; };
-		C55329B5282B975A005B63BA /* AuthCodeLab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthCodeLab.h; sourceTree = "<group>"; };
-		C55329B6282B975A005B63BA /* AuthCodeLab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthCodeLab.m; sourceTree = "<group>"; };
-		C55329B8282B975A005B63BA /* 输入框样式_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入框样式_1.png"; sourceTree = "<group>"; };
-		C55329B9282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputViewBaseStyle_1.h; sourceTree = "<group>"; };
-		C55329BA282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorInputViewBaseStyle_1.m; sourceTree = "<group>"; };
-		C55329BC282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_7.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorInputViewBaseStyle_7.m; sourceTree = "<group>"; };
-		C55329BD282B975A005B63BA /* 输入框样式_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入框样式_7.png"; sourceTree = "<group>"; };
-		C55329BE282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputViewBaseStyle_7.h; sourceTree = "<group>"; };
-		C55329C0282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_9.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorInputViewBaseStyle_9.m; sourceTree = "<group>"; };
-		C55329C1282B975A005B63BA /* 输入框样式_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入框样式_9.png"; sourceTree = "<group>"; };
-		C55329C2282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_9.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputViewBaseStyle_9.h; sourceTree = "<group>"; };
-		C55329C4282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputViewBaseStyle_2.h; sourceTree = "<group>"; };
-		C55329C5282B975A005B63BA /* 输入框样式_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入框样式_2.png"; sourceTree = "<group>"; };
-		C55329C6282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorInputViewBaseStyle_2.m; sourceTree = "<group>"; };
-		C55329C8282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputViewBaseStyle_5.h; sourceTree = "<group>"; };
-		C55329C9282B975A005B63BA /* 输入框样式_5.2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入框样式_5.2.png"; sourceTree = "<group>"; };
-		C55329CA282B975A005B63BA /* 输入框样式_5.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入框样式_5.1.png"; sourceTree = "<group>"; };
-		C55329CB282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorInputViewBaseStyle_5.m; sourceTree = "<group>"; };
-		C55329CD282B975A005B63BA /* JobsAppDoorInputViewBaseStyleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputViewBaseStyleModel.h; sourceTree = "<group>"; };
-		C55329CE282B975A005B63BA /* JobsAppDoorInputViewBaseStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorInputViewBaseStyle.m; sourceTree = "<group>"; };
-		C55329CF282B975A005B63BA /* JobsAppDoorInputViewBaseStyleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorInputViewBaseStyleModel.m; sourceTree = "<group>"; };
-		C55329D0282B975A005B63BA /* JobsAppDoorInputViewBaseStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputViewBaseStyle.h; sourceTree = "<group>"; };
-		C55329D2282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorInputViewBaseStyle_4.m; sourceTree = "<group>"; };
-		C55329D3282B975A005B63BA /* 输入框样式_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入框样式_4.png"; sourceTree = "<group>"; };
-		C55329D4282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputViewBaseStyle_4.h; sourceTree = "<group>"; };
-		C55329D6282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorInputViewBaseStyle_3.m; sourceTree = "<group>"; };
-		C55329D7282B975A005B63BA /* 输入框样式_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入框样式_3.png"; sourceTree = "<group>"; };
-		C55329D8282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputViewBaseStyle_3.h; sourceTree = "<group>"; };
-		C55329D9282B975A005B63BA /* JobsAppDoorInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputView.h; sourceTree = "<group>"; };
+		C57A2025282CB59E0032156B /* ZLGestureLockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLGestureLockView.m; sourceTree = "<group>"; };
+		C57A2027282CB59E0032156B /* gesture_headIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_headIcon@2x.png"; sourceTree = "<group>"; };
+		C57A2028282CB59E0032156B /* gesture_indicator_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_indicator_normal@2x.png"; sourceTree = "<group>"; };
+		C57A2029282CB59E0032156B /* gesture_indicator_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_indicator_selected@2x.png"; sourceTree = "<group>"; };
+		C57A202A282CB59E0032156B /* gesture_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_normal@2x.png"; sourceTree = "<group>"; };
+		C57A202B282CB59E0032156B /* gesture_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_selected@2x.png"; sourceTree = "<group>"; };
+		C57A202C282CB59E0032156B /* 灰色椭圆.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "灰色椭圆.png"; sourceTree = "<group>"; };
+		C57A202D282CB59E0032156B /* 红色椭圆.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "红色椭圆.png"; sourceTree = "<group>"; };
+		C57A202E282CB59E0032156B /* 橙色椭圆.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "橙色椭圆.png"; sourceTree = "<group>"; };
+		C57A202F282CB59E0032156B /* ZLGestureLockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLGestureLockViewController.m; sourceTree = "<group>"; };
+		C57A2030282CB59E0032156B /* ZLGestureLockIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLGestureLockIndicator.m; sourceTree = "<group>"; };
+		C57A2031282CB59E0032156B /* ZLGestureLockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLGestureLockView.h; sourceTree = "<group>"; };
+		C57A2032282CB59E0032156B /* ZLGestureLockIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLGestureLockIndicator.h; sourceTree = "<group>"; };
+		C57A2033282CB59E0032156B /* ZLGestureLockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLGestureLockViewController.h; sourceTree = "<group>"; };
+		C5932EC0282D26E500B3B053 /* JobsBaseConfigTestPopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsBaseConfigTestPopupView.m; sourceTree = "<group>"; };
+		C5932EC2282D26E500B3B053 /* 测试弹窗的背景图@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "测试弹窗的背景图@3x.png"; sourceTree = "<group>"; };
+		C5932EC3282D26E500B3B053 /* 测试弹窗的背景图@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "测试弹窗的背景图@2x.png"; sourceTree = "<group>"; };
+		C5932EC4282D26E500B3B053 /* 测试弹窗的确定按钮@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "测试弹窗的确定按钮@3x.png"; sourceTree = "<group>"; };
+		C5932EC5282D26E500B3B053 /* 测试弹窗的确定按钮@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "测试弹窗的确定按钮@2x.png"; sourceTree = "<group>"; };
+		C5932EC6282D26E500B3B053 /* JobsBaseConfigTestPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBaseConfigTestPopupView.h; sourceTree = "<group>"; };
+		C5932ECC282D271E00B3B053 /* JobsBaseConfigPopupViewHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsBaseConfigPopupViewHeader.h; sourceTree = "<group>"; };
+		C5932ECD282D27F400B3B053 /* JobsAppDoorInputViewHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputViewHeader.h; sourceTree = "<group>"; };
+		C5AA8B2F282CE2EF0057EB84 /* 输入框样式_8（👨🏻用户名,下提示）.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "输入框样式_8（👨🏻用户名,下提示）.md"; sourceTree = "<group>"; };
+		C5AA8B30282CE2EF0057EB84 /* JobsAppDoorInputViewBaseStyle_8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputViewBaseStyle_8.h; sourceTree = "<group>"; };
+		C5AA8B31282CE2EF0057EB84 /* JobsAppDoorInputViewBaseStyle_8.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorInputViewBaseStyle_8.m; sourceTree = "<group>"; };
+		C5AA8B32282CE2EF0057EB84 /* JobsAppDoorInputViewBaseStyle_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobsAppDoorInputViewBaseStyle_8.png; sourceTree = "<group>"; };
+		C5AA8B33282CE2EF0057EB84 /* JobsDoorInputViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsDoorInputViewProtocol.h; sourceTree = "<group>"; };
+		C5AA8B35282CE2EF0057EB84 /* 输入框样式_6（✉️获取并输入图形验证码）.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "输入框样式_6（✉️获取并输入图形验证码）.md"; sourceTree = "<group>"; };
+		C5AA8B36282CE2EF0057EB84 /* JobsAppDoorInputViewBaseStyle_6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputViewBaseStyle_6.h; sourceTree = "<group>"; };
+		C5AA8B37282CE2EF0057EB84 /* 输入框样式_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入框样式_6.png"; sourceTree = "<group>"; };
+		C5AA8B38282CE2EF0057EB84 /* JobsAppDoorInputViewBaseStyle_6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorInputViewBaseStyle_6.m; sourceTree = "<group>"; };
+		C5AA8B3A282CE2EF0057EB84 /* AuthCodeLab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthCodeLab.h; sourceTree = "<group>"; };
+		C5AA8B3B282CE2EF0057EB84 /* AuthCodeLab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthCodeLab.m; sourceTree = "<group>"; };
+		C5AA8B3D282CE2EF0057EB84 /* 输入框样式_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入框样式_1.png"; sourceTree = "<group>"; };
+		C5AA8B3E282CE2EF0057EB84 /* 输入框样式_1(✉️获取并输入手机短信验证码).md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "输入框样式_1(✉️获取并输入手机短信验证码).md"; sourceTree = "<group>"; };
+		C5AA8B3F282CE2EF0057EB84 /* JobsAppDoorInputViewBaseStyle_1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputViewBaseStyle_1.h; sourceTree = "<group>"; };
+		C5AA8B40282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorInputViewBaseStyle_1.m; sourceTree = "<group>"; };
+		C5AA8B42282CE2F00057EB84 /* 输入框样式_7（电话号码选择国家号）.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "输入框样式_7（电话号码选择国家号）.md"; sourceTree = "<group>"; };
+		C5AA8B43282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_7.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorInputViewBaseStyle_7.m; sourceTree = "<group>"; };
+		C5AA8B44282CE2F00057EB84 /* 输入框样式_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入框样式_7.png"; sourceTree = "<group>"; };
+		C5AA8B45282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputViewBaseStyle_7.h; sourceTree = "<group>"; };
+		C5AA8B47282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_9.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorInputViewBaseStyle_9.m; sourceTree = "<group>"; };
+		C5AA8B48282CE2F00057EB84 /* 输入框样式_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入框样式_9.png"; sourceTree = "<group>"; };
+		C5AA8B49282CE2F00057EB84 /* 输入框样式_9（✉️获取验证码）.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "输入框样式_9（✉️获取验证码）.md"; sourceTree = "<group>"; };
+		C5AA8B4A282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_9.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputViewBaseStyle_9.h; sourceTree = "<group>"; };
+		C5AA8B4C282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputViewBaseStyle_2.h; sourceTree = "<group>"; };
+		C5AA8B4D282CE2F00057EB84 /* 输入框样式_2（✉️获取并输入图形验证码）.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "输入框样式_2（✉️获取并输入图形验证码）.md"; sourceTree = "<group>"; };
+		C5AA8B4E282CE2F00057EB84 /* 输入框样式_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入框样式_2.png"; sourceTree = "<group>"; };
+		C5AA8B4F282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorInputViewBaseStyle_2.m; sourceTree = "<group>"; };
+		C5AA8B51282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputViewBaseStyle_5.h; sourceTree = "<group>"; };
+		C5AA8B52282CE2F00057EB84 /* 输入框样式_5.2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入框样式_5.2.png"; sourceTree = "<group>"; };
+		C5AA8B53282CE2F00057EB84 /* 输入框样式_5.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入框样式_5.1.png"; sourceTree = "<group>"; };
+		C5AA8B54282CE2F00057EB84 /* 输入框样式_5（上下结构）.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "输入框样式_5（上下结构）.md"; sourceTree = "<group>"; };
+		C5AA8B55282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorInputViewBaseStyle_5.m; sourceTree = "<group>"; };
+		C5AA8B57282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputViewBaseStyleModel.h; sourceTree = "<group>"; };
+		C5AA8B58282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorInputViewBaseStyle.m; sourceTree = "<group>"; };
+		C5AA8B59282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorInputViewBaseStyleModel.m; sourceTree = "<group>"; };
+		C5AA8B5A282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputViewBaseStyle.h; sourceTree = "<group>"; };
+		C5AA8B5C282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorInputViewBaseStyle_4.m; sourceTree = "<group>"; };
+		C5AA8B5D282CE2F00057EB84 /* 输入框样式_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入框样式_4.png"; sourceTree = "<group>"; };
+		C5AA8B5E282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputViewBaseStyle_4.h; sourceTree = "<group>"; };
+		C5AA8B5F282CE2F00057EB84 /* 输入框样式_4（✉️获取并输入图形验证码）.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "输入框样式_4（✉️获取并输入图形验证码）.md"; sourceTree = "<group>"; };
+		C5AA8B61282CE2F00057EB84 /* 输入框样式_3（输入👨🏻用户名）.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "输入框样式_3（输入👨🏻用户名）.md"; sourceTree = "<group>"; };
+		C5AA8B62282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorInputViewBaseStyle_3.m; sourceTree = "<group>"; };
+		C5AA8B63282CE2F00057EB84 /* 输入框样式_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入框样式_3.png"; sourceTree = "<group>"; };
+		C5AA8B64282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputViewBaseStyle_3.h; sourceTree = "<group>"; };
 		FEDDD2E7A82BF58DE2012E29 /* Pods-JobsBaseConfigUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobsBaseConfigUITests.debug.xcconfig"; path = "Target Support Files/Pods-JobsBaseConfigUITests/Pods-JobsBaseConfigUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -2203,6 +2249,7 @@
 		840F926B27736425004979E9 /* JobsMixFunc */ = {
 			isa = PBXGroup;
 			children = (
+				C57A2024282CB59E0032156B /* GestureLock */,
 				840F92C527736425004979E9 /* JobsMixFunc.h */,
 				8459CF132776F7C600125782 /* 版本升级弹窗 */,
 				840F92D827736425004979E9 /* 播放器控制层 */,
@@ -5691,6 +5738,7 @@
 		8443310B278D455D0028A27D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C5932EBD282D26CD00B3B053 /* ☀️业务模块中公用的View */,
 				84CA653C2789CA8600E46E71 /* 网络请求 */,
 				844B02BD2764C95E00B0513D /* AppDelegate & SceneDelegate */,
 				8443310C278D456A0028A27D /* CasinoCheck */,
@@ -6849,7 +6897,7 @@
 		846DEFE327806D220050468A /* 输入框样式 */ = {
 			isa = PBXGroup;
 			children = (
-				C55329AA282B975A005B63BA /* DoorInputView */,
+				C5AA8B2D282CE2EF0057EB84 /* DoorInputView */,
 			);
 			path = "输入框样式";
 			sourceTree = "<group>";
@@ -8631,133 +8679,209 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		C55329AA282B975A005B63BA /* DoorInputView */ = {
+		C57A2024282CB59E0032156B /* GestureLock */ = {
 			isa = PBXGroup;
 			children = (
-				C55329B7282B975A005B63BA /* 输入框样式_1 */,
-				C55329C3282B975A005B63BA /* 输入框样式_2 */,
-				C55329D5282B975A005B63BA /* 输入框样式_3 */,
-				C55329D1282B975A005B63BA /* 输入框样式_4 */,
-				C55329C7282B975A005B63BA /* 输入框样式_5 */,
-				C55329B0282B975A005B63BA /* 输入框样式_6 */,
-				C55329BB282B975A005B63BA /* 输入框样式_7 */,
-				C55329AB282B975A005B63BA /* 输入框样式_8 */,
-				C55329BF282B975A005B63BA /* 输入框样式_9 */,
-				C55329CC282B975A005B63BA /* 输入框样式基类 */,
-				C55329D9282B975A005B63BA /* JobsAppDoorInputView.h */,
-				C55329AF282B975A005B63BA /* JobsDoorInputViewProtocol.h */,
+				C57A2025282CB59E0032156B /* ZLGestureLockView.m */,
+				C57A2026282CB59E0032156B /* resources */,
+				C57A202F282CB59E0032156B /* ZLGestureLockViewController.m */,
+				C57A2030282CB59E0032156B /* ZLGestureLockIndicator.m */,
+				C57A2031282CB59E0032156B /* ZLGestureLockView.h */,
+				C57A2032282CB59E0032156B /* ZLGestureLockIndicator.h */,
+				C57A2033282CB59E0032156B /* ZLGestureLockViewController.h */,
+			);
+			path = GestureLock;
+			sourceTree = "<group>";
+		};
+		C57A2026282CB59E0032156B /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				C57A2027282CB59E0032156B /* gesture_headIcon@2x.png */,
+				C57A2028282CB59E0032156B /* gesture_indicator_normal@2x.png */,
+				C57A2029282CB59E0032156B /* gesture_indicator_selected@2x.png */,
+				C57A202A282CB59E0032156B /* gesture_normal@2x.png */,
+				C57A202B282CB59E0032156B /* gesture_selected@2x.png */,
+				C57A202C282CB59E0032156B /* 灰色椭圆.png */,
+				C57A202D282CB59E0032156B /* 红色椭圆.png */,
+				C57A202E282CB59E0032156B /* 橙色椭圆.png */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		C5932EBD282D26CD00B3B053 /* ☀️业务模块中公用的View */ = {
+			isa = PBXGroup;
+			children = (
+				C5932EBE282D26D900B3B053 /* 本App相关的自定义弹出框 */,
+			);
+			path = "☀️业务模块中公用的View";
+			sourceTree = "<group>";
+		};
+		C5932EBE282D26D900B3B053 /* 本App相关的自定义弹出框 */ = {
+			isa = PBXGroup;
+			children = (
+				C5932EBF282D26E500B3B053 /* 弹框样式_1 */,
+				C5932ECC282D271E00B3B053 /* JobsBaseConfigPopupViewHeader.h */,
+			);
+			path = "本App相关的自定义弹出框";
+			sourceTree = "<group>";
+		};
+		C5932EBF282D26E500B3B053 /* 弹框样式_1 */ = {
+			isa = PBXGroup;
+			children = (
+				C5932EC6282D26E500B3B053 /* JobsBaseConfigTestPopupView.h */,
+				C5932EC0282D26E500B3B053 /* JobsBaseConfigTestPopupView.m */,
+				C5932EC1282D26E500B3B053 /* resources */,
+			);
+			path = "弹框样式_1";
+			sourceTree = "<group>";
+		};
+		C5932EC1282D26E500B3B053 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				C5932EC2282D26E500B3B053 /* 测试弹窗的背景图@3x.png */,
+				C5932EC3282D26E500B3B053 /* 测试弹窗的背景图@2x.png */,
+				C5932EC4282D26E500B3B053 /* 测试弹窗的确定按钮@3x.png */,
+				C5932EC5282D26E500B3B053 /* 测试弹窗的确定按钮@2x.png */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		C5AA8B2D282CE2EF0057EB84 /* DoorInputView */ = {
+			isa = PBXGroup;
+			children = (
+				C5AA8B3C282CE2EF0057EB84 /* 输入框样式_1 */,
+				C5AA8B4B282CE2F00057EB84 /* 输入框样式_2 */,
+				C5AA8B60282CE2F00057EB84 /* 输入框样式_3 */,
+				C5AA8B5B282CE2F00057EB84 /* 输入框样式_4 */,
+				C5AA8B50282CE2F00057EB84 /* 输入框样式_5 */,
+				C5AA8B34282CE2EF0057EB84 /* 输入框样式_6 */,
+				C5AA8B41282CE2F00057EB84 /* 输入框样式_7 */,
+				C5AA8B2E282CE2EF0057EB84 /* 输入框样式_8 */,
+				C5AA8B46282CE2F00057EB84 /* 输入框样式_9 */,
+				C5AA8B56282CE2F00057EB84 /* 输入框样式基类 */,
+				C5932ECD282D27F400B3B053 /* JobsAppDoorInputViewHeader.h */,
+				C5AA8B33282CE2EF0057EB84 /* JobsDoorInputViewProtocol.h */,
 			);
 			path = DoorInputView;
 			sourceTree = "<group>";
 		};
-		C55329AB282B975A005B63BA /* 输入框样式_8 */ = {
+		C5AA8B2E282CE2EF0057EB84 /* 输入框样式_8 */ = {
 			isa = PBXGroup;
 			children = (
-				C55329AC282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_8.h */,
-				C55329AD282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_8.m */,
-				C55329AE282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_8.png */,
+				C5AA8B2F282CE2EF0057EB84 /* 输入框样式_8（👨🏻用户名,下提示）.md */,
+				C5AA8B30282CE2EF0057EB84 /* JobsAppDoorInputViewBaseStyle_8.h */,
+				C5AA8B31282CE2EF0057EB84 /* JobsAppDoorInputViewBaseStyle_8.m */,
+				C5AA8B32282CE2EF0057EB84 /* JobsAppDoorInputViewBaseStyle_8.png */,
 			);
 			path = "输入框样式_8";
 			sourceTree = "<group>";
 		};
-		C55329B0282B975A005B63BA /* 输入框样式_6 */ = {
+		C5AA8B34282CE2EF0057EB84 /* 输入框样式_6 */ = {
 			isa = PBXGroup;
 			children = (
-				C55329B2282B975A005B63BA /* 输入框样式_6.png */,
-				C55329B4282B975A005B63BA /* AuthCodeLab */,
-				C55329B1282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_6.h */,
-				C55329B3282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_6.m */,
+				C5AA8B37282CE2EF0057EB84 /* 输入框样式_6.png */,
+				C5AA8B35282CE2EF0057EB84 /* 输入框样式_6（✉️获取并输入图形验证码）.md */,
+				C5AA8B39282CE2EF0057EB84 /* AuthCodeLab */,
+				C5AA8B36282CE2EF0057EB84 /* JobsAppDoorInputViewBaseStyle_6.h */,
+				C5AA8B38282CE2EF0057EB84 /* JobsAppDoorInputViewBaseStyle_6.m */,
 			);
 			path = "输入框样式_6";
 			sourceTree = "<group>";
 		};
-		C55329B4282B975A005B63BA /* AuthCodeLab */ = {
+		C5AA8B39282CE2EF0057EB84 /* AuthCodeLab */ = {
 			isa = PBXGroup;
 			children = (
-				C55329B5282B975A005B63BA /* AuthCodeLab.h */,
-				C55329B6282B975A005B63BA /* AuthCodeLab.m */,
+				C5AA8B3A282CE2EF0057EB84 /* AuthCodeLab.h */,
+				C5AA8B3B282CE2EF0057EB84 /* AuthCodeLab.m */,
 			);
 			path = AuthCodeLab;
 			sourceTree = "<group>";
 		};
-		C55329B7282B975A005B63BA /* 输入框样式_1 */ = {
+		C5AA8B3C282CE2EF0057EB84 /* 输入框样式_1 */ = {
 			isa = PBXGroup;
 			children = (
-				C55329B8282B975A005B63BA /* 输入框样式_1.png */,
-				C55329B9282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_1.h */,
-				C55329BA282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_1.m */,
+				C5AA8B3D282CE2EF0057EB84 /* 输入框样式_1.png */,
+				C5AA8B3E282CE2EF0057EB84 /* 输入框样式_1(✉️获取并输入手机短信验证码).md */,
+				C5AA8B3F282CE2EF0057EB84 /* JobsAppDoorInputViewBaseStyle_1.h */,
+				C5AA8B40282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_1.m */,
 			);
 			path = "输入框样式_1";
 			sourceTree = "<group>";
 		};
-		C55329BB282B975A005B63BA /* 输入框样式_7 */ = {
+		C5AA8B41282CE2F00057EB84 /* 输入框样式_7 */ = {
 			isa = PBXGroup;
 			children = (
-				C55329BD282B975A005B63BA /* 输入框样式_7.png */,
-				C55329BE282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_7.h */,
-				C55329BC282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_7.m */,
+				C5AA8B44282CE2F00057EB84 /* 输入框样式_7.png */,
+				C5AA8B42282CE2F00057EB84 /* 输入框样式_7（电话号码选择国家号）.md */,
+				C5AA8B45282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_7.h */,
+				C5AA8B43282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_7.m */,
 			);
 			path = "输入框样式_7";
 			sourceTree = "<group>";
 		};
-		C55329BF282B975A005B63BA /* 输入框样式_9 */ = {
+		C5AA8B46282CE2F00057EB84 /* 输入框样式_9 */ = {
 			isa = PBXGroup;
 			children = (
-				C55329C1282B975A005B63BA /* 输入框样式_9.png */,
-				C55329C2282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_9.h */,
-				C55329C0282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_9.m */,
+				C5AA8B48282CE2F00057EB84 /* 输入框样式_9.png */,
+				C5AA8B49282CE2F00057EB84 /* 输入框样式_9（✉️获取验证码）.md */,
+				C5AA8B4A282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_9.h */,
+				C5AA8B47282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_9.m */,
 			);
 			path = "输入框样式_9";
 			sourceTree = "<group>";
 		};
-		C55329C3282B975A005B63BA /* 输入框样式_2 */ = {
+		C5AA8B4B282CE2F00057EB84 /* 输入框样式_2 */ = {
 			isa = PBXGroup;
 			children = (
-				C55329C5282B975A005B63BA /* 输入框样式_2.png */,
-				C55329C4282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_2.h */,
-				C55329C6282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_2.m */,
+				C5AA8B4E282CE2F00057EB84 /* 输入框样式_2.png */,
+				C5AA8B4D282CE2F00057EB84 /* 输入框样式_2（✉️获取并输入图形验证码）.md */,
+				C5AA8B4C282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_2.h */,
+				C5AA8B4F282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_2.m */,
 			);
 			path = "输入框样式_2";
 			sourceTree = "<group>";
 		};
-		C55329C7282B975A005B63BA /* 输入框样式_5 */ = {
+		C5AA8B50282CE2F00057EB84 /* 输入框样式_5 */ = {
 			isa = PBXGroup;
 			children = (
-				C55329CA282B975A005B63BA /* 输入框样式_5.1.png */,
-				C55329C9282B975A005B63BA /* 输入框样式_5.2.png */,
-				C55329C8282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_5.h */,
-				C55329CB282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_5.m */,
+				C5AA8B53282CE2F00057EB84 /* 输入框样式_5.1.png */,
+				C5AA8B52282CE2F00057EB84 /* 输入框样式_5.2.png */,
+				C5AA8B54282CE2F00057EB84 /* 输入框样式_5（上下结构）.md */,
+				C5AA8B51282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_5.h */,
+				C5AA8B55282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_5.m */,
 			);
 			path = "输入框样式_5";
 			sourceTree = "<group>";
 		};
-		C55329CC282B975A005B63BA /* 输入框样式基类 */ = {
+		C5AA8B56282CE2F00057EB84 /* 输入框样式基类 */ = {
 			isa = PBXGroup;
 			children = (
-				C55329CD282B975A005B63BA /* JobsAppDoorInputViewBaseStyleModel.h */,
-				C55329CE282B975A005B63BA /* JobsAppDoorInputViewBaseStyle.m */,
-				C55329CF282B975A005B63BA /* JobsAppDoorInputViewBaseStyleModel.m */,
-				C55329D0282B975A005B63BA /* JobsAppDoorInputViewBaseStyle.h */,
+				C5AA8B5A282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle.h */,
+				C5AA8B58282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle.m */,
+				C5AA8B57282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyleModel.h */,
+				C5AA8B59282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyleModel.m */,
 			);
 			path = "输入框样式基类";
 			sourceTree = "<group>";
 		};
-		C55329D1282B975A005B63BA /* 输入框样式_4 */ = {
+		C5AA8B5B282CE2F00057EB84 /* 输入框样式_4 */ = {
 			isa = PBXGroup;
 			children = (
-				C55329D3282B975A005B63BA /* 输入框样式_4.png */,
-				C55329D4282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_4.h */,
-				C55329D2282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_4.m */,
+				C5AA8B5D282CE2F00057EB84 /* 输入框样式_4.png */,
+				C5AA8B5F282CE2F00057EB84 /* 输入框样式_4（✉️获取并输入图形验证码）.md */,
+				C5AA8B5E282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_4.h */,
+				C5AA8B5C282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_4.m */,
 			);
 			path = "输入框样式_4";
 			sourceTree = "<group>";
 		};
-		C55329D5282B975A005B63BA /* 输入框样式_3 */ = {
+		C5AA8B60282CE2F00057EB84 /* 输入框样式_3 */ = {
 			isa = PBXGroup;
 			children = (
-				C55329D7282B975A005B63BA /* 输入框样式_3.png */,
-				C55329D8282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_3.h */,
-				C55329D6282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_3.m */,
+				C5AA8B63282CE2F00057EB84 /* 输入框样式_3.png */,
+				C5AA8B61282CE2F00057EB84 /* 输入框样式_3（输入👨🏻用户名）.md */,
+				C5AA8B64282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_3.h */,
+				C5AA8B62282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_3.m */,
 			);
 			path = "输入框样式_3";
 			sourceTree = "<group>";
@@ -8882,6 +9006,7 @@
 				844B08712764CF4800B0513D /* 定位服务@3x.png in Resources */,
 				84CA5E8027895BA400E46E71 /* Tabbar.xcassets in Resources */,
 				840F95FC27736427004979E9 /* record_change.json in Resources */,
+				C57A2038282CB59F0032156B /* gesture_normal@2x.png in Resources */,
 				840F96C527736428004979E9 /* HQCollectionViewFlowLayout.md in Resources */,
 				84CA5FD827897AFB00E46E71 /* sortedNameCH.plist in Resources */,
 				84CA5FBF27897AFB00E46E71 /* XDSDropDownMenu（下拉菜单） in Resources */,
@@ -8892,6 +9017,7 @@
 				840F95F027736427004979E9 /* 我的.json in Resources */,
 				844B08562764CF4800B0513D /* 运动与健身@2x.png in Resources */,
 				844B02232764C8F000B0513D /* LaunchScreen.storyboard in Resources */,
+				C57A2039282CB59F0032156B /* gesture_selected@2x.png in Resources */,
 				844B08632764CF4800B0513D /* 蓝牙@2x.png in Resources */,
 				84CA5EBB27895C0A00E46E71 /* 非iph_X.mp4 in Resources */,
 				840F965F27736428004979E9 /* LGiOSBtn.md in Resources */,
@@ -8907,6 +9033,7 @@
 				840F96F927736428004979E9 /* KeychainHelper.webp in Resources */,
 				84562574278BF1FB0067ABB9 /* JobsComment【OutLines 04】.png in Resources */,
 				84CA621C27899E2700E46E71 /* 0.jpeg in Resources */,
+				C57A203B282CB59F0032156B /* 红色椭圆.png in Resources */,
 				840F95F227736427004979E9 /* upgrade.json in Resources */,
 				84A491F827904A970002A837 /* Class@2x.png in Resources */,
 				840F968227736428004979E9 /* UITextView+IndicateWordLimit.png in Resources */,
@@ -8973,6 +9100,7 @@
 				840F95F127736427004979E9 /* tab_me_animate.json in Resources */,
 				84A491F927904A970002A837 /* Class@3x.png in Resources */,
 				840F96D427736428004979E9 /* FileFolderHandleTool.md in Resources */,
+				C57A203A282CB59F0032156B /* 灰色椭圆.png in Resources */,
 				8459CE1E2776DCCF00125782 /* 启动页_04.png in Resources */,
 				84CA5E8327895BCE00E46E71 /* MetaData.plist in Resources */,
 				840F966627736428004979E9 /* Sound.wav in Resources */,
@@ -8981,6 +9109,7 @@
 				84CA5FA327897AFB00E46E71 /* AESCipher in Resources */,
 				840F964327736427004979E9 /* README.md in Resources */,
 				84CA5FDF27897AFB00E46E71 /* GDFadeView.md in Resources */,
+				C5932EC8282D26E500B3B053 /* 测试弹窗的背景图@3x.png in Resources */,
 				84CA5E7E27895BA400E46E71 /* AppDoor.xcassets in Resources */,
 				840F96BB27736428004979E9 /* BaseTableView.md in Resources */,
 				840F969D27736428004979E9 /* UIViewController+XLBubbleTransition.md in Resources */,
@@ -8995,6 +9124,7 @@
 				844B08662764CF4800B0513D /* 日历@2x.png in Resources */,
 				840F96DF27736428004979E9 /* DeleteSystemUITabBarButton.md in Resources */,
 				840F962E27736427004979E9 /* 2@3x.png in Resources */,
+				C5932EC9282D26E500B3B053 /* 测试弹窗的背景图@2x.png in Resources */,
 				84432C10278C45C40028A27D /* 热度.gif in Resources */,
 				840F96BC27736428004979E9 /* UIControl+XY.md in Resources */,
 				844B08742764CF4800B0513D /* ECAuthorizationTools.md in Resources */,
@@ -9003,6 +9133,7 @@
 				844B08622764CF4800B0513D /* 语音识别@2x.png in Resources */,
 				840F962727736427004979E9 /* 4@3x.png in Resources */,
 				84A491FC27904A970002A837 /* Header@3x.png in Resources */,
+				C5932ECA282D26E500B3B053 /* 测试弹窗的确定按钮@3x.png in Resources */,
 				840F962B27736427004979E9 /* 8@2x.png in Resources */,
 				84CA5E0327895B4700E46E71 /* Others.bundle in Resources */,
 				84CA5FA527897AFB00E46E71 /* MD5 in Resources */,
@@ -9013,6 +9144,7 @@
 				840F961B27736427004979E9 /* 7@2x.png in Resources */,
 				840F96AE27736428004979E9 /* JsonRes.bundle in Resources */,
 				840F965C27736428004979E9 /* RBCLikeButton.md in Resources */,
+				C57A2037282CB59F0032156B /* gesture_indicator_selected@2x.png in Resources */,
 				840F96D327736428004979E9 /* BaseObject.md in Resources */,
 				844B085D2764CF4800B0513D /* 02.PNG in Resources */,
 				840F9C5B27736583004979E9 /* iPhone尺寸.png in Resources */,
@@ -9025,6 +9157,7 @@
 				840F96DB27736428004979E9 /* UBLLivingVC_m in Resources */,
 				840F962627736427004979E9 /* 3@2x.png in Resources */,
 				844B086D2764CF4800B0513D /* 照片@3x.png in Resources */,
+				C5932ECB282D26E500B3B053 /* 测试弹窗的确定按钮@2x.png in Resources */,
 				8459CE1C2776DCCF00125782 /* 启动页_02.png in Resources */,
 				846DF03C27806D230050468A /* 尝试高仿蜜柚.md in Resources */,
 				844B08582764CF4800B0513D /* 运动与健身@3x.png in Resources */,
@@ -9099,14 +9232,17 @@
 				840F966827736428004979E9 /* SoundBtn.md in Resources */,
 				840F96B827736428004979E9 /* UITableView+WWFoldableTableView.md in Resources */,
 				84A4920527904A970002A837 /* 输入框有值@3x.png in Resources */,
+				C57A2035282CB59F0032156B /* gesture_headIcon@2x.png in Resources */,
 				840F96CA27736428004979E9 /* UICollectionViewFlowLayout.md in Resources */,
 				840F963727736427004979E9 /* JobsLeftRightLab.md in Resources */,
 				840F970627736428004979E9 /* 如何理解iOS的Runtime？ - 掘金.mht in Resources */,
 				844B08602764CF4800B0513D /* 通讯录@2x.png in Resources */,
+				C57A2036282CB59F0032156B /* gesture_indicator_normal@2x.png in Resources */,
 				840F96FF27736428004979E9 /* 获取iOS设备唯一标示.md in Resources */,
 				844B08692764CF4800B0513D /* 文件和文件夹@2x.png in Resources */,
 				8459CE1B2776DCCF00125782 /* 启动页_01.png in Resources */,
 				844B085A2764CF4800B0513D /* 提醒事项@3x.png in Resources */,
+				C57A203C282CB59F0032156B /* 橙色椭圆.png in Resources */,
 				84CA5F9B27897AFB00E46E71 /* RSA in Resources */,
 				84CA5E0427895B4700E46E71 /* GIF大图.gif in Resources */,
 				840F961E27736427004979E9 /* 9@3x.png in Resources */,
@@ -9241,6 +9377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8424752D27C0D30700831270 /* UploadImageApi.m in Sources */,
+				C5AA8B67282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_8.m in Sources */,
 				84CA5FB127897AFB00E46E71 /* HAHandleDemoView.m in Sources */,
 				840F966D27736428004979E9 /* UIView+SuspendView.m in Sources */,
 				840F96E127736428004979E9 /* TouchID.m in Sources */,
@@ -9264,12 +9401,12 @@
 				840F96A627736428004979E9 /* UIViewController+BaseVC.m in Sources */,
 				840F967027736428004979E9 /* UIView+Measure.m in Sources */,
 				84CA5FC327897AFB00E46E71 /* LongPressToDeleteImageView.m in Sources */,
-				C55329EE282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_3.m in Sources */,
 				840F968927736428004979E9 /* UICollectionView+RegisterClass.m in Sources */,
 				844B08402764CF4800B0513D /* ZWPullMenuConfig.m in Sources */,
 				840F96FE27736428004979E9 /* NSObject+DeviceID.m in Sources */,
 				840F96F427736428004979E9 /* NSObject+Popup.m in Sources */,
 				840F964E27736427004979E9 /* UITableViewCell+BaseCellProtocol.m in Sources */,
+				C57A2034282CB59F0032156B /* ZLGestureLockView.m in Sources */,
 				8459CC332775D3E900125782 /* AppDelegate+UIApplicationDelegate.m in Sources */,
 				844B08832764CF4800B0513D /* XHLaunchAdImageManager.m in Sources */,
 				8456259A278BF2780067ABB9 /* JobsLoadMoreTBVCell.m in Sources */,
@@ -9292,10 +9429,12 @@
 				840F967627736428004979E9 /* UIView+ViewController.m in Sources */,
 				840F963627736427004979E9 /* JobsLabBaseModel.m in Sources */,
 				840F964827736427004979E9 /* UIImage+YBGIF.m in Sources */,
+				C5AA8B7C282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_5.m in Sources */,
 				84CA660E2789D4CD00E46E71 /* ForgetCodeStep_02View.m in Sources */,
 				84CA65452789CB2A00E46E71 /* DDNetworkingAPI+DemoTestApi.m in Sources */,
 				840F96F127736428004979E9 /* NSObject+Time.m in Sources */,
 				840F966F27736428004979E9 /* UIView+Gesture.m in Sources */,
+				C5AA8B7D282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle.m in Sources */,
 				840F964527736427004979E9 /* UIImage+ScreenShot.m in Sources */,
 				840F970027736428004979E9 /* NSObject+IDFV.m in Sources */,
 				840F967C27736428004979E9 /* UIView+Extras.m in Sources */,
@@ -9319,6 +9458,7 @@
 				840F96ED27736428004979E9 /* NSObject+UserNotifications.m in Sources */,
 				84CA63D12789B3CC00E46E71 /* TestIrregularViewTestVC.m in Sources */,
 				842477A627C114BE00831270 /* NotifiManager.m in Sources */,
+				C5AA8B6F282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_1.m in Sources */,
 				842475AB27C0D67000831270 /* YTKChainRequest+AnimatingAccessory.m in Sources */,
 				840F96D727736428004979E9 /* NSTimerManager.m in Sources */,
 				840F96FD27736428004979E9 /* NSObject+IDFA.m in Sources */,
@@ -9336,7 +9476,6 @@
 				844B087B2764CF4800B0513D /* XHLaunchAdConst.m in Sources */,
 				840F968F27736428004979E9 /* UIImageView+GIF.m in Sources */,
 				840F96CF27736428004979E9 /* BaseCollectionReusableView.m in Sources */,
-				C55329E1282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_7.m in Sources */,
 				840F964927736427004979E9 /* UIImage+Tailor.m in Sources */,
 				840F96F227736428004979E9 /* NSObject+DataBinding.m in Sources */,
 				840F966727736428004979E9 /* SoundBtn.m in Sources */,
@@ -9347,6 +9486,7 @@
 				84401A8127919E3B0038FF6F /* JobsSearchShowHotwordsTBVCell.m in Sources */,
 				840F96CC27736428004979E9 /* NSUserDefaults+Swizzle.m in Sources */,
 				840F969327736428004979E9 /* NSString+Eomji.m in Sources */,
+				C5AA8B73282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_9.m in Sources */,
 				846DF02127806D230050468A /* JobsAppDoorConfig.m in Sources */,
 				84A491F027904A970002A837 /* MGSwipeButtonModel.m in Sources */,
 				848691E0277B03410098BE7A /* NSObject+DynamicInvoke.m in Sources */,
@@ -9365,7 +9505,6 @@
 				844B083B2764CF4800B0513D /* JXCategoryTitleBackgroundCell.m in Sources */,
 				844B08502764CF4800B0513D /* ECPrivacyCheckPhotos.m in Sources */,
 				840F960B27736427004979E9 /* BWShareView.m in Sources */,
-				C55329DE282B975A005B63BA /* AuthCodeLab.m in Sources */,
 				8424779227C1141900831270 /* CoreTextLearningVC.m in Sources */,
 				8459CE242776DD4000125782 /* SceneDelegate+UISceneDelegate.m in Sources */,
 				844B083A2764CF4800B0513D /* JXCategoryTitleBackgroundCellModel.m in Sources */,
@@ -9377,9 +9516,7 @@
 				840F96FB27736428004979E9 /* NSObject+UUID.m in Sources */,
 				8424779B27C1147E00831270 /* NotifiView.m in Sources */,
 				84CA64BE2789C80600E46E71 /* ZFDouYinCell.m in Sources */,
-				C55329EA282B975A005B63BA /* JobsAppDoorInputViewBaseStyle.m in Sources */,
 				84CA5FA227897AFB00E46E71 /* AES.m in Sources */,
-				C55329EB282B975A005B63BA /* JobsAppDoorInputViewBaseStyleModel.m in Sources */,
 				842477A527C114BE00831270 /* NotifiViewFactory.m in Sources */,
 				840F968127736428004979E9 /* UITextView+IndicateWordLimit.m in Sources */,
 				840F969527736428004979E9 /* NSString+Statistics.m in Sources */,
@@ -9396,6 +9533,7 @@
 				84A491F427904A970002A837 /* JobsAdNoticeView.m in Sources */,
 				840F961027736427004979E9 /* ZBRequestEngine.m in Sources */,
 				840F960C27736427004979E9 /* BWItemCollectionViewCell.m in Sources */,
+				C5932EC7282D26E500B3B053 /* JobsBaseConfigTestPopupView.m in Sources */,
 				848AAD712788214B00856087 /* UIScrollView+Extra.m in Sources */,
 				840F965E27736428004979E9 /* RBCLikeButton.m in Sources */,
 				840F966527736428004979E9 /* IrregularBtn.m in Sources */,
@@ -9430,6 +9568,7 @@
 				8440A1A227A1053C0089EE40 /* JobsDropDownListVC.m in Sources */,
 				84A160FA278956AF00DACA3C /* ViewController@3.m in Sources */,
 				840F9C72277368AE004979E9 /* NSObject+URLManager.m in Sources */,
+				C5AA8B71282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_7.m in Sources */,
 				840F96DE27736428004979E9 /* DeleteSystemUITabBarButton.m in Sources */,
 				840F96D827736428004979E9 /* Nanosecond_TimerManager.m in Sources */,
 				840F96EF27736428004979E9 /* NSObject+Shake.m in Sources */,
@@ -9445,7 +9584,6 @@
 				840F970F27736428004979E9 /* UITextField+ReRect.m in Sources */,
 				840F971B27736428004979E9 /* DebugLogDescription.m in Sources */,
 				84CA5FE027897AFB00E46E71 /* GDFadeView.m in Sources */,
-				C55329E6282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_2.m in Sources */,
 				840F971827736428004979E9 /* JobsShowObjInfoVC.m in Sources */,
 				840F960E27736427004979E9 /* JobsHotLabelWithSingleLine.m in Sources */,
 				84CA64B22789C2F300E46E71 /* Douyin_ZFPlayerVC@2.m in Sources */,
@@ -9490,6 +9628,7 @@
 				84A4920D27904A970002A837 /* JobsIMListView.m in Sources */,
 				8443310F278D456A0028A27D /* NSObject+CasinoCheck.m in Sources */,
 				844B083D2764CF4800B0513D /* JXCategoryTimelineView.m in Sources */,
+				C5AA8B7E282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyleModel.m in Sources */,
 				840F96B327736428004979E9 /* BaseNavigationVC.m in Sources */,
 				840F96EC27736428004979E9 /* NSObject+UIScrollViewDelegate.m in Sources */,
 				8459CC342775D3E900125782 /* AppDelegate+XHLaunchAdDelegate.m in Sources */,
@@ -9511,7 +9650,6 @@
 				84CA5FD527897AFB00E46E71 /* SearchView.m in Sources */,
 				84CA5F9927897AFB00E46E71 /* GTMBase64.m in Sources */,
 				84CA64BF2789C80600E46E71 /* MKRightBtnView.m in Sources */,
-				C55329DD282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_6.m in Sources */,
 				84CA64C02789C80600E46E71 /* ZFDouYinControlView.m in Sources */,
 				840F970A27736428004979E9 /* NSObject+UNUserNotificationCenterDelegate.m in Sources */,
 				8456259B278BF2780067ABB9 /* JobsCommentPopUpView_viewForHeaderInSection.m in Sources */,
@@ -9521,6 +9659,7 @@
 				840F96F727736428004979E9 /* NSObject+Sound.m in Sources */,
 				84CA5FD927897AFB00E46E71 /* XWCountryCodeController.m in Sources */,
 				84A160FE278956BF00DACA3C /* ViewController@4.m in Sources */,
+				C5AA8B6C282CE2F00057EB84 /* AuthCodeLab.m in Sources */,
 				84CA65402789CAB600E46E71 /* DDNetworkingAPI.m in Sources */,
 				840F95E527736427004979E9 /* JobsTabBarItem.m in Sources */,
 				840F96CB27736428004979E9 /* UserDefaultModel.m in Sources */,
@@ -9569,6 +9708,7 @@
 				84CA5F9A27897AFB00E46E71 /* RSAUtil.m in Sources */,
 				844B08532764CF4800B0513D /* ECPrivacyCheckReminders.m in Sources */,
 				840F96AF27736428004979E9 /* UIViewController+MJRefresh.m in Sources */,
+				C5AA8B7F282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_4.m in Sources */,
 				84CA64A92789C24600E46E71 /* VideoModel.m in Sources */,
 				840F969E27736428004979E9 /* XLBubbleTransition.m in Sources */,
 				840F960627736427004979E9 /* TLTabBarAnimation.m in Sources */,
@@ -9582,6 +9722,7 @@
 				84401A8227919E3B0038FF6F /* JobsSearchTBVCell.m in Sources */,
 				84B9A94F27969C330070DD20 /* BaseLabel.m in Sources */,
 				840F96AD27736428004979E9 /* LOTAnimationMJRefreshHeader.m in Sources */,
+				C5AA8B78282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_2.m in Sources */,
 				8416F28427B23118008D10E2 /* JobsFormatTime.m in Sources */,
 				84CA65FD2789D3B500E46E71 /* JobsAppDoorRegisterContentView.m in Sources */,
 				844B083E2764CF4800B0513D /* JXCategoryTimelineCellModel.m in Sources */,
@@ -9605,7 +9746,6 @@
 				84CA619C2789856C00E46E71 /* MyFansTBVCell.m in Sources */,
 				84CA5FBC27897AFB00E46E71 /* WBTableViewCell.m in Sources */,
 				844B083F2764CF4800B0513D /* JXCategoryTimelineCell.m in Sources */,
-				C55329EC282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_4.m in Sources */,
 				842475AE27C0D67000831270 /* YTKBaseRequest+AnimatingAccessory.m in Sources */,
 				840F960127736427004979E9 /* JobsPullListAutoSizeView.m in Sources */,
 				84CA64A42789C1F100E46E71 /* Douyin_ZFPlayerVC@1.m in Sources */,
@@ -9616,10 +9756,10 @@
 				840F965727736428004979E9 /* UIButton+UI.m in Sources */,
 				840F968027736428004979E9 /* UITextView+Extend.m in Sources */,
 				84CA5FBE27897AFB00E46E71 /* ZHKeyChainManager.m in Sources */,
-				C55329DA282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_8.m in Sources */,
 				84CA5FDE27897AFB00E46E71 /* WGradientProgressView.m in Sources */,
 				84CA660F2789D4CD00E46E71 /* FindCodeFlowChartView.m in Sources */,
 				844B08472764CF4800B0513D /* ECPrivacyCheckHomeKit.m in Sources */,
+				C57A203D282CB59F0032156B /* ZLGestureLockViewController.m in Sources */,
 				84CA5FCC27897AFB00E46E71 /* UIImage+TBCityIconFont.m in Sources */,
 				840F967427736428004979E9 /* UIView+EmptyData.m in Sources */,
 				840F96CE27736428004979E9 /* NSCache+Extra.m in Sources */,
@@ -9632,8 +9772,8 @@
 				840F95FE27736427004979E9 /* JobsTabbarVC.m in Sources */,
 				840F971727736428004979E9 /* CheckMemFreeVC.m in Sources */,
 				840F96E427736428004979E9 /* JobsTimeModel.m in Sources */,
-				C55329E9282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_5.m in Sources */,
 				84401A8327919E3B0038FF6F /* JobsSearchDataCVCell.m in Sources */,
+				C5AA8B83282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_3.m in Sources */,
 				84CA5F9627897AFB00E46E71 /* NSData+Base64.m in Sources */,
 				840F964027736427004979E9 /* JobsSuspendView.m in Sources */,
 				84A491F327904A970002A837 /* JobsIMInputview.m in Sources */,
@@ -9643,6 +9783,7 @@
 				846DF03B27806D230050468A /* JobsAppDoorContentView.m in Sources */,
 				844019902791997C0038FF6F /* NSMutableArray+Extra.m in Sources */,
 				840F968A27736428004979E9 /* BaseCollectionView.m in Sources */,
+				C57A203E282CB59F0032156B /* ZLGestureLockIndicator.m in Sources */,
 				844B02122764C8EE00B0513D /* AppDelegate.m in Sources */,
 				84CA5FAE27897AFB00E46E71 /* XLChannelHeader.m in Sources */,
 				840F970B27736428004979E9 /* NSObject+DefConfig.m in Sources */,
@@ -9657,8 +9798,8 @@
 				840F961327736427004979E9 /* NSString+ZBUTF8Encoding.m in Sources */,
 				8424771527C0FDCA00831270 /* GetCustomerContactApi.m in Sources */,
 				840F963F27736427004979E9 /* JobsSuspendLab.m in Sources */,
-				C55329E0282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_1.m in Sources */,
 				840F970127736428004979E9 /* NSObject+RichText.m in Sources */,
+				C5AA8B6B282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_6.m in Sources */,
 				840F967527736428004979E9 /* UIView+BackgroundImage.m in Sources */,
 				84CA5F9027897AFB00E46E71 /* XLSphereView.m in Sources */,
 				844B08432764CF4800B0513D /* ZWPullMenuCell.m in Sources */,
@@ -9684,7 +9825,6 @@
 				8424744027C0CAEB00831270 /* YTKUrlArgumentsFilter.m in Sources */,
 				84868DA32779DDA50098BE7A /* ZMJCells.m in Sources */,
 				844B02152764C8EE00B0513D /* SceneDelegate.m in Sources */,
-				C55329E3282B975A005B63BA /* JobsAppDoorInputViewBaseStyle_9.m in Sources */,
 				84868E1F2779DFE30098BE7A /* UILabel+Extra.m in Sources */,
 				84CA5FB027897AFB00E46E71 /* XLChannelItem.m in Sources */,
 				840F96AC27736428004979E9 /* MJRefreshConfigModel.m in Sources */,

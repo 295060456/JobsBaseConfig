@@ -47,10 +47,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)CGFloat TFRiseHeight;/// 键盘在此手机上的最高弹起，区别于全面屏结合非全面屏，有一个安全区域34
 @property(nonatomic,assign)CGFloat placeHolderOffset;/// 左/右/居中 对齐的时候placeHolder的偏移量【传正值】
 @property(nonatomic,assign)CGFloat fieldEditorOffset; /// 因为设置了leftView后fieldEditor所需的偏移量
-@property(nonatomic,assign)PlaceHolderAlignment placeHolderAlignment;/// PlaceHolder的位置
-@property(nonatomic,assign)CGFloat offset;/// 光标的起始距离距离控件左边的差值
-@property(nonatomic,assign)CGFloat leftViewOffsetX;
-@property(nonatomic,assign)CGFloat rightViewOffsetX;
+@property(nonatomic,assign)PlaceHolderAlignment placeHolderAlignment;/// PlaceHolder的位置（左/中/右）
+@property(nonatomic,assign)CGFloat offset;/// 光标的起始距离距离控件最左边(不包括leftView)的差值
+@property(nonatomic,assign)CGFloat leftViewOffsetX;/// leftView 距离控件最左边的差值
+@property(nonatomic,assign)CGFloat rightViewOffsetX;/// TextField的删除按钮距离控件最右边的差值
 @property(nonatomic,assign)BOOL ZYTextFieldMasksToBounds;
 @property(nonatomic,assign)UIColor *ZYTextFieldBorderColor;
 @property(nonatomic,strong)UIColor *ZYtextColor;/// 文本颜色

@@ -3,6 +3,8 @@
 ## Open As Source Code,加入：
 
 ### 开权限：
+    <key>NSFaceIDUsageDescription</key>
+    <string>App需要您的同意，才能访问您的面容识别功能，用于安全验证</string>
     <key>NSAppleMusicUsageDescription</key>
     <string>Add tracks to your music library.</string>
     <key>NSBluetoothAlwaysUsageDescription</key>
