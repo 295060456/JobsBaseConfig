@@ -52,7 +52,6 @@
         {
             JobsUpDownLabModel *model = JobsUpDownLabModel.new;
             model.upLabText = [NSString isNullString:self.viewModel.textModel.text] ? Internationalization(@"测试弹窗"): self.viewModel.textModel.text;
-            model.upLabTextAlignment = NSTextAlignmentCenter;
             model.upLabFont = [UIFont systemFontOfSize:JobsWidth(20)
                                                 weight:UIFontWeightBold];
             model.upLabTextCor = UIColor.blackColor;
@@ -65,7 +64,6 @@
                                                   weight:UIFontWeightRegular];
             model.downLabTextCor = HEXCOLOR(0xB0B0B0);
             model.downLabBgCor = UIColor.clearColor;
-            model.downLabTextAlignment = NSTextAlignmentCenter;
             
             model.space = JobsWidth(12);
             

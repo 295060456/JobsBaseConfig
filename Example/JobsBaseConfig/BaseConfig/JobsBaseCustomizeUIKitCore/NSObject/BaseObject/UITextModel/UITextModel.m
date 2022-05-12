@@ -25,7 +25,9 @@ UITextModelProtocol_synthesize
 
 -(NSString *)text{
     if (!_text) {
-        _text = @"主文字默认占位内容";
+#ifdef DEBUG
+        _text = Internationalization(TextModelDataString);
+#endif
     }return _text;
 }
 

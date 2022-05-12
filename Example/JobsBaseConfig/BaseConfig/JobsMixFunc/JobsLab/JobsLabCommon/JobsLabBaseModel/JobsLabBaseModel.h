@@ -41,7 +41,7 @@ typedef enum : NSInteger {
 @property(nonatomic,assign)NSTextAlignment downLabTextAlignment;
 @property(nonatomic,assign)NSLineBreakMode downLabLineBreakMode;
 @property(nonatomic,strong)NSAttributedString *downLabAttributedText;
-@property(nonatomic,assign)BOOL isDownLabMultiLineShows;// 是否多行行显示【默认单行显示】
+@property(nonatomic,assign)BOOL isDownLabMultiLineShows;// 是否多行行显示【默认单行显示】。如需多行显示，字符串内需要添加换行符，例如：@"開啟手勢密碼，系統將默認記住您的賬戶密碼\n進入免登陸狀態"
 
 @end
 

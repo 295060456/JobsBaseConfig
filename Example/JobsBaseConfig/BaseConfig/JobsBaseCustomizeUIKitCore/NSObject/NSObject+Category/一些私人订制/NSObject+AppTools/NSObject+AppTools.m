@@ -188,9 +188,10 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
     }
     return viewModel;
 }
-
--(void)testPopView:(UIViewModel *_Nullable)viewModel{
+/// Debug模式下的弹出框 及其相关的数据封装
+-(void)jobsTestPopView:(UIViewModel *_Nullable)viewModel{
     
+#ifdef DEBUG
     JobsBaseConfigTestPopupView *testPopupView = JobsBaseConfigTestPopupView.new;
     testPopupView.size = [CasinoUpgradePopupView viewSizeWithModel:nil];
     [testPopupView richElementsInViewWithModel:viewModel ? : self.testPopViewData];
@@ -205,6 +206,27 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
     }];
     
     [self popupWithView:testPopupView];
+#endif
+}
+/// 测试和业务密切相关的弹窗
+/// @param popViewClass 被测试的弹窗视图
+/// @param viewModel 此视图所绑定的数据。传nil则使用testPopViewData的数据、传UIViewModel.new则使用popViewClass预埋的数据
+-(void)jobsPopView:(Class<BaseViewProtocol> _Nullable)popViewClass
+         viewModel:(UIViewModel *_Nullable)viewModel{
+    UIView<BaseViewProtocol> *popupView = popViewClass.new;
+    popupView.size = [popViewClass viewSizeWithModel:nil];
+    [popupView richElementsInViewWithModel:viewModel ? : self.testPopViewData];
+    
+    [popupView actionObjectBlock:^(UIButton *data) {
+        if ([[data titleForNormalState] isEqualToString:Internationalization(@"Cancel")]) {
+            
+        }else if ([[data titleForNormalState] isEqualToString:Internationalization(@"Sure")]){
+            
+        }else{}
+        [popupView tf_hide];
+    }];
+    
+    [self popupWithView:popupView];
 }
 /// App 升级弹窗：在根控制器下实现，做到覆盖全局的统一
 -(void)appUpdateWithData:(CasinoGetiOSNewestVersionModel *_Nonnull)updateData
@@ -302,6 +324,162 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
     objc_setAssociatedObject(self,
                              NSObject_AppTools_hotLabelDataMutArr,
                              hotLabelDataMutArr,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+static char *NSObject_AppTools_titleLab = "NSObject_AppTools_titleLab";
+@dynamic titleLab;
+#pragma mark —— @property(nonatomic,strong)JobsUpDownLab *titleLab;
+-(JobsUpDownLab *)titleLab{
+    JobsUpDownLab *TitleLab = objc_getAssociatedObject(self, NSObject_AppTools_titleLab);
+    if ([self isKindOfClass:UIViewController.class] && !TitleLab) {
+        TitleLab = JobsUpDownLab.new;
+        
+        UIViewController *viewController = (UIViewController *)self;
+        [viewController.view addSubview:TitleLab];
+        [TitleLab mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(viewController.view).offset(JobsWidth(120));
+            make.left.equalTo(viewController.view).offset(JobsWidth(16));
+        }];
+        
+        {
+            JobsUpDownLabModel *model = JobsUpDownLabModel.new;
+            model.upLabText = Internationalization(@"登入獲得更多精彩");
+            model.upLabFont = [UIFont systemFontOfSize:JobsWidth(24)
+                                                weight:UIFontWeightBold];
+            model.upLabTextCor = UIColor.blackColor;
+            model.upLabBgCor = UIColor.clearColor;
+            model.upLabTextAlignment = NSTextAlignmentLeft;
+            
+            model.downLabText = Internationalization(@"在這裡，體驗專業平台");
+            model.downLabFont = [UIFont systemFontOfSize:JobsWidth(16)
+                                                  weight:UIFontWeightRegular];
+            model.downLabTextCor = HEXCOLOR(0xB0B0B0);
+            model.downLabBgCor = UIColor.clearColor;
+            model.downLabTextAlignment = NSTextAlignmentLeft;
+            
+            model.space = JobsWidth(12);
+            
+            [TitleLab richElementsInViewWithModel:model];
+        }
+        
+        objc_setAssociatedObject(self,
+                                 NSObject_AppTools_titleLab,
+                                 TitleLab,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return TitleLab;
+}
+
+-(void)setTitleLab:(JobsUpDownLab *)titleLab{
+    objc_setAssociatedObject(self,
+                             NSObject_AppTools_titleLab,
+                             titleLab,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+static char *NSObject_AppTools_separateLab = "NSObject_AppTools_separateLab";
+@dynamic separateLab;
+#pragma mark —— @property(nonatomic,strong)UILabel *separateLab;/// 分割线
+-(UILabel *)separateLab{
+    UILabel *SeparateLab = objc_getAssociatedObject(self, NSObject_AppTools_separateLab);
+    if ([self isKindOfClass:UIViewController.class] && !SeparateLab) {
+        SeparateLab = UILabel.new;
+        SeparateLab.backgroundColor = HEXCOLOR(0xC4C4C4);
+        UIViewController *viewController = (UIViewController *)self;
+        [viewController.bgImageView addSubview:SeparateLab];
+        [SeparateLab mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo(CGSizeMake(JobsWidth(2), JobsWidth(14)));
+            make.centerX.equalTo(viewController.view);
+            make.bottom.equalTo(viewController.view).offset(JobsWidth(-64));
+        }];
+        objc_setAssociatedObject(self,
+                                 NSObject_AppTools_separateLab,
+                                 SeparateLab,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return SeparateLab;
+}
+
+
+-(void)setSeparateLab:(UILabel *)separateLab{
+    objc_setAssociatedObject(self,
+                             NSObject_AppTools_separateLab,
+                             separateLab,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+static char *NSObject_AppTools_立即注册 = "NSObject_AppTools_立即注册";
+@dynamic 立即注册;
+#pragma mark —— @property(nonatomic,strong)UIButton *立即注册;
+-(UIButton *)立即注册{
+    UIButton *_立即注册 = objc_getAssociatedObject(self, NSObject_AppTools_立即注册);
+    if ([self isKindOfClass:UIViewController.class] && !_立即注册 ) {
+        _立即注册 = UIButton.new;
+        [_立即注册 handelAdjustsImageWhenHighlighted];
+        _立即注册.normalTitle = Internationalization(@"立即注册");
+        _立即注册.normalTitleColor = HEXCOLOR(0x757575);
+        _立即注册.titleFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
+        UIViewController *viewController = (UIViewController *)self;
+        [viewController.bgImageView addSubview:_立即注册];
+        [_立即注册 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(JobsWidth(14));
+            make.bottom.equalTo(viewController.view).offset(JobsWidth(-64));
+            make.left.equalTo(self.separateLab.mas_right).offset(JobsWidth(24));
+        }];
+        BtnClickEvent(_立即注册,
+                      {
+            NSLog(@"立即注册")
+            [self jobsTestPopView:nil];
+        });
+        
+        [_立即注册 makeBtnLabelByShowingType:UILabelShowingType_03];
+        
+        objc_setAssociatedObject(self,
+                                 NSObject_AppTools_立即注册,
+                                 _立即注册,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return _立即注册;
+}
+
+-(void)set立即注册:(UIButton *)立即注册{
+    objc_setAssociatedObject(self,
+                             NSObject_AppTools_立即注册,
+                             立即注册,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+static char *NSObject_AppTools_联系客服 = "NSObject_AppTools_联系客服";
+@dynamic 联系客服;
+#pragma mark —— @property(nonatomic,strong)UIButton *联系客服;
+-(UIButton *)联系客服{
+    UIButton *_联系客服 = objc_getAssociatedObject(self, NSObject_AppTools_联系客服);
+    if ([self isKindOfClass:UIViewController.class] && !_联系客服) {
+        _联系客服 = UIButton.new;
+        [_联系客服 handelAdjustsImageWhenHighlighted];
+        _联系客服.normalTitle = Internationalization(@"联系客服");
+        _联系客服.normalTitleColor = HEXCOLOR(0x757575);
+        _联系客服.titleFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
+        
+        UIViewController *viewController = (UIViewController *)self;
+        [viewController.bgImageView addSubview:_联系客服];
+        [_联系客服 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(JobsWidth(14));
+            make.bottom.equalTo(viewController.view).offset(JobsWidth(-64));
+            make.right.equalTo(viewController.separateLab.mas_left).offset(JobsWidth(-24));
+        }];
+        BtnClickEvent(_联系客服, {
+            NSLog(@"联系客服");
+            [self jobsTestPopView:nil];
+        });
+        
+        [_联系客服 makeBtnLabelByShowingType:UILabelShowingType_03];
+        
+        objc_setAssociatedObject(self,
+                                 NSObject_AppTools_联系客服,
+                                 _联系客服,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return _联系客服;
+}
+
+-(void)set联系客服:(UIButton *)联系客服{
+    objc_setAssociatedObject(self,
+                             NSObject_AppTools_联系客服,
+                             联系客服,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
