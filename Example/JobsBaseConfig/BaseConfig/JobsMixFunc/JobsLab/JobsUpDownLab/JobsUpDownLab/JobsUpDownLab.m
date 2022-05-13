@@ -121,12 +121,26 @@
 
         [self addSubview:_upBtn];
         [_upBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.width.equalTo(self);
             if (!self.upDownLabModel.isDownLabMultiLineShows) {
                 /// 单行显示定高
                 make.height.mas_equalTo(leftTextHeight);
             }
-            switch (self.upDownLabModel.upDownLabAlign) {
+            /// 水平方向
+            switch (self.upDownLabModel.upLabLevelAlign) {
+                case JobsUpDownLabAlign_TopLeft:{
+                    make.left.equalTo(self);
+                }break;
+                case JobsUpDownLabAlign_MiddleLine:{
+                    make.centerX.width.equalTo(self);
+                }break;
+                case JobsUpDownLabAlign_BottomRight:{
+                    make.right.equalTo(self);
+                }break;
+                default:
+                    break;
+            }
+            /// 垂直方向
+            switch (self.upDownLabModel.upLabVerticalAlign) {
                 case JobsUpDownLabAlign_TopLeft:{
                     make.top.equalTo(self);
                 }break;
@@ -172,12 +186,26 @@
 
         [self addSubview:_downBtn];
         [_downBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.width.equalTo(self);
             if (!self.upDownLabModel.isDownLabMultiLineShows) {
                 /// 单行显示定高
                 make.height.mas_equalTo(rightTextHeight);
             }
-            switch (self.upDownLabModel.upDownLabAlign) {
+            /// 水平方向
+            switch (self.upDownLabModel.downLabLevelAlign) {
+                case JobsUpDownLabAlign_TopLeft:{
+                    make.left.equalTo(self);
+                }break;
+                case JobsUpDownLabAlign_MiddleLine:{
+                    make.centerX.width.equalTo(self);
+                }break;
+                case JobsUpDownLabAlign_BottomRight:{
+                    make.right.equalTo(self);
+                }break;
+                default:
+                    break;
+            }
+            /// 垂直方向
+            switch (self.upDownLabModel.downLabVerticalAlign) {
                 case JobsUpDownLabAlign_TopLeft:{
                     make.top.equalTo(self.upBtn.mas_bottom).offset(self.upDownLabModel.space);
                 }break;

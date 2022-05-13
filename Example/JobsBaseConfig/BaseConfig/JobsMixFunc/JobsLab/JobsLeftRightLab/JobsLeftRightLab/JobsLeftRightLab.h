@@ -18,22 +18,27 @@ NS_ASSUME_NONNULL_END
 /**
  
  {
-     JobsLeftRightLabModel *model = JobsLeftRightLabModel.new;
-     model.upLabText = Internationalization(@"Amount payable");
-     model.upLabTextAlignment = NSTextAlignmentCenter;
-     model.upLabFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
-     model.upLabTextCor = UIColor.blackColor;
-     model.upLabBgCor = UIColor.clearColor;
-     
-     model.downLabText = @"2.99";
-     model.downLabTextAlignment = NSTextAlignmentCenter;
-     model.downLabFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightBold];
-     model.downLabTextCor = HEXCOLOR(0x524740);
-     model.downLabBgCor = UIColor.clearColor;
-     
-     model.space = JobsWidth(12);
-     
-     [_leftRightLab richElementsInViewWithModel:model];
+    JobsLeftRightLabModel *upDownLabModel = JobsLeftRightLabModel.new;
+    upDownLabModel.upLabText = Internationalization(@"Amount payable");
+    upDownLabModel.upLabTextAlignment = NSTextAlignmentCenter;
+    upDownLabModel.upLabFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
+    upDownLabModel.upLabTextCor = UIColor.blackColor;
+    upDownLabModel.upLabBgCor = UIColor.clearColor;
+
+    upDownLabModel.downLabText = @"2.99";
+    upDownLabModel.downLabTextAlignment = NSTextAlignmentCenter;
+    upDownLabModel.downLabFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightBold];
+    upDownLabModel.downLabTextCor = HEXCOLOR(0x524740);
+    upDownLabModel.downLabBgCor = UIColor.clearColor;
+
+    upDownLabModel.upLabVerticalAlign = JobsUpDownLabAlign_TopLeft;
+    upDownLabModel.upLabLevelAlign = JobsUpDownLabAlign_TopLeft;
+    upDownLabModel.downLabVerticalAlign = JobsUpDownLabAlign_TopLeft;
+    upDownLabModel.downLabLevelAlign = JobsUpDownLabAlign_TopLeft;
+
+    upDownLabModel.space = JobsWidth(12);
+
+    [_leftRightLab richElementsInViewWithModel:upDownLabModel];
  }
  
  */

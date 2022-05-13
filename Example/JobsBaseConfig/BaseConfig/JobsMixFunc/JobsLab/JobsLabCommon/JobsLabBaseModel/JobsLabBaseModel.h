@@ -19,7 +19,10 @@ typedef enum : NSInteger {
 
 @property(nonatomic,assign)CGFloat rate;// UpLab 和 DownLab的上下占比,默认为0.5（上下均等分）
 @property(nonatomic,assign)CGFloat space;// 间距 【当对齐基准为JobsUpDownLabAlign_MiddleLine失效】
-@property(nonatomic,assign)JobsUpDownLabAlign upDownLabAlign;// 对齐基准
+@property(nonatomic,assign)JobsUpDownLabAlign upLabVerticalAlign;// 上控件的垂直对齐基准
+@property(nonatomic,assign)JobsUpDownLabAlign upLabLevelAlign;// 上控件的水平对齐基准
+@property(nonatomic,assign)JobsUpDownLabAlign downLabVerticalAlign;// 下控件的垂直对齐基准
+@property(nonatomic,assign)JobsUpDownLabAlign downLabLevelAlign;// 下控件的水平对齐基准
 #pragma mark —— UpLab / LeftLab
 @property(nonatomic,strong)UIColor *upLabTextCor;
 @property(nonatomic,strong)UIColor *upLabBgCor;

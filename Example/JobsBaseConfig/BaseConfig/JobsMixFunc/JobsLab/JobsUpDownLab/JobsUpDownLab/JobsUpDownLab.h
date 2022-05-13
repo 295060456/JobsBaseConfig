@@ -21,22 +21,27 @@ NS_ASSUME_NONNULL_END
 /**
  
  {
-     JobsUpDownLabModel *model = JobsUpDownLabModel.new;
-     model.upLabText = @"2.2";
-     model.upLabTextAlignment = NSTextAlignmentCenter;
-     model.upLabFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
-     model.upLabTextCor = UIColor.blackColor;
-     model.upLabBgCor = UIColor.clearColor;
-     
-     model.downLabText = Internationalization(@"Estimated yesterday");
-     model.downLabTextAlignment = NSTextAlignmentCenter;
-     model.downLabFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
-     model.downLabTextCor = HEXCOLOR(0x524740);
-     model.downLabBgCor = UIColor.clearColor;
-     
-     model.space = JobsWidth(12);
-     
-     [_yesterdayLab richElementsInViewWithModel:model];
+    JobsUpDownLabModel *upDownLabModel = JobsUpDownLabModel.new;
+    upDownLabModel.upLabText = @"2.2";
+    upDownLabModel.upLabTextAlignment = NSTextAlignmentCenter;
+    upDownLabModel.upLabFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
+    upDownLabModel.upLabTextCor = UIColor.blackColor;
+    upDownLabModel.upLabBgCor = UIColor.clearColor;
+
+    upDownLabModel.downLabText = Internationalization(@"Estimated yesterday");
+    upDownLabModel.downLabTextAlignment = NSTextAlignmentCenter;
+    upDownLabModel.downLabFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
+    upDownLabModel.downLabTextCor = HEXCOLOR(0x524740);
+    upDownLabModel.downLabBgCor = UIColor.clearColor;
+
+    upDownLabModel.upLabVerticalAlign = JobsUpDownLabAlign_TopLeft;
+    upDownLabModel.upLabLevelAlign = JobsUpDownLabAlign_TopLeft;
+    upDownLabModel.downLabVerticalAlign = JobsUpDownLabAlign_TopLeft;
+    upDownLabModel.downLabLevelAlign = JobsUpDownLabAlign_TopLeft;
+
+    upDownLabModel.space = JobsWidth(12);
+
+    [_yesterdayLab richElementsInViewWithModel:upDownLabModel];
  }
  
  */
