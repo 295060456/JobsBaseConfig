@@ -31,6 +31,9 @@ NS_ASSUME_NONNULL_BEGIN
               byNotificationName:(nullable NSString *)NotificationName;
 /// 接收通知并相应的方法【在分类或者基类中实现会屏蔽具体子类的相关实现】
 -(void)languageSwitchNotification:(nonnull NSNotification *)notification;//在具体子类进行实现
+#pragma mark —— 单例化和销毁
++(void)destroySingleton;
++(instancetype)sharedInstance;
 
 @end
 

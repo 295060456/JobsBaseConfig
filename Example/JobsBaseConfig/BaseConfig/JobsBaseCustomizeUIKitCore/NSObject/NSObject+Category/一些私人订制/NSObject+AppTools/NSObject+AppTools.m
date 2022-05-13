@@ -192,7 +192,7 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
 -(void)jobsTestPopView:(UIViewModel *_Nullable)viewModel{
     
 #ifdef DEBUG
-    JobsBaseConfigTestPopupView *testPopupView = JobsBaseConfigTestPopupView.new;
+    JobsBaseConfigTestPopupView *testPopupView = JobsBaseConfigTestPopupView.sharedInstance;
     testPopupView.size = [CasinoUpgradePopupView viewSizeWithModel:nil];
     [testPopupView richElementsInViewWithModel:viewModel ? : self.testPopViewData];
     
@@ -203,6 +203,7 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
             
         }else{}
         [testPopupView tf_hide];
+        [JobsBaseConfigTestPopupView destroySingleton];
     }];
     
     [self popupWithView:testPopupView];
@@ -213,7 +214,8 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
 /// @param viewModel 此视图所绑定的数据。传nil则使用testPopViewData的数据、传UIViewModel.new则使用popViewClass预埋的数据
 -(void)jobsPopView:(Class<BaseViewProtocol> _Nullable)popViewClass
          viewModel:(UIViewModel *_Nullable)viewModel{
-    UIView<BaseViewProtocol> *popupView = popViewClass.new;
+    // 将方法内的变量进行单利化,避免重复创建
+    UIView<BaseViewProtocol> *popupView = popViewClass.class.sharedInstance;
     popupView.size = [popViewClass viewSizeWithModel:nil];
     [popupView richElementsInViewWithModel:viewModel ? : self.testPopViewData];
     
@@ -224,6 +226,7 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
             
         }else{}
         [popupView tf_hide];
+        [popViewClass.class destroySingleton];
     }];
     
     [self popupWithView:popupView];

@@ -18,6 +18,20 @@
 
 @synthesize viewModel = _viewModel;
 
+#pragma mark —— 单例化和销毁
++(void)destroySingleton{
+    static_testPopupViewOnceToken = 0;
+    static_popupView01 = nil;
+}
+
+static JobsBaseConfigTestPopupView *static_popupView01 = nil;
+static dispatch_once_t static_testPopupViewOnceToken;
++(instancetype)sharedInstance{
+    dispatch_once(&static_testPopupViewOnceToken, ^{
+        static_popupView01 = JobsBaseConfigTestPopupView.new;
+    });return static_popupView01;
+}
+
 -(instancetype)init{
     if (self = [super init]) {
         self.backgroundColor = UIColor.whiteColor;
@@ -52,11 +66,11 @@
         {
             JobsUpDownLabModel *model = JobsUpDownLabModel.new;
             model.upLabText = [NSString isNullString:self.viewModel.textModel.text] ? Internationalization(@"测试弹窗"): self.viewModel.textModel.text;
+            model.upLabTextAlignment = NSTextAlignmentCenter;
             model.upLabFont = [UIFont systemFontOfSize:JobsWidth(20)
                                                 weight:UIFontWeightBold];
             model.upLabTextCor = UIColor.blackColor;
             model.upLabBgCor = UIColor.clearColor;
-            model.upLabTextAlignment = NSTextAlignmentCenter;
             
             model.downLabText = [NSString isNullString:self.viewModel.subTextModel.text] ? Internationalization(@"相关信息"): self.viewModel.textModel.text;
             model.downLabTextAlignment = NSTextAlignmentCenter;
@@ -91,9 +105,9 @@
             NSLog(@"确定");
             x.selected = !x.selected;
             [self tf_hide];
+            if(self.objectBlock) self.objectBlock(x);
         });
     }return _testPopupViewSureBtn;
 }
-
 
 @end
