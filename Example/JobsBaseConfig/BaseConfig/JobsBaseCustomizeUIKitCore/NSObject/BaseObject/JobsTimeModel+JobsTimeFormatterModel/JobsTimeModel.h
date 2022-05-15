@@ -11,8 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSUInteger, IntervalStyle) {
-    intervalBySec = 0,//单位：秒
-    intervalByMilliSec//单位：毫秒
+    /// 单位：秒
+    intervalBySec = 0,
+    /// 单位：毫秒
+    intervalByMilliSec
 };
 
 //以应对同一时间不同格式的需求

@@ -11,9 +11,12 @@
  *  反转方向
  */
 typedef enum {
-    AnimReverDirectionX = 0,//X
-    AnimReverDirectionY,//Y
-    AnimReverDirectionZ,//Z
+    /// X
+    AnimReverDirectionX = 0,
+    /// Y
+    AnimReverDirectionY,
+    /// Z
+    AnimReverDirectionZ,
 }AnimReverDirection;
 
 @interface CALayer (Anim)

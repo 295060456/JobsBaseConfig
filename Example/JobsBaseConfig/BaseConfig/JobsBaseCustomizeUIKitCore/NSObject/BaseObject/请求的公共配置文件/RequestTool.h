@@ -13,9 +13,12 @@
 #import "NetworkingConstant.h"
 
 typedef NS_ENUM(NSUInteger, HTTPRequestHeaderLanguageType) {
-    HTTPRequestHeaderLanguageEn,// 英文
-    HTTPRequestHeaderLanguageCN,// 中文
-    HTTPRequestHeaderLanguageOther// 其他语言
+    /// 英文
+    HTTPRequestHeaderLanguageEn,
+    /// 中文
+    HTTPRequestHeaderLanguageCN,
+    /// 其他语言
+    HTTPRequestHeaderLanguageOther
 };
 
 NS_ASSUME_NONNULL_BEGIN

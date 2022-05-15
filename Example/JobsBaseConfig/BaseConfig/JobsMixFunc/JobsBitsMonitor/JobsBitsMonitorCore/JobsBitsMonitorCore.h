@@ -15,10 +15,11 @@
 #import "NSTimerManager.h"
 
 typedef enum : NSUInteger {
-    BitsMonitorAutoRun = 0,// 自启动模式
-    BitsMonitorManualRun = 1//手动启动模式
+    /// 自启动模式
+    BitsMonitorAutoRun = 0,
+    /// 手动启动模式
+    BitsMonitorManualRun = 1
 } BitsMonitorRunMode;
-
 
 NS_ASSUME_NONNULL_BEGIN
 

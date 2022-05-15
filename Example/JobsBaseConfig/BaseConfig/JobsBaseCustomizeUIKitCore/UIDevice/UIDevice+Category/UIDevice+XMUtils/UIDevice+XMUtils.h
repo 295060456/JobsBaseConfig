@@ -10,7 +10,8 @@
 #import <sys/sysctl.h>
 
 typedef enum : NSUInteger {
-    iPhoneScreen_default = 0,// iPhone Simulator 或者 新出的机型
+    /// iPhone Simulator 或者 新出的机型
+    iPhoneScreen_default = 0,
     iPhoneScreen_3GS = 1,
     iPhoneScreen_4_4S = 2,
     iPhoneScreen_5_5S_5C_SE = 3,

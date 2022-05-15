@@ -10,9 +10,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef enum : NSInteger {
-    JobsUpDownLabAlign_TopLeft = 0,// 以头部或者左边为对齐基准
-    JobsUpDownLabAlign_MiddleLine,// 以中心线为对齐基准
-    JobsUpDownLabAlign_BottomRight,// 以底部或者右边为对齐基准
+    /// 以头部或者左边为对齐基准
+    JobsUpDownLabAlign_TopLeft = 0,
+    /// 以中心线为对齐基准
+    JobsUpDownLabAlign_MiddleLine,
+    /// 以底部或者右边为对齐基准
+    JobsUpDownLabAlign_BottomRight,
 } JobsUpDownLabAlign;// JobsUpDownLabStyle的对齐基准
 
 @interface JobsLabBaseModel : UIViewModel

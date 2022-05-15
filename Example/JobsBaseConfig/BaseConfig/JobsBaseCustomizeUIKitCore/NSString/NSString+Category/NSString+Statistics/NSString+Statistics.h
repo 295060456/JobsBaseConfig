@@ -13,8 +13,10 @@ typedef NS_OPTIONS(NSUInteger, CalcLabelHeight_Width) {
 };
 
 typedef NS_ENUM(NSInteger,StatisticsAlphabetNumberType) {
-    StatisticsAlphabetNumberType_Chinese = 0,//统计汉字字数
-    StatisticsAlphabetNumberType_English//统计英文字母数字
+    /// 统计汉字字数
+    StatisticsAlphabetNumberType_Chinese = 0,
+    /// 统计英文字母数字
+    StatisticsAlphabetNumberType_English
 };
 
 NS_ASSUME_NONNULL_BEGIN

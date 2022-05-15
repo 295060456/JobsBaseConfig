@@ -11,15 +11,21 @@
 #import "LoadingImage.h"
 
 typedef enum : NSUInteger {
-    RBCLikeButtonTypeImageleft, //图片在左,label在右
-    RBCLikeButtonTypeImageTop  //图片在上,label在下
+    /// 图片在左,label在右
+    RBCLikeButtonTypeImageleft,
+    /// 图片在上,label在下
+    RBCLikeButtonTypeImageTop
 } RBCLikeButtonType;
 
 typedef enum : NSUInteger {
-    RBCLikeButtonStatusHadThumbs,        //已点赞
-    RBCLikeButtonStatusNoneThumbs,       //未点赞
-    RBCLikeButtonStatusThumbsing,        //正在点赞
-    RBCLikeButtonStatusCancelThumbsing   //正在取消点赞
+    /// 已点赞
+    RBCLikeButtonStatusHadThumbs,
+    /// 未点赞
+    RBCLikeButtonStatusNoneThumbs,
+    /// 正在点赞
+    RBCLikeButtonStatusThumbsing,
+    /// 正在取消点赞
+    RBCLikeButtonStatusCancelThumbsing
 } RBCLikeButtonStatus;
 
 @interface RBCLikeButton : UIButton

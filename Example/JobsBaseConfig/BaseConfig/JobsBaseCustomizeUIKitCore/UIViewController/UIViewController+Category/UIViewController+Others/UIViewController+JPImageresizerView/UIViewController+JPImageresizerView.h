@@ -16,18 +16,30 @@
 #endif
 
 typedef enum : NSInteger {
-    JPImageresizerConfigureType_1 = 0,//默认配置裁剪图片/GIF（UIImage）
-    JPImageresizerConfigureType_2,//默认配置裁剪图片/GIF（NSData）
-    JPImageresizerConfigureType_3,//默认配置裁剪视频（NSURL）
-    JPImageresizerConfigureType_4,//默认配置裁剪视频（AVURLAsset）
-    JPImageresizerConfigureType_5,//浅色毛玻璃配置裁剪图片/GIF（UIImage）
-    JPImageresizerConfigureType_6,//浅色毛玻璃配置裁剪图片/GIF（NSData）
-    JPImageresizerConfigureType_7,//浅色毛玻璃配置裁剪视频（NSURL）
-    JPImageresizerConfigureType_8,//浅色毛玻璃配置裁剪视频（AVURLAsset）
-    JPImageresizerConfigureType_9,//深色毛玻璃配置裁剪图片/GIF（UIImage）
-    JPImageresizerConfigureType_10,//深色毛玻璃配置裁剪图片/GIF（NSData）
-    JPImageresizerConfigureType_11,//深色毛玻璃配置裁剪视频（NSURL）
-    JPImageresizerConfigureType_12//深色毛玻璃配置裁剪视频（AVURLAsset）
+    /// 默认配置裁剪图片/GIF（UIImage）
+    JPImageresizerConfigureType_1 = 0,
+    /// 默认配置裁剪图片/GIF（NSData）
+    JPImageresizerConfigureType_2,
+    /// 默认配置裁剪视频（NSURL）
+    JPImageresizerConfigureType_3,
+    /// 默认配置裁剪视频（AVURLAsset）
+    JPImageresizerConfigureType_4,
+    /// 浅色毛玻璃配置裁剪图片/GIF（UIImage）
+    JPImageresizerConfigureType_5,
+    /// 浅色毛玻璃配置裁剪图片/GIF（NSData）
+    JPImageresizerConfigureType_6,
+    /// 浅色毛玻璃配置裁剪视频（NSURL）
+    JPImageresizerConfigureType_7,
+    /// 浅色毛玻璃配置裁剪视频（AVURLAsset）
+    JPImageresizerConfigureType_8,
+    /// 深色毛玻璃配置裁剪图片/GIF（UIImage）
+    JPImageresizerConfigureType_9,
+    /// 深色毛玻璃配置裁剪图片/GIF（NSData）
+    JPImageresizerConfigureType_10,
+    /// 深色毛玻璃配置裁剪视频（NSURL）
+    JPImageresizerConfigureType_11,
+    /// 深色毛玻璃配置裁剪视频（AVURLAsset）
+    JPImageresizerConfigureType_12
 } JPImageresizerConfigureType;
 
 NS_ASSUME_NONNULL_BEGIN

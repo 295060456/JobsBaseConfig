@@ -14,10 +14,14 @@
 #endif
 
 typedef enum : NSInteger {
-    VerifyCodeInitFinish = 0,/// 验证码组件初始化完成
-    VerifyCodeInitFailed,/// 验证码组件初始化出错
-    VerifyCodeValidateFinish,/// 完成验证之后的回调
-    VerifyCodeCloseWindow,/// 关闭验证码窗口后的回调
+    /// 验证码组件初始化完成
+    VerifyCodeInitFinish = 0,
+    /// 验证码组件初始化出错
+    VerifyCodeInitFailed,
+    /// 完成验证之后的回调
+    VerifyCodeValidateFinish,
+    /// 关闭验证码窗口后的回调
+    VerifyCodeCloseWindow,
 } NTESVerifyCodeManagerStyle;
 
 NS_ASSUME_NONNULL_BEGIN

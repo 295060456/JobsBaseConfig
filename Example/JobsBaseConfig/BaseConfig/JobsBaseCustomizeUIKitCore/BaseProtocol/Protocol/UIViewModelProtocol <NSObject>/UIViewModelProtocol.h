@@ -23,12 +23,18 @@
 @class UITextModel;
 
 typedef enum : NSInteger {
-    JobsAlignByTop = 0,// 以头部为对齐基准
-    JobsAlignByLeft,// 以左边为对齐基准
-    JobsAlignByBottom,// 以底部为对齐基准
-    JobsAlignByRight,// 以右边为对齐基准
-    JobsAlignByCenterX,// 以水平中心线为对齐基准
-    JobsAlignByCenterY// 以垂直中心线为对齐基准
+    /// 以头部为对齐基准
+    JobsAlignByTop = 0,
+    /// 以左边为对齐基准
+    JobsAlignByLeft,
+    /// 以底部为对齐基准
+    JobsAlignByBottom,
+    /// 以右边为对齐基准
+    JobsAlignByRight,
+    /// 以水平中心线为对齐基准
+    JobsAlignByCenterX,
+    /// 以垂直中心线为对齐基准
+    JobsAlignByCenterY
 } JobsAlign;// 对齐基准
 
 NS_ASSUME_NONNULL_BEGIN

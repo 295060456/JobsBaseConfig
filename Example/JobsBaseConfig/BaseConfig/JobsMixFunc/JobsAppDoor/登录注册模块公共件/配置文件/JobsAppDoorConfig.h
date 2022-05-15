@@ -9,14 +9,19 @@
 #import "MacroDef_Func.h"
 
 typedef NS_ENUM(NSInteger, CurrentPage) {
-    CurrentPage_login = 0,//登录
-    CurrentPage_register,//注册
-    CurrentPage_forgotCode//忘记密码
+    /// 登录
+    CurrentPage_login = 0,
+    /// 注册
+    CurrentPage_register,
+    /// 忘记密码
+    CurrentPage_forgotCode
 };
 
 typedef NS_ENUM(NSInteger, JobsAppDoorBgType){
-    JobsAppDoorBgType_Image = 0,//背景只是一张图
-    JobsAppDoorBgType_video//背景是视频资源
+    /// 背景只是一张图
+    JobsAppDoorBgType_Image = 0,
+    /// 背景是视频资源
+    JobsAppDoorBgType_video
 };
 
 /// 页面1：登录

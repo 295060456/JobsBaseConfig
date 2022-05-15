@@ -71,27 +71,39 @@ typedef struct{
 
 typedef NS_ENUM(NSInteger, CompareRes) {
     CompareRes_Error,
-    CompareRes_MoreThan,// >
-    CompareRes_Equal,// ==
-    CompareRes_LessThan// <
+    /// >
+    CompareRes_MoreThan,
+    /// ==
+    CompareRes_Equal,
+    /// <
+    CompareRes_LessThan
 };
 
 typedef NS_ENUM(NSInteger, JobsSearchStrategy) {
-    JobsSearchStrategy_Accurate = 0,/// 精确查询
-    JobsSearchStrategy_Fuzzy/// 模糊查询
+    /// 精确查询
+    JobsSearchStrategy_Accurate = 0,
+    /// 模糊查询
+    JobsSearchStrategy_Fuzzy
 };
 
 typedef NS_ENUM(NSInteger, ScrollDirection) {
     ScrollDirectionNone = 0,
-    ScrollDirectionRight,// 右👉🏻
-    ScrollDirectionLeft,// 左👈🏻
-    ScrollDirectionUp,// 上面👆🏻
-    ScrollDirectionDown,// 下面👇🏻
-    
-    ScrollDirectionRight_UP,//右上👉🏻👆🏻
-    ScrollDirectionLeft_UP,//左上👈🏻👆🏻
-    ScrollDirectionRight_Down,//右下👉🏻👇🏻
-    ScrollDirectionLeft_Down,//左下👈🏻👇🏻
+    /// 右👉🏻
+    ScrollDirectionRight,
+    /// 左👈🏻
+    ScrollDirectionLeft,
+    /// 上面👆🏻
+    ScrollDirectionUp,
+    /// 下面👇🏻
+    ScrollDirectionDown,
+    /// 右上👉🏻👆🏻
+    ScrollDirectionRight_UP,
+    /// 左上👈🏻👆🏻
+    ScrollDirectionLeft_UP,
+    /// 右下👉🏻👇🏻
+    ScrollDirectionRight_Down,
+    /// 左下👈🏻👇🏻
+    ScrollDirectionLeft_Down,
 };
 /**
  @param weakSelf 方便使用，用来打破循环引用。使用时需要改成实际类型，否则没有代码提示.

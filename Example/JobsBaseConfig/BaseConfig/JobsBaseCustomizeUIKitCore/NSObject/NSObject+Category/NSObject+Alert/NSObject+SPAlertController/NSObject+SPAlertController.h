@@ -27,11 +27,16 @@
 //  pod 'SPAlertController'# https://github.com/SPStore/SPAlertController 深度定制AlertController
 
 typedef enum : NSUInteger {
-    NSObject_SPAlertControllerInitType_1 = 0,//alertControllerWithTitle/message/preferredStyle
-    NSObject_SPAlertControllerInitType_2,//alertControllerWithTitle/message/preferredStyle/animationType
-    NSObject_SPAlertControllerInitType_3,//alertControllerWithCustomAlertView/preferredStyle/animationType
-    NSObject_SPAlertControllerInitType_4,//alertControllerWithCustomHeaderView/preferredStyle/animationType
-    NSObject_SPAlertControllerInitType_5,//alertControllerWithCustomActionSequenceView/title/message/preferredStyle/animationType
+    /// alertControllerWithTitle/message/preferredStyle
+    NSObject_SPAlertControllerInitType_1 = 0,
+    /// alertControllerWithTitle/message/preferredStyle/animationType
+    NSObject_SPAlertControllerInitType_2,
+    /// alertControllerWithCustomAlertView/preferredStyle/animationType
+    NSObject_SPAlertControllerInitType_3,
+    /// alertControllerWithCustomHeaderView/preferredStyle/animationType
+    NSObject_SPAlertControllerInitType_4,
+    /// alertControllerWithCustomActionSequenceView/title/message/preferredStyle/animationType
+    NSObject_SPAlertControllerInitType_5,
 } NSObject_SPAlertControllerInitType;
 
 NS_ASSUME_NONNULL_BEGIN

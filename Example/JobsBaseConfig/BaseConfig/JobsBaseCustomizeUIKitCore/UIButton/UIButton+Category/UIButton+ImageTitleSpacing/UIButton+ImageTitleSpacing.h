@@ -13,10 +13,14 @@
 
 // 定义一个枚举（包含了四种类型的button）
 typedef NS_ENUM(NSUInteger, GLButtonEdgeInsetsStyle) {
-    GLButtonEdgeInsetsStyleTop, // image在上，label在下
-    GLButtonEdgeInsetsStyleLeft, // image在左，label在右
-    GLButtonEdgeInsetsStyleBottom, // image在下，label在上
-    GLButtonEdgeInsetsStyleRight // image在右，label在左
+    /// image在上，label在下
+    GLButtonEdgeInsetsStyleTop,
+    /// image在左，label在右
+    GLButtonEdgeInsetsStyleLeft,
+    /// image在下，label在上
+    GLButtonEdgeInsetsStyleBottom,
+    /// image在右，label在左
+    GLButtonEdgeInsetsStyleRight
 };
 
 @interface UIButton (ImageTitleSpacing)

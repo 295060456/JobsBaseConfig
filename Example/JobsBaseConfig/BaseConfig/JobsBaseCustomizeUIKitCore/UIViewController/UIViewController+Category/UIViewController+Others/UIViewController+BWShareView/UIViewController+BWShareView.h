@@ -9,8 +9,10 @@
 #import "BWShareView.h"
 
 typedef enum : NSUInteger {
-    BWShareViewStyle_1 = 0,//   有/无标题的单层分享
-    BWShareViewStyle_2//    有/无标题的双层分享
+    /// 有/无标题的单层分享
+    BWShareViewStyle_1 = 0,
+    /// 有/无标题的双层分享
+    BWShareViewStyle_2
 } BWShareViewStyle;
 
 NS_ASSUME_NONNULL_BEGIN
