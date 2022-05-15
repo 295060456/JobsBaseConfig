@@ -32,11 +32,11 @@ static char *UITextField_Extend_customSysClearBtn = "UITextField_Extend_customSy
     UIButton *CustomSysClearBtn = objc_getAssociatedObject(self, UITextField_Extend_customSysClearBtn);
     if (!CustomSysClearBtn) {
         CustomSysClearBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        if (@available(iOS 15, *)) {
+        if (HDDeviceSystemVersion.floatValue >= 15.0) {
+#warning UIButtonConfiguration 怎么适配使用？
 //            'adjustsImageWhenHighlighted' is deprecated: first deprecated in iOS 15.0 - This property is ignored when using UIButtonConfiguration, you may customize to replicate this behavior via a configurationUpdateHandler
-        }else{
-            SuppressWdeprecatedDeclarationsWarning(CustomSysClearBtn.adjustsImageWhenHighlighted = NO;);
         }
+        SuppressWdeprecatedDeclarationsWarning(CustomSysClearBtn.adjustsImageWhenHighlighted = NO;);
         
         [CustomSysClearBtn setFrame:CGRectMake(0.0f,
                                                0.0f,

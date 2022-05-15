@@ -33,6 +33,10 @@ typedef enum : NSInteger {
 @property(nonatomic,assign)NSTextAlignment upLabTextAlignment;
 @property(nonatomic,assign)NSLineBreakMode upLabLineBreakMode;
 @property(nonatomic,strong)NSAttributedString *upLabAttributedText;
+//SuppressWdeprecatedDeclarationsWarning
+@property(nonatomic)UIEdgeInsets upLabContentEdgeInsets API_DEPRECATED("This property is ignored when using UIButtonConfiguration", ios(2.0,15.0), tvos(2.0,15.0)) UI_APPEARANCE_SELECTOR; // default is UIEdgeInsetsZero. On tvOS 10 or later, default is nonzero except for custom buttons.
+@property(nonatomic)UIEdgeInsets upLabTitleEdgeInsets API_DEPRECATED("This property is ignored when using UIButtonConfiguration", ios(2.0,15.0), tvos(2.0,15.0));                // default is UIEdgeInsetsZero
+@property(nonatomic)UIEdgeInsets upLabImageEdgeInsets API_DEPRECATED("This property is ignored when using UIButtonConfiguration", ios(2.0,15.0), tvos(2.0,15.0));                // default is UIEdgeInsetsZero
 @property(nonatomic,assign)BOOL isUpLabMultiLineShows;// 是否多行行显示【默认单行显示】
 #pragma mark —— DownLab / RightLab
 @property(nonatomic,strong)UIColor *downLabTextCor;
@@ -44,6 +48,10 @@ typedef enum : NSInteger {
 @property(nonatomic,assign)NSTextAlignment downLabTextAlignment;
 @property(nonatomic,assign)NSLineBreakMode downLabLineBreakMode;
 @property(nonatomic,strong)NSAttributedString *downLabAttributedText;
+//SuppressWdeprecatedDeclarationsWarning
+@property(nonatomic)UIEdgeInsets downLabContentEdgeInsets API_DEPRECATED("This property is ignored when using UIButtonConfiguration", ios(2.0,15.0), tvos(2.0,15.0)) UI_APPEARANCE_SELECTOR; // default is UIEdgeInsetsZero. On tvOS 10 or later, default is nonzero except for custom buttons.
+@property(nonatomic)UIEdgeInsets downLabTitleEdgeInsets API_DEPRECATED("This property is ignored when using UIButtonConfiguration", ios(2.0,15.0), tvos(2.0,15.0));                // default is UIEdgeInsetsZero
+@property(nonatomic)UIEdgeInsets downLabImageEdgeInsets API_DEPRECATED("This property is ignored when using UIButtonConfiguration", ios(2.0,15.0), tvos(2.0,15.0));                // default is UIEdgeInsetsZero
 @property(nonatomic,assign)BOOL isDownLabMultiLineShows;// 是否多行行显示【默认单行显示】。如需多行显示，字符串内需要添加换行符，例如：@"開啟手勢密碼，系統將默認記住您的賬戶密碼\n進入免登陸狀態"
 
 @end

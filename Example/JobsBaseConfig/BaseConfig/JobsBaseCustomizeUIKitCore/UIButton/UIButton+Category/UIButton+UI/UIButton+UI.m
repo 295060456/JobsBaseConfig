@@ -258,11 +258,11 @@ static char *UIButton_UI_makeNewLineShows = "UIButton_UI_makeNewLineShows";
 }
 /// 这个方法还有待完善
 -(void)handelAdjustsImageWhenHighlighted{
-    if (@available(iOS 15, *)) {
+    if (HDDeviceSystemVersion.floatValue >= 15.0) {
+#warning UIButtonConfiguration 怎么适配使用？
 //            'adjustsImageWhenHighlighted' is deprecated: first deprecated in iOS 15.0 - This property is ignored when using UIButtonConfiguration, you may customize to replicate this behavior via a configurationUpdateHandler
-    }else{
-        SuppressWdeprecatedDeclarationsWarning(self.adjustsImageWhenHighlighted = NO;);
     }
+    SuppressWdeprecatedDeclarationsWarning(self.adjustsImageWhenHighlighted = NO;);
 }
 
 -(void)titleFont:(UIFont *)font{

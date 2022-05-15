@@ -64,6 +64,7 @@
 -(UIButton *)leftBtn{
     if (!_leftBtn) {
         _leftBtn = UIButton.new;
+        _leftBtn.backgroundColor = kRedColor;
         _leftBtn.titleLabel.textAlignment = self.leftRightLabModel.upLabTextAlignment;
         [_leftBtn normalTitle:self.leftRightLabModel.upLabText];
         [_leftBtn normalImage:self.leftRightLabModel.upLabImage];
@@ -76,6 +77,11 @@
             make.top.bottom.left.equalTo(self);
             make.width.mas_equalTo(leftTextWidth);
         }];
+        
+        if (HDDeviceSystemVersion.floatValue >= 15.0) {
+#warning UIButtonConfiguration 怎么适配使用？
+        }
+        SuppressWdeprecatedDeclarationsWarning(_leftBtn.contentEdgeInsets = self.leftRightLabModel.upLabContentEdgeInsets;);
     }return _leftBtn;
 }
 
@@ -94,6 +100,11 @@
             make.top.bottom.right.equalTo(self);
             make.left.equalTo(self.leftBtn.mas_right).offset(self.leftRightLabModel.space);
         }];
+        
+        if (HDDeviceSystemVersion.floatValue >= 15.0) {
+#warning UIButtonConfiguration 怎么适配使用？
+        }
+        SuppressWdeprecatedDeclarationsWarning(_rightBtn.contentEdgeInsets = self.leftRightLabModel.downLabContentEdgeInsets;);
     }return _rightBtn;
 }
 

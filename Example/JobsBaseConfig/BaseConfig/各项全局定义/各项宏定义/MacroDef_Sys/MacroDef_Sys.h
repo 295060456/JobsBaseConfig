@@ -26,6 +26,6 @@
 #define HDiPod ([UIDevice.currentDevice.model rangeOfString:@"iPod"].length > 0)
 #define HDisPad (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad)// 是否iPad
 #define HDisiPhone (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)// 是否iPhone
-#define HDisRetina ([[UIScreen mainScreen] scale] >= 2.0)// 非Retain屏幕 1.0
+#define HDisRetina (UIScreen.mainScreen.scale >= 2.0)// 非Retain屏幕 1.0
 
 #endif /* MacroDef_Sys_h */

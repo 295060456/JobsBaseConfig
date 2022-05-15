@@ -21,7 +21,6 @@ UIViewModelProtocol_synthesize
     BaseTableViewCell *cell = (BaseTableViewCell *)[tableView tableViewCellClass:BaseTableViewCell.class];
     if (!cell) {
         cell = [BaseTableViewCell initTableViewCellWithStyle:UITableViewCellStyleValue1];
-//        [UIView cornerCutToCircleWithCornerRadius:cell andCornerRadius:6];
     }return cell;
 }
 
@@ -29,7 +28,7 @@ UIViewModelProtocol_synthesize
               reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style
                     reuseIdentifier:reuseIdentifier]) {
-        [self richElementsInCellWithModel:nil];
+//        [self richElementsInCellWithModel:nil];
         self.selectionStyle = UITableViewCellSelectionStyleNone;// 取消点击效果 【不能在cellWithTableView里面写】
         /// 适配iOS 13夜间模式/深色外观(Dark Mode)
         self.backgroundColor = [UIColor xy_createWithLightColor:UIColor.whiteColor darkColor:UIColor.whiteColor];
@@ -41,8 +40,18 @@ UIViewModelProtocol_synthesize
 -(void)richElementsInCellWithModel:(UIViewModel *_Nullable)model{
     if (model) {
         self.viewModel = model;
-        self.textLabel.text = [NSString stringWithFormat:@"%@",model.textModel.text];
-        self.detailTextLabel.text = [NSString stringWithFormat:@"%@",model.subTextModel.text];
+        
+        if (model.textModel.attributedText) {
+            self.textLabel.attributedText = model.textModel.attributedText;
+        }else{
+            self.textLabel.text = [NSString stringWithFormat:@"%@",model.textModel.text];
+        }
+        
+        if (model.subTextModel.attributedText) {
+            self.detailTextLabel.attributedText = model.subTextModel.attributedText;
+        }else{
+            self.detailTextLabel.text = [NSString stringWithFormat:@"%@",model.subTextModel.text];
+        }
     }
 }
 

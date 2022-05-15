@@ -214,7 +214,7 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
 /// @param viewModel 此视图所绑定的数据。传nil则使用testPopViewData的数据、传UIViewModel.new则使用popViewClass预埋的数据
 -(void)jobsPopView:(Class<BaseViewProtocol> _Nullable)popViewClass
          viewModel:(UIViewModel *_Nullable)viewModel{
-    // 将方法内的变量进行单利化,避免重复创建
+    // 将方法内的变量进行单例化,避免重复创建
     UIView<BaseViewProtocol> *popupView = popViewClass.class.sharedInstance;
     popupView.size = [popViewClass viewSizeWithModel:nil];
     [popupView richElementsInViewWithModel:viewModel ? : self.testPopViewData];

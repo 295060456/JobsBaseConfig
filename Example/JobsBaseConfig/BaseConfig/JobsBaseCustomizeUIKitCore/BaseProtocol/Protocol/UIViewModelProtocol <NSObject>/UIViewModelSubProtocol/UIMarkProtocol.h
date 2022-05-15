@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)NSInteger __block index;
 @property(nonatomic,assign)NSInteger __block currentPage;/// 网路请求分页数据的时候的当前页码
 @property(nonatomic,assign)NSInteger __block pageSize;
+@property(nonatomic,assign)BOOL __block isMark;/// 是否被标记。标记的意思可以是是否维护中等等......
 
 @end
 

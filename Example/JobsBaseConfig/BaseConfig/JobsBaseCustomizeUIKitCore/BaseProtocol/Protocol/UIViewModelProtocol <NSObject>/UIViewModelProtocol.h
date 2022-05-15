@@ -22,6 +22,15 @@
 @class UIViewModel;
 @class UITextModel;
 
+typedef enum : NSInteger {
+    JobsAlignByTop = 0,// 以头部为对齐基准
+    JobsAlignByLeft,// 以左边为对齐基准
+    JobsAlignByBottom,// 以底部为对齐基准
+    JobsAlignByRight,// 以右边为对齐基准
+    JobsAlignByCenterX,// 以水平中心线为对齐基准
+    JobsAlignByCenterY// 以垂直中心线为对齐基准
+} JobsAlign;// 对齐基准
+
 NS_ASSUME_NONNULL_BEGIN
 /// 全局的共用的属性
 @protocol UIViewModelProtocol
@@ -92,6 +101,7 @@ NS_ASSUME_NONNULL_END
 @synthesize index = _index;\
 @synthesize currentPage = _currentPage;\
 @synthesize pageSize = _pageSize;\
+@synthesize isMark = _isMark;\
 \
 @synthesize cls = _cls;\
 @synthesize viewModel = _viewModel;\
