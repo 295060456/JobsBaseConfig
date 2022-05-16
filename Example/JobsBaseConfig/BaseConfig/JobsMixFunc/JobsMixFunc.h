@@ -14,6 +14,7 @@
 #import "JobsHotLabelWithSingleLine.h"
 #import "JobsHotLabelWithMultiLine.h"
 #import "JobsPageView.h"
+#import "JobsTitleView01.h"
 #import "JobsBasePopupView.h"
 #import "JobsBitsMonitor.h"
 #import "JobsSuspend.h"

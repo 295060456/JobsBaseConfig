@@ -690,6 +690,7 @@
 		C530CC2A282E2DA800D5ECCF /* JobsLabBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C530CC1C282E2DA700D5ECCF /* JobsLabBaseModel.m */; };
 		C530CC2C282E2DA800D5ECCF /* JobsLeftRightLabModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C530CC20282E2DA700D5ECCF /* JobsLeftRightLabModel.m */; };
 		C530CC2D282E2DA800D5ECCF /* JobsLeftRightLab.m in Sources */ = {isa = PBXBuildFile; fileRef = C530CC24282E2DA700D5ECCF /* JobsLeftRightLab.m */; };
+		C54BC43628325BA80010EF20 /* JobsTitleView01.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BC43428325BA80010EF20 /* JobsTitleView01.m */; };
 		C57A2034282CB59F0032156B /* ZLGestureLockView.m in Sources */ = {isa = PBXBuildFile; fileRef = C57A2025282CB59E0032156B /* ZLGestureLockView.m */; };
 		C57A2035282CB59F0032156B /* gesture_headIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C57A2027282CB59E0032156B /* gesture_headIcon@2x.png */; };
 		C57A2036282CB59F0032156B /* gesture_indicator_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C57A2028282CB59E0032156B /* gesture_indicator_normal@2x.png */; };
@@ -2135,6 +2136,9 @@
 		C530CC23282E2DA700D5ECCF /* JobsLeftRightLab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsLeftRightLab.h; sourceTree = "<group>"; };
 		C530CC24282E2DA700D5ECCF /* JobsLeftRightLab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsLeftRightLab.m; sourceTree = "<group>"; };
 		C530CC25282E2DA700D5ECCF /* JobsLeftRightLab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobsLeftRightLab.png; sourceTree = "<group>"; };
+		C54BC43228325BA80010EF20 /* JobsTitleView01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsTitleView01.h; sourceTree = "<group>"; };
+		C54BC43328325BA80010EF20 /* JobsTitleView01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobsTitleView01.png; sourceTree = "<group>"; };
+		C54BC43428325BA80010EF20 /* JobsTitleView01.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsTitleView01.m; sourceTree = "<group>"; };
 		C57A2025282CB59E0032156B /* ZLGestureLockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLGestureLockView.m; sourceTree = "<group>"; };
 		C57A2027282CB59E0032156B /* gesture_headIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_headIcon@2x.png"; sourceTree = "<group>"; };
 		C57A2028282CB59E0032156B /* gesture_indicator_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_indicator_normal@2x.png"; sourceTree = "<group>"; };
@@ -2245,8 +2249,9 @@
 		840F926B27736425004979E9 /* JobsMixFunc */ = {
 			isa = PBXGroup;
 			children = (
-				C57A2024282CB59E0032156B /* GestureLock */,
 				840F92C527736425004979E9 /* JobsMixFunc.h */,
+				C54BC43128325BA80010EF20 /* JobsTitleView01 */,
+				C57A2024282CB59E0032156B /* GestureLock */,
 				8459CF132776F7C600125782 /* 版本升级弹窗 */,
 				840F92D827736425004979E9 /* 播放器控制层 */,
 				840F92BD27736425004979E9 /* 分享控件 */,
@@ -8675,6 +8680,16 @@
 			path = JobsLeftRightLab;
 			sourceTree = "<group>";
 		};
+		C54BC43128325BA80010EF20 /* JobsTitleView01 */ = {
+			isa = PBXGroup;
+			children = (
+				C54BC43228325BA80010EF20 /* JobsTitleView01.h */,
+				C54BC43428325BA80010EF20 /* JobsTitleView01.m */,
+				C54BC43328325BA80010EF20 /* JobsTitleView01.png */,
+			);
+			path = JobsTitleView01;
+			sourceTree = "<group>";
+		};
 		C57A2024282CB59E0032156B /* GestureLock */ = {
 			isa = PBXGroup;
 			children = (
@@ -9587,6 +9602,7 @@
 				840F969A27736428004979E9 /* NSString+Replace.m in Sources */,
 				84D76437278090330003F0E4 /* UIViewController+SafeTransition.m in Sources */,
 				844B08512764CF4800B0513D /* ECPrivacyCheckContacts.m in Sources */,
+				C54BC43628325BA80010EF20 /* JobsTitleView01.m in Sources */,
 				84401A8727919E3B0038FF6F /* JobsSearchTableViewHeaderView.m in Sources */,
 				840F96A327736428004979E9 /* UIViewController+BackBtn.m in Sources */,
 				840F964427736427004979E9 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
