@@ -16,6 +16,10 @@
                            opaque:(BOOL)opaque
                    targetViewRect:(CGRect)targetViewRect{
     
+    if (targetViewRect.size.width == 0 || targetViewRect.size.height == 0) {
+        NSAssert(NO, @"宽或者高为0,则会对外输出nil");
+    }
+    
     if (!CorDataMutArr) {
         CorDataMutArr = NSMutableArray.array;
         [CorDataMutArr addObject:(id)UIColor.redColor.CGColor];
