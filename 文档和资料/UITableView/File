@@ -1,5 +1,0 @@
-
-        _tableView.contentInset = UIEdgeInsetsMake(0,
-                                                   0,
-                                                   JobsWidth(250),
-                                                   0);
