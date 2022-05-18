@@ -26,4 +26,16 @@
     }
 }
 
++(instancetype)initWithStylePlain{
+    return [UITableView.alloc initWithFrame:CGRectZero style:UITableViewStylePlain];
+}
+
++(instancetype)initWithStyleGrouped{
+    return [UITableView.alloc initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+}
+
++(instancetype)initWithStyleInsetGrouped{
+    return [UITableView.alloc initWithFrame:CGRectZero style:UITableViewStyleInsetGrouped];
+}
+
 @end
