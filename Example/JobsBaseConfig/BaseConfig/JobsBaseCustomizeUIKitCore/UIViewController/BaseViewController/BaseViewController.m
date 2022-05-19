@@ -47,7 +47,6 @@ BaseViewControllerProtocol_synthesize
     [super loadView];
     self.isHiddenNavigationBar = YES;
     self.setupNavigationBarHidden = YES;
-    self.viewModel = UIViewModel.new;
     self.currentPage = 1;
     self.bgImage = KIMG(@"洗码背景图");/// 仅在loadView中配置有效
     self.modalInPresentation = NO;/// 禁用下拉手势dismiss画面需要将此属性设置为YES
@@ -59,7 +58,7 @@ BaseViewControllerProtocol_synthesize
     if (self.bgImage) {
         self.bgImageView.alpha = 1;
     }else{
-        self.view.backgroundColor = kWhiteColor;
+        self.view.backgroundColor = HEXCOLOR(0xFCFBFB);
     }
     
     /*
@@ -169,6 +168,14 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
 //        self.view = _bgImageView; // 有时候不正确
         [self.view insertSubview:_bgImageView atIndex:0];
     }return _bgImageView;
+}
+
+-(UIViewModel *)viewModel{
+    if (!_viewModel) {
+        _viewModel = UIViewModel.new;
+        _viewModel.textModel.textCor = HEXCOLOR(0x3D4A58);
+        _viewModel.textModel.font = [UIFont systemFontOfSize:JobsWidth(16) weight:UIFontWeightMedium];
+    }return _viewModel;
 }
 
 @end
