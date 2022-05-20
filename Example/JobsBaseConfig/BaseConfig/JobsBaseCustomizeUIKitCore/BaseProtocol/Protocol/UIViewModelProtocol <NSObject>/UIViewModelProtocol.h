@@ -98,6 +98,12 @@ NS_ASSUME_NONNULL_END
 @synthesize axis = _axis;\
 @synthesize distribution = _distribution;\
 @synthesize alignment = _alignment;\
+@synthesize cellHeight = _cellHeight;\
+@synthesize heightForHeaderInSection = _heightForHeaderInSection;\
+@synthesize cellSize = _cellSize;\
+@synthesize tableHeaderView = _tableHeaderView;\
+@synthesize tableFooterView = _tableFooterView;\
+@synthesize usesTableViewHeaderFooterView = _usesTableViewHeaderFooterView;\
 \
 @synthesize indexPath = _indexPath;\
 @synthesize section = _section;\
@@ -167,6 +173,12 @@ NS_ASSUME_NONNULL_END
 @dynamic axis;\
 @dynamic distributio;\
 @dynamic alignment;\
+@dynamic cellHeight;\
+@dynamic heightForHeaderInSection;\
+@dynamic cellSize;\
+@dynamic tableHeaderView;\
+@dynamic tableFooterView;\
+@dynamic usesTableViewHeaderFooterView;\
 \
 @dynamic indexPath;\
 @dynamic section;\

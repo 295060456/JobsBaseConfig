@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark —— 不确定参数
 #pragma mark —— 确定参数
+/// 无入参
+@property(nonatomic,assign)jobsByVoidBlock voidBlock;/// 无入参，无返回值的回调
+/// 有入参
 @property(nonatomic,assign)jobsByIDBlock objectBlock;/// 入参为ID类型，无返回值的回调
 @property(nonatomic,assign)jobsByNSIntegerBlock NSIntegerBlock;/// 入参为NSInteger，无返回值的回调
 @property(nonatomic,assign)jobsByNSUIntegerBlock NSUIntegerBlock;/// 入参为NSUInteger，无返回值的回调
@@ -49,6 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)JobsReturnByUnsignedLongBlock returnUnsignedLongBlock;/// 返回值为UnsignedLong的回调
 @property(nonatomic,assign)JobsReturnByUnsignedLongLongBlock returnUnsignedLongLongBlock;/// 返回值为UnsignedLongLong的回调
 #pragma mark —— block的set
+-(void)actionVoidBlock:(jobsByVoidBlock)voidBlock;
 -(void)actionObjectBlock:(jobsByIDBlock)objectBlock;
 -(void)actionNSIntegerBlock:(jobsByNSIntegerBlock)NSIntegerBlock;
 -(void)actionNSUIntegerBlock:(jobsByNSUIntegerBlock)NSUIntegerBlock;

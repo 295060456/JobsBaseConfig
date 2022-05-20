@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol UILocationProtocol <NSObject>
 @optional
-#pragma mark —— 方位
+#pragma mark —— 方位和大小
 @property(nonatomic,assign)CGFloat __block cornerRadius;/// 圆切角（全角）
 @property(nonatomic,assign)UIRectCorner __block rectCorner;/// 设置切哪个直角
 @property(nonatomic,assign)CGSize __block cornerRadii;/// 设置切哪个直角的切角矩形
@@ -32,6 +32,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)UILayoutConstraintAxis axis;
 @property(nonatomic,assign)UIStackViewDistribution distribution;
 @property(nonatomic,assign)UIStackViewAlignment alignment;
+/// 关于 UITableViewCell 和 UICollectionViewCell
+@property(nonatomic,assign)CGFloat cellHeight;
+@property(nonatomic,assign)CGFloat heightForHeaderInSection;
+@property(nonatomic,assign)CGSize cellSize;
+@property(nonatomic,assign)CGSize tableHeaderView;
+@property(nonatomic,assign)CGSize tableFooterView;
+@property(nonatomic,assign)BOOL usesTableViewHeaderFooterView;/// 默认不使用
 
 @end
 
@@ -60,6 +67,12 @@ NS_ASSUME_NONNULL_END
 @synthesize axis = _axis;\
 @synthesize distribution = _distribution;\
 @synthesize alignment = _alignment;\
+@synthesize cellHeight = _cellHeight;\
+@synthesize heightForHeaderInSection = _heightForHeaderInSection;\
+@synthesize cellSize = _cellSize;\
+@synthesize tableHeaderView = _tableHeaderView;\
+@synthesize tableFooterView = _tableFooterView;\
+@synthesize usesTableViewHeaderFooterView = _usesTableViewHeaderFooterView;\
 
 #endif
 
@@ -86,6 +99,12 @@ NS_ASSUME_NONNULL_END
 @dynamic axis;\
 @dynamic distributio;\
 @dynamic alignment;\
+@dynamic cellHeight;\
+@dynamic heightForHeaderInSection;\
+@dynamic cellSize;\
+@dynamic tableHeaderView;\
+@dynamic tableFooterView;\
+@dynamic usesTableViewHeaderFooterView;\
 
 #endif
 

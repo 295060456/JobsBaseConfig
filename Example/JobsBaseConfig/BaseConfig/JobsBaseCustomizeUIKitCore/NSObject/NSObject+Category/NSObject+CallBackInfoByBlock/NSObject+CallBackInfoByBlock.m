@@ -9,6 +9,11 @@
 
 @implementation NSObject (CallBackInfoByBlock)
 #pragma mark —— block的set
+/// 对应 objectBlock
+-(void)actionVoidBlock:(jobsByVoidBlock)voidBlock{
+    self.voidBlock = voidBlock;
+}
+
 -(void)actionObjectBlock:(jobsByIDBlock)objectBlock{
     self.objectBlock = objectBlock;
 }
@@ -135,6 +140,19 @@
 
 -(void)actionReturnUnsignedLongLongBlock:(JobsReturnByUnsignedLongLongBlock)returnUnsignedLongLongBlock{
     self.returnUnsignedLongLongBlock = returnUnsignedLongLongBlock;
+}
+#pragma mark —— @property(nonatomic,assign)jobsByVoidBlock voidBlock;/// 无入参，无返回值的回调
+static char *NSObject_CallBackInfoByBlock_voidBlock = "NSObject_CallBackInfoByBlock_voidBlock";
+@dynamic voidBlock;
+-(jobsByVoidBlock)voidBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_voidBlock);
+}
+
+-(void)setVoidBlock:(jobsByVoidBlock)voidBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_voidBlock,
+                             voidBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,assign)jobsByIDBlock objectBlock;/// 入参为ID类型，无返回值的回调
 static char *NSObject_CallBackInfoByBlock_objectBlock = "NSObject_CallBackInfoByBlock_objectBlock";
