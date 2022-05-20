@@ -33,6 +33,8 @@
 #import "JobsFormatTime.h"
 
 #pragma mark —— Category
+/// 【二次封装HXPhotoPicker】弹出系统相册选择页面 + 调取系统相机进行拍摄
+#import "NSObject+HXPhotoPicker.h"
 /// runtime方式获取对象的一些属性
 #import "NSObject+RunrtimeGet.h"
 /// 弹框提示退出登录清空本地用户数据

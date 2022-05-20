@@ -690,6 +690,10 @@
 		C530CC2A282E2DA800D5ECCF /* JobsLabBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C530CC1C282E2DA700D5ECCF /* JobsLabBaseModel.m */; };
 		C530CC2C282E2DA800D5ECCF /* JobsLeftRightLabModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C530CC20282E2DA700D5ECCF /* JobsLeftRightLabModel.m */; };
 		C530CC2D282E2DA800D5ECCF /* JobsLeftRightLab.m in Sources */ = {isa = PBXBuildFile; fileRef = C530CC24282E2DA700D5ECCF /* JobsLeftRightLab.m */; };
+		C533BABB2837C9CF006FB231 /* NSObject+HXPhotoPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = C533BABA2837C9CE006FB231 /* NSObject+HXPhotoPicker.m */; };
+		C533BBBC2837D095006FB231 /* JobsUserHeaderDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = C533BBB32837D095006FB231 /* JobsUserHeaderDataView.m */; };
+		C533BBBD2837D095006FB231 /* JobsUserHeaderDataViewTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C533BBB52837D095006FB231 /* JobsUserHeaderDataViewTBVCell.m */; };
+		C533BBBF2837D095006FB231 /* JobsUserHeaderDataViewForHeaderInSection.m in Sources */ = {isa = PBXBuildFile; fileRef = C533BBBB2837D095006FB231 /* JobsUserHeaderDataViewForHeaderInSection.m */; };
 		C54BC43628325BA80010EF20 /* JobsTitleView01.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BC43428325BA80010EF20 /* JobsTitleView01.m */; };
 		C57A2034282CB59F0032156B /* ZLGestureLockView.m in Sources */ = {isa = PBXBuildFile; fileRef = C57A2025282CB59E0032156B /* ZLGestureLockView.m */; };
 		C57A2035282CB59F0032156B /* gesture_headIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C57A2027282CB59E0032156B /* gesture_headIcon@2x.png */; };
@@ -2136,6 +2140,16 @@
 		C530CC23282E2DA700D5ECCF /* JobsLeftRightLab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsLeftRightLab.h; sourceTree = "<group>"; };
 		C530CC24282E2DA700D5ECCF /* JobsLeftRightLab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsLeftRightLab.m; sourceTree = "<group>"; };
 		C530CC25282E2DA700D5ECCF /* JobsLeftRightLab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobsLeftRightLab.png; sourceTree = "<group>"; };
+		C533BAB92837C9CE006FB231 /* NSObject+HXPhotoPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HXPhotoPicker.h"; sourceTree = "<group>"; };
+		C533BABA2837C9CE006FB231 /* NSObject+HXPhotoPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HXPhotoPicker.m"; sourceTree = "<group>"; };
+		C533BBB22837D095006FB231 /* JobsUserHeaderDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsUserHeaderDataView.h; sourceTree = "<group>"; };
+		C533BBB32837D095006FB231 /* JobsUserHeaderDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsUserHeaderDataView.m; sourceTree = "<group>"; };
+		C533BBB52837D095006FB231 /* JobsUserHeaderDataViewTBVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsUserHeaderDataViewTBVCell.m; sourceTree = "<group>"; };
+		C533BBB62837D095006FB231 /* JobsUserHeaderDataViewTBVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsUserHeaderDataViewTBVCell.h; sourceTree = "<group>"; };
+		C533BBB72837D095006FB231 /* JobsUserHeaderDataChoiceHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsUserHeaderDataChoiceHeader.h; sourceTree = "<group>"; };
+		C533BBB82837D095006FB231 /* JobsUserHeaderDataChoice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobsUserHeaderDataChoice.png; sourceTree = "<group>"; };
+		C533BBBA2837D095006FB231 /* JobsUserHeaderDataViewForHeaderInSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsUserHeaderDataViewForHeaderInSection.h; sourceTree = "<group>"; };
+		C533BBBB2837D095006FB231 /* JobsUserHeaderDataViewForHeaderInSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsUserHeaderDataViewForHeaderInSection.m; sourceTree = "<group>"; };
 		C54BC43228325BA80010EF20 /* JobsTitleView01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsTitleView01.h; sourceTree = "<group>"; };
 		C54BC43328325BA80010EF20 /* JobsTitleView01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobsTitleView01.png; sourceTree = "<group>"; };
 		C54BC43428325BA80010EF20 /* JobsTitleView01.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsTitleView01.m; sourceTree = "<group>"; };
@@ -2250,8 +2264,6 @@
 			isa = PBXGroup;
 			children = (
 				840F92C527736425004979E9 /* JobsMixFunc.h */,
-				C54BC43128325BA80010EF20 /* JobsTitleView01 */,
-				C57A2024282CB59E0032156B /* GestureLock */,
 				8459CF132776F7C600125782 /* 版本升级弹窗 */,
 				840F92D827736425004979E9 /* 播放器控制层 */,
 				840F92BD27736425004979E9 /* 分享控件 */,
@@ -2262,6 +2274,7 @@
 				840F92C927736425004979E9 /* 网络请求 */,
 				8459D6132779A6CC00125782 /* CustomerContactStyle */,
 				840F95D127736427004979E9 /* Debug */,
+				C57A2024282CB59E0032156B /* GestureLock */,
 				84A491C527904A970002A837 /* JobsAdNoticeView */,
 				846DEFDA27806D080050468A /* JobsAppDoor */,
 				846DEDFF27804C340050468A /* JobsBasePopupView */,
@@ -2272,6 +2285,8 @@
 				840F930327736426004979E9 /* JobsLab */,
 				840F931B27736426004979E9 /* JobsPageTBV */,
 				840F932127736426004979E9 /* JobsSuspend */,
+				C54BC43128325BA80010EF20 /* JobsTitleView01 */,
+				C533BBB02837D095006FB231 /* JobsUserHeaderDataChoice */,
 				8459CE122776DCCF00125782 /* JobsWelcomeVC */,
 				84868DA02779DDA50098BE7A /* ZMJCells */,
 			);
@@ -4523,6 +4538,7 @@
 				840F958B27736427004979E9 /* NSObject+DeviceIP */,
 				848691DA277B03410098BE7A /* NSObject+DynamicInvoke */,
 				840F958827736427004979E9 /* NSObject+Extras */,
+				C533B9C92837C4DC006FB231 /* NSObject+HXPhotoPicker */,
 				840F956F27736427004979E9 /* NSObject+ID */,
 				840F953B27736427004979E9 /* NSObject+Measure */,
 				840F956627736427004979E9 /* NSObject+Notification */,
@@ -8680,6 +8696,54 @@
 			path = JobsLeftRightLab;
 			sourceTree = "<group>";
 		};
+		C533B9C92837C4DC006FB231 /* NSObject+HXPhotoPicker */ = {
+			isa = PBXGroup;
+			children = (
+				C533BAB92837C9CE006FB231 /* NSObject+HXPhotoPicker.h */,
+				C533BABA2837C9CE006FB231 /* NSObject+HXPhotoPicker.m */,
+			);
+			path = "NSObject+HXPhotoPicker";
+			sourceTree = "<group>";
+		};
+		C533BBB02837D095006FB231 /* JobsUserHeaderDataChoice */ = {
+			isa = PBXGroup;
+			children = (
+				C533BBB82837D095006FB231 /* JobsUserHeaderDataChoice.png */,
+				C533BBB72837D095006FB231 /* JobsUserHeaderDataChoiceHeader.h */,
+				C533BBB12837D095006FB231 /* JobsUserHeaderDataView */,
+				C533BBB92837D095006FB231 /* JobsUserHeaderDataViewForHeaderInSection */,
+				C533BBB42837D095006FB231 /* JobsUserHeaderDataViewTBVCell */,
+			);
+			path = JobsUserHeaderDataChoice;
+			sourceTree = "<group>";
+		};
+		C533BBB12837D095006FB231 /* JobsUserHeaderDataView */ = {
+			isa = PBXGroup;
+			children = (
+				C533BBB22837D095006FB231 /* JobsUserHeaderDataView.h */,
+				C533BBB32837D095006FB231 /* JobsUserHeaderDataView.m */,
+			);
+			path = JobsUserHeaderDataView;
+			sourceTree = "<group>";
+		};
+		C533BBB42837D095006FB231 /* JobsUserHeaderDataViewTBVCell */ = {
+			isa = PBXGroup;
+			children = (
+				C533BBB62837D095006FB231 /* JobsUserHeaderDataViewTBVCell.h */,
+				C533BBB52837D095006FB231 /* JobsUserHeaderDataViewTBVCell.m */,
+			);
+			path = JobsUserHeaderDataViewTBVCell;
+			sourceTree = "<group>";
+		};
+		C533BBB92837D095006FB231 /* JobsUserHeaderDataViewForHeaderInSection */ = {
+			isa = PBXGroup;
+			children = (
+				C533BBBA2837D095006FB231 /* JobsUserHeaderDataViewForHeaderInSection.h */,
+				C533BBBB2837D095006FB231 /* JobsUserHeaderDataViewForHeaderInSection.m */,
+			);
+			path = JobsUserHeaderDataViewForHeaderInSection;
+			sourceTree = "<group>";
+		};
 		C54BC43128325BA80010EF20 /* JobsTitleView01 */ = {
 			isa = PBXGroup;
 			children = (
@@ -9589,6 +9653,7 @@
 				840F96D027736428004979E9 /* CALayer+Transition.m in Sources */,
 				840F970F27736428004979E9 /* UITextField+ReRect.m in Sources */,
 				840F971B27736428004979E9 /* DebugLogDescription.m in Sources */,
+				C533BABB2837C9CF006FB231 /* NSObject+HXPhotoPicker.m in Sources */,
 				84CA5FE027897AFB00E46E71 /* GDFadeView.m in Sources */,
 				840F971827736428004979E9 /* JobsShowObjInfoVC.m in Sources */,
 				840F960E27736427004979E9 /* JobsHotLabelWithSingleLine.m in Sources */,
@@ -9605,6 +9670,7 @@
 				C54BC43628325BA80010EF20 /* JobsTitleView01.m in Sources */,
 				84401A8727919E3B0038FF6F /* JobsSearchTableViewHeaderView.m in Sources */,
 				840F96A327736428004979E9 /* UIViewController+BackBtn.m in Sources */,
+				C533BBBD2837D095006FB231 /* JobsUserHeaderDataViewTBVCell.m in Sources */,
 				840F964427736427004979E9 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				84D764B3278092C10003F0E4 /* RequestTool.m in Sources */,
 				840F967A27736428004979E9 /* UIView+AOP.m in Sources */,
@@ -9790,6 +9856,7 @@
 				840F963D27736427004979E9 /* JobsPageView.m in Sources */,
 				846DF03B27806D230050468A /* JobsAppDoorContentView.m in Sources */,
 				844019902791997C0038FF6F /* NSMutableArray+Extra.m in Sources */,
+				C533BBBF2837D095006FB231 /* JobsUserHeaderDataViewForHeaderInSection.m in Sources */,
 				840F968A27736428004979E9 /* BaseCollectionView.m in Sources */,
 				C57A203E282CB59F0032156B /* ZLGestureLockIndicator.m in Sources */,
 				844B02122764C8EE00B0513D /* AppDelegate.m in Sources */,
@@ -9802,6 +9869,7 @@
 				844B08522764CF4800B0513D /* ECPrivacyCheckHealth.m in Sources */,
 				8440A37127A158BC0089EE40 /* UITableView+RegisterClass.m in Sources */,
 				840F95E727736427004979E9 /* JobsTabBarControllerConfig.m in Sources */,
+				C533BBBC2837D095006FB231 /* JobsUserHeaderDataView.m in Sources */,
 				840F96EE27736428004979E9 /* NSObject+DataSave.m in Sources */,
 				840F961327736427004979E9 /* NSString+ZBUTF8Encoding.m in Sources */,
 				8424771527C0FDCA00831270 /* GetCustomerContactApi.m in Sources */,

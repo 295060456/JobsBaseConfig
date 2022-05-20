@@ -179,7 +179,10 @@
         _textField = ZYTextField.new;
         _textField.delegate = self;
         @jobs_weakify(self)
-        [_textField.rac_textSignal subscribeNext:^(NSString * _Nullable x) {
+        [[_textField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
+//            @jobs_strongify(self)
+            return YES;
+        }] subscribeNext:^(NSString * _Nullable x) {
             @jobs_strongify(self)
             NSLog(@"MMM = %@",x);
             [self block:self->_textField

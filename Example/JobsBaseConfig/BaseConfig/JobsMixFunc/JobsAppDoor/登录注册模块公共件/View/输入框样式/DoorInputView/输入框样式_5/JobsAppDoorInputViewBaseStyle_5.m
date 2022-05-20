@@ -195,6 +195,9 @@
         [[_textField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
 //            @jobs_strongify(self)
             return YES;
+        }] filter:^BOOL(NSString * _Nullable value) {
+//            @jobs_strongify(self)
+            return YES;
         }] subscribeNext:^(NSString * _Nullable x) {
             @jobs_strongify(self)
             self.securityModeBtn.jobsVisible = ![NSString isNullString:x] && self.doorInputViewBaseStyleModel.isShowSecurityBtn;/// 👁

@@ -14,7 +14,7 @@
     <key>NSCalendarsUsageDescription</key>
     <string>若不允许，你将无法使用添加日历功能</string>
     <key>NSCameraUsageDescription</key>
-    <string>若不允许，你将无法使用图片上传和识别功能</string>
+    <string>若不允许，你将无法使用拍照功能</string>
     <key>NSContactsUsageDescription</key>
     <string>通讯录信息仅用于查找联系人，并会得到严格保密</string>
     <key>NSHealthShareUsageDescription</key>
@@ -34,7 +34,7 @@
     <key>NSMotionUsageDescription</key>
     <string>我们需要获取你的运动权限以完成运动挑战赛功能</string>
     <key>NSPhotoLibraryAddUsageDescription</key>
-    <string>我们需要获取你的相册权限以完成图片上传和识别功能</string>
+    <string>我们需要获取你的相册权限以完成选择本地图片功能</string>
     <key>NSPhotoLibraryUsageDescription</key>
     <string>我们需要获取你的相册权限以完成图片上传和识别功能</string>
     <key>NSRemindersUsageDescription</key>

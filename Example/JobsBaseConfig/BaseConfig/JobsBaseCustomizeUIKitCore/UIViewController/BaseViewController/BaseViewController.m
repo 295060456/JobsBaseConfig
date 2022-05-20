@@ -48,7 +48,7 @@ BaseViewControllerProtocol_synthesize
     self.isHiddenNavigationBar = YES;
     self.setupNavigationBarHidden = YES;
     self.currentPage = 1;
-    self.bgImage = KIMG(@"洗码背景图");/// 仅在loadView中配置有效
+    self.bgImage = KIMG(@"") ? : [UIImage imageWithColor:UIColor.whiteColor];/// 仅在loadView中配置有效
     self.modalInPresentation = NO;/// 禁用下拉手势dismiss画面需要将此属性设置为YES
 }
 

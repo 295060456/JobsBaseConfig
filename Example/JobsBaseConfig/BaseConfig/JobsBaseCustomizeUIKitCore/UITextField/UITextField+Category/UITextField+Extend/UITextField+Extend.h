@@ -16,6 +16,15 @@
 #import "ReactiveObjC.h"
 #endif
 
+#define ARC_TextField(textField,action)\
+@jobs_weakify(self)\
+[[_textField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {\
+    return YES;\
+}] subscribeNext:^(NSString * _Nullable x) {\
+    @jobs_strongify(self)\
+    action\
+}];
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UITextField (Extend)
