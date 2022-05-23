@@ -78,7 +78,7 @@
 }
 
 -(void)richElementsInViewWithModel:(JobsAppDoorInputViewBaseStyleModel *_Nullable)doorInputViewBaseStyleModel{
-    self.doorInputViewBaseStyleModel = doorInputViewBaseStyleModel;
+    self.doorInputViewBaseStyleModel = doorInputViewBaseStyleModel ? : JobsAppDoorInputViewBaseStyleModel.new;
     self.leftIMGV.alpha = 1;
     self.jobsPageView.alpha = 1;
     self.textField.alpha = 1;
@@ -165,9 +165,6 @@
         _textField.delegate = self;
         @jobs_weakify(self)
         [[_textField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
-//            @jobs_strongify(self)
-            return YES;
-        }] filter:^BOOL(NSString * _Nullable value) {
             @jobs_strongify(self)
             JobsAppDoorInputViewTFModel *textFieldInputModel = (JobsAppDoorInputViewTFModel *)self.textField.objBindingParams;
             if ([textFieldInputModel.PlaceHolder isEqualToString:Internationalization(@"Telephone")]) {// 手机号码

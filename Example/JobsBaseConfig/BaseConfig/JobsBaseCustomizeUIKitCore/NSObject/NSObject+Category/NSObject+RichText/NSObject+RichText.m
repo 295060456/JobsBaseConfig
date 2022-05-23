@@ -46,12 +46,12 @@
                                                                JobsWidth(1))];
     RichTextConfig *config_01 = RichTextConfig.new;
     config_01.font = [UIFont systemFontOfSize:JobsWidth(10.6) weight:UIFontWeightRegular];
-    config_01.cor = RGB_SAMECOLOR(115);
+    config_01.textCor = RGB_SAMECOLOR(115);
     config_01.targetString = Internationalization(@"我是第一段文字");
 
     RichTextConfig *config_02 = RichTextConfig.new;
     config_02.font = [UIFont systemFontOfSize:JobsWidth(10.6) weight:UIFontWeightMedium];
-    config_02.cor = color;
+    config_02.textCor = color;
     config_02.targetString = Internationalization(@"我是第二段文字");
     
     NSMutableArray *dataMutArr = NSMutableArray.array;
@@ -111,9 +111,9 @@
                                range:config.range];
         }
         /// 添加文字颜色 & 设置作用域
-        if (config.cor) {
+        if (config.textCor) {
             [attrString addAttribute:NSForegroundColorAttributeName
-                               value:config.cor
+                               value:config.textCor
                                range:config.range];
         }
         /// 添加下划线 & 设置作用域

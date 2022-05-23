@@ -9,12 +9,6 @@
 #import "UITableViewCell+WhiteArrows.h"
 
 @implementation UITableViewCell (WhiteArrows)
-
-static char *UITableViewCell_WhiteArrows_img = "UITableViewCell_WhiteArrows_img";
-@dynamic img;
-
-static char *UITableViewCell_WhiteArrows_size = "UITableViewCell_WhiteArrows_size";
-@dynamic size;
 /// 必须 self.accessoryType = UITableViewCellAccessoryDisclosureIndicator; 打开后才可以启用
 -(void)customAccessoryView:(jobsByIDBlock)customAccessoryViewBlock{
     // 不用系统自带的箭头
@@ -27,14 +21,14 @@ static char *UITableViewCell_WhiteArrows_size = "UITableViewCell_WhiteArrows_siz
         @jobs_weakify(self)
         [[btn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
             @jobs_strongify(self)
-            if (customAccessoryViewBlock) {
-                customAccessoryViewBlock(self);
-            }
+            if (customAccessoryViewBlock) customAccessoryViewBlock(self);
         }];
         
         self.accessoryView = btn;
     }
 }
+static char *UITableViewCell_WhiteArrows_img = "UITableViewCell_WhiteArrows_img";
+@dynamic img;
 #pragma mark —— @property(nonatomic,strong)UIImage *img;
 -(void)setImg:(UIImage *)img{
     objc_setAssociatedObject(self,
@@ -53,6 +47,8 @@ static char *UITableViewCell_WhiteArrows_size = "UITableViewCell_WhiteArrows_siz
                                  OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }return image;
 }
+static char *UITableViewCell_WhiteArrows_size = "UITableViewCell_WhiteArrows_size";
+@dynamic size;
 #pragma mark —— @property(nonatomic,assign)CGSize size;
 -(CGSize)size{
     CGSize Size = [objc_getAssociatedObject(self, UITableViewCell_WhiteArrows_size) CGSizeValue];

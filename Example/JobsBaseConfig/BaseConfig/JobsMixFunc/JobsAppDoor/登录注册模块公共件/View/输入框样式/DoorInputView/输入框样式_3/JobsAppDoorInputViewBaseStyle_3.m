@@ -87,7 +87,7 @@
 }
 
 -(void)richElementsInViewWithModel:(JobsAppDoorInputViewBaseStyleModel *_Nullable)doorInputViewBaseStyleModel{
-    self.doorInputViewBaseStyleModel = doorInputViewBaseStyleModel;
+    self.doorInputViewBaseStyleModel = doorInputViewBaseStyleModel ? : JobsAppDoorInputViewBaseStyleModel.new;
     self.textField.isShowDelBtn = self.doorInputViewBaseStyleModel.isShowDelBtn;/// ❎
     [self configTextField];
 }
@@ -145,9 +145,6 @@
         
         @jobs_weakify(self)
         [[_textField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
-//            @jobs_strongify(self)
-            return YES;
-        }] filter:^BOOL(NSString * _Nullable value) {
             NSLog(@"SSS = %@",self.textFieldInputModel.PlaceHolder);
             @jobs_strongify(self)
             if ([self.textFieldInputModel.PlaceHolder isEqualToString:Internationalization(@"User")]) {
