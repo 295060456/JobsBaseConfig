@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ECPrivacyCheckGatherTool.h"
+#import "MacroDef_Strong@Weak.h"
 #import "NSObject+WHToast.h"
 #import "NSObject+CurrentDevice.h"
 #import "UIViewController+HXExtension.h"
@@ -46,7 +47,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSMutableArray <HXPhotoModel *>*__block historyPhotoDataMutArr;//与之相对应的是self.photoManager.afterSelectedArray
 @property(nonatomic,strong)NSMutableArray <HXPhotoModel *>*__block photosDataMutArr;
 @property(nonatomic,strong)NSMutableArray <HXPhotoModel *>*__block videosDataMutArr;
-
 /// 弹出系统相册选择页面
 -(void)invokeSysPhotoAlbumSuccessBlock:(jobsByIDBlock _Nullable)successBlock
                              failBlock:(jobsByIDBlock _Nullable)failBlock;

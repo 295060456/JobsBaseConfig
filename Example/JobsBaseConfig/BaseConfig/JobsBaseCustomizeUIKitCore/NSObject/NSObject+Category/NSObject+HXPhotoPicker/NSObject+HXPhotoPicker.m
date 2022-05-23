@@ -20,11 +20,6 @@
     @jobs_weakify(self)
     [ECPrivacyCheckGatherTool requestPhotosAuthorizationWithCompletionHandler:^(BOOL granted) {
         if (granted) {
-            //    HXCustomNavigationController *nav = [[HXCustomNavigationController alloc] initWithManager:self.photoManager delegate:self];
-            //    nav.modalPresentationStyle = UIModalPresentationOverFullScreen;
-            //    nav.modalPresentationCapturesStatusBarAppearance = YES;
-            //    [self comingToPresentVC:nav];
-                
             if ([self isKindOfClass:UIViewController.class]) {
                 UIViewController *viewController = (UIViewController *)self;
                 [viewController hx_presentSelectPhotoControllerWithManager:self.photoManager
@@ -34,7 +29,7 @@
                                                                              BOOL isOriginal,
                                                                              UIViewController *viewController,
                                                                              HXPhotoManager *manager) {
-                    @jobs_strongify(self)
+//                    @jobs_strongify(self)
                     HXPhotoPickerModel *photoPickerModel = HXPhotoPickerModel.new;
                     photoPickerModel.allList = allList;
                     photoPickerModel.photoList = photoList;
@@ -44,6 +39,7 @@
                     photoPickerModel.photoManager = manager;
                     if (successBlock) successBlock(photoPickerModel);
                 } cancel:^(UIViewController *viewController, HXPhotoManager *manager) {
+//                    @jobs_strongify(self)
                     HXPhotoPickerModel *photoPickerModel = HXPhotoPickerModel.new;
                     photoPickerModel.vc = viewController;
                     photoPickerModel.photoManager = manager;
@@ -63,19 +59,19 @@
         @jobs_weakify(self)
         [ECPrivacyCheckGatherTool requestCameraAuthorizationWithCompletionHandler:^(BOOL granted) {
             if (granted) {
-                
                 if ([self isKindOfClass:UIViewController.class]) {
                     UIViewController *viewController = (UIViewController *)self;
                     [viewController hx_presentCustomCameraViewControllerWithManager:self.photoManager
                                                                                done:^(HXPhotoModel *model,
                                                                                       HXCustomCameraViewController *viewController) {
-                        @jobs_strongify(self)
+//                        @jobs_strongify(self)
                         HXPhotoPickerModel *photoPickerModel = HXPhotoPickerModel.new;
                         photoPickerModel.customCameraVC = viewController;
                         photoPickerModel.photoModel = model;
                         if (successBlock) successBlock(photoPickerModel);
                     } cancel:^(HXCustomCameraViewController *viewController) {
                         NSSLog(@"取消了");
+//                        @jobs_strongify(self)
                         HXPhotoPickerModel *photoPickerModel = HXPhotoPickerModel.new;
                         photoPickerModel.customCameraVC = viewController;
                         if (failBlock) failBlock(photoPickerModel);
@@ -109,6 +105,11 @@ static char *NSObject_HXPhotoPicker_photoManager = "NSObject_HXPhotoPicker_photo
         PhotoManager.configuration.maxNum = 9;
         PhotoManager.configuration.photoMaxNum = 9;
         PhotoManager.configuration.selectTogether = NO;
+        /// ❤️导航栏用系统自带的，防止外界关闭了导航栏的bug❤️
+        PhotoManager.viewWillAppear = ^(UIViewController *viewController) {
+            /// 只会影响 viewWillAppear 和 viewWillDisappear 两个生命周期
+            [viewController.navigationController setNavigationBarHidden:NO animated:NO];
+        };
         
         objc_setAssociatedObject(self,
                                  NSObject_HXPhotoPicker_photoManager,
@@ -129,7 +130,11 @@ static char *NSObject_HXPhotoPicker_historyPhotoDataMutArr = "NSObject_HXPhotoPi
 -(NSMutableArray<HXPhotoModel *> *)historyPhotoDataMutArr{
     NSMutableArray <HXPhotoModel *>*HistoryPhotoDataMutArr = objc_getAssociatedObject(self, NSObject_HXPhotoPicker_historyPhotoDataMutArr);
     if (!HistoryPhotoDataMutArr) {
-        HistoryPhotoDataMutArr = NSMutableArray.array;
+        /// < 保存本地的方法 >
+        /// 保存本地的方法都是在主线程调用
+        /// 获取保存在本地文件的模型数组
+        /// @param addData 是否添加到manager的数据中
+        HistoryPhotoDataMutArr = [NSMutableArray arrayWithArray:[self.photoManager getLocalModelsInFileWithAddData:YES]];
         objc_setAssociatedObject(self,
                                  NSObject_HXPhotoPicker_historyPhotoDataMutArr,
                                  HistoryPhotoDataMutArr,
