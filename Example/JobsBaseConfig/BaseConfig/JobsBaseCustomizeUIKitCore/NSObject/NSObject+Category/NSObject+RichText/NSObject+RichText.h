@@ -13,8 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,strong)NSString *targetString;//作用文字
 @property(nonatomic,strong)UIFont *font;//添加字体
-@property(nonatomic,strong)UIColor *textCor;//添加文字颜色
-@property(nonatomic,strong)UIColor *textBgCor;//添加文字背景颜色
+@property(nonatomic,strong)UIColor *cor;//添加文字颜色
 @property(nonatomic,assign)NSUnderlineStyle underlineStyle;//添加下划线
 @property(nonatomic,strong)NSMutableParagraphStyle *paragraphStyle;//添加段落样式
 @property(nonatomic,strong)NSString *urlStr;//添加链接
@@ -23,7 +22,15 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface NSObject (RichText)
-
+/// 整合输出富文本，作用于lable.attributedText
+/// @param richTextMutArr 富文本的纯文本字符串
+/// @param richTextConfigMutArr 富文本的配置集合,对该纯文本字符串的释义
+/// @param paragraphStyle 段落样式
+-(NSMutableAttributedString *)makeAttributedStringWithRichTextMutArr:(NSArray <NSString *>*)richTextMutArr
+                                                richTextConfigMutArr:(NSMutableArray <RichTextConfig *>*)richTextConfigMutArr
+                                                      paragraphStyle:(NSMutableParagraphStyle *_Nullable)paragraphStyle;
+/// 利用 NSArray <RichTextConfig *>* 形成富文本
+/// @param richTextDataConfigMutArr 富文本的配置集合,对该纯文本字符串的释义
 -(NSMutableAttributedString *)richTextWithDataConfigMutArr:(NSArray <RichTextConfig *>*_Nonnull)richTextDataConfigMutArr;
 
 @end
@@ -35,45 +42,57 @@ NS_ASSUME_NONNULL_END
  示例代码:
  特别说明：普通文本和富文本的 左/中/右 段落对齐不是一样的写法
  
- self.contentLab.attributedText = [DDSysMsgTBVCell GGGG:@[@"尊敬的抖动用户：您发布的视频",
-                                                          @"哈哈哈",
-                                                          @"，被用户"]];
+ // 关于富文本
+ @property(nonatomic,strong)NSMutableAttributedString *attributedStringData;
+ @property(nonatomic,strong)NSMutableArray <NSString *>*richTextMutArr;
+ @property(nonatomic,strong)NSMutableArray <RichTextConfig *>*richTextConfigMutArr;
  
- +(NSMutableAttributedString *)richText:(NSArray <NSString *>*)arr{
-     
-     UIColor *color = [UIColor gradientCorDataMutArr:[NSMutableArray arrayWithArray:@[RGB_COLOR(247, 131, 97),RGB_COLOR(245, 75, 100)]]
-                                          startPoint:CGPointZero
-                                            endPoint:CGPointZero
-                                              opaque:NO
-                                      targetViewRect:CGRectMake(0,
-                                                                0,
-                                                                JobsWidth(400),
-                                                                JobsWidth(1))];
-     
-     RichTextConfig *config_01 = RichTextConfig.new;
-     config_01.font = [UIFont systemFontOfSize:JobsWidth(10.6) weight:UIFontWeightRegular];
-     config_01.cor = RGB_SAMECOLOR(115);
-     config_01.targetString = arr[0];
+ -(UILabel *)connectionTipsLab{
+     if (!_connectionTipsLab) {
+         _connectionTipsLab = UILabel.new;
+         _connectionTipsLab.attributedText = self.attributedStringData;
+         [self.view addSubview:_connectionTipsLab];
+         [_connectionTipsLab mas_makeConstraints:^(MASConstraintMaker *make) {
+             make.centerX.equalTo(self.view);
+             make.bottom.equalTo(self.view).offset(JobsWidth(-65));
+             make.height.mas_equalTo(JobsWidth(12));
+         }];
+     }return _connectionTipsLab;
+ }
 
-     RichTextConfig *config_02 = RichTextConfig.new;
-     config_02.font = [UIFont systemFontOfSize:JobsWidth(10.6) weight:UIFontWeightMedium];
-     config_02.cor = color;
-     config_02.targetString = arr[1];
+ -(NSMutableAttributedString *)attributedStringData{
+     if (!_attributedStringData) {
+         _attributedStringData = [self makeAttributedStringWithRichTextMutArr:self.richTextMutArr
+                                                         richTextConfigMutArr:self.richTextConfigMutArr
+                                                               paragraphStyle:nil];
+     }return _attributedStringData;
+ }
 
-     NSMutableArray *dataMutArr = NSMutableArray.array;
-     [dataMutArr addObject:config_01];
-     [dataMutArr addObject:config_02];
+ -(NSMutableArray<NSString *> *)richTextMutArr{
+     if (!_richTextMutArr) {
+         _richTextMutArr = NSMutableArray.array;
+         [_richTextMutArr addObject:Internationalization(@"如需帮助，请联系")];
+         [_richTextMutArr addObject:Internationalization(@"专属客服")];
+     }return _richTextMutArr;
+ }
 
-     // 设置整体的段落样式
-     NSMutableAttributedString *attributedString = [self richTextWithDataConfigMutArr:dataMutArr];
-     NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
-     paragraphStyle.alignment = NSTextAlignmentLeft;//文本对齐方式 左右对齐（两边对齐）
-     [attributedString addAttribute:NSParagraphStyleAttributeName
-                              value:paragraphStyle
-                              range:NSMakeRange(0, attributedString.string.length)];//设置段落样式
-     
-     
-     return attributedString;
+ -(NSMutableArray<RichTextConfig *> *)richTextConfigMutArr{
+     if (!_richTextConfigMutArr) {
+         _richTextConfigMutArr = NSMutableArray.array;
+         
+         RichTextConfig *config_01 = RichTextConfig.new;
+         config_01.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular];
+         config_01.cor = HEXCOLOR(0x757575);
+         config_01.targetString = self.richTextMutArr[0];
+         [_richTextConfigMutArr addObject:config_01];
+
+         RichTextConfig *config_02 = RichTextConfig.new;
+         config_02.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightMedium];
+         config_02.cor = HEXCOLOR(0xAE8330);
+         config_02.targetString = self.richTextMutArr[1];
+         [_richTextConfigMutArr addObject:config_02];
+         
+     }return _richTextConfigMutArr;
  }
  
  ***/

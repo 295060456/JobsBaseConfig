@@ -35,11 +35,60 @@
 @end
 
 @implementation NSObject (RichText)
+/// 示例代码：对外输出 NSMutableArray <RichTextConfig *>*
+-(NSMutableArray <RichTextConfig *>*)makeRichTextConfigMutArr{
+    UIColor *color = [UIColor gradientCorDataMutArr:[NSMutableArray arrayWithArray:@[RGB_COLOR(247, 131, 97),RGB_COLOR(245, 75, 100)]]
+                                         startPoint:CGPointZero
+                                           endPoint:CGPointZero
+                                             opaque:NO
+                                     targetViewRect:CGRectMake(0,
+                                                               0,
+                                                               JobsWidth(400),
+                                                               JobsWidth(1))];
+    
+    
+    RichTextConfig *config_01 = RichTextConfig.new;
+    config_01.font = [UIFont systemFontOfSize:JobsWidth(10.6) weight:UIFontWeightRegular];
+    config_01.cor = RGB_SAMECOLOR(115);
+    config_01.targetString = Internationalization(@"我是第一段文字");
 
+    RichTextConfig *config_02 = RichTextConfig.new;
+    config_02.font = [UIFont systemFontOfSize:JobsWidth(10.6) weight:UIFontWeightMedium];
+    config_02.cor = color;
+    config_02.targetString = Internationalization(@"我是第二段文字");
+    
+    NSMutableArray *dataMutArr = NSMutableArray.array;
+    [dataMutArr addObject:config_01];
+    [dataMutArr addObject:config_02];
+    
+    return dataMutArr;
+}
+/// 整合输出富文本，作用于lable.attributedText
+/// @param richTextMutArr 富文本的纯文本字符串
+/// @param richTextConfigMutArr 富文本的配置集合,对该纯文本字符串的释义
+/// @param paragraphStyle 段落样式
+-(NSMutableAttributedString *)makeAttributedStringWithRichTextMutArr:(NSArray <NSString *>*)richTextMutArr
+                                                richTextConfigMutArr:(NSMutableArray <RichTextConfig *>*)richTextConfigMutArr
+                                                      paragraphStyle:(NSMutableParagraphStyle *_Nullable)paragraphStyle{
+    
+    if (!paragraphStyle) {
+        paragraphStyle = NSMutableParagraphStyle.new;
+        paragraphStyle.alignment = NSTextAlignmentLeft;//文本对齐方式 左右对齐（两边对齐）
+    }
+    
+    /// 设置段落样式
+    NSMutableAttributedString *attributedString = [self richTextWithDataConfigMutArr:richTextConfigMutArr];
+    [attributedString addAttribute:NSParagraphStyleAttributeName
+                             value:paragraphStyle
+                             range:NSMakeRange(0, attributedString.string.length)];
+    return attributedString;
+}
+/// 利用 NSArray <RichTextConfig *>* 形成富文本
+/// @param richTextDataConfigMutArr 富文本的配置集合,对该纯文本字符串的释义
 -(NSMutableAttributedString *)richTextWithDataConfigMutArr:(NSArray <RichTextConfig *>*_Nonnull)richTextDataConfigMutArr{
     
     NSString *resultString = @"";
-    //先拼接字符串
+    /// 先拼接字符串
     for (RichTextConfig *config in richTextDataConfigMutArr) {
         if (config.targetString) {
             resultString = [resultString stringByAppendingString:config.targetString];
@@ -50,43 +99,37 @@
     NSLog(@"resultString = %@",resultString);
     NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:resultString];
 
-    // 因为NSArray <RichTextConfig *>* 是动态。进方法以后为固定，那么以此计算真正的range
+    ///  因为NSArray <RichTextConfig *>* 是动态。进方法以后为固定，那么以此计算真正的range
     NSUInteger currentFrontLocation = 0;//当前位置（前）
     for (RichTextConfig *config in richTextDataConfigMutArr) {
         config.range = NSMakeRange(currentFrontLocation, config.targetString.length);
-        currentFrontLocation  += config.targetString.length;;
+        currentFrontLocation  += config.targetString.length;
     }
     
     for (RichTextConfig *config in richTextDataConfigMutArr){
-        //添加字体 & 设置作用域
+        /// 添加字体 & 设置作用域
         if (config.font) {
             [attrString addAttribute:NSFontAttributeName
                                value:config.font
                                range:config.range];
         }
-        //添加文字颜色 & 设置作用域
-        if (config.textCor) {
+        /// 添加文字颜色 & 设置作用域
+        if (config.cor) {
             [attrString addAttribute:NSForegroundColorAttributeName
-                               value:config.textCor
+                               value:config.cor
                                range:config.range];
         }
-        //添加下划线 & 设置作用域
+        /// 添加下划线 & 设置作用域
         [attrString addAttribute:NSUnderlineStyleAttributeName
                         value:[NSNumber numberWithInteger:config.underlineStyle]
                         range:config.range];
-        //添加段落样式 & 设置作用域
+        /// 添加段落样式 & 设置作用域
         if (config.paragraphStyle) {
             [attrString addAttribute:NSParagraphStyleAttributeName
                                value:config.paragraphStyle
                                range:config.range];
         }
-        //添加文字背景颜色
-        if (config.textBgCor) {
-            [attrString addAttribute:NSBackgroundColorAttributeName
-                               value:config.textBgCor
-                               range:config.range];
-        }
-        //添加链接 & 设置作用域
+        /// 添加链接 & 设置作用域
 //        [attrString addAttribute:NSParagraphStyleAttributeName
 //                           value:[NSURL URLWithString:config.urlStr]
 //                           range:config.range];
