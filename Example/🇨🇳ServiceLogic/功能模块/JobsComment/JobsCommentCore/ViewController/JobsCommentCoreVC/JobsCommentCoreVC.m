@@ -195,7 +195,8 @@ heightForHeaderInSection:(NSInteger)section{///  👌
     return [JobsCommentPopUpView_viewForHeaderInSection viewHeightWithModel:nil];
 }
 /// 一级评论数据 展示在viewForHeaderInSection
-- (UIView *)tableView:(UITableView *)tableView
+/// 这里涉及到复用机制，return出去的是UITableViewHeaderFooterView的派生类
+- (nullable UIView *)tableView:(UITableView *)tableView
 viewForHeaderInSection:(NSInteger)section{
     JobsCommentPopUpView_viewForHeaderInSection *header = JobsCommentPopUpView_viewForHeaderInSection.new;
     [header richElementsInViewWithModel:self.mjModel.listDataArr[section]];//一级评论数据 展示在viewForHeaderInSection
@@ -239,7 +240,7 @@ viewForHeaderInSection:(NSInteger)section{
         _tableView.estimatedSectionFooterHeight = 0;
         _tableView.estimatedSectionHeaderHeight = 0;
         _tableView.mj_footer.hidden = NO;
-        _tableView.tableFooterView = UIView.new;
+        _tableView.tableFooterView = UIView.new;/// 这里接入的就是一个UIView的派生类
         _tableView.contentInset = UIEdgeInsetsMake(0, 0, self.popUpHeight, 0);
         [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         _tableView.ly_emptyView = [EmptyView emptyViewWithImageStr:@"Indeterminate Spinner - Small"

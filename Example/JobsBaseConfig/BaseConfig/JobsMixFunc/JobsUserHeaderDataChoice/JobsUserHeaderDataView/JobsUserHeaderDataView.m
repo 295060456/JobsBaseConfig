@@ -97,18 +97,17 @@ static dispatch_once_t static_choiceUserHeaderDataViewOnceToken;
 #pragma mark —— BaseViewProtocol
 /// 具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 -(void)richElementsInViewWithModel:(UIViewModel *_Nullable)model{
-    
     self.viewModel = model ? : UIViewModel.new;
-//    self.viewModel.usesTableViewHeaderFooterView = YES;// 这个属性在外面设置
+//    self.viewModel.usesTableViewHeaderView = YES;// 这个属性在外面设置
     MakeDataNull
     self.tableView.alpha = 1;
 }
 /// 具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 +(CGSize)viewSizeWithModel:(UIViewModel *_Nullable)model{
     model = model ? : UIViewModel.new;
-//    model.usesTableViewHeaderFooterView = YES;// 这个属性在外面设置
+//    model.usesTableViewHeaderView = YES;// 这个属性在外面设置
     return CGSizeMake(JobsMainScreen_WIDTH(),
-                      (model.usesTableViewHeaderFooterView ? [JobsUserHeaderDataViewForHeaderInSection viewHeightWithModel:nil] : 0 ) +
+                      (model.usesTableViewHeaderView ? [JobsUserHeaderDataViewForHeaderInSection viewHeightWithModel:nil] : 0 ) +
                       JobsBottomSafeAreaHeight() +
                       JobsWidth(31) +
                       [JobsUserHeaderDataViewTBVCell cellHeightWithModel:nil] * JobsUserHeaderDataView.createDataMutArr.count);
@@ -151,8 +150,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (CGFloat)tableView:(UITableView *)tableView
 heightForHeaderInSection:(NSInteger)section{
-    NSLog(@"%d",self.viewModel.usesTableViewHeaderFooterView);
-    return self.viewModel.usesTableViewHeaderFooterView ? [JobsUserHeaderDataViewForHeaderInSection viewHeightWithModel:nil] : 0;
+    NSLog(@"%d",self.viewModel.usesTableViewHeaderView);
+    return self.viewModel.usesTableViewHeaderView ? [JobsUserHeaderDataViewForHeaderInSection viewHeightWithModel:nil] : 0;
 }
 
 - (void)tableView:(UITableView *)tableView
@@ -161,11 +160,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView hideSeparatorLineAtLast:indexPath
                                   cell:cell];
 }
-
-- (UIView *)tableView:(UITableView *)tableView
-viewForHeaderInSection:(NSInteger)section{
-    if (self.viewModel.usesTableViewHeaderFooterView) {
+/// 这里涉及到复用机制，return出去的是UITableViewHeaderFooterView的派生类
+- (nullable UIView *)tableView:(UITableView *)tableView
+        viewForHeaderInSection:(NSInteger)section{
+    if (self.viewModel.usesTableViewHeaderView) {
         JobsUserHeaderDataViewForHeaderInSection *headerView = JobsUserHeaderDataViewForHeaderInSection.jobsInitWithReuseIdentifier;
+        headerView.section = section;
         [headerView richElementsInViewWithModel:nil];
         @jobs_weakify(self)
         [headerView actionObjectBlock:^(id data) {
@@ -183,8 +183,8 @@ viewForHeaderInSection:(NSInteger)section{
         _tableView.scrollEnabled = NO;
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        _tableView.tableHeaderView = UIView.new;
-        _tableView.tableFooterView = UIView.new;
+        _tableView.tableHeaderView = UIView.new;/// 这里接入的就是一个UIView的派生类
+        _tableView.tableFooterView = UIView.new;/// 这里接入的就是一个UIView的派生类
         _tableView.separatorColor = HEXCOLOR(0xEEEEEE);
 //        _tableView.contentInset = UIEdgeInsetsMake(JobsWidth(20), 0, 0, 0);
 //        [_tableView registerTableViewClass];

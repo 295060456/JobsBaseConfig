@@ -293,8 +293,8 @@ heightForHeaderInSection:(NSInteger)section{
     return [JobsSearchTableViewHeaderView viewHeightWithModel:nil];
 }
 
--(UIView *)tableView:(UITableView *)tableView
-viewForHeaderInSection:(NSInteger)section{
+-(nullable UIView *)tableView:(UITableView *)tableView
+       viewForHeaderInSection:(NSInteger)section{
     JobsSearchTableViewHeaderView *header = JobsSearchTableViewHeaderView.jobsInitWithReuseIdentifier;
     [header richElementsInViewWithModel:self.sectionTitleMutArr[section]];
     if (section == 1) {
@@ -353,8 +353,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         _tableView.dataSource = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.showsVerticalScrollIndicator = NO;
-        _tableView.tableHeaderView = self.jobsSearchBar;
-        _tableView.tableFooterView = UIView.new;
+        _tableView.tableHeaderView = self.jobsSearchBar;/// 这里接入的就是一个UIView的派生类
+        _tableView.tableFooterView = UIView.new;/// 这里接入的就是一个UIView的派生类
         _tableView.ww_foldable = YES;//设置可折叠
         [_tableView registerTableViewClass];
 

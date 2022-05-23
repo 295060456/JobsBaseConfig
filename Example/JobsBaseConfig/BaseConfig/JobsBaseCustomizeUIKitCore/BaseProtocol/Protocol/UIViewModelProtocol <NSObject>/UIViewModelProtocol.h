@@ -103,7 +103,8 @@ NS_ASSUME_NONNULL_END
 @synthesize cellSize = _cellSize;\
 @synthesize tableHeaderView = _tableHeaderView;\
 @synthesize tableFooterView = _tableFooterView;\
-@synthesize usesTableViewHeaderFooterView = _usesTableViewHeaderFooterView;\
+@synthesize usesTableViewHeaderView = _usesTableViewHeaderView;\
+@synthesize usesTableViewFooterView = _usesTableViewFooterView;\
 \
 @synthesize indexPath = _indexPath;\
 @synthesize section = _section;\
@@ -178,7 +179,8 @@ NS_ASSUME_NONNULL_END
 @dynamic cellSize;\
 @dynamic tableHeaderView;\
 @dynamic tableFooterView;\
-@dynamic usesTableViewHeaderFooterView;\
+@dynamic usesTableViewHeaderView;\
+@dynamic usesTableViewFooterView;\
 \
 @dynamic indexPath;\
 @dynamic section;\

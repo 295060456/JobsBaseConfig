@@ -38,7 +38,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)CGSize cellSize;
 @property(nonatomic,assign)CGSize tableHeaderView;
 @property(nonatomic,assign)CGSize tableFooterView;
-@property(nonatomic,assign)BOOL usesTableViewHeaderFooterView;/// 默认不使用
+@property(nonatomic,assign)BOOL usesTableViewHeaderView;/// 默认不使用
+@property(nonatomic,assign)BOOL usesTableViewFooterView;/// 默认不使用
 
 @end
 
@@ -72,7 +73,8 @@ NS_ASSUME_NONNULL_END
 @synthesize cellSize = _cellSize;\
 @synthesize tableHeaderView = _tableHeaderView;\
 @synthesize tableFooterView = _tableFooterView;\
-@synthesize usesTableViewHeaderFooterView = _usesTableViewHeaderFooterView;\
+@synthesize usesTableViewHeaderView = _usesTableViewHeaderView;\
+@synthesize usesTableViewFooterView = _usesTableViewFooterView;\
 
 #endif
 
@@ -104,7 +106,8 @@ NS_ASSUME_NONNULL_END
 @dynamic cellSize;\
 @dynamic tableHeaderView;\
 @dynamic tableFooterView;\
-@dynamic usesTableViewHeaderFooterView;\
+@dynamic usesTableViewHeaderView;\
+@dynamic usesTableViewFooterView;\
 
 #endif
 

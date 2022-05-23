@@ -10,7 +10,6 @@
 @interface AppInternationalizationVC ()
 // UI
 @property(nonatomic,strong)UITableView *tableView;
-@property(nonatomic,strong)UITableViewHeaderFooterView *userHeaderView;
 // Data
 @property(nonatomic,strong)NSMutableArray <NSString *>*dataMutArr;
 
@@ -152,7 +151,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (CGFloat)tableView:(UITableView *)tableView
 heightForHeaderInSection:(NSInteger)section{
-    return [UITableViewHeaderFooterView viewHeightWithModel:nil];
+    return [BaseTableViewFooterView viewHeightWithModel:nil];
 }
 
 - (void)tableView:(UITableView *)tableView
@@ -162,10 +161,18 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView hideSeparatorLineAtLast:indexPath
                                   cell:cell];
 }
-
-- (UIView *)tableView:(UITableView *)tableView
-viewForHeaderInSection:(NSInteger)section{
-    return self.userHeaderView;
+/// 这里涉及到复用机制，return出去的是UITableViewHeaderFooterView的派生类
+- (nullable UIView *)tableView:(UITableView *)tableView
+        viewForHeaderInSection:(NSInteger)section{
+    BaseTableViewHeaderView *headerView = BaseTableViewHeaderView.jobsInitWithReuseIdentifier;
+    headerView.section = section;
+    headerView.backgroundColor = UIColor.whiteColor;
+    headerView.contentView.backgroundColor = UIColor.whiteColor;
+    [headerView richElementsInViewWithModel:UIViewModel.new];
+//        @jobs_weakify(self)
+    [headerView actionObjectBlock:^(id data) {
+//            @jobs_strongify(self)
+    }];return headerView;
 }
 #pragma mark —— lazyLoad
 -(UITableView *)tableView{
@@ -176,8 +183,8 @@ viewForHeaderInSection:(NSInteger)section{
         _tableView.backgroundColor = AppMainCor_02;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         _tableView.showsVerticalScrollIndicator = NO;
-        _tableView.tableHeaderView = self.userHeaderView;
-        _tableView.tableFooterView = UIView.new;
+        _tableView.tableHeaderView = UIView.new;/// 这里接入的就是一个UIView的派生类/// 这里接入的就是一个UIView的派生类
+        _tableView.tableFooterView = UIView.new;/// 这里接入的就是一个UIView的派生类/// 这里接入的就是一个UIView的派生类
         _tableView.separatorColor = HEXCOLOR(0xEEEEEE);
         {
             MJRefreshConfigModel *refreshConfigHeader = MJRefreshConfigModel.new;
@@ -217,20 +224,6 @@ viewForHeaderInSection:(NSInteger)section{
             make.left.right.bottom.equalTo(self.view);
         }];
     }return _tableView;
-}
-
--(UITableViewHeaderFooterView *)userHeaderView{
-    if (!_userHeaderView) {
-        _userHeaderView = UITableViewHeaderFooterView.new;
-        _userHeaderView.backgroundColor = UIColor.whiteColor;
-        _userHeaderView.contentView.backgroundColor = UIColor.whiteColor;
-        _userHeaderView.frame = [UITableViewHeaderFooterView viewFrameWithModel:nil];
-        [_userHeaderView richElementsInViewWithModel:UIViewModel.new];
-//        @jobs_weakify(self)
-        [_userHeaderView actionObjectBlock:^(id data) {
-//            @jobs_strongify(self)
-        }];
-    }return _userHeaderView;
 }
 
 -(NSMutableArray<NSString *> *)dataMutArr{
