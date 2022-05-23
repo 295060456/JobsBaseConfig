@@ -37,6 +37,19 @@ makeFirstAndLastCell:(nonnull UITableViewCell *)cell
               dx:(CGFloat)dx
               dy:(CGFloat)dy
      atIndexPath:(nonnull NSIndexPath *)indexPath;
+/// 以section为单位，每个section的第一行和最后一行的cell圆角化处理
+/// @param tableView 作用对象tableView
+/// @param cell 作用对象Tableviewcell
+/// @param radius 切角弧度
+/// @param dx 内有介绍
+/// @param dy 内有介绍
+/// @param indexPath indexPath
++(void)tableView:(UITableView *)tableView
+makeSectionFirstAndLastCell:(nonnull UITableViewCell *)cell
+     roundCorner:(CGFloat)radius
+              dx:(CGFloat)dx
+              dy:(CGFloat)dy
+     atIndexPath:(nonnull NSIndexPath *)indexPath;
 
 @end
 
@@ -54,6 +67,15 @@ NS_ASSUME_NONNULL_END
              makeFirstAndLastCell:cell
                       roundCorner:6
                                dx:JobsWidth(16)
+                               dy:0
+                      atIndexPath:indexPath];
+ 
+ 或者是
+     /// 以section为单位，每个section的第一行和最后一行的cell圆角化处理
+     [BaseTableViewCell tableView:tableView
+      makeSectionFirstAndLastCell:cell
+                      roundCorner:JobsWidth(8)
+                               dx:JobsWidth(1)
                                dy:0
                       atIndexPath:indexPath];
  }
