@@ -6,8 +6,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <objc/runtime.h>
 #import "JobsBlock.h"
 #import "MacroDef_Cor.h"
+#import "MacroDef_Strong@Weak.h"
 
 #if __has_include(<BRPickerView/BRPickerView.h>)
 #import <BRPickerView/BRPickerView.h>
@@ -15,45 +17,86 @@
 #import "BRPickerView.h"
 #endif
 
-#if __has_include(<ReactiveObjC/RACmetamacros.h>)
-#import <ReactiveObjC/RACmetamacros.h>
-#else
-#import "RACmetamacros.h"
-#endif
-
-#if __has_include(<ReactiveObjC/RACEXTScope.h>)
-#import <ReactiveObjC/RACEXTScope.h>
-#else
-#import "RACEXTScope.h"
-#endif
-
-#if __has_include(<ReactiveObjC/RACEXTKeyPathCoding.h>)
-#import <ReactiveObjC/RACEXTKeyPathCoding.h>
-#else
-#import "RACEXTKeyPathCoding.h"
-#endif
-
-//#if __has_include(<ReactiveObjC/RACEXTRuntimeExtensions.h>)
-//#import <ReactiveObjC/RACEXTRuntimeExtensions.h>
-//#else
-//#import "RACEXTRuntimeExtensions.h"
-//#endif
+@class BRStringPickerViewModel;
 
 NS_ASSUME_NONNULL_BEGIN
-
+/// https://github.com/91renb/BRPickerView
 @interface UIViewController (BRPickerView)
-
 #pragma mark —— BaseVC+BRStringPickerView
-@property(nonatomic,strong)BRStringPickerView *stringPickerView;
-@property(nonatomic,assign)BRStringPickerMode brStringPickerMode;
+/// UI
+@property(nonatomic,strong)BRStringPickerView *stringPickerView;/// 自定义字符串选择器
+@property(nonatomic,strong)BRDatePickerView *datePickerView;/// 时间选择器
+@property(nonatomic,strong)BRAddressPickerView *addressPickerView;/// 地址选择器
+/// Data
 @property(nonatomic,copy)jobsByIDBlock brStringPickerViewBlock;
-@property(nonatomic,strong)NSArray *BRStringPickerViewDataMutArr;
-
-@property(nonatomic,strong)BRDatePickerView *datePickerView;//时间选择器
+@property(nonatomic,assign)BRStringPickerMode brStringPickerMode;
+@property(nonatomic,strong)NSMutableArray *BRStringPickerViewDataMutArr;
 @property(nonatomic,strong)BRPickerStyle *customStyle;
-@property(nonatomic,strong)BRAddressPickerView *addressPickerView;//地址选择器
 
 -(void)BRStringPickerViewBlock:(jobsByIDBlock)block;
+/// 时间选择器
+-(void)makeDatePickerDoneBlock:(BRDoneClickBlock)clickDoneBlock
+                   resultBlock:(BRDateResultBlock)clickResultBlock;
+/// 地址选择器
+-(void)makeAddressPickerViewDoneBlock:(BRDoneClickBlock)clickDoneBlock
+                          resultBlock:(BRAddressResultBlock)clickResultBlock;
+/// 自定义字符串选择器
+-(void)makeStringPickerViewWithModel:(BRStringPickerViewModel *_Nullable)stringPickerViewModel
+                         pickerStyle:(BRPickerStyle *_Nullable)pickerStyle
+                           doneBlock:(BRDoneClickBlock)clickDoneBlock
+                         resultBlock:(jobsByIDBlock)clickResultBlock;
+@end
+
+@interface BRStringPickerViewModel : NSObject
+/// 来自 BRStringPickerView
+/** 字符串选择器显示类型 */
+@property(nonatomic,assign)BRStringPickerMode pickerMode;
+/**
+ *  1.设置数据源
+ *    单列：@[@"男", @"女", @"其他"]，或直接传一维模型数组(NSArray <BRResultModel *>*)
+ *    多列：@[@[@"语文", @"数学", @"英语"], @[@"优秀", @"良好"]]，或直接传多维模型数组
+ *    联动：直接传一维模型数组(NSArray <BRResultModel *>*)，要注意数据源联动格式，可参考Demo
+ */
+@property(nullable,nonatomic,copy)NSArray *dataSourceArr;
+/**
+ *  2.设置数据源
+ *    直接传plist文件名：NSString类型（如：@"test.plist"），要带后缀名
+ *    场景：可以将数据源数据（数组类型）放到plist文件中，直接传plist文件名更加简单
+ */
+@property(nullable,nonatomic,copy)NSString *plistName;
+/**
+ *  设置默认选中的位置【单列】
+ *  推荐使用 selectIndex，更加严谨，可以避免使用 selectValue 时，有名称相同的情况
+ */
+@property(nonatomic,assign)NSInteger selectIndex;
+@property(nullable,nonatomic,copy)NSString *selectValue;
+/**
+ *  设置默认选中的位置【多列】
+ *  推荐使用 selectIndexs，更加严谨，可以避免使用 selectValues 时，有名称相同的情况
+ */
+@property(nullable,nonatomic,copy)NSArray <NSNumber *> *selectIndexs;
+@property(nullable,nonatomic,copy)NSArray <NSString *> *selectValues;
+/**
+ *  最大层级数(列数) for `BRStringPickerComponentLinkage`, ignored otherwise.
+ *  使用场景：默认可选，当数据源中有 key 等于 parentKey 情况时，必须要设置
+ */
+@property(nonatomic,assign)NSInteger numberOfComponents;
+
+/// 来自 BRBaseView
+/** 选择器标题 */
+@property (nullable, nonatomic, copy) NSString *title;
+/** 是否自动选择，即滚动选择器后就执行结果回调，默认为 NO */
+@property (nonatomic, assign) BOOL isAutoSelect;
+/** 自定义UI样式（不传或为nil时，是默认样式） */
+@property (nullable, nonatomic, strong) BRPickerStyle *pickerStyle;
+/** accessory view for above picker view. default is nil */
+@property (nullable, nonatomic, strong) UIView *pickerHeaderView;
+/** accessory view below picker view. default is nil */
+@property (nullable, nonatomic, strong) UIView *pickerFooterView;
+/** 弹框视图(使用场景：可以在 alertView 上添加选择器的自定义背景视图) */
+@property (nullable, nonatomic, strong) UIView *alertView;
+/** 组件的父视图：可以传 自己获取的 keyWindow，或页面的 view */
+@property (nullable, nonatomic, strong) UIView *keyView;
 
 @end
 
