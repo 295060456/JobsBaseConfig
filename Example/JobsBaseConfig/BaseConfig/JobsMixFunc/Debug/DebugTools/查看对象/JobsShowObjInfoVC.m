@@ -142,7 +142,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         _tableView.backgroundColor = UIColor.whiteColor;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         _tableView.showsVerticalScrollIndicator = NO;
-        _tableView.tableFooterView = UIView.new;/// 这里接入的就是一个UIView的派生类
+        _tableView.tableFooterView = UIView.new;
         _tableView.separatorColor = HEXCOLOR(0xEEEEEE);
         {
             MJRefreshConfigModel *refreshConfigHeader = MJRefreshConfigModel.new;
@@ -177,21 +177,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         }
         
         [self.view addSubview:_tableView];
-        [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-            if (self.setupNavigationBarHidden && self.gk_statusBarHidden) {// 系统、GK均隐藏
-                make.edges.equalTo(self.view);
-            }else{
-                if (!self.setupNavigationBarHidden && self.gk_statusBarHidden) {// 用系统的导航栏
-                    make.top.equalTo(self.view).offset(JobsNavigationBarAndStatusBarHeight(nil));
-                }
-                
-                if (self.setupNavigationBarHidden && !self.gk_statusBarHidden) {// 用GK的导航栏
-                    make.top.equalTo(self.gk_navigationBar.mas_bottom);
-                }
-                
-                make.left.right.bottom.equalTo(self.view);
-            }
-        }];
+        [self fullScreenConstraintTargetView:_tableView];
     }return _tableView;
 }
 

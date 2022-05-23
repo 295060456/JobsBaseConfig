@@ -8,19 +8,7 @@
 #import "UIViewController+BaseVC.h"
 
 @implementation UIViewController (BaseVC)
-/// BaseViewControllerProtocol
-static char *UIViewController_BaseVC_fromVC = "UIViewController_BaseVC_fromVC";
-@dynamic fromVC;
-
-static char *UIViewController_BaseVC_pushOrPresent = "UIViewController_BaseVC_pushOrPresent";
-@dynamic pushOrPresent;
-/// UIViewModelProtocol
-static char *UIViewController_BaseVC_requestParams = "UIViewController_BaseVC_requestParams";
-@dynamic requestParams;
-
-static char *UIViewController_BaseVC_bgImage = "UIViewController_BaseVC_bgImage";
-@dynamic bgImage;
-#pragma mark —— 一些功能性的
+#pragma mark —— 一些功能性
 -(void)showUserInfo{
     if (JobsDebug) {
         UIViewModel *viewModel = [self configViewModelWithTitle:@"用户信息展示(开发测试专用)" subTitle:nil];
@@ -31,23 +19,45 @@ static char *UIViewController_BaseVC_bgImage = "UIViewController_BaseVC_bgImage"
                     requestParams:viewModel];// 测试专用
     }
 }
-
+/// 配置GKNavigationBar
 -(void)setGKNav{
     self.gk_navTitle = self.viewModel.textModel.text;
-    self.gk_navTitleColor = HEXCOLOR(0xD3B698);
-    self.gk_navTitleFont = [UIFont systemFontOfSize:JobsWidth(18) weight:UIFontWeightRegular];
-    self.gk_navBackgroundColor = HEXCOLOR(0x564533);
+    self.gk_navTitleColor = self.viewModel.textModel.textCor ? : HEXCOLOR(0xD3B698);
+    self.gk_navTitleFont = self.viewModel.textModel.font ? : [UIFont systemFontOfSize:JobsWidth(18) weight:UIFontWeightRegular];
+    self.gk_navBackgroundColor = UIColor.whiteColor;
     self.gk_navLineHidden = YES;
     self.gk_navItemLeftSpace = 20;
     [self hideNavLine];
 }
-
+/// 配置GKNavigationBar的返回按钮
 -(void)setGKNavBackBtn{
     if (self.navigationController.viewControllers.count - 1) {//从上个页面推过来才有返回键，直接的个人中心是没有的
         self.gk_backImage = KIMG(@"全局返回箭头");/// 设置返回按钮图片（优先级高于gk_backStyle）
         self.gk_backStyle = GKNavigationBarBackStyleBlack;
         self.gk_navLeftBarButtonItem = [UIBarButtonItem.alloc initWithCustomView:self.backBtnCategory];
     }
+}
+/// 铺满全屏展示的策略
+-(void)fullScreenConstraintTargetView:(nonnull __kindof UIView *)view{
+    /// 防止调用崩溃
+    if (![self.view.subviews containsObject:view]) {
+        [self.view addSubview:view];
+    }
+    
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+        if (self.setupNavigationBarHidden && self.gk_statusBarHidden && !self.gk_navBarAlpha) {// 系统、GK均隐藏
+            make.top.equalTo(self.view).offset(JobsStatusBarHeight());
+        }else{
+            if (!self.setupNavigationBarHidden && self.gk_statusBarHidden && !self.gk_navBarAlpha) {// 用系统的导航栏
+                make.top.equalTo(self.view).offset(JobsNavigationBarAndStatusBarHeight(nil));
+            }
+            
+            if (self.setupNavigationBarHidden && !self.gk_statusBarHidden && self.gk_navBarAlpha) {// 用GK的导航栏
+                make.top.equalTo(self.gk_navigationBar.mas_bottom);
+            }
+        }
+        make.left.right.bottom.equalTo(self.view);
+    }];
 }
 #pragma mark —— present
 /// 简洁版强制present展现一个控制器页面【不需要正向传参】
@@ -164,6 +174,9 @@ static char *UIViewController_BaseVC_bgImage = "UIViewController_BaseVC_bgImage"
         return nil;// 为了防止多次推VC
     }
 }
+/// BaseViewControllerProtocol
+static char *UIViewController_BaseVC_fromVC = "UIViewController_BaseVC_fromVC";
+@dynamic fromVC;
 #pragma mark —— <BaseViewControllerProtocol> @property(nonatomic,weak)UIViewController *fromVC;
 -(UIViewController *)fromVC{
     return objc_getAssociatedObject(self, UIViewController_BaseVC_fromVC);;
@@ -175,6 +188,8 @@ static char *UIViewController_BaseVC_bgImage = "UIViewController_BaseVC_bgImage"
                              fromVC,
                              OBJC_ASSOCIATION_ASSIGN);
 }
+static char *UIViewController_BaseVC_pushOrPresent = "UIViewController_BaseVC_pushOrPresent";
+@dynamic pushOrPresent;
 #pragma mark —— <BaseViewControllerProtocol> @property(nonatomic,assign)ComingStyle pushOrPresent;
 -(ComingStyle)pushOrPresent{
     return [objc_getAssociatedObject(self, UIViewController_BaseVC_pushOrPresent) integerValue];
@@ -186,6 +201,9 @@ static char *UIViewController_BaseVC_bgImage = "UIViewController_BaseVC_bgImage"
                              [NSNumber numberWithInteger:pushOrPresent],
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+/// UIViewModelProtocol
+static char *UIViewController_BaseVC_requestParams = "UIViewController_BaseVC_requestParams";
+@dynamic requestParams;
 #pragma mark —— <UIViewModelProtocol> @property(nonatomic,strong)id requestParams;
 -(id)requestParams{
     id RequestParams = objc_getAssociatedObject(self, UIViewController_BaseVC_requestParams);
@@ -198,6 +216,8 @@ static char *UIViewController_BaseVC_bgImage = "UIViewController_BaseVC_bgImage"
                              requestParams,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+static char *UIViewController_BaseVC_bgImage = "UIViewController_BaseVC_bgImage";
+@dynamic bgImage;
 #pragma mark —— <UIViewModelProtocol> @property(nonatomic,strong)UIImage *bgImage;
 -(UIImage *)bgImage{
     UIImage *BgImage = objc_getAssociatedObject(self, UIViewController_BaseVC_bgImage);

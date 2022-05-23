@@ -33,11 +33,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong,nullable)SPAlertController *alertController;
 @property(nonatomic,assign)ComingStyle pushOrPresent;
 @property(nonatomic,assign)BOOL setupNavigationBarHidden;
-/// 设置GKNavigationBar
--(void)setGKNav;
--(void)setGKNavBackBtn;
 /// 查看用户数据
 -(void)showUserInfo;
+/// 配置GKNavigationBar
+-(void)setGKNav;
+/// 配置GKNavigationBar的返回按钮
+-(void)setGKNavBackBtn;
+/// 铺满全屏展示的策略
+-(void)fullScreenConstraintTargetView:(nonnull __kindof UIView *)view;
 
 @end
 
