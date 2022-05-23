@@ -8,27 +8,26 @@
 #import "NSObject+RichText.h"
 
 @implementation RichTextConfig
-
 #pragma mark —— default
 -(NSMutableParagraphStyle *)paragraphStyle{
     if (!_paragraphStyle) {
         _paragraphStyle = NSMutableParagraphStyle.new;
-        //行间距
-        _paragraphStyle.lineSpacing = 10;
-        //段落间距
-        _paragraphStyle.paragraphSpacing = 20;
-        //对齐方式
+        /// 行间距
+        _paragraphStyle.lineSpacing = JobsWidth(10);
+        /// 段落间距
+        _paragraphStyle.paragraphSpacing = JobsWidth(20);
+        /// 对齐方式
         _paragraphStyle.alignment = NSTextAlignmentLeft;
-        //指定段落开始的缩进像素
-        _paragraphStyle.firstLineHeadIndent = 30;
-        //调整全部文字的缩进像素
-        _paragraphStyle.headIndent = 10;
+        /// 指定段落开始的缩进像素
+        _paragraphStyle.firstLineHeadIndent = JobsWidth(30);
+        /// 调整全部文字的缩进像素
+        _paragraphStyle.headIndent = JobsWidth(10);
     }return _paragraphStyle;
 }
 
 -(NSString *)urlStr{
     if (!_urlStr) {
-        _urlStr = @"www.google.com";
+//        _urlStr = @"www.google.com";
     }return _urlStr;
 }
 
@@ -45,8 +44,6 @@
                                                                0,
                                                                JobsWidth(400),
                                                                JobsWidth(1))];
-    
-    
     RichTextConfig *config_01 = RichTextConfig.new;
     config_01.font = [UIFont systemFontOfSize:JobsWidth(10.6) weight:UIFontWeightRegular];
     config_01.cor = RGB_SAMECOLOR(115);
@@ -81,6 +78,7 @@
     [attributedString addAttribute:NSParagraphStyleAttributeName
                              value:paragraphStyle
                              range:NSMakeRange(0, attributedString.string.length)];
+//    [attributedString endEditing];
     return attributedString;
 }
 /// 利用 NSArray <RichTextConfig *>* 形成富文本
@@ -97,8 +95,7 @@
     }
     
     NSLog(@"resultString = %@",resultString);
-    NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:resultString];
-
+    NSMutableAttributedString *attrString = [NSMutableAttributedString.alloc initWithString:resultString];
     ///  因为NSArray <RichTextConfig *>* 是动态。进方法以后为固定，那么以此计算真正的range
     NSUInteger currentFrontLocation = 0;//当前位置（前）
     for (RichTextConfig *config in richTextDataConfigMutArr) {
@@ -120,9 +117,11 @@
                                range:config.range];
         }
         /// 添加下划线 & 设置作用域
-        [attrString addAttribute:NSUnderlineStyleAttributeName
-                        value:[NSNumber numberWithInteger:config.underlineStyle]
-                        range:config.range];
+        if (config.underlineStyle) {
+            [attrString addAttribute:NSUnderlineStyleAttributeName
+                               value:[NSNumber numberWithInteger:config.underlineStyle]
+                               range:config.range];
+        }
         /// 添加段落样式 & 设置作用域
         if (config.paragraphStyle) {
             [attrString addAttribute:NSParagraphStyleAttributeName
@@ -130,9 +129,11 @@
                                range:config.range];
         }
         /// 添加链接 & 设置作用域
-//        [attrString addAttribute:NSParagraphStyleAttributeName
-//                           value:[NSURL URLWithString:config.urlStr]
-//                           range:config.range];
+        if (config.urlStr) {
+            [attrString addAttribute:NSLinkAttributeName
+                               value:config.urlStr
+                               range:config.range];
+        }
     }return attrString;
 }
 

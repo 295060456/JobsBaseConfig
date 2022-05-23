@@ -11,13 +11,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RichTextConfig : NSObject
 
-@property(nonatomic,strong)NSString *targetString;//作用文字
-@property(nonatomic,strong)UIFont *font;//添加字体
-@property(nonatomic,strong)UIColor *cor;//添加文字颜色
-@property(nonatomic,assign)NSUnderlineStyle underlineStyle;//添加下划线
-@property(nonatomic,strong)NSMutableParagraphStyle *paragraphStyle;//添加段落样式
-@property(nonatomic,strong)NSString *urlStr;//添加链接
-@property(nonatomic,assign)NSRange range;//设置作用域
+@property(nonatomic,strong)NSString *targetString;/// 作用文字
+@property(nonatomic,strong)UIFont *font;/// 添加字体
+@property(nonatomic,strong)UIColor *cor;/// 添加文字颜色
+@property(nonatomic,assign)NSUnderlineStyle underlineStyle;/// 添加下划线
+@property(nonatomic,strong)NSMutableParagraphStyle *paragraphStyle;/// 添加段落样式
+@property(nonatomic,strong)NSString *urlStr;/// 添加链接可点击
+@property(nonatomic,assign)NSRange range;/// 设置作用域
 
 @end
 
@@ -40,9 +40,14 @@ NS_ASSUME_NONNULL_END
 /*
  
  示例代码:
- 特别说明：普通文本和富文本的 左/中/右 段落对齐不是一样的写法
+ 特别说明：
+ 1、普通文本和富文本的 左/中/右 段落对齐不是一样的写法
+ 2、使用 UITextView 实现链接点击跳转的效果;UILabel可以实现效果，但是不支持部分文字点击效果。（支持方法比较麻烦）
  
  // 关于富文本
+ @property(nonatomic,strong)UILabel *connectionTipsLab;
+ @property(nonatomic,strong)UITextView *connectionTipsTV;
+ 
  @property(nonatomic,strong)NSMutableAttributedString *attributedStringData;
  @property(nonatomic,strong)NSMutableArray <NSString *>*richTextMutArr;
  @property(nonatomic,strong)NSMutableArray <RichTextConfig *>*richTextConfigMutArr;
@@ -58,6 +63,29 @@ NS_ASSUME_NONNULL_END
              make.height.mas_equalTo(JobsWidth(12));
          }];
      }return _connectionTipsLab;
+ }
+ 
+ -(UITextView *)connectionTipsTV{
+     if (!_connectionTipsTV) {
+         _connectionTipsTV = UITextView.new;
+         _connectionTipsTV.userInteractionEnabled = YES;
+         _connectionTipsTV.linkTextAttributes = @{NSForegroundColorAttributeName: self.richTextConfigMutArr[1].cor,
+                                                  NSUnderlineColorAttributeName: [UIColor lightGrayColor],
+                                                  NSUnderlineStyleAttributeName: @(NSUnderlinePatternSolid)};
+         
+         _connectionTipsTV.attributedText = self.attributedStringData;
+         [_connectionTipsTV sizeToFit];
+         _connectionTipsTV.backgroundColor = UIColor.clearColor;
+         _connectionTipsTV.delegate = self;
+         _connectionTipsTV.editable = NO;/// 必须禁止输入，否则点击将会弹出输入键盘
+         _connectionTipsTV.scrollEnabled = NO;/// 可选的，视具体情况而定
+         
+         [self.view addSubview:_connectionTipsTV];
+         [_connectionTipsTV mas_makeConstraints:^(MASConstraintMaker *make) {
+             make.centerX.equalTo(self.view);
+             make.bottom.equalTo(self.view).offset(JobsWidth(-65));
+         }];
+     }return _connectionTipsTV;
  }
 
  -(NSMutableAttributedString *)attributedStringData{
@@ -90,9 +118,20 @@ NS_ASSUME_NONNULL_END
          config_02.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightMedium];
          config_02.cor = HEXCOLOR(0xAE8330);
          config_02.targetString = self.richTextMutArr[1];
+         config_02.urlStr = @"click://"; /// 根据这个属性加链接,点击进行跳转
          [_richTextConfigMutArr addObject:config_02];
          
      }return _richTextConfigMutArr;
+ }
+ 
+ #pragma mark —— UITextViewDelegate
+ /// 点击事件监听
+ - (BOOL)textView:(UITextView *)textView
+ shouldInteractWithURL:(NSURL *)URL
+          inRange:(NSRange)characterRange
+      interaction:(UITextItemInteraction)interaction{
+     [WHToast toastMsg:Internationalization(@"专属客服")];
+     return YES;
  }
  
  ***/
