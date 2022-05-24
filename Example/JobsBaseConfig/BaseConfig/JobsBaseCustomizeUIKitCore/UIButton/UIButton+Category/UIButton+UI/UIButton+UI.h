@@ -48,9 +48,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)UIColor *selectedTitleColor;
 @property(nonatomic,strong)NSAttributedString *selectedAttributedTitle;
 
-#pragma mark —— Common
--(void)actionByCode;/// 代码触发点击调用
+#pragma mark —— 一些功能性
+/// 代码触发点击调用
+-(void)actionByCode;
+/// 这个方法还有待完善
 -(void)handelAdjustsImageWhenHighlighted;
+/// UIButton 上的 image 旋转一定的角度angle
+-(void)changeAction:(CGFloat)angle;
+#pragma mark —— Common
 -(void)titleFont:(UIFont *)font;
 -(void)titleAlignment:(NSTextAlignment)textAlignment;
 -(void)makeNewLineShows:(BOOL)breakLine;/// 换行显示

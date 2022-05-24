@@ -8,7 +8,124 @@
 #import "UIButton+UI.h"
 
 @implementation UIButton (UI)
+#pragma mark —— 一些功能性
+/// 代码触发点击调用
+-(void)actionByCode{
+    [self sendActionsForControlEvents:UIControlEventTouchUpInside];
+}
+/// 这个方法还有待完善
+-(void)handelAdjustsImageWhenHighlighted{
+    if (HDDeviceSystemVersion.floatValue >= 15.0) {
+#warning UIButtonConfiguration 怎么适配使用？
+//            'adjustsImageWhenHighlighted' is deprecated: first deprecated in iOS 15.0 - This property is ignored when using UIButtonConfiguration, you may customize to replicate this behavior via a configurationUpdateHandler
+    }
+    SuppressWdeprecatedDeclarationsWarning(self.adjustsImageWhenHighlighted = NO;);
+}
+/// UIButton 上的 image 旋转一定的角度angle
+-(void)changeAction:(CGFloat)angle{
+    @jobs_weakify(self)
+    [UIView animateWithDuration:.3f
+                     animations:^{
+        @jobs_strongify(self)
+        self.imageView.transform = CGAffineTransformMakeRotation(M_PI * angle);/// 最后实际改变位置
+    }];
+}
+#pragma mark —— Common
+/// 代码触发点击调用
+-(void)titleFont:(UIFont *)font{
+    self.titleLabel.font = font;
+}
 
+-(void)titleAlignment:(NSTextAlignment)textAlignment{
+    self.titleLabel.textAlignment = textAlignment;
+}
+/// 换行显示
+-(void)makeNewLineShows:(BOOL)breakLine{
+    self.titleLabel.numberOfLines = !breakLine;
+}
+#pragma mark —— Normal
+// set
+-(void)normalImage:(UIImage *)image{
+    [self setImage:image forState:UIControlStateNormal];
+}
+
+-(void)normalBackgroundImage:(UIImage *)backgroundImage{
+    [self setBackgroundImage:backgroundImage forState:UIControlStateNormal];
+}
+
+-(void)normalTitle:(NSString *)title{
+    [self setTitle:title forState:UIControlStateNormal];
+}
+
+-(void)normalTitleColor:(UIColor *)titleColor{
+    [self setTitleColor:titleColor forState:UIControlStateNormal];
+}
+
+-(void)normalAttributedTitle:(NSAttributedString *)title{
+    [self setAttributedTitle:title forState:UIControlStateNormal];
+}
+// get
+-(nullable NSString *)titleForNormalState{
+    return [self titleForState:UIControlStateNormal];
+}
+
+-(nullable NSAttributedString *)attributedTitleForNormalState{
+    return [self attributedTitleForState:UIControlStateNormal];
+}
+
+-(nullable UIColor *)titleColorForNormalState{
+    return [self titleColorForState:UIControlStateNormal];
+}
+
+-(nullable UIImage *)imageForNormalState{
+    return [self imageForState:UIControlStateNormal];
+}
+
+-(nullable UIImage *)backgroundImageForNormalState{
+    return [self backgroundImageForState:UIControlStateNormal];
+}
+#pragma mark —— Selected
+// set
+-(void)selectedImage:(UIImage *)image{
+    [self setImage:image forState:UIControlStateSelected];
+}
+
+-(void)selectedBackgroundImage:(UIImage *)backgroundImage{
+    [self setBackgroundImage:backgroundImage forState:UIControlStateSelected];
+}
+
+-(void)selectedTitle:(NSString *)title{
+    [self setTitle:title forState:UIControlStateSelected];
+}
+
+-(void)selectedTitleColor:(UIColor *)titleColor{
+    [self setTitleColor:titleColor forState:UIControlStateSelected];
+}
+
+-(void)selectedAttributedTitle:(NSAttributedString *)title{
+    [self setAttributedTitle:title forState:UIControlStateSelected];
+}
+// get
+-(nullable NSString *)titleForSelectedState{
+    return [self titleForState:UIControlStateSelected];
+}
+
+-(nullable NSAttributedString *)attributedTitleForSelectedState{
+    return [self attributedTitleForState:UIControlStateSelected];
+}
+
+-(nullable UIColor *)titleColorForSelectedState{
+    return [self titleColorForState:UIControlStateSelected];
+}
+
+-(nullable UIImage *)imageForSelectedState{
+    return [self imageForState:UIControlStateSelected];
+}
+
+-(nullable UIImage *)backgroundImageForSelectedState{
+    return [self backgroundImageForState:UIControlStateSelected];
+}
+#pragma mark —— SET | GET
 static char *UIButton_UI_titleFont = "UIButton_UI_titleFont";
 @dynamic titleFont;
 //@property(nonatomic,strong)UIFont *titleFont;
@@ -250,113 +367,6 @@ static char *UIButton_UI_makeNewLineShows = "UIButton_UI_makeNewLineShows";
                              [NSNumber numberWithBool:makeNewLineShows],
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     self.titleLabel.numberOfLines = !makeNewLineShows;
-}
-#pragma mark —— Common
-/// 代码触发点击调用
--(void)actionByCode{
-    [self sendActionsForControlEvents:UIControlEventTouchUpInside];
-}
-/// 这个方法还有待完善
--(void)handelAdjustsImageWhenHighlighted{
-    if (HDDeviceSystemVersion.floatValue >= 15.0) {
-#warning UIButtonConfiguration 怎么适配使用？
-//            'adjustsImageWhenHighlighted' is deprecated: first deprecated in iOS 15.0 - This property is ignored when using UIButtonConfiguration, you may customize to replicate this behavior via a configurationUpdateHandler
-    }
-    SuppressWdeprecatedDeclarationsWarning(self.adjustsImageWhenHighlighted = NO;);
-}
-
--(void)titleFont:(UIFont *)font{
-    self.titleLabel.font = font;
-}
-
--(void)titleAlignment:(NSTextAlignment)textAlignment{
-    self.titleLabel.textAlignment = textAlignment;
-}
-/// 换行显示
--(void)makeNewLineShows:(BOOL)breakLine{
-    self.titleLabel.numberOfLines = !breakLine;
-}
-#pragma mark —— Normal
-// set
--(void)normalImage:(UIImage *)image{
-    [self setImage:image forState:UIControlStateNormal];
-}
-
--(void)normalBackgroundImage:(UIImage *)backgroundImage{
-    [self setBackgroundImage:backgroundImage forState:UIControlStateNormal];
-}
-
--(void)normalTitle:(NSString *)title{
-    [self setTitle:title forState:UIControlStateNormal];
-}
-
--(void)normalTitleColor:(UIColor *)titleColor{
-    [self setTitleColor:titleColor forState:UIControlStateNormal];
-}
-
--(void)normalAttributedTitle:(NSAttributedString *)title{
-    [self setAttributedTitle:title forState:UIControlStateNormal];
-}
-// get
--(nullable NSString *)titleForNormalState{
-    return [self titleForState:UIControlStateNormal];
-}
-
--(nullable NSAttributedString *)attributedTitleForNormalState{
-    return [self attributedTitleForState:UIControlStateNormal];
-}
-
--(nullable UIColor *)titleColorForNormalState{
-    return [self titleColorForState:UIControlStateNormal];
-}
-
--(nullable UIImage *)imageForNormalState{
-    return [self imageForState:UIControlStateNormal];
-}
-
--(nullable UIImage *)backgroundImageForNormalState{
-    return [self backgroundImageForState:UIControlStateNormal];
-}
-#pragma mark —— Selected
-// set
--(void)selectedImage:(UIImage *)image{
-    [self setImage:image forState:UIControlStateSelected];
-}
-
--(void)selectedBackgroundImage:(UIImage *)backgroundImage{
-    [self setBackgroundImage:backgroundImage forState:UIControlStateSelected];
-}
-
--(void)selectedTitle:(NSString *)title{
-    [self setTitle:title forState:UIControlStateSelected];
-}
-
--(void)selectedTitleColor:(UIColor *)titleColor{
-    [self setTitleColor:titleColor forState:UIControlStateSelected];
-}
-
--(void)selectedAttributedTitle:(NSAttributedString *)title{
-    [self setAttributedTitle:title forState:UIControlStateSelected];
-}
-// get
--(nullable NSString *)titleForSelectedState{
-    return [self titleForState:UIControlStateSelected];
-}
-
--(nullable NSAttributedString *)attributedTitleForSelectedState{
-    return [self attributedTitleForState:UIControlStateSelected];
-}
-
--(nullable UIColor *)titleColorForSelectedState{
-    return [self titleColorForState:UIControlStateSelected];
-}
-
--(nullable UIImage *)imageForSelectedState{
-    return [self imageForState:UIControlStateSelected];
-}
-
--(nullable UIImage *)backgroundImageForSelectedState{
-    return [self backgroundImageForState:UIControlStateSelected];
 }
 
 @end
