@@ -50,7 +50,7 @@ static inline UIFont *UIFontWeightBlackSize(CGFloat fontSize) {
 /// @param fontName 外来字体要先通过方法：+(NSMutableArray <NSString *>*)getAvailableFont，获得fontName再进行代入
 /// @param fontSize 字体大小
 static inline UIFont *fontName(NSString *fontName,CGFloat fontSize) {
-    return [UIFont fontWithName:fontName size:fontSize];
+    return [UIFont fontWithName:fontName size:JobsWidth(fontSize)];
 }
 
 #endif /* MacroDef_Font_h */
