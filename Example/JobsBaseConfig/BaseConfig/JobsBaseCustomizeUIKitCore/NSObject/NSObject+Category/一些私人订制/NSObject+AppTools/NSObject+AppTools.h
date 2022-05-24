@@ -23,15 +23,24 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSObject (AppTools)<AppToolsProtocol>
+@interface NSObject (AppTools)
+<
+AppToolsProtocol
+,UITextViewDelegate
+>
 // UI
 @property(nonatomic,strong)JobsUpDownLab *titleLab;
 @property(nonatomic,strong)UIButton *联系客服;
 @property(nonatomic,strong)UIButton *立即注册;
 @property(nonatomic,strong)UILabel *separateLab;/// 分割线
+@property(nonatomic,strong)UITextView *connectionTipsTV;/// 承接富文本:如需幫助，請聯繫專屬客服
 // Data
 @property(nonatomic,strong)CasinoCustomerContactModel *customerContactModel;
 @property(nonatomic,strong)NSMutableArray<UIViewModel *> *hotLabelDataMutArr;
+// 关于富文本:如需幫助，請聯繫專屬客服
+@property(nonatomic,strong)NSMutableAttributedString *attributedStringData;
+@property(nonatomic,strong)NSMutableArray <NSString *>*richTextMutArr;
+@property(nonatomic,strong)NSMutableArray <RichTextConfig *>*richTextConfigMutArr;
 #pragma mark —— 弹出框。为了防止业务层的变化，弹出框定义在NSObject层
 /// Debug模式下的弹出框 及其相关的数据封装
 -(void)jobsTestPopView:(UIViewModel *_Nullable)viewModel;

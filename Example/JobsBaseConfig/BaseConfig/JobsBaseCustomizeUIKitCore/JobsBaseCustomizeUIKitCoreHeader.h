@@ -74,6 +74,8 @@
 #import "JobsLabel.h"
 #pragma mark —— UIButton
 #import "JobsButton.h"
+#pragma mark —— UISwitch
+#import "JobsSwitch.h"
 #pragma mark —— UIViewController
 #import "JobsViewController.h"
 

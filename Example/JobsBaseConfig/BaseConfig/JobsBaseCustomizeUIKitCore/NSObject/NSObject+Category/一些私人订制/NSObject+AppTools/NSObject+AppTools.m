@@ -486,5 +486,126 @@ static char *NSObject_AppTools_联系客服 = "NSObject_AppTools_联系客服";
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
+static char *NSObject_AppTools_attributedStringData = "NSObject_AppTools_attributedStringData";
+@dynamic attributedStringData;
+#pragma mark —— @property(nonatomic,strong)NSMutableAttributedString *attributedStringData;
+-(NSMutableAttributedString *)attributedStringData{
+    NSMutableAttributedString *AttributedStringData = objc_getAssociatedObject(self, NSObject_AppTools_attributedStringData);
+    if (!AttributedStringData) {
+        AttributedStringData = [self makeAttributedStringWithRichTextMutArr:self.richTextMutArr
+                                                       richTextConfigMutArr:self.richTextConfigMutArr
+                                                             paragraphStyle:nil];
+        objc_setAssociatedObject(self,
+                                 NSObject_AppTools_attributedStringData,
+                                 AttributedStringData,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return AttributedStringData;
+}
+
+-(void)setAttributedStringData:(NSMutableAttributedString *)attributedStringData{
+    objc_setAssociatedObject(self,
+                             NSObject_AppTools_attributedStringData,
+                             attributedStringData,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+static char *NSObject_AppTools_richTextMutArr = "NSObject_AppTools_richTextMutArr";
+@dynamic richTextMutArr;
+#pragma mark —— @property(nonatomic,strong)NSMutableArray <NSString *>*richTextMutArr;
+-(NSMutableArray<NSString *> *)richTextMutArr{
+    NSMutableArray <NSString *>*RichTextMutArr = objc_getAssociatedObject(self, NSObject_AppTools_richTextMutArr);
+    if (!RichTextMutArr) {
+        RichTextMutArr = NSMutableArray.array;
+        [RichTextMutArr addObject:Internationalization(@"如需帮助，请联系")];
+        [RichTextMutArr addObject:Internationalization(@"专属客服")];
+        objc_setAssociatedObject(self,
+                                 NSObject_AppTools_richTextMutArr,
+                                 RichTextMutArr,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return RichTextMutArr;
+}
+
+-(void)setRichTextMutArr:(NSMutableArray<NSString *> *)richTextMutArr{
+    objc_setAssociatedObject(self,
+                             NSObject_AppTools_richTextMutArr,
+                             richTextMutArr,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+static char *NSObject_AppTools_richTextConfigMutArr = "NSObject_AppTools_richTextConfigMutArr";
+@dynamic richTextConfigMutArr;
+#pragma mark —— @property(nonatomic,strong)NSMutableArray <RichTextConfig *>*richTextConfigMutArr;
+-(NSMutableArray<RichTextConfig *> *)richTextConfigMutArr{
+    NSMutableArray <RichTextConfig *>*RichTextMutArr = objc_getAssociatedObject(self, NSObject_AppTools_richTextConfigMutArr);
+    if (!RichTextMutArr) {
+        RichTextMutArr = NSMutableArray.array;
+        
+        RichTextConfig *config_01 = RichTextConfig.new;
+        config_01.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular];
+        config_01.textCor = HEXCOLOR(0x757575);
+        config_01.targetString = self.richTextMutArr[0];
+        [RichTextMutArr addObject:config_01];
+
+        RichTextConfig *config_02 = RichTextConfig.new;
+        config_02.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightMedium];
+        config_02.textCor = HEXCOLOR(0xAE8330);
+        config_02.targetString = self.richTextMutArr[1];
+        config_02.urlStr = @"click://";
+        [RichTextMutArr addObject:config_02];
+        
+        objc_setAssociatedObject(self,
+                                 NSObject_AppTools_richTextConfigMutArr,
+                                 RichTextMutArr,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return RichTextMutArr;
+}
+
+-(void)setRichTextConfigMutArr:(NSMutableArray<RichTextConfig *> *)richTextConfigMutArr{
+    objc_setAssociatedObject(self,
+                             NSObject_AppTools_richTextConfigMutArr,
+                             richTextConfigMutArr,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+static char *NSObject_AppTools_connectionTipsTV = "NSObject_AppTools_connectionTipsTV";
+@dynamic connectionTipsTV;
+#pragma mark —— @property(nonatomic,strong)UITextView *connectionTipsTV;/// 承接富文本:如需幫助，請聯繫專屬客服
+-(UITextView *)connectionTipsTV{
+    UITextView *ConnectionTipsTV = objc_getAssociatedObject(self, NSObject_AppTools_connectionTipsTV);
+    if (!ConnectionTipsTV) {
+        ConnectionTipsTV = UITextView.new;
+        ConnectionTipsTV.userInteractionEnabled = YES;
+        ConnectionTipsTV.linkTextAttributes = @{NSForegroundColorAttributeName: self.richTextConfigMutArr[1].textCor,
+                                                 NSUnderlineColorAttributeName: [UIColor lightGrayColor],
+                                                 NSUnderlineStyleAttributeName: @(NSUnderlinePatternSolid)};
+        
+        ConnectionTipsTV.attributedText = self.attributedStringData;//
+        [ConnectionTipsTV sizeToFit];
+        ConnectionTipsTV.backgroundColor = UIColor.clearColor;
+        ConnectionTipsTV.editable = NO;/// 必须禁止输入，否则点击将会弹出输入键盘
+        ConnectionTipsTV.scrollEnabled = NO;/// 可选的，视具体情况而定
+
+        if ([self isKindOfClass:UIViewController.class]) {
+            ConnectionTipsTV.delegate = self;
+            UIViewController *viewController = (UIViewController *)self;
+            [viewController.view addSubview:ConnectionTipsTV];
+            [ConnectionTipsTV mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.centerX.equalTo(viewController.view);
+                make.bottom.equalTo(viewController.view).offset(JobsWidth(-65));
+            }];
+        }
+        
+        objc_setAssociatedObject(self,
+                                 NSObject_AppTools_connectionTipsTV,
+                                 ConnectionTipsTV,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return ConnectionTipsTV;
+}
+
+-(void)setConnectionTipsTV:(UITextView *)connectionTipsTV{
+    objc_setAssociatedObject(self,
+                             NSObject_AppTools_connectionTipsTV,
+                             connectionTipsTV,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+
 @end
 

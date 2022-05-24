@@ -685,6 +685,7 @@
 		84D764B3278092C10003F0E4 /* RequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D764B2278092C00003F0E4 /* RequestTool.m */; };
 		84D764B7278093660003F0E4 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D764B6278093650003F0E4 /* DataManager.m */; };
 		ABB2A8B711CC6C1FEF7A4899 /* Pods_JobsBaseConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 013934AB50FCDA373FFA6597 /* Pods_JobsBaseConfig.framework */; };
+		C50ED5D3283CC64B0097DE89 /* UISwitch+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = C50ED5D2283CC64B0097DE89 /* UISwitch+UI.m */; };
 		C530CC28282E2DA800D5ECCF /* JobsUpDownLab.m in Sources */ = {isa = PBXBuildFile; fileRef = C530CC14282E2DA700D5ECCF /* JobsUpDownLab.m */; };
 		C530CC29282E2DA800D5ECCF /* JobsUpDownLabModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C530CC16282E2DA700D5ECCF /* JobsUpDownLabModel.m */; };
 		C530CC2A282E2DA800D5ECCF /* JobsLabBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C530CC1C282E2DA700D5ECCF /* JobsLabBaseModel.m */; };
@@ -2126,6 +2127,9 @@
 		84ED5203278C09F5009A22C1 /* 二级标题.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "二级标题.md"; sourceTree = "<group>"; };
 		949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JobsBaseConfigUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C50ED323283C89B90097DE89 /* MacroDef_Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDef_Font.h; sourceTree = "<group>"; };
+		C50ED5CE283CC64B0097DE89 /* JobsSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsSwitch.h; sourceTree = "<group>"; };
+		C50ED5D1283CC64B0097DE89 /* UISwitch+UI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISwitch+UI.h"; sourceTree = "<group>"; };
+		C50ED5D2283CC64B0097DE89 /* UISwitch+UI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISwitch+UI.m"; sourceTree = "<group>"; };
 		C530CC10282E2DA700D5ECCF /* JobsUpDownLab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobsUpDownLab.png; sourceTree = "<group>"; };
 		C530CC11282E2DA700D5ECCF /* JobsUpDownLab.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = JobsUpDownLab.md; sourceTree = "<group>"; };
 		C530CC13282E2DA700D5ECCF /* JobsUpDownLab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsUpDownLab.h; sourceTree = "<group>"; };
@@ -2764,6 +2768,7 @@
 			isa = PBXGroup;
 			children = (
 				840F93E527736426004979E9 /* JobsBaseCustomizeUIKitCoreHeader.h */,
+				C50ED5CD283CC64B0097DE89 /* UISwitch */,
 				840F94FD27736427004979E9 /* AppDelegate */,
 				840F95A727736427004979E9 /* BaseProtocol */,
 				840F94F427736427004979E9 /* CALayer */,
@@ -8614,6 +8619,32 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C50ED5CD283CC64B0097DE89 /* UISwitch */ = {
+			isa = PBXGroup;
+			children = (
+				C50ED5CE283CC64B0097DE89 /* JobsSwitch.h */,
+				C50ED5CF283CC64B0097DE89 /* UISwitch+Category */,
+			);
+			path = UISwitch;
+			sourceTree = "<group>";
+		};
+		C50ED5CF283CC64B0097DE89 /* UISwitch+Category */ = {
+			isa = PBXGroup;
+			children = (
+				C50ED5D0283CC64B0097DE89 /* UISwitch+UI */,
+			);
+			path = "UISwitch+Category";
+			sourceTree = "<group>";
+		};
+		C50ED5D0283CC64B0097DE89 /* UISwitch+UI */ = {
+			isa = PBXGroup;
+			children = (
+				C50ED5D1283CC64B0097DE89 /* UISwitch+UI.h */,
+				C50ED5D2283CC64B0097DE89 /* UISwitch+UI.m */,
+			);
+			path = "UISwitch+UI";
+			sourceTree = "<group>";
+		};
 		C530CC0F282E2DA700D5ECCF /* JobsUpDownLab */ = {
 			isa = PBXGroup;
 			children = (
@@ -9666,6 +9697,7 @@
 				840F96A327736428004979E9 /* UIViewController+BackBtn.m in Sources */,
 				C533BBBD2837D095006FB231 /* JobsUserHeaderDataViewTBVCell.m in Sources */,
 				840F964427736427004979E9 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
+				C50ED5D3283CC64B0097DE89 /* UISwitch+UI.m in Sources */,
 				84D764B3278092C10003F0E4 /* RequestTool.m in Sources */,
 				840F967A27736428004979E9 /* UIView+AOP.m in Sources */,
 				840F96F827736428004979E9 /* NSObject+AFNReachability.m in Sources */,
