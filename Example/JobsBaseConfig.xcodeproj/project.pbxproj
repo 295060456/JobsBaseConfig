@@ -2125,6 +2125,7 @@
 		84D764B6278093650003F0E4 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		84ED5203278C09F5009A22C1 /* 二级标题.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "二级标题.md"; sourceTree = "<group>"; };
 		949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JobsBaseConfigUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C50ED323283C89B90097DE89 /* MacroDef_Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDef_Font.h; sourceTree = "<group>"; };
 		C530CC10282E2DA700D5ECCF /* JobsUpDownLab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobsUpDownLab.png; sourceTree = "<group>"; };
 		C530CC11282E2DA700D5ECCF /* JobsUpDownLab.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = JobsUpDownLab.md; sourceTree = "<group>"; };
 		C530CC13282E2DA700D5ECCF /* JobsUpDownLab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsUpDownLab.h; sourceTree = "<group>"; };
@@ -5136,6 +5137,8 @@
 		840F9C4E27736583004979E9 /* MacroDef_Func */ = {
 			isa = PBXGroup;
 			children = (
+				840F9C5927736583004979E9 /* MacroDef_Cor.h */,
+				C50ED323283C89B90097DE89 /* MacroDef_Font.h */,
 				840F9C4F27736583004979E9 /* MacroDef_String.h */,
 				840F9C5027736583004979E9 /* MacroDef_Singleton.h */,
 				840F9C5127736583004979E9 /* MacroDef_Time.h */,
@@ -5147,14 +5150,6 @@
 				840F9C5727736583004979E9 /* MacroDef_Notification.h */,
 			);
 			path = MacroDef_Func;
-			sourceTree = "<group>";
-		};
-		840F9C5827736583004979E9 /* MacroDef_Cor */ = {
-			isa = PBXGroup;
-			children = (
-				840F9C5927736583004979E9 /* MacroDef_Cor.h */,
-			);
-			path = MacroDef_Cor;
 			sourceTree = "<group>";
 		};
 		840F9C61277367B1004979E9 /* NSObject+AppTools */ = {
@@ -5829,7 +5824,6 @@
 			isa = PBXGroup;
 			children = (
 				840F9C4827736583004979E9 /* MacroDef_App */,
-				840F9C5827736583004979E9 /* MacroDef_Cor */,
 				840F9C4E27736583004979E9 /* MacroDef_Func */,
 				840F9C4127736583004979E9 /* MacroDef_Size */,
 				840F9C4A27736583004979E9 /* MacroDef_Sys */,

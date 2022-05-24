@@ -11,14 +11,18 @@
 /// 打印全员字体
 +(NSMutableArray <NSString *>*)getAvailableFont{
     NSMutableArray <NSString *>*fontNamesMutArr = NSMutableArray.array;
-    for (NSString *familyName in UIFont.familyNames) {
-        [fontNamesMutArr addObjectsFromArray:[UIFont fontNamesForFamilyName:familyName]];
-    }
-    NSLog(@"Font Names = %@", fontNamesMutArr);
-    return fontNamesMutArr;
+    printf("=== 打印全员字体 === \n");
+    for (NSString *fontFamilyName in UIFont.familyNames) {
+        printf("--- %s--- \n",fontFamilyName.UTF8String);
+        [fontNamesMutArr addObjectsFromArray:[UIFont fontNamesForFamilyName:fontFamilyName]];
+        for (NSString *fontName in [UIFont fontNamesForFamilyName:fontFamilyName]) {
+            printf("%s\n",fontName.UTF8String);
+        }
+    }return fontNamesMutArr;
 }
 /// 打印外援字体
 +(NSMutableArray <NSString *>*)foreignAidFontName{
+    /// 苹果可能每次发布版本会添加一些字体，这个时候需要对这个已知的字体库进行同步升级
     NSArray *sysFontNameArr = @[
         @"AcademyEngravedLetPlain",
         @"AlNile",
@@ -294,16 +298,20 @@
         @"Verdana-Bold",
         @"Verdana-BoldItalic",
         @"ZapfDingbatsITC",
-        @"Zapfino"
+        @"Zapfino",
+        @"Kailasa",
+        @"Kailasa-Bold"
     ];// 系统自带的字体合集
     NSMutableArray *temp = NSMutableArray.array;
-    for (NSString *string in [UIFont getAvailableFont]) {
+    for (NSString *string in UIFont.getAvailableFont) {
         if (![sysFontNameArr containsObject:string]) {
             [temp addObject:string];
         }
     }
-    NSLog(@"foreignAidFontName = %@",temp);
-    return temp;
+    printf("--- 外来字体为 --- \n");
+    for (NSString *string in temp) {
+        printf("%s \n",string.UTF8String);
+    }return temp;
 }
 
 @end
