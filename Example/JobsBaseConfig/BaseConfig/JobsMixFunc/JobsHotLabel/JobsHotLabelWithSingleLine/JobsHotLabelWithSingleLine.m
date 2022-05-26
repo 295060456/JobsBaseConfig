@@ -95,41 +95,41 @@
     UIButton *btn = UIButton.new;
     btn.selected = self.viewModel.selected;
     btn.objBindingParams = vm.objBindingParams;
-    if ([btn.objBindingParams isKindOfClass:CasinoCustomerContactElementModel.class]) {
-        CasinoCustomerContactElementModel *customerContactElementModel = (CasinoCustomerContactElementModel *)btn.objBindingParams;
-        
-        UIImage *bgImg = nil;
-        switch (customerContactElementModel.customerMark) {
-            case CustomerContactStyle_QQ:{
-                bgImg = vm.bgImage ? : KIMG(@"service_qq");
-            }break;
-            case CustomerContactStyle_Skype:{
-                bgImg = vm.bgImage ? : KIMG(@"service_skype");
-            }break;
-            case CustomerContactStyle_Telegram:{
-                bgImg = vm.bgImage ? : KIMG(@"service_telegram");
-            }break;
-            case CustomerContactStyle_whatsApp:{
-                bgImg = vm.bgImage ? : KIMG(@"service_meiqia");//???
-            }break;
-            case CustomerContactStyle_手机号码:{
-                bgImg = vm.bgImage ? : KIMG(@"service_meiqia");//???
-            }break;
-            case CustomerContactStyle_onlineURL:{
-                bgImg = vm.bgImage ? : KIMG(@"service_meiqia");//???
-            }break;
-                
-            default:
-                break;
-        }
-        
-        [btn sd_setBackgroundImageWithURL:[NSURL URLWithString:vm.bgImageURLString]
-                                 forState:UIControlStateNormal
-                         placeholderImage:bgImg];
-    }else{
-        [btn normalBackgroundImage:vm.bgImage];
-        [btn selectedBackgroundImage:vm.bgSelectedImage];
-    }
+//    if ([btn.objBindingParams isKindOfClass:CasinoCustomerContactElementModel.class]) {
+//        CasinoCustomerContactElementModel *customerContactElementModel = (CasinoCustomerContactElementModel *)btn.objBindingParams;
+//
+//        UIImage *bgImg = nil;
+//        switch (customerContactElementModel.customerMark) {
+//            case CustomerContactStyle_QQ:{
+//                bgImg = vm.bgImage ? : KIMG(@"service_qq");
+//            }break;
+//            case CustomerContactStyle_Skype:{
+//                bgImg = vm.bgImage ? : KIMG(@"service_skype");
+//            }break;
+//            case CustomerContactStyle_Telegram:{
+//                bgImg = vm.bgImage ? : KIMG(@"service_telegram");
+//            }break;
+//            case CustomerContactStyle_whatsApp:{
+//                bgImg = vm.bgImage ? : KIMG(@"service_meiqia");//???
+//            }break;
+//            case CustomerContactStyle_手机号码:{
+//                bgImg = vm.bgImage ? : KIMG(@"service_meiqia");//???
+//            }break;
+//            case CustomerContactStyle_onlineURL:{
+//                bgImg = vm.bgImage ? : KIMG(@"service_meiqia");//???
+//            }break;
+//
+//            default:
+//                break;
+//        }
+//
+//        [btn sd_setBackgroundImageWithURL:[NSURL URLWithString:vm.bgImageURLString]
+//                                 forState:UIControlStateNormal
+//                         placeholderImage:bgImg];
+//    }else{
+//        [btn normalBackgroundImage:vm.bgImage];
+//        [btn selectedBackgroundImage:vm.bgSelectedImage];
+//    }
     
     [btn normalTitle:vm.textModel.text];
     [btn titleFont:vm.textModel.font];

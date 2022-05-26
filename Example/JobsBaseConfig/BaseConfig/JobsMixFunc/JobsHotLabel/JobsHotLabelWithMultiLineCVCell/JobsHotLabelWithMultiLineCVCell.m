@@ -15,6 +15,8 @@
 
 @implementation JobsHotLabelWithMultiLineCVCell
 
+@synthesize viewModel = _viewModel;
+
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
 
@@ -27,13 +29,10 @@
 #pragma mark —— BaseCellProtocol
 +(instancetype)cellWithCollectionView:(nonnull UICollectionView *)collectionView
                          forIndexPath:(nonnull NSIndexPath *)indexPath{
-    JobsHotLabelWithMultiLineCVCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier(self.class)
-                                                                             forIndexPath:indexPath];
+    JobsHotLabelWithMultiLineCVCell *cell = (JobsHotLabelWithMultiLineCVCell *)[collectionView collectionViewCellClass:JobsHotLabelWithMultiLineCVCell.class forIndexPath:indexPath];
     if (!cell) {
-        [collectionView registerClass:self.class
-           forCellWithReuseIdentifier:reuseIdentifier(self.class)];
-        [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier(self.class)
-                                                  forIndexPath:indexPath];
+        [collectionView registerCollectionViewCellClass:JobsHotLabelWithMultiLineCVCell.class];
+        cell = (JobsHotLabelWithMultiLineCVCell *)[collectionView collectionViewCellClass:JobsHotLabelWithMultiLineCVCell.class forIndexPath:indexPath];
     }
     
     cell.indexPath = indexPath;
@@ -50,9 +49,9 @@
 }
 /// 具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 +(CGSize)cellSizeWithModel:(UIViewModel *_Nullable)model{
-    return [UILabel sizeWithText:model.textModel.text
-                            font:model.textModel.font
-                         maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
+    return CGSizeEqualToSize(model.jobsSize, CGSizeZero) ? [UILabel sizeWithText:model.textModel.text
+                                                                            font:model.textModel.font
+                                                                         maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)] : model.jobsSize;
 }
 #pragma mark —— lazyLoad
 -(UILabel *)textLab{
@@ -62,6 +61,7 @@
         _textLab.textColor = self.viewModel.textModel.textCor;
         _textLab.textAlignment = NSTextAlignmentCenter;
         _textLab.text = self.viewModel.textModel.text;
+        _textLab.font = self.viewModel.textModel.font;
         [self.contentView addSubview:_textLab];
         [_textLab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.contentView);

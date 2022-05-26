@@ -13,10 +13,25 @@
 @property(nonatomic,strong)UICollectionView *collectionView;
 /// Data
 @property(nonatomic,strong)NSMutableArray <UICollectionViewCell *>*cvcellMutArr;
+@property(nonatomic,strong)JobsHotLabelWithMultiLineModel *dataModel;
 
 @end
 
 @implementation JobsHotLabelWithMultiLine
+#pragma mark —— BaseProtocol
+/// 单例化和销毁
++(void)destroySingleton{
+    static_hotLabelWithMultiLineOnceToken = 0;
+    static_hotLabelWithMultiLine = nil;
+}
+
+static JobsHotLabelWithMultiLine *static_hotLabelWithMultiLine = nil;
+static dispatch_once_t static_hotLabelWithMultiLineOnceToken;
++(instancetype)sharedInstance{
+    dispatch_once(&static_hotLabelWithMultiLineOnceToken, ^{
+        static_hotLabelWithMultiLine = JobsHotLabelWithMultiLine.new;
+    });return static_hotLabelWithMultiLine;
+}
 
 -(instancetype)init{
     if (self = [super init]) {
@@ -35,14 +50,15 @@
 }
 #pragma mark —— BaseCellProtocol
 /// 具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
--(void)richElementsInViewWithModel:(NSMutableArray <UIViewModel *>* _Nullable)model{
-    self.viewModelMutArr = model;
-    if (self.viewModelMutArr.count) {
+-(void)richElementsInViewWithModel:(JobsHotLabelWithMultiLineModel * _Nullable)model{
+    self.dataModel = model;
+    self.backgroundColor = self.dataModel.bgCor;
+    if (self.dataModel.viewModelMutArr.count) {
         [self.collectionView reloadData];
     }
 }
 /// 具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
-+(CGSize)viewSizeWithModel:(UIViewModel * _Nullable)model{
++(CGSize)viewSizeWithModel:(JobsHotLabelWithMultiLineModel * _Nullable)model{
     NSMutableArray <UIViewModel *>*viewModelMutArr = model.viewModelMutArr;
     CGFloat width = hotLabLeft + hotLabRight;
     CGFloat height = 0;
@@ -70,13 +86,31 @@
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView
                                    cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     JobsHotLabelWithMultiLineCVCell *cell = (JobsHotLabelWithMultiLineCVCell *)self.cvcellMutArr[indexPath.item];
-    [cell richElementsInCellWithModel:self.viewModelMutArr[indexPath.item]];
+    [cell richElementsInCellWithModel:self.dataModel.viewModelMutArr[indexPath.item]];
+    CGSize itemSize = zeroSizeValue(self.dataModel.cellSize) ? [JobsHotLabelWithMultiLineCVCell cellSizeWithModel:self.dataModel.viewModelMutArr[indexPath.item]] : self.dataModel.cellSize;
+    [cell cornerCutToCircleWithCornerRadius:itemSize.height / 2];
     return cell;
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section {
-    return self.viewModelMutArr.count;
+    return self.dataModel.viewModelMutArr.count;
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
+           viewForSupplementaryElementOfKind:(NSString *)kind
+                                 atIndexPath:(NSIndexPath *)indexPath {
+    if (kind == UICollectionElementKindSectionHeader) {
+        JobsHotLabelWithMultiLineHeaderView *headerView = [collectionView UICollectionElementKindSectionHeaderClass:JobsHotLabelWithMultiLineHeaderView.class
+                                                                                                       forIndexPath:indexPath];
+        [headerView richElementsInViewWithModel:self.dataModel.headerViewModel];
+        return headerView;
+    }else if (kind == UICollectionElementKindSectionFooter) {
+        JobsHotLabelWithMultiLineFooterView *footerView = [collectionView UICollectionElementKindSectionFooterClass:JobsHotLabelWithMultiLineFooterView.class
+                                                                                                       forIndexPath:indexPath];
+        [footerView richElementsInViewWithModel:self.dataModel.footerViewModel];
+        return footerView;
+    }else return nil;
 }
 #pragma mark —— UICollectionViewDelegate
 /// 允许选中时，高亮
@@ -108,7 +142,7 @@ shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
 /// 选中操作
-- (void)collectionView:(UICollectionView *)collectionView
+-(void)collectionView:(UICollectionView *)collectionView
 didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"%s", __FUNCTION__);
     JobsHotLabelWithMultiLineCVCell *cell = (JobsHotLabelWithMultiLineCVCell *)[collectionView cellForItemAtIndexPath:indexPath];
@@ -121,10 +155,30 @@ didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"%s", __FUNCTION__);
 }
 #pragma mark —— UICollectionViewDelegateFlowLayout
+/// header 大小
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+referenceSizeForHeaderInSection:(NSInteger)section {
+    /// ❤️外部传入配置优先❤️
+    if (self.dataModel.headerViewModel.useHeaderView) {
+        return zeroSizeValue(self.dataModel.headerViewModel.jobsSize) ? [JobsHotLabelWithMultiLineHeaderView collectionReusableViewSizeWithModel:nil] : self.dataModel.headerViewModel.jobsSize;
+    }return CGSizeZero;
+}
+/// footer 大小
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+referenceSizeForFooterInSection:(NSInteger)section {
+    /// ❤️外部传入配置优先❤️
+    if (self.dataModel.footerViewModel.useFooterView) {
+        return zeroSizeValue(self.dataModel.footerViewModel.jobsSize) ? [JobsHotLabelWithMultiLineFooterView collectionReusableViewSizeWithModel:nil] : self.dataModel.headerViewModel.jobsSize;
+    }return CGSizeZero;
+}
+/// item/cell 的大小
 -(CGSize)collectionView:(UICollectionView *)collectionView
                  layout:(UICollectionViewLayout *)collectionViewLayout
  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return [JobsHotLabelWithMultiLineCVCell cellSizeWithModel:self.viewModelMutArr[indexPath.item]];
+    /// ❤️外部传入配置优先❤️
+    return zeroSizeValue(self.dataModel.cellSize) ? [JobsHotLabelWithMultiLineCVCell cellSizeWithModel:self.dataModel.viewModelMutArr[indexPath.item]] : self.dataModel.cellSize;
 }
 /// 定义的是元素垂直之间的间距
 -(CGFloat)collectionView:(UICollectionView *)collectionView
@@ -140,9 +194,9 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
 }
 /// 内间距
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView
-                       layout:(UICollectionViewLayout*)collectionViewLayout
+                       layout:(UICollectionViewLayout *)collectionViewLayout
        insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(hotLabTop, hotLabLeft, hotLabBottom, hotLabRight);
+    return makeSameEdgeInset(5);
 }
 #pragma mark —— lazyLoad
 -(UICollectionViewFlowLayout *)layout{
@@ -156,7 +210,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
     if (!_collectionView) {
         _collectionView = [UICollectionView.alloc initWithFrame:CGRectZero
                                            collectionViewLayout:self.layout];
-        _collectionView.backgroundColor = RGB_SAMECOLOR(246);
+        _collectionView.backgroundColor = UIColor.clearColor;
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
         _collectionView.showsVerticalScrollIndicator = NO;
@@ -166,7 +220,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
         
         [self addSubview:_collectionView];
         [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self);
+            make.edges.equalTo(self).insets(makeSameEdgeInset(JobsWidth(2)));
         }];
     }return _collectionView;
 }
@@ -174,11 +228,48 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
 -(NSMutableArray<UICollectionViewCell *> *)cvcellMutArr{
     if (!_cvcellMutArr) {
         _cvcellMutArr = NSMutableArray.array;
-        for (UIViewModel *viewModel in self.viewModelMutArr) {
-            NSUInteger index = [self.viewModelMutArr indexOfObject:viewModel];
-            [_cvcellMutArr addObject:[JobsHotLabelWithMultiLineCVCell cellWithCollectionView:self.collectionView forIndexPath:[self myIndexPath:(JobsIndexPath){index,0}]]];
+        for (UIViewModel *viewModel in self.dataModel.viewModelMutArr) {
+            NSUInteger index = [self.dataModel.viewModelMutArr indexOfObject:viewModel];
+            [_cvcellMutArr addObject:[JobsHotLabelWithMultiLineCVCell cellWithCollectionView:self.collectionView
+                                                                                forIndexPath:[self myIndexPath:(JobsIndexPath){index,0}]]];
         }
     }return _cvcellMutArr;
+}
+
+@end
+
+@implementation JobsHotLabelWithMultiLineModel
+
+-(JobsHeaderFooterViewModel *)headerViewModel{
+    if (!_headerViewModel) {
+        _headerViewModel = JobsHeaderFooterViewModel.new;
+//        _headerViewModel.textModel.text = Internationalization(@"独家情报");
+//        _headerViewModel.bgCor = UIColor.greenColor;
+/// 结构体虽然分配了空间，但是里面的成员的值是随机的，特别是如果里面有指针的话，如果不初始化而直接访问，则会造成读取非法的内存地址的错误。
+        _headerViewModel.jobsSize = CGSizeZero;
+        _headerViewModel.cellSize = CGSizeZero;
+        _headerViewModel.tableHeaderViewSize = CGSizeZero;
+        _headerViewModel.tableFooterViewSize = CGSizeZero;
+        _headerViewModel.cornerRadii = CGSizeZero;
+        _headerViewModel.jobsRect = CGRectZero;
+        _headerViewModel.jobsPoint = CGPointZero;
+    }return _headerViewModel;
+}
+
+-(JobsHeaderFooterViewModel *)footerViewModel{
+    if (!_footerViewModel) {
+        _footerViewModel = JobsHeaderFooterViewModel.new;
+//        _footerViewModel.textModel.text = Internationalization(@"查看详情");
+//        _footerViewModel.bgCor = UIColor.blueColor;
+/// 结构体虽然分配了空间，但是里面的成员的值是随机的，特别是如果里面有指针的话，如果不初始化而直接访问，则会造成读取非法的内存地址的错误。
+        _footerViewModel.jobsSize = CGSizeZero;
+        _footerViewModel.cellSize = CGSizeZero;
+        _footerViewModel.tableHeaderViewSize = CGSizeZero;
+        _footerViewModel.tableFooterViewSize = CGSizeZero;
+        _footerViewModel.cornerRadii = CGSizeZero;
+        _footerViewModel.jobsRect = CGRectZero;
+        _footerViewModel.jobsPoint = CGPointZero;
+    }return _footerViewModel;
 }
 
 @end

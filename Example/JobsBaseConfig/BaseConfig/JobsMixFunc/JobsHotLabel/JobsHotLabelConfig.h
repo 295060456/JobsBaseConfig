@@ -1,6 +1,6 @@
 //
 //  JobsHotLabelConfig.h
-//  JobsBaseConfig
+//  Casino
 //
 //  Created by Jobs on 2022/1/15.
 //

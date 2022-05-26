@@ -6,6 +6,10 @@
 //
 
 #import <UIKit/UIKit.h>
+
+#import "JobsHotLabelWithMultiLineHeaderView.h"
+#import "JobsHotLabelWithMultiLineFooterView.h"
+
 #import "BaseCollectionViewCell.h"
 #import "JobsHotLabelWithMultiLineCVCell.h"
 #import "JobsSearchDataCVCell.h"
@@ -22,11 +26,11 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)registerCollectionElementKindSectionFooterClass:(Class)cls;
 /// 注册 UICollectionElementKindSectionHeader 及其子类
 -(void)registerCollectionElementKindSectionHeaderClass:(Class)cls;
-/// 依据字符串取UICollectionElementKindSectionFooter
--(__kindof UICollectionReusableView *)UICollectionElementKindSectionFooterClass:(Class)cls
-                                                                   forIndexPath:(NSIndexPath *)indexPath;
 /// 依据字符串取UICollectionElementKindSectionHeader
 -(__kindof UICollectionReusableView *)UICollectionElementKindSectionHeaderClass:(Class)cls
+                                                                   forIndexPath:(NSIndexPath *)indexPath;
+/// 依据字符串取UICollectionElementKindSectionFooter
+-(__kindof UICollectionReusableView *)UICollectionElementKindSectionFooterClass:(Class)cls
                                                                    forIndexPath:(NSIndexPath *)indexPath;
 /// 先用UICollectionViewLayout生成CollectionView。frame后面设置
 +(instancetype)initWithCollectionViewLayout:(UICollectionViewLayout *)layout;

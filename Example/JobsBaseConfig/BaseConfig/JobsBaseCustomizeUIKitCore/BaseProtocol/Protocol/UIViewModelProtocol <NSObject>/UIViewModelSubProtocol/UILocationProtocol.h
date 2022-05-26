@@ -36,8 +36,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)CGFloat cellHeight;
 @property(nonatomic,assign)CGFloat heightForHeaderInSection;
 @property(nonatomic,assign)CGSize cellSize;
-@property(nonatomic,assign)CGSize tableHeaderView;
-@property(nonatomic,assign)CGSize tableFooterView;
+@property(nonatomic,assign)CGSize tableHeaderViewSize;
+@property(nonatomic,assign)CGSize tableFooterViewSize;
 @property(nonatomic,assign)BOOL usesTableViewHeaderView;/// 默认不使用
 @property(nonatomic,assign)BOOL usesTableViewFooterView;/// 默认不使用
 
@@ -71,8 +71,8 @@ NS_ASSUME_NONNULL_END
 @synthesize cellHeight = _cellHeight;\
 @synthesize heightForHeaderInSection = _heightForHeaderInSection;\
 @synthesize cellSize = _cellSize;\
-@synthesize tableHeaderView = _tableHeaderView;\
-@synthesize tableFooterView = _tableFooterView;\
+@synthesize tableHeaderViewSize = _tableHeaderViewSize;\
+@synthesize tableFooterViewSize = _tableFooterViewSize;\
 @synthesize usesTableViewHeaderView = _usesTableViewHeaderView;\
 @synthesize usesTableViewFooterView = _usesTableViewFooterView;\
 
@@ -104,8 +104,8 @@ NS_ASSUME_NONNULL_END
 @dynamic cellHeight;\
 @dynamic heightForHeaderInSection;\
 @dynamic cellSize;\
-@dynamic tableHeaderView;\
-@dynamic tableFooterView;\
+@dynamic tableHeaderViewSize;\
+@dynamic tableFooterViewSize;\
 @dynamic usesTableViewHeaderView;\
 @dynamic usesTableViewFooterView;\
 

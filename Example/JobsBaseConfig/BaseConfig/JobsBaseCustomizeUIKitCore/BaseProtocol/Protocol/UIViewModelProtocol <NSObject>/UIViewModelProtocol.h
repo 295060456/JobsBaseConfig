@@ -101,8 +101,8 @@ NS_ASSUME_NONNULL_END
 @synthesize cellHeight = _cellHeight;\
 @synthesize heightForHeaderInSection = _heightForHeaderInSection;\
 @synthesize cellSize = _cellSize;\
-@synthesize tableHeaderView = _tableHeaderView;\
-@synthesize tableFooterView = _tableFooterView;\
+@synthesize tableHeaderViewSize = _tableHeaderViewSize;\
+@synthesize tableFooterViewSize = _tableFooterViewSize;\
 @synthesize usesTableViewHeaderView = _usesTableViewHeaderView;\
 @synthesize usesTableViewFooterView = _usesTableViewFooterView;\
 \
@@ -177,8 +177,8 @@ NS_ASSUME_NONNULL_END
 @dynamic cellHeight;\
 @dynamic heightForHeaderInSection;\
 @dynamic cellSize;\
-@dynamic tableHeaderView;\
-@dynamic tableFooterView;\
+@dynamic tableHeaderViewSize;\
+@dynamic tableFooterViewSize;\
 @dynamic usesTableViewHeaderView;\
 @dynamic usesTableViewFooterView;\
 \

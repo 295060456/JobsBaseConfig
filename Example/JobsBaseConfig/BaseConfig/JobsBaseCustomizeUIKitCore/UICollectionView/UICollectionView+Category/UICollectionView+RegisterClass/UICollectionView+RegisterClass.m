@@ -12,9 +12,9 @@
 -(void)registerCollectionViewClass{
     // CollectionReusableView
     /// Header
-    //[self registerCollectionElementKindSectionHeaderClass:CasinoGameCollectionReusableView.class];
+    [self registerCollectionElementKindSectionHeaderClass:JobsHotLabelWithMultiLineHeaderView.class];
     /// Footer
-    //[self registerCollectionElementKindSectionFooterClass:CasinoAgencyRecommendTipsCRView.class];
+    [self registerCollectionElementKindSectionFooterClass:JobsHotLabelWithMultiLineFooterView.class];
     // CollectionViewCell
     [self registerCollectionViewCellClass:UICollectionViewCell.class];
     [self registerCollectionViewCellClass:BaseCollectionViewCell.class];
