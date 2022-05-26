@@ -192,7 +192,6 @@
 		840F96A827736428004979E9 /* UIViewController+BaseNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F947527736426004979E9 /* UIViewController+BaseNavigationBar.m */; };
 		840F96A927736428004979E9 /* 旋转.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F947827736426004979E9 /* 旋转.png */; };
 		840F96AA27736428004979E9 /* UIViewController+SuspendBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F947927736426004979E9 /* UIViewController+SuspendBtn.m */; };
-		840F96AB27736428004979E9 /* UIViewController+BRPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F947B27736426004979E9 /* UIViewController+BRPickerView.m */; };
 		840F96AC27736428004979E9 /* MJRefreshConfigModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F948027736426004979E9 /* MJRefreshConfigModel.m */; };
 		840F96AD27736428004979E9 /* LOTAnimationMJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F948227736426004979E9 /* LOTAnimationMJRefreshHeader.m */; };
 		840F96AE27736428004979E9 /* JsonRes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 840F948527736426004979E9 /* JsonRes.bundle */; };
@@ -692,6 +691,7 @@
 		C533BBBD2837D095006FB231 /* JobsUserHeaderDataViewTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C533BBB52837D095006FB231 /* JobsUserHeaderDataViewTBVCell.m */; };
 		C533BBBF2837D095006FB231 /* JobsUserHeaderDataViewForHeaderInSection.m in Sources */ = {isa = PBXBuildFile; fileRef = C533BBBB2837D095006FB231 /* JobsUserHeaderDataViewForHeaderInSection.m */; };
 		C54BC43628325BA80010EF20 /* JobsTitleView01.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BC43428325BA80010EF20 /* JobsTitleView01.m */; };
+		C5703FA7283FA5110048382E /* UIView+BRPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5703FA5283FA5110048382E /* UIView+BRPickerView.m */; };
 		C57A2034282CB59F0032156B /* ZLGestureLockView.m in Sources */ = {isa = PBXBuildFile; fileRef = C57A2025282CB59E0032156B /* ZLGestureLockView.m */; };
 		C57A2035282CB59F0032156B /* gesture_headIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C57A2027282CB59E0032156B /* gesture_headIcon@2x.png */; };
 		C57A2036282CB59F0032156B /* gesture_indicator_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C57A2028282CB59E0032156B /* gesture_indicator_normal@2x.png */; };
@@ -1081,8 +1081,6 @@
 		840F947727736426004979E9 /* UIViewController+SuspendBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SuspendBtn.h"; sourceTree = "<group>"; };
 		840F947827736426004979E9 /* 旋转.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "旋转.png"; sourceTree = "<group>"; };
 		840F947927736426004979E9 /* UIViewController+SuspendBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SuspendBtn.m"; sourceTree = "<group>"; };
-		840F947B27736426004979E9 /* UIViewController+BRPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BRPickerView.m"; sourceTree = "<group>"; };
-		840F947C27736426004979E9 /* UIViewController+BRPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BRPickerView.h"; sourceTree = "<group>"; };
 		840F947F27736426004979E9 /* MJRefreshConfigModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshConfigModel.h; sourceTree = "<group>"; };
 		840F948027736426004979E9 /* MJRefreshConfigModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshConfigModel.m; sourceTree = "<group>"; };
 		840F948227736426004979E9 /* LOTAnimationMJRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTAnimationMJRefreshHeader.m; sourceTree = "<group>"; };
@@ -2152,6 +2150,8 @@
 		C54BC43228325BA80010EF20 /* JobsTitleView01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsTitleView01.h; sourceTree = "<group>"; };
 		C54BC43328325BA80010EF20 /* JobsTitleView01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobsTitleView01.png; sourceTree = "<group>"; };
 		C54BC43428325BA80010EF20 /* JobsTitleView01.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsTitleView01.m; sourceTree = "<group>"; };
+		C5703FA5283FA5110048382E /* UIView+BRPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BRPickerView.m"; sourceTree = "<group>"; };
+		C5703FA6283FA5110048382E /* UIView+BRPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BRPickerView.h"; sourceTree = "<group>"; };
 		C57A2025282CB59E0032156B /* ZLGestureLockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLGestureLockView.m; sourceTree = "<group>"; };
 		C57A2027282CB59E0032156B /* gesture_headIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_headIcon@2x.png"; sourceTree = "<group>"; };
 		C57A2028282CB59E0032156B /* gesture_indicator_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_indicator_normal@2x.png"; sourceTree = "<group>"; };
@@ -3198,7 +3198,6 @@
 			children = (
 				840F93A627736426004979E9 /* BaseView */,
 				840F93A927736426004979E9 /* UIView+Category */,
-				840F93DE27736426004979E9 /* JobsView.h */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -3215,19 +3214,21 @@
 		840F93A927736426004979E9 /* UIView+Category */ = {
 			isa = PBXGroup;
 			children = (
+				840F93DE27736426004979E9 /* JobsView.h */,
 				840F93CE27736426004979E9 /* UIView+Category.h */,
-				84B9A8CF27968DE50070DD20 /* UIView+Masonry */,
 				840F93CF27736426004979E9 /* UIView+Animation */,
 				840F93D527736426004979E9 /* UIView+AOP */,
 				840F93D227736426004979E9 /* UIView+AutoSelfAdaptionSize */,
 				840F93C527736426004979E9 /* UIView+BackgroundImage */,
 				840F93BF27736426004979E9 /* UIView+BackgroundLabel */,
+				C5703FA4283FA5110048382E /* UIView+BRPickerView */,
 				840F93BC27736426004979E9 /* UIView+Chain */,
 				840F93C227736426004979E9 /* UIView+EmptyData */,
 				840F93DB27736426004979E9 /* UIView+Extras */,
 				840F93B327736426004979E9 /* UIView+Gesture */,
 				840F93B927736426004979E9 /* UIView+Gradient */,
 				840F93CB27736426004979E9 /* UIView+JHGestureBlock */,
+				84B9A8CF27968DE50070DD20 /* UIView+Masonry */,
 				840F93B627736426004979E9 /* UIView+Measure */,
 				840F93D827736426004979E9 /* UIView+MJRefresh */,
 				840F93AD27736426004979E9 /* UIView+SuspendView */,
@@ -3801,7 +3802,6 @@
 				840F946427736426004979E9 /* UIViewController+BackBtn */,
 				840F947327736426004979E9 /* UIViewController+BaseNavigationBar */,
 				840F946D27736426004979E9 /* UIViewController+BaseVC */,
-				840F947A27736426004979E9 /* UIViewController+BRPickerView */,
 				840F945B27736426004979E9 /* UIViewController+BWShareView */,
 				840F946727736426004979E9 /* UIViewController+EmptyData */,
 				840F947027736426004979E9 /* UIViewController+GifImageView */,
@@ -3903,15 +3903,6 @@
 				840F947927736426004979E9 /* UIViewController+SuspendBtn.m */,
 			);
 			path = "UIViewController+SuspendBtn";
-			sourceTree = "<group>";
-		};
-		840F947A27736426004979E9 /* UIViewController+BRPickerView */ = {
-			isa = PBXGroup;
-			children = (
-				840F947B27736426004979E9 /* UIViewController+BRPickerView.m */,
-				840F947C27736426004979E9 /* UIViewController+BRPickerView.h */,
-			);
-			path = "UIViewController+BRPickerView";
 			sourceTree = "<group>";
 		};
 		840F947D27736426004979E9 /* UIViewController+MJRefresh */ = {
@@ -8754,6 +8745,15 @@
 			path = JobsTitleView01;
 			sourceTree = "<group>";
 		};
+		C5703FA4283FA5110048382E /* UIView+BRPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				C5703FA5283FA5110048382E /* UIView+BRPickerView.m */,
+				C5703FA6283FA5110048382E /* UIView+BRPickerView.h */,
+			);
+			path = "UIView+BRPickerView";
+			sourceTree = "<group>";
+		};
 		C57A2024282CB59E0032156B /* GestureLock */ = {
 			isa = PBXGroup;
 			children = (
@@ -9561,7 +9561,6 @@
 				844B08412764CF4800B0513D /* ZWPullMenuModel.m in Sources */,
 				84401A8B27919E3B0038FF6F /* JobsSearchVC.m in Sources */,
 				840F96C127736428004979E9 /* UITableViewHeaderFooterView+Attribute.m in Sources */,
-				840F96AB27736428004979E9 /* UIViewController+BRPickerView.m in Sources */,
 				840F95E427736427004979E9 /* JobsBitsMonitorCore.m in Sources */,
 				840F96C727736428004979E9 /* LMHWaterFallLayout.m in Sources */,
 				840F971427736428004979E9 /* ZYTextField.m in Sources */,
@@ -9818,6 +9817,7 @@
 				84A16102278956D000DACA3C /* ViewController@5.m in Sources */,
 				844B084B2764CF4800B0513D /* ECPrivacyCheckFilesAndFolders.m in Sources */,
 				840F95E627736427004979E9 /* UITabBarItem+TLAnimation.m in Sources */,
+				C5703FA7283FA5110048382E /* UIView+BRPickerView.m in Sources */,
 				840F969627736428004979E9 /* NSString+Decoration.m in Sources */,
 				842475AD27C0D67000831270 /* YTKAnimatingRequestAccessory.m in Sources */,
 				84562598278BF2780067ABB9 /* JobsPopUpVC.m in Sources */,

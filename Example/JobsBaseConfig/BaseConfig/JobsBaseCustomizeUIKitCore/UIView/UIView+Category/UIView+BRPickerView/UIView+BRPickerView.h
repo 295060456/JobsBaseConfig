@@ -1,5 +1,5 @@
 //
-//  UIViewController+BRPickerView.h
+//  UIView+BRPickerView.h
 //  UBallLive
 //
 //  Created by Jobs on 2020/10/12.
@@ -21,7 +21,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 /// https://github.com/91renb/BRPickerView
-@interface UIViewController (BRPickerView)
+@interface UIView (BRPickerView)
 #pragma mark —— BaseVC+BRStringPickerView
 /// UI
 @property(nonatomic,strong)BRStringPickerView *stringPickerView;/// 自定义字符串选择器

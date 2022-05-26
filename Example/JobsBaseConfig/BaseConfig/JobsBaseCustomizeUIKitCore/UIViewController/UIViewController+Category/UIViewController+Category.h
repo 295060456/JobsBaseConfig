@@ -29,7 +29,6 @@
 #import "UIViewController+BaseVC.h"
 #import "UIViewController+GifImageView.h"
 #import "UIViewController+BaseNavigationBar.h"
-#import "UIViewController+BRPickerView.h"
 #import "UIViewController+Lottie.h"
 #import "UIViewController+SuspendBtn.h"
 

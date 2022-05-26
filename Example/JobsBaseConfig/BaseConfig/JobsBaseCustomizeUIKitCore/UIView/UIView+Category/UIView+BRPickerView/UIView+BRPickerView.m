@@ -1,13 +1,13 @@
 //
-//  UIViewController+BRPickerView.m
+//  UIView+BRPickerView.m
 //  UBallLive
 //
 //  Created by Jobs on 2020/10/12.
 //
 
-#import "UIViewController+BRPickerView.h"
+#import "UIView+BRPickerView.h"
 /// https://github.com/91renb/BRPickerView
-@implementation UIViewController (BRPickerView)
+@implementation UIView (BRPickerView)
 #pragma mark 一些公有方法
 /// 时间选择器
 -(void)makeDatePickerDoneBlock:(BRDoneClickBlock)clickDoneBlock
@@ -64,8 +64,6 @@
         stringPickerViewModel.selectIndex = 2;
     }
     
-
-    
     self.stringPickerView.pickerMode = stringPickerViewModel.pickerMode;
     self.stringPickerView.title = stringPickerViewModel.title;
     self.stringPickerView.dataSourceArr = stringPickerViewModel.dataSourceArr;
@@ -106,15 +104,15 @@
     }
 }
 #pragma mark SET | GET
-static char *BaseVC_BRStringPickerView_stringPickerView = "BaseVC_BRStringPickerView_stringPickerView";
+static char *UIView_BRStringPickerView_stringPickerView = "UIView_BRStringPickerView_stringPickerView";
 @dynamic stringPickerView;
 #pragma mark —— @property(nonatomic,strong)BRStringPickerView *stringPickerView;/// 自定义字符串选择器
 -(BRStringPickerView *)stringPickerView{
-    BRStringPickerView *StringPickerView = objc_getAssociatedObject(self, BaseVC_BRStringPickerView_stringPickerView);
+    BRStringPickerView *StringPickerView = objc_getAssociatedObject(self, UIView_BRStringPickerView_stringPickerView);
     if (!StringPickerView) {
         StringPickerView = [BRStringPickerView.alloc initWithPickerMode:self.brStringPickerMode];
         objc_setAssociatedObject(self,
-                                 BaseVC_BRStringPickerView_stringPickerView,
+                                 UIView_BRStringPickerView_stringPickerView,
                                  StringPickerView,
                                  OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }return StringPickerView;
@@ -122,15 +120,15 @@ static char *BaseVC_BRStringPickerView_stringPickerView = "BaseVC_BRStringPicker
 
 -(void)setStringPickerView:(BRStringPickerView *)stringPickerView{
     objc_setAssociatedObject(self,
-                             BaseVC_BRStringPickerView_stringPickerView,
+                             UIView_BRStringPickerView_stringPickerView,
                              stringPickerView,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-static char *BaseVC_BRStringPickerView_datePickerView = "BaseVC_BRStringPickerView_datePickerView";
+static char *UIView_BRStringPickerView_datePickerView = "UIView_BRStringPickerView_datePickerView";
 @dynamic datePickerView;
 #pragma mark —— @property(nonatomic,strong)BRDatePickerView *datePickerView;/// 时间选择器
 -(BRDatePickerView *)datePickerView{
-    BRDatePickerView *DatePickerView = objc_getAssociatedObject(self, BaseVC_BRStringPickerView_datePickerView);
+    BRDatePickerView *DatePickerView = objc_getAssociatedObject(self, UIView_BRStringPickerView_datePickerView);
     if (!DatePickerView) {
         DatePickerView = BRDatePickerView.new;
         DatePickerView.pickerMode = BRDatePickerModeYMD;
@@ -146,7 +144,7 @@ static char *BaseVC_BRStringPickerView_datePickerView = "BaseVC_BRStringPickerVi
         DatePickerView.isAutoSelect = YES;
         DatePickerView.pickerStyle = self.customStyle;
         objc_setAssociatedObject(self,
-                                 BaseVC_BRStringPickerView_datePickerView,
+                                 UIView_BRStringPickerView_datePickerView,
                                  DatePickerView,
                                  OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }return DatePickerView;
@@ -154,15 +152,15 @@ static char *BaseVC_BRStringPickerView_datePickerView = "BaseVC_BRStringPickerVi
 
 -(void)setDatePickerView:(BRDatePickerView *)datePickerView{
     objc_setAssociatedObject(self,
-                             BaseVC_BRStringPickerView_datePickerView,
+                             UIView_BRStringPickerView_datePickerView,
                              datePickerView,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-static char *BaseVC_BRStringPickerView_addressPickerView = "BaseVC_BRStringPickerView_addressPickerView";
+static char *UIView_BRStringPickerView_addressPickerView = "UIView_BRStringPickerView_addressPickerView";
 @dynamic addressPickerView;
 #pragma mark —— @property(nonatomic,strong)BRAddressPickerView *addressPickerView;/// 地址选择器
 -(BRAddressPickerView *)addressPickerView{
-    BRAddressPickerView *AddressPickerView = objc_getAssociatedObject(self, BaseVC_BRStringPickerView_addressPickerView);
+    BRAddressPickerView *AddressPickerView = objc_getAssociatedObject(self, UIView_BRStringPickerView_addressPickerView);
     if (!AddressPickerView) {
         AddressPickerView = BRAddressPickerView.new;
         /**
@@ -178,7 +176,7 @@ static char *BaseVC_BRStringPickerView_addressPickerView = "BaseVC_BRStringPicke
         // 设置自定义样式
         AddressPickerView.pickerStyle = self.customStyle;
         objc_setAssociatedObject(self,
-                                 BaseVC_BRStringPickerView_addressPickerView,
+                                 UIView_BRStringPickerView_addressPickerView,
                                  AddressPickerView,
                                  OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }return AddressPickerView;
@@ -186,24 +184,24 @@ static char *BaseVC_BRStringPickerView_addressPickerView = "BaseVC_BRStringPicke
 
 -(void)setAddressPickerView:(BRAddressPickerView *)addressPickerView{
     objc_setAssociatedObject(self,
-                             BaseVC_BRStringPickerView_addressPickerView,
+                             UIView_BRStringPickerView_addressPickerView,
                              addressPickerView,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-static char *BaseVC_BRStringPickerView_customStyle = "BaseVC_BRStringPickerView_customStyle";
+static char *UIView_BRStringPickerView_customStyle = "UIView_BRStringPickerView_customStyle";
 @dynamic customStyle;
 #pragma mark —— @property(nonatomic,strong)BRPickerStyle *customStyle;
 -(BRPickerStyle *)customStyle{
-    BRPickerStyle *pickerStyle = objc_getAssociatedObject(self, BaseVC_BRStringPickerView_customStyle);
+    BRPickerStyle *pickerStyle = objc_getAssociatedObject(self, UIView_BRStringPickerView_customStyle);
     if (!pickerStyle) {
         pickerStyle = BRPickerStyle.new;
-        pickerStyle.pickerColor = BR_RGB_HEX(0xd9dbdf, 1.0f);
-        pickerStyle.pickerTextColor = UIColor.redColor;
-        pickerStyle.separatorColor = UIColor.redColor;
+        pickerStyle.pickerColor = UIColor.whiteColor;
+        pickerStyle.pickerTextColor = HEXCOLOR(0x3D4A58);
+        pickerStyle.separatorColor = HEXCOLOR(0xEAEBED);
         pickerStyle.cancelBtnTitle = Internationalization(@"取消");
         pickerStyle.doneBtnTitle = Internationalization(@"确定");
         objc_setAssociatedObject(self,
-                                 BaseVC_BRStringPickerView_customStyle,
+                                 UIView_BRStringPickerView_customStyle,
                                  pickerStyle,
                                  OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }return pickerStyle;
@@ -211,45 +209,45 @@ static char *BaseVC_BRStringPickerView_customStyle = "BaseVC_BRStringPickerView_
 
 -(void)setCustomStyle:(BRPickerStyle *)customStyle{
     objc_setAssociatedObject(self,
-                             BaseVC_BRStringPickerView_customStyle,
+                             UIView_BRStringPickerView_customStyle,
                              customStyle,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-static char *BaseVC_BRStringPickerView_brStringPickerMode = "BaseVC_BRStringPickerView_brStringPickerMode";
+static char *UIView_BRStringPickerView_brStringPickerMode = "UIView_BRStringPickerView_brStringPickerMode";
 @dynamic brStringPickerMode;
 #pragma mark —— @property(nonatomic,assign)BRStringPickerMode brStringPickerMode;
 -(BRStringPickerMode)brStringPickerMode{
-    return [objc_getAssociatedObject(self, BaseVC_BRStringPickerView_brStringPickerMode) integerValue];
+    return [objc_getAssociatedObject(self, UIView_BRStringPickerView_brStringPickerMode) integerValue];
 }
 
 -(void)setBrStringPickerMode:(BRStringPickerMode)brStringPickerMode{
     objc_setAssociatedObject(self,
-                             BaseVC_BRStringPickerView_brStringPickerMode,
+                             UIView_BRStringPickerView_brStringPickerMode,
                              [NSNumber numberWithInteger:brStringPickerMode],
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-static char *BaseVC_BRStringPickerView_brStringPickerViewBlock = "BaseVC_BRStringPickerView_brStringPickerViewBlock";
+static char *UIView_BRStringPickerView_brStringPickerViewBlock = "UIView_BRStringPickerView_brStringPickerViewBlock";
 @dynamic brStringPickerViewBlock;
 #pragma mark —— @property(nonatomic,copy)jobsByIDBlock brStringPickerViewBlock;
 -(jobsByIDBlock)brStringPickerViewBlock{
-    return objc_getAssociatedObject(self, BaseVC_BRStringPickerView_brStringPickerViewBlock);
+    return objc_getAssociatedObject(self, UIView_BRStringPickerView_brStringPickerViewBlock);
 }
 
 -(void)setBrStringPickerViewBlock:(jobsByIDBlock)brStringPickerViewBlock{
     objc_setAssociatedObject(self,
-                             BaseVC_BRStringPickerView_brStringPickerViewBlock,
+                             UIView_BRStringPickerView_brStringPickerViewBlock,
                              brStringPickerViewBlock,
                              OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
-static char *BaseVC_BRStringPickerView_BRStringPickerViewDataMutArr = "BaseVC_BRStringPickerView_BRStringPickerViewDataMutArr";
+static char *UIView_BRStringPickerView_BRStringPickerViewDataMutArr = "UIView_BRStringPickerView_BRStringPickerViewDataMutArr";
 @dynamic BRStringPickerViewDataMutArr;
 #pragma mark —— @property(nonatomic,strong)NSMutableArray *BRStringPickerViewDataMutArr;
 -(NSMutableArray *)BRStringPickerViewDataMutArr{
-    NSMutableArray *brStringPickerViewDataMutArr = objc_getAssociatedObject(self, BaseVC_BRStringPickerView_BRStringPickerViewDataMutArr);
+    NSMutableArray *brStringPickerViewDataMutArr = objc_getAssociatedObject(self, UIView_BRStringPickerView_BRStringPickerViewDataMutArr);
     if (!brStringPickerViewDataMutArr) {
         brStringPickerViewDataMutArr = NSMutableArray.array;
         objc_setAssociatedObject(self,
-                                 BaseVC_BRStringPickerView_BRStringPickerViewDataMutArr,
+                                 UIView_BRStringPickerView_BRStringPickerViewDataMutArr,
                                  brStringPickerViewDataMutArr,
                                  OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }return brStringPickerViewDataMutArr;
@@ -257,13 +255,13 @@ static char *BaseVC_BRStringPickerView_BRStringPickerViewDataMutArr = "BaseVC_BR
 
 -(void)setBRStringPickerViewDataMutArr:(NSMutableArray *)BRStringPickerViewDataMutArr{
     objc_setAssociatedObject(self,
-                             BaseVC_BRStringPickerView_BRStringPickerViewDataMutArr,
+                             UIView_BRStringPickerView_BRStringPickerViewDataMutArr,
                              BRStringPickerViewDataMutArr,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 @end
 
-@implementation BRStringPickerViewModel
+@implementation BRStringPickerViewModel 
 
 @end

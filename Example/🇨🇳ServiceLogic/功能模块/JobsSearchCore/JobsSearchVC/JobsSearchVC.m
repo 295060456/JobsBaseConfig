@@ -242,9 +242,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
                     cell.indexPath = indexPath;
                     [cell richElementsInCellWithModel:self.hotSearchMutArr];
                     /// 点击的哪个btn？
-                    [cell actionObjectBlock:^(UIViewModel *data) {
+                    [cell actionObjectBlock:^(JobsHotLabelWithMultiLineCVCell *cell) {
                         @jobs_strongify(self)
-                        self.jobsSearchBar.getTextField.text = data.textModel.text;
+                        self.jobsSearchBar.getTextField.text = cell.getViewModel.textModel.text;
 
                     }];return cell;
                 }break;
