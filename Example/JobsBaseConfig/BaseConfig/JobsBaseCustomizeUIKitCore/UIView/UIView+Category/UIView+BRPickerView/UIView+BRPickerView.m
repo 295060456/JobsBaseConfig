@@ -9,6 +9,56 @@
 /// https://github.com/91renb/BRPickerView
 @implementation UIView (BRPickerView)
 #pragma mark 一些公有方法
++(BRPickerStyle *)makeCustomStyle{
+    BRPickerStyle *pickerStyle = BRPickerStyle.new;
+    pickerStyle.pickerColor = UIColor.whiteColor;
+    pickerStyle.pickerTextColor = HEXCOLOR(0x3D4A58);
+    pickerStyle.separatorColor = HEXCOLOR(0xEAEBED);
+    pickerStyle.cancelBtnTitle = Internationalization(@"取消");
+    pickerStyle.doneBtnTitle = Internationalization(@"确定");
+    return pickerStyle;
+}
+
++(BRAddressPickerView *)makeAddressPickerView:(BRPickerStyle *_Nullable)pickerStyle{
+    BRAddressPickerView *addressPickerView = BRAddressPickerView.new;
+    /**
+     BRAddressPickerModeArea,/// 显示【省市区】（默认）
+     BRAddressPickerModeCity,/// 显示【省市】
+     BRAddressPickerModeProvince/// 显示【省】
+     */
+    addressPickerView.pickerMode = BRAddressPickerModeArea;
+    addressPickerView.title = Internationalization(@"请选择地区");
+    //AddressPickerView.selectValues = @[@"浙江省", @"杭州市", @"西湖区"];
+    addressPickerView.selectIndexs = @[@10, @0, @4];
+    addressPickerView.isAutoSelect = YES;
+    // 设置自定义样式
+    addressPickerView.pickerStyle = pickerStyle;
+    return addressPickerView;
+}
+
++(BRStringPickerView *)makeStringPickerView:(BRStringPickerMode)stringPickerMode{
+    return [BRStringPickerView.alloc initWithPickerMode:stringPickerMode];
+}
+
++(BRDatePickerView *)makeDatePickerView:(BRPickerStyle *_Nullable)customStyle{
+    if (!customStyle) {
+        customStyle = self.makeCustomStyle;
+    }
+    BRDatePickerView *datePickerView = BRDatePickerView.new;
+    datePickerView.pickerMode = BRDatePickerModeYMD;
+    datePickerView.title = Internationalization(@"选择年月日");
+    // datePickerView.selectValue = @"2019-10-30";
+    datePickerView.selectDate = [NSDate br_setYear:2019
+                                              month:10
+                                                day:30];
+    datePickerView.minDate = [NSDate br_setYear:1949
+                                           month:3
+                                             day:12];
+    datePickerView.maxDate = NSDate.date;
+    datePickerView.isAutoSelect = YES;
+    datePickerView.pickerStyle = customStyle;
+    return datePickerView;
+}
 /// 时间选择器
 -(void)makeDatePickerDoneBlock:(BRDoneClickBlock)clickDoneBlock
                    resultBlock:(BRDateResultBlock)clickResultBlock{
@@ -110,7 +160,7 @@ static char *UIView_BRStringPickerView_stringPickerView = "UIView_BRStringPicker
 -(BRStringPickerView *)stringPickerView{
     BRStringPickerView *StringPickerView = objc_getAssociatedObject(self, UIView_BRStringPickerView_stringPickerView);
     if (!StringPickerView) {
-        StringPickerView = [BRStringPickerView.alloc initWithPickerMode:self.brStringPickerMode];
+        StringPickerView = [UIView makeStringPickerView:self.brStringPickerMode];
         objc_setAssociatedObject(self,
                                  UIView_BRStringPickerView_stringPickerView,
                                  StringPickerView,
@@ -130,19 +180,7 @@ static char *UIView_BRStringPickerView_datePickerView = "UIView_BRStringPickerVi
 -(BRDatePickerView *)datePickerView{
     BRDatePickerView *DatePickerView = objc_getAssociatedObject(self, UIView_BRStringPickerView_datePickerView);
     if (!DatePickerView) {
-        DatePickerView = BRDatePickerView.new;
-        DatePickerView.pickerMode = BRDatePickerModeYMD;
-        DatePickerView.title = Internationalization(@"选择年月日");
-        // datePickerView.selectValue = @"2019-10-30";
-        DatePickerView.selectDate = [NSDate br_setYear:2019
-                                                  month:10
-                                                    day:30];
-        DatePickerView.minDate = [NSDate br_setYear:1949
-                                               month:3
-                                                 day:12];
-        DatePickerView.maxDate = NSDate.date;
-        DatePickerView.isAutoSelect = YES;
-        DatePickerView.pickerStyle = self.customStyle;
+        DatePickerView = [UIView makeDatePickerView:self.customStyle];
         objc_setAssociatedObject(self,
                                  UIView_BRStringPickerView_datePickerView,
                                  DatePickerView,
@@ -162,19 +200,7 @@ static char *UIView_BRStringPickerView_addressPickerView = "UIView_BRStringPicke
 -(BRAddressPickerView *)addressPickerView{
     BRAddressPickerView *AddressPickerView = objc_getAssociatedObject(self, UIView_BRStringPickerView_addressPickerView);
     if (!AddressPickerView) {
-        AddressPickerView = BRAddressPickerView.new;
-        /**
-         BRAddressPickerModeArea,/// 显示【省市区】（默认）
-         BRAddressPickerModeCity,/// 显示【省市】
-         BRAddressPickerModeProvince/// 显示【省】
-         */
-        AddressPickerView.pickerMode = BRAddressPickerModeArea;
-        AddressPickerView.title = Internationalization(@"请选择地区");
-        //AddressPickerView.selectValues = @[@"浙江省", @"杭州市", @"西湖区"];
-        AddressPickerView.selectIndexs = @[@10, @0, @4];
-        AddressPickerView.isAutoSelect = YES;
-        // 设置自定义样式
-        AddressPickerView.pickerStyle = self.customStyle;
+        AddressPickerView = [UIView makeAddressPickerView:self.customStyle];
         objc_setAssociatedObject(self,
                                  UIView_BRStringPickerView_addressPickerView,
                                  AddressPickerView,
@@ -194,12 +220,7 @@ static char *UIView_BRStringPickerView_customStyle = "UIView_BRStringPickerView_
 -(BRPickerStyle *)customStyle{
     BRPickerStyle *pickerStyle = objc_getAssociatedObject(self, UIView_BRStringPickerView_customStyle);
     if (!pickerStyle) {
-        pickerStyle = BRPickerStyle.new;
-        pickerStyle.pickerColor = UIColor.whiteColor;
-        pickerStyle.pickerTextColor = HEXCOLOR(0x3D4A58);
-        pickerStyle.separatorColor = HEXCOLOR(0xEAEBED);
-        pickerStyle.cancelBtnTitle = Internationalization(@"取消");
-        pickerStyle.doneBtnTitle = Internationalization(@"确定");
+        pickerStyle = [UIView makeCustomStyle];
         objc_setAssociatedObject(self,
                                  UIView_BRStringPickerView_customStyle,
                                  pickerStyle,
@@ -262,6 +283,6 @@ static char *UIView_BRStringPickerView_BRStringPickerViewDataMutArr = "UIView_BR
 
 @end
 
-@implementation BRStringPickerViewModel 
+@implementation BRStringPickerViewModel
 
 @end

@@ -45,6 +45,13 @@ NS_ASSUME_NONNULL_BEGIN
                          pickerStyle:(BRPickerStyle *_Nullable)pickerStyle
                            doneBlock:(BRDoneClickBlock)clickDoneBlock
                          resultBlock:(jobsByIDBlock)clickResultBlock;
+/// 以应对一个视图上面多个 BRStringPickerView的情况
+/// 关键代码：[self.pickerView1 addPickerToView:承接的视图1];只能一对一承接
++(BRPickerStyle *)makeCustomStyle;
++(BRAddressPickerView *)makeAddressPickerView:(BRPickerStyle *_Nullable)pickerStyle;
++(BRStringPickerView *)makeStringPickerView:(BRStringPickerMode)stringPickerMode;
++(BRDatePickerView *)makeDatePickerView:(BRPickerStyle *_Nullable)customStyle;
+
 @end
 
 @interface BRStringPickerViewModel : NSObject
@@ -101,3 +108,81 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+/**
+ * 常规用法
+ * 构建日期选择器
+     [self makeDatePickerDoneBlock:^{
+
+     } resultBlock:^(NSDate * _Nullable selectDate,
+                      NSString * _Nullable selectValue) {
+
+     }];
+ * 构建地址选择器
+     [self makeAddressPickerViewDoneBlock:^{
+
+     } resultBlock:^(BRProvinceModel * _Nullable province,
+                     BRCityModel * _Nullable city,
+                     BRAreaModel * _Nullable area) {
+
+     }];
+ * 构建自定义字符串选择器
+     [self.view makeStringPickerViewWithModel:nil
+                                  pickerStyle:nil
+                                    doneBlock:^{
+         
+     } resultBlock:^(id data) {
+         
+     }];
+ 
+ */
+
+/**
+ * 如果一个视图上需要展现多个BRPickerView，关键代码：【BRBaseView】 -addPickerToView
+ *
+ * @property(nonatomic,strong)BaseView *containFromView;/// fromDatePickerView的承接视图
+ * @property(nonatomic,strong)BaseView *containToView;/// toDatePickerView的承接视图
+ * @property(nonatomic,strong)BRDatePickerView *fromDatePickerView;
+ * @property(nonatomic,strong)BRDatePickerView *toDatePickerView;
+ *
+    -(BaseView *)containFromView{
+     if (!_containFromView) {
+         _containFromView = BaseView.new;
+         _containFromView.backgroundColor = RandomColor;
+         _containFromView.frame = CGRectMake(JobsWidth(100),
+                                             JobsWidth(44),
+                                             JobsWidth(263),
+                                             JobsWidth(196 / 2));
+    //        _containView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+         [self addSubview:_containFromView];
+     }return _containFromView;
+    }
+
+    -(BaseView *)containToView{
+     if (!_containToView) {
+         _containToView = BaseView.new;
+         _containToView.backgroundColor = RandomColor;
+         _containToView.frame = CGRectMake(JobsWidth(100),
+                                           JobsWidth(44 + 196 / 2),
+                                           JobsWidth(263),
+                                           JobsWidth(196 / 2));
+    //        _containView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+         [self addSubview:_containToView];
+     }return _containToView;
+    }
+
+    -(BRDatePickerView *)fromDatePickerView{
+     if (!_fromDatePickerView) {
+         _fromDatePickerView = [UIView makeDatePickerView:nil];
+     }return _fromDatePickerView;
+    }
+
+    -(BRDatePickerView *)toDatePickerView{
+     if (!_toDatePickerView) {
+         _toDatePickerView = [UIView makeDatePickerView:nil];
+     }return _toDatePickerView;
+    }
+ * 启动
+    [self.fromDatePickerView addPickerToView:self.containFromView];
+    [self.toDatePickerView addPickerToView:self.containToView];
+ 
+ */
