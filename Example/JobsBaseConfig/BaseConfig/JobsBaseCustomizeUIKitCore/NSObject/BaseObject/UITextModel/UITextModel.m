@@ -10,6 +10,7 @@
 @implementation UITextModel
 
 UITextModelProtocol_synthesize
+UILocationProtocol_synthesize
 
 -(UIColor *)textCor{
     if (!_textCor) {

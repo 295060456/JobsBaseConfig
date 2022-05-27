@@ -17,28 +17,56 @@ NS_ASSUME_NONNULL_BEGIN
 NS_ASSUME_NONNULL_END
 /**
  
- {
-    JobsLeftRightLabModel *upDownLabModel = JobsLeftRightLabModel.new;
-    upDownLabModel.upLabText = Internationalization(@"Amount payable");
-    upDownLabModel.upLabTextAlignment = NSTextAlignmentCenter;
-    upDownLabModel.upLabFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
-    upDownLabModel.upLabTextCor = UIColor.blackColor;
-    upDownLabModel.upLabBgCor = UIColor.clearColor;
+ -(JobsLeftRightLab *)amountValueLab{
+     if (!_amountValueLab) {
+         _amountValueLab = JobsLeftRightLab.new;
+         [self addSubview:_amountValueLab];
+         [_amountValueLab mas_makeConstraints:^(MASConstraintMaker *make) {
+             make.centerY.equalTo(self);
+             make.left.equalTo(self).offset(JobsWidth(16));
+             {
+                 UIViewModel *vm = UIViewModel.new;
+                 
+                 vm.textModel.textLineSpacing = 0;
+                 vm.textModel.font = UIFontWeightRegularSize(14);
+                 vm.textModel.jobsHeight = JobsWidth(20);
+                 vm.textModel.text = Internationalization([@"投注额" stringByAppendingString:@"2.99"]);
+                 vm.textModel.textCor = HEXCOLOR(0x757575);
+                 
+                 CGFloat width = [UIView widthByData:vm];
+                 width += self.amountValueModel.space + JobsWidth(5);// JobsWidth(5) 是补偿值
+                 
+                 make.size.mas_equalTo(CGSizeMake(width, JobsWidth(20)));
+             }
+         }];
+         [_amountValueLab richElementsInViewWithModel:self.amountValueModel];
+     }return _amountValueLab;
+ }
+ 
+ 
+ -(JobsLeftRightLabModel *)amountValueModel{
+     if (!_amountValueModel) {
+         _amountValueModel = JobsLeftRightLabModel.new;
+         _amountValueModel.upLabText = Internationalization(@"投注额");
+         _amountValueModel.upLabTextAlignment = NSTextAlignmentCenter;
+         _amountValueModel.upLabFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
+         _amountValueModel.upLabTextCor = HEXCOLOR(0x757575);
+         _amountValueModel.upLabBgCor = UIColor.clearColor;
 
-    upDownLabModel.downLabText = @"2.99";
-    upDownLabModel.downLabTextAlignment = NSTextAlignmentCenter;
-    upDownLabModel.downLabFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightBold];
-    upDownLabModel.downLabTextCor = HEXCOLOR(0x524740);
-    upDownLabModel.downLabBgCor = UIColor.clearColor;
+         _amountValueModel.downLabText = @"2.99";
+         _amountValueModel.downLabTextAlignment = NSTextAlignmentCenter;
+         _amountValueModel.downLabFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightBold];
+         _amountValueModel.downLabTextCor = HEXCOLOR(0x757575);
+         _amountValueModel.downLabBgCor = UIColor.clearColor;
 
-    upDownLabModel.upLabVerticalAlign = JobsUpDownLabAlign_TopLeft;
-    upDownLabModel.upLabLevelAlign = JobsUpDownLabAlign_TopLeft;
-    upDownLabModel.downLabVerticalAlign = JobsUpDownLabAlign_TopLeft;
-    upDownLabModel.downLabLevelAlign = JobsUpDownLabAlign_TopLeft;
+         _amountValueModel.upLabVerticalAlign = JobsUpDownLabAlign_TopLeft;
+         _amountValueModel.upLabLevelAlign = JobsUpDownLabAlign_TopLeft;
+         _amountValueModel.downLabVerticalAlign = JobsUpDownLabAlign_TopLeft;
+         _amountValueModel.downLabLevelAlign = JobsUpDownLabAlign_TopLeft;
 
-    upDownLabModel.space = JobsWidth(12);
-
-    [_leftRightLab richElementsInViewWithModel:upDownLabModel];
+         _amountValueModel.space = JobsWidth(12);
+         _amountValueModel.labelShowingType = UILabelShowingType_03;
+     }return _amountValueModel;
  }
  
  */

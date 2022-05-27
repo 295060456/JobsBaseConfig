@@ -13,11 +13,11 @@ typedef enum : NSInteger {
     UILabelShowingType_01 = 0,
     /// 一行显示。定宽、定高、定字体。多余部分scrollerView
     UILabelShowingType_02,
-    /// 一行显示。不定宽、定高、定字体。宽度自适应
+    /// 一行显示。不定宽、定高、定字体。宽度自适应 【单行：ByFont】
     UILabelShowingType_03,
-    /// 一行显示。定宽、定高。缩小字体方式全展示
+    /// 一行显示。定宽、定高。缩小字体方式全展示 【单行：ByWidth】
     UILabelShowingType_04,
-    /// 多行显示。定宽、不定高、定字体
+    /// 多行显示。定宽、不定高、定字体 【多行：ByFont】
     UILabelShowingType_05,
 } UILabelShowingType;// UILabel的显示样式
 

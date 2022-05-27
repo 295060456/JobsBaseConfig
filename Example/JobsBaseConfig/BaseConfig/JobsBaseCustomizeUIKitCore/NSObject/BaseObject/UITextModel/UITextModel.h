@@ -20,7 +20,11 @@ if ([self.viewModel.subTextModel.text isEqualToString:Internationalization(TextM
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UITextModel : NSObject<UITextModelProtocol>
+@interface UITextModel : NSObject
+<
+UITextModelProtocol
+,UILocationProtocol
+>
 
 @end
 

@@ -256,6 +256,10 @@
 }
 #pragma mark —— BaseViewProtocol
 /// 数据（字符串）定宽
+/// data.textModel.textLineSpacing
+/// data.textModel.font
+/// data.jobsHeight
+/// data.textModel.text
 +(CGFloat)widthByData:(UIViewModel *_Nonnull)data{
     return [data.textModel.text getContentHeightOrWidthWithParagraphStyleLineSpacing:data.textModel.textLineSpacing
                                                                calcLabelHeight_Width:CalcLabelWidth
@@ -263,6 +267,10 @@
                                                         boundingRectWithHeight_Width:data.jobsHeight];
 }
 /// 数据（字符串）定高
+/// data.textModel.textLineSpacing
+/// data.textModel.font
+/// data.jobsWidth
+/// data.textModel.text
 +(CGFloat)heightByData:(UIViewModel *_Nonnull)data{
     return [data.textModel.text getContentHeightOrWidthWithParagraphStyleLineSpacing:data.textModel.textLineSpacing
                                                                calcLabelHeight_Width:CalcLabelHeight
