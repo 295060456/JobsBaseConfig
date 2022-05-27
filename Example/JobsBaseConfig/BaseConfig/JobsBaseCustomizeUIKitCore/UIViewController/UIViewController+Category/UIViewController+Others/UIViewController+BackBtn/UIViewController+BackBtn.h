@@ -34,7 +34,9 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark —— BaseVC+BackBtn
 @property(nonatomic,strong)UIButton *backBtnCategory;
 @property(nonatomic,strong)UIBarButtonItem *backBtnCategoryItem;
-#pragma mark —— 子类需要覆写
+/// 创建返回键，没有配置按钮的normalImage属性
++(UIButton *)makeBackBtn:(UIViewModel *)viewModel;
+///【子类需要覆写 】创建返回键的点击事件
 -(void)backBtnClickEvent:(UIButton *_Nullable)sender;
 
 @end

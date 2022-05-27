@@ -8,31 +8,29 @@
 #import "UIViewController+BackBtn.h"
 
 @implementation UIViewController (BackBtn)
-
-static char *BaseVC_BackBtn_backBtnCategory = "BaseVC_BackBtn_backBtnCategory";
-@dynamic backBtnCategory;
-
-static char *BaseVC_BackBtn_backBtnCategoryItem = "BaseVC_BackBtn_backBtnCategoryItem";
-@dynamic backBtnCategoryItem;
-
 /// GKNavigationBar 返回按钮点击方法
 -(void)backItemClick:(id)sender{
     [self backBtnClickEvent:sender];
 }
-#pragma mark —— 子类需要覆写
+/// 【创建返回键】没有配置按钮的normalImage属性，也没有配置点击事件
++(UIButton *)makeBackBtn:(UIViewModel *)viewModel{
+    UIButton *backBtnCategory = UIButton.new;
+    backBtnCategory.titleFont = viewModel.backBtnTitleModel.font;
+    backBtnCategory.normalTitle = viewModel.backBtnTitleModel.text;
+    backBtnCategory.normalTitleColor = viewModel.backBtnTitleModel.textCor ? : UIColor.blackColor;
+    [backBtnCategory layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft
+                                     imageTitleSpace:JobsWidth(8)];
+    [backBtnCategory makeBtnLabelByShowingType:UILabelShowingType_03];
+    return backBtnCategory;
+}
+///【子类需要覆写 】创建返回键的点击事件
 -(void)backBtnClickEvent:(UIButton *_Nullable)sender{
     switch (self.pushOrPresent) {
         case ComingStyle_PRESENT:{
-            [self dismissViewControllerAnimated:YES
-                                     completion:nil];
+            [self dismissViewControllerAnimated:YES completion:nil];
         }break;
         case ComingStyle_PUSH:{
-            if (self.navigationController) {
-                [self.navigationController popViewControllerAnimated:YES];
-            }else{
-                [self dismissViewControllerAnimated:YES
-                                         completion:nil];
-            }
+            self.navigationController ? [self.navigationController popViewControllerAnimated:YES] : [self dismissViewControllerAnimated:YES completion:nil];
         }break;
             
         default:
@@ -40,23 +38,18 @@ static char *BaseVC_BackBtn_backBtnCategoryItem = "BaseVC_BackBtn_backBtnCategor
     }
 }
 #pragma mark SET | GET
+static char *BaseVC_BackBtn_backBtnCategory = "BaseVC_BackBtn_backBtnCategory";
+@dynamic backBtnCategory;
 #pragma mark —— @property(nonatomic,strong)BackBtn *backBtnCategory;
 -(UIButton *)backBtnCategory{
     UIButton *BackBtnCategory = objc_getAssociatedObject(self, BaseVC_BackBtn_backBtnCategory);
     if (!BackBtnCategory) {
-        BackBtnCategory = UIButton.new;
-
-        UIImage *backImage = KBuddleIMG(nil,
-                                        @"Frameworks/GKNavigationBar.framework/GKNavigationBar",
-                                        nil,
-                                        self.gk_backStyle == GKNavigationBarBackStyleBlack ? @"btn_back_black" : @"btn_back_white");
-
-        [BackBtnCategory normalImage:self.viewModel.backBtnIMG ? : backImage];
-        [BackBtnCategory normalTitleColor:self.viewModel.backBtnTitleModel.textCor];
-        [BackBtnCategory normalTitle:self.viewModel.backBtnTitleModel.text];
-        [BackBtnCategory layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft
-                                         imageTitleSpace:JobsWidth(8)];
+        BackBtnCategory = [UIViewController makeBackBtn:self.viewModel];
         BtnClickEvent(BackBtnCategory, [self backBtnClickEvent:x];);
+        BackBtnCategory.normalImage = self.viewModel.backBtnIMG ? : KBuddleIMG(nil,
+                                                                               @"Frameworks/GKNavigationBar.framework/GKNavigationBar",
+                                                                               nil,
+                                                                               self.gk_backStyle == GKNavigationBarBackStyleBlack ? @"btn_back_black" : @"btn_back_white");
         objc_setAssociatedObject(self,
                                  BaseVC_BackBtn_backBtnCategory,
                                  BackBtnCategory,
@@ -70,6 +63,8 @@ static char *BaseVC_BackBtn_backBtnCategoryItem = "BaseVC_BackBtn_backBtnCategor
                              backBtnCategory,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+static char *BaseVC_BackBtn_backBtnCategoryItem = "BaseVC_BackBtn_backBtnCategoryItem";
+@dynamic backBtnCategoryItem;
 #pragma mark —— @property(nonatomic,strong)UIBarButtonItem *backBtnCategoryItem;
 -(void)setBackBtnCategoryItem:(UIBarButtonItem *)backBtnCategoryItem{
     objc_setAssociatedObject(self,
