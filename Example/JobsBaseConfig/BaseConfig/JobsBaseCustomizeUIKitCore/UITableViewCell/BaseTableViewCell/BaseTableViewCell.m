@@ -55,6 +55,7 @@ UIViewModelProtocol_synthesize
             self.detailTextLabel.text = [NSString stringWithFormat:@"%@",model.subTextModel.text];
             self.detailTextLabel.textColor = self.viewModel.subTextModel.textCor;
             self.detailTextLabel.font = self.viewModel.subTextModel.font;
+            [self.detailTextLabel makeLabelByShowingType:UILabelShowingType_05];
         }
     }
 }
