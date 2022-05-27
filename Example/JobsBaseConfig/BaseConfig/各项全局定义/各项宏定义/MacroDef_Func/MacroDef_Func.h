@@ -18,6 +18,13 @@
 #import "MacroDef_Strong@Weak.h"
 #import "MacroDef_Time.h"
 #import "MacroDef_Singleton.h"
+#import "NSObject+WHToast.h"
+
+#if __has_include(<WHToast/WHToast.h>)
+#import <WHToast/WHToast.h>
+#else
+#import "WHToast.h"
+#endif
 
 static inline UIWindow *getMainWindow(){
     UIWindow *window = nil;
@@ -96,6 +103,10 @@ static inline id getSysSceneDelegate(){
     if (@available(iOS 13.0, *)) {
         sceneDelegate = UIApplication.sharedApplication.connectedScenes.allObjects.firstObject.delegate;
     }return sceneDelegate;
+}
+/// 弹出提示
+static inline void toast(NSString *msg){
+    [WHToast toastMsg:Internationalization(msg)];
 }
 /// 定义一些默认值
 #ifndef JobsDefaultValue
