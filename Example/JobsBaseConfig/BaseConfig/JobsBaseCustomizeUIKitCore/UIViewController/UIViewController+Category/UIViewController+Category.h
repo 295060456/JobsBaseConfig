@@ -31,5 +31,6 @@
 #import "UIViewController+BaseNavigationBar.h"
 #import "UIViewController+Lottie.h"
 #import "UIViewController+SuspendBtn.h"
+#import "UIViewController+TFPopupView.h"
 
 #endif /* UIViewController_Category_h */

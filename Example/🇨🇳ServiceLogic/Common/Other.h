@@ -55,5 +55,6 @@
 #import "JobsDropDownListVC.h"
 #import "YTKNetworkStudyVC.h"
 #import "CoreTextLearningVC.h"
+#import "JXCategoryPopupVC.h"
 
 #endif /* Other_h */

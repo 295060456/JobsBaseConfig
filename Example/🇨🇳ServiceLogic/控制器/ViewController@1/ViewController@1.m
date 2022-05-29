@@ -342,6 +342,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             [_dataMutArr addObject:viewModel];
         }
         
+        {
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"JXCategoryPopupVC"
+                                                           subTitle:Internationalization(@"JXCategoryView+PopupView")];
+            viewModel.cls = JXCategoryPopupVC.class;
+            [_dataMutArr addObject:viewModel];
+        }
+        
     }return _dataMutArr;
 }
 

@@ -691,6 +691,11 @@
 		C533BBBD2837D095006FB231 /* JobsUserHeaderDataViewTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C533BBB52837D095006FB231 /* JobsUserHeaderDataViewTBVCell.m */; };
 		C533BBBF2837D095006FB231 /* JobsUserHeaderDataViewForHeaderInSection.m in Sources */ = {isa = PBXBuildFile; fileRef = C533BBBB2837D095006FB231 /* JobsUserHeaderDataViewForHeaderInSection.m */; };
 		C54BC43628325BA80010EF20 /* JobsTitleView01.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BC43428325BA80010EF20 /* JobsTitleView01.m */; };
+		C55C895628437190005295B1 /* JXCategoryPopupVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C55C895528437190005295B1 /* JXCategoryPopupVC.m */; };
+		C55C8959284371A9005295B1 /* JXCategoryPopupSubVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C55C8958284371A9005295B1 /* JXCategoryPopupSubVC.m */; };
+		C55E6B5428436F8100ABA84A /* BaiShaETProjCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = C55E6B4E28436F8100ABA84A /* BaiShaETProjCustomView.m */; };
+		C55E6B5628436F8100ABA84A /* BaiShaETProjFiltrationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C55E6B5228436F8100ABA84A /* BaiShaETProjFiltrationView.m */; };
+		C55E6B5C2843701D00ABA84A /* UIViewController+TFPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = C55E6B582843701D00ABA84A /* UIViewController+TFPopupView.m */; };
 		C5703FA7283FA5110048382E /* UIView+BRPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5703FA5283FA5110048382E /* UIView+BRPickerView.m */; };
 		C57A2034282CB59F0032156B /* ZLGestureLockView.m in Sources */ = {isa = PBXBuildFile; fileRef = C57A2025282CB59E0032156B /* ZLGestureLockView.m */; };
 		C57A2035282CB59F0032156B /* gesture_headIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C57A2027282CB59E0032156B /* gesture_headIcon@2x.png */; };
@@ -2150,6 +2155,20 @@
 		C54BC43228325BA80010EF20 /* JobsTitleView01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsTitleView01.h; sourceTree = "<group>"; };
 		C54BC43328325BA80010EF20 /* JobsTitleView01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobsTitleView01.png; sourceTree = "<group>"; };
 		C54BC43428325BA80010EF20 /* JobsTitleView01.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsTitleView01.m; sourceTree = "<group>"; };
+		C55C895428437190005295B1 /* JXCategoryPopupVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JXCategoryPopupVC.h; sourceTree = "<group>"; };
+		C55C895528437190005295B1 /* JXCategoryPopupVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JXCategoryPopupVC.m; sourceTree = "<group>"; };
+		C55C8957284371A9005295B1 /* JXCategoryPopupSubVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JXCategoryPopupSubVC.h; sourceTree = "<group>"; };
+		C55C8958284371A9005295B1 /* JXCategoryPopupSubVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JXCategoryPopupSubVC.m; sourceTree = "<group>"; };
+		C55E6B4C28436F8100ABA84A /* 自定义视图.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "自定义视图.png"; sourceTree = "<group>"; };
+		C55E6B4D28436F8100ABA84A /* BaiShaETProjCustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiShaETProjCustomView.h; sourceTree = "<group>"; };
+		C55E6B4E28436F8100ABA84A /* BaiShaETProjCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiShaETProjCustomView.m; sourceTree = "<group>"; };
+		C55E6B5028436F8100ABA84A /* BaiShaETProjFiltrationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiShaETProjFiltrationView.h; sourceTree = "<group>"; };
+		C55E6B5128436F8100ABA84A /* 筛选视图.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "筛选视图.png"; sourceTree = "<group>"; };
+		C55E6B5228436F8100ABA84A /* BaiShaETProjFiltrationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiShaETProjFiltrationView.m; sourceTree = "<group>"; };
+		C55E6B582843701D00ABA84A /* UIViewController+TFPopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TFPopupView.m"; sourceTree = "<group>"; };
+		C55E6B592843701D00ABA84A /* UIViewController+TFPopupView（02）.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIViewController+TFPopupView（02）.png"; sourceTree = "<group>"; };
+		C55E6B5A2843701D00ABA84A /* UIViewController+TFPopupView（01）.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIViewController+TFPopupView（01）.png"; sourceTree = "<group>"; };
+		C55E6B5B2843701D00ABA84A /* UIViewController+TFPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TFPopupView.h"; sourceTree = "<group>"; };
 		C5703FA5283FA5110048382E /* UIView+BRPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BRPickerView.m"; sourceTree = "<group>"; };
 		C5703FA6283FA5110048382E /* UIView+BRPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BRPickerView.h"; sourceTree = "<group>"; };
 		C57A2025282CB59E0032156B /* ZLGestureLockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLGestureLockView.m; sourceTree = "<group>"; };
@@ -3748,6 +3767,7 @@
 		840F944B27736426004979E9 /* UIViewController+Category */ = {
 			isa = PBXGroup;
 			children = (
+				C55E6B572843701D00ABA84A /* UIViewController+TFPopupView */,
 				840F945327736426004979E9 /* UIViewController+Category.h */,
 				840F944C27736426004979E9 /* UIViewController+JXCategory */,
 				840F947D27736426004979E9 /* UIViewController+MJRefresh */,
@@ -3909,11 +3929,11 @@
 			isa = PBXGroup;
 			children = (
 				840F947E27736426004979E9 /* ConfigModel */,
+				840F948527736426004979E9 /* JsonRes.bundle */,
+				840F948727736426004979E9 /* LOTAnimationMJRefreshFooter */,
 				840F948127736426004979E9 /* LOTAnimationMJRefreshHeader */,
 				840F948427736426004979E9 /* UIViewController+MJRefresh.h */,
-				840F948527736426004979E9 /* JsonRes.bundle */,
 				840F948627736426004979E9 /* UIViewController+MJRefresh.m */,
-				840F948727736426004979E9 /* LOTAnimationMJRefreshFooter */,
 			);
 			path = "UIViewController+MJRefresh";
 			sourceTree = "<group>";
@@ -8126,6 +8146,7 @@
 		84CA609D278980E700E46E71 /* 功能模块 */ = {
 			isa = PBXGroup;
 			children = (
+				C55E6B5F2843705500ABA84A /* JXCategoryPopup */,
 				8424778F27C113FE00831270 /* CoreTextLearning */,
 				8424731227C0C19700831270 /* 探究猿题库网络框架（YTKNetwork） */,
 				84CA642C2789C0F700E46E71 /* Douyin_ZFPlayer */,
@@ -8745,6 +8766,64 @@
 			path = JobsTitleView01;
 			sourceTree = "<group>";
 		};
+		C55C895A284371B2005295B1 /* JXCategoryPopupVC */ = {
+			isa = PBXGroup;
+			children = (
+				C55C895428437190005295B1 /* JXCategoryPopupVC.h */,
+				C55C895528437190005295B1 /* JXCategoryPopupVC.m */,
+			);
+			path = JXCategoryPopupVC;
+			sourceTree = "<group>";
+		};
+		C55C895B284371BB005295B1 /* JXCategoryPopupSubVC */ = {
+			isa = PBXGroup;
+			children = (
+				C55C8957284371A9005295B1 /* JXCategoryPopupSubVC.h */,
+				C55C8958284371A9005295B1 /* JXCategoryPopupSubVC.m */,
+			);
+			path = JXCategoryPopupSubVC;
+			sourceTree = "<group>";
+		};
+		C55E6B4B28436F8100ABA84A /* 自定义视图 */ = {
+			isa = PBXGroup;
+			children = (
+				C55E6B4C28436F8100ABA84A /* 自定义视图.png */,
+				C55E6B4D28436F8100ABA84A /* BaiShaETProjCustomView.h */,
+				C55E6B4E28436F8100ABA84A /* BaiShaETProjCustomView.m */,
+			);
+			path = "自定义视图";
+			sourceTree = "<group>";
+		};
+		C55E6B4F28436F8100ABA84A /* 筛选视图 */ = {
+			isa = PBXGroup;
+			children = (
+				C55E6B5128436F8100ABA84A /* 筛选视图.png */,
+				C55E6B5028436F8100ABA84A /* BaiShaETProjFiltrationView.h */,
+				C55E6B5228436F8100ABA84A /* BaiShaETProjFiltrationView.m */,
+			);
+			path = "筛选视图";
+			sourceTree = "<group>";
+		};
+		C55E6B572843701D00ABA84A /* UIViewController+TFPopupView */ = {
+			isa = PBXGroup;
+			children = (
+				C55E6B5B2843701D00ABA84A /* UIViewController+TFPopupView.h */,
+				C55E6B582843701D00ABA84A /* UIViewController+TFPopupView.m */,
+				C55E6B5A2843701D00ABA84A /* UIViewController+TFPopupView（01）.png */,
+				C55E6B592843701D00ABA84A /* UIViewController+TFPopupView（02）.png */,
+			);
+			path = "UIViewController+TFPopupView";
+			sourceTree = "<group>";
+		};
+		C55E6B5F2843705500ABA84A /* JXCategoryPopup */ = {
+			isa = PBXGroup;
+			children = (
+				C55C895B284371BB005295B1 /* JXCategoryPopupSubVC */,
+				C55C895A284371B2005295B1 /* JXCategoryPopupVC */,
+			);
+			path = JXCategoryPopup;
+			sourceTree = "<group>";
+		};
 		C5703FA4283FA5110048382E /* UIView+BRPickerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -8786,6 +8865,8 @@
 		C5932EBD282D26CD00B3B053 /* ☀️业务模块中公用的View */ = {
 			isa = PBXGroup;
 			children = (
+				C55E6B4F28436F8100ABA84A /* 筛选视图 */,
+				C55E6B4B28436F8100ABA84A /* 自定义视图 */,
 				C5932EBE282D26D900B3B053 /* 本App相关的自定义弹出框 */,
 			);
 			path = "☀️业务模块中公用的View";
@@ -9551,6 +9632,7 @@
 				840F964E27736427004979E9 /* UITableViewCell+BaseCellProtocol.m in Sources */,
 				C57A2034282CB59F0032156B /* ZLGestureLockView.m in Sources */,
 				8459CC332775D3E900125782 /* AppDelegate+UIApplicationDelegate.m in Sources */,
+				C55E6B5628436F8100ABA84A /* BaiShaETProjFiltrationView.m in Sources */,
 				844B08832764CF4800B0513D /* XHLaunchAdImageManager.m in Sources */,
 				8456259A278BF2780067ABB9 /* JobsLoadMoreTBVCell.m in Sources */,
 				84CA63CA2789B1EC00E46E71 /* DynamicViewTestVC.m in Sources */,
@@ -9733,6 +9815,7 @@
 				84CA65FE2789D3B500E46E71 /* JobsAppDoorLoginContentView.m in Sources */,
 				84CA61932789851300E46E71 /* A_VC.m in Sources */,
 				8456259D278BF2780067ABB9 /* JobsCommentConfig.m in Sources */,
+				C55C895628437190005295B1 /* JXCategoryPopupVC.m in Sources */,
 				844B084E2764CF4800B0513D /* ECPrivacyCheckMotionAndFitness.m in Sources */,
 				840F969A27736428004979E9 /* NSString+Replace.m in Sources */,
 				84D76437278090330003F0E4 /* UIViewController+SafeTransition.m in Sources */,
@@ -9764,6 +9847,7 @@
 				840F96F027736428004979E9 /* NSObject+RegularExpression.m in Sources */,
 				840F96A427736428004979E9 /* UIViewController+EmptyData.m in Sources */,
 				840F96F627736428004979E9 /* NSObject+Notification.m in Sources */,
+				C55E6B5428436F8100ABA84A /* BaiShaETProjCustomView.m in Sources */,
 				840F965427736428004979E9 /* UITableViewCell+Margin.m in Sources */,
 				840F96E627736428004979E9 /* NSObject+Swizzling.m in Sources */,
 				844B08752764CF4800B0513D /* ZMJCell+CustomView.m in Sources */,
@@ -9836,6 +9920,7 @@
 				840F964727736427004979E9 /* UIImage+SYS.m in Sources */,
 				840F961127736427004979E9 /* ZBRequestManager.m in Sources */,
 				84CA65FC2789D3B500E46E71 /* JobsAppDoorVC_Style2.m in Sources */,
+				C55C8959284371A9005295B1 /* JXCategoryPopupSubVC.m in Sources */,
 				845C795E2786D29F009843EE /* NSObject+RunrtimeGet.m in Sources */,
 				840F960227736427004979E9 /* TransitionAnimation.m in Sources */,
 				84CA5FA927897AFB00E46E71 /* HWTFCodeView.m in Sources */,
@@ -9917,6 +10002,7 @@
 				84758D0B279855710074B4BA /* JobsLaunchVC.m in Sources */,
 				8424743527C0C32B00831270 /* YTKNetworkStudyVC.m in Sources */,
 				84869679277C68470098BE7A /* NSString+Check.m in Sources */,
+				C55E6B5C2843701D00ABA84A /* UIViewController+TFPopupView.m in Sources */,
 				840F96A027736428004979E9 /* UIViewController+BWShareView.m in Sources */,
 				84CA5FC627897AFB00E46E71 /* JhtBannerScrollView.m in Sources */,
 				840F95FE27736427004979E9 /* JobsTabbarVC.m in Sources */,

@@ -109,6 +109,10 @@ static inline void toast(NSString *msg){
     [WHToast toastMsg:Internationalization(msg)];
 }
 /// 定义一些默认值
+#ifndef listContainerViewDefaultOffset
+#define listContainerViewDefaultOffset JobsWidth(50)
+#endif
+
 #ifndef JobsDefaultValue
 #define JobsDefaultValue 0
 #endif
