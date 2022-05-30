@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "JobsBlock.h"
 #import "BaseCellProtocol.h"
+#import "UITableViewCellProtocol.h"
 #import "UIViewModelProtocol.h"
 #import "MacroDef_Func.h"
 #import "UIViewModel.h"
@@ -20,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface BaseTableViewCell : UITableViewCell
 <
 BaseCellProtocol
+,UITableViewCellProtocol
 ,UIViewModelProtocol
 >
 

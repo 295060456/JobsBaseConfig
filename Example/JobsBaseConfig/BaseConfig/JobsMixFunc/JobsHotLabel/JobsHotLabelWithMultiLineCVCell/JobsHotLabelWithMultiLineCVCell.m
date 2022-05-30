@@ -23,10 +23,14 @@
     }return self;
 }
 #pragma mark —— JobsDoorInputViewProtocol
+-(UILabel *_Nullable)getTextLab{
+    return self.textLab;
+}
+
 -(UIViewModel *_Nullable)getViewModel{
     return self.viewModel;
 }
-#pragma mark —— BaseCellProtocol
+#pragma mark —— UICollectionViewCellProtocol
 +(instancetype)cellWithCollectionView:(nonnull UICollectionView *)collectionView
                          forIndexPath:(nonnull NSIndexPath *)indexPath{
     JobsHotLabelWithMultiLineCVCell *cell = (JobsHotLabelWithMultiLineCVCell *)[collectionView collectionViewCellClass:JobsHotLabelWithMultiLineCVCell.class forIndexPath:indexPath];
@@ -38,6 +42,7 @@
     cell.indexPath = indexPath;
     return cell;
 }
+#pragma mark —— BaseCellProtocol
 /// 具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 -(void)richElementsInCellWithModel:(UIViewModel *_Nullable)model{
     [_textLab removeFromSuperview];

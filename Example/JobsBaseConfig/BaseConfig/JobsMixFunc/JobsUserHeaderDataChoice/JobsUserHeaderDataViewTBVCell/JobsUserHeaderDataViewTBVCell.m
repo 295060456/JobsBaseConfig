@@ -17,7 +17,7 @@
 
 @synthesize viewModel = _viewModel;
 
-#pragma mark —— BaseCellProtocol
+#pragma mark —— UITableViewCellProtocol
 /// UITableViewCell
 +(instancetype)cellWithTableView:(UITableView *)tableView{
     JobsUserHeaderDataViewTBVCell *cell = (JobsUserHeaderDataViewTBVCell *)[tableView tableViewCellClass:JobsUserHeaderDataViewTBVCell.class];

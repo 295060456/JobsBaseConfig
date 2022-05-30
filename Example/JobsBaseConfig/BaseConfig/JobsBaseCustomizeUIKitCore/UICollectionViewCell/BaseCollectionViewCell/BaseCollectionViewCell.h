@@ -7,12 +7,12 @@
 
 #import <UIKit/UIKit.h>
 #import "MacroDef_Func.h"
-#import "BaseCellProtocol.h"
+#import "UICollectionViewCellProtocol.h"
 #import "UICollectionViewCell+ShakeAnimation.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BaseCollectionViewCell : UICollectionViewCell<BaseCellProtocol>
+@interface BaseCollectionViewCell : UICollectionViewCell<UICollectionViewCellProtocol>
 
 @end
 

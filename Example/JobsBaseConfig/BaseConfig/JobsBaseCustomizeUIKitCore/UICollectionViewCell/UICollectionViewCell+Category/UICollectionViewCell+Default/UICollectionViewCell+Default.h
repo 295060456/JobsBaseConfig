@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MacroDef_Func.h"
+#import "UICollectionViewCellProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 /**
@@ -22,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  */
 
-@interface UICollectionViewCell (Default)<BaseCellProtocol>
+@interface UICollectionViewCell (Default)<UICollectionViewCellProtocol>
 
 +(instancetype)defaultCellWithCollectionView:(nonnull UICollectionView *)collectionView
                                 forIndexPath:(nonnull NSIndexPath *)indexPath;

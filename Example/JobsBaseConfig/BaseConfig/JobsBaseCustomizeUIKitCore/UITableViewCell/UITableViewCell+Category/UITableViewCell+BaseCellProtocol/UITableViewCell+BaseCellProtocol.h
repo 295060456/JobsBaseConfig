@@ -13,7 +13,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UITableViewCell (BaseCellProtocol)<BaseCellProtocol>
+@interface UITableViewCell (BaseCellProtocol)
+<
+BaseCellProtocol
+,UITableViewCellProtocol
+>
 
 @end
 

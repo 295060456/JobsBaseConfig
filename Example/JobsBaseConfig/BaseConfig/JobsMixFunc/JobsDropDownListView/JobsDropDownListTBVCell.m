@@ -12,15 +12,16 @@
 @end
 
 @implementation JobsDropDownListTBVCell
-
-#pragma mark —— BaseCellProtocol
+#pragma mark —— @synthesize UITableViewCellProtocol
+UITableViewCellProtocol_synthesize
+#pragma mark —— UITableViewCellProtocol
 +(instancetype)cellWithTableView:(UITableView *)tableView{
     JobsDropDownListTBVCell *cell = (JobsDropDownListTBVCell *)[tableView tableViewCellClass:JobsDropDownListTBVCell.class];
     if (!cell) {
         cell = [JobsDropDownListTBVCell initTableViewCellWithStyle:UITableViewCellStyleValue1];
     }return cell;
 }
-
+#pragma mark —— BaseCellProtocol
 - (instancetype)initWithStyle:(UITableViewCellStyle)style
               reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style

@@ -13,10 +13,9 @@
 @end
 
 @implementation BaseTableViewCell
-
-#pragma mark —— UIViewModelProtocol
-UIViewModelProtocol_synthesize
-
+#pragma mark —— @synthesize UITableViewCellProtocol
+UITableViewCellProtocol_synthesize
+#pragma mark —— UITableViewCellProtocol
 +(instancetype)cellWithTableView:(UITableView *)tableView{
     BaseTableViewCell *cell = (BaseTableViewCell *)[tableView tableViewCellClass:BaseTableViewCell.class];
     if (!cell) {
@@ -37,6 +36,21 @@ UIViewModelProtocol_synthesize
     }return self;
 }
 
+-(void)layoutSubviews{
+    [super layoutSubviews];
+}
+
+// 在具体的子类去实现,分类调用异常
+//-(void)setFrame:(CGRect)frame{
+//    NSLog(@"self.offsetXForEach = %f",self.offsetXForEach);
+//    NSLog(@"self.offsetYForEach = %f",self.offsetYForEach);
+//    frame.origin.x += self.offsetXForEach;
+//    frame.origin.y += self.offsetYForEach;
+//    frame.size.height -= self.offsetYForEach * 2;
+//    frame.size.width -= self.offsetXForEach * 2;
+//    [super setFrame:frame];
+//}
+#pragma mark —— BaseCellProtocol
 -(void)richElementsInCellWithModel:(UIViewModel *_Nullable)model{
     if (model) {
         self.viewModel = model;
@@ -71,6 +85,8 @@ UIViewModelProtocol_synthesize
     return [UIView heightByData:vm] + JobsWidth(20);
 }
 #pragma mark —— 协议属性合成set & get方法
+/// UIViewModelProtocol
+UIViewModelProtocol_synthesize
 -(void)setindexPath:(NSIndexPath *)indexPath{
     _indexPath = indexPath;
 }

@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 一种用字符串取UITableViewCell及其子类的方法❤️复用字符串是目标类的类名❤️
 -(__kindof UITableViewCell *)tableViewCellClass:(Class)cls;
 /// 一种用字符串 和 indexPath 取UITableViewCell及其子类的方法❤️复用字符串是目标类的类名❤️
--(__kindof UITableViewCell *)collectionViewCellClass:(Class)cls forIndexPath:(NSIndexPath *)indexPath;
+-(__kindof UITableViewCell *)tableViewCellClass:(Class)cls forIndexPath:(NSIndexPath *)indexPath;
 /// 一种用字符串取UITableViewHeaderFooterView及其子类的方法❤️复用字符串是目标类的类名❤️
 -(__kindof UITableViewHeaderFooterView *)tableViewHeaderFooterView:(Class)cls;
 

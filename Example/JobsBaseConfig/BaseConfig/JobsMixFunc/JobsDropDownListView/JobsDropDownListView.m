@@ -12,7 +12,7 @@
 }
 /// UI
 @property(nonatomic,strong)UITableView *tableView;
-@property(nonatomic,strong)Class <BaseCellProtocol>tbvCell_cls;
+@property(nonatomic,strong)Class <UITableViewCellProtocol>tbvCell_cls;
 /// Data
 @property(nonatomic,strong)NSMutableArray <UITableViewCell *>*tbvCellMutArr;
 @property(nonatomic,strong)NSMutableArray <UIViewModel *>*dataMutArr;
@@ -39,7 +39,7 @@
     }return self;
 }
 
--(instancetype)initWithTableViewClass:(Class <BaseCellProtocol>_Nonnull)tableViewClass{
+-(instancetype)initWithTableViewClass:(Class <UITableViewCellProtocol>_Nonnull)tableViewClass{
     if (self = [super init]) {
         self.tbvCell_cls = tableViewClass;
         self.tableView.alpha = 1;
@@ -58,8 +58,6 @@
 }
 
 -(void)dropDownListViewDisappear{
-    [_tableView removeFromSuperview];
-    _tableView = nil;
     [self removeFromSuperview];
 }
 
@@ -77,9 +75,8 @@
 - (CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     /// self.tbvCell_cls没有值的时候等于调用 [JobsDropDownListTBVCell cellHeightWithModel:Nil];
-    @jobs_weakify(self)
     NSNumber *d = [NSObject methodName:@"cellHeightWithModel:"
-                             targetObj:weak_self.tbvCell_cls ? weak_self.tbvCell_cls.class : JobsDropDownListTBVCell.class
+                             targetObj:self.tbvCell_cls ? self.tbvCell_cls.class : JobsDropDownListTBVCell.class
                            paramarrays:nil];
     return d.floatValue;
 }
@@ -130,10 +127,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
     if (!_tbvCellMutArr) {
         _tbvCellMutArr = NSMutableArray.array;
         NSInteger dataMutArrCount = self.dataMutArr.count;
-        @jobs_weakify(self)
         do {
             UITableViewCell *tableViewCell = (UITableViewCell *)[NSObject methodName:@"cellWithTableView:"
-                                                                           targetObj:weak_self.tbvCell_cls ? weak_self.tbvCell_cls.class : JobsDropDownListTBVCell.class
+                                                                           targetObj:self.tbvCell_cls ? self.tbvCell_cls.class : JobsDropDownListTBVCell.class
                                                                          paramarrays:@[self.tableView]];
             [_tbvCellMutArr addObject:tableViewCell];
             dataMutArrCount -= 1;

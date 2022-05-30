@@ -25,7 +25,7 @@
     return [self dequeueReusableCellWithIdentifier:cls.description];
 }
 /// 一种用字符串 和 indexPath 取UITableViewCell及其子类的方法❤️复用字符串是目标类的类名❤️
--(__kindof UITableViewCell *)collectionViewCellClass:(Class)cls forIndexPath:(NSIndexPath *)indexPath{
+-(__kindof UITableViewCell *)tableViewCellClass:(Class)cls forIndexPath:(NSIndexPath *)indexPath{
     return [self dequeueReusableCellWithIdentifier:cls.description forIndexPath:indexPath];
 }
 /// 一种用字符串取UITableViewHeaderFooterView及其子类的方法❤️复用字符串是目标类的类名❤️

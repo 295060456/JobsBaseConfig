@@ -2208,6 +2208,8 @@
 		C596B79E283F6F7800C13619 /* JobsHotLabelWithMultiLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsHotLabelWithMultiLine.h; sourceTree = "<group>"; };
 		C596B79F283F6F7800C13619 /* JobsHotLabelWithMultiLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsHotLabelWithMultiLine.m; sourceTree = "<group>"; };
 		C596B7A0283F6F7800C13619 /* JobsHotLabelConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsHotLabelConfig.h; sourceTree = "<group>"; };
+		C59D36072844A89700388FB5 /* UICollectionViewCellProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UICollectionViewCellProtocol.h; sourceTree = "<group>"; };
+		C59D36082844A89800388FB5 /* UITableViewCellProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITableViewCellProtocol.h; sourceTree = "<group>"; };
 		C5AA8B2F282CE2EF0057EB84 /* 输入框样式_8（👨🏻用户名,下提示）.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "输入框样式_8（👨🏻用户名,下提示）.md"; sourceTree = "<group>"; };
 		C5AA8B30282CE2EF0057EB84 /* JobsAppDoorInputViewBaseStyle_8.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputViewBaseStyle_8.h; sourceTree = "<group>"; };
 		C5AA8B31282CE2EF0057EB84 /* JobsAppDoorInputViewBaseStyle_8.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorInputViewBaseStyle_8.m; sourceTree = "<group>"; };
@@ -6935,6 +6937,8 @@
 		847A2E89278EFEAA003F9A52 /* BaseProtocol <NSObject> */ = {
 			isa = PBXGroup;
 			children = (
+				C59D36072844A89700388FB5 /* UICollectionViewCellProtocol.h */,
+				C59D36082844A89800388FB5 /* UITableViewCellProtocol.h */,
 				847A2E8A278EFEAA003F9A52 /* BaseViewControllerProtocol.h */,
 				847A2E8B278EFEAA003F9A52 /* AppToolsProtocol.h */,
 				847A2E8C278EFEAA003F9A52 /* BaseButtonProtocol.h */,

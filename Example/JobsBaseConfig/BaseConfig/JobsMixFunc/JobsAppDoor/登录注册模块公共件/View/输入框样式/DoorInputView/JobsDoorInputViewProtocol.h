@@ -17,12 +17,12 @@ NS_ASSUME_NONNULL_BEGIN
 @optional
 
 -(void)changeTextFieldAnimationColor:(BOOL)toRegisterBtnSelected;
--(UILabel *)getTextLab;
--(UIButton *)getSecurityModeBtn;
+-(UILabel *_Nullable)getTextLab;
+-(UIButton *_Nullable)getSecurityModeBtn;
 -(UITextField *_Nullable)getTextField;
 -(NSString *_Nullable)getTextFieldValue;
 -(UIViewModel *_Nullable)getViewModel;
--(NSMutableArray<JobsAppDoorInputViewBaseStyle *> *)getAppDoorInputViewBaseStyle;
+-(NSMutableArray<JobsAppDoorInputViewBaseStyle *> *_Nullable)getAppDoorInputViewBaseStyle;
 
 @end
 

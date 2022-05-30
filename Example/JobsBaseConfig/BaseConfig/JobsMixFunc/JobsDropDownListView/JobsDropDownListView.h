@@ -7,6 +7,7 @@
 
 #import "BaseView.h"
 #import "JobsDropDownListTBVCell.h"
+#import "UITableViewCellProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,7 +17,7 @@ UITableViewDelegate
 ,UITableViewDataSource
 >
 
--(instancetype)initWithTableViewClass:(Class <BaseCellProtocol>_Nonnull)tableViewClass;// 要链接自定义的cell用这个初始化方法
+-(instancetype)initWithTableViewClass:(Class <UITableViewCellProtocol>_Nonnull)tableViewClass;// 要链接自定义的cell用这个初始化方法
 
 -(void)dropDownListViewDisappear;
 

@@ -14,6 +14,8 @@
 #import "NTESVerifyCodeManagerProtocol.h"
 
 #import "BaseProtocol.h"
+#import "UITableViewCellProtocol.h"
+#import "UICollectionViewCellProtocol.h"
 #import "BaseViewProtocol.h"
 #import "BaseCellProtocol.h"
 #import "BaseButtonProtocol.h"

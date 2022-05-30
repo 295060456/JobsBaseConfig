@@ -8,7 +8,9 @@
 #import "UITableViewCell+BaseCellProtocol.h"
 
 @implementation UITableViewCell (BaseCellProtocol)
-
+#pragma mark —— @dynamic UITableViewCellProtocol
+UITableViewCellProtocol_dynamic
+#pragma mark —— UITableViewCellProtocol
 +(instancetype)initTableViewCellWithStyle:(UITableViewCellStyle)style{
     return [self.alloc initWithStyle:style reuseIdentifier:self.class.description];
 }
@@ -21,7 +23,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }return cell;
 }
-
+#pragma mark —— BaseCellProtocol
 -(void)richElementsInCellWithModel:(UIViewModel *_Nullable)model{
     if ([model isKindOfClass:UIViewModel.class]) {
         self.textLabel.textColor = model.textModel.textCor;

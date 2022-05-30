@@ -8,6 +8,8 @@
         2.2.1、BaseViewControllerProtocol<BaseViewProtocol>
         2.2.2、BaseButtonProtocol <BaseViewProtocol>
         2.2.3、BaseCellProtocol <BaseViewProtocol>
+                2.2.3.1、UITableViewCellProtocol<BaseCellProtocol>
+                2.2.3.2、UICollectionViewCellProtocol<BaseCellProtocol>
 
 3、NTESVerifyCodeManagerProtocol <NSObject>
 4、ZFDouYinCellDelegate <NSObject>
