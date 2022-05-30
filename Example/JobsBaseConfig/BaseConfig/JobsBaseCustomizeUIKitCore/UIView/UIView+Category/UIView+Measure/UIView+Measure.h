@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewProtocol.h"
+
 @class UIViewModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
 /// 操作顺序，添加视图 再进行 布局
 typedef void(^EqualToView)(UIView *view);
-/* ❤️【优先级】 @implementation UIView (Measure) > Masonry,因为Masonry刷新后才有frame ❤️*/
+
 @interface UIView (Measure)<BaseViewProtocol>
 
 @property(nonatomic,assign)CGFloat x;
@@ -32,6 +33,9 @@ typedef void(^EqualToView)(UIView *view);
 @property(nonatomic,assign)CGFloat top;
 @property(nonatomic,assign)CGFloat bottom;
 
+#pragma mark —— 一些工具方法
+/// 依据偏移量重塑Frame
+-(void)offsetForView:(UIViewModel *)viewModel;
 #pragma mark ——【UIView对齐方法扩充】 https://github.com/MisterZhouZhou/ZWUIViewExtension
 /** centerX equal to View‘s centerX
  *  centerxEqualToView(superview/view)

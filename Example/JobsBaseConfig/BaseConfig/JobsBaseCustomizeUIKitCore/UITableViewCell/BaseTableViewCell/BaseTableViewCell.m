@@ -38,18 +38,88 @@ UITableViewCellProtocol_synthesize
 
 -(void)layoutSubviews{
     [super layoutSubviews];
-}
+    /// 修改 UITableViewCell 中默认子控件的frame
+    NSLog(@"%f",self.textLabelFrame.size.width);
+    NSLog(@"%f",self.textLabelFrame.size.height);
+    NSLog(@"%f",self.textLabelFrame.origin.x);
+    NSLog(@"%f",self.textLabelFrame.origin.y);
+    
+    NSLog(@"%f",self.detailTextLabelFrame.size.width);
+    NSLog(@"%f",self.detailTextLabelFrame.size.height);
+    NSLog(@"%f",self.detailTextLabelFrame.origin.x);
+    NSLog(@"%f",self.detailTextLabelFrame.origin.y);
+    
+    NSLog(@"%f",self.imageViewFrame.size.width);
+    NSLog(@"%f",self.imageViewFrame.size.height);
+    NSLog(@"%f",self.imageViewFrame.origin.x);
+    NSLog(@"%f",self.imageViewFrame.origin.y);
 
+    NSLog(@"%f",self.textLabelFrameOffsetX);
+    NSLog(@"%f",self.textLabelFrameOffsetY);
+    NSLog(@"%f",self.textLabelFrameOffsetWidth);
+    NSLog(@"%f",self.textLabelFrameOffsetHeight);
+    
+    NSLog(@"%f",self.detailTextLabelOffsetX);
+    NSLog(@"%f",self.detailTextLabelOffsetY);
+    NSLog(@"%f",self.detailTextLabelOffsetWidth);
+    NSLog(@"%f",self.detailTextLabelOffsetHeight);
+    
+    NSLog(@"%f",self.imageViewFrameOffsetX);
+    NSLog(@"%f",self.imageViewFrameOffsetY);
+    NSLog(@"%f",self.imageViewFrameOffsetWidth);
+    NSLog(@"%f",self.imageViewFrameOffsetHeight);
+    /// 直接设置新的Frame
+    if (!zeroRectValue(self.textLabelFrame)) {
+        self.textLabel.frame = self.textLabelFrame;
+    }
+    
+    if (!zeroRectValue(self.detailTextLabelFrame)) {
+        self.detailTextLabel.frame = self.detailTextLabelFrame;
+    }
+
+    if (!zeroRectValue(self.imageViewFrame)) {
+        self.imageView.frame = self.imageViewFrame;
+    }
+    /// 依据偏移量来设置Frame
+    {
+        UIViewModel *viewModel = UIViewModel.new;
+        viewModel.offsetXForEach = self.textLabelFrameOffsetX;
+        viewModel.offsetYForEach = self.textLabelFrameOffsetY;
+        viewModel.offsetWidth = self.textLabelFrameOffsetWidth;
+        viewModel.offsetHeight = self.textLabelFrameOffsetHeight;
+        
+        [self.textLabel offsetForView:viewModel];
+    }
+    
+    {
+        UIViewModel *viewModel = UIViewModel.new;
+        viewModel.offsetXForEach = self.detailTextLabelOffsetX;
+        viewModel.offsetYForEach = self.detailTextLabelOffsetY;
+        viewModel.offsetWidth = self.detailTextLabelOffsetWidth;
+        viewModel.offsetHeight = self.detailTextLabelOffsetHeight;
+        
+        [self.detailTextLabel offsetForView:viewModel];
+    }
+    {
+        UIViewModel *viewModel = UIViewModel.new;
+        viewModel.offsetXForEach = self.imageViewFrameOffsetX;
+        viewModel.offsetYForEach = self.imageViewFrameOffsetY;
+        viewModel.offsetWidth = self.imageViewFrameOffsetWidth;
+        viewModel.offsetHeight = self.imageViewFrameOffsetHeight;
+        
+        [self.imageView offsetForView:viewModel];
+    }
+}
 // 在具体的子类去实现,分类调用异常
-//-(void)setFrame:(CGRect)frame{
-//    NSLog(@"self.offsetXForEach = %f",self.offsetXForEach);
-//    NSLog(@"self.offsetYForEach = %f",self.offsetYForEach);
-//    frame.origin.x += self.offsetXForEach;
-//    frame.origin.y += self.offsetYForEach;
-//    frame.size.height -= self.offsetYForEach * 2;
-//    frame.size.width -= self.offsetXForEach * 2;
-//    [super setFrame:frame];
-//}
+-(void)setFrame:(CGRect)frame{
+    NSLog(@"self.offsetXForEach = %f",self.offsetXForEach);
+    NSLog(@"self.offsetYForEach = %f",self.offsetYForEach);
+    frame.origin.x += self.offsetXForEach;
+    frame.origin.y += self.offsetYForEach;
+    frame.size.height -= self.offsetYForEach * 2;
+    frame.size.width -= self.offsetXForEach * 2;
+    [super setFrame:frame];
+}
 #pragma mark —— BaseCellProtocol
 -(void)richElementsInCellWithModel:(UIViewModel *_Nullable)model{
     if (model) {

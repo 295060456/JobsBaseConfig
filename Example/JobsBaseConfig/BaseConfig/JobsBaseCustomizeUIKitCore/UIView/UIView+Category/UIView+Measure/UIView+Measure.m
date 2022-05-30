@@ -9,7 +9,16 @@
 #import "UIView+Measure.h"
 /* ❤️【优先级】 @implementation UIView (Measure) > Masonry,因为Masonry刷新后才有frame ❤️*/
 @implementation UIView (Measure)
-
+#pragma mark —— 一些工具方法
+/// 依据偏移量重塑Frame
+-(void)offsetForView:(UIViewModel *)viewModel{
+    CGRect viewFrame = self.frame;
+    viewFrame.origin.x += viewModel.offsetXForEach;
+    viewFrame.origin.y += viewModel.offsetYForEach;
+    viewFrame.size.width += viewModel.offsetWidth;
+    viewFrame.size.height += viewModel.offsetHeight;
+    self.frame = viewFrame;
+}
 #pragma mark ——【UIView对齐方法扩充】 https://github.com/MisterZhouZhou/ZWUIViewExtension
 /// 设置水平方向对齐
 -(EqualToView)centerxEqualToView{
