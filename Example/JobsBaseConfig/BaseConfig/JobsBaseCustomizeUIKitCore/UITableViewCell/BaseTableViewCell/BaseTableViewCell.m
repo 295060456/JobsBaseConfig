@@ -127,6 +127,15 @@ UITableViewCellProtocol_synthesize
     frame.size.width -= self.offsetXForEach * 2;
     [super setFrame:frame];
 }
+#pragma mark —— BaseViewProtocol
+/// 具体由子类进行复写【数据定高】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
++(CGFloat)heightForFooterInSection:(id _Nullable)model{
+    return JobsWidth(10);
+}
+/// 具体由子类进行复写【数据定高】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
++(CGFloat)heightForHeaderInSection:(id _Nullable)model{
+    return JobsWidth(10);
+}
 #pragma mark —— BaseCellProtocol
 -(void)richElementsInCellWithModel:(UIViewModel *_Nullable)model{
     if (model) {
