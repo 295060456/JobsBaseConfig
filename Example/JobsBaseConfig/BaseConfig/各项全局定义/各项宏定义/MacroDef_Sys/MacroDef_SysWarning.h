@@ -19,6 +19,7 @@
 //#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 //#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
 //#pragma clang diagnostic ignored "-Wobjc-protocol-method-implementation"
+//#pragma clang diagnostic ignored "-Wprotocol"
 //#pragma clang diagnostic pop
 
 /*

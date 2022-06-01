@@ -23,6 +23,13 @@ UITableViewCellProtocol_synthesize
     }return cell;
 }
 
++(instancetype)cellWithTableView:(UITableView *)tableView
+           cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    BaseTableViewCell *cell = [BaseTableViewCell cellWithTableView:tableView];
+    cell.indexPath = indexPath;
+    return cell;
+}
+
 - (instancetype)initWithStyle:(UITableViewCellStyle)style
               reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style

@@ -7,11 +7,18 @@
 
 #import "NSObject+DataBinding.h"
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wprotocol"
+
 @implementation NSObject (DataBinding)
+
+-(void)dataLinkByTableView:(UITableView *)tableView{
+    tableView.delegate = self;
+    tableView.dataSource = self;
+}
 
 static char *NSObject_DataBinding_objBindingParams = "NSObject_DataBinding_objBindingParams";
 @dynamic objBindingParams;
-
 #pragma mark —— @property(nonatomic,strong)id objBindingParams;
 -(id)objBindingParams{
     id ObjBindingParams = objc_getAssociatedObject(self, NSObject_DataBinding_objBindingParams);
@@ -26,3 +33,5 @@ static char *NSObject_DataBinding_objBindingParams = "NSObject_DataBinding_objBi
 }
 
 @end
+
+#pragma clang diagnostic pop

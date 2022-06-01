@@ -35,6 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(instancetype)initTableViewCellWithStyle:(UITableViewCellStyle)style;
 +(instancetype)cellWithTableView:(UITableView *)tableView;
++(instancetype)cellWithTableView:(UITableView *)tableView
+           cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
