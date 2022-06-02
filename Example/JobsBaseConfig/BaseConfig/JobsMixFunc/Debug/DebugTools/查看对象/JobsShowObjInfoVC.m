@@ -65,7 +65,7 @@
             UIViewModel *viewModel = UIViewModel.new;
             viewModel.textModel.text = propertyName;
             viewModel.textModel.textCor = UIColor.blueColor;
-            viewModel.subTextModel.text = [requestParams valueForKey:propertyName];
+            viewModel.subTextModel.text = requestParams.valueForKeyBlock(propertyName);
             viewModel.textModel.textCor = UIColor.redColor;
             [self.dataMutArr addObject:viewModel];
         }
@@ -110,7 +110,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     UIPasteboard.generalPasteboard.string = self.dataMutArr[indexPath.row].subTextModel.text;
-    [WHToast toastMsg:[NSString stringWithFormat:@"复制%@成功",self.dataMutArr[indexPath.row].textModel.text]];
+    [WHToast toastMsg:[NSString stringWithFormat:@"%@%@%@",Internationalization(@"复制"),self.dataMutArr[indexPath.row].textModel.text,Internationalization(@"成功")]];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView

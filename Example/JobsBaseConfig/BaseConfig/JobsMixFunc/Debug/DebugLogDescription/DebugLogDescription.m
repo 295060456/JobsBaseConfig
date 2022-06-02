@@ -50,7 +50,7 @@
     for (int i = 0; i<count; i++) {
         objc_property_t property = properties[i];
         NSString *name = @(property_getName(property));
-        id value = [self valueForKey:name]?:@"nil";//默认值为nil字符串
+        id value = self.valueForKeyBlock(name) ? : @"nil";//默认值为nil字符串
         [dictionary setObject:value forKey:name];//装载到字典里
     }
     //释放
@@ -83,27 +83,15 @@
 @implementation NSDictionary (DebugDescription)
 //用此方法交换系统的 descriptionWithLocale: 方法。该方法在代码打印的时候调用。
 - (NSString *)printlog_descriptionWithLocale:(id)locale{
-    NSString *result = [self convertToJsonString];//转换成JSON格式字符串
-    if (!result) {
-        result = [self printlog_descriptionWithLocale:locale];//如果无法转换，就使用原先的格式
-        return result;
-    }return result;
+    return self.convertToJsonString ? : [self printlog_descriptionWithLocale:locale];/// 转换成JSON格式字符串，如果无法转换，就使用原先的格式;
 }
 //用此方法交换系统的 descriptionWithLocale:indent:方法。功能同上。
 - (NSString *)printlog_descriptionWithLocale:(id)locale indent:(NSUInteger)level {
-
-    NSString *result = [self convertToJsonString];
-    if (!result) {
-        result = [self printlog_descriptionWithLocale:locale indent:level];//如果无法转换，就使用原先的格式
-        return result;
-    }return result;
+    return self.convertToJsonString ? : [self printlog_descriptionWithLocale:locale indent:level];/// 转换成JSON格式字符串，如果无法转换，就使用原先的格式;
 }
 //用此方法交换系统的 debugDescription 方法。该方法在控制台使用po打印的时候调用。
 - (NSString *)printlog_debugDescription{
-    
-    NSString *result = [self convertToJsonString];
-    if (!result) return [self printlog_debugDescription];
-    return result;
+    return self.convertToJsonString ? : self.printlog_debugDescription;/// 转换成JSON格式字符串，如果无法转换，就使用原先的格式;
 }
 //在load方法中完成方法交换
 + (void)load {
@@ -142,25 +130,15 @@
 }
 //用此方法交换系统的 descriptionWithLocale: 方法。该方法在代码打印的时候调用。
 - (NSString *)printlog_descriptionWithLocale:(id)locale{
-    NSString *result = [self convertToJsonString];//转换成JSON格式字符串
-    if (!result) {
-        result = [self printlog_descriptionWithLocale:locale];//如果无法转换，就使用原先的格式
-        return result;
-    }return result;
+    return self.convertToJsonString ? : [self printlog_descriptionWithLocale:locale];/// 转换成JSON格式字符串，如果无法转换，就使用原先的格式;
 }
 //用此方法交换系统的 descriptionWithLocale:indent:方法。功能同上。
 - (NSString *)printlog_descriptionWithLocale:(id)locale indent:(NSUInteger)level {
-    NSString *result = [self convertToJsonString];
-    if (!result) {
-        result = [self printlog_descriptionWithLocale:locale indent:level];//如果无法转换，就使用原先的格式
-        return result;
-    }return result;
+    return self.convertToJsonString ? : [self printlog_descriptionWithLocale:locale indent:level];/// 转换成JSON格式字符串，如果无法转换，就使用原先的格式;
 }
 //用此方法交换系统的 debugDescription 方法。该方法在控制台使用po打印的时候调用。
 - (NSString *)printlog_debugDescription{
-    NSString *result = [self convertToJsonString];
-    if (!result) return [self printlog_debugDescription];
-    return result;
+    return self.convertToJsonString ? : self.printlog_debugDescription;
 }
 
 @end

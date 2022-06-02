@@ -9,6 +9,7 @@
 #import <objc/runtime.h>
 #import "NSObject+Swizzling.h"
 #import "MacroDef_Log.h"
+#import "NSObject+Extras.h"
 
 #ifdef DEBUG
 
@@ -19,9 +20,11 @@
 @end
 
 @interface NSDictionary (DebugDescription)
+
 @end
 
 @interface NSArray (DebugDescription)
+
 @end
 
 #endif

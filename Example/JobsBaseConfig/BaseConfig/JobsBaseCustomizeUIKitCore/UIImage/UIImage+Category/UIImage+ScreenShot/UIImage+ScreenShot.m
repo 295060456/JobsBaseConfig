@@ -21,8 +21,8 @@
 
 /** 获取屏幕截图 */
 +(UIImage *)getCurrentScreenShot{
-    CGSize size = [UIScreen mainScreen].bounds.size;
-    CGFloat scale = [UIScreen mainScreen].scale;
+    CGSize size = UIScreen.mainScreen.bounds.size;
+    CGFloat scale = UIScreen.mainScreen.scale;
     UIGraphicsBeginImageContextWithOptions(size,
                                            YES,
                                            scale);
@@ -33,31 +33,25 @@
 }
 
 +(UIImage *)getLanuchScreenShot{
-    NSString *name = [[[NSBundle mainBundle] infoDictionary] valueForKey:@"UILaunchStoryboardName"];
-    if(name == nil){
-        return nil;
-    }
-    UIViewController *vc = [[UIStoryboard storyboardWithName:name bundle:nil] instantiateInitialViewController];
+    NSString *name = NSBundle.mainBundle.infoDictionary.valueForKeyBlock(@"UILaunchStoryboardName");
+    if(!name)return nil;
+    UIViewController *vc = [UIStoryboard storyboardWithName:name bundle:nil].instantiateInitialViewController;
     if(vc){
         UIView * view = vc.view;
-        UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        UIWindow *window = [UIWindow.alloc initWithFrame:UIScreen.mainScreen.bounds];
         view.frame = window.bounds;
         [window addSubview:view];
         [window layoutIfNeeded];
         UIImage *image = [UIImage getCurrentViewShot:view];
         window = nil;
         return image;
-    }
-    return nil;
+    }return nil;
 }
-
 /** 获取某个view 上的截图 */
 +(UIImage *)getCurrentViewShot:(UIView *)view{
-    if (CGRectIsEmpty(view.frame)) {
-        return nil;
-    }
+    if (CGRectIsEmpty(view.frame)) return nil;
     CGSize size = view.bounds.size;
-    CGFloat scale = [UIScreen mainScreen].scale;
+    CGFloat scale = UIScreen.mainScreen.scale;
     UIGraphicsBeginImageContextWithOptions(size,
                                            NO,
                                            scale);
@@ -74,7 +68,7 @@
 /** 获取某个scrollview 上的截图 */
 +(UIImage *)getCurrentScrollviewShot:(UIScrollView *)scrollview{
     CGSize size = scrollview.contentSize;
-    CGFloat scale = [UIScreen mainScreen].scale;
+    CGFloat scale = UIScreen.mainScreen.scale;
     UIGraphicsBeginImageContextWithOptions(size,
                                            YES,
                                            scale);
@@ -100,7 +94,7 @@
 }
 /** 获取某个 范围内的 截图 */
 +(UIImage *)getCurrentInnerViewShot:(UIView *)innerView
-                                atFrame:(CGRect)rect{
+                            atFrame:(CGRect)rect{
     UIGraphicsBeginImageContext(innerView.frame.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSaveGState(context);
@@ -110,6 +104,5 @@
     UIGraphicsEndImageContext();
     return theImage;
 }
-
 
 @end

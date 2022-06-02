@@ -190,7 +190,7 @@ ratio:(CGFloat)ratio {
         [self.view layoutIfNeeded];
         
         /// ❤️在需要的地方写❤️
-        NSNumber *currentIndex = [self.listContainerView valueForKey:@"currentIndex"];
+        NSNumber *currentIndex = self.listContainerView.valueForKeyBlock(@"currentIndex");
         NSLog(@"滑动或者点击以后，改变控制器，得到的目前最新的index = %d",currentIndex.intValue);
         
     }return _listContainerView;
@@ -236,7 +236,7 @@ ratio:(CGFloat)ratio {
             x.selected = !x.selected;
 //            [WHToast toastMsg:Internationalization(@"篩選")];
             [x changeAction:x.selected];
-            self.currentIndex = [self.listContainerView valueForKey:@"currentIndex"];
+            self.currentIndex = self.listContainerView.valueForKeyBlock(@"currentIndex");;
             NSLog(@"滑动或者点击以后，改变控制器，得到的目前最新的index = %d",self.currentIndex.intValue);
             self.vc = (JXCategoryPopupSubVC *)self.childVCMutArr[self.currentIndex.intValue];
             
@@ -270,7 +270,7 @@ ratio:(CGFloat)ratio {
         BtnClickEvent(_customBtn, {
             x.selected = !x.selected;
 //            [WHToast toastMsg:Internationalization(@"自定义")];
-            self.currentIndex = [self.listContainerView valueForKey:@"currentIndex"];
+            self.currentIndex = self.listContainerView.valueForKeyBlock(@"currentIndex");;
             NSLog(@"滑动或者点击以后，改变控制器，得到的目前最新的index = %d",self.currentIndex.intValue);
             self.vc = (JXCategoryPopupSubVC *)self.childVCMutArr[self.currentIndex.intValue];
             self.popUpFiltrationView = self.vc.popUpFiltrationView;
