@@ -201,7 +201,7 @@
 -(id _Nullable)checkTargetObj:(NSObject *_Nullable)obj
                  propertyName:(NSString *_Nullable)propertyName{
     if ([obj.printPropertyList containsObject:propertyName]) {
-        return [obj valueForKey:propertyName];;
+        return obj.valueForKeyBlock(propertyName);
     }return nil;
 }
 /// 版本号比较 版本号的格式：数字中间由点隔开
