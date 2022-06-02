@@ -10,27 +10,6 @@
 
 @implementation NSObject (Extras)
 
-static char *NSObject_Extras_lastPoint = "NSObject_Extras_lastPoint";
-@dynamic lastPoint;
-
-static char *NSObject_Extras_indexPath = "NSObject_Extras_indexPath";
-@dynamic indexPath;
-
-static char *NSObject_Extras_currentPage = "NSObject_Extras_currentPage";
-@dynamic currentPage;
-
-static char *NSObject_Extras_pageSize = "NSObject_Extras_pageSize";
-@dynamic pageSize;
-
-static char *NSObject_Extras_index = "NSObject_Extras_index";
-@dynamic index;
-
-static char *NSObject_Extras_viewModel = "NSObject_Extras_viewModel";
-@dynamic viewModel;
-
-static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internationalizationKEY";
-@dynamic internationalizationKEY;
-
 #pragma mark —— 宏
 /// App 国际化相关系统宏二次封装 + 设置缺省值
 +(NSString *_Nullable)localStringWithKey:(nonnull NSString *)key{
@@ -70,9 +49,9 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
 
 -(UIViewController *_Nullable)getCurrentViewControllerFromRootVC:(UIViewController *_Nullable)rootVC{
     UIViewController *currentVC;
-    if ([rootVC presentedViewController]) {
+    if (rootVC.presentedViewController) {
         // 视图是被presented出来的
-        rootVC = [rootVC presentedViewController];
+        currentVC = rootVC.presentedViewController;
     }
 
     if ([rootVC isKindOfClass:UITabBarController.class]) {
@@ -131,6 +110,12 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
                     context:nil];
 }
 #pragma mark —— 功能性的
+-(JobsReturnIDByIDBlock _Nonnull)valueForKeyBlock{
+    return ^(NSString *data) {
+        return [data isKindOfClass:NSString.class] ? [self valueForKey:data] : nil;
+    };
+}
+
 -(void)addNotificationObserverWithName:(NSString *_Nonnull)notificationName
                          selectorBlock:(jobsByTwoIDBlock _Nullable)selectorBlock{
     [NSNotificationCenter.defaultCenter addObserver:self
@@ -474,10 +459,10 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
 /// 检测用户是否锁屏：根据屏幕光线来进行判定，而不是系统通知
 +(BOOL)didUserPressLockButton{
     //获取屏幕亮度
-    CGFloat oldBrightness = [UIScreen mainScreen].brightness;
+    CGFloat oldBrightness = UIScreen.mainScreen.brightness;
     //以较小的数量改变屏幕亮度
     [UIScreen mainScreen].brightness = oldBrightness + (oldBrightness <= 0.01 ? (0.01) : (-0.01));
-    CGFloat newBrightness  = [UIScreen mainScreen].brightness;
+    CGFloat newBrightness  = UIScreen.mainScreen.brightness;
     //恢复屏幕亮度
     [UIScreen mainScreen].brightness = oldBrightness;
     //判断屏幕亮度是否能够被改变
@@ -494,9 +479,9 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
         
         NSData *imageData = nil;
         
-        if ([photo.image isKindOfClass:[SDAnimatedImage class]]) {
+        if ([photo.image isKindOfClass:SDAnimatedImage.class]) {
             imageData = [(SDAnimatedImage *)photo.image animatedImageData];
-        }else if ([photo.image isKindOfClass:[YYImage class]]) {
+        }else if ([photo.image isKindOfClass:YYImage.class]) {
             imageData = [(YYImage *)photo.image animatedImageData];
         }else {
             imageData = [photo.image sd_imageData];
@@ -507,10 +492,13 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
         [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
             if (@available(iOS 9, *)) {
                 PHAssetCreationRequest *request = [PHAssetCreationRequest creationRequestForAsset];
-                [request addResourceWithType:PHAssetResourceTypePhoto data:imageData options:nil];
+                [request addResourceWithType:PHAssetResourceTypePhoto
+                                        data:imageData
+                                     options:nil];
                 request.creationDate = [NSDate date];
             }
-        } completionHandler:^(BOOL success, NSError *error) {
+        } completionHandler:^(BOOL success,
+                              NSError *error) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (success) {
                     NSLog(@"保存照片成功");
@@ -572,7 +560,7 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
                                             @"plist");
     
     if ([FileFolderHandleTool isExistsAtPath:filePath]) {
-        return [[NSDictionary alloc] initWithContentsOfFile:filePath];
+        return [NSDictionary.alloc initWithContentsOfFile:filePath];
     }return nil;
 }
 /// 监听程序被杀死前的时刻，进行一些需要异步的操作：磁盘读写、网络请求...
@@ -635,8 +623,7 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
                                                &infoCount);
     if (kernReturn != KERN_SUCCESS) {
         return NSNotFound;
-    }
-    return ((vm_page_size * vmStats.free_count)/1024.0)/1024.0;
+    }return ((vm_page_size * vmStats.free_count)/1024.0)/1024.0;
 }
 /// 获取当前任务所占用内存
 +(double)usedMemory{
@@ -863,6 +850,8 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
     contentView.mj_footer.hidden = !dataSource.count;
 }
 #pragma mark —— 属性的Set | GET
+static char *NSObject_Extras_lastPoint = "NSObject_Extras_lastPoint";
+@dynamic lastPoint;
 #pragma mark —— @property(nonatomic,assign)CGPoint lastPoint;
 -(CGPoint)lastPoint{
     CGPoint LastPoint = [objc_getAssociatedObject(self,
@@ -876,6 +865,8 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
                              [NSValue valueWithCGPoint:lastPoint],
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+static char *NSObject_Extras_indexPath = "NSObject_Extras_indexPath";
+@dynamic indexPath;
 #pragma mark —— @property(nonatomic,strong)NSIndexPath *indexPath;
 -(NSIndexPath *)indexPath{
     return objc_getAssociatedObject(self, NSObject_Extras_indexPath);
@@ -887,6 +878,8 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
                              indexPath,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+static char *NSObject_Extras_currentPage = "NSObject_Extras_currentPage";
+@dynamic currentPage;
 #pragma mark —— @property(nonatomic,assign)NSInteger currentPage;
 -(NSInteger)currentPage{
     NSInteger CurrentPage = [objc_getAssociatedObject(self, NSObject_Extras_currentPage) integerValue];
@@ -905,6 +898,8 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
                              [NSNumber numberWithInteger:currentPage],
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+static char *NSObject_Extras_pageSize = "NSObject_Extras_pageSize";
+@dynamic pageSize;
 #pragma mark —— @property(nonatomic,assign)NSInteger pageSize;
 -(NSInteger)pageSize{
     NSInteger PageSize = [objc_getAssociatedObject(self, NSObject_Extras_pageSize) integerValue];
@@ -923,6 +918,8 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
                              [NSNumber numberWithInteger:pageSize],
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+static char *NSObject_Extras_index = "NSObject_Extras_index";
+@dynamic index;
 #pragma mark —— @property(nonatomic,assign)NSInteger index;
 -(NSInteger)index{
     NSInteger Index = [objc_getAssociatedObject(self, NSObject_Extras_index) integerValue];
@@ -935,6 +932,8 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
                              [NSNumber numberWithInteger:index],
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+static char *NSObject_Extras_viewModel = "NSObject_Extras_viewModel";
+@dynamic viewModel;
 #pragma mark —— @property(nonatomic,strong)UIViewModel *viewModel;
 -(UIViewModel *)viewModel{
     UIViewModel *ViewModel = objc_getAssociatedObject(self, NSObject_Extras_viewModel);
@@ -953,6 +952,8 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
                              viewModel,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internationalizationKEY";
+@dynamic internationalizationKEY;
 #pragma mark —— @property(nonatomic,strong)NSString *internationalizationKEY;/// 国际化的key
 -(NSString *)internationalizationKEY{
     NSString *InternationalizationKEY = objc_getAssociatedObject(self, NSObject_Extras_internationalizationKEY);

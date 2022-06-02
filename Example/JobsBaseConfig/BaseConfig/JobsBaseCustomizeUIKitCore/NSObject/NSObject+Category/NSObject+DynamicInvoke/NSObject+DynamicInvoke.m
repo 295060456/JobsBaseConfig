@@ -88,7 +88,7 @@ callingMethodWithName:(nullable NSString *)methodName{
     }
     // 执行方法
     [invocation invoke];
-    return [self getMethodReturnValueWithInv:invocation sig:signature];;
+    return [self getMethodReturnValueWithInv:invocation sig:signature];
 }
 /// 获取方法返回值
 /// @param inv inv
@@ -185,9 +185,7 @@ static void selectorImp(id self,
                         id arg) {
     callback block = objc_getAssociatedObject(self, _cmd);
     __weak typeof(self) weakSelf = self;
-    if (block) {
-        block(weakSelf, arg);
-    }
+    if (block) block(weakSelf, arg);
 }
 
 @end

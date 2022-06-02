@@ -6,12 +6,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JobsBlock.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol BaseProtocol <NSObject>
 
 @optional
+/// KVC-Block
+-(JobsReturnIDByIDBlock _Nonnull)valueForKeyBlock;
 
 -(void)languageSwitchNotificationWithSelector:(SEL)aSelector;//在View上,target = self（view）,省略
 /// 更改UITabBarItem的标题
