@@ -38,7 +38,7 @@ SceneDelegate *sceneDelegate;
 #pragma mark —— lazyLoad
 -(UIWindow *)window{
     AppDelegate *appDelegate = getSysAppDelegate();
-    [_window setRootViewController:appDelegate.tabBarVC];
+    _window.rootViewController = appDelegate.tabBarVC;
     [_window makeKeyAndVisible];
     return _window;
 }

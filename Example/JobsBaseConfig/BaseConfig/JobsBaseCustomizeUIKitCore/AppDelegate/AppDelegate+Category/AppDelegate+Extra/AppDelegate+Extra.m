@@ -8,15 +8,6 @@
 #import "AppDelegate+Extra.h"
 
 @implementation AppDelegate (Extra)
-
-static char *AppDelegate_Extra_tabBarVC = "AppDelegate_Extra_tabBarVC";
-@dynamic tabBarVC;
-
-static char *AppDelegate_Extra_configMutArr = "AppDelegate_Extra_configMutArr";
-@dynamic configMutArr;
-
-static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitleMutArr";
-@dynamic tabBarTitleMutArr;
 /// 仅仅对数值tabBarTitleMutArr做简单的添加元素并赋值
 -(void)addElementByTabBarTitleMutArr:(NSMutableArray *)tabBarTitleMutArr{
     if (tabBarTitleMutArr) {
@@ -65,6 +56,28 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
     PopupParameter.popupSize = [CasinoCustomerServiceView viewSizeWithModel:nil];
     return PopupParameter;
 }
+static char *AppDelegate_Extra_testVC = "AppDelegate_Extra_testVC";
+@dynamic testVC;
+#pragma mark —— @property(nonatomic,strong)JobsTestVC *testVC;
+-(JobsTestVC *)testVC{
+    JobsTestVC *TestVC = objc_getAssociatedObject(self, AppDelegate_Extra_testVC);
+    if (!TestVC) {
+        TestVC = JobsTestVC.new;
+        objc_setAssociatedObject(self,
+                                 AppDelegate_Extra_testVC,
+                                 TestVC,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return TestVC;
+}
+
+-(void)setTestVC:(JobsTestVC *)testVC{
+    objc_setAssociatedObject(self,
+                             AppDelegate_Extra_testVC,
+                             testVC,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+static char *AppDelegate_Extra_tabBarVC = "AppDelegate_Extra_tabBarVC";
+@dynamic tabBarVC;
 #pragma mark —— @property(nonatomic,strong)JobsTabbarVC *tabBarVC;
 -(JobsTabbarVC *)tabBarVC{
     JobsTabbarVC *TabBarVC = objc_getAssociatedObject(self, AppDelegate_Extra_tabBarVC);
@@ -128,6 +141,8 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
                              tabBarVC,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+static char *AppDelegate_Extra_configMutArr = "AppDelegate_Extra_configMutArr";
+@dynamic configMutArr;
 #pragma mark —— @property(nonatomic,strong)NSMutableArray <JobsTabBarControllerConfig *>*configMutArr;
 -(NSMutableArray<JobsTabBarControllerConfig *> *)configMutArr{
     NSMutableArray *ConfigMutArr = objc_getAssociatedObject(self, AppDelegate_Extra_configMutArr);
@@ -206,6 +221,8 @@ static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitl
                              configMutArr,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+static char *AppDelegate_Extra_tabBarTitleMutArr = "AppDelegate_Extra_tabBarTitleMutArr";
+@dynamic tabBarTitleMutArr;
 #pragma mark —— #pragma mark —— @property(nonatomic,strong)NSMutableArray <NSString *>*tabBarTitleMutArr;
 -(NSMutableArray<NSString *> *)tabBarTitleMutArr{
     NSMutableArray *TabBarTitleMutArr = objc_getAssociatedObject(self, AppDelegate_Extra_tabBarTitleMutArr);

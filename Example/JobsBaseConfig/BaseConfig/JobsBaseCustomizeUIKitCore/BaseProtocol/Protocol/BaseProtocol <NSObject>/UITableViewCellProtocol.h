@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)CGRect detailTextLabelFrame;
 @property(nonatomic,assign)CGRect textLabelFrame;
 @property(nonatomic,assign)CGRect imageViewFrame;
+/// UITableViewCell系统自带控件的自定义宽度
+@property(nonatomic,assign)CGFloat textLabelWidth;
+@property(nonatomic,assign)CGFloat detailTextLabelWidth;
 /// UITableViewCell系统自带控件的自定义偏移量
 @property(nonatomic,assign)CGFloat textLabelFrameOffsetX;
 @property(nonatomic,assign)CGFloat textLabelFrameOffsetY;
@@ -50,6 +53,9 @@ NS_ASSUME_NONNULL_END
 @synthesize textLabelFrame = _textLabelFrame;\
 @synthesize imageViewFrame = _imageViewFrame;\
 \
+@synthesize textLabelWidth = _textLabelWidth;\
+@synthesize detailTextLabelWidth = _detailTextLabelWidth;\
+\
 @synthesize textLabelFrameOffsetX = _textLabelFrameOffsetX;\
 @synthesize textLabelFrameOffsetY = _textLabelFrameOffsetY;\
 @synthesize textLabelFrameOffsetWidth = _textLabelFrameOffsetWidth;\
@@ -74,6 +80,9 @@ NS_ASSUME_NONNULL_END
 @dynamic detailTextLabelFrame;\
 @dynamic textLabelFrame;\
 @dynamic imageViewFrame;\
+\
+@dynamic textLabelWidth;\
+@dynamic detailTextLabelWidth;\
 \
 @dynamic textLabelFrameOffsetX;\
 @dynamic textLabelFrameOffsetY;\

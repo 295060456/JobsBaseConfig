@@ -56,5 +56,6 @@
 #import "YTKNetworkStudyVC.h"
 #import "CoreTextLearningVC.h"
 #import "JXCategoryPopupVC.h"
+#import "JobsTestVC.h"
 
 #endif /* Other_h */

@@ -349,6 +349,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             [_dataMutArr addObject:viewModel];
         }
         
+        {
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"JobsTestVC"
+                                                           subTitle:Internationalization(@"进行测试的一个控制器")];
+            viewModel.cls = JobsTestVC.class;
+            [_dataMutArr addObject:viewModel];
+        }
+        
     }return _dataMutArr;
 }
 

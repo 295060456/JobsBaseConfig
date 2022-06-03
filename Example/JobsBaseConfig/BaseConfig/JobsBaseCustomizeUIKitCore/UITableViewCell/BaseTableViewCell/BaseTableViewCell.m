@@ -60,6 +60,9 @@ UITableViewCellProtocol_synthesize
     NSLog(@"%f",self.imageViewFrame.size.height);
     NSLog(@"%f",self.imageViewFrame.origin.x);
     NSLog(@"%f",self.imageViewFrame.origin.y);
+    
+    NSLog(@"%f",self.textLabelWidth);
+    NSLog(@"%f",self.detailTextLabelWidth);
 
     NSLog(@"%f",self.textLabelFrameOffsetX);
     NSLog(@"%f",self.textLabelFrameOffsetY);
@@ -86,6 +89,18 @@ UITableViewCellProtocol_synthesize
 
     if (!zeroRectValue(self.imageViewFrame)) {
         self.imageView.frame = self.imageViewFrame;
+    }
+    /// UITableViewCell系统自带控件的自定义宽度
+    if (self.textLabelWidth) {
+        CGRect textLabelFrame = self.textLabel.frame;
+        textLabelFrame.size.width = self.textLabelWidth;
+        self.textLabel.frame = textLabelFrame;
+    }
+    
+    if (self.detailTextLabelWidth) {
+        CGRect detailTextLabelFrame = self.detailTextLabel.frame;
+        detailTextLabelFrame.size.width = self.detailTextLabelWidth;
+        self.detailTextLabel.frame = detailTextLabelFrame;
     }
     /// 依据偏移量来设置Frame
     {

@@ -696,7 +696,11 @@
 		C55E6B5428436F8100ABA84A /* BaiShaETProjCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = C55E6B4E28436F8100ABA84A /* BaiShaETProjCustomView.m */; };
 		C55E6B5628436F8100ABA84A /* BaiShaETProjFiltrationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C55E6B5228436F8100ABA84A /* BaiShaETProjFiltrationView.m */; };
 		C55E6B5C2843701D00ABA84A /* UIViewController+TFPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = C55E6B582843701D00ABA84A /* UIViewController+TFPopupView.m */; };
+		C563415A2849DFE90047CA49 /* JobsTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C56341592849DFE90047CA49 /* JobsTestVC.m */; };
 		C5703FA7283FA5110048382E /* UIView+BRPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5703FA5283FA5110048382E /* UIView+BRPickerView.m */; };
+		C574E7A32849E6DB00EE3B3E /* MsgTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C574E7A22849E6DB00EE3B3E /* MsgTBVCell.m */; };
+		C574E7A62849E89D00EE3B3E /* 通知@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C574E7A42849E89C00EE3B3E /* 通知@2x.png */; };
+		C574E7A72849E89D00EE3B3E /* 通知@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C574E7A52849E89D00EE3B3E /* 通知@3x.png */; };
 		C57A2034282CB59F0032156B /* ZLGestureLockView.m in Sources */ = {isa = PBXBuildFile; fileRef = C57A2025282CB59E0032156B /* ZLGestureLockView.m */; };
 		C57A2035282CB59F0032156B /* gesture_headIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C57A2027282CB59E0032156B /* gesture_headIcon@2x.png */; };
 		C57A2036282CB59F0032156B /* gesture_indicator_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C57A2028282CB59E0032156B /* gesture_indicator_normal@2x.png */; };
@@ -2169,8 +2173,14 @@
 		C55E6B592843701D00ABA84A /* UIViewController+TFPopupView（02）.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIViewController+TFPopupView（02）.png"; sourceTree = "<group>"; };
 		C55E6B5A2843701D00ABA84A /* UIViewController+TFPopupView（01）.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIViewController+TFPopupView（01）.png"; sourceTree = "<group>"; };
 		C55E6B5B2843701D00ABA84A /* UIViewController+TFPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TFPopupView.h"; sourceTree = "<group>"; };
+		C56341582849DFE90047CA49 /* JobsTestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsTestVC.h; sourceTree = "<group>"; };
+		C56341592849DFE90047CA49 /* JobsTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsTestVC.m; sourceTree = "<group>"; };
 		C5703FA5283FA5110048382E /* UIView+BRPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BRPickerView.m"; sourceTree = "<group>"; };
 		C5703FA6283FA5110048382E /* UIView+BRPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BRPickerView.h"; sourceTree = "<group>"; };
+		C574E7A12849E6DB00EE3B3E /* MsgTBVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgTBVCell.h; sourceTree = "<group>"; };
+		C574E7A22849E6DB00EE3B3E /* MsgTBVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgTBVCell.m; sourceTree = "<group>"; };
+		C574E7A42849E89C00EE3B3E /* 通知@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "通知@2x.png"; sourceTree = "<group>"; };
+		C574E7A52849E89D00EE3B3E /* 通知@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "通知@3x.png"; sourceTree = "<group>"; };
 		C57A2025282CB59E0032156B /* ZLGestureLockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLGestureLockView.m; sourceTree = "<group>"; };
 		C57A2027282CB59E0032156B /* gesture_headIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_headIcon@2x.png"; sourceTree = "<group>"; };
 		C57A2028282CB59E0032156B /* gesture_indicator_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_indicator_normal@2x.png"; sourceTree = "<group>"; };
@@ -8150,6 +8160,7 @@
 		84CA609D278980E700E46E71 /* 功能模块 */ = {
 			isa = PBXGroup;
 			children = (
+				C56341572849DFD50047CA49 /* JobsTestVC */,
 				C55E6B5F2843705500ABA84A /* JXCategoryPopup */,
 				8424778F27C113FE00831270 /* CoreTextLearning */,
 				8424731227C0C19700831270 /* 探究猿题库网络框架（YTKNetwork） */,
@@ -8828,6 +8839,19 @@
 			path = JXCategoryPopup;
 			sourceTree = "<group>";
 		};
+		C56341572849DFD50047CA49 /* JobsTestVC */ = {
+			isa = PBXGroup;
+			children = (
+				C574E7A42849E89C00EE3B3E /* 通知@2x.png */,
+				C574E7A52849E89D00EE3B3E /* 通知@3x.png */,
+				C574E7A12849E6DB00EE3B3E /* MsgTBVCell.h */,
+				C574E7A22849E6DB00EE3B3E /* MsgTBVCell.m */,
+				C56341582849DFE90047CA49 /* JobsTestVC.h */,
+				C56341592849DFE90047CA49 /* JobsTestVC.m */,
+			);
+			path = JobsTestVC;
+			sourceTree = "<group>";
+		};
 		C5703FA4283FA5110048382E /* UIView+BRPickerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -9417,6 +9441,7 @@
 				840F962327736427004979E9 /* 3@3x.png in Resources */,
 				8440A12927A03B4B0089EE40 /* 扫描.png in Resources */,
 				844B085E2764CF4800B0513D /* 麦克风@3x.png in Resources */,
+				C574E7A62849E89D00EE3B3E /* 通知@2x.png in Resources */,
 				84CA621D27899E2700E46E71 /* 1.jpeg in Resources */,
 				840F95EA27736427004979E9 /* 主页.json in Resources */,
 				84CA5E0527895B4700E46E71 /* Localizable.strings in Resources */,
@@ -9468,6 +9493,7 @@
 				C57A2036282CB59F0032156B /* gesture_indicator_normal@2x.png in Resources */,
 				840F96FF27736428004979E9 /* 获取iOS设备唯一标示.md in Resources */,
 				844B08692764CF4800B0513D /* 文件和文件夹@2x.png in Resources */,
+				C574E7A72849E89D00EE3B3E /* 通知@3x.png in Resources */,
 				8459CE1B2776DCCF00125782 /* 启动页_01.png in Resources */,
 				844B085A2764CF4800B0513D /* 提醒事项@3x.png in Resources */,
 				C57A203C282CB59F0032156B /* 橙色椭圆.png in Resources */,
@@ -9680,6 +9706,7 @@
 				C530CC29282E2DA800D5ECCF /* JobsUpDownLabModel.m in Sources */,
 				840F96E827736428004979E9 /* NSObject+Measure.m in Sources */,
 				840F96E727736428004979E9 /* NSObject+OpenURL.m in Sources */,
+				C574E7A32849E6DB00EE3B3E /* MsgTBVCell.m in Sources */,
 				846DF03927806D230050468A /* BaseContentView.m in Sources */,
 				84CA5FBB27897AFB00E46E71 /* WBTableViewDelegate.m in Sources */,
 				84CA5FE227897AFB00E46E71 /* FSAppIconManager.m in Sources */,
@@ -10053,6 +10080,7 @@
 				84CA5FC927897AFB00E46E71 /* XDTextBtnView.m in Sources */,
 				840F970227736428004979E9 /* NSObject+Extras.m in Sources */,
 				84CA61A22789859900E46E71 /* PushAnimation.m in Sources */,
+				C563415A2849DFE90047CA49 /* JobsTestVC.m in Sources */,
 				840F96C027736428004979E9 /* UITableViewHeaderFooterView+BaseTableViewHeaderFooterViewProtocol.m in Sources */,
 				840F96FC27736428004979E9 /* NSObject+UDID.m in Sources */,
 				840F96B727736428004979E9 /* UITableView+WWFoldableTableView.m in Sources */,

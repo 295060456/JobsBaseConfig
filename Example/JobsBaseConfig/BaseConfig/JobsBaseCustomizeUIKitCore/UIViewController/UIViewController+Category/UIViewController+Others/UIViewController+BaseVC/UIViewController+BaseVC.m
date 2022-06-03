@@ -8,6 +8,7 @@
 #import "UIViewController+BaseVC.h"
 
 @implementation UIViewController (BaseVC)
+// BaseViewControllerProtocol_dynamic
 #pragma mark —— 一些功能性
 -(void)showUserInfo{
     if (JobsDebug) {
@@ -43,17 +44,16 @@
     if (![self.view.subviews containsObject:view]) {
         [self.view addSubview:view];
     }
-    
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
         if (self.setupNavigationBarHidden && self.gk_statusBarHidden && !self.gk_navBarAlpha) {// 系统、GK均隐藏
             make.top.equalTo(self.view).offset(JobsStatusBarHeight());
         }else{
             if (!self.setupNavigationBarHidden && self.gk_statusBarHidden && !self.gk_navBarAlpha) {// 用系统的导航栏
                 make.top.equalTo(self.view).offset(JobsNavigationBarAndStatusBarHeight(nil));
-            }
-            
-            if (self.setupNavigationBarHidden && !self.gk_statusBarHidden && self.gk_navBarAlpha) {// 用GK的导航栏
+            }else if (self.setupNavigationBarHidden && !self.gk_statusBarHidden && self.gk_navBarAlpha) {// 用GK的导航栏
                 make.top.equalTo(self.gk_navigationBar.mas_bottom);
+            }else{
+                make.top.equalTo(self.view);
             }
         }
         make.left.right.bottom.equalTo(self.view);
@@ -234,6 +234,20 @@ static char *UIViewController_BaseVC_bgImage = "UIViewController_BaseVC_bgImage"
     objc_setAssociatedObject(self,
                              UIViewController_BaseVC_bgImage,
                              bgImage,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+static char *UIViewController_BaseVC_setupNavigationBarHidden = "UIViewController_BaseVC_setupNavigationBarHidden";
+@dynamic setupNavigationBarHidden;
+#pragma mark —— @property(nonatomic,assign)BOOL setupNavigationBarHidden;
+-(BOOL)setupNavigationBarHidden{
+    BOOL SetupNavigationBarHidden = [objc_getAssociatedObject(self, UIViewController_BaseVC_setupNavigationBarHidden) boolValue];
+    return SetupNavigationBarHidden;
+}
+
+-(void)setSetupNavigationBarHidden:(BOOL)setupNavigationBarHidden{
+    objc_setAssociatedObject(self,
+                             UIViewController_BaseVC_setupNavigationBarHidden,
+                             [NSNumber numberWithBool:setupNavigationBarHidden],
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
