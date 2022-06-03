@@ -10,11 +10,16 @@
 @implementation UIView (Masonry)
 /// 卸载当前view上的某个方向的约束
 -(void)uninstall:(NSLayoutAttribute)layoutAttribute{
-    NSMutableArray *mutArr = [NSMutableArray arrayWithArray:[MASViewConstraint installedConstraintsForView:self]];
-    for (MASViewConstraint *constraint in mutArr) {
+    for (MASViewConstraint *constraint in [MASViewConstraint installedConstraintsForView:self]) {
         if (constraint.firstViewAttribute.layoutAttribute == layoutAttribute) {
             [constraint uninstall];
         }
+    }
+}
+/// 卸载当前view上的全部约束
+-(void)uninstallAllLayoutAttribute{
+    for (MASViewConstraint *constraint in [MASViewConstraint installedConstraintsForView:self]) {
+        [constraint uninstall];
     }
 }
 
