@@ -30,6 +30,15 @@ NS_ASSUME_NONNULL_BEGIN
 -(NSString *)getLastValuedChars;
 /// 去除最后一个字符
 -(NSString *)removeLastChars;
+/// 将某个字符串进行限定字符个数，二次包装以后对外输出。【截取完了以后添加替换字符】
+/// @param replaceStr 多余的字符串用replaceStr进行占位表示，一般的这里是用"."来进行替换
+/// @param replaceStrLenth 替代字符串的字符长度
+/// @param lineBreakMode 省略的字符串位于整个原始字符串的位置
+/// @param limit 限制的字符数
+-(NSString *)omitByReplaceStr:(NSString *_Nullable)replaceStr
+              replaceStrLenth:(NSInteger)replaceStrLenth
+                lineBreakMode:(NSLineBreakMode)lineBreakMode
+                        limit:(NSInteger)limit;
 
 @end
 

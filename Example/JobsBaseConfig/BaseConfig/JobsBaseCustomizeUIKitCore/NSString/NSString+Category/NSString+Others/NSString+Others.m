@@ -13,7 +13,7 @@
 -(void)pasteboard{
     UIPasteboard *pasteboard = UIPasteboard.generalPasteboard;
     pasteboard.string = self;
-    [WHToast toastMsg:@"复制成功"];
+    [WHToast toastSuccessMsg:Internationalization(@"Copy success")];
 }
 
 +(NSString *)test:(NSArray <NSString *>*)arr{
@@ -80,6 +80,43 @@
 /// 去除最后一个字符
 -(NSString *)removeLastChars{
     return [self substringToIndex:self.length - 1];
+}
+/// 将某个字符串进行限定字符个数，二次包装以后对外输出。【截取完了以后添加替换字符】
+/// @param replaceStr 多余的字符串用replaceStr进行占位表示，一般的这里是用"."来进行替换
+/// @param replaceStrLenth 替代字符串的字符长度
+/// @param lineBreakMode 省略的字符串位于整个原始字符串的位置
+/// @param limit 限制的字符数
+-(NSString *)omitByReplaceStr:(NSString *_Nullable)replaceStr
+              replaceStrLenth:(NSInteger)replaceStrLenth
+                lineBreakMode:(NSLineBreakMode)lineBreakMode
+                        limit:(NSInteger)limit{
+    
+    if (!replaceStrLenth) replaceStrLenth = 3;
+    if ([NSString isNullString:replaceStr]) replaceStr = @".";
+    
+    /// limit 是不包括省略号的实际的限制字数
+    NSString *resultStr = self;
+    NSRange range;
+    NSString *pointStr = @"";
+    for (int i = 0; i < replaceStrLenth; i++) {
+        pointStr = [pointStr stringByAppendingString:replaceStr];
+    }
+    /// 关键节点用向下取整进行保守处理
+    if (self.length > limit) {
+        if (lineBreakMode == NSLineBreakByTruncatingHead){/// 前面部分文字以...方式省略，显示尾部文字内容
+            range = NSMakeRange(self.length - limit,limit);
+            resultStr = [pointStr stringByAppendingString:[self substringWithRange:range]];
+        }else if (lineBreakMode == NSLineBreakByTruncatingTail){/// 结尾部分的内容以……方式省略，显示头的文字内容
+            range = NSMakeRange(0,limit);
+            resultStr = [[self substringWithRange:range] stringByAppendingString:pointStr];
+        }else if (lineBreakMode == NSLineBreakByTruncatingMiddle){/// 中间的内容以...方式省略，显示头尾的文字内容
+            NSRange rangeA = NSMakeRange(0,floor(limit / 2));
+            NSString *resultStrA = [self substringWithRange:rangeA];
+            NSRange rangeB = NSMakeRange(floor(self.length - limit / 2),floor(limit / 2));
+            NSString *resultStrB = [self substringWithRange:rangeB];
+            resultStr = [NSString stringWithFormat:@"%@%@%@",resultStrA,pointStr,resultStrB];
+        }else{}
+    }return resultStr;
 }
 
 @end
