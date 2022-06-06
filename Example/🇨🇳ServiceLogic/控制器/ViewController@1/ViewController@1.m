@@ -49,6 +49,12 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+
+    if (_dataMutArr.count) {
+        [self.dataMutArr removeAllObjects];
+        _dataMutArr = nil;
+    }
+    
     [self.tableView.mj_header beginRefreshing];
 }
 
@@ -359,7 +365,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         {
             UIViewModel *viewModel = [self configViewModelWithTitle:@"JobsSettingGestureVC"
                                                            subTitle:Internationalization(@"设置手势密码")];
-            viewModel.cls = UITableViewCellEditorVC.class;
+            viewModel.cls = JobsSettingGestureVC.class;
             [_dataMutArr addObject:viewModel];
         }
         
