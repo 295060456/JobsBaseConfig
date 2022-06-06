@@ -106,9 +106,10 @@
     /// Data层
     [self.selectedDataMutArr removeAllObjects];
 }
-
--(void)manuallyClickAtIndexPath:(NSIndexPath *)indexPath{
+/// 单行点击改变数据层
+-(NSMutableArray<JobsMsgDataModel *> *)manuallyDataAtIndexPath:(NSIndexPath *)indexPath{
     [self.selectedDataMutArr containsObject:self.dataMutArr[indexPath.row]] ? [self.selectedDataMutArr removeObject:self.dataMutArr[indexPath.row]] : [self.selectedDataMutArr addObject:self.dataMutArr[indexPath.row]];
+    return self.selectedDataMutArr;
 }
 
 -(MsgEditBoardView *)getMsgEditBoardView{
@@ -146,16 +147,16 @@ forRowAtIndexPath:(NSIndexPath*)indexPath{
 
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self manuallyClickAtIndexPath:indexPath];
     JobsMsgTBVCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.selected = YES;
+    self.msgEditBoardView.getDeleteBtn.enabledBlock([self manuallyDataAtIndexPath:indexPath].count);
 }
 /// 编辑模式下，点击取消左边已选中的cell的按钮
 - (void)tableView:(UITableView *)tableView
 didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self manuallyClickAtIndexPath:indexPath];
     JobsMsgTBVCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.selected = NO;
+    self.msgEditBoardView.getDeleteBtn.enabledBlock([self manuallyDataAtIndexPath:indexPath].count);
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -262,8 +263,9 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
         _msgEditBoardView = MsgEditBoardView.new;
         _msgEditBoardView.frame = [MsgEditBoardView viewFrameWithModel:nil];
         [_msgEditBoardView richElementsInViewWithModel:nil];
+        _msgEditBoardView.getDeleteBtn.enabledBlock(self.selectedDataMutArr.count);
         @jobs_weakify(self)
-        [_msgEditBoardView actionObjectBlock:^(id data) {
+        [ _msgEditBoardView actionObjectBlock:^(id data) {
             @jobs_strongify(self)
             if ([data isKindOfClass:UIButton.class]) {
                 UIButton *btn = (UIButton *)data;
@@ -272,7 +274,12 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
                 }else if ([btn.normalTitle isEqualToString:Internationalization(@"標記為已讀")]){
                     
                 }else if ([btn.normalTitle isEqualToString:Internationalization(@"删除")]){
+                    NSLog(@"%@",self.selectedDataMutArr);
+                    [self.dataMutArr removeObjectsInArray:self.selectedDataMutArr];
+                    [self.selectedDataMutArr removeAllObjects];
+                    [self.tableView reloadData];
                     
+                    self.msgEditBoardView.getDeleteBtn.enabledBlock(self.selectedDataMutArr.count);
                 }else{}
             }
         }];

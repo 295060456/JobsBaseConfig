@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MacroDef_Strong@Weak.h"
+#import "JobsBlock.h"
 /// For RAC
 /// @jobs_weakify(self) 在内层定义
 #define BtnClickEvent(button,action)\
@@ -47,6 +48,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSString *selectedTitle;
 @property(nonatomic,strong)UIColor *selectedTitleColor;
 @property(nonatomic,strong)NSAttributedString *selectedAttributedTitle;
+/// Endable
+@property(nonatomic,strong)UIColor *endableNormalTitleColor;
 
 #pragma mark —— 一些功能性
 /// 代码触发点击调用
@@ -55,6 +58,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)handelAdjustsImageWhenHighlighted;
 /// UIButton 上的 image 旋转一定的角度angle
 -(void)changeAction:(CGFloat)angle;
+/// 当Button不可用的时候，需要做些什么
+-(jobsByBOOLBlock _Nonnull)enabledBlock;
 #pragma mark —— Common
 -(void)titleFont:(UIFont *)font;
 -(void)titleAlignment:(NSTextAlignment)textAlignment;

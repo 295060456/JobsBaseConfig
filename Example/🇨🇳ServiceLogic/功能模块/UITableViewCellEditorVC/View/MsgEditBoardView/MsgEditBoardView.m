@@ -11,7 +11,7 @@
 /// UI
 @property(nonatomic,strong)UIButton *allChooseBtn;
 @property(nonatomic,strong)UIButton *markToReadBtn;
-@property(nonatomic,strong)UIButton *cancelBtn;
+@property(nonatomic,strong)UIButton *deleteBtn;
 /// Data
 
 @end
@@ -65,7 +65,7 @@ static dispatch_once_t static_msgEditBoardViewOnceToken;
     self.viewModel = model;
     MakeDataNull
     self.allChooseBtn.alpha = 1;
-    self.cancelBtn.alpha = 1;
+    self.deleteBtn.alpha = 1;
     self.markToReadBtn.alpha = 1;
 }
 /// 具体由子类进行复写【FrameY的变化量】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
@@ -117,8 +117,8 @@ static dispatch_once_t static_msgEditBoardViewOnceToken;
     return _markToReadBtn;
 }
 
--(UIButton *)getCancelBtn{
-    return _cancelBtn;
+-(UIButton *)getDeleteBtn{
+    return _deleteBtn;
 }
 #pragma mark —— lazyLoad
 -(UIButton *)allChooseBtn{
@@ -154,7 +154,7 @@ static dispatch_once_t static_msgEditBoardViewOnceToken;
         [self addSubview:_markToReadBtn];
         [_markToReadBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self.allChooseBtn);
-            make.right.equalTo(self.cancelBtn.mas_left).offset(JobsWidth(-36));
+            make.right.equalTo(self.deleteBtn.mas_left).offset(JobsWidth(-36));
             make.height.mas_equalTo(JobsWidth(14));
         }];
         BtnClickEvent(_markToReadBtn, {
@@ -164,24 +164,24 @@ static dispatch_once_t static_msgEditBoardViewOnceToken;
     }return _markToReadBtn;
 }
 
--(UIButton *)cancelBtn{
-    if (!_cancelBtn) {
-        _cancelBtn = UIButton.new;
-        _cancelBtn.normalTitle = Internationalization(@"删除");
-        _cancelBtn.normalTitleColor = HEXCOLOR(0xEB677F);
-        _cancelBtn.titleFont = notoSansBold(14);
-        [self addSubview:_cancelBtn];
-        [_cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+-(UIButton *)deleteBtn{
+    if (!_deleteBtn) {
+        _deleteBtn = UIButton.new;
+        _deleteBtn.normalTitle = Internationalization(@"删除");
+        _deleteBtn.normalTitleColor = HEXCOLOR(0xEB677F);
+        _deleteBtn.titleFont = notoSansBold(14);
+        [self addSubview:_deleteBtn];
+        [_deleteBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self.allChooseBtn);
             make.right.equalTo(self).offset(JobsWidth(-18));
             make.height.mas_equalTo(JobsWidth(14));
         }];
-        [_cancelBtn makeBtnLabelByShowingType:UILabelShowingType_03];
-        BtnClickEvent(_cancelBtn, {
+        [_deleteBtn makeBtnLabelByShowingType:UILabelShowingType_03];
+        BtnClickEvent(_deleteBtn, {
             x.selected = !x.selected;
             if (self.objectBlock) self.objectBlock(x);
         });
-    }return _cancelBtn;
+    }return _deleteBtn;
 }
 
 @end

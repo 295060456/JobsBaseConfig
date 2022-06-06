@@ -30,6 +30,24 @@
         self.imageView.transform = CGAffineTransformMakeRotation(M_PI * angle);/// 最后实际改变位置
     }];
 }
+/// 当Button不可用的时候，需要做些什么
+-(jobsByBOOLBlock _Nonnull)enabledBlock{
+    @jobs_weakify(self)
+    return ^(BOOL enabled) {
+        @jobs_strongify(self)
+        self.enabled = enabled;
+        
+        if (!self.endableNormalTitleColor) {
+            self.endableNormalTitleColor = self.normalTitleColor;
+        }
+        
+        if (self.enabled) {
+            self.normalTitleColor = self.endableNormalTitleColor;
+        }else{
+            self.normalTitleColor = HEXCOLOR(0xB0B0B0);
+        }
+    };
+}
 #pragma mark —— Common
 /// 代码触发点击调用
 -(void)titleFont:(UIFont *)font{
@@ -367,6 +385,19 @@ static char *UIButton_UI_makeNewLineShows = "UIButton_UI_makeNewLineShows";
                              [NSNumber numberWithBool:makeNewLineShows],
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     self.titleLabel.numberOfLines = !makeNewLineShows;
+}
+static char *UIButton_UI_endableNormalTitleColor = "UIButton_UI_endableNormalTitleColor";
+@dynamic endableNormalTitleColor;
+//@property(nonatomic,strong)UIColor *endableNormalTitleColor;
+-(UIColor *)endableNormalTitleColor{
+    return objc_getAssociatedObject(self, UIButton_UI_endableNormalTitleColor);
+}
+
+-(void)setEndableNormalTitleColor:(UIColor *)endableNormalTitleColor{
+    objc_setAssociatedObject(self,
+                             UIButton_UI_endableNormalTitleColor,
+                             endableNormalTitleColor,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 @end

@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark —— 一些公有方法
 -(UIButton *)getAllChooseBtn;
 -(UIButton *)getMarkToReadBtn;
--(UIButton *)getCancelBtn;
+-(UIButton *)getDeleteBtn;
 
 -(void)appearByView:(UIView * _Nonnull)view;
 -(void)disappearByView:(UIView * _Nullable)view;
