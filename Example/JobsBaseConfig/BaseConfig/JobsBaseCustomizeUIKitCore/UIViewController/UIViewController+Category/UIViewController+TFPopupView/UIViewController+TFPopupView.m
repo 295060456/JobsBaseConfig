@@ -28,8 +28,8 @@
     self.popupParameter.disuseBackgroundTouchHide = NO;
     CGRect targetFrame = CGRectMake(0,
                                     0,
-                                    [BaiShaETProjFiltrationView viewSizeWithModel:nil].width,
-                                    [BaiShaETProjFiltrationView viewSizeWithModel:nil].height);
+                                    [JobsFiltrationView viewSizeWithModel:nil].width,
+                                    [JobsFiltrationView viewSizeWithModel:nil].height);
     if ([self isKindOfClass:UIViewController.class]) {
         [self.filtrationView tf_showFold:self.view
                              targetFrame:targetFrame
@@ -42,8 +42,8 @@
     self.popupParameter.disuseBackgroundTouchHide = NO;
     CGRect targetFrame = CGRectMake(0,
                                     0,
-                                    [BaiShaETProjCustomView viewSizeWithModel:nil].width,
-                                    [BaiShaETProjCustomView viewSizeWithModel:nil].height);
+                                    [JobsCustomView viewSizeWithModel:nil].width,
+                                    [JobsCustomView viewSizeWithModel:nil].height);
     if ([self isKindOfClass:UIViewController.class]) {
         [self.customView tf_showFold:self.view
                          targetFrame:targetFrame
@@ -57,12 +57,12 @@
 }
 static char *UIViewController_TFPopupView_filtrationView = "UIViewController_TFPopupView_filtrationView";
 @dynamic filtrationView;
-#pragma mark —— @property(nonatomic,strong)BaiShaETProjFiltrationView *filtrationView;/// 过滤
--(BaiShaETProjFiltrationView *)filtrationView{
-    BaiShaETProjFiltrationView *FiltrationView = objc_getAssociatedObject(self, UIViewController_TFPopupView_filtrationView);
+#pragma mark —— @property(nonatomic,strong)JobsFiltrationView *filtrationView;/// 过滤
+-(JobsFiltrationView *)filtrationView{
+    JobsFiltrationView *FiltrationView = objc_getAssociatedObject(self, UIViewController_TFPopupView_filtrationView);
     if (!FiltrationView) {
-        FiltrationView = BaiShaETProjFiltrationView.new;
-        FiltrationView.size = [BaiShaETProjFiltrationView viewSizeWithModel:nil];
+        FiltrationView = JobsFiltrationView.new;
+        FiltrationView.size = [JobsFiltrationView viewSizeWithModel:nil];
         [FiltrationView richElementsInViewWithModel:nil];
         
         objc_setAssociatedObject(self,
@@ -72,7 +72,7 @@ static char *UIViewController_TFPopupView_filtrationView = "UIViewController_TFP
     }return FiltrationView;
 }
 
--(void)setFiltrationView:(BaiShaETProjFiltrationView *)filtrationView{
+-(void)setFiltrationView:(JobsFiltrationView *)filtrationView{
     objc_setAssociatedObject(self,
                              UIViewController_TFPopupView_filtrationView,
                              filtrationView,
@@ -80,12 +80,12 @@ static char *UIViewController_TFPopupView_filtrationView = "UIViewController_TFP
 }
 static char *UIViewController_TFPopupView_customView = "UIViewController_TFPopupView_customView";
 @dynamic customView;
-#pragma mark —— @property(nonatomic,strong)BaiShaETProjCustomView *customView;/// 自定义
--(BaiShaETProjCustomView *)customView{
-    BaiShaETProjCustomView *CustomView = objc_getAssociatedObject(self, UIViewController_TFPopupView_customView);
+#pragma mark —— @property(nonatomic,strong)JobsCustomView *customView;/// 自定义
+-(JobsCustomView *)customView{
+    JobsCustomView *CustomView = objc_getAssociatedObject(self, UIViewController_TFPopupView_customView);
     if (!CustomView) {
-        CustomView = BaiShaETProjCustomView.new;
-        CustomView.size = [BaiShaETProjFiltrationView viewSizeWithModel:nil];
+        CustomView = JobsCustomView.new;
+        CustomView.size = [JobsFiltrationView viewSizeWithModel:nil];
         [CustomView richElementsInViewWithModel:nil];
         
         objc_setAssociatedObject(self,
@@ -96,7 +96,7 @@ static char *UIViewController_TFPopupView_customView = "UIViewController_TFPopup
     }return CustomView;
 }
 
--(void)setCustomView:(BaiShaETProjCustomView *)customView{
+-(void)setCustomView:(JobsCustomView *)customView{
     objc_setAssociatedObject(self,
                              UIViewController_TFPopupView_customView,
                              customView,

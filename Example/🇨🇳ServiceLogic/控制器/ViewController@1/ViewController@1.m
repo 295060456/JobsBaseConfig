@@ -350,6 +350,20 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         }
         
         {
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"UITableViewCellEditorVC"
+                                                           subTitle:Internationalization(@"替换系统UITableViewCell编辑状态下前面的按钮UI样式，及其一部分逻辑")];
+            viewModel.cls = UITableViewCellEditorVC.class;
+            [_dataMutArr addObject:viewModel];
+        }
+        
+        {
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"JobsSettingGestureVC"
+                                                           subTitle:Internationalization(@"设置手势密码")];
+            viewModel.cls = UITableViewCellEditorVC.class;
+            [_dataMutArr addObject:viewModel];
+        }
+        
+        {
             UIViewModel *viewModel = [self configViewModelWithTitle:@"JobsTestVC"
                                                            subTitle:Internationalization(@"进行测试的一个控制器")];
             viewModel.cls = JobsTestVC.class;

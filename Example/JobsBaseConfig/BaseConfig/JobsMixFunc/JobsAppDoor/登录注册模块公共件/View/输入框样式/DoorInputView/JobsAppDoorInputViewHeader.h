@@ -14,6 +14,10 @@ static inline CGSize inputSize(){
     return CGSizeMake(JobsWidth(343), JobsWidth(52));
 }
 
+static inline CGSize inputSize_02(){
+    return CGSizeMake(JobsWidth(303 - 50), JobsWidth(36));
+}
+
 #import "JobsAppDoorInputViewBaseStyle.h"
 #import "JobsAppDoorInputViewBaseStyle_1.h"
 #import "JobsAppDoorInputViewBaseStyle_2.h"
@@ -24,5 +28,6 @@ static inline CGSize inputSize(){
 #import "JobsAppDoorInputViewBaseStyle_7.h"
 #import "JobsAppDoorInputViewBaseStyle_8.h"
 #import "JobsAppDoorInputViewBaseStyle_9.h"
+#import "JobsAppDoorInputViewBaseStyle_10.h"
 
 #endif /* JobsAppDoorInputViewHeader_h */

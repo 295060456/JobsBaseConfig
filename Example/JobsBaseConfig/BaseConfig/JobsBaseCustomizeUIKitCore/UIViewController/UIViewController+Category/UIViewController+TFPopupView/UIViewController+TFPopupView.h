@@ -12,15 +12,15 @@
 #endif
 
 #import <UIKit/UIKit.h>
-#import "BaiShaETProjCustomView.h" // 自定义
-#import "BaiShaETProjFiltrationView.h" // 过滤
+#import "JobsCustomView.h" // 自定义
+#import "JobsFiltrationView.h" // 过滤
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIViewController (TFPopupView)
 
-@property(nonatomic,strong)BaiShaETProjFiltrationView *filtrationView;/// 过滤
-@property(nonatomic,strong)BaiShaETProjCustomView *customView;/// 自定义
+@property(nonatomic,strong)JobsFiltrationView *filtrationView;/// 过滤
+@property(nonatomic,strong)JobsCustomView *customView;/// 自定义
 
 /// 弹出筛选视图
 -(UIView *)popUpFiltrationView;
@@ -41,14 +41,14 @@ NS_ASSUME_NONNULL_END
  @property(nonatomic,weak)UIView *popUpFiltrationView;
  @property(nonatomic,weak)UIView *popUpCustomView;
  @property(nonatomic,weak)NSNumber *currentIndex;
- @property(nonatomic,weak)BaiShaETProjAlreadySettledSubBaseVC *vc;
+ @property(nonatomic,weak)JobsAlreadySettledSubBaseVC *vc;
  @property(nonatomic,strong)NSMutableArray <UIViewController *>*childVCMutArr;
  
  -(NSMutableArray<UIViewController *> *)childVCMutArr{
      if (!_childVCMutArr) {
          _childVCMutArr = NSMutableArray.array;
          for (NSString *str in self.titleMutArr) {
-             [self.childVCMutArr addObject:BaiShaETProjAlreadySettledSubBaseVC.new];
+             [self.childVCMutArr addObject:JobsAlreadySettledSubBaseVC.new];
          }
      }return _childVCMutArr;
  }
@@ -74,7 +74,7 @@ NS_ASSUME_NONNULL_END
              [x changeAction:x.selected];
              self.currentIndex = [self->listContainerView valueForKey:@"currentIndex"];
              NSLog(@"滑动或者点击以后，改变控制器，得到的目前最新的index = %d",self.currentIndex.intValue);
-             self.vc = (BaiShaETProjAlreadySettledSubBaseVC *)self.childVCMutArr[self.currentIndex.intValue];
+             self.vc = (JobsAlreadySettledSubBaseVC *)self.childVCMutArr[self.currentIndex.intValue];
              self.popUpFiltrationView = self.vc.popUpFiltrationView;
              [self.vc hidePopupView:self.popUpCustomView];
 
@@ -107,7 +107,7 @@ NS_ASSUME_NONNULL_END
  //            [WHToast toastMsg:Internationalization(@"自定义")];
              self.currentIndex = [self->listContainerView valueForKey:@"currentIndex"];
              NSLog(@"滑动或者点击以后，改变控制器，得到的目前最新的index = %d",self.currentIndex.intValue);
-             self.vc = (BaiShaETProjAlreadySettledSubBaseVC *)self.childVCMutArr[self.currentIndex.intValue];
+             self.vc = (JobsAlreadySettledSubBaseVC *)self.childVCMutArr[self.currentIndex.intValue];
 
              [self.vc hidePopupView:self.popUpFiltrationView];
 

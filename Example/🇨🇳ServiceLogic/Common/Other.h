@@ -56,6 +56,8 @@
 #import "YTKNetworkStudyVC.h"
 #import "CoreTextLearningVC.h"
 #import "JXCategoryPopupVC.h"
+#import "UITableViewCellEditorVC.h"
+#import "JobsSettingGestureVC.h"
 #import "JobsTestVC.h"
 
 #endif /* Other_h */

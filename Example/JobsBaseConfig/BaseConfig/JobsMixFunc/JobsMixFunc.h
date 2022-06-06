@@ -16,6 +16,7 @@
 #import "JobsPageView.h"
 #import "JobsTitleView01.h"
 #import "JobsBasePopupView.h"
+#import "JobsShowNumView.h"
 #import "JobsBitsMonitor.h"
 #import "JobsSuspend.h"
 #import "JobsImageNumberView.h"

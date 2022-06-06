@@ -29,4 +29,17 @@ typedef enum : NSInteger {
     ForcedUpdate_NO
 } ForcedUpdateType;// 强制更新
 
+typedef enum : NSInteger {
+    /// 未定义
+    MsgStyle_None = 0,
+    /// 通知
+    MsgStyle_Notify,
+    /// 活动
+    MsgStyle_Activity,
+    /// 公告
+    MsgStyle_Notice,
+    /// 红利
+    MsgStyle_Bonus,
+} MsgStyle;
+
 #endif /* DefineStructure_h */

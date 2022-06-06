@@ -466,10 +466,6 @@
 		8459CE1F2776DCCF00125782 /* 启动页_05.png in Resources */ = {isa = PBXBuildFile; fileRef = 8459CE182776DCCF00125782 /* 启动页_05.png */; };
 		8459CE202776DCCF00125782 /* JobsWelcomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459CE1A2776DCCF00125782 /* JobsWelcomeVC.m */; };
 		8459CE242776DD4000125782 /* SceneDelegate+UISceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459CE222776DD4000125782 /* SceneDelegate+UISceneDelegate.m */; };
-		8459CF1A2776F7C600125782 /* CasinoUpgradePopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459CF152776F7C600125782 /* CasinoUpgradePopupView.m */; };
-		8459CF1B2776F7C600125782 /* CasinoUpgradeContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459CF192776F7C600125782 /* CasinoUpgradeContentView.m */; };
-		8459CF1E2776F87F00125782 /* 弹窗升级背景图@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8459CF1C2776F87F00125782 /* 弹窗升级背景图@3x.png */; };
-		8459CF1F2776F87F00125782 /* 弹窗升级背景图@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8459CF1D2776F87F00125782 /* 弹窗升级背景图@2x.png */; };
 		8459D6172779A6CC00125782 /* CasinoCustomerServiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459D6142779A6CC00125782 /* CasinoCustomerServiceView.m */; };
 		8459D6182779A6CC00125782 /* CasinoCustomerServiceView.png in Resources */ = {isa = PBXBuildFile; fileRef = 8459D6152779A6CC00125782 /* CasinoCustomerServiceView.png */; };
 		8459D61C2779A88A00125782 /* CasinoCustomerContactModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8459D61B2779A88900125782 /* CasinoCustomerContactModel.m */; };
@@ -693,8 +689,8 @@
 		C54BC43628325BA80010EF20 /* JobsTitleView01.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BC43428325BA80010EF20 /* JobsTitleView01.m */; };
 		C55C895628437190005295B1 /* JXCategoryPopupVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C55C895528437190005295B1 /* JXCategoryPopupVC.m */; };
 		C55C8959284371A9005295B1 /* JXCategoryPopupSubVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C55C8958284371A9005295B1 /* JXCategoryPopupSubVC.m */; };
-		C55E6B5428436F8100ABA84A /* BaiShaETProjCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = C55E6B4E28436F8100ABA84A /* BaiShaETProjCustomView.m */; };
-		C55E6B5628436F8100ABA84A /* BaiShaETProjFiltrationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C55E6B5228436F8100ABA84A /* BaiShaETProjFiltrationView.m */; };
+		C55E6B5428436F8100ABA84A /* JobsCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = C55E6B4E28436F8100ABA84A /* JobsCustomView.m */; };
+		C55E6B5628436F8100ABA84A /* JobsFiltrationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C55E6B5228436F8100ABA84A /* JobsFiltrationView.m */; };
 		C55E6B5C2843701D00ABA84A /* UIViewController+TFPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = C55E6B582843701D00ABA84A /* UIViewController+TFPopupView.m */; };
 		C563415A2849DFE90047CA49 /* JobsTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C56341592849DFE90047CA49 /* JobsTestVC.m */; };
 		C5703FA7283FA5110048382E /* UIView+BRPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5703FA5283FA5110048382E /* UIView+BRPickerView.m */; };
@@ -736,6 +732,123 @@
 		C5AA8B7E282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AA8B59282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyleModel.m */; };
 		C5AA8B7F282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_4.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AA8B5C282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_4.m */; };
 		C5AA8B83282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_3.m in Sources */ = {isa = PBXBuildFile; fileRef = C5AA8B62282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_3.m */; };
+		C5C47D0A284E1C26007916B3 /* UITableViewCellEditorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D09284E1C26007916B3 /* UITableViewCellEditorVC.m */; };
+		C5C47D0F284E1C4B007916B3 /* MsgEditBoardView.png in Resources */ = {isa = PBXBuildFile; fileRef = C5C47D0D284E1C4B007916B3 /* MsgEditBoardView.png */; };
+		C5C47D10284E1C4B007916B3 /* MsgEditBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D0E284E1C4B007916B3 /* MsgEditBoardView.m */; };
+		C5C47D15284E1C95007916B3 /* JobsMsgDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D13284E1C95007916B3 /* JobsMsgDataModel.m */; };
+		C5C47D1A284E1CB3007916B3 /* 消息Cell.png in Resources */ = {isa = PBXBuildFile; fileRef = C5C47D18284E1CB3007916B3 /* 消息Cell.png */; };
+		C5C47D1B284E1CB3007916B3 /* JobsMsgTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D19284E1CB3007916B3 /* JobsMsgTBVCell.m */; };
+		C5C47D56284E1DF9007916B3 /* JobsPopupView04.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D20284E1DF8007916B3 /* JobsPopupView04.m */; };
+		C5C47D5D284E1DF9007916B3 /* JobsPopupView02.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D2D284E1DF8007916B3 /* JobsPopupView02.m */; };
+		C5C47D60284E1DF9007916B3 /* JobsPopupView06.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D32284E1DF8007916B3 /* JobsPopupView06.m */; };
+		C5C47D61284E1DF9007916B3 /* CasinoUpgradePopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D35284E1DF8007916B3 /* CasinoUpgradePopupView.m */; };
+		C5C47D62284E1DF9007916B3 /* CasinoUpgradeContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D39284E1DF8007916B3 /* CasinoUpgradeContentView.m */; };
+		C5C47D63284E1DF9007916B3 /* JobsPopupView07.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D3B284E1DF8007916B3 /* JobsPopupView07.m */; };
+		C5C47D65284E1DF9007916B3 /* JobsDataShowBackView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D3F284E1DF8007916B3 /* JobsDataShowBackView.m */; };
+		C5C47D68284E1DF9007916B3 /* JobsPopupView08.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D45284E1DF9007916B3 /* JobsPopupView08.m */; };
+		C5C47D69284E1DF9007916B3 /* JobsPopupView09.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D47284E1DF9007916B3 /* JobsPopupView09.m */; };
+		C5C47D6B284E1DF9007916B3 /* JobsPopupView03.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D4B284E1DF9007916B3 /* JobsPopupView03.m */; };
+		C5C47D6E284E1DF9007916B3 /* JobsPopupView01.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D51284E1DF9007916B3 /* JobsPopupView01.m */; };
+		C5C47D70284E1DF9007916B3 /* JobsPopupView05.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D55284E1DF9007916B3 /* JobsPopupView05.m */; };
+		C5C48031284E21E5007916B3 /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FD0284E21E4007916B3 /* NotoSans-Regular.ttf */; };
+		C5C48032284E21E5007916B3 /* NotoSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FD1284E21E4007916B3 /* NotoSans-Medium.ttf */; };
+		C5C48033284E21E5007916B3 /* NotoSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FD2284E21E4007916B3 /* NotoSans-MediumItalic.ttf */; };
+		C5C48034284E21E5007916B3 /* NotoSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FD3284E21E4007916B3 /* NotoSans-Black.ttf */; };
+		C5C48035284E21E5007916B3 /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FD4284E21E4007916B3 /* NotoSans-Bold.ttf */; };
+		C5C48036284E21E5007916B3 /* NotoSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FD5284E21E4007916B3 /* NotoSans-Thin.ttf */; };
+		C5C48037284E21E5007916B3 /* NotoSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FD6284E21E4007916B3 /* NotoSans-SemiBold.ttf */; };
+		C5C48038284E21E5007916B3 /* NotoSansDisplay-VariableFont_wdth,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FD7284E21E4007916B3 /* NotoSansDisplay-VariableFont_wdth,wght.ttf */; };
+		C5C48039284E21E5007916B3 /* NotoSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FD8284E21E4007916B3 /* NotoSans-SemiBoldItalic.ttf */; };
+		C5C4803A284E21E5007916B3 /* NotoSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FD9284E21E4007916B3 /* NotoSans-LightItalic.ttf */; };
+		C5C4803B284E21E5007916B3 /* NotoSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FDA284E21E4007916B3 /* NotoSans-Light.ttf */; };
+		C5C4803C284E21E5007916B3 /* NotoSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FDB284E21E4007916B3 /* NotoSans-BoldItalic.ttf */; };
+		C5C4803D284E21E5007916B3 /* NotoSansDisplay-Italic-VariableFont_wdth,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FDC284E21E4007916B3 /* NotoSansDisplay-Italic-VariableFont_wdth,wght.ttf */; };
+		C5C4803E284E21E5007916B3 /* NotoSans-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FDD284E21E4007916B3 /* NotoSans-BlackItalic.ttf */; };
+		C5C4803F284E21E5007916B3 /* NotoSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FDE284E21E4007916B3 /* NotoSans-ExtraBoldItalic.ttf */; };
+		C5C48040284E21E5007916B3 /* NotoSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FDF284E21E4007916B3 /* NotoSans-ExtraLight.ttf */; };
+		C5C48041284E21E5007916B3 /* NotoSans-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FE0284E21E4007916B3 /* NotoSans-ThinItalic.ttf */; };
+		C5C48042284E21E5007916B3 /* NotoSans-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FE1284E21E4007916B3 /* NotoSans-ExtraLightItalic.ttf */; };
+		C5C48043284E21E5007916B3 /* NotoSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FE2284E21E4007916B3 /* NotoSans-ExtraBold.ttf */; };
+		C5C48044284E21E5007916B3 /* NotoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FE3284E21E4007916B3 /* NotoSans-Italic.ttf */; };
+		C5C48045284E21E5007916B3 /* NotoSansDisplay-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FE6284E21E4007916B3 /* NotoSansDisplay-LightItalic.ttf */; };
+		C5C48046284E21E5007916B3 /* NotoSansDisplay-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FE7284E21E4007916B3 /* NotoSansDisplay-Thin.ttf */; };
+		C5C48047284E21E5007916B3 /* NotoSansDisplay-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FE8284E21E4007916B3 /* NotoSansDisplay-SemiBold.ttf */; };
+		C5C48048284E21E5007916B3 /* NotoSansDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FE9284E21E4007916B3 /* NotoSansDisplay-Regular.ttf */; };
+		C5C48049284E21E5007916B3 /* NotoSansDisplay-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FEA284E21E4007916B3 /* NotoSansDisplay-SemiBoldItalic.ttf */; };
+		C5C4804A284E21E5007916B3 /* NotoSansDisplay-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FEB284E21E4007916B3 /* NotoSansDisplay-Black.ttf */; };
+		C5C4804B284E21E5007916B3 /* NotoSansDisplay-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FEC284E21E4007916B3 /* NotoSansDisplay-BoldItalic.ttf */; };
+		C5C4804C284E21E5007916B3 /* NotoSansDisplay-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FED284E21E4007916B3 /* NotoSansDisplay-ThinItalic.ttf */; };
+		C5C4804D284E21E5007916B3 /* NotoSansDisplay-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FEE284E21E4007916B3 /* NotoSansDisplay-ExtraBold.ttf */; };
+		C5C4804E284E21E5007916B3 /* NotoSansDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FEF284E21E4007916B3 /* NotoSansDisplay-Bold.ttf */; };
+		C5C4804F284E21E5007916B3 /* NotoSansDisplay-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FF0284E21E4007916B3 /* NotoSansDisplay-ExtraLight.ttf */; };
+		C5C48050284E21E5007916B3 /* NotoSansDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FF1284E21E4007916B3 /* NotoSansDisplay-Medium.ttf */; };
+		C5C48051284E21E5007916B3 /* NotoSansDisplay-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FF2284E21E4007916B3 /* NotoSansDisplay-ExtraBoldItalic.ttf */; };
+		C5C48052284E21E5007916B3 /* NotoSansDisplay-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FF3284E21E4007916B3 /* NotoSansDisplay-BlackItalic.ttf */; };
+		C5C48053284E21E5007916B3 /* NotoSansDisplay-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FF4284E21E4007916B3 /* NotoSansDisplay-MediumItalic.ttf */; };
+		C5C48054284E21E5007916B3 /* NotoSansDisplay-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FF5284E21E4007916B3 /* NotoSansDisplay-ExtraLightItalic.ttf */; };
+		C5C48055284E21E5007916B3 /* NotoSansDisplay-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FF6284E21E4007916B3 /* NotoSansDisplay-Italic.ttf */; };
+		C5C48056284E21E5007916B3 /* NotoSansDisplay-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FF7284E21E4007916B3 /* NotoSansDisplay-Light.ttf */; };
+		C5C48057284E21E5007916B3 /* NotoSansDisplay_Condensed-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FF9284E21E4007916B3 /* NotoSansDisplay_Condensed-SemiBold.ttf */; };
+		C5C48058284E21E5007916B3 /* NotoSansDisplay_Condensed-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FFA284E21E4007916B3 /* NotoSansDisplay_Condensed-Black.ttf */; };
+		C5C48059284E21E5007916B3 /* NotoSansDisplay_Condensed-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FFB284E21E4007916B3 /* NotoSansDisplay_Condensed-ExtraBoldItalic.ttf */; };
+		C5C4805A284E21E5007916B3 /* NotoSansDisplay_Condensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FFC284E21E4007916B3 /* NotoSansDisplay_Condensed-Regular.ttf */; };
+		C5C4805B284E21E5007916B3 /* NotoSansDisplay_Condensed-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FFD284E21E4007916B3 /* NotoSansDisplay_Condensed-ExtraLightItalic.ttf */; };
+		C5C4805C284E21E5007916B3 /* NotoSansDisplay_Condensed-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FFE284E21E4007916B3 /* NotoSansDisplay_Condensed-Italic.ttf */; };
+		C5C4805D284E21E5007916B3 /* NotoSansDisplay_Condensed-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FFF284E21E4007916B3 /* NotoSansDisplay_Condensed-SemiBoldItalic.ttf */; };
+		C5C4805E284E21E5007916B3 /* NotoSansDisplay_Condensed-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C48000284E21E4007916B3 /* NotoSansDisplay_Condensed-ThinItalic.ttf */; };
+		C5C4805F284E21E5007916B3 /* NotoSansDisplay_Condensed-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C48001284E21E4007916B3 /* NotoSansDisplay_Condensed-ExtraLight.ttf */; };
+		C5C48060284E21E5007916B3 /* NotoSansDisplay_Condensed-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C48002284E21E4007916B3 /* NotoSansDisplay_Condensed-ExtraBold.ttf */; };
+		C5C48061284E21E5007916B3 /* NotoSansDisplay_Condensed-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C48003284E21E4007916B3 /* NotoSansDisplay_Condensed-BoldItalic.ttf */; };
+		C5C48062284E21E5007916B3 /* NotoSansDisplay_Condensed-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C48004284E21E4007916B3 /* NotoSansDisplay_Condensed-Medium.ttf */; };
+		C5C48063284E21E5007916B3 /* NotoSansDisplay_Condensed-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C48005284E21E4007916B3 /* NotoSansDisplay_Condensed-LightItalic.ttf */; };
+		C5C48064284E21E5007916B3 /* NotoSansDisplay_Condensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C48006284E21E4007916B3 /* NotoSansDisplay_Condensed-Light.ttf */; };
+		C5C48065284E21E5007916B3 /* NotoSansDisplay_Condensed-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C48007284E21E4007916B3 /* NotoSansDisplay_Condensed-Thin.ttf */; };
+		C5C48066284E21E5007916B3 /* NotoSansDisplay_Condensed-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C48008284E21E4007916B3 /* NotoSansDisplay_Condensed-BlackItalic.ttf */; };
+		C5C48067284E21E5007916B3 /* NotoSansDisplay_Condensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C48009284E21E4007916B3 /* NotoSansDisplay_Condensed-Bold.ttf */; };
+		C5C48068284E21E5007916B3 /* NotoSansDisplay_Condensed-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C4800A284E21E4007916B3 /* NotoSansDisplay_Condensed-MediumItalic.ttf */; };
+		C5C48069284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C4800C284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-BlackItalic.ttf */; };
+		C5C4806A284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C4800D284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-ExtraBoldItalic.ttf */; };
+		C5C4806B284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C4800E284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-SemiBold.ttf */; };
+		C5C4806C284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C4800F284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-Italic.ttf */; };
+		C5C4806D284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C48010284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-Black.ttf */; };
+		C5C4806E284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C48011284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-Regular.ttf */; };
+		C5C4806F284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C48012284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-SemiBoldItalic.ttf */; };
+		C5C48070284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C48013284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-ThinItalic.ttf */; };
+		C5C48071284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C48014284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-LightItalic.ttf */; };
+		C5C48072284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C48015284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-ExtraLight.ttf */; };
+		C5C48073284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C48016284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-BoldItalic.ttf */; };
+		C5C48074284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C48017284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-MediumItalic.ttf */; };
+		C5C48075284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C48018284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-Thin.ttf */; };
+		C5C48076284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C48019284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-Light.ttf */; };
+		C5C48077284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C4801A284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-Bold.ttf */; };
+		C5C48078284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C4801B284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-ExtraLightItalic.ttf */; };
+		C5C48079284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C4801C284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-ExtraBold.ttf */; };
+		C5C4807A284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C4801D284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-Medium.ttf */; };
+		C5C4807B284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C4801F284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-Bold.ttf */; };
+		C5C4807C284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C48020284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-ExtraBoldItalic.ttf */; };
+		C5C4807D284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C48021284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-BlackItalic.ttf */; };
+		C5C4807E284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C48022284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-Thin.ttf */; };
+		C5C4807F284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C48023284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-Italic.ttf */; };
+		C5C48080284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C48024284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-ExtraLightItalic.ttf */; };
+		C5C48081284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C48025284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-Light.ttf */; };
+		C5C48082284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C48026284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-SemiBold.ttf */; };
+		C5C48083284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C48027284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-LightItalic.ttf */; };
+		C5C48084284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C48028284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-Medium.ttf */; };
+		C5C48085284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C48029284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-Black.ttf */; };
+		C5C48086284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C4802A284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-SemiBoldItalic.ttf */; };
+		C5C48087284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C4802B284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-BoldItalic.ttf */; };
+		C5C48088284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C4802C284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-MediumItalic.ttf */; };
+		C5C48089284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C4802D284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-ExtraLight.ttf */; };
+		C5C4808A284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C4802E284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-ThinItalic.ttf */; };
+		C5C4808B284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C4802F284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-Regular.ttf */; };
+		C5C4808C284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C48030284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-ExtraBold.ttf */; };
+		C5C48095284E22C4007916B3 /* JobsShowNumView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C4808F284E22C4007916B3 /* JobsShowNumView.m */; };
+		C5C48096284E22C4007916B3 /* JobsShowNum@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5C48091284E22C4007916B3 /* JobsShowNum@3x.png */; };
+		C5C48097284E22C4007916B3 /* JobsShowNum@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5C48092284E22C4007916B3 /* JobsShowNum@2x.png */; };
+		C5C4809F284E246D007916B3 /* JobsAppDoorInputViewBaseStyle_10.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C4809C284E246D007916B3 /* JobsAppDoorInputViewBaseStyle_10.m */; };
+		C5C480A5284E250A007916B3 /* JobsSettingGestureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C480A4284E250A007916B3 /* JobsSettingGestureVC.m */; };
+		C5C48124284E254B007916B3 /* JobsMembersSubsBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C48123284E254B007916B3 /* JobsMembersSubsBaseVC.m */; };
+		C5D46FFC284E29A90090D20F /* JobsGetiOSNewestVersionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D46FFB284E29A90090D20F /* JobsGetiOSNewestVersionModel.m */; };
 		F65541EC060397D8F6D09547 /* Pods_JobsBaseConfigUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -1621,12 +1734,6 @@
 		8459CE1A2776DCCF00125782 /* JobsWelcomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsWelcomeVC.m; sourceTree = "<group>"; };
 		8459CE222776DD4000125782 /* SceneDelegate+UISceneDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SceneDelegate+UISceneDelegate.m"; sourceTree = "<group>"; };
 		8459CE232776DD4000125782 /* SceneDelegate+UISceneDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SceneDelegate+UISceneDelegate.h"; sourceTree = "<group>"; };
-		8459CF152776F7C600125782 /* CasinoUpgradePopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasinoUpgradePopupView.m; sourceTree = "<group>"; };
-		8459CF162776F7C600125782 /* CasinoUpgradePopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CasinoUpgradePopupView.h; sourceTree = "<group>"; };
-		8459CF182776F7C600125782 /* CasinoUpgradeContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CasinoUpgradeContentView.h; sourceTree = "<group>"; };
-		8459CF192776F7C600125782 /* CasinoUpgradeContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasinoUpgradeContentView.m; sourceTree = "<group>"; };
-		8459CF1C2776F87F00125782 /* 弹窗升级背景图@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹窗升级背景图@3x.png"; sourceTree = "<group>"; };
-		8459CF1D2776F87F00125782 /* 弹窗升级背景图@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹窗升级背景图@2x.png"; sourceTree = "<group>"; };
 		8459D6142779A6CC00125782 /* CasinoCustomerServiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasinoCustomerServiceView.m; sourceTree = "<group>"; };
 		8459D6152779A6CC00125782 /* CasinoCustomerServiceView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CasinoCustomerServiceView.png; sourceTree = "<group>"; };
 		8459D6162779A6CC00125782 /* CasinoCustomerServiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CasinoCustomerServiceView.h; sourceTree = "<group>"; };
@@ -2164,11 +2271,11 @@
 		C55C8957284371A9005295B1 /* JXCategoryPopupSubVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JXCategoryPopupSubVC.h; sourceTree = "<group>"; };
 		C55C8958284371A9005295B1 /* JXCategoryPopupSubVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JXCategoryPopupSubVC.m; sourceTree = "<group>"; };
 		C55E6B4C28436F8100ABA84A /* 自定义视图.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "自定义视图.png"; sourceTree = "<group>"; };
-		C55E6B4D28436F8100ABA84A /* BaiShaETProjCustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiShaETProjCustomView.h; sourceTree = "<group>"; };
-		C55E6B4E28436F8100ABA84A /* BaiShaETProjCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiShaETProjCustomView.m; sourceTree = "<group>"; };
-		C55E6B5028436F8100ABA84A /* BaiShaETProjFiltrationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiShaETProjFiltrationView.h; sourceTree = "<group>"; };
+		C55E6B4D28436F8100ABA84A /* JobsCustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsCustomView.h; sourceTree = "<group>"; };
+		C55E6B4E28436F8100ABA84A /* JobsCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsCustomView.m; sourceTree = "<group>"; };
+		C55E6B5028436F8100ABA84A /* JobsFiltrationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsFiltrationView.h; sourceTree = "<group>"; };
 		C55E6B5128436F8100ABA84A /* 筛选视图.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "筛选视图.png"; sourceTree = "<group>"; };
-		C55E6B5228436F8100ABA84A /* BaiShaETProjFiltrationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiShaETProjFiltrationView.m; sourceTree = "<group>"; };
+		C55E6B5228436F8100ABA84A /* JobsFiltrationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsFiltrationView.m; sourceTree = "<group>"; };
 		C55E6B582843701D00ABA84A /* UIViewController+TFPopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TFPopupView.m"; sourceTree = "<group>"; };
 		C55E6B592843701D00ABA84A /* UIViewController+TFPopupView（02）.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIViewController+TFPopupView（02）.png"; sourceTree = "<group>"; };
 		C55E6B5A2843701D00ABA84A /* UIViewController+TFPopupView（01）.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIViewController+TFPopupView（01）.png"; sourceTree = "<group>"; };
@@ -2264,6 +2371,158 @@
 		C5AA8B62282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorInputViewBaseStyle_3.m; sourceTree = "<group>"; };
 		C5AA8B63282CE2F00057EB84 /* 输入框样式_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入框样式_3.png"; sourceTree = "<group>"; };
 		C5AA8B64282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputViewBaseStyle_3.h; sourceTree = "<group>"; };
+		C5C47D08284E1C26007916B3 /* UITableViewCellEditorVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITableViewCellEditorVC.h; sourceTree = "<group>"; };
+		C5C47D09284E1C26007916B3 /* UITableViewCellEditorVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITableViewCellEditorVC.m; sourceTree = "<group>"; };
+		C5C47D0C284E1C4B007916B3 /* MsgEditBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgEditBoardView.h; sourceTree = "<group>"; };
+		C5C47D0D284E1C4B007916B3 /* MsgEditBoardView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MsgEditBoardView.png; sourceTree = "<group>"; };
+		C5C47D0E284E1C4B007916B3 /* MsgEditBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgEditBoardView.m; sourceTree = "<group>"; };
+		C5C47D13284E1C95007916B3 /* JobsMsgDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsMsgDataModel.m; sourceTree = "<group>"; };
+		C5C47D14284E1C95007916B3 /* JobsMsgDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsMsgDataModel.h; sourceTree = "<group>"; };
+		C5C47D17284E1CB3007916B3 /* JobsMsgTBVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsMsgTBVCell.h; sourceTree = "<group>"; };
+		C5C47D18284E1CB3007916B3 /* 消息Cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "消息Cell.png"; sourceTree = "<group>"; };
+		C5C47D19284E1CB3007916B3 /* JobsMsgTBVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsMsgTBVCell.m; sourceTree = "<group>"; };
+		C5C47D20284E1DF8007916B3 /* JobsPopupView04.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsPopupView04.m; sourceTree = "<group>"; };
+		C5C47D21284E1DF8007916B3 /* JobsPopupView04.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsPopupView04.h; sourceTree = "<group>"; };
+		C5C47D22284E1DF8007916B3 /* 弹框样式_04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹框样式_04.png"; sourceTree = "<group>"; };
+		C5C47D2C284E1DF8007916B3 /* JobsPopupView02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsPopupView02.h; sourceTree = "<group>"; };
+		C5C47D2D284E1DF8007916B3 /* JobsPopupView02.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsPopupView02.m; sourceTree = "<group>"; };
+		C5C47D2E284E1DF8007916B3 /* 弹框样式_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹框样式_02.png"; sourceTree = "<group>"; };
+		C5C47D30284E1DF8007916B3 /* JobsPopupView06.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsPopupView06.h; sourceTree = "<group>"; };
+		C5C47D31284E1DF8007916B3 /* 弹框样式_06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹框样式_06.png"; sourceTree = "<group>"; };
+		C5C47D32284E1DF8007916B3 /* JobsPopupView06.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsPopupView06.m; sourceTree = "<group>"; };
+		C5C47D35284E1DF8007916B3 /* CasinoUpgradePopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasinoUpgradePopupView.m; sourceTree = "<group>"; };
+		C5C47D36284E1DF8007916B3 /* CasinoUpgradePopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CasinoUpgradePopupView.h; sourceTree = "<group>"; };
+		C5C47D38284E1DF8007916B3 /* CasinoUpgradeContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CasinoUpgradeContentView.h; sourceTree = "<group>"; };
+		C5C47D39284E1DF8007916B3 /* CasinoUpgradeContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasinoUpgradeContentView.m; sourceTree = "<group>"; };
+		C5C47D3B284E1DF8007916B3 /* JobsPopupView07.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsPopupView07.m; sourceTree = "<group>"; };
+		C5C47D3D284E1DF8007916B3 /* JobsDataShowBackView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobsDataShowBackView.png; sourceTree = "<group>"; };
+		C5C47D3E284E1DF8007916B3 /* JobsDataShowBackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsDataShowBackView.h; sourceTree = "<group>"; };
+		C5C47D3F284E1DF8007916B3 /* JobsDataShowBackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsDataShowBackView.m; sourceTree = "<group>"; };
+		C5C47D40284E1DF8007916B3 /* 弹框样式_07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹框样式_07.png"; sourceTree = "<group>"; };
+		C5C47D41284E1DF8007916B3 /* JobsPopupView07.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsPopupView07.h; sourceTree = "<group>"; };
+		C5C47D43284E1DF9007916B3 /* JobsPopupView08.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsPopupView08.h; sourceTree = "<group>"; };
+		C5C47D44284E1DF9007916B3 /* 弹框样式_08.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹框样式_08.png"; sourceTree = "<group>"; };
+		C5C47D45284E1DF9007916B3 /* JobsPopupView08.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsPopupView08.m; sourceTree = "<group>"; };
+		C5C47D47284E1DF9007916B3 /* JobsPopupView09.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsPopupView09.m; sourceTree = "<group>"; };
+		C5C47D48284E1DF9007916B3 /* 弹框样式_09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹框样式_09.png"; sourceTree = "<group>"; };
+		C5C47D49284E1DF9007916B3 /* JobsPopupView09.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsPopupView09.h; sourceTree = "<group>"; };
+		C5C47D4B284E1DF9007916B3 /* JobsPopupView03.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsPopupView03.m; sourceTree = "<group>"; };
+		C5C47D4C284E1DF9007916B3 /* 弹框样式_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹框样式_03.png"; sourceTree = "<group>"; };
+		C5C47D4D284E1DF9007916B3 /* JobsPopupView03.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsPopupView03.h; sourceTree = "<group>"; };
+		C5C47D4F284E1DF9007916B3 /* JobsPopupView01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsPopupView01.h; sourceTree = "<group>"; };
+		C5C47D50284E1DF9007916B3 /* 弹框样式_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹框样式_01.png"; sourceTree = "<group>"; };
+		C5C47D51284E1DF9007916B3 /* JobsPopupView01.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsPopupView01.m; sourceTree = "<group>"; };
+		C5C47D53284E1DF9007916B3 /* JobsPopupView05.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsPopupView05.h; sourceTree = "<group>"; };
+		C5C47D54284E1DF9007916B3 /* 弹框样式_05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹框样式_05.png"; sourceTree = "<group>"; };
+		C5C47D55284E1DF9007916B3 /* JobsPopupView05.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsPopupView05.m; sourceTree = "<group>"; };
+		C5C47FD0284E21E4007916B3 /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
+		C5C47FD1284E21E4007916B3 /* NotoSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Medium.ttf"; sourceTree = "<group>"; };
+		C5C47FD2284E21E4007916B3 /* NotoSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-MediumItalic.ttf"; sourceTree = "<group>"; };
+		C5C47FD3284E21E4007916B3 /* NotoSans-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Black.ttf"; sourceTree = "<group>"; };
+		C5C47FD4284E21E4007916B3 /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Bold.ttf"; sourceTree = "<group>"; };
+		C5C47FD5284E21E4007916B3 /* NotoSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Thin.ttf"; sourceTree = "<group>"; };
+		C5C47FD6284E21E4007916B3 /* NotoSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		C5C47FD7284E21E4007916B3 /* NotoSansDisplay-VariableFont_wdth,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay-VariableFont_wdth,wght.ttf"; sourceTree = "<group>"; };
+		C5C47FD8284E21E4007916B3 /* NotoSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		C5C47FD9284E21E4007916B3 /* NotoSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		C5C47FDA284E21E4007916B3 /* NotoSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Light.ttf"; sourceTree = "<group>"; };
+		C5C47FDB284E21E4007916B3 /* NotoSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		C5C47FDC284E21E4007916B3 /* NotoSansDisplay-Italic-VariableFont_wdth,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay-Italic-VariableFont_wdth,wght.ttf"; sourceTree = "<group>"; };
+		C5C47FDD284E21E4007916B3 /* NotoSans-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-BlackItalic.ttf"; sourceTree = "<group>"; };
+		C5C47FDE284E21E4007916B3 /* NotoSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		C5C47FDF284E21E4007916B3 /* NotoSans-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-ExtraLight.ttf"; sourceTree = "<group>"; };
+		C5C47FE0284E21E4007916B3 /* NotoSans-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-ThinItalic.ttf"; sourceTree = "<group>"; };
+		C5C47FE1284E21E4007916B3 /* NotoSans-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		C5C47FE2284E21E4007916B3 /* NotoSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		C5C47FE3284E21E4007916B3 /* NotoSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Italic.ttf"; sourceTree = "<group>"; };
+		C5C47FE6284E21E4007916B3 /* NotoSansDisplay-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay-LightItalic.ttf"; sourceTree = "<group>"; };
+		C5C47FE7284E21E4007916B3 /* NotoSansDisplay-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay-Thin.ttf"; sourceTree = "<group>"; };
+		C5C47FE8284E21E4007916B3 /* NotoSansDisplay-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay-SemiBold.ttf"; sourceTree = "<group>"; };
+		C5C47FE9284E21E4007916B3 /* NotoSansDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay-Regular.ttf"; sourceTree = "<group>"; };
+		C5C47FEA284E21E4007916B3 /* NotoSansDisplay-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		C5C47FEB284E21E4007916B3 /* NotoSansDisplay-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay-Black.ttf"; sourceTree = "<group>"; };
+		C5C47FEC284E21E4007916B3 /* NotoSansDisplay-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay-BoldItalic.ttf"; sourceTree = "<group>"; };
+		C5C47FED284E21E4007916B3 /* NotoSansDisplay-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay-ThinItalic.ttf"; sourceTree = "<group>"; };
+		C5C47FEE284E21E4007916B3 /* NotoSansDisplay-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay-ExtraBold.ttf"; sourceTree = "<group>"; };
+		C5C47FEF284E21E4007916B3 /* NotoSansDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay-Bold.ttf"; sourceTree = "<group>"; };
+		C5C47FF0284E21E4007916B3 /* NotoSansDisplay-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay-ExtraLight.ttf"; sourceTree = "<group>"; };
+		C5C47FF1284E21E4007916B3 /* NotoSansDisplay-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay-Medium.ttf"; sourceTree = "<group>"; };
+		C5C47FF2284E21E4007916B3 /* NotoSansDisplay-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		C5C47FF3284E21E4007916B3 /* NotoSansDisplay-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay-BlackItalic.ttf"; sourceTree = "<group>"; };
+		C5C47FF4284E21E4007916B3 /* NotoSansDisplay-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay-MediumItalic.ttf"; sourceTree = "<group>"; };
+		C5C47FF5284E21E4007916B3 /* NotoSansDisplay-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		C5C47FF6284E21E4007916B3 /* NotoSansDisplay-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay-Italic.ttf"; sourceTree = "<group>"; };
+		C5C47FF7284E21E4007916B3 /* NotoSansDisplay-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay-Light.ttf"; sourceTree = "<group>"; };
+		C5C47FF9284E21E4007916B3 /* NotoSansDisplay_Condensed-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_Condensed-SemiBold.ttf"; sourceTree = "<group>"; };
+		C5C47FFA284E21E4007916B3 /* NotoSansDisplay_Condensed-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_Condensed-Black.ttf"; sourceTree = "<group>"; };
+		C5C47FFB284E21E4007916B3 /* NotoSansDisplay_Condensed-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_Condensed-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		C5C47FFC284E21E4007916B3 /* NotoSansDisplay_Condensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_Condensed-Regular.ttf"; sourceTree = "<group>"; };
+		C5C47FFD284E21E4007916B3 /* NotoSansDisplay_Condensed-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_Condensed-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		C5C47FFE284E21E4007916B3 /* NotoSansDisplay_Condensed-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_Condensed-Italic.ttf"; sourceTree = "<group>"; };
+		C5C47FFF284E21E4007916B3 /* NotoSansDisplay_Condensed-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_Condensed-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		C5C48000284E21E4007916B3 /* NotoSansDisplay_Condensed-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_Condensed-ThinItalic.ttf"; sourceTree = "<group>"; };
+		C5C48001284E21E4007916B3 /* NotoSansDisplay_Condensed-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_Condensed-ExtraLight.ttf"; sourceTree = "<group>"; };
+		C5C48002284E21E4007916B3 /* NotoSansDisplay_Condensed-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_Condensed-ExtraBold.ttf"; sourceTree = "<group>"; };
+		C5C48003284E21E4007916B3 /* NotoSansDisplay_Condensed-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_Condensed-BoldItalic.ttf"; sourceTree = "<group>"; };
+		C5C48004284E21E4007916B3 /* NotoSansDisplay_Condensed-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_Condensed-Medium.ttf"; sourceTree = "<group>"; };
+		C5C48005284E21E4007916B3 /* NotoSansDisplay_Condensed-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_Condensed-LightItalic.ttf"; sourceTree = "<group>"; };
+		C5C48006284E21E4007916B3 /* NotoSansDisplay_Condensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_Condensed-Light.ttf"; sourceTree = "<group>"; };
+		C5C48007284E21E4007916B3 /* NotoSansDisplay_Condensed-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_Condensed-Thin.ttf"; sourceTree = "<group>"; };
+		C5C48008284E21E4007916B3 /* NotoSansDisplay_Condensed-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_Condensed-BlackItalic.ttf"; sourceTree = "<group>"; };
+		C5C48009284E21E4007916B3 /* NotoSansDisplay_Condensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_Condensed-Bold.ttf"; sourceTree = "<group>"; };
+		C5C4800A284E21E4007916B3 /* NotoSansDisplay_Condensed-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_Condensed-MediumItalic.ttf"; sourceTree = "<group>"; };
+		C5C4800C284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_ExtraCondensed-BlackItalic.ttf"; sourceTree = "<group>"; };
+		C5C4800D284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_ExtraCondensed-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		C5C4800E284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_ExtraCondensed-SemiBold.ttf"; sourceTree = "<group>"; };
+		C5C4800F284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_ExtraCondensed-Italic.ttf"; sourceTree = "<group>"; };
+		C5C48010284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_ExtraCondensed-Black.ttf"; sourceTree = "<group>"; };
+		C5C48011284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_ExtraCondensed-Regular.ttf"; sourceTree = "<group>"; };
+		C5C48012284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_ExtraCondensed-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		C5C48013284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_ExtraCondensed-ThinItalic.ttf"; sourceTree = "<group>"; };
+		C5C48014284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_ExtraCondensed-LightItalic.ttf"; sourceTree = "<group>"; };
+		C5C48015284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_ExtraCondensed-ExtraLight.ttf"; sourceTree = "<group>"; };
+		C5C48016284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_ExtraCondensed-BoldItalic.ttf"; sourceTree = "<group>"; };
+		C5C48017284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_ExtraCondensed-MediumItalic.ttf"; sourceTree = "<group>"; };
+		C5C48018284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_ExtraCondensed-Thin.ttf"; sourceTree = "<group>"; };
+		C5C48019284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_ExtraCondensed-Light.ttf"; sourceTree = "<group>"; };
+		C5C4801A284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_ExtraCondensed-Bold.ttf"; sourceTree = "<group>"; };
+		C5C4801B284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_ExtraCondensed-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		C5C4801C284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_ExtraCondensed-ExtraBold.ttf"; sourceTree = "<group>"; };
+		C5C4801D284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_ExtraCondensed-Medium.ttf"; sourceTree = "<group>"; };
+		C5C4801F284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_SemiCondensed-Bold.ttf"; sourceTree = "<group>"; };
+		C5C48020284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_SemiCondensed-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		C5C48021284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_SemiCondensed-BlackItalic.ttf"; sourceTree = "<group>"; };
+		C5C48022284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_SemiCondensed-Thin.ttf"; sourceTree = "<group>"; };
+		C5C48023284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_SemiCondensed-Italic.ttf"; sourceTree = "<group>"; };
+		C5C48024284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_SemiCondensed-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		C5C48025284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_SemiCondensed-Light.ttf"; sourceTree = "<group>"; };
+		C5C48026284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_SemiCondensed-SemiBold.ttf"; sourceTree = "<group>"; };
+		C5C48027284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_SemiCondensed-LightItalic.ttf"; sourceTree = "<group>"; };
+		C5C48028284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_SemiCondensed-Medium.ttf"; sourceTree = "<group>"; };
+		C5C48029284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_SemiCondensed-Black.ttf"; sourceTree = "<group>"; };
+		C5C4802A284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_SemiCondensed-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		C5C4802B284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_SemiCondensed-BoldItalic.ttf"; sourceTree = "<group>"; };
+		C5C4802C284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_SemiCondensed-MediumItalic.ttf"; sourceTree = "<group>"; };
+		C5C4802D284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_SemiCondensed-ExtraLight.ttf"; sourceTree = "<group>"; };
+		C5C4802E284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_SemiCondensed-ThinItalic.ttf"; sourceTree = "<group>"; };
+		C5C4802F284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_SemiCondensed-Regular.ttf"; sourceTree = "<group>"; };
+		C5C48030284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansDisplay_SemiCondensed-ExtraBold.ttf"; sourceTree = "<group>"; };
+		C5C4808E284E22C4007916B3 /* JobsShowNumView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobsShowNumView.png; sourceTree = "<group>"; };
+		C5C4808F284E22C4007916B3 /* JobsShowNumView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsShowNumView.m; sourceTree = "<group>"; };
+		C5C48091284E22C4007916B3 /* JobsShowNum@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsShowNum@3x.png"; sourceTree = "<group>"; };
+		C5C48092284E22C4007916B3 /* JobsShowNum@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsShowNum@2x.png"; sourceTree = "<group>"; };
+		C5C48093284E22C4007916B3 /* JobsShowNumView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsShowNumView.h; sourceTree = "<group>"; };
+		C5C48099284E246D007916B3 /* 输入框样式_10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "输入框样式_10.png"; sourceTree = "<group>"; };
+		C5C4809A284E246D007916B3 /* 输入框样式_10.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "输入框样式_10.md"; sourceTree = "<group>"; };
+		C5C4809B284E246D007916B3 /* JobsAppDoorInputViewBaseStyle_10.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputViewBaseStyle_10.h; sourceTree = "<group>"; };
+		C5C4809C284E246D007916B3 /* JobsAppDoorInputViewBaseStyle_10.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorInputViewBaseStyle_10.m; sourceTree = "<group>"; };
+		C5C480A1284E24FE007916B3 /* 设置手势密码.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "设置手势密码.png"; sourceTree = "<group>"; };
+		C5C480A3284E250A007916B3 /* JobsSettingGestureVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsSettingGestureVC.h; sourceTree = "<group>"; };
+		C5C480A4284E250A007916B3 /* JobsSettingGestureVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsSettingGestureVC.m; sourceTree = "<group>"; };
+		C5C48122284E254B007916B3 /* JobsMembersSubsBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsMembersSubsBaseVC.h; sourceTree = "<group>"; };
+		C5C48123284E254B007916B3 /* JobsMembersSubsBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsMembersSubsBaseVC.m; sourceTree = "<group>"; };
+		C5D46FFA284E29A90090D20F /* JobsGetiOSNewestVersionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsGetiOSNewestVersionModel.h; sourceTree = "<group>"; };
+		C5D46FFB284E29A90090D20F /* JobsGetiOSNewestVersionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsGetiOSNewestVersionModel.m; sourceTree = "<group>"; };
 		FEDDD2E7A82BF58DE2012E29 /* Pods-JobsBaseConfigUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobsBaseConfigUITests.debug.xcconfig"; path = "Target Support Files/Pods-JobsBaseConfigUITests/Pods-JobsBaseConfigUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -2309,7 +2568,7 @@
 			isa = PBXGroup;
 			children = (
 				840F92C527736425004979E9 /* JobsMixFunc.h */,
-				8459CF132776F7C600125782 /* 版本升级弹窗 */,
+				C5C4808D284E22C4007916B3 /* JobsShowNumView */,
 				840F92D827736425004979E9 /* 播放器控制层 */,
 				840F92BD27736425004979E9 /* 分享控件 */,
 				840F92DF27736425004979E9 /* 广告或者公示弹出框 */,
@@ -6428,43 +6687,6 @@
 			path = "SceneDelegate+UISceneDelegate";
 			sourceTree = "<group>";
 		};
-		8459CF132776F7C600125782 /* 版本升级弹窗 */ = {
-			isa = PBXGroup;
-			children = (
-				8459CF202776F88700125782 /* 版本升级弹窗(资源) */,
-				8459CF172776F7C600125782 /* CasinoUpgradeContentView */,
-				8459CF142776F7C600125782 /* CasinoUpgradePopupView */,
-			);
-			path = "版本升级弹窗";
-			sourceTree = "<group>";
-		};
-		8459CF142776F7C600125782 /* CasinoUpgradePopupView */ = {
-			isa = PBXGroup;
-			children = (
-				8459CF162776F7C600125782 /* CasinoUpgradePopupView.h */,
-				8459CF152776F7C600125782 /* CasinoUpgradePopupView.m */,
-			);
-			path = CasinoUpgradePopupView;
-			sourceTree = "<group>";
-		};
-		8459CF172776F7C600125782 /* CasinoUpgradeContentView */ = {
-			isa = PBXGroup;
-			children = (
-				8459CF182776F7C600125782 /* CasinoUpgradeContentView.h */,
-				8459CF192776F7C600125782 /* CasinoUpgradeContentView.m */,
-			);
-			path = CasinoUpgradeContentView;
-			sourceTree = "<group>";
-		};
-		8459CF202776F88700125782 /* 版本升级弹窗(资源) */ = {
-			isa = PBXGroup;
-			children = (
-				8459CF1D2776F87F00125782 /* 弹窗升级背景图@2x.png */,
-				8459CF1C2776F87F00125782 /* 弹窗升级背景图@3x.png */,
-			);
-			path = "版本升级弹窗(资源)";
-			sourceTree = "<group>";
-		};
 		8459D6132779A6CC00125782 /* CustomerContactStyle */ = {
 			isa = PBXGroup;
 			children = (
@@ -7508,12 +7730,12 @@
 		84CA5DD227895B4700E46E71 /* 资源文件管理 */ = {
 			isa = PBXGroup;
 			children = (
+				C5C47FCE284E21D1007916B3 /* 外源字体 */,
 				84CA5E8127895BCE00E46E71 /* Plist资源文件 */,
 				84CA5DD327895B4700E46E71 /* 图片资源文件 */,
 				84CA5DE727895B4700E46E71 /* 国际化桥接数据 */,
 				84CA5DF027895B4700E46E71 /* 视频资源文件 */,
 				84CA5DF327895B4700E46E71 /* Json文件 */,
-				84CA5DF427895B4700E46E71 /* 外部字体 */,
 			);
 			path = "资源文件管理";
 			sourceTree = "<group>";
@@ -7594,13 +7816,6 @@
 				84AA2C942796E9A8000401C6 /* UserData.json */,
 			);
 			path = "Json文件";
-			sourceTree = "<group>";
-		};
-		84CA5DF427895B4700E46E71 /* 外部字体 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "外部字体";
 			sourceTree = "<group>";
 		};
 		84CA5E8127895BCE00E46E71 /* Plist资源文件 */ = {
@@ -8160,6 +8375,8 @@
 		84CA609D278980E700E46E71 /* 功能模块 */ = {
 			isa = PBXGroup;
 			children = (
+				C5C480A0284E24FE007916B3 /* 设置手势密码 */,
+				C5C47D07284E1C0A007916B3 /* UITableViewCellEditorVC */,
 				C56341572849DFD50047CA49 /* JobsTestVC */,
 				C55E6B5F2843705500ABA84A /* JXCategoryPopup */,
 				8424778F27C113FE00831270 /* CoreTextLearning */,
@@ -8803,8 +9020,8 @@
 			isa = PBXGroup;
 			children = (
 				C55E6B4C28436F8100ABA84A /* 自定义视图.png */,
-				C55E6B4D28436F8100ABA84A /* BaiShaETProjCustomView.h */,
-				C55E6B4E28436F8100ABA84A /* BaiShaETProjCustomView.m */,
+				C55E6B4D28436F8100ABA84A /* JobsCustomView.h */,
+				C55E6B4E28436F8100ABA84A /* JobsCustomView.m */,
 			);
 			path = "自定义视图";
 			sourceTree = "<group>";
@@ -8813,8 +9030,8 @@
 			isa = PBXGroup;
 			children = (
 				C55E6B5128436F8100ABA84A /* 筛选视图.png */,
-				C55E6B5028436F8100ABA84A /* BaiShaETProjFiltrationView.h */,
-				C55E6B5228436F8100ABA84A /* BaiShaETProjFiltrationView.m */,
+				C55E6B5028436F8100ABA84A /* JobsFiltrationView.h */,
+				C55E6B5228436F8100ABA84A /* JobsFiltrationView.m */,
 			);
 			path = "筛选视图";
 			sourceTree = "<group>";
@@ -8903,20 +9120,30 @@
 		C5932EBE282D26D900B3B053 /* 本App相关的自定义弹出框 */ = {
 			isa = PBXGroup;
 			children = (
-				C5932EBF282D26E500B3B053 /* 弹框样式_1 */,
+				C5C47D33284E1DF8007916B3 /* 版本升级弹窗 */,
+				C5932EBF282D26E500B3B053 /* 弹框样式_0 */,
+				C5C47D4E284E1DF9007916B3 /* 弹框样式_01 */,
+				C5C47D2B284E1DF8007916B3 /* 弹框样式_02 */,
+				C5C47D4A284E1DF9007916B3 /* 弹框样式_03 */,
+				C5C47D1F284E1DF8007916B3 /* 弹框样式_04 */,
+				C5C47D52284E1DF9007916B3 /* 弹框样式_05 */,
+				C5C47D2F284E1DF8007916B3 /* 弹框样式_06 */,
+				C5C47D3A284E1DF8007916B3 /* 弹框样式_07 */,
+				C5C47D42284E1DF9007916B3 /* 弹框样式_08 */,
+				C5C47D46284E1DF9007916B3 /* 弹框样式_09 */,
 				C5932ECC282D271E00B3B053 /* JobsBaseConfigPopupViewHeader.h */,
 			);
 			path = "本App相关的自定义弹出框";
 			sourceTree = "<group>";
 		};
-		C5932EBF282D26E500B3B053 /* 弹框样式_1 */ = {
+		C5932EBF282D26E500B3B053 /* 弹框样式_0 */ = {
 			isa = PBXGroup;
 			children = (
 				C5932EC6282D26E500B3B053 /* JobsBaseConfigTestPopupView.h */,
 				C5932EC0282D26E500B3B053 /* JobsBaseConfigTestPopupView.m */,
 				C5932EC1282D26E500B3B053 /* resources */,
 			);
-			path = "弹框样式_1";
+			path = "弹框样式_0";
 			sourceTree = "<group>";
 		};
 		C5932EC1282D26E500B3B053 /* resources */ = {
@@ -9014,6 +9241,7 @@
 				C5AA8B41282CE2F00057EB84 /* 输入框样式_7 */,
 				C5AA8B2E282CE2EF0057EB84 /* 输入框样式_8 */,
 				C5AA8B46282CE2F00057EB84 /* 输入框样式_9 */,
+				C5C48098284E246D007916B3 /* 输入框样式_10 */,
 				C5AA8B56282CE2F00057EB84 /* 输入框样式基类 */,
 				C5932ECD282D27F400B3B053 /* JobsAppDoorInputViewHeader.h */,
 				C5AA8B33282CE2EF0057EB84 /* JobsDoorInputViewProtocol.h */,
@@ -9142,6 +9370,423 @@
 			path = "输入框样式_3";
 			sourceTree = "<group>";
 		};
+		C5C47D07284E1C0A007916B3 /* UITableViewCellEditorVC */ = {
+			isa = PBXGroup;
+			children = (
+				C5C47D1E284E1CC9007916B3 /* Model */,
+				C5C47D1D284E1CC4007916B3 /* View */,
+				C5C47D1C284E1CBB007916B3 /* ViewController */,
+			);
+			path = UITableViewCellEditorVC;
+			sourceTree = "<group>";
+		};
+		C5C47D0B284E1C4B007916B3 /* MsgEditBoardView */ = {
+			isa = PBXGroup;
+			children = (
+				C5C47D0C284E1C4B007916B3 /* MsgEditBoardView.h */,
+				C5C47D0D284E1C4B007916B3 /* MsgEditBoardView.png */,
+				C5C47D0E284E1C4B007916B3 /* MsgEditBoardView.m */,
+			);
+			path = MsgEditBoardView;
+			sourceTree = "<group>";
+		};
+		C5C47D11284E1C50007916B3 /* UITableViewCellEditorVC */ = {
+			isa = PBXGroup;
+			children = (
+				C5C47D08284E1C26007916B3 /* UITableViewCellEditorVC.h */,
+				C5C47D09284E1C26007916B3 /* UITableViewCellEditorVC.m */,
+			);
+			path = UITableViewCellEditorVC;
+			sourceTree = "<group>";
+		};
+		C5C47D12284E1C95007916B3 /* JobsMsgDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				C5C47D13284E1C95007916B3 /* JobsMsgDataModel.m */,
+				C5C47D14284E1C95007916B3 /* JobsMsgDataModel.h */,
+			);
+			path = JobsMsgDataModel;
+			sourceTree = "<group>";
+		};
+		C5C47D16284E1CB3007916B3 /* 消息Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C5C47D18284E1CB3007916B3 /* 消息Cell.png */,
+				C5C47D17284E1CB3007916B3 /* JobsMsgTBVCell.h */,
+				C5C47D19284E1CB3007916B3 /* JobsMsgTBVCell.m */,
+			);
+			path = "消息Cell";
+			sourceTree = "<group>";
+		};
+		C5C47D1C284E1CBB007916B3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C5C47D11284E1C50007916B3 /* UITableViewCellEditorVC */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C5C47D1D284E1CC4007916B3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C5C47D16284E1CB3007916B3 /* 消息Cell */,
+				C5C47D0B284E1C4B007916B3 /* MsgEditBoardView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C5C47D1E284E1CC9007916B3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C5C47D12284E1C95007916B3 /* JobsMsgDataModel */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C5C47D1F284E1DF8007916B3 /* 弹框样式_04 */ = {
+			isa = PBXGroup;
+			children = (
+				C5C47D22284E1DF8007916B3 /* 弹框样式_04.png */,
+				C5C47D21284E1DF8007916B3 /* JobsPopupView04.h */,
+				C5C47D20284E1DF8007916B3 /* JobsPopupView04.m */,
+			);
+			path = "弹框样式_04";
+			sourceTree = "<group>";
+		};
+		C5C47D2B284E1DF8007916B3 /* 弹框样式_02 */ = {
+			isa = PBXGroup;
+			children = (
+				C5C47D2E284E1DF8007916B3 /* 弹框样式_02.png */,
+				C5C47D2C284E1DF8007916B3 /* JobsPopupView02.h */,
+				C5C47D2D284E1DF8007916B3 /* JobsPopupView02.m */,
+			);
+			path = "弹框样式_02";
+			sourceTree = "<group>";
+		};
+		C5C47D2F284E1DF8007916B3 /* 弹框样式_06 */ = {
+			isa = PBXGroup;
+			children = (
+				C5C47D31284E1DF8007916B3 /* 弹框样式_06.png */,
+				C5C47D30284E1DF8007916B3 /* JobsPopupView06.h */,
+				C5C47D32284E1DF8007916B3 /* JobsPopupView06.m */,
+			);
+			path = "弹框样式_06";
+			sourceTree = "<group>";
+		};
+		C5C47D33284E1DF8007916B3 /* 版本升级弹窗 */ = {
+			isa = PBXGroup;
+			children = (
+				C5D46FF9284E29A90090D20F /* JobsGetiOSNewestVersionModel */,
+				C5C47D37284E1DF8007916B3 /* CasinoUpgradeContentView */,
+				C5C47D34284E1DF8007916B3 /* CasinoUpgradePopupView */,
+			);
+			path = "版本升级弹窗";
+			sourceTree = "<group>";
+		};
+		C5C47D34284E1DF8007916B3 /* CasinoUpgradePopupView */ = {
+			isa = PBXGroup;
+			children = (
+				C5C47D36284E1DF8007916B3 /* CasinoUpgradePopupView.h */,
+				C5C47D35284E1DF8007916B3 /* CasinoUpgradePopupView.m */,
+			);
+			path = CasinoUpgradePopupView;
+			sourceTree = "<group>";
+		};
+		C5C47D37284E1DF8007916B3 /* CasinoUpgradeContentView */ = {
+			isa = PBXGroup;
+			children = (
+				C5C47D38284E1DF8007916B3 /* CasinoUpgradeContentView.h */,
+				C5C47D39284E1DF8007916B3 /* CasinoUpgradeContentView.m */,
+			);
+			path = CasinoUpgradeContentView;
+			sourceTree = "<group>";
+		};
+		C5C47D3A284E1DF8007916B3 /* 弹框样式_07 */ = {
+			isa = PBXGroup;
+			children = (
+				C5C47D40284E1DF8007916B3 /* 弹框样式_07.png */,
+				C5C47D3C284E1DF8007916B3 /* JobsDataShowBackView */,
+				C5C47D41284E1DF8007916B3 /* JobsPopupView07.h */,
+				C5C47D3B284E1DF8007916B3 /* JobsPopupView07.m */,
+			);
+			path = "弹框样式_07";
+			sourceTree = "<group>";
+		};
+		C5C47D3C284E1DF8007916B3 /* JobsDataShowBackView */ = {
+			isa = PBXGroup;
+			children = (
+				C5C47D3D284E1DF8007916B3 /* JobsDataShowBackView.png */,
+				C5C47D3E284E1DF8007916B3 /* JobsDataShowBackView.h */,
+				C5C47D3F284E1DF8007916B3 /* JobsDataShowBackView.m */,
+			);
+			path = JobsDataShowBackView;
+			sourceTree = "<group>";
+		};
+		C5C47D42284E1DF9007916B3 /* 弹框样式_08 */ = {
+			isa = PBXGroup;
+			children = (
+				C5C47D44284E1DF9007916B3 /* 弹框样式_08.png */,
+				C5C47D43284E1DF9007916B3 /* JobsPopupView08.h */,
+				C5C47D45284E1DF9007916B3 /* JobsPopupView08.m */,
+			);
+			path = "弹框样式_08";
+			sourceTree = "<group>";
+		};
+		C5C47D46284E1DF9007916B3 /* 弹框样式_09 */ = {
+			isa = PBXGroup;
+			children = (
+				C5C47D48284E1DF9007916B3 /* 弹框样式_09.png */,
+				C5C47D49284E1DF9007916B3 /* JobsPopupView09.h */,
+				C5C47D47284E1DF9007916B3 /* JobsPopupView09.m */,
+			);
+			path = "弹框样式_09";
+			sourceTree = "<group>";
+		};
+		C5C47D4A284E1DF9007916B3 /* 弹框样式_03 */ = {
+			isa = PBXGroup;
+			children = (
+				C5C47D4C284E1DF9007916B3 /* 弹框样式_03.png */,
+				C5C47D4D284E1DF9007916B3 /* JobsPopupView03.h */,
+				C5C47D4B284E1DF9007916B3 /* JobsPopupView03.m */,
+			);
+			path = "弹框样式_03";
+			sourceTree = "<group>";
+		};
+		C5C47D4E284E1DF9007916B3 /* 弹框样式_01 */ = {
+			isa = PBXGroup;
+			children = (
+				C5C47D50284E1DF9007916B3 /* 弹框样式_01.png */,
+				C5C47D4F284E1DF9007916B3 /* JobsPopupView01.h */,
+				C5C47D51284E1DF9007916B3 /* JobsPopupView01.m */,
+			);
+			path = "弹框样式_01";
+			sourceTree = "<group>";
+		};
+		C5C47D52284E1DF9007916B3 /* 弹框样式_05 */ = {
+			isa = PBXGroup;
+			children = (
+				C5C47D54284E1DF9007916B3 /* 弹框样式_05.png */,
+				C5C47D53284E1DF9007916B3 /* JobsPopupView05.h */,
+				C5C47D55284E1DF9007916B3 /* JobsPopupView05.m */,
+			);
+			path = "弹框样式_05";
+			sourceTree = "<group>";
+		};
+		C5C47FCE284E21D1007916B3 /* 外源字体 */ = {
+			isa = PBXGroup;
+			children = (
+				C5C47FCF284E21E4007916B3 /* Noto_Sans */,
+				C5C47FE4284E21E4007916B3 /* Noto_Sans_Display */,
+			);
+			path = "外源字体";
+			sourceTree = "<group>";
+		};
+		C5C47FCF284E21E4007916B3 /* Noto_Sans */ = {
+			isa = PBXGroup;
+			children = (
+				C5C47FD0284E21E4007916B3 /* NotoSans-Regular.ttf */,
+				C5C47FD1284E21E4007916B3 /* NotoSans-Medium.ttf */,
+				C5C47FD2284E21E4007916B3 /* NotoSans-MediumItalic.ttf */,
+				C5C47FD3284E21E4007916B3 /* NotoSans-Black.ttf */,
+				C5C47FD4284E21E4007916B3 /* NotoSans-Bold.ttf */,
+				C5C47FD5284E21E4007916B3 /* NotoSans-Thin.ttf */,
+				C5C47FD6284E21E4007916B3 /* NotoSans-SemiBold.ttf */,
+				C5C47FD7284E21E4007916B3 /* NotoSansDisplay-VariableFont_wdth,wght.ttf */,
+				C5C47FD8284E21E4007916B3 /* NotoSans-SemiBoldItalic.ttf */,
+				C5C47FD9284E21E4007916B3 /* NotoSans-LightItalic.ttf */,
+				C5C47FDA284E21E4007916B3 /* NotoSans-Light.ttf */,
+				C5C47FDB284E21E4007916B3 /* NotoSans-BoldItalic.ttf */,
+				C5C47FDC284E21E4007916B3 /* NotoSansDisplay-Italic-VariableFont_wdth,wght.ttf */,
+				C5C47FDD284E21E4007916B3 /* NotoSans-BlackItalic.ttf */,
+				C5C47FDE284E21E4007916B3 /* NotoSans-ExtraBoldItalic.ttf */,
+				C5C47FDF284E21E4007916B3 /* NotoSans-ExtraLight.ttf */,
+				C5C47FE0284E21E4007916B3 /* NotoSans-ThinItalic.ttf */,
+				C5C47FE1284E21E4007916B3 /* NotoSans-ExtraLightItalic.ttf */,
+				C5C47FE2284E21E4007916B3 /* NotoSans-ExtraBold.ttf */,
+				C5C47FE3284E21E4007916B3 /* NotoSans-Italic.ttf */,
+			);
+			path = Noto_Sans;
+			sourceTree = "<group>";
+		};
+		C5C47FE4284E21E4007916B3 /* Noto_Sans_Display */ = {
+			isa = PBXGroup;
+			children = (
+				C5C47FE5284E21E4007916B3 /* NotoSansDisplay */,
+				C5C47FF8284E21E4007916B3 /* NotoSansDisplay_Condensed */,
+				C5C4800B284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed */,
+				C5C4801E284E21E4007916B3 /* NotoSansDisplay_SemiCondensed */,
+			);
+			path = Noto_Sans_Display;
+			sourceTree = "<group>";
+		};
+		C5C47FE5284E21E4007916B3 /* NotoSansDisplay */ = {
+			isa = PBXGroup;
+			children = (
+				C5C47FE6284E21E4007916B3 /* NotoSansDisplay-LightItalic.ttf */,
+				C5C47FE7284E21E4007916B3 /* NotoSansDisplay-Thin.ttf */,
+				C5C47FE8284E21E4007916B3 /* NotoSansDisplay-SemiBold.ttf */,
+				C5C47FE9284E21E4007916B3 /* NotoSansDisplay-Regular.ttf */,
+				C5C47FEA284E21E4007916B3 /* NotoSansDisplay-SemiBoldItalic.ttf */,
+				C5C47FEB284E21E4007916B3 /* NotoSansDisplay-Black.ttf */,
+				C5C47FEC284E21E4007916B3 /* NotoSansDisplay-BoldItalic.ttf */,
+				C5C47FED284E21E4007916B3 /* NotoSansDisplay-ThinItalic.ttf */,
+				C5C47FEE284E21E4007916B3 /* NotoSansDisplay-ExtraBold.ttf */,
+				C5C47FEF284E21E4007916B3 /* NotoSansDisplay-Bold.ttf */,
+				C5C47FF0284E21E4007916B3 /* NotoSansDisplay-ExtraLight.ttf */,
+				C5C47FF1284E21E4007916B3 /* NotoSansDisplay-Medium.ttf */,
+				C5C47FF2284E21E4007916B3 /* NotoSansDisplay-ExtraBoldItalic.ttf */,
+				C5C47FF3284E21E4007916B3 /* NotoSansDisplay-BlackItalic.ttf */,
+				C5C47FF4284E21E4007916B3 /* NotoSansDisplay-MediumItalic.ttf */,
+				C5C47FF5284E21E4007916B3 /* NotoSansDisplay-ExtraLightItalic.ttf */,
+				C5C47FF6284E21E4007916B3 /* NotoSansDisplay-Italic.ttf */,
+				C5C47FF7284E21E4007916B3 /* NotoSansDisplay-Light.ttf */,
+			);
+			path = NotoSansDisplay;
+			sourceTree = "<group>";
+		};
+		C5C47FF8284E21E4007916B3 /* NotoSansDisplay_Condensed */ = {
+			isa = PBXGroup;
+			children = (
+				C5C47FF9284E21E4007916B3 /* NotoSansDisplay_Condensed-SemiBold.ttf */,
+				C5C47FFA284E21E4007916B3 /* NotoSansDisplay_Condensed-Black.ttf */,
+				C5C47FFB284E21E4007916B3 /* NotoSansDisplay_Condensed-ExtraBoldItalic.ttf */,
+				C5C47FFC284E21E4007916B3 /* NotoSansDisplay_Condensed-Regular.ttf */,
+				C5C47FFD284E21E4007916B3 /* NotoSansDisplay_Condensed-ExtraLightItalic.ttf */,
+				C5C47FFE284E21E4007916B3 /* NotoSansDisplay_Condensed-Italic.ttf */,
+				C5C47FFF284E21E4007916B3 /* NotoSansDisplay_Condensed-SemiBoldItalic.ttf */,
+				C5C48000284E21E4007916B3 /* NotoSansDisplay_Condensed-ThinItalic.ttf */,
+				C5C48001284E21E4007916B3 /* NotoSansDisplay_Condensed-ExtraLight.ttf */,
+				C5C48002284E21E4007916B3 /* NotoSansDisplay_Condensed-ExtraBold.ttf */,
+				C5C48003284E21E4007916B3 /* NotoSansDisplay_Condensed-BoldItalic.ttf */,
+				C5C48004284E21E4007916B3 /* NotoSansDisplay_Condensed-Medium.ttf */,
+				C5C48005284E21E4007916B3 /* NotoSansDisplay_Condensed-LightItalic.ttf */,
+				C5C48006284E21E4007916B3 /* NotoSansDisplay_Condensed-Light.ttf */,
+				C5C48007284E21E4007916B3 /* NotoSansDisplay_Condensed-Thin.ttf */,
+				C5C48008284E21E4007916B3 /* NotoSansDisplay_Condensed-BlackItalic.ttf */,
+				C5C48009284E21E4007916B3 /* NotoSansDisplay_Condensed-Bold.ttf */,
+				C5C4800A284E21E4007916B3 /* NotoSansDisplay_Condensed-MediumItalic.ttf */,
+			);
+			path = NotoSansDisplay_Condensed;
+			sourceTree = "<group>";
+		};
+		C5C4800B284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed */ = {
+			isa = PBXGroup;
+			children = (
+				C5C4800C284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-BlackItalic.ttf */,
+				C5C4800D284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-ExtraBoldItalic.ttf */,
+				C5C4800E284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-SemiBold.ttf */,
+				C5C4800F284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-Italic.ttf */,
+				C5C48010284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-Black.ttf */,
+				C5C48011284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-Regular.ttf */,
+				C5C48012284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-SemiBoldItalic.ttf */,
+				C5C48013284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-ThinItalic.ttf */,
+				C5C48014284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-LightItalic.ttf */,
+				C5C48015284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-ExtraLight.ttf */,
+				C5C48016284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-BoldItalic.ttf */,
+				C5C48017284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-MediumItalic.ttf */,
+				C5C48018284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-Thin.ttf */,
+				C5C48019284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-Light.ttf */,
+				C5C4801A284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-Bold.ttf */,
+				C5C4801B284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-ExtraLightItalic.ttf */,
+				C5C4801C284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-ExtraBold.ttf */,
+				C5C4801D284E21E4007916B3 /* NotoSansDisplay_ExtraCondensed-Medium.ttf */,
+			);
+			path = NotoSansDisplay_ExtraCondensed;
+			sourceTree = "<group>";
+		};
+		C5C4801E284E21E4007916B3 /* NotoSansDisplay_SemiCondensed */ = {
+			isa = PBXGroup;
+			children = (
+				C5C4801F284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-Bold.ttf */,
+				C5C48020284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-ExtraBoldItalic.ttf */,
+				C5C48021284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-BlackItalic.ttf */,
+				C5C48022284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-Thin.ttf */,
+				C5C48023284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-Italic.ttf */,
+				C5C48024284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-ExtraLightItalic.ttf */,
+				C5C48025284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-Light.ttf */,
+				C5C48026284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-SemiBold.ttf */,
+				C5C48027284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-LightItalic.ttf */,
+				C5C48028284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-Medium.ttf */,
+				C5C48029284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-Black.ttf */,
+				C5C4802A284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-SemiBoldItalic.ttf */,
+				C5C4802B284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-BoldItalic.ttf */,
+				C5C4802C284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-MediumItalic.ttf */,
+				C5C4802D284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-ExtraLight.ttf */,
+				C5C4802E284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-ThinItalic.ttf */,
+				C5C4802F284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-Regular.ttf */,
+				C5C48030284E21E4007916B3 /* NotoSansDisplay_SemiCondensed-ExtraBold.ttf */,
+			);
+			path = NotoSansDisplay_SemiCondensed;
+			sourceTree = "<group>";
+		};
+		C5C4808D284E22C4007916B3 /* JobsShowNumView */ = {
+			isa = PBXGroup;
+			children = (
+				C5C48093284E22C4007916B3 /* JobsShowNumView.h */,
+				C5C4808F284E22C4007916B3 /* JobsShowNumView.m */,
+				C5C4808E284E22C4007916B3 /* JobsShowNumView.png */,
+				C5C48090284E22C4007916B3 /* resources */,
+			);
+			path = JobsShowNumView;
+			sourceTree = "<group>";
+		};
+		C5C48090284E22C4007916B3 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				C5C48091284E22C4007916B3 /* JobsShowNum@3x.png */,
+				C5C48092284E22C4007916B3 /* JobsShowNum@2x.png */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		C5C48098284E246D007916B3 /* 输入框样式_10 */ = {
+			isa = PBXGroup;
+			children = (
+				C5C48099284E246D007916B3 /* 输入框样式_10.png */,
+				C5C4809A284E246D007916B3 /* 输入框样式_10.md */,
+				C5C4809B284E246D007916B3 /* JobsAppDoorInputViewBaseStyle_10.h */,
+				C5C4809C284E246D007916B3 /* JobsAppDoorInputViewBaseStyle_10.m */,
+			);
+			path = "输入框样式_10";
+			sourceTree = "<group>";
+		};
+		C5C480A0284E24FE007916B3 /* 设置手势密码 */ = {
+			isa = PBXGroup;
+			children = (
+				C5C480A1284E24FE007916B3 /* 设置手势密码.png */,
+				C5C48121284E254B007916B3 /* JobsMembersSubsBaseVC */,
+				C5C48120284E2538007916B3 /* JobsSettingGestureVC */,
+			);
+			path = "设置手势密码";
+			sourceTree = "<group>";
+		};
+		C5C48120284E2538007916B3 /* JobsSettingGestureVC */ = {
+			isa = PBXGroup;
+			children = (
+				C5C480A3284E250A007916B3 /* JobsSettingGestureVC.h */,
+				C5C480A4284E250A007916B3 /* JobsSettingGestureVC.m */,
+			);
+			path = JobsSettingGestureVC;
+			sourceTree = "<group>";
+		};
+		C5C48121284E254B007916B3 /* JobsMembersSubsBaseVC */ = {
+			isa = PBXGroup;
+			children = (
+				C5C48122284E254B007916B3 /* JobsMembersSubsBaseVC.h */,
+				C5C48123284E254B007916B3 /* JobsMembersSubsBaseVC.m */,
+			);
+			path = JobsMembersSubsBaseVC;
+			sourceTree = "<group>";
+		};
+		C5D46FF9284E29A90090D20F /* JobsGetiOSNewestVersionModel */ = {
+			isa = PBXGroup;
+			children = (
+				C5D46FFA284E29A90090D20F /* JobsGetiOSNewestVersionModel.h */,
+				C5D46FFB284E29A90090D20F /* JobsGetiOSNewestVersionModel.m */,
+			);
+			path = JobsGetiOSNewestVersionModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -9253,18 +9898,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5C48031284E21E5007916B3 /* NotoSans-Regular.ttf in Resources */,
 				840F962127736427004979E9 /* 小数点@3x.png in Resources */,
+				C5C4804A284E21E5007916B3 /* NotoSansDisplay-Black.ttf in Resources */,
 				84CA5F9D27897AFB00E46E71 /* SHA-384 in Resources */,
 				840F960D27736427004979E9 /* 分享控件的用法.md in Resources */,
+				C5C4806C284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-Italic.ttf in Resources */,
 				840F95EE27736427004979E9 /* dingdan.json in Resources */,
 				84A491FA27904A970002A837 /* Drop@2x.png in Resources */,
+				C5C48067284E21E5007916B3 /* NotoSansDisplay_Condensed-Bold.ttf in Resources */,
+				C5C48071284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-LightItalic.ttf in Resources */,
 				840F970D27736428004979E9 /* BaseProtocol.md in Resources */,
+				C5C4805C284E21E5007916B3 /* NotoSansDisplay_Condensed-Italic.ttf in Resources */,
 				844B08712764CF4800B0513D /* 定位服务@3x.png in Resources */,
 				84CA5E8027895BA400E46E71 /* Tabbar.xcassets in Resources */,
 				840F95FC27736427004979E9 /* record_change.json in Resources */,
 				C57A2038282CB59F0032156B /* gesture_normal@2x.png in Resources */,
 				840F96C527736428004979E9 /* HQCollectionViewFlowLayout.md in Resources */,
 				84CA5FD827897AFB00E46E71 /* sortedNameCH.plist in Resources */,
+				C5C4805E284E21E5007916B3 /* NotoSansDisplay_Condensed-ThinItalic.ttf in Resources */,
+				C5C48045284E21E5007916B3 /* NotoSansDisplay-LightItalic.ttf in Resources */,
 				84CA5FBF27897AFB00E46E71 /* XDSDropDownMenu（下拉菜单） in Resources */,
 				84CA5FB527897AFB00E46E71 /* 上传中....md in Resources */,
 				844B08612764CF4800B0513D /* 日历@3x.png in Resources */,
@@ -9274,13 +9927,19 @@
 				844B08562764CF4800B0513D /* 运动与健身@2x.png in Resources */,
 				844B02232764C8F000B0513D /* LaunchScreen.storyboard in Resources */,
 				C57A2039282CB59F0032156B /* gesture_selected@2x.png in Resources */,
+				C5C48049284E21E5007916B3 /* NotoSansDisplay-SemiBoldItalic.ttf in Resources */,
 				844B08632764CF4800B0513D /* 蓝牙@2x.png in Resources */,
 				84CA5EBB27895C0A00E46E71 /* 非iph_X.mp4 in Resources */,
 				840F965F27736428004979E9 /* LGiOSBtn.md in Resources */,
 				840F96C627736428004979E9 /* LMHWaterFallLayout.md in Resources */,
+				C5C4806F284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-SemiBoldItalic.ttf in Resources */,
 				844B08542764CF4800B0513D /* 健康@3x.png in Resources */,
+				C5C48059284E21E5007916B3 /* NotoSansDisplay_Condensed-ExtraBoldItalic.ttf in Resources */,
 				84A494D227906CC90002A837 /* 动态头像_2 尺寸126.gif in Resources */,
+				C5C48062284E21E5007916B3 /* NotoSansDisplay_Condensed-Medium.ttf in Resources */,
 				84A4920F27904A970002A837 /* JobsIMListView.md in Resources */,
+				C5C48046284E21E5007916B3 /* NotoSansDisplay-Thin.ttf in Resources */,
+				C5C4803B284E21E5007916B3 /* NotoSans-Light.ttf in Resources */,
 				840F961F27736427004979E9 /* 9@2x.png in Resources */,
 				84A4920627904A970002A837 /* 左气泡@2x.png in Resources */,
 				840F95F327736427004979E9 /* tab_home_animate.json in Resources */,
@@ -9291,32 +9950,45 @@
 				84CA621C27899E2700E46E71 /* 0.jpeg in Resources */,
 				C57A203B282CB59F0032156B /* 红色椭圆.png in Resources */,
 				840F95F227736427004979E9 /* upgrade.json in Resources */,
+				C5C48053284E21E5007916B3 /* NotoSansDisplay-MediumItalic.ttf in Resources */,
 				84A491F827904A970002A837 /* Class@2x.png in Resources */,
+				C5C48096284E22C4007916B3 /* JobsShowNum@3x.png in Resources */,
 				840F968227736428004979E9 /* UITextView+IndicateWordLimit.png in Resources */,
 				840F9C66277367B1004979E9 /* 此类主要封装一些本App常用的、可以替换资源的函数调用或者是鉴权机制.md in Resources */,
+				C5C4805F284E21E5007916B3 /* NotoSansDisplay_Condensed-ExtraLight.ttf in Resources */,
 				844B086E2764CF4800B0513D /* 相机@3x.png in Resources */,
 				8459CE1F2776DCCF00125782 /* 启动页_05.png in Resources */,
 				84A494CF27906CC90002A837 /* 动态头像_2 尺寸84.gif in Resources */,
 				84562573278BF1FB0067ABB9 /* JobsComment【OutLines 05】.png in Resources */,
 				844B087C2764CF4800B0513D /* XHLaunchAd不用pod导入的情况说明.md in Resources */,
+				C5C4806B284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-SemiBold.ttf in Resources */,
 				840F95FA27736427004979E9 /* fangzi.json in Resources */,
 				840F961A27736427004979E9 /* JobsImageNumberView.png in Resources */,
 				840F971527736428004979E9 /* ZYTextField.bundle in Resources */,
 				84A491F627904A970002A837 /* 输入框无值@3x.png in Resources */,
 				840F95EC27736427004979E9 /* 任务.json in Resources */,
 				840F966427736428004979E9 /* IrregularBtn.md in Resources */,
+				C5C48050284E21E5007916B3 /* NotoSansDisplay-Medium.ttf in Resources */,
 				84409F1827A007170089EE40 /* 放大镜.png in Resources */,
 				84A4920827904A970002A837 /* 右气泡@2x.png in Resources */,
+				C5C48058284E21E5007916B3 /* NotoSansDisplay_Condensed-Black.ttf in Resources */,
 				84CA5DFF27895B4700E46E71 /* 开屏页面.bundle in Resources */,
+				C5C4805B284E21E5007916B3 /* NotoSansDisplay_Condensed-ExtraLightItalic.ttf in Resources */,
 				84562572278BF1FB0067ABB9 /* JobsComment【OutLines 01】.png in Resources */,
 				840F95EB27736427004979E9 /* wode.json in Resources */,
+				C5C48051284E21E5007916B3 /* NotoSansDisplay-ExtraBoldItalic.ttf in Resources */,
 				84CA5FD627897AFB00E46E71 /* 电话号码国家选择器 in Resources */,
+				C5C48039284E21E5007916B3 /* NotoSans-SemiBoldItalic.ttf in Resources */,
 				84CA5FE527897AFB00E46E71 /* Q弹 in Resources */,
+				C5C4803E284E21E5007916B3 /* NotoSans-BlackItalic.ttf in Resources */,
 				840F964F27736428004979E9 /* WhiteRightArrow@2x.png in Resources */,
 				84A4920327904A970002A837 /* 输入框无值@2x.png in Resources */,
 				844B08682764CF4800B0513D /* 定位服务@2x.png in Resources */,
 				84CA5E0627895B4700E46E71 /* InfoPlist.strings in Resources */,
+				C5C4808A284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-ThinItalic.ttf in Resources */,
 				84A494D427906D050002A837 /* 头像.bundle in Resources */,
+				C5C48038284E21E5007916B3 /* NotoSansDisplay-VariableFont_wdth,wght.ttf in Resources */,
+				C5C48080284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-ExtraLightItalic.ttf in Resources */,
 				84A491FE27904A970002A837 /* Check@3x.png in Resources */,
 				844B08552764CF4800B0513D /* 媒体与AppleMusic@2x.png in Resources */,
 				840F96E027736428004979E9 /* TouchID.md in Resources */,
@@ -9331,27 +10003,42 @@
 				844B086C2764CF4800B0513D /* 照片@2x.png in Resources */,
 				840F962427736427004979E9 /* 1@2x.png in Resources */,
 				840F95E827736427004979E9 /* TabbaritemImage.bundle in Resources */,
+				C5C4804D284E21E5007916B3 /* NotoSansDisplay-ExtraBold.ttf in Resources */,
+				C5C4808C284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-ExtraBold.ttf in Resources */,
 				84CA5FAD27897AFB00E46E71 /* XLChannelControl in Resources */,
 				840F967F27736428004979E9 /* 字典有序化.md in Resources */,
+				C5C4804B284E21E5007916B3 /* NotoSansDisplay-BoldItalic.ttf in Resources */,
 				840F95F427736427004979E9 /* 社区.json in Resources */,
 				844B086B2764CF4800B0513D /* 相机@2x.png in Resources */,
+				C5C48077284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-Bold.ttf in Resources */,
 				840F963C27736427004979E9 /* JobsPageTBV.md in Resources */,
 				84432C12278C45C40028A27D /* 跳动的竖线.gif in Resources */,
+				C5C4805A284E21E5007916B3 /* NotoSansDisplay_Condensed-Regular.ttf in Resources */,
 				840F968827736428004979E9 /* UICollectionView+RegisterClass.md in Resources */,
+				C5C4804E284E21E5007916B3 /* NotoSansDisplay-Bold.ttf in Resources */,
 				840F96DC27736428004979E9 /* UBLLivingVC_h in Resources */,
 				840F962927736427004979E9 /* 6@2x.png in Resources */,
+				C5C48042284E21E5007916B3 /* NotoSans-ExtraLightItalic.ttf in Resources */,
 				840F971927736428004979E9 /* App国际化.md in Resources */,
+				C5C48032284E21E5007916B3 /* NotoSans-Medium.ttf in Resources */,
 				84A4920027904A970002A837 /* Fav@2x.png in Resources */,
 				84A4920227904A970002A837 /* Menu@3x.png in Resources */,
+				C5C48083284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-LightItalic.ttf in Resources */,
 				840F95F927736427004979E9 /* huiyuan.json in Resources */,
 				844B08382764CF4800B0513D /* RAC_Define.md in Resources */,
 				84CA5F9427897AFB00E46E71 /* DES in Resources */,
+				C5C48088284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-MediumItalic.ttf in Resources */,
+				C5C48035284E21E5007916B3 /* NotoSans-Bold.ttf in Resources */,
 				840F966027736428004979E9 /* del_Photo@3x.png in Resources */,
 				84CA621E27899E2700E46E71 /* 3.jpeg in Resources */,
 				846DEE0427804C340050468A /* JobsBasePopupView.png in Resources */,
+				C5C48047284E21E5007916B3 /* NotoSansDisplay-SemiBold.ttf in Resources */,
 				84A494D627906D0B0002A837 /* Telegram.bundle in Resources */,
+				C5C48086284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-SemiBoldItalic.ttf in Resources */,
 				840F962527736427004979E9 /* 1@3x.png in Resources */,
+				C5C48066284E21E5007916B3 /* NotoSansDisplay_Condensed-BlackItalic.ttf in Resources */,
 				84A494D027906CC90002A837 /* 动态头像_1 尺寸126.gif in Resources */,
+				C5C48037284E21E5007916B3 /* NotoSans-SemiBold.ttf in Resources */,
 				840F96A927736428004979E9 /* 旋转.png in Resources */,
 				840F95F127736427004979E9 /* tab_me_animate.json in Resources */,
 				84A491F927904A970002A837 /* Class@3x.png in Resources */,
@@ -9364,26 +10051,36 @@
 				840F961727736427004979E9 /* 登录弹窗@3x.png in Resources */,
 				84CA5FA327897AFB00E46E71 /* AESCipher in Resources */,
 				840F964327736427004979E9 /* README.md in Resources */,
+				C5C48075284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-Thin.ttf in Resources */,
 				84CA5FDF27897AFB00E46E71 /* GDFadeView.md in Resources */,
+				C5C4803D284E21E5007916B3 /* NotoSansDisplay-Italic-VariableFont_wdth,wght.ttf in Resources */,
 				C5932EC8282D26E500B3B053 /* 测试弹窗的背景图@3x.png in Resources */,
 				84CA5E7E27895BA400E46E71 /* AppDoor.xcassets in Resources */,
 				840F96BB27736428004979E9 /* BaseTableView.md in Resources */,
+				C5C48084284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-Medium.ttf in Resources */,
 				840F969D27736428004979E9 /* UIViewController+XLBubbleTransition.md in Resources */,
+				C5C48082284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-SemiBold.ttf in Resources */,
 				84CA5F9127897AFB00E46E71 /* File in Resources */,
 				840F96C827736428004979E9 /* KFZShopCatoryFlowLayput.md in Resources */,
 				84CA642B2789C00300E46E71 /* data.json in Resources */,
+				C5C4803A284E21E5007916B3 /* NotoSans-LightItalic.ttf in Resources */,
 				840F961C27736427004979E9 /* 小数点@2x.png in Resources */,
+				C5C48036284E21E5007916B3 /* NotoSans-Thin.ttf in Resources */,
 				840F95F527736427004979E9 /* tab_search_animate.json in Resources */,
 				840F965D27736428004979E9 /* RBCLikeButton.bundle in Resources */,
 				84CA621B27899E2700E46E71 /* 2.jpeg in Resources */,
+				C5C48033284E21E5007916B3 /* NotoSans-MediumItalic.ttf in Resources */,
 				84CA5E0127895B4700E46E71 /* 刷新.bundle in Resources */,
 				844B08662764CF4800B0513D /* 日历@2x.png in Resources */,
 				840F96DF27736428004979E9 /* DeleteSystemUITabBarButton.md in Resources */,
+				C5C48072284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-ExtraLight.ttf in Resources */,
 				840F962E27736427004979E9 /* 2@3x.png in Resources */,
 				C5932EC9282D26E500B3B053 /* 测试弹窗的背景图@2x.png in Resources */,
+				C5C48060284E21E5007916B3 /* NotoSansDisplay_Condensed-ExtraBold.ttf in Resources */,
 				84432C10278C45C40028A27D /* 热度.gif in Resources */,
 				840F96BC27736428004979E9 /* UIControl+XY.md in Resources */,
 				844B08742764CF4800B0513D /* ECAuthorizationTools.md in Resources */,
+				C5C48089284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-ExtraLight.ttf in Resources */,
 				84CA5FB227897AFB00E46E71 /* 高仿Uber取消叫车按钮效果(按住放大) in Resources */,
 				84A491FF27904A970002A837 /* Menu@2x.png in Resources */,
 				844B08622764CF4800B0513D /* 语音识别@2x.png in Resources */,
@@ -9393,6 +10090,7 @@
 				840F962B27736427004979E9 /* 8@2x.png in Resources */,
 				84CA5E0327895B4700E46E71 /* Others.bundle in Resources */,
 				84CA5FA527897AFB00E46E71 /* MD5 in Resources */,
+				C5C48052284E21E5007916B3 /* NotoSansDisplay-BlackItalic.ttf in Resources */,
 				84CA5E0227895B4700E46E71 /* 登录 * 注册 * 密码找回.bundle in Resources */,
 				84432C13278C45C40028A27D /* 钱袋.gif in Resources */,
 				844B08762764CF4800B0513D /* CasinoFlowDetailsVC_h in Resources */,
@@ -9400,48 +10098,66 @@
 				840F96AE27736428004979E9 /* JsonRes.bundle in Resources */,
 				840F965C27736428004979E9 /* RBCLikeButton.md in Resources */,
 				C57A2037282CB59F0032156B /* gesture_indicator_selected@2x.png in Resources */,
+				C5C48055284E21E5007916B3 /* NotoSansDisplay-Italic.ttf in Resources */,
+				C5C4807C284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-ExtraBoldItalic.ttf in Resources */,
 				840F96D327736428004979E9 /* BaseObject.md in Resources */,
 				844B085D2764CF4800B0513D /* 02.PNG in Resources */,
 				840F9C5B27736583004979E9 /* iPhone尺寸.png in Resources */,
 				840F961927736427004979E9 /* JobsImageNumberView.md in Resources */,
 				84CA5E0727895B4700E46E71 /* welcome_video.mp4 in Resources */,
 				84CA5F9827897AFB00E46E71 /* GTMBase64.md in Resources */,
+				C5C4804C284E21E5007916B3 /* NotoSansDisplay-ThinItalic.ttf in Resources */,
+				C5C4807F284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-Italic.ttf in Resources */,
 				84CA5F9327897AFB00E46E71 /* 凯撒加密解密 in Resources */,
 				844B086F2764CF4800B0513D /* HomeKit@3x.png in Resources */,
+				C5C48044284E21E5007916B3 /* NotoSans-Italic.ttf in Resources */,
 				840F960527736427004979E9 /* Tabbaritem点击动效.md in Resources */,
+				C5C48097284E22C4007916B3 /* JobsShowNum@2x.png in Resources */,
+				C5C48061284E21E5007916B3 /* NotoSansDisplay_Condensed-BoldItalic.ttf in Resources */,
+				C5C4806A284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-ExtraBoldItalic.ttf in Resources */,
 				840F96DB27736428004979E9 /* UBLLivingVC_m in Resources */,
+				C5C4807A284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-Medium.ttf in Resources */,
 				840F962627736427004979E9 /* 3@2x.png in Resources */,
 				844B086D2764CF4800B0513D /* 照片@3x.png in Resources */,
 				C5932ECB282D26E500B3B053 /* 测试弹窗的确定按钮@2x.png in Resources */,
 				8459CE1C2776DCCF00125782 /* 启动页_02.png in Resources */,
 				846DF03C27806D230050468A /* 尝试高仿蜜柚.md in Resources */,
+				C5C48056284E21E5007916B3 /* NotoSansDisplay-Light.ttf in Resources */,
+				C5C48054284E21E5007916B3 /* NotoSansDisplay-ExtraLightItalic.ttf in Resources */,
 				844B08582764CF4800B0513D /* 运动与健身@3x.png in Resources */,
 				840F960327736427004979E9 /* 功能性动效：手势横向滚动子VC联动Tabbar切换.md in Resources */,
 				844B08642764CF4800B0513D /* 蓝牙@3x.png in Resources */,
 				8459D6182779A6CC00125782 /* CasinoCustomerServiceView.png in Resources */,
 				84CA5FDA27897AFB00E46E71 /* 手势解锁 in Resources */,
 				844B08652764CF4800B0513D /* 语音识别@3x.png in Resources */,
+				C5C48068284E21E5007916B3 /* NotoSansDisplay_Condensed-MediumItalic.ttf in Resources */,
 				84CA5FE327897AFB00E46E71 /* App图标更换 in Resources */,
+				C5C48057284E21E5007916B3 /* NotoSansDisplay_Condensed-SemiBold.ttf in Resources */,
 				84CA5DFE27895B4700E46E71 /* Customer.xcassets in Resources */,
 				84AA2C952796E9A8000401C6 /* UserData.json in Resources */,
-				8459CF1F2776F87F00125782 /* 弹窗升级背景图@2x.png in Resources */,
 				84CA5FC827897AFB00E46E71 /* Use in Resources */,
 				840F970727736428004979E9 /* toastLoading.gif in Resources */,
 				840F95FF27736427004979E9 /* JobsPullListAutoSizeView.md in Resources */,
 				84A4920127904A970002A837 /* Fav@3x.png in Resources */,
 				840F962C27736427004979E9 /* 4@2x.png in Resources */,
+				C5C48064284E21E5007916B3 /* NotoSansDisplay_Condensed-Light.ttf in Resources */,
+				C5C47D0F284E1C4B007916B3 /* MsgEditBoardView.png in Resources */,
 				840F95F627736427004979E9 /* 上传与拍照.json in Resources */,
 				840F968327736428004979E9 /* iOS 获取手机型号、系统版本.png in Resources */,
 				840F95F827736427004979E9 /* green_lottie_tab_mine.json in Resources */,
 				840F95FB27736427004979E9 /* green_lottie_tab_discover.json in Resources */,
 				84A4920927904A970002A837 /* 右气泡@3x.png in Resources */,
 				840F965027736428004979E9 /* WhiteRightArrow@3x.png in Resources */,
+				C5C48040284E21E5007916B3 /* NotoSans-ExtraLight.ttf in Resources */,
+				C5C48065284E21E5007916B3 /* NotoSansDisplay_Condensed-Thin.ttf in Resources */,
 				844B08572764CF4800B0513D /* 媒体与AppleMusic@3x.png in Resources */,
 				84A4920427904A970002A837 /* 输入框有值@2x.png in Resources */,
 				840F962327736427004979E9 /* 3@3x.png in Resources */,
 				8440A12927A03B4B0089EE40 /* 扫描.png in Resources */,
 				844B085E2764CF4800B0513D /* 麦克风@3x.png in Resources */,
+				C5C4807B284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-Bold.ttf in Resources */,
 				C574E7A62849E89D00EE3B3E /* 通知@2x.png in Resources */,
+				C5C4803C284E21E5007916B3 /* NotoSans-BoldItalic.ttf in Resources */,
 				84CA621D27899E2700E46E71 /* 1.jpeg in Resources */,
 				840F95EA27736427004979E9 /* 主页.json in Resources */,
 				84CA5E0527895B4700E46E71 /* Localizable.strings in Resources */,
@@ -9452,14 +10168,20 @@
 				844B08772764CF4800B0513D /* CasinoFlowDetailsVC_m in Resources */,
 				84CA5FB427897AFB00E46E71 /* 音律跳动.bundle in Resources */,
 				840F9C5A27736583004979E9 /* 安全区域.png in Resources */,
+				C5C48034284E21E5007916B3 /* NotoSans-Black.ttf in Resources */,
 				84CA5F9C27897AFB00E46E71 /* SHA-1 in Resources */,
+				C5C48041284E21E5007916B3 /* NotoSans-ThinItalic.ttf in Resources */,
 				840F9C5C27736583004979E9 /* iPad尺寸.png in Resources */,
+				C5C4803F284E21E5007916B3 /* NotoSans-ExtraBoldItalic.ttf in Resources */,
 				84A491FB27904A970002A837 /* Header@2x.png in Resources */,
 				840F95E927736427004979E9 /* home_priase_animation.json in Resources */,
 				840F963027736427004979E9 /* 0@3x.png in Resources */,
 				84CA5F9F27897AFB00E46E71 /* SHA-224 in Resources */,
 				840F965927736428004979E9 /* UIButton+ImageTitleSpacing.md in Resources */,
 				84A491F727904A970002A837 /* Drop@3x.png in Resources */,
+				C5C48070284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-ThinItalic.ttf in Resources */,
+				C5C48048284E21E5007916B3 /* NotoSansDisplay-Regular.ttf in Resources */,
+				C5C4806D284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-Black.ttf in Resources */,
 				84CA5E7F27895BA400E46E71 /* Assets.xcassets in Resources */,
 				84CA5FA027897AFB00E46E71 /* SHA in Resources */,
 				840F95ED27736427004979E9 /* green_lottie_tab_news.json in Resources */,
@@ -9474,16 +10196,25 @@
 				8440287B27930D020038FF6F /* 垃圾箱.png in Resources */,
 				84CA5F9E27897AFB00E46E71 /* SHA-256 in Resources */,
 				84CA5F8F27897AFB00E46E71 /* 牛逼标签效果 - SphereView👍 in Resources */,
+				C5C48078284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-ExtraLightItalic.ttf in Resources */,
 				844B08592764CF4800B0513D /* 健康@2x.png in Resources */,
+				C5C4804F284E21E5007916B3 /* NotoSansDisplay-ExtraLight.ttf in Resources */,
 				84562576278BF1FB0067ABB9 /* JobsComment【OutLines 02】.png in Resources */,
+				C5C48069284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-BlackItalic.ttf in Resources */,
+				C5C48073284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-BoldItalic.ttf in Resources */,
 				84A494D127906CC90002A837 /* 动态头像_1 尺寸84.gif in Resources */,
+				C5C48076284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-Light.ttf in Resources */,
+				C5C48085284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-Black.ttf in Resources */,
 				84CA5FC427897AFB00E46E71 /* 仿iOS图标抖动、iOS删除App效果 in Resources */,
 				84CA5FA727897AFB00E46E71 /* HASH in Resources */,
 				84CA5F9727897AFB00E46E71 /* Base64 in Resources */,
 				8456259F278BF2780067ABB9 /* CommentData.json in Resources */,
 				84401D282791B9F90038FF6F /* 假数据.json in Resources */,
+				C5C48081284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-Light.ttf in Resources */,
+				C5C48079284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-ExtraBold.ttf in Resources */,
 				840F962227736427004979E9 /* 7@3x.png in Resources */,
 				840F966827736428004979E9 /* SoundBtn.md in Resources */,
+				C5C48063284E21E5007916B3 /* NotoSansDisplay_Condensed-LightItalic.ttf in Resources */,
 				840F96B827736428004979E9 /* UITableView+WWFoldableTableView.md in Resources */,
 				84A4920527904A970002A837 /* 输入框有值@3x.png in Resources */,
 				C57A2035282CB59F0032156B /* gesture_headIcon@2x.png in Resources */,
@@ -9493,20 +10224,28 @@
 				C57A2036282CB59F0032156B /* gesture_indicator_normal@2x.png in Resources */,
 				840F96FF27736428004979E9 /* 获取iOS设备唯一标示.md in Resources */,
 				844B08692764CF4800B0513D /* 文件和文件夹@2x.png in Resources */,
+				C5C48074284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-MediumItalic.ttf in Resources */,
 				C574E7A72849E89D00EE3B3E /* 通知@3x.png in Resources */,
 				8459CE1B2776DCCF00125782 /* 启动页_01.png in Resources */,
 				844B085A2764CF4800B0513D /* 提醒事项@3x.png in Resources */,
+				C5C47D1A284E1CB3007916B3 /* 消息Cell.png in Resources */,
 				C57A203C282CB59F0032156B /* 橙色椭圆.png in Resources */,
 				84CA5F9B27897AFB00E46E71 /* RSA in Resources */,
 				84CA5E0427895B4700E46E71 /* GIF大图.gif in Resources */,
 				840F961E27736427004979E9 /* 9@3x.png in Resources */,
+				C5C4806E284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-Regular.ttf in Resources */,
 				8459CE1D2776DCCF00125782 /* 启动页_03.png in Resources */,
+				C5C48043284E21E5007916B3 /* NotoSans-ExtraBold.ttf in Resources */,
 				84432C14278C45C40028A27D /* Bt9h.gif in Resources */,
 				840F962827736427004979E9 /* 8@3x.png in Resources */,
+				C5C4807D284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-BlackItalic.ttf in Resources */,
 				840F96E227736428004979E9 /* MonitorNetwoking.md in Resources */,
 				844B021B2764C8EE00B0513D /* Main.storyboard in Resources */,
-				8459CF1E2776F87F00125782 /* 弹窗升级背景图@3x.png in Resources */,
+				C5C4807E284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-Thin.ttf in Resources */,
 				840F95EF27736427004979E9 /* green_lottie_tab_home.json in Resources */,
+				C5C4805D284E21E5007916B3 /* NotoSansDisplay_Condensed-SemiBoldItalic.ttf in Resources */,
+				C5C48087284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-BoldItalic.ttf in Resources */,
+				C5C4808B284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -9662,7 +10401,8 @@
 				840F964E27736427004979E9 /* UITableViewCell+BaseCellProtocol.m in Sources */,
 				C57A2034282CB59F0032156B /* ZLGestureLockView.m in Sources */,
 				8459CC332775D3E900125782 /* AppDelegate+UIApplicationDelegate.m in Sources */,
-				C55E6B5628436F8100ABA84A /* BaiShaETProjFiltrationView.m in Sources */,
+				C5D46FFC284E29A90090D20F /* JobsGetiOSNewestVersionModel.m in Sources */,
+				C55E6B5628436F8100ABA84A /* JobsFiltrationView.m in Sources */,
 				844B08832764CF4800B0513D /* XHLaunchAdImageManager.m in Sources */,
 				8456259A278BF2780067ABB9 /* JobsLoadMoreTBVCell.m in Sources */,
 				84CA63CA2789B1EC00E46E71 /* DynamicViewTestVC.m in Sources */,
@@ -9682,6 +10422,7 @@
 				C596B7A5283F6F7900C13619 /* JobsHotLabelWithMultiLine.m in Sources */,
 				84566B042784833100636967 /* UINavigationController+Extra.m in Sources */,
 				840F967627736428004979E9 /* UIView+ViewController.m in Sources */,
+				C5C47D6E284E1DF9007916B3 /* JobsPopupView01.m in Sources */,
 				840F964827736427004979E9 /* UIImage+YBGIF.m in Sources */,
 				C5AA8B7C282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_5.m in Sources */,
 				84CA660E2789D4CD00E46E71 /* ForgetCodeStep_02View.m in Sources */,
@@ -9689,6 +10430,7 @@
 				840F96F127736428004979E9 /* NSObject+Time.m in Sources */,
 				840F966F27736428004979E9 /* UIView+Gesture.m in Sources */,
 				C5AA8B7D282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle.m in Sources */,
+				C5C48124284E254B007916B3 /* JobsMembersSubsBaseVC.m in Sources */,
 				840F964527736427004979E9 /* UIImage+ScreenShot.m in Sources */,
 				840F970027736428004979E9 /* NSObject+IDFV.m in Sources */,
 				840F967C27736428004979E9 /* UIView+Extras.m in Sources */,
@@ -9702,6 +10444,7 @@
 				84A160F12789567D00DACA3C /* ViewController@1.m in Sources */,
 				840F970E27736428004979E9 /* UITextField+Animation.m in Sources */,
 				844B08782764CF4800B0513D /* XHLaunchAdView.m in Sources */,
+				C5C47D56284E1DF9007916B3 /* JobsPopupView04.m in Sources */,
 				840F96C327736428004979E9 /* BaseTableViewHeaderView.m in Sources */,
 				C530CC29282E2DA800D5ECCF /* JobsUpDownLabModel.m in Sources */,
 				840F96E827736428004979E9 /* NSObject+Measure.m in Sources */,
@@ -9738,6 +10481,7 @@
 				840F960727736427004979E9 /* UITabBar+TLAnimation.m in Sources */,
 				840F964D27736427004979E9 /* UILabel+Measure.m in Sources */,
 				84CA60A12789817300E46E71 /* PHCycleView.m in Sources */,
+				C5C47D1B284E1CB3007916B3 /* JobsMsgTBVCell.m in Sources */,
 				84401A8127919E3B0038FF6F /* JobsSearchShowHotwordsTBVCell.m in Sources */,
 				840F96CC27736428004979E9 /* NSUserDefaults+Swizzle.m in Sources */,
 				840F969327736428004979E9 /* NSString+Eomji.m in Sources */,
@@ -9765,7 +10509,6 @@
 				8459CE242776DD4000125782 /* SceneDelegate+UISceneDelegate.m in Sources */,
 				844B083A2764CF4800B0513D /* JXCategoryTitleBackgroundCellModel.m in Sources */,
 				844B083C2764CF4800B0513D /* JXCategoryTitleBackgroundView.m in Sources */,
-				8459CF1B2776F7C600125782 /* CasinoUpgradeContentView.m in Sources */,
 				840F967327736428004979E9 /* UIView+BackgroundLabel.m in Sources */,
 				844B08792764CF4800B0513D /* XHLaunchAdButton.m in Sources */,
 				840F970427736428004979E9 /* NSObject+ChangeAppicon.m in Sources */,
@@ -9774,6 +10517,7 @@
 				84CA64BE2789C80600E46E71 /* ZFDouYinCell.m in Sources */,
 				84CA5FA227897AFB00E46E71 /* AES.m in Sources */,
 				842477A527C114BE00831270 /* NotifiViewFactory.m in Sources */,
+				C5C4809F284E246D007916B3 /* JobsAppDoorInputViewBaseStyle_10.m in Sources */,
 				840F968127736428004979E9 /* UITextView+IndicateWordLimit.m in Sources */,
 				840F969527736428004979E9 /* NSString+Statistics.m in Sources */,
 				84D764AF2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel.m in Sources */,
@@ -9843,6 +10587,7 @@
 				84CA64B22789C2F300E46E71 /* Douyin_ZFPlayerVC@2.m in Sources */,
 				840F968E27736428004979E9 /* BaseImageView.m in Sources */,
 				840F961427736427004979E9 /* CustomZFPlayerControlView.m in Sources */,
+				C5C47D10284E1C4B007916B3 /* MsgEditBoardView.m in Sources */,
 				84CA65FE2789D3B500E46E71 /* JobsAppDoorLoginContentView.m in Sources */,
 				84CA61932789851300E46E71 /* A_VC.m in Sources */,
 				8456259D278BF2780067ABB9 /* JobsCommentConfig.m in Sources */,
@@ -9850,6 +10595,7 @@
 				844B084E2764CF4800B0513D /* ECPrivacyCheckMotionAndFitness.m in Sources */,
 				840F969A27736428004979E9 /* NSString+Replace.m in Sources */,
 				84D76437278090330003F0E4 /* UIViewController+SafeTransition.m in Sources */,
+				C5C47D69284E1DF9007916B3 /* JobsPopupView09.m in Sources */,
 				844B08512764CF4800B0513D /* ECPrivacyCheckContacts.m in Sources */,
 				C54BC43628325BA80010EF20 /* JobsTitleView01.m in Sources */,
 				84401A8727919E3B0038FF6F /* JobsSearchTableViewHeaderView.m in Sources */,
@@ -9866,6 +10612,7 @@
 				84401A8527919E3B0038FF6F /* JobsSearchResultDataListTBVCell.m in Sources */,
 				840F960927736427004979E9 /* JobsTabBar.m in Sources */,
 				840F963E27736427004979E9 /* JobsSuspendBtn.m in Sources */,
+				C5C47D62284E1DF9007916B3 /* CasinoUpgradeContentView.m in Sources */,
 				84562599278BF2780067ABB9 /* JobsInfoTBVCell.m in Sources */,
 				84CA5FA627897AFB00E46E71 /* NSData+CommonCrypto.m in Sources */,
 				840F96C927736428004979E9 /* KFZShopCatoryFlowLayput.m in Sources */,
@@ -9878,7 +10625,7 @@
 				840F96F027736428004979E9 /* NSObject+RegularExpression.m in Sources */,
 				840F96A427736428004979E9 /* UIViewController+EmptyData.m in Sources */,
 				840F96F627736428004979E9 /* NSObject+Notification.m in Sources */,
-				C55E6B5428436F8100ABA84A /* BaiShaETProjCustomView.m in Sources */,
+				C55E6B5428436F8100ABA84A /* JobsCustomView.m in Sources */,
 				840F965427736428004979E9 /* UITableViewCell+Margin.m in Sources */,
 				840F96E627736428004979E9 /* NSObject+Swizzling.m in Sources */,
 				844B08752764CF4800B0513D /* ZMJCell+CustomView.m in Sources */,
@@ -9912,6 +10659,7 @@
 				84CA5F9927897AFB00E46E71 /* GTMBase64.m in Sources */,
 				84CA64BF2789C80600E46E71 /* MKRightBtnView.m in Sources */,
 				C596B7A4283F6F7900C13619 /* JobsHotLabelWithMultiLineCVCell.m in Sources */,
+				C5C47D0A284E1C26007916B3 /* UITableViewCellEditorVC.m in Sources */,
 				84CA64C02789C80600E46E71 /* ZFDouYinControlView.m in Sources */,
 				840F970A27736428004979E9 /* NSObject+UNUserNotificationCenterDelegate.m in Sources */,
 				8456259B278BF2780067ABB9 /* JobsCommentPopUpView_viewForHeaderInSection.m in Sources */,
@@ -9948,6 +10696,7 @@
 				840F96D627736428004979E9 /* DispatchTimerManager.m in Sources */,
 				840F971A27736428004979E9 /* AppInternationalizationVC.m in Sources */,
 				84CA5CD12789587900E46E71 /* AppDelegate+XHLaunchAdDelegate.m in Sources */,
+				C5C47D70284E1DF9007916B3 /* JobsPopupView05.m in Sources */,
 				840F964727736427004979E9 /* UIImage+SYS.m in Sources */,
 				840F961127736427004979E9 /* ZBRequestManager.m in Sources */,
 				84CA65FC2789D3B500E46E71 /* JobsAppDoorVC_Style2.m in Sources */,
@@ -9964,10 +10713,12 @@
 				846DEE0327804C340050468A /* JobsBasePopupView.m in Sources */,
 				84A4920A27904A970002A837 /* JobsIMChatInfoTBVCell.m in Sources */,
 				84CA5FC727897AFB00E46E71 /* JhtBannerCardView.m in Sources */,
+				C5C47D61284E1DF9007916B3 /* CasinoUpgradePopupView.m in Sources */,
 				840F968D27736428004979E9 /* BaseCollectionViewCell.m in Sources */,
 				844B08462764CF4800B0513D /* ECPrivacyCheckMicrophone.m in Sources */,
 				844B08452764CF4800B0513D /* EmptyView.m in Sources */,
 				84CA5FCB27897AFB00E46E71 /* TBCityIconInfo.m in Sources */,
+				C5C47D60284E1DF9007916B3 /* JobsPopupView06.m in Sources */,
 				840F965527736428004979E9 /* BaseTableViewCell.m in Sources */,
 				84CA61A32789859900E46E71 /* BackAnimation.m in Sources */,
 				840F96B227736428004979E9 /* UINavigationController+SafeTransition.m in Sources */,
@@ -9984,6 +10735,7 @@
 				840F968B27736428004979E9 /* UICollectionViewCell+ShakeAnimation.m in Sources */,
 				840F96A127736428004979E9 /* UIViewController+JPImageresizerView.m in Sources */,
 				84CA5FAA27897AFB00E46E71 /* HWTextCodeView.m in Sources */,
+				C5C47D65284E1DF9007916B3 /* JobsDataShowBackView.m in Sources */,
 				84758D10279922660074B4BA /* JobsLaunchConfig.m in Sources */,
 				84401A8227919E3B0038FF6F /* JobsSearchTBVCell.m in Sources */,
 				84B9A94F27969C330070DD20 /* BaseLabel.m in Sources */,
@@ -9994,12 +10746,13 @@
 				844B083E2764CF4800B0513D /* JXCategoryTimelineCellModel.m in Sources */,
 				840F96BE27736428004979E9 /* NSArray+Safety.m in Sources */,
 				8456259E278BF2780067ABB9 /* JobsCommentCoreVC.m in Sources */,
-				8459CF1A2776F7C600125782 /* CasinoUpgradePopupView.m in Sources */,
 				844B08422764CF4800B0513D /* ZWPullMenuView.m in Sources */,
+				C5C48095284E22C4007916B3 /* JobsShowNumView.m in Sources */,
 				840F968C27736428004979E9 /* UICollectionViewCell+Default.m in Sources */,
 				842477A427C114BE00831270 /* NotifiOperation.m in Sources */,
 				840F966227736428004979E9 /* LGiOSBtn.m in Sources */,
 				846DF03727806D230050468A /* JobsAppDoorModel.m in Sources */,
+				C5C47D6B284E1DF9007916B3 /* JobsPopupView03.m in Sources */,
 				840F969F27736428004979E9 /* UIViewController+XLBubbleTransition.m in Sources */,
 				844B084C2764CF4800B0513D /* ECPrivacyCheckCalendars.m in Sources */,
 				842475AC27C0D67000831270 /* YTKBatchRequest+AnimatingAccessory.m in Sources */,
@@ -10024,6 +10777,8 @@
 				840F968027736428004979E9 /* UITextView+Extend.m in Sources */,
 				84CA5FBE27897AFB00E46E71 /* ZHKeyChainManager.m in Sources */,
 				84CA5FDE27897AFB00E46E71 /* WGradientProgressView.m in Sources */,
+				C5C47D68284E1DF9007916B3 /* JobsPopupView08.m in Sources */,
+				C5C480A5284E250A007916B3 /* JobsSettingGestureVC.m in Sources */,
 				84CA660F2789D4CD00E46E71 /* FindCodeFlowChartView.m in Sources */,
 				844B08472764CF4800B0513D /* ECPrivacyCheckHomeKit.m in Sources */,
 				C57A203D282CB59F0032156B /* ZLGestureLockViewController.m in Sources */,
@@ -10066,7 +10821,9 @@
 				840F96EE27736428004979E9 /* NSObject+DataSave.m in Sources */,
 				840F961327736427004979E9 /* NSString+ZBUTF8Encoding.m in Sources */,
 				8424771527C0FDCA00831270 /* GetCustomerContactApi.m in Sources */,
+				C5C47D63284E1DF9007916B3 /* JobsPopupView07.m in Sources */,
 				840F963F27736427004979E9 /* JobsSuspendLab.m in Sources */,
+				C5C47D5D284E1DF9007916B3 /* JobsPopupView02.m in Sources */,
 				840F970127736428004979E9 /* NSObject+RichText.m in Sources */,
 				C5AA8B6B282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_6.m in Sources */,
 				840F967527736428004979E9 /* UIView+BackgroundImage.m in Sources */,
@@ -10099,6 +10856,7 @@
 				84CA5FB027897AFB00E46E71 /* XLChannelItem.m in Sources */,
 				840F96AC27736428004979E9 /* MJRefreshConfigModel.m in Sources */,
 				84CA5FC027897AFB00E46E71 /* XDSDropDownMenu.m in Sources */,
+				C5C47D15284E1C95007916B3 /* JobsMsgDataModel.m in Sources */,
 				840F961527736427004979E9 /* ZFCustomControlView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
