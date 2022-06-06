@@ -156,6 +156,14 @@ UITableViewCellProtocol_synthesize
     if (model) {
         self.viewModel = model;
         
+        /**
+         - NSString -
+         -(NSString *)omitByReplaceStr:(NSString *_Nullable)replaceStr
+                       replaceStrLenth:(NSInteger)replaceStrLenth
+                         lineBreakMode:(NSLineBreakMode)lineBreakMode
+                                 limit:(NSInteger)limit;
+         */
+        
         if (model.textModel.attributedText) {
             self.textLabel.attributedText = model.textModel.attributedText;
         }else{

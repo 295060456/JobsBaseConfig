@@ -188,8 +188,16 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
     }
     return viewModel;
 }
-/// Debug模式下的弹出框 及其相关的数据封装
--(void)jobsTestPopView:(UIViewModel *_Nullable)viewModel{
+/// Debug模式下的弹出框 及其相关的数据封装。在外层进行调用，[ 需要被展现的视图 popupWithView:popupView];
+-(JobsBaseConfigTestPopupView *)JobsTestPopView:(NSString *)string{
+    UIViewModel *viewModel = UIViewModel.new;
+    UITextModel *textModel = UITextModel.new;
+    textModel.text = [NSString isNullString:string] ? Internationalization(@"登入按钮") : string;
+    viewModel.textModel = textModel;
+    return [self jobsTestPopView:viewModel];
+}
+/// 在外层进行调用，[ 需要被展现的视图 popupWithView:popupView];
+-(JobsBaseConfigTestPopupView *)jobsTestPopView:(UIViewModel *_Nullable)viewModel{
     
 #ifdef DEBUG
     JobsBaseConfigTestPopupView *testPopupView = JobsBaseConfigTestPopupView.sharedInstance;
@@ -204,18 +212,17 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
         }else{}
         [testPopupView tf_hide];
         [JobsBaseConfigTestPopupView destroySingleton];
-    }];
-    
-    [self popupWithView:testPopupView];
+    }];return testPopupView;
 #endif
 }
-/// 测试和业务密切相关的弹窗
+/// 测试和业务密切相关的弹窗 ：在外层进行调用，[ 需要被展现的视图 popupWithView:popupView];
 /// @param popViewClass 被测试的弹窗视图
 /// @param viewModel 此视图所绑定的数据。传nil则使用testPopViewData的数据、传UIViewModel.new则使用popViewClass预埋的数据
--(void)jobsPopView:(Class<BaseViewProtocol> _Nullable)popViewClass
-         viewModel:(UIViewModel *_Nullable)viewModel{
+-(UIView<BaseViewProtocol> *)jobsPopView:(Class<BaseViewProtocol> _Nullable)popViewClass
+                               viewModel:(UIViewModel *_Nullable)viewModel{
     // 将方法内的变量进行单例化,避免重复创建
     UIView<BaseViewProtocol> *popupView = popViewClass.class.sharedInstance;
+    // 这里设置弹出框的尺寸
     popupView.size = [popViewClass viewSizeWithModel:nil];
     [popupView richElementsInViewWithModel:viewModel ? : self.testPopViewData];
     
@@ -227,9 +234,7 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
         }else{}
         [popupView tf_hide];
         [popViewClass.class destroySingleton];
-    }];
-    
-    [self popupWithView:popupView];
+    }];return popupView;
 }
 /// App 升级弹窗：在根控制器下实现，做到覆盖全局的统一
 -(void)appUpdateWithData:(CasinoGetiOSNewestVersionModel *_Nonnull)updateData

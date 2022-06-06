@@ -17,6 +17,7 @@
 #import "CasinoUpgradePopupView.h"
 #import "JobsHotLabelWithSingleLine.h"
 #import "JobsUpDownLab.h"
+#import "JobsBaseConfigTestPopupView.h"
 
 #import "UIViewModel.h"
 #import "CasinoCustomerContactModel.h"
@@ -42,13 +43,15 @@ AppToolsProtocol
 @property(nonatomic,strong)NSMutableArray <NSString *>*richTextMutArr;
 @property(nonatomic,strong)NSMutableArray <RichTextConfig *>*richTextConfigMutArr;
 #pragma mark —— 弹出框。为了防止业务层的变化，弹出框定义在NSObject层
-/// Debug模式下的弹出框 及其相关的数据封装
--(void)jobsTestPopView:(UIViewModel *_Nullable)viewModel;
-/// 测试和业务密切相关的弹窗
+/// Debug模式下的弹出框 及其相关的数据封装。在外层进行调用，[ 需要被展现的视图 popupWithView:popupView];
+-(JobsBaseConfigTestPopupView *)JobsTestPopView:(NSString *)string;
+/// 在外层进行调用，[ 需要被展现的视图 popupWithView:popupView];
+-(JobsBaseConfigTestPopupView *)jobsTestPopView:(UIViewModel *_Nullable)viewModel;
+/// 测试和业务密切相关的弹窗 ：在外层进行调用，[ 需要被展现的视图 popupWithView:popupView];
 /// @param popViewClass 被测试的弹窗视图
 /// @param viewModel 此视图所绑定的数据。传nil则使用testPopViewData的数据、传UIViewModel.new则使用popViewClass预埋的数据
--(void)jobsPopView:(Class<BaseViewProtocol> _Nullable)popViewClass
-         viewModel:(UIViewModel *_Nullable)viewModel;
+-(UIView<BaseViewProtocol> *)jobsPopView:(Class<BaseViewProtocol> _Nullable)popViewClass
+                               viewModel:(UIViewModel *_Nullable)viewModel;
 #pragma mark —— 网络通讯方面的
 
 @end
