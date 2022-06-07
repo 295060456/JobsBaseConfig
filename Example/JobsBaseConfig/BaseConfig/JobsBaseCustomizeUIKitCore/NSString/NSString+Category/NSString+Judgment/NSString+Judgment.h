@@ -31,6 +31,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface NSString (Judgment)
+
+-(JobsReturnBOOLByIDBlock)isEqualToString;
+
 #pragma mark —— 字符串的 比较 & 判断
 /// 给定某字符串，判断里面的组成char是否全部为某个char
 /// @param standardChar 执行标准

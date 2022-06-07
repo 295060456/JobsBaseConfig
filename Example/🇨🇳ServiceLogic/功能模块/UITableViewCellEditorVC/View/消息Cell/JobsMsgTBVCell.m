@@ -1,5 +1,5 @@
 //
-//  JobsMsgTBVCell.m
+//  BaiShaETProjMsgTBVCell.m
 //  BaiShaEntertainmentProj
 //
 //  Created by Jobs on 2022/6/2.
@@ -79,7 +79,7 @@
     
     self.getBtn.selected = self.msgDataModel.isDraw;
     self.getBtn.backgroundColor = self.getBtn.selected ? HEXCOLOR(0xEAEBED) : HEXCOLOR(0xFFEABA);
-    self.pointLab.jobsVisible = !self.msgDataModel.isDraw;
+    self.pointLab.jobsVisible = !self.msgDataModel.isRead;
 }
 /// 具体由子类进行复写【数据定高】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 +(CGFloat)cellHeightWithModel:(UIViewModel *_Nullable)model{
@@ -90,11 +90,6 @@
     [super layoutSubviews];
     [self 自定义UITableViewCell修改模式下前面的按钮UI];
 }
-@synthesize selected = _selected;
--(void)setSelected:(BOOL)selected{
-    _selected = selected;
-    [self 自定义UITableViewCell修改模式下前面的按钮UI];
-}
 #pragma mark —— 一些私有方法
 -(void)自定义UITableViewCell修改模式下前面的按钮UI{
     for (UIControl *control in self.subviews){
@@ -102,7 +97,7 @@
             for (UIView *view in control.subviews){
                 if ([view isKindOfClass:UIImageView.class]) {
                     UIImageView *img = (UIImageView *)view;
-                    img.image = _selected ? KIMG(@"按钮已选中") : KIMG(@"按钮未选中");
+                    img.image = self.selected ? KIMG(@"按钮已选中") : KIMG(@"按钮未选中");
                 }
             }
         }

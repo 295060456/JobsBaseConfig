@@ -50,6 +50,8 @@
     
     self.tableView.alpha = 1;
     self.msgEditBoardView.jobsVisible = YES;
+    
+
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -78,6 +80,16 @@
     [super viewDidDisappear:animated];
 }
 #pragma mark —— 一些私有方法
+-(void)dataForUI{
+    [self.tableView reloadData];
+    [self.tableView setEditing:NO animated:YES];
+    [self.selectedDataMutArr removeAllObjects];
+    self.msgEditBoardView.getDeleteBtn.enabledBlock(self.selectedDataMutArr.count);
+    self.msgEditBoardView.getMarkToReadBtn.enabledBlock(self.selectedDataMutArr.count);
+    self.editBtn.selected = NO;
+    self.editBtn.normalTitle = Internationalization(@"編輯");
+    [self.msgEditBoardView disappearByView:self.view];
+}
 /// 全选的实现
 -(void)allChoose{
     /// UI层
@@ -149,14 +161,18 @@ forRowAtIndexPath:(NSIndexPath*)indexPath{
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     JobsMsgTBVCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.selected = YES;
-    self.msgEditBoardView.getDeleteBtn.enabledBlock([self manuallyDataAtIndexPath:indexPath].count);
+    NSMutableArray<JobsMsgDataModel *> *dataMutArr = [self manuallyDataAtIndexPath:indexPath];
+    self.msgEditBoardView.getDeleteBtn.enabledBlock(dataMutArr.count);
+    self.msgEditBoardView.getMarkToReadBtn.enabledBlock(dataMutArr.count);
 }
 /// 编辑模式下，点击取消左边已选中的cell的按钮
 - (void)tableView:(UITableView *)tableView
 didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
     JobsMsgTBVCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.selected = NO;
-    self.msgEditBoardView.getDeleteBtn.enabledBlock([self manuallyDataAtIndexPath:indexPath].count);
+    NSMutableArray<JobsMsgDataModel *> *dataMutArr = [self manuallyDataAtIndexPath:indexPath];
+    self.msgEditBoardView.getDeleteBtn.enabledBlock(dataMutArr.count);
+    self.msgEditBoardView.getMarkToReadBtn.enabledBlock(dataMutArr.count);
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -265,7 +281,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
         [_msgEditBoardView richElementsInViewWithModel:nil];
         _msgEditBoardView.getDeleteBtn.enabledBlock(self.selectedDataMutArr.count);
         @jobs_weakify(self)
-        [ _msgEditBoardView actionObjectBlock:^(id data) {
+        [_msgEditBoardView actionObjectBlock:^(id data) {
             @jobs_strongify(self)
             if ([data isKindOfClass:UIButton.class]) {
                 UIButton *btn = (UIButton *)data;
@@ -273,13 +289,16 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
                     btn.selected ? [self allChoose] : [self allCancelChoose];
                 }else if ([btn.normalTitle isEqualToString:Internationalization(@"標記為已讀")]){
                     
+                    for (JobsMsgDataModel *model in self.selectedDataMutArr) {//dataMutArr
+                        model.isRead = YES;
+                        NSUInteger index = [self.dataMutArr indexOfObject:model];
+                        [self.dataMutArr replaceObjectAtIndex:index withObject:model];
+                    }
+                    [self dataForUI];
                 }else if ([btn.normalTitle isEqualToString:Internationalization(@"删除")]){
                     NSLog(@"%@",self.selectedDataMutArr);
                     [self.dataMutArr removeObjectsInArray:self.selectedDataMutArr];
-                    [self.selectedDataMutArr removeAllObjects];
-                    [self.tableView reloadData];
-                    
-                    self.msgEditBoardView.getDeleteBtn.enabledBlock(self.selectedDataMutArr.count);
+                    [self dataForUI];
                 }else{}
             }
         }];
@@ -299,6 +318,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
             viewModel.subTextModel.text = Internationalization(@"夏季聯賽火熱來襲，全體會員虛擬幣存...夏季聯賽火熱來襲，全體會員虛擬幣存");
             viewModel.time = Internationalization(@"05-13 18:20");
             viewModel.isDraw = NO;
+            viewModel.isRead = NO;
             [_dataMutArr addObject:viewModel];
         }
         
@@ -312,6 +332,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
             viewModel.subTextModel.text = Internationalization(@"夏季聯賽火熱來襲，全體會員虛擬幣存...");
             viewModel.time = Internationalization(@"05-13 18:20");
             viewModel.isDraw = YES;
+            viewModel.isRead = YES;
             [_dataMutArr addObject:viewModel];
         }
         
@@ -325,6 +346,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
             viewModel.subTextModel.text = Internationalization(@"夏季聯賽火熱來襲，全體會員虛擬幣存...");
             viewModel.time = Internationalization(@"05-13 18:20");
             viewModel.isDraw = NO;
+            viewModel.isRead = NO;
             [_dataMutArr addObject:viewModel];
         }
         
@@ -338,6 +360,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
             viewModel.subTextModel.text = Internationalization(@"夏季聯賽火熱來襲，全體會員虛擬幣存...");
             viewModel.time = Internationalization(@"05-13 18:20");
             viewModel.isDraw = YES;
+            viewModel.isRead = YES;
             [_dataMutArr addObject:viewModel];
         }
     }return _dataMutArr;
@@ -348,6 +371,5 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
         _selectedDataMutArr = NSMutableArray.array;
     }return _selectedDataMutArr;
 }
-
 
 @end

@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)MsgStyle msgStyle;
 @property(nonatomic,copy)NSString *time;
 @property(nonatomic,assign)BOOL isDraw;/// 是否已经被领取？
+@property(nonatomic,assign)BOOL isRead;/// 已读
 
 @end
 

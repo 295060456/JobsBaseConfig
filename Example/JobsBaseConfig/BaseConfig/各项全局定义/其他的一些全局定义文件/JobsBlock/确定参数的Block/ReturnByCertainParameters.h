@@ -54,6 +54,22 @@ typedef long(^JobsReturnByLongBlock)(long data);
 typedef unsigned long(^JobsReturnByUnsignedLongBlock)(unsigned long data);
 typedef unsigned long long(^JobsReturnByUnsignedLongLongBlock)(unsigned long long data);
 
+typedef NSInteger(^JobsReturnNSIntegerByIDBlock)(id data);
+typedef NSUInteger(^JobsReturnNSUIntegerByIDBlock)(id data);
+typedef CGFloat(^JobsReturnCGFloatByIDBlock)(CGFloat data);
+typedef BOOL(^JobsReturnBOOLByIDBlock)(id data);
+typedef int(^JobsReturnIntByIDBlock)(id data);
+typedef unsigned int(^JobsReturnUnsignedIntByIDBlock)(id data);
+typedef float(^JobsReturnFloatByIDBlock)(id data);
+typedef double(^JobsReturnDoubleByIDBlock)(id data);
+typedef char(^JobsReturnCharByIDBlock)(id data);
+typedef unsigned char(^JobsReturnUnsignedCharByIDBlock)(id data);
+typedef short(^JobsReturnShortByIDBlock)(id data);
+typedef unsigned short(^JobsReturnUnsignedShortByIDBlock)(id data);
+typedef long(^JobsReturnLongByIDBlock)(id data);
+typedef unsigned long(^JobsReturnUnsignedLongByIDBlock)(id data);
+typedef unsigned long long(^JobsReturnUnsignedLongLongByIDBlock)(id data);
+
 typedef CGSize(^JobsReturnSizeByNSIntegerBlock)(NSInteger data);
 typedef CGSize(^JobsReturnSizeByUIntegerBlock)(NSUInteger data);
 typedef CGSize(^JobsReturnSizeByCGFloatBlock)(CGFloat data);

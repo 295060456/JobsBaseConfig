@@ -151,6 +151,7 @@ static dispatch_once_t static_msgEditBoardViewOnceToken;
         _markToReadBtn.titleFont = notoSansBold(14);
         _markToReadBtn.normalTitleColor = HEXCOLOR(0xAE8330);
         _markToReadBtn.normalTitle = Internationalization(@"標記為已讀");
+        _markToReadBtn.enabledBlock(NO);
         [self addSubview:_markToReadBtn];
         [_markToReadBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self.allChooseBtn);
@@ -170,6 +171,7 @@ static dispatch_once_t static_msgEditBoardViewOnceToken;
         _deleteBtn.normalTitle = Internationalization(@"删除");
         _deleteBtn.normalTitleColor = HEXCOLOR(0xEB677F);
         _deleteBtn.titleFont = notoSansBold(14);
+        _deleteBtn.enabledBlock(NO);
         [self addSubview:_deleteBtn];
         [_deleteBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self.allChooseBtn);

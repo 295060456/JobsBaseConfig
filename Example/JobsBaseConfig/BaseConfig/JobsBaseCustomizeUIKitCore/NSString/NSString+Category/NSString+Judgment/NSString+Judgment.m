@@ -68,6 +68,16 @@
 @end
 
 @implementation NSString (Judgment)
+
+-(JobsReturnBOOLByIDBlock)isEqualToString{
+    @jobs_weakify(self)
+    return ^(NSString *data){
+        @jobs_strongify(self)
+        if ([data isKindOfClass:NSString.class]) {
+            return [self isEqualToString:data];
+        }return NO;
+    };
+}
 #pragma mark —— 字符串的 比较 & 判断
 /// 给定某字符串，判断里面的组成char是否全部为某个char
 /// @param standardChar 执行标准
