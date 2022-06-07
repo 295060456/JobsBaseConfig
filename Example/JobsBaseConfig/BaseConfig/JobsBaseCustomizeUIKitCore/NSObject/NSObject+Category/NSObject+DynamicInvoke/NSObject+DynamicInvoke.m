@@ -76,6 +76,11 @@ callingMethodWithName:(nullable NSString *)methodName{
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
     invocation.target = targetObj;
     invocation.selector = selector;
+    
+    /// 【防崩溃】如果传的不是数组，则封装成数组进行处理
+    if (![paramarrays isKindOfClass:NSArray.class]) {
+        paramarrays = @[paramarrays];
+    }
     /*
      注意:
      1、下标从2开始，因为0、1已经被target与selector占用

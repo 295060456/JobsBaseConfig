@@ -10,6 +10,8 @@
 
 typedef void(^jobsByVoidBlock)(void);
 typedef void(^jobsByIDBlock)(id data);
+typedef void(^jobsBySELBlock)(SEL data);
+typedef void(^jobsByStringBlock)(NSString *data);
 /// 单形参
 typedef void(^jobsByNSIntegerBlock)(NSInteger data);
 typedef void(^jobsByNSUIntegerBlock)(NSUInteger data);

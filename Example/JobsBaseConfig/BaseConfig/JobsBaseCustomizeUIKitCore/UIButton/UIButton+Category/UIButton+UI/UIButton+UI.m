@@ -9,6 +9,35 @@
 
 @implementation UIButton (UI)
 #pragma mark —— 一些功能性
+/// 方法名字符串（带参数、参数之间用"："隔开）、作用对象、参数
+-(jobsByThreeIDBlock)btnClickActionWithParamarrays{
+    // SEL method = @selector(func);//定义一个类方法的指针，selector查找是当前类（包含子类）的方法
+    // SEL 用 assign修饰
+    @jobs_weakify(self)
+    return ^(NSString * _Nonnull methodName,
+             id _Nonnull targetObj,
+             NSArray * _Nullable paramarrays){
+        @jobs_strongify(self)
+        [[self rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
+            [NSObject methodName:methodName
+                       targetObj:targetObj
+                     paramarrays:paramarrays];
+        }];
+    };
+}
+/// 方法名字符串（不带参数）、作用对象
+-(jobsByTwoIDBlock)btnClickActionWithMethodName{
+    return ^(NSString * _Nonnull methodName,
+             id _Nonnull targetObj){
+        SEL selector = NSSelectorFromString(methodName);
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        [[self rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
+            [targetObj performSelector:selector withObject:nil];
+        }];
+#pragma clang diagnostic pop
+    };
+}
 /// 代码触发点击调用
 -(void)actionByCode{
     [self sendActionsForControlEvents:UIControlEventTouchUpInside];
