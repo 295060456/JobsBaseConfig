@@ -705,6 +705,7 @@
 		C57A203C282CB59F0032156B /* 橙色椭圆.png in Resources */ = {isa = PBXBuildFile; fileRef = C57A202E282CB59E0032156B /* 橙色椭圆.png */; };
 		C57A203D282CB59F0032156B /* ZLGestureLockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C57A202F282CB59E0032156B /* ZLGestureLockViewController.m */; };
 		C57A203E282CB59F0032156B /* ZLGestureLockIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = C57A2030282CB59E0032156B /* ZLGestureLockIndicator.m */; };
+		C57A809F284F36BA00DD089E /* JobsMsgDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C57A809C284F36BA00DD089E /* JobsMsgDetailVC.m */; };
 		C5932EC7282D26E500B3B053 /* JobsBaseConfigTestPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5932EC0282D26E500B3B053 /* JobsBaseConfigTestPopupView.m */; };
 		C5932EC8282D26E500B3B053 /* 测试弹窗的背景图@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5932EC2282D26E500B3B053 /* 测试弹窗的背景图@3x.png */; };
 		C5932EC9282D26E500B3B053 /* 测试弹窗的背景图@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5932EC3282D26E500B3B053 /* 测试弹窗的背景图@2x.png */; };
@@ -2295,6 +2296,9 @@
 		C57A2031282CB59E0032156B /* ZLGestureLockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLGestureLockView.h; sourceTree = "<group>"; };
 		C57A2032282CB59E0032156B /* ZLGestureLockIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLGestureLockIndicator.h; sourceTree = "<group>"; };
 		C57A2033282CB59E0032156B /* ZLGestureLockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLGestureLockViewController.h; sourceTree = "<group>"; };
+		C57A809C284F36BA00DD089E /* JobsMsgDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsMsgDetailVC.m; sourceTree = "<group>"; };
+		C57A809D284F36BA00DD089E /* 消息详情页.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "消息详情页.png"; sourceTree = "<group>"; };
+		C57A809E284F36BA00DD089E /* JobsMsgDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsMsgDetailVC.h; sourceTree = "<group>"; };
 		C5932EC0282D26E500B3B053 /* JobsBaseConfigTestPopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsBaseConfigTestPopupView.m; sourceTree = "<group>"; };
 		C5932EC2282D26E500B3B053 /* 测试弹窗的背景图@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "测试弹窗的背景图@3x.png"; sourceTree = "<group>"; };
 		C5932EC3282D26E500B3B053 /* 测试弹窗的背景图@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "测试弹窗的背景图@2x.png"; sourceTree = "<group>"; };
@@ -9096,6 +9100,16 @@
 			path = resources;
 			sourceTree = "<group>";
 		};
+		C57A809B284F36BA00DD089E /* 消息详情页 */ = {
+			isa = PBXGroup;
+			children = (
+				C57A809D284F36BA00DD089E /* 消息详情页.png */,
+				C57A809E284F36BA00DD089E /* JobsMsgDetailVC.h */,
+				C57A809C284F36BA00DD089E /* JobsMsgDetailVC.m */,
+			);
+			path = "消息详情页";
+			sourceTree = "<group>";
+		};
 		C5932EBD282D26CD00B3B053 /* ☀️业务模块中公用的View */ = {
 			isa = PBXGroup;
 			children = (
@@ -9410,6 +9424,7 @@
 		C5C47D1C284E1CBB007916B3 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C57A809B284F36BA00DD089E /* 消息详情页 */,
 				C5C47D11284E1C50007916B3 /* UITableViewCellEditorVC */,
 			);
 			path = ViewController;
@@ -10486,6 +10501,7 @@
 				844029DA2795322E0038FF6F /* UITextModel.m in Sources */,
 				840F963127736427004979E9 /* JobsImageNumberView.m in Sources */,
 				844B0E532764DE1A00B0513D /* DDResponseModel.m in Sources */,
+				C57A809F284F36BA00DD089E /* JobsMsgDetailVC.m in Sources */,
 				84A491F127904A970002A837 /* JobsIMChatInfoModel.m in Sources */,
 				840F969127736428004979E9 /* NSString+Conversion.m in Sources */,
 				844B083B2764CF4800B0513D /* JXCategoryTitleBackgroundCell.m in Sources */,

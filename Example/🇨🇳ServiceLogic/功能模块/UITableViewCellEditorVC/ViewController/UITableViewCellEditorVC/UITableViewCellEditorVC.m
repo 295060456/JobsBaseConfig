@@ -159,20 +159,39 @@ forRowAtIndexPath:(NSIndexPath*)indexPath{
 
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    JobsMsgTBVCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.selected = YES;
-    NSMutableArray<JobsMsgDataModel *> *dataMutArr = [self manuallyDataAtIndexPath:indexPath];
-    self.msgEditBoardView.getDeleteBtn.enabledBlock(dataMutArr.count);
-    self.msgEditBoardView.getMarkToReadBtn.enabledBlock(dataMutArr.count);
+    if (self.tableView.editing) {
+        JobsMsgTBVCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        cell.selected = YES;
+        NSMutableArray<JobsMsgDataModel *> *dataMutArr = [self manuallyDataAtIndexPath:indexPath];
+        self.msgEditBoardView.getDeleteBtn.enabledBlock(dataMutArr.count);
+        self.msgEditBoardView.getMarkToReadBtn.enabledBlock(dataMutArr.count);
+    }else{
+
+        UIViewModel *viewModel = UIViewModel.new;
+        viewModel.data = self.dataMutArr[indexPath.row];
+        
+        JobsMsgDetailVC *msgDetailVC = JobsMsgDetailVC.new;
+        @jobs_weakify(self)
+        [msgDetailVC actionObjectBlock:^(JobsMsgDataModel *data) {
+            @jobs_strongify(self)
+            [self.dataMutArr removeObject:data];
+            [self.tableView reloadData];
+        }];
+        
+        [self comingToPushVC:msgDetailVC
+               requestParams:viewModel];
+    }
 }
 /// 编辑模式下，点击取消左边已选中的cell的按钮
 - (void)tableView:(UITableView *)tableView
 didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
-    JobsMsgTBVCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.selected = NO;
-    NSMutableArray<JobsMsgDataModel *> *dataMutArr = [self manuallyDataAtIndexPath:indexPath];
-    self.msgEditBoardView.getDeleteBtn.enabledBlock(dataMutArr.count);
-    self.msgEditBoardView.getMarkToReadBtn.enabledBlock(dataMutArr.count);
+    if (self.tableView.editing) {
+        JobsMsgTBVCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        cell.selected = NO;
+        NSMutableArray<JobsMsgDataModel *> *dataMutArr = [self manuallyDataAtIndexPath:indexPath];
+        self.msgEditBoardView.getDeleteBtn.enabledBlock(dataMutArr.count);
+        self.msgEditBoardView.getMarkToReadBtn.enabledBlock(dataMutArr.count);
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

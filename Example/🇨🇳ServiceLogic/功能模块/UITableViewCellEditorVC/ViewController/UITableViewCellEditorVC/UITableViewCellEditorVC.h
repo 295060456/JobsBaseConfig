@@ -6,6 +6,8 @@
 //
 
 #import "BaseViewController.h"
+#import "JobsMsgDetailVC.h"
+
 #import "JobsMsgTBVCell.h"
 #import "MsgEditBoardView.h"
 #import "JobsPopupView02.h"
