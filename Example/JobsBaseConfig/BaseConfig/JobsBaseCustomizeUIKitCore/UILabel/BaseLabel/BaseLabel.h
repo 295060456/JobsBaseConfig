@@ -11,9 +11,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 /**
-    参考资料：https://github.com/aYq524/AutoScrollLabel
+ 自定义UILabel 实现显示偏移量和内边距
+ https://www.jianshu.com/p/541ef795a1f2
  */
 @interface BaseLabel : UILabel
+
+@property(nonatomic,assign)UIEdgeInsets edgeInsets;
+@property(nonatomic,assign)CGFloat offsetY;
+@property(nonatomic,assign)CGFloat offsetX;
 
 @end
 
