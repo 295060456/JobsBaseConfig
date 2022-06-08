@@ -29,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong,nullable)NSString __block *internationalizationKEY;/// 国际化的key
 @property(nonatomic,strong,nullable)id __block data;/// 绑定的数据源
 @property(nonatomic,strong,nullable)id __block requestParams;/// 绑定的数据源
+@property(nonatomic,assign)NSUInteger __block jobsTag;
 @property(nonatomic,assign)BOOL __block selected;
 @property(nonatomic,assign)BOOL __block isMultiLineShows;/// 是否多行行显示【默认单行显示】
 @property(nonatomic,assign)BOOL __block isTranslucent;/// 是否取消tabBar的透明效果
@@ -54,6 +55,7 @@ NS_ASSUME_NONNULL_END
 @synthesize internationalizationKEY = _internationalizationKEY;\
 @synthesize data = _data;\
 @synthesize requestParams = _requestParams;\
+@synthesize jobsTag = _jobsTag;\
 @synthesize selected = _selected;\
 @synthesize isMultiLineShows = _isMultiLineShows;\
 @synthesize isTranslucent = _isTranslucent;\
@@ -76,6 +78,7 @@ NS_ASSUME_NONNULL_END
 @dynamic internationalizationKEY;\
 @dynamic data;\
 @dynamic requestParams;\
+@dynamic jobsTag;\
 @dynamic selected;\
 @dynamic isMultiLineShows;\
 @dynamic isTranslucent;\

@@ -123,6 +123,7 @@ NS_ASSUME_NONNULL_END
 @synthesize internationalizationKEY = _internationalizationKEY;\
 @synthesize data = _data;\
 @synthesize requestParams = _requestParams;\
+@synthesize jobsTag = _jobsTag;\
 @synthesize selected = _selected;\
 @synthesize isMultiLineShows = _isMultiLineShows;\
 @synthesize isTranslucent = _isTranslucent;\
@@ -198,6 +199,7 @@ NS_ASSUME_NONNULL_END
 @dynamic internationalizationKEY;\
 @dynamic data;\
 @dynamic requestParams;\
+@dynamic jobsTag;\
 @dynamic selected;\
 @dynamic isMultiLineShows;\
 @dynamic isTranslucent;\

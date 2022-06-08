@@ -45,12 +45,13 @@
         [self.view addSubview:view];
     }
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
-        if (self.setupNavigationBarHidden && self.gk_statusBarHidden && !self.gk_navBarAlpha) {// 系统、GK均隐藏
-            make.top.equalTo(self.view).offset(JobsStatusBarHeight());
+        if (self.setupNavigationBarHidden &&
+            (!self.gk_navBarAlpha || self.gk_navigationBar.hidden || !self.gk_navigationBar.alpha)) {// 系统、GK均隐藏
+            make.top.equalTo(self.view);
         }else{
-            if (!self.setupNavigationBarHidden && self.gk_statusBarHidden && !self.gk_navBarAlpha) {// 用系统的导航栏
+            if (!self.setupNavigationBarHidden && (!self.gk_navBarAlpha || self.gk_navigationBar.hidden || !self.gk_navigationBar.alpha) ) {// 用系统的导航栏
                 make.top.equalTo(self.view).offset(JobsNavigationBarAndStatusBarHeight(nil));
-            }else if (self.setupNavigationBarHidden && !self.gk_statusBarHidden && self.gk_navBarAlpha) {// 用GK的导航栏
+            }else if (self.setupNavigationBarHidden && (self.gk_navBarAlpha || !self.gk_navigationBar.hidden || self.gk_navigationBar.alpha)) {// 用GK的导航栏
                 make.top.equalTo(self.gk_navigationBar.mas_bottom);
             }else{
                 make.top.equalTo(self.view);
