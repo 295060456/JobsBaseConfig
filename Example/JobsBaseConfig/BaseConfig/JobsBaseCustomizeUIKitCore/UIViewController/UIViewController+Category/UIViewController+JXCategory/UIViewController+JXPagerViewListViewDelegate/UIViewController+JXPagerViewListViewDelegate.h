@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <objc/runtime.h>
 
 #if __has_include(<JXPagingView/JXPagerView.h>)
 #import <JXPagingView/JXPagerView.h>

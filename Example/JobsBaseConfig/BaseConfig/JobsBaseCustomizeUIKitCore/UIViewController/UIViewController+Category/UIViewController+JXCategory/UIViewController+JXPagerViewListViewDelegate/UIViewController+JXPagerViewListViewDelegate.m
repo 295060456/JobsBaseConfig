@@ -6,18 +6,8 @@
 //
 
 #import "UIViewController+JXPagerViewListViewDelegate.h"
-#import <objc/runtime.h>
 
 @implementation UIViewController (JXPagerViewListViewDelegate)
-
-static char *UIViewController_JXPagingViewListViewDelegate_scrollView = "UIViewController_JXPagingViewListViewDelegate_scrollView";
-static char *UIViewController_JXPagingViewListViewDelegate_scrollCallback = "UIViewController_JXPagingViewListViewDelegate_scrollCallback";
-static char *UIViewController_JXPagingViewListViewDelegate_scrollViewClass = "UIViewController_JXPagingViewListViewDelegate_scrollViewClass";
-
-@dynamic scrollView;
-@dynamic scrollCallback;
-@dynamic scrollViewClass;
-
 #pragma mark —— UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if ([scrollView isKindOfClass:self.scrollViewClass]) {
@@ -44,6 +34,9 @@ static char *UIViewController_JXPagingViewListViewDelegate_scrollViewClass = "UI
 - (UIView *)listView {
     return self.view;
 }
+
+static char *UIViewController_JXPagingViewListViewDelegate_scrollViewClass = "UIViewController_JXPagingViewListViewDelegate_scrollViewClass";
+@dynamic scrollViewClass;
 #pragma mark —— @property(nonatomic,strong)Class scrollViewClass;
 -(Class)scrollViewClass{
     Class ScrollViewClass = objc_getAssociatedObject(self, UIViewController_JXPagingViewListViewDelegate_scrollViewClass);
@@ -56,8 +49,22 @@ static char *UIViewController_JXPagingViewListViewDelegate_scrollViewClass = "UI
                              scrollViewClass,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-
+static char *UIViewController_JXPagingViewListViewDelegate_scrollView = "UIViewController_JXPagingViewListViewDelegate_scrollView";
+@dynamic scrollView;
 #pragma mark —— @property(nonatomic,strong)UIScrollView *scrollView;
+/**
+ 1、Masonry约束必须以self.scrollView为锚点，不能以self.view。否则无法拖动
+ [self.scrollView addSubview:_tableView];
+ [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+     make.top.equalTo(self.scrollView);
+     make.height.mas_equalTo(JobsMainScreen_HEIGHT());
+     make.width.mas_equalTo(JobsMainScreen_WIDTH());
+     make.centerX.equalTo(self.scrollView);
+ }];
+ 2、必须设置 contentSize。否则无法拖动
+ self.scrollView.contentSize = CGSizeMake(JobsMainScreen_WIDTH(), 2*JobsMainScreen_HEIGHT());
+ 3、加在scrollView上的内容物的相关长度比如超出scrollView容器的相关长度。否则无法拖动
+ */
 -(UIScrollView *)scrollView{
     UIScrollView *ScrollView = objc_getAssociatedObject(self, UIViewController_JXPagingViewListViewDelegate_scrollView);
     if (!ScrollView) {
@@ -80,6 +87,8 @@ static char *UIViewController_JXPagingViewListViewDelegate_scrollViewClass = "UI
                              scrollView,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+static char *UIViewController_JXPagingViewListViewDelegate_scrollCallback = "UIViewController_JXPagingViewListViewDelegate_scrollCallback";
+@dynamic scrollCallback;
 #pragma mark —— @property(nonatomic,copy)void(^scrollCallback)(UIScrollView *scrollView);
 -(void)setScrollCallback:(void (^)(UIScrollView * _Nonnull))scrollCallback{
     objc_setAssociatedObject(self,
