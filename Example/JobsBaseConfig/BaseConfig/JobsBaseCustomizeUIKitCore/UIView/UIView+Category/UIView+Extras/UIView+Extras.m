@@ -11,17 +11,17 @@
 @implementation UIView (Extras)
 /// 指定描边
 /// @param color 作用颜色
-/// @param width 线宽
+/// @param borderWidth 线宽
 /// @param borderType 作用方向
 -(void)setBorderWithColor:(UIColor *__nonnull)color
-              borderWidth:(CGFloat)width
+              borderWidth:(CGFloat)borderWidth
                borderType:(UIBorderSideType)borderType{
     /// 左
     if (borderType & UIBorderSideTypeLeft) {
         CALayer *layer = CALayer.layer;
         layer.frame = CGRectMake(0,
                                  0,
-                                 width,
+                                 borderWidth,
                                  self.frame.size.height);
         layer.backgroundColor = color.CGColor;
         [self.layer addSublayer:layer];
@@ -29,9 +29,9 @@
     /// 右
     if (borderType & UIBorderSideTypeRight){
         CALayer *layer = CALayer.layer;
-        layer.frame = CGRectMake(self.frame.size.width - width,
+        layer.frame = CGRectMake(self.frame.size.width - borderWidth,
                                  0,
-                                 width,
+                                 borderWidth,
                                  self.frame.size.height);
         layer.backgroundColor = color.CGColor;
         [self.layer addSublayer:layer];
@@ -42,7 +42,7 @@
         layer.frame = CGRectMake(0,
                                  0,
                                  self.frame.size.width,
-                                 width);
+                                 borderWidth);
         layer.backgroundColor = color.CGColor;
         [self.layer addSublayer:layer];
     }
@@ -50,9 +50,9 @@
     if (borderType & UIBorderSideTypeBottom) {
         CALayer *layer = CALayer.layer;
         layer.frame = CGRectMake(0,
-                                 self.frame.size.height - width,
+                                 self.frame.size.height - borderWidth,
                                  self.frame.size.width,
-                                 width);
+                                 borderWidth);
         layer.backgroundColor = color.CGColor;
         [self.layer addSublayer:layer];
     }
@@ -65,11 +65,11 @@
 }
 /// 描边
 /// @param colour 颜色
-/// @param widthOfBorder 边线宽度
+/// @param borderWidth 边线宽度
 -(void)layerBorderColour:(UIColor *__nonnull)colour
-          andBorderWidth:(CGFloat)widthOfBorder{
+          andBorderWidth:(CGFloat)borderWidth{
     self.layer.borderColor = colour.CGColor;
-    self.layer.borderWidth = widthOfBorder;
+    self.layer.borderWidth = borderWidth;
 }
 /// 指定圆切角
 -(void)appointCornerCutToCircleByRoundingCorners:(UIRectCorner)corners

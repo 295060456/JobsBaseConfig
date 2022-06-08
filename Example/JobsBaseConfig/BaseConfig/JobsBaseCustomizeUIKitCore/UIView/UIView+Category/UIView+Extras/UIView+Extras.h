@@ -36,19 +36,19 @@ typedef NS_OPTIONS(NSUInteger, UIBorderSideType) {
 @interface UIView (Extras)
 /// 指定描边
 /// @param color 作用颜色
-/// @param width 线宽
+/// @param borderWidth 线宽
 /// @param borderType 作用方向
 -(void)setBorderWithColor:(UIColor *__nonnull)color
-              borderWidth:(CGFloat)width
+              borderWidth:(CGFloat)borderWidth
                borderType:(UIBorderSideType)borderType;
 /// 切角
 /// @param cornerRadiusValue 切角参数
 -(void)cornerCutToCircleWithCornerRadius:(CGFloat)cornerRadiusValue;
 /// 描边
 /// @param colour 颜色
-/// @param WidthOfBorder 边线宽度
+/// @param borderWidth 边线宽度
 -(void)layerBorderColour:(UIColor *__nonnull)colour
-          andBorderWidth:(CGFloat)WidthOfBorder;
+          andBorderWidth:(CGFloat)borderWidth;
 /// 指定圆切角
 -(void)appointCornerCutToCircleByRoundingCorners:(UIRectCorner)corners
                                      cornerRadii:(CGSize)cornerRadii;

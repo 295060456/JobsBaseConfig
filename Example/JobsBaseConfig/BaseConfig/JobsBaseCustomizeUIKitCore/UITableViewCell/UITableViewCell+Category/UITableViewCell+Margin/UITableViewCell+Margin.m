@@ -23,37 +23,43 @@
 //    [super setFrame:frame];
 //}
 
-#pragma mark —— 功能方法
-/// iOS UITableViewCell 第一行和最后一行圆角设置
+#pragma mark —— 一些公有的功能方法
+/// 以section为单位，UITableViewCell 第一行和最后一行圆角设置【cell之间有分割线】
 /// @param tableView 作用对象tableView
 /// @param cell 作用对象Tableviewcell
+/// @param indexPath indexPath
+/// @param strokeColor strokeColor
+/// @param fillColor fillColor
 /// @param radius 切角弧度
+/// @param borderWidth 线宽
 /// @param dx 内有介绍
 /// @param dy 内有介绍
-/// @param indexPath indexPath
 +(void)tableView:(UITableView *_Nonnull)tableView
 makeFirstAndLastCell:(UITableViewCell *_Nonnull)cell
      atIndexPath:(NSIndexPath *_Nonnull)indexPath
+     strokeColor:(UIColor *_Nullable)strokeColor
+       fillColor:(UIColor *_Nullable)fillColor
      roundCorner:(CGFloat)radius
+     borderWidth:(CGFloat)borderWidth
               dx:(CGFloat)dx
               dy:(CGFloat)dy{
     if (!tableView) return;
     if (!cell) return;
     if (!indexPath) return;
+    if (!strokeColor) strokeColor = UIColor.redColor;
+    if (!fillColor) fillColor = UIColor.blueColor;
     // 圆角角度
-    if (radius == 0) {
-        radius = JobsWidth(10.f);
-    }
-    if (dx == 0) {
-        dx = JobsWidth(15);
-    }
+    if (!radius) radius = JobsWidth(10.f);
+    if (!dx) dx = JobsWidth(15);
     // 设置cell 背景色为透明
     cell.backgroundColor = UIColor.clearColor;
     // 创建两个layer
     CAShapeLayer *normalLayer = CAShapeLayer.new;
     CAShapeLayer *selectLayer = CAShapeLayer.new;
     // 获取显示区域大小
-    CGRect bounds = [self tableViewCell:cell dx:dx dy:dy];
+    CGRect bounds = [self tableViewCell:cell
+                                     dx:dx
+                                     dy:dy];
     // 获取每组行数
     NSInteger rowNum = [tableView numberOfRowsInSection:indexPath.section];
     // 贝塞尔曲线
@@ -93,8 +99,8 @@ makeFirstAndLastCell:(UITableViewCell *_Nonnull)cell
     UIView *nomarBgView = [UIView.alloc initWithFrame:bounds];
     // 设置填充颜色
     // normalLayer.fillColor = [UIColor colorWithWhite:0.95 alpha:1.0].CGColor;
-    normalLayer.fillColor = UIColor.whiteColor.CGColor;
-    normalLayer.strokeColor = UIColor.redColor.CGColor;
+    normalLayer.fillColor = fillColor.CGColor;
+    normalLayer.strokeColor = strokeColor.CGColor;
     
     // 添加图层到nomarBgView中
     [nomarBgView.layer insertSublayer:normalLayer atIndex:0];
@@ -102,16 +108,17 @@ makeFirstAndLastCell:(UITableViewCell *_Nonnull)cell
     // nomarBgView.backgroundColor = UIColor.whiteColor;
     cell.backgroundView = nomarBgView;
     // 此时圆角显示就完成了，但是如果没有取消cell的点击效果，还是会出现一个灰色的长方形的形状，再用上面创建的selectLayer给cell添加一个selectedBackgroundView
-    UIView *selectBgView = [[UIView alloc] initWithFrame:bounds];
+    UIView *selectBgView = [UIView.alloc initWithFrame:bounds];
     selectLayer.fillColor = UIColor.whiteColor.CGColor;
     [selectBgView.layer insertSublayer:selectLayer atIndex:0];
     selectBgView.backgroundColor = UIColor.clearColor;
     cell.selectedBackgroundView = selectBgView;
 }
-/// 以section为单位，每个section的第一行和最后一行的cell圆角化处理
+/// 以section为单位，每个section的第一行和最后一行的cell圆角化处理【cell之间没有分割线】
 /// @param tableView 作用对象tableView
 /// @param cell 作用对象Tableviewcell
 /// @param radius 切角弧度
+/// @param borderWidth 线宽
 /// @param dx 内有介绍
 /// @param dy 内有介绍
 /// @param indexPath indexPath
@@ -122,36 +129,28 @@ makeSectionFirstAndLastCell:(UITableViewCell *_Nonnull)cell
    bottomLineCor:(UIColor *_Nullable)bottomLineCor
   cellOutLineCor:(UIColor *_Nullable)cellOutLineCor
      roundCorner:(CGFloat)radius
+     borderWidth:(CGFloat)borderWidth
               dx:(CGFloat)dx
               dy:(CGFloat)dy{
     if (!tableView) return;
     if (!cell) return;
     if (!indexPath) return;
     // 圆角角度
-    if (radius == 0) {
-        radius = JobsWidth(10.f);
-    }
+    if (!radius) radius = JobsWidth(10.f);
     // 水平偏移量
-    if (dx == 0) {
-        dx = JobsWidth(15);
-    }
+    if (!dx) dx = JobsWidth(15);
     // cell的底色
-    if (!cellBgCor) {
-        cellBgCor = UIColor.whiteColor;
-    }
+    if (!cellBgCor) cellBgCor = UIColor.whiteColor;
     // cell下线的颜色
-    if (!bottomLineCor) {
-        bottomLineCor = UIColor.whiteColor;
-    }
+    if (!bottomLineCor) bottomLineCor = UIColor.whiteColor;
     // cell外线的颜色
-    if (!cellOutLineCor) {
-        cellOutLineCor = UIColor.whiteColor;
-    }
+    if (!cellOutLineCor) cellOutLineCor = UIColor.whiteColor;
     // 大小
-    CGRect bounds = [self tableViewCell:cell dx:dx dy:dy];
+    CGRect bounds = [self tableViewCell:cell
+                                     dx:dx
+                                     dy:dy];
     // 行数
     NSInteger numberOfRows = [tableView numberOfRowsInSection:indexPath.section];
-    
     // 绘制曲线
     UIBezierPath *bezierPath = nil;
     if (indexPath.row == 0 && numberOfRows == 1) {
@@ -173,11 +172,12 @@ makeSectionFirstAndLastCell:(UITableViewCell *_Nonnull)cell
         //中间的都为矩形
         bezierPath = [UIBezierPath bezierPathWithRect:bounds];
     }
-    // cell的背景色透明
-    cell.backgroundColor = UIColor.clearColor;
+    
     {
         // 新建一个图层
         CAShapeLayer *layer = CAShapeLayer.layer;
+        // 线宽
+        layer.borderWidth = borderWidth;
         // 图层边框路径
         layer.path = bezierPath.CGPath;
         // 图层填充色,也就是cell的底色
@@ -198,6 +198,7 @@ makeSectionFirstAndLastCell:(UITableViewCell *_Nonnull)cell
                makeLastRowCell:cell
                    atIndexPath:indexPath
                  bottomLineCor:bottomLineCor
+                   borderWidth:borderWidth
                             dx:dx
                             dy:dy];
 }
@@ -206,19 +207,21 @@ makeSectionFirstAndLastCell:(UITableViewCell *_Nonnull)cell
  makeLastRowCell:(UITableViewCell *_Nonnull)cell
      atIndexPath:(NSIndexPath *_Nonnull)indexPath
    bottomLineCor:(UIColor *_Nullable)bottomLineCor
+     borderWidth:(CGFloat)borderWidth
               dx:(CGFloat)dx
               dy:(CGFloat)dy{
     if (!tableView) return;
     if (!cell) return;
     if (!indexPath) return;
-    if (dx == 0) {
-        dx = JobsWidth(15);
-    }
+    if (!bottomLineCor) bottomLineCor = UIColor.whiteColor;
+    if (!dx) dx = JobsWidth(15);
     // 大小
-    CGRect bounds = [self tableViewCell:cell dx:dx dy:dy];
+    CGRect bounds = [self tableViewCell:cell
+                                     dx:dx
+                                     dy:dy];
     // 行数
     NSInteger numberOfRows = [tableView numberOfRowsInSection:indexPath.section];
-    /// 除了最后一行以外，所有的cell的最下面的线为白色
+    /// 除了最后一行以外，所有的cell的最下面的线为bottomLineCor
     if (indexPath.row != numberOfRows - 1) {
         UIBezierPath *linePath = UIBezierPath.bezierPath;
         // 起点
@@ -227,13 +230,15 @@ makeSectionFirstAndLastCell:(UITableViewCell *_Nonnull)cell
         [linePath addLineToPoint:CGPointMake(bounds.origin.x + bounds.size.width, bounds.size.height)];
         // 新建一个图层
         CAShapeLayer *layer = CAShapeLayer.layer;
+        layer.borderWidth = borderWidth;
         layer.path = linePath.CGPath;
-        layer.strokeColor = UIColor.whiteColor.CGColor;
+        layer.strokeColor = bottomLineCor.CGColor;
         //将图层添加到cell的图层中,并插到最底层
         [cell.layer insertSublayer:layer atIndex:1];
     }
 }
-
+#pragma mark —— 一些私有的功能方法
+// 大小
 +(CGRect)tableViewCell:(nonnull UITableViewCell *)tableViewCell
                     dx:(CGFloat)dx
                     dy:(CGFloat)dy{
@@ -250,7 +255,7 @@ makeSectionFirstAndLastCell:(UITableViewCell *_Nonnull)cell
     // 获取显示区域大小
     return CGRectInset(tableViewCell.bounds,
                        dx,
-                       0);
+                       dy);
 }
 static char *UITableViewCell_Margin_indexPath = "UITableViewCell_Margin_indexPath";
 @dynamic indexPath;
