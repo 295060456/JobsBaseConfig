@@ -40,7 +40,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 配置GKNavigationBar的返回按钮
 -(void)setGKNavBackBtn;
 /// 铺满全屏展示的策略
--(void)fullScreenConstraintTargetView:(nonnull __kindof UIView *)view;
+-(void)fullScreenConstraintTargetView:(nonnull __kindof UIView *)view
+                        topViewOffset:(CGFloat)topViewOffset;
 
 @end
 

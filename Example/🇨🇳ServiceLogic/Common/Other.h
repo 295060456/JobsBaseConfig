@@ -59,5 +59,6 @@
 #import "UITableViewCellEditorVC.h"
 #import "JobsSettingGestureVC.h"
 #import "JobsTestVC.h"
+#import "IntervalTBVCellShow.h"
 
 #endif /* Other_h */

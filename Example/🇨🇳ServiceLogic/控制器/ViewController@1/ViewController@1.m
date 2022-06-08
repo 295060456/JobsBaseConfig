@@ -376,6 +376,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             [_dataMutArr addObject:viewModel];
         }
         
+        {
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"IntervalTBVCellShow"
+                                                           subTitle:Internationalization(@"UITableViewCell间隔")];
+            viewModel.cls = IntervalTBVCellShow.class;
+            [_dataMutArr addObject:viewModel];
+        }
+        
     }return _dataMutArr;
 }
 

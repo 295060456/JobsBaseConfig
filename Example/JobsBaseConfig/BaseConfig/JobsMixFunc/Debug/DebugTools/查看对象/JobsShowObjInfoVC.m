@@ -177,7 +177,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         }
         
         [self.view addSubview:_tableView];
-        [self fullScreenConstraintTargetView:_tableView];
+        [self fullScreenConstraintTargetView:_tableView topViewOffset:0];
     }return _tableView;
 }
 

@@ -39,7 +39,8 @@
     }
 }
 /// 铺满全屏展示的策略
--(void)fullScreenConstraintTargetView:(nonnull __kindof UIView *)view{
+-(void)fullScreenConstraintTargetView:(nonnull __kindof UIView *)view
+                        topViewOffset:(CGFloat)topViewOffset{
     /// 防止调用崩溃
     if (![self.view.subviews containsObject:view]) {
         [self.view addSubview:view];
@@ -47,14 +48,14 @@
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
         if (self.setupNavigationBarHidden &&
             (!self.gk_navBarAlpha || self.gk_navigationBar.hidden || !self.gk_navigationBar.alpha)) {// 系统、GK均隐藏
-            make.top.equalTo(self.view);
+            make.top.equalTo(self.view).offset(topViewOffset);
         }else{
             if (!self.setupNavigationBarHidden && (!self.gk_navBarAlpha || self.gk_navigationBar.hidden || !self.gk_navigationBar.alpha) ) {// 用系统的导航栏
-                make.top.equalTo(self.view).offset(JobsNavigationBarAndStatusBarHeight(nil));
+                make.top.equalTo(self.view).offset(JobsNavigationBarAndStatusBarHeight(nil) + topViewOffset);
             }else if (self.setupNavigationBarHidden && (self.gk_navBarAlpha || !self.gk_navigationBar.hidden || self.gk_navigationBar.alpha)) {// 用GK的导航栏
-                make.top.equalTo(self.gk_navigationBar.mas_bottom);
+                make.top.equalTo(self.gk_navigationBar.mas_bottom).offset(topViewOffset);
             }else{
-                make.top.equalTo(self.view);
+                make.top.equalTo(self.view).offset(topViewOffset);
             }
         }
         make.left.right.bottom.equalTo(self.view);
