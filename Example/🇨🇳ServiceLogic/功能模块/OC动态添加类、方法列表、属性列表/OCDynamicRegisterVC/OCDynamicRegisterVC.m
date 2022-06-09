@@ -17,6 +17,7 @@
  资料来源：
  https://cloud.tencent.com/developer/article/1799505
  http://southpeak.github.io/2014/10/25/objective-c-runtime-1/
+ https://github.com/zhiyongzou/DynamicOC
  
  */
 @implementation OCDynamicRegisterVC
@@ -207,5 +208,20 @@ static void addMethodForMyClass(id self, SEL _cmd, NSString *test) {
     NSLog(@"");
 }
 
+-(void)知识点{
+    /// Class 反射创建
+    // 方式1
+    NSClassFromString(@"NSObject");
+    // 方式2
+    objc_getClass("NSObject");
+    
+    /// SEL 反射创建
+    // 方式1
+    @selector(init);
+    // 方式2
+    sel_registerName("init");
+    // 方式3
+    NSSelectorFromString(@"init");
+}
 
 @end

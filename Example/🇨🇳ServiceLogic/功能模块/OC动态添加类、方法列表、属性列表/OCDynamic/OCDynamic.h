@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/// 不实现h文件暴露的方法，而进行动态链接
+/// 【消息转发】不实现h文件暴露的方法，而进行动态链接
 @interface OCDynamic : NSObject
 
 +(void)Test;
