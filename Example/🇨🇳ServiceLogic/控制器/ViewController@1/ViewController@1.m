@@ -10,6 +10,7 @@
 @interface ViewController_1 ()
 /// UI
 @property(nonatomic,strong)UITableView *tableView;
+@property(nonatomic,strong)UILabel *tableFooterView;
 @property(nonatomic,strong)UIButton *userHeadBtn;
 /// Data
 @property(nonatomic,strong)NSMutableArray <UITableViewCell *>*tbvCellMutArr;
@@ -145,9 +146,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.tableHeaderView = UIView.new;/// 这里接入的就是一个UIView的派生类
-        _tableView.tableFooterView = UIView.new;/// 这里接入的就是一个UIView的派生类
+        _tableView.tableFooterView = self.tableFooterView;/// 这里接入的就是一个UIView的派生类
         _tableView.separatorColor = HEXCOLOR(0xEEEEEE);
-        _tableView.contentInset = UIEdgeInsetsMake(JobsWidth(20), 0, 0, 0);
+        _tableView.contentInset = UIEdgeInsetsMake(JobsWidth(0),
+                                                   JobsWidth(0),
+                                                   JobsWidth(100),
+                                                   JobsWidth(0));
         {
             MJRefreshConfigModel *refreshConfigHeader = MJRefreshConfigModel.new;
             refreshConfigHeader.stateIdleTitle = @"下拉可以刷新";
@@ -197,6 +201,18 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             }
         }];
     }return _tableView;
+}
+
+-(UILabel *)tableFooterView{
+    if (!_tableFooterView) {
+        _tableFooterView = UILabel.new;
+        _tableFooterView.text = Internationalization(@"- 没有更多的内容了 -");
+        _tableFooterView.font = UIFontWeightRegularSize(12);
+        _tableFooterView.textAlignment = NSTextAlignmentCenter;
+        _tableFooterView.textColor = HEXCOLOR(0xB0B0B0);
+//        _tableFooterView.size = CGSizeMake(JobsMainScreen_WIDTH(), JobsWidth(48));
+        [_tableFooterView makeLabelByShowingType:UILabelShowingType_03];
+    }return _tableFooterView;
 }
 
 -(NSMutableArray<UITableViewCell *> *)tbvCellMutArr{
@@ -380,6 +396,20 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             UIViewModel *viewModel = [self configViewModelWithTitle:@"IntervalTBVCellShow"
                                                            subTitle:Internationalization(@"UITableViewCell间隔")];
             viewModel.cls = IntervalTBVCellShow.class;
+            [_dataMutArr addObject:viewModel];
+        }
+        
+        {
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"CXBVC"
+                                                           subTitle:Internationalization(@"程肖斌自研科技")];
+            viewModel.cls = CXBVC.class;
+            [_dataMutArr addObject:viewModel];
+        }
+        
+        {
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"OCDynamicRegisterVC"
+                                                           subTitle:Internationalization(@"OC动态添加类、方法列表、属性列表")];
+            viewModel.cls = OCDynamicRegisterVC.class;
             [_dataMutArr addObject:viewModel];
         }
         

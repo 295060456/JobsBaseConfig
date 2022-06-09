@@ -711,11 +711,15 @@
 		C57A8BED2850D20C00DD089E /* BaiShaETProjMembersTBVCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = C57A8BE92850D20C00DD089E /* BaiShaETProjMembersTBVCell2.m */; };
 		C57A8BF42850D2DC00DD089E /* BaiShaETProjMembersBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = C57A8BF22850D2DB00DD089E /* BaiShaETProjMembersBoardView.m */; };
 		C57A8BF82850D2EE00DD089E /* BaiShaETProjMembersSection1View.m in Sources */ = {isa = PBXBuildFile; fileRef = C57A8BF72850D2ED00DD089E /* BaiShaETProjMembersSection1View.m */; };
+		C57A8ED12851A7DE00DD089E /* CXBVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C57A8ECD2851A7DD00DD089E /* CXBVC.m */; };
+		C57A8ED22851A7DE00DD089E /* UIView+layout.m in Sources */ = {isa = PBXBuildFile; fileRef = C57A8ECF2851A7DD00DD089E /* UIView+layout.m */; };
+		C57A8ED62851A8E600DD089E /* OCDynamicRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C57A8ED52851A8E600DD089E /* OCDynamicRegisterVC.m */; };
 		C5932EC7282D26E500B3B053 /* JobsBaseConfigTestPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5932EC0282D26E500B3B053 /* JobsBaseConfigTestPopupView.m */; };
 		C5932EC8282D26E500B3B053 /* 测试弹窗的背景图@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5932EC2282D26E500B3B053 /* 测试弹窗的背景图@3x.png */; };
 		C5932EC9282D26E500B3B053 /* 测试弹窗的背景图@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5932EC3282D26E500B3B053 /* 测试弹窗的背景图@2x.png */; };
 		C5932ECA282D26E500B3B053 /* 测试弹窗的确定按钮@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5932EC4282D26E500B3B053 /* 测试弹窗的确定按钮@3x.png */; };
 		C5932ECB282D26E500B3B053 /* 测试弹窗的确定按钮@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5932EC5282D26E500B3B053 /* 测试弹窗的确定按钮@2x.png */; };
+		C59478D62851E2D7009D040A /* OCDynamic.m in Sources */ = {isa = PBXBuildFile; fileRef = C59478D52851E2D7009D040A /* OCDynamic.m */; };
 		C596B78F283F6DA600C13619 /* UIViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C596B78A283F6DA600C13619 /* UIViewModel.m */; };
 		C596B790283F6DA600C13619 /* JobsHeaderFooterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C596B78D283F6DA600C13619 /* JobsHeaderFooterViewModel.m */; };
 		C596B7A1283F6F7900C13619 /* JobsHotLabelWithMultiLineFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C596B793283F6F7700C13619 /* JobsHotLabelWithMultiLineFooterView.m */; };
@@ -2316,6 +2320,13 @@
 		C57A8BF22850D2DB00DD089E /* BaiShaETProjMembersBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiShaETProjMembersBoardView.m; sourceTree = "<group>"; };
 		C57A8BF62850D2ED00DD089E /* BaiShaETProjMembersSection1View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiShaETProjMembersSection1View.h; sourceTree = "<group>"; };
 		C57A8BF72850D2ED00DD089E /* BaiShaETProjMembersSection1View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiShaETProjMembersSection1View.m; sourceTree = "<group>"; };
+		C57A8ECC2851A7DD00DD089E /* CXBVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXBVC.h; sourceTree = "<group>"; };
+		C57A8ECD2851A7DD00DD089E /* CXBVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXBVC.m; sourceTree = "<group>"; };
+		C57A8ECE2851A7DD00DD089E /* UIView+layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+layout.h"; sourceTree = "<group>"; };
+		C57A8ECF2851A7DD00DD089E /* UIView+layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+layout.m"; sourceTree = "<group>"; };
+		C57A8ED02851A7DE00DD089E /* layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = layout.h; sourceTree = "<group>"; };
+		C57A8ED42851A8E600DD089E /* OCDynamicRegisterVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCDynamicRegisterVC.h; sourceTree = "<group>"; };
+		C57A8ED52851A8E600DD089E /* OCDynamicRegisterVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCDynamicRegisterVC.m; sourceTree = "<group>"; };
 		C5932EC0282D26E500B3B053 /* JobsBaseConfigTestPopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsBaseConfigTestPopupView.m; sourceTree = "<group>"; };
 		C5932EC2282D26E500B3B053 /* 测试弹窗的背景图@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "测试弹窗的背景图@3x.png"; sourceTree = "<group>"; };
 		C5932EC3282D26E500B3B053 /* 测试弹窗的背景图@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "测试弹窗的背景图@2x.png"; sourceTree = "<group>"; };
@@ -2324,6 +2335,10 @@
 		C5932EC6282D26E500B3B053 /* JobsBaseConfigTestPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBaseConfigTestPopupView.h; sourceTree = "<group>"; };
 		C5932ECC282D271E00B3B053 /* JobsBaseConfigPopupViewHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsBaseConfigPopupViewHeader.h; sourceTree = "<group>"; };
 		C5932ECD282D27F400B3B053 /* JobsAppDoorInputViewHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputViewHeader.h; sourceTree = "<group>"; };
+		C59478D12851DAB4009D040A /* objc_property_attribute_t.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = objc_property_attribute_t.png; sourceTree = "<group>"; };
+		C59478D22851DE57009D040A /* 4767245-ce0c1c26ef2ab354.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4767245-ce0c1c26ef2ab354.png"; sourceTree = "<group>"; };
+		C59478D42851E2D7009D040A /* OCDynamic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCDynamic.h; sourceTree = "<group>"; };
+		C59478D52851E2D7009D040A /* OCDynamic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCDynamic.m; sourceTree = "<group>"; };
 		C596B78A283F6DA600C13619 /* UIViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewModel.m; sourceTree = "<group>"; };
 		C596B78B283F6DA600C13619 /* UIViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewModel.h; sourceTree = "<group>"; };
 		C596B78D283F6DA600C13619 /* JobsHeaderFooterViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsHeaderFooterViewModel.m; sourceTree = "<group>"; };
@@ -8389,6 +8404,8 @@
 		84CA609D278980E700E46E71 /* 功能模块 */ = {
 			isa = PBXGroup;
 			children = (
+				C57A8ED32851A88100DD089E /* OC动态添加类、方法列表、属性列表 */,
+				C57A8ECB2851A7D400DD089E /* 程肖斌 */,
 				C57A8BE02850CFF800DD089E /* UITableViewCell间隔 */,
 				C5C480A0284E24FE007916B3 /* 设置手势密码 */,
 				C5C47D07284E1C0A007916B3 /* UITableViewCellEditorVC */,
@@ -9187,6 +9204,29 @@
 			path = BaiShaETProjMembersSection1View;
 			sourceTree = "<group>";
 		};
+		C57A8ECB2851A7D400DD089E /* 程肖斌 */ = {
+			isa = PBXGroup;
+			children = (
+				C57A8ECC2851A7DD00DD089E /* CXBVC.h */,
+				C57A8ECD2851A7DD00DD089E /* CXBVC.m */,
+				C57A8ED02851A7DE00DD089E /* layout.h */,
+				C57A8ECE2851A7DD00DD089E /* UIView+layout.h */,
+				C57A8ECF2851A7DD00DD089E /* UIView+layout.m */,
+			);
+			path = "程肖斌";
+			sourceTree = "<group>";
+		};
+		C57A8ED32851A88100DD089E /* OC动态添加类、方法列表、属性列表 */ = {
+			isa = PBXGroup;
+			children = (
+				C59478D22851DE57009D040A /* 4767245-ce0c1c26ef2ab354.png */,
+				C59478D12851DAB4009D040A /* objc_property_attribute_t.png */,
+				C59478D72851E2DD009D040A /* OCDynamic */,
+				C59478D32851E2B3009D040A /* OCDynamicRegisterVC */,
+			);
+			path = "OC动态添加类、方法列表、属性列表";
+			sourceTree = "<group>";
+		};
 		C5932EBD282D26CD00B3B053 /* ☀️业务模块中公用的View */ = {
 			isa = PBXGroup;
 			children = (
@@ -9235,6 +9275,24 @@
 				C5932EC5282D26E500B3B053 /* 测试弹窗的确定按钮@2x.png */,
 			);
 			path = resources;
+			sourceTree = "<group>";
+		};
+		C59478D32851E2B3009D040A /* OCDynamicRegisterVC */ = {
+			isa = PBXGroup;
+			children = (
+				C57A8ED42851A8E600DD089E /* OCDynamicRegisterVC.h */,
+				C57A8ED52851A8E600DD089E /* OCDynamicRegisterVC.m */,
+			);
+			path = OCDynamicRegisterVC;
+			sourceTree = "<group>";
+		};
+		C59478D72851E2DD009D040A /* OCDynamic */ = {
+			isa = PBXGroup;
+			children = (
+				C59478D42851E2D7009D040A /* OCDynamic.h */,
+				C59478D52851E2D7009D040A /* OCDynamic.m */,
+			);
+			path = OCDynamic;
 			sourceTree = "<group>";
 		};
 		C596B788283F6DA600C13619 /* UIViewModelFamily */ = {
@@ -10650,6 +10708,7 @@
 				C5AA8B71282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_7.m in Sources */,
 				840F96DE27736428004979E9 /* DeleteSystemUITabBarButton.m in Sources */,
 				840F96D827736428004979E9 /* Nanosecond_TimerManager.m in Sources */,
+				C57A8ED62851A8E600DD089E /* OCDynamicRegisterVC.m in Sources */,
 				840F96EF27736428004979E9 /* NSObject+Shake.m in Sources */,
 				840F95E327736427004979E9 /* JobsBitsMonitorSuspendLab.m in Sources */,
 				84CA5FB827897AFB00E46E71 /* WBPopMenuSingleton.m in Sources */,
@@ -10674,6 +10733,7 @@
 				8456259D278BF2780067ABB9 /* JobsCommentConfig.m in Sources */,
 				C57A8BF42850D2DC00DD089E /* BaiShaETProjMembersBoardView.m in Sources */,
 				C55C895628437190005295B1 /* JXCategoryPopupVC.m in Sources */,
+				C59478D62851E2D7009D040A /* OCDynamic.m in Sources */,
 				844B084E2764CF4800B0513D /* ECPrivacyCheckMotionAndFitness.m in Sources */,
 				840F969A27736428004979E9 /* NSString+Replace.m in Sources */,
 				84D76437278090330003F0E4 /* UIViewController+SafeTransition.m in Sources */,
@@ -10841,6 +10901,7 @@
 				842475AC27C0D67000831270 /* YTKBatchRequest+AnimatingAccessory.m in Sources */,
 				840F95E227736427004979E9 /* ImageCodeView.m in Sources */,
 				8424744227C0CAEB00831270 /* GetUserInfoApi.m in Sources */,
+				C57A8ED12851A7DE00DD089E /* CXBVC.m in Sources */,
 				C596B7A2283F6F7900C13619 /* JobsHotLabelWithMultiLineHeaderView.m in Sources */,
 				840F967727736428004979E9 /* UIView+JHGestureBlock.m in Sources */,
 				840F967E27736428004979E9 /* NSMutableDictionary+Ordered.m in Sources */,
@@ -10939,6 +11000,7 @@
 				84868E1F2779DFE30098BE7A /* UILabel+Extra.m in Sources */,
 				84CA5FB027897AFB00E46E71 /* XLChannelItem.m in Sources */,
 				840F96AC27736428004979E9 /* MJRefreshConfigModel.m in Sources */,
+				C57A8ED22851A7DE00DD089E /* UIView+layout.m in Sources */,
 				84CA5FC027897AFB00E46E71 /* XDSDropDownMenu.m in Sources */,
 				C5C47D15284E1C95007916B3 /* JobsMsgDataModel.m in Sources */,
 				840F961527736427004979E9 /* ZFCustomControlView.m in Sources */,

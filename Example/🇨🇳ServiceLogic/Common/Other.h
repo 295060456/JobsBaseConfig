@@ -60,5 +60,7 @@
 #import "JobsSettingGestureVC.h"
 #import "JobsTestVC.h"
 #import "IntervalTBVCellShow.h"
+#import "CXBVC.h"
+#import "OCDynamicRegisterVC.h"
 
 #endif /* Other_h */
