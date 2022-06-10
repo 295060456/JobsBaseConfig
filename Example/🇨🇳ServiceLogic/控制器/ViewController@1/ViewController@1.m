@@ -413,6 +413,14 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             [_dataMutArr addObject:viewModel];
         }
         
+        {
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"JXCategoryViewWithHeaderViewVC"
+                                                           subTitle:Internationalization(@"JXCategoryView下拉放大头部视图")];
+            viewModel.cls = JXCategoryViewWithHeaderViewVC.class;
+            [_dataMutArr addObject:viewModel];
+        }
+        
+        
 //        {
 //            UIViewModel *viewModel = [self configViewModelWithTitle:@"ProtocolKitVC"
 //                                                           subTitle:Internationalization(@"Objective-C中实现协议扩展")];

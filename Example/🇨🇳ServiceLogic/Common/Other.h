@@ -63,5 +63,6 @@
 #import "CXBVC.h"
 #import "OCDynamicRegisterVC.h"
 #import "ProtocolKitVC.h"
+#import "JXCategoryViewWithHeaderViewVC.h"
 
 #endif /* Other_h */

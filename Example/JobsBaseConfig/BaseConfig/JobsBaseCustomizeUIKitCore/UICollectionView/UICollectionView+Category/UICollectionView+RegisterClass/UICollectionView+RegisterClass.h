@@ -11,9 +11,15 @@
 #import "JobsHotLabelWithMultiLineFooterView.h"
 
 #import "BaseCollectionViewCell.h"
-#import "JobsHotLabelWithMultiLineCVCell.h"
 #import "JobsSearchDataCVCell.h"
 #import "JobsHotLabelWithMultiLineCVCell.h"
+#import "BaiShaETProjVIPSubCVFooterView.h"
+
+#import "BaiShaETProjVIPSubCVCell_01.h"
+#import "BaiShaETProjVIPSubCVCell_02.h"
+#import "BaiShaETProjVIPSubCVCell_03.h"
+#import "BaiShaETProjVIPSubCVCell_04.h"
+#import "BaiShaETProjVIPSubCVCell_05.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

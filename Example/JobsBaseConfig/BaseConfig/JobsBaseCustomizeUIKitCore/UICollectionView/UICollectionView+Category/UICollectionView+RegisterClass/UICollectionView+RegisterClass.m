@@ -15,11 +15,18 @@
     [self registerCollectionElementKindSectionHeaderClass:JobsHotLabelWithMultiLineHeaderView.class];
     /// Footer
     [self registerCollectionElementKindSectionFooterClass:JobsHotLabelWithMultiLineFooterView.class];
+    [self registerCollectionElementKindSectionFooterClass:BaiShaETProjVIPSubCVFooterView.class];
     // CollectionViewCell
     [self registerCollectionViewCellClass:UICollectionViewCell.class];
     [self registerCollectionViewCellClass:BaseCollectionViewCell.class];
     [self registerCollectionViewCellClass:JobsHotLabelWithMultiLineCVCell.class];
     [self registerCollectionViewCellClass:JobsSearchDataCVCell.class];
+    
+    [self registerCollectionViewCellClass:BaiShaETProjVIPSubCVCell_01.class];
+    [self registerCollectionViewCellClass:BaiShaETProjVIPSubCVCell_02.class];
+    [self registerCollectionViewCellClass:BaiShaETProjVIPSubCVCell_03.class];
+    [self registerCollectionViewCellClass:BaiShaETProjVIPSubCVCell_04.class];
+    [self registerCollectionViewCellClass:BaiShaETProjVIPSubCVCell_05.class];
 }
 /// 注册 UICollectionViewCell 及其子类
 -(void)registerCollectionViewCellClass:(Class)cls{
