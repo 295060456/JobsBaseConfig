@@ -62,5 +62,6 @@
 #import "IntervalTBVCellShow.h"
 #import "CXBVC.h"
 #import "OCDynamicRegisterVC.h"
+#import "ProtocolKitVC.h"
 
 #endif /* Other_h */

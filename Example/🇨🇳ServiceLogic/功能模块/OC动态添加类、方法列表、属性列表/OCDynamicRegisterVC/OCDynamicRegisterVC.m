@@ -265,6 +265,11 @@ static void addMethodForMyClass(id self, SEL _cmd, NSString *test) {
     sel_registerName("init");
     // 方式3
     NSSelectorFromString(@"init");
+    
+    /*
+     IMP是”implementation”的缩写,它是objetive-C 方法 (method)实现代码块的地址,类似函数指针,通过它可以 直接访问任意一个方法。免去发送消息的代价
+     获取方法的IMP：-(IMP)methodForSelector:(SEL)aSelector;
+     */
 }
 
 @end
