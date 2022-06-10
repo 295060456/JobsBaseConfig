@@ -25,7 +25,9 @@
 - (void)dealloc{
     NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
     //    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    objc_disposeClassPair(newClass);
+    if (NSClassFromString(@"newClass")) {
+        objc_disposeClassPair(newClass);
+    }
 }
 
 -(void)loadView{
@@ -45,13 +47,54 @@
     [self setGKNavBackBtn];
     self.gk_navigationBar.jobsVisible = YES;
     
-    [self work];
+    [self msgSend];
+//    [self work];
+}
+/**
+ 参考资料：https://www.iloveanan.com/new-prototype-of-objc_msgsend.html
+ 
+ ABI的匹配：对于原来的实现，最后的参数是一个可变参数，在转化成最终的函数调用时，系统需要将其转化成“固定”参数的调用。比如按照定义，调用者将参数 self 放入某个寄存器来传递，执行者去该寄存器取该参数，并认为是该类型的。但问题是，如果两者不一致问题就打了。而不同处理器架构上，这样的处理过程是不一样的。
+ 
+     【Intel 架构对可变参数函数的处理】
+      对标准的System V ABI for x86-64，参数是这样传递到寄存器的：
+     
+        整型参数：依次使用 rdi, rsi, rcx, r8 和 r9。
+        浮点参数：使用 SSE 寄存器 xmm0 ~ xmm7 (每个128位)
+        当调用含可变参数函数时，可变参数的实际个数使用寄存器 al 存储；整型返回值放置在 rax 和 rdx，浮点型返回值放置在 xmm0 和 xmm1。
+        但是，当调用可变参数函数时，C语言中会将某些特定的数据类型字节数变宽：比 int 字节数少的会使用 int 的字节宽度，float 会使用 double 的字节数。对于整型数据而言，这不会有影响，因为数据优先存储在低位，高位为零。但是对于浮点数而言，float和double各个位数的定义不一样，不能像整型那样简单地进行高位填充。因此， 对于含可变参数的函数而言，传 float 类型的参数就会造成错误。
+     
+     【ARM64 架构对可变参数函数的处理】
+      众所周知，iOS上使用的 ARM64 处理器，其使用的是 ARM64 标准 ABI 的变体：
+
+        整型参数：依次使用 x0 ~ x7。
+        浮点参数：依次使用 v0 ~ v7。
+        其余参数存储在栈上，返回值放置在对应的传参寄存器中。
+        对于含可变参数的函数，可变参数一直放置在栈上。因此，对于固定参数函数和可变参数函数而言，ABI 就不一致了。
+ 
+ 严格的类型检查可以降低代码出现异常的几率，因此：
+ 1、尽量使用“新”的 objc_msgSend 如果需要自己传递消息
+ 2、对 Mac 平台，使用可变参数形式的 objc_msgSend 时要注意避免 float 参数
+ 
+ */
+-(void)msgSend{
+    /// macOS升级到10.15后，宏OBJC_OLD_DISPATCH_PROTOTYPES的值变为0，导致objc_msgSend 定义发生变化
+    /// 使用 objc_msgSend 的时候，要需要将Xcode中build setting中的 Enbale Strict of Checking of objc_msgSend Calls 设置为 NO。这样才不会报警告。（搜索objc_msgSend）
+    
+    /// 无返回值的调用
+    ((void (*)(id, SEL, float)) objc_msgSend)(self, @selector(sendObjMsg:), (float)M_PI);
+    /// 有返回值的调用，需要注明返回类型
+    id f = ((NSString * (*)(id, SEL, float)) objc_msgSend)(self, @selector(sendObjMsg:), (float)M_PI);
+    NSLog(@"");
+}
+
+-(NSString *)sendObjMsg: (float)x{
+    NSLog(@"");
+    return @"Jobs";
 }
 
 -(void)work{
     /// 动态创建类
     Class MyClass = [self createClass:@"dynaminClass"];
-//    id myobjc = objc_msgSend(MyClass, @selector(alloc));？？？
     /// 各种添加赋值
     [self addProperty:@"jackName"];
     [self addIvarStr:@"jobsName"];
