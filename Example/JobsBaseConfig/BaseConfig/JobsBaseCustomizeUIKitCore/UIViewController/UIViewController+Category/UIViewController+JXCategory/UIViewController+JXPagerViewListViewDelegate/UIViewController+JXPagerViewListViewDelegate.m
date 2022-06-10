@@ -18,9 +18,7 @@
             scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
         }
     }
-    if (self.scrollCallback) {
-        self.scrollCallback(scrollView);
-    }
+    if (self.scrollCallback) self.scrollCallback(scrollView);
 }
 #pragma mark —— JXPagerViewListViewDelegate
 - (UIScrollView *)listScrollView {
@@ -34,7 +32,6 @@
 - (UIView *)listView {
     return self.view;
 }
-
 static char *UIViewController_JXPagingViewListViewDelegate_scrollViewClass = "UIViewController_JXPagingViewListViewDelegate_scrollViewClass";
 @dynamic scrollViewClass;
 #pragma mark —— @property(nonatomic,strong)Class scrollViewClass;

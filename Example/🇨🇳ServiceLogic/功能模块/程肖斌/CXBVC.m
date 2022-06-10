@@ -18,7 +18,7 @@
     UIView *take = [[UIView alloc]initWithFrame:frame];
     take.backgroundColor = UIColor.redColor;
     [self.view addSubview:take];
-    
+    JobsNavigationHeight(<#UINavigationController * _Nullable navigationController#>)
     frame = fitHor(20, 20, 100, 60);
     UIView *sub = [[UIView alloc]initWithFrame:frame];
     sub.backgroundColor = UIColor.greenColor;

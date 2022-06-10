@@ -25,16 +25,16 @@
 -(void)registerCollectionViewCellClass:(Class)cls{
     [self registerClass:cls forCellWithReuseIdentifier:cls.description];
 }
-/// 注册 UICollectionElementKindSectionFooter 及其子类
--(void)registerCollectionElementKindSectionFooterClass:(Class)cls{
-    [self registerClass:cls
-    forSupplementaryViewOfKind:UICollectionElementKindSectionFooter
-    withReuseIdentifier:cls.description];
-}
 /// 注册 UICollectionElementKindSectionHeader 及其子类
 -(void)registerCollectionElementKindSectionHeaderClass:(Class)cls{
     [self registerClass:cls
     forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+    withReuseIdentifier:cls.description];
+}
+/// 注册 UICollectionElementKindSectionFooter 及其子类
+-(void)registerCollectionElementKindSectionFooterClass:(Class)cls{
+    [self registerClass:cls
+    forSupplementaryViewOfKind:UICollectionElementKindSectionFooter
     withReuseIdentifier:cls.description];
 }
 /// 依据字符串取UICollectionElementKindSectionFooter

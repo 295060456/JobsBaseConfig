@@ -59,6 +59,8 @@
 #import "JobsCollectionView.h"
 #pragma mark —— UICollectionViewCell
 #import "JobsCollectionViewCell.h"
+#pragma mark —— 实现类似于UItableView.tableHeaderView的头部视图
+#import "UICollectionHeaderFooterView.h"
 #pragma mark —— UICollectionViewFlowLayout
 #import "JobsCollectionViewFlowLayout.h"
 

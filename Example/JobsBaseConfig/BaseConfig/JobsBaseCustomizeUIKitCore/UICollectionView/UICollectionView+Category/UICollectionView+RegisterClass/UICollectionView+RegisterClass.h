@@ -22,10 +22,10 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)registerCollectionViewClass;
 /// 注册 UICollectionViewCell 及其子类
 -(void)registerCollectionViewCellClass:(Class)cls;
-/// 注册 UICollectionElementKindSectionFooter 及其子类
--(void)registerCollectionElementKindSectionFooterClass:(Class)cls;
 /// 注册 UICollectionElementKindSectionHeader 及其子类
 -(void)registerCollectionElementKindSectionHeaderClass:(Class)cls;
+/// 注册 UICollectionElementKindSectionFooter 及其子类
+-(void)registerCollectionElementKindSectionFooterClass:(Class)cls;
 /// 依据字符串取UICollectionElementKindSectionHeader
 -(__kindof UICollectionReusableView *)UICollectionElementKindSectionHeaderClass:(Class)cls
                                                                    forIndexPath:(NSIndexPath *)indexPath;

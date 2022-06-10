@@ -47,8 +47,8 @@
     [self setGKNavBackBtn];
     self.gk_navigationBar.jobsVisible = YES;
     
-    [self msgSend];
-//    [self work];
+//    [self msgSend];
+    [self work];
 }
 /**
  参考资料：https://www.iloveanan.com/new-prototype-of-objc_msgsend.html
