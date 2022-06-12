@@ -28,12 +28,15 @@
 }
 //具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 -(void)richElementsInViewWithModel:(JobsLeftRightLabModel *_Nullable)model{
-    self.leftRightLabModel = model;
+    self.leftRightLabModel = model ? : JobsLeftRightLabModel.new;
     [self textWidth];
-    if (model) {
+    if (self.leftRightLabModel.labelShowingType == UILabelShowingType_04) {//【单行：ByWidth】
         [self.leftBtn buttonAutoFontByWidth];
         [self.rightBtn buttonAutoFontByWidth];
-    }
+    }else if (self.leftRightLabModel.labelShowingType == UILabelShowingType_03){//【单行：ByFont】
+        [self.leftBtn buttonAutoWidthByFont];
+        [self.rightBtn buttonAutoWidthByFont];
+    }else{}
     
 }
 //具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
@@ -47,12 +50,12 @@
 }
 
 -(void)textWidth{
-    leftTextWidth = [self.leftRightLabModel.upLabText getContentHeightOrWidthWithParagraphStyleLineSpacing:0
+    leftTextWidth = [self.leftRightLabModel.upLabText getContentHeightOrWidthWithParagraphStyleLineSpacing:self.leftRightLabModel.textModel.textLineSpacing
                                                                                      calcLabelHeight_Width:CalcLabelWidth
                                                                                                       font:self.leftRightLabModel.upLabFont
                                                                               boundingRectWithHeight_Width:[JobsLeftRightLab viewSizeWithModel:nil].height];
     
-    rightTextWidth = [self.leftRightLabModel.downLabText getContentHeightOrWidthWithParagraphStyleLineSpacing:0
+    rightTextWidth = [self.leftRightLabModel.downLabText getContentHeightOrWidthWithParagraphStyleLineSpacing:self.leftRightLabModel.textModel.textLineSpacing
                                                                                         calcLabelHeight_Width:CalcLabelWidth
                                                                                                          font:self.leftRightLabModel.downLabFont
                                                                                  boundingRectWithHeight_Width:[JobsLeftRightLab viewSizeWithModel:nil].height];
@@ -64,14 +67,20 @@
 -(UIButton *)leftBtn{
     if (!_leftBtn) {
         _leftBtn = UIButton.new;
-        _leftBtn.backgroundColor = kRedColor;
-        _leftBtn.titleLabel.textAlignment = self.leftRightLabModel.upLabTextAlignment;
-        [_leftBtn normalTitle:self.leftRightLabModel.upLabText];
-        [_leftBtn normalImage:self.leftRightLabModel.upLabImage];
-        [_leftBtn normalTitleColor:self.leftRightLabModel.upLabTextCor];
-        [_leftBtn normalBackgroundImage:self.leftRightLabModel.upLabBgImage];
+        
+        if (self.leftRightLabModel.upLabAttributedText) {
+            _leftBtn.normalAttributedTitle = self.leftRightLabModel.upLabAttributedText;
+        }else{
+            _leftBtn.titleLabel.textAlignment = self.leftRightLabModel.upLabTextAlignment;
+            _leftBtn.normalTitle = self.leftRightLabModel.upLabText;
+            _leftBtn.normalTitleColor = self.leftRightLabModel.upLabTextCor;
+            _leftBtn.titleFont = self.leftRightLabModel.upLabFont;
+        }
+        
+        _leftBtn.normalImage = self.leftRightLabModel.upLabImage;
+        _leftBtn.normalBackgroundImage = self.leftRightLabModel.upLabBgImage;
         _leftBtn.backgroundColor = self.leftRightLabModel.upLabBgCor;
-        _leftBtn.titleLabel.font = self.leftRightLabModel.upLabFont;
+        
         [self addSubview:_leftBtn];
         [_leftBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.bottom.left.equalTo(self);
@@ -88,13 +97,20 @@
 -(UIButton *)rightBtn{
     if (!_rightBtn) {
         _rightBtn = UIButton.new;
-        _rightBtn.titleLabel.textAlignment = self.leftRightLabModel.downLabTextAlignment;
-        [_rightBtn normalTitle:self.leftRightLabModel.downLabText];
-        [_rightBtn normalImage:self.leftRightLabModel.downLabImage];
-        [_rightBtn normalTitleColor:self.leftRightLabModel.downLabTextCor];
-        [_rightBtn normalBackgroundImage:self.leftRightLabModel.downLabBgImage];
+        
+        if (self.leftRightLabModel.downLabAttributedText) {
+            _rightBtn.normalAttributedTitle = self.leftRightLabModel.downLabAttributedText;
+        }else{
+            _rightBtn.titleLabel.textAlignment = self.leftRightLabModel.downLabTextAlignment;
+            _rightBtn.normalTitle = self.leftRightLabModel.downLabText;
+            _rightBtn.normalTitleColor = self.leftRightLabModel.downLabTextCor;
+            _rightBtn.titleFont = self.leftRightLabModel.downLabFont;;
+        }
+
+        _rightBtn.normalImage = self.leftRightLabModel.downLabImage;
+        _rightBtn.normalBackgroundImage = self.leftRightLabModel.downLabBgImage;
         _rightBtn.backgroundColor = self.leftRightLabModel.downLabBgCor;
-        _rightBtn.titleLabel.font = self.leftRightLabModel.downLabFont;
+        
         [self addSubview:_rightBtn];
         [_rightBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.bottom.right.equalTo(self);

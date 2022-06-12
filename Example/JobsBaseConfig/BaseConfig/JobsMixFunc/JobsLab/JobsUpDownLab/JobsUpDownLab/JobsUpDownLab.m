@@ -40,18 +40,17 @@
     [_downBtn removeFromSuperview];
     _downBtn = nil;
     
-    self.upDownLabModel = model;
+    self.upDownLabModel = model ? : JobsUpDownLabModel.new;
     [self textHeight];
-    if (model) {
-        [self.upBtn normalTitle:self.upDownLabModel.upLabText];
+    if (self.upDownLabModel) {
+        self.upBtn.normalTitle = self.upDownLabModel.upLabText;
         /// 单行ByWidth  多行ByFont
         if (self.upDownLabModel.isUpLabMultiLineShows) {
             [self.upBtn makeBtnLabelByShowingType:UILabelShowingType_05];
         }else{
             [self.upBtn buttonAutoFontByWidth];
         }
-        
-        [self.downBtn normalTitle:self.upDownLabModel.downLabText];
+        self.downBtn.normalTitle = self.upDownLabModel.downLabText;
         if (self.upDownLabModel.isDownLabMultiLineShows) {
             [self.downBtn makeBtnLabelByShowingType:UILabelShowingType_05];
         }else{
@@ -83,7 +82,7 @@
     rightTextHeight = self.upDownLabModel.rate == 0.5 ? rightTextHeight : [JobsUpDownLab viewSizeWithModel:nil].height * (1 - self.upDownLabModel.rate);
     NSLog(@"");
 }
-
+#pragma mark —— 一些公有方法
 -(UIButton *)getUpBtn{
     return _upBtn;
 }
@@ -95,7 +94,15 @@
 -(UIButton *)upBtn{
     if (!_upBtn) {
         _upBtn = UIButton.new;
-        _upBtn.titleLabel.textAlignment = self.upDownLabModel.upLabTextAlignment;
+        
+        if (self.upDownLabModel.upLabAttributedText) {
+            _upBtn.normalAttributedTitle = self.upDownLabModel.upLabAttributedText;
+        }else{
+            _upBtn.titleLabel.textAlignment = self.upDownLabModel.upLabTextAlignment;
+            _upBtn.titleFont = self.upDownLabModel.upLabFont;
+            _upBtn.normalTitle = self.upDownLabModel.upLabText;
+            _upBtn.normalTitleColor = self.upDownLabModel.upLabTextCor;
+        }
         
         switch (self.upDownLabModel.downLabTextAlignment) {
             case NSTextAlignmentLeft:{
@@ -111,14 +118,10 @@
             default:
                 break;
         }
-        
-        [_upBtn normalTitle:self.upDownLabModel.upLabText];
-        [_upBtn normalImage:self.upDownLabModel.upLabImage];
-        [_upBtn normalTitleColor:self.upDownLabModel.upLabTextCor];
-        [_upBtn normalBackgroundImage:self.upDownLabModel.upLabBgImage];
+        _upBtn.normalImage = self.upDownLabModel.upLabImage;
+        _upBtn.normalBackgroundImage = self.upDownLabModel.upLabBgImage;
         _upBtn.backgroundColor = self.upDownLabModel.upLabBgCor;
-        [_upBtn titleFont:self.upDownLabModel.upLabFont];
-
+        
         [self addSubview:_upBtn];
         [_upBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             if (!self.upDownLabModel.isDownLabMultiLineShows) {
@@ -160,7 +163,15 @@
 -(UIButton *)downBtn{
     if (!_downBtn) {
         _downBtn = UIButton.new;
-        _downBtn.titleLabel.textAlignment = self.upDownLabModel.downLabTextAlignment;
+        
+        if (self.upDownLabModel.downLabAttributedText) {
+            _downBtn.normalAttributedTitle = self.upDownLabModel.downLabAttributedText;
+        }else{
+            _downBtn.titleLabel.textAlignment = self.upDownLabModel.downLabTextAlignment;
+            _downBtn.titleFont = self.upDownLabModel.downLabFont;
+            _downBtn.normalTitle = self.upDownLabModel.downLabText;
+            _downBtn.normalTitleColor = self.upDownLabModel.downLabTextCor;
+        }
         
         switch (self.upDownLabModel.downLabTextAlignment) {
             case NSTextAlignmentLeft:{
@@ -177,13 +188,10 @@
                 break;
         }
         
-        [_downBtn normalTitle:self.upDownLabModel.downLabText];
-        [_downBtn normalImage:self.upDownLabModel.downLabImage];
-        [_downBtn normalTitleColor:self.upDownLabModel.downLabTextCor];
-        [_downBtn normalBackgroundImage:self.upDownLabModel.downLabBgImage];
+        _downBtn.normalImage = self.upDownLabModel.downLabImage;
+        _downBtn.normalBackgroundImage = self.upDownLabModel.downLabBgImage;
         _downBtn.backgroundColor = self.upDownLabModel.downLabBgCor;
-        [_downBtn titleFont:self.upDownLabModel.downLabFont];
-
+    
         [self addSubview:_downBtn];
         [_downBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             if (!self.upDownLabModel.isDownLabMultiLineShows) {
