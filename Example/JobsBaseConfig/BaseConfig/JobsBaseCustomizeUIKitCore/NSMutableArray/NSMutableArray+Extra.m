@@ -30,5 +30,11 @@
         [tempMutArr addObjectsFromArray:self];
     }return tempMutArr;
 }
+/// 向数组加入一个从来没有没有过的元素，以保证数组元素的单一性
+- (void)jobsAddObject:(id)anObject{
+    if (![self containsObject:anObject]) {
+        [self addObject:anObject];
+    }
+}
 
 @end

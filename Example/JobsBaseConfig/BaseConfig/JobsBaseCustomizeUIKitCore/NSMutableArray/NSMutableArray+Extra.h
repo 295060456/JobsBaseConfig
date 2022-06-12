@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
                                          toIndex:(NSInteger)toIndex;
 /// 将数组里的元素复制times次
 -(NSMutableArray *)copyElementBytimes:(NSInteger)times;
+/// 向数组加入一个从来没有没有过的元素，以保证数组元素的单一性
+- (void)jobsAddObject:(id)anObject;
 
 @end
 
