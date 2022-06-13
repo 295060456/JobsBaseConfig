@@ -83,7 +83,7 @@
 
 - (void)pagerView:(JXPagerView *)pagerView
 mainTableViewDidScroll:(UIScrollView *)scrollView{
-    [self.collectionHeaderView scrollViewDidScroll:scrollView.contentOffset.y];
+    [self.collectionHeaderView scrollViewDidScrollWithContentOffsetY:scrollView.contentOffset.y];
 }
 /// 
 - (NSUInteger)tableHeaderViewHeightInPagerView:(JXPagerView *)pagerView {
