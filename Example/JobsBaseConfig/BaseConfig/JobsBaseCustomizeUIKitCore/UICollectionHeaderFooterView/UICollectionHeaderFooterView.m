@@ -52,7 +52,7 @@ static dispatch_once_t static_collectionHeaderFooterViewOnceToken;
     [super layoutSubviews];
 }
 #pragma mark —— UIScrollViewDelegate
--(void)scrollViewDidScroll:(CGFloat)contentOffsetY {
+-(void)scrollViewDidScrollWithContentOffsetY:(CGFloat)contentOffsetY; {
     if (self.isZoom) {
         CGRect frame = self.imageViewFrame;
         frame.size.height -= contentOffsetY;

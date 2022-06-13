@@ -62,7 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,assign)BOOL isZoom;
 
--(void)scrollViewDidScroll:(CGFloat)contentOffsetY;
+-(void)scrollViewDidScrollWithContentOffsetY:(CGFloat)contentOffsetY;
 
 @end
 
