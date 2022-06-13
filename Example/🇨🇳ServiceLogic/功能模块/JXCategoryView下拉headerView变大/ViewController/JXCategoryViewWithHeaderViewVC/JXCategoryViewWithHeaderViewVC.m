@@ -45,9 +45,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self setGKNav];
-    [self setGKNavBackBtn];
+    self.gk_navItemRightSpace = JobsWidth(16);
     self.gk_navRightBarButtonItems = @[[UIBarButtonItem.alloc initWithCustomView:self.ruleBtn]];
     self.categoryView.alpha = 1;
 }

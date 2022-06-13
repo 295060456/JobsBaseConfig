@@ -64,6 +64,8 @@
 #pragma mark —— UICollectionViewFlowLayout
 #import "JobsCollectionViewFlowLayout.h"
 
+#pragma mark —— UIProgressView
+#import "JobsProgressView.h"
 #pragma mark —— UITextField
 #import "JobsTextField.h"
 #pragma mark —— UITextView

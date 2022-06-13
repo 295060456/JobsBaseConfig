@@ -541,7 +541,6 @@
 		84AA2C952796E9A8000401C6 /* UserData.json in Resources */ = {isa = PBXBuildFile; fileRef = 84AA2C942796E9A8000401C6 /* UserData.json */; };
 		84B9A8CE279680C80070DD20 /* TestLabelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B9A8CD279680C80070DD20 /* TestLabelVC.m */; };
 		84B9A8D227968DFF0070DD20 /* UIView+Masonry.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B9A8D127968DFF0070DD20 /* UIView+Masonry.m */; };
-		84B9A94F27969C330070DD20 /* BaseLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B9A94E27969C320070DD20 /* BaseLabel.m */; };
 		84C94D97277EBAAB00C49CBA /* UIButton+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C94D95277EBAAB00C49CBA /* UIButton+Animation.m */; };
 		84CA5CCF2789587900E46E71 /* AppDelegate+Func.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA5CC72789587900E46E71 /* AppDelegate+Func.m */; };
 		84CA5CD02789587900E46E71 /* AppDelegate+UIApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA5CCA2789587900E46E71 /* AppDelegate+UIApplicationDelegate.m */; };
@@ -697,6 +696,9 @@
 		C5703FA7283FA5110048382E /* UIView+BRPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5703FA5283FA5110048382E /* UIView+BRPickerView.m */; };
 		C572088E2852F68A004BF695 /* ProtocolKitVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C57208892852F28C004BF695 /* ProtocolKitVC.m */; };
 		C572DA9328572A06002C7110 /* UIImage+Measure.m in Sources */ = {isa = PBXBuildFile; fileRef = C572DA9228572A05002C7110 /* UIImage+Measure.m */; };
+		C57343EF285753690016705E /* UIProgressView+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = C57343EC285753690016705E /* UIProgressView+Extra.m */; };
+		C57343F5285753B10016705E /* JobsAnimationLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C57343F2285753B10016705E /* JobsAnimationLabel.m */; };
+		C5734404285755000016705E /* BaseLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5734403285755000016705E /* BaseLabel.m */; };
 		C57A2034282CB59F0032156B /* ZLGestureLockView.m in Sources */ = {isa = PBXBuildFile; fileRef = C57A2025282CB59E0032156B /* ZLGestureLockView.m */; };
 		C57A2035282CB59F0032156B /* gesture_headIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C57A2027282CB59E0032156B /* gesture_headIcon@2x.png */; };
 		C57A2036282CB59F0032156B /* gesture_indicator_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C57A2028282CB59E0032156B /* gesture_indicator_normal@2x.png */; };
@@ -2003,8 +2005,6 @@
 		84B9A8CD279680C80070DD20 /* TestLabelVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestLabelVC.m; sourceTree = "<group>"; };
 		84B9A8D027968DFF0070DD20 /* UIView+Masonry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Masonry.h"; sourceTree = "<group>"; };
 		84B9A8D127968DFF0070DD20 /* UIView+Masonry.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Masonry.m"; sourceTree = "<group>"; };
-		84B9A94D27969C320070DD20 /* BaseLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseLabel.h; sourceTree = "<group>"; };
-		84B9A94E27969C320070DD20 /* BaseLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseLabel.m; sourceTree = "<group>"; };
 		84C94D95277EBAAB00C49CBA /* UIButton+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Animation.m"; sourceTree = "<group>"; };
 		84C94D96277EBAAB00C49CBA /* UIButton+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Animation.h"; sourceTree = "<group>"; };
 		84CA5CC72789587900E46E71 /* AppDelegate+Func.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Func.m"; sourceTree = "<group>"; };
@@ -2317,6 +2317,13 @@
 		C572091928530FD2004BF695 /* ProtocolKit.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ProtocolKit.md; sourceTree = "<group>"; };
 		C572DA9128572A05002C7110 /* UIImage+Measure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Measure.h"; sourceTree = "<group>"; };
 		C572DA9228572A05002C7110 /* UIImage+Measure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Measure.m"; sourceTree = "<group>"; };
+		C57343EC285753690016705E /* UIProgressView+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIProgressView+Extra.m"; sourceTree = "<group>"; };
+		C57343ED285753690016705E /* UIProgressView+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgressView+Extra.h"; sourceTree = "<group>"; };
+		C57343EE285753690016705E /* JobsProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsProgressView.h; sourceTree = "<group>"; };
+		C57343F1285753B10016705E /* JobsAnimationLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAnimationLabel.h; sourceTree = "<group>"; };
+		C57343F2285753B10016705E /* JobsAnimationLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAnimationLabel.m; sourceTree = "<group>"; };
+		C5734402285755000016705E /* BaseLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLabel.h; sourceTree = "<group>"; };
+		C5734403285755000016705E /* BaseLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseLabel.m; sourceTree = "<group>"; };
 		C57A2025282CB59E0032156B /* ZLGestureLockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLGestureLockView.m; sourceTree = "<group>"; };
 		C57A2027282CB59E0032156B /* gesture_headIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_headIcon@2x.png"; sourceTree = "<group>"; };
 		C57A2028282CB59E0032156B /* gesture_indicator_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_indicator_normal@2x.png"; sourceTree = "<group>"; };
@@ -3153,6 +3160,7 @@
 			isa = PBXGroup;
 			children = (
 				840F93E527736426004979E9 /* JobsBaseCustomizeUIKitCoreHeader.h */,
+				C57343E9285753690016705E /* UIProgressView */,
 				C520550C28534CC400CCB724 /* UICollectionHeaderFooterView */,
 				C50ED5CD283CC64B0097DE89 /* UISwitch */,
 				840F94FD27736427004979E9 /* AppDelegate */,
@@ -7711,8 +7719,8 @@
 		84B9A95027969C390070DD20 /* BaseLabel */ = {
 			isa = PBXGroup;
 			children = (
-				84B9A94D27969C320070DD20 /* BaseLabel.h */,
-				84B9A94E27969C320070DD20 /* BaseLabel.m */,
+				C57343F3285753B10016705E /* BaseLabel */,
+				C57343F0285753B10016705E /* JobsAnimationLabel */,
 			);
 			path = BaseLabel;
 			sourceTree = "<group>";
@@ -9228,6 +9236,50 @@
 				C572DA9228572A05002C7110 /* UIImage+Measure.m */,
 			);
 			path = "UIImage+Measure";
+			sourceTree = "<group>";
+		};
+		C57343E9285753690016705E /* UIProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				C57343EA285753690016705E /* UIProgressView+Category */,
+				C57343EE285753690016705E /* JobsProgressView.h */,
+			);
+			path = UIProgressView;
+			sourceTree = "<group>";
+		};
+		C57343EA285753690016705E /* UIProgressView+Category */ = {
+			isa = PBXGroup;
+			children = (
+				C57343EB285753690016705E /* UIProgressView+Extra */,
+			);
+			path = "UIProgressView+Category";
+			sourceTree = "<group>";
+		};
+		C57343EB285753690016705E /* UIProgressView+Extra */ = {
+			isa = PBXGroup;
+			children = (
+				C57343EC285753690016705E /* UIProgressView+Extra.m */,
+				C57343ED285753690016705E /* UIProgressView+Extra.h */,
+			);
+			path = "UIProgressView+Extra";
+			sourceTree = "<group>";
+		};
+		C57343F0285753B10016705E /* JobsAnimationLabel */ = {
+			isa = PBXGroup;
+			children = (
+				C57343F1285753B10016705E /* JobsAnimationLabel.h */,
+				C57343F2285753B10016705E /* JobsAnimationLabel.m */,
+			);
+			path = JobsAnimationLabel;
+			sourceTree = "<group>";
+		};
+		C57343F3285753B10016705E /* BaseLabel */ = {
+			isa = PBXGroup;
+			children = (
+				C5734402285755000016705E /* BaseLabel.h */,
+				C5734403285755000016705E /* BaseLabel.m */,
+			);
+			path = BaseLabel;
 			sourceTree = "<group>";
 		};
 		C57A2024282CB59E0032156B /* GestureLock */ = {
@@ -10889,6 +10941,7 @@
 				840F968F27736428004979E9 /* UIImageView+GIF.m in Sources */,
 				840F96CF27736428004979E9 /* BaseCollectionReusableView.m in Sources */,
 				840F964927736427004979E9 /* UIImage+Tailor.m in Sources */,
+				C5734404285755000016705E /* BaseLabel.m in Sources */,
 				840F96F227736428004979E9 /* NSObject+DataBinding.m in Sources */,
 				840F966727736428004979E9 /* SoundBtn.m in Sources */,
 				84CA5FB727897AFB00E46E71 /* WBTableViewDataSource.m in Sources */,
@@ -11004,6 +11057,7 @@
 				84CA5FE027897AFB00E46E71 /* GDFadeView.m in Sources */,
 				840F971827736428004979E9 /* JobsShowObjInfoVC.m in Sources */,
 				84CA64B22789C2F300E46E71 /* Douyin_ZFPlayerVC@2.m in Sources */,
+				C57343F5285753B10016705E /* JobsAnimationLabel.m in Sources */,
 				840F968E27736428004979E9 /* BaseImageView.m in Sources */,
 				840F961427736427004979E9 /* CustomZFPlayerControlView.m in Sources */,
 				C5C47D10284E1C4B007916B3 /* MsgEditBoardView.m in Sources */,
@@ -11090,6 +11144,7 @@
 				840F970A27736428004979E9 /* NSObject+UNUserNotificationCenterDelegate.m in Sources */,
 				8456259B278BF2780067ABB9 /* JobsCommentPopUpView_viewForHeaderInSection.m in Sources */,
 				840F969727736428004979E9 /* NSString+Path.m in Sources */,
+				C57343EF285753690016705E /* UIProgressView+Extra.m in Sources */,
 				840F96A527736428004979E9 /* UIViewController+Shake.m in Sources */,
 				840F970C27736428004979E9 /* NSObject+CallBackInfoByBlock.m in Sources */,
 				840F96F727736428004979E9 /* NSObject+Sound.m in Sources */,
@@ -11165,7 +11220,6 @@
 				C5C47D65284E1DF9007916B3 /* JobsDataShowBackView.m in Sources */,
 				84758D10279922660074B4BA /* JobsLaunchConfig.m in Sources */,
 				84401A8227919E3B0038FF6F /* JobsSearchTBVCell.m in Sources */,
-				84B9A94F27969C330070DD20 /* BaseLabel.m in Sources */,
 				840F96AD27736428004979E9 /* LOTAnimationMJRefreshHeader.m in Sources */,
 				C5AA8B78282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_2.m in Sources */,
 				8416F28427B23118008D10E2 /* JobsFormatTime.m in Sources */,

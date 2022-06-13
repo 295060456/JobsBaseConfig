@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UILabel (Extra)
 
 @property(nonatomic,assign)UILabelShowingType labelShowingType;
+/// for JobsAnimationLabel
+@property(nonatomic,assign)CGFloat value;
+@property(nonatomic,assign)CGFloat lastValue;
 
 -(void)lbBackgroundImage:(UIImage *)bgImage;
 /**
