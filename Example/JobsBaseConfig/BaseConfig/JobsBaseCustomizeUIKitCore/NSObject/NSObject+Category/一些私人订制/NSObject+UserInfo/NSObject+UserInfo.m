@@ -37,7 +37,7 @@ NSString *const 用户名数组 = @"用户名数组";
 }
 /// 读取用户信息
 -(DDUserModel *)readUserInfo{
-    return [DDUserModel mj_objectWithKeyValues:[NSUserDefaults readWithKey:用户信息]];
+    return [DDUserModel mj_objectWithKeyValues:[NSUserDefaults readWithKey:用户信息]] ? : DDUserModel.new;
 }
 #pragma mark —— 保存特定的用户数据（不随登出清空数据）[全局多份用户档案]
 ///【通过特定的用户名】 保存（更新）用户的本地资料（用 NSUserDefaults ）

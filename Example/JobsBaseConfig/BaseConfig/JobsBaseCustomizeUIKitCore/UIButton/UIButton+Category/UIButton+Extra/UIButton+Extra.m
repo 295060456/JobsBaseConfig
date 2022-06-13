@@ -29,13 +29,15 @@
         }break;
         case UILabelShowingType_05:{/// 多行显示。定宽、不定高、定字体
             self.titleLabel.numberOfLines = 0;
-            self.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;/// 自动折行设置【默认】
+            self.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;/// 自动折行设置【默认】需要提前设置imageTitleSpace
             [self uninstall:NSLayoutAttributeHeight];
+            NSLog(@"%f,%f",self.width,self.height);
+            NSLog(@"%@",self.titleForNormalState);
             CGSize size = [UILabel sizeWithText:self.titleForNormalState
                                            font:self.titleLabel.font
                                         maxSize:CGSizeMake(self.width, MAXFLOAT)];
             [self mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.height.mas_equalTo(size.height);
+                make.height.mas_equalTo(size.height + self.imageView.height + self.imageTitleSpace);// 文字 + 图片 + 手动偏移量
             }];
             if (self.objectBlock) self.objectBlock(@(size.height));
         }break;
@@ -43,6 +45,20 @@
         default:
             break;
     }return self;
+}
+static char *UIButton_Extra_imageTitleSpace = "UIButton_Extra_imageTitleSpace";
+@dynamic imageTitleSpace;
+#pragma mark —— @property(nonatomic,assign)CGFloat imageTitleSpace;
+-(CGFloat)imageTitleSpace{//默认不显示
+    CGFloat ImageTitleSpace = [objc_getAssociatedObject(self, UIButton_Extra_imageTitleSpace) floatValue];
+    return ImageTitleSpace;
+}
+
+-(void)setImageTitleSpace:(CGFloat)imageTitleSpace{
+    objc_setAssociatedObject(self,
+                             UIButton_Extra_imageTitleSpace,
+                             [NSNumber numberWithFloat:imageTitleSpace],
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 @end

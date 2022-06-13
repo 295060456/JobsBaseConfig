@@ -696,6 +696,7 @@
 		C563415A2849DFE90047CA49 /* JobsTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C56341592849DFE90047CA49 /* JobsTestVC.m */; };
 		C5703FA7283FA5110048382E /* UIView+BRPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5703FA5283FA5110048382E /* UIView+BRPickerView.m */; };
 		C572088E2852F68A004BF695 /* ProtocolKitVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C57208892852F28C004BF695 /* ProtocolKitVC.m */; };
+		C572DA9328572A06002C7110 /* UIImage+Measure.m in Sources */ = {isa = PBXBuildFile; fileRef = C572DA9228572A05002C7110 /* UIImage+Measure.m */; };
 		C57A2034282CB59F0032156B /* ZLGestureLockView.m in Sources */ = {isa = PBXBuildFile; fileRef = C57A2025282CB59E0032156B /* ZLGestureLockView.m */; };
 		C57A2035282CB59F0032156B /* gesture_headIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C57A2027282CB59E0032156B /* gesture_headIcon@2x.png */; };
 		C57A2036282CB59F0032156B /* gesture_indicator_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C57A2028282CB59E0032156B /* gesture_indicator_normal@2x.png */; };
@@ -2314,6 +2315,8 @@
 		C572091628530FA0004BF695 /* PKProtocolExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PKProtocolExtension.h; sourceTree = "<group>"; };
 		C572091728530FA0004BF695 /* PKProtocolExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PKProtocolExtension.m; sourceTree = "<group>"; };
 		C572091928530FD2004BF695 /* ProtocolKit.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ProtocolKit.md; sourceTree = "<group>"; };
+		C572DA9128572A05002C7110 /* UIImage+Measure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Measure.h"; sourceTree = "<group>"; };
+		C572DA9228572A05002C7110 /* UIImage+Measure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Measure.m"; sourceTree = "<group>"; };
 		C57A2025282CB59E0032156B /* ZLGestureLockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLGestureLockView.m; sourceTree = "<group>"; };
 		C57A2027282CB59E0032156B /* gesture_headIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_headIcon@2x.png"; sourceTree = "<group>"; };
 		C57A2028282CB59E0032156B /* gesture_indicator_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_indicator_normal@2x.png"; sourceTree = "<group>"; };
@@ -3204,6 +3207,7 @@
 		840F933927736426004979E9 /* UIImage+Category */ = {
 			isa = PBXGroup;
 			children = (
+				C572DA9028572A05002C7110 /* UIImage+Measure */,
 				840F933A27736426004979E9 /* UIImage+ScreenShot */,
 				840F933D27736426004979E9 /* UIImage+Extras */,
 				840F934027736426004979E9 /* UIImage+SYS */,
@@ -9217,6 +9221,15 @@
 			path = PKProtocolExtension;
 			sourceTree = "<group>";
 		};
+		C572DA9028572A05002C7110 /* UIImage+Measure */ = {
+			isa = PBXGroup;
+			children = (
+				C572DA9128572A05002C7110 /* UIImage+Measure.h */,
+				C572DA9228572A05002C7110 /* UIImage+Measure.m */,
+			);
+			path = "UIImage+Measure";
+			sourceTree = "<group>";
+		};
 		C57A2024282CB59E0032156B /* GestureLock */ = {
 			isa = PBXGroup;
 			children = (
@@ -11063,6 +11076,7 @@
 				8424779C27C1147E00831270 /* CutomView.m in Sources */,
 				C596B78F283F6DA600C13619 /* UIViewModel.m in Sources */,
 				844B12892764E5C200B0513D /* URLManagerModel.m in Sources */,
+				C572DA9328572A06002C7110 /* UIImage+Measure.m in Sources */,
 				840F960427736427004979E9 /* TransitionController.m in Sources */,
 				C5B3AF3728537E320052A4A9 /* BaiShaETProjCollectionHeaderView.m in Sources */,
 				8459D61C2779A88A00125782 /* CasinoCustomerContactModel.m in Sources */,
