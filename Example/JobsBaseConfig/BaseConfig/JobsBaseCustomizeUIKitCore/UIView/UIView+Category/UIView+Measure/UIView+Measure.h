@@ -41,6 +41,13 @@ typedef void(^EqualToView)(UIView *view);
 -(JobsReturnCGRectByCGFloatBlock _Nonnull)resetHeight;
 -(JobsReturnCGRectByCGPointBlock _Nonnull)resetPoint;
 -(JobsReturnCGRectByCGSizeBlock _Nonnull)resetSize;
+/// 依据偏移量重设Frame
+-(JobsReturnCGRectByCGFloatBlock _Nonnull)resetByOffsetPointX;
+-(JobsReturnCGRectByCGFloatBlock _Nonnull)resetByOffsetPointY;
+-(JobsReturnCGRectByCGFloatBlock _Nonnull)resetByOffsetWidth;
+-(JobsReturnCGRectByCGFloatBlock _Nonnull)resetByOffsetHeight;
+-(JobsReturnCGRectByCGPointBlock _Nonnull)resetByOffsetPoint;
+-(JobsReturnCGRectByCGSizeBlock _Nonnull)resetByOffsetSize;
 /// 依据偏移量重塑Frame
 -(void)offsetForView:(UIViewModel *)viewModel;
 #pragma mark ——【UIView对齐方法扩充】 https://github.com/MisterZhouZhou/ZWUIViewExtension

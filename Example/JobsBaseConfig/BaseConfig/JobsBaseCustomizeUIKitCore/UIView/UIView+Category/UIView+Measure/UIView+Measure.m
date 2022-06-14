@@ -77,6 +77,74 @@
         return frame;
     };
 }
+/// 依据偏移量重设Frame
+-(JobsReturnCGRectByCGFloatBlock _Nonnull)resetByOffsetPointX{
+    @jobs_weakify(self)
+    return ^(CGFloat data) {
+        @jobs_strongify(self)
+        CGRect frame = self.frame;
+        frame.origin.x += data;
+        self.frame = frame;
+        return frame;
+    };
+}
+
+-(JobsReturnCGRectByCGFloatBlock _Nonnull)resetByOffsetPointY{
+    @jobs_weakify(self)
+    return ^(CGFloat data) {
+        @jobs_strongify(self)
+        CGRect frame = self.frame;
+        frame.origin.y += data;
+        self.frame = frame;
+        return frame;
+    };
+}
+
+-(JobsReturnCGRectByCGFloatBlock _Nonnull)resetByOffsetWidth{
+    @jobs_weakify(self)
+    return ^(CGFloat data) {
+        @jobs_strongify(self)
+        CGRect frame = self.frame;
+        frame.size.width += data;
+        self.frame = frame;
+        return frame;
+    };
+}
+
+-(JobsReturnCGRectByCGFloatBlock _Nonnull)resetByOffsetHeight{
+    @jobs_weakify(self)
+    return ^(CGFloat data) {
+        @jobs_strongify(self)
+        CGRect frame = self.frame;
+        frame.size.height += data;
+        self.frame = frame;
+        return frame;
+    };
+}
+
+-(JobsReturnCGRectByCGPointBlock _Nonnull)resetByOffsetPoint{
+    @jobs_weakify(self)
+    return ^(CGPoint data) {
+        @jobs_strongify(self)
+        CGRect frame = self.frame;
+        frame.origin.x += data.x;
+        frame.origin.y += data.y;
+        self.frame = frame;
+        return frame;
+    };
+}
+
+-(JobsReturnCGRectByCGSizeBlock _Nonnull)resetByOffsetSize{
+    @jobs_weakify(self)
+    return ^(CGSize data) {
+        @jobs_strongify(self)
+        CGRect frame = self.frame;
+        frame.size.width += data.width;
+        frame.size.height += data.height;
+        self.frame = frame;
+        return frame;
+    };
+}
 /// 依据偏移量重塑Frame
 -(void)offsetForView:(UIViewModel *)viewModel{
     CGRect viewFrame = self.frame;
