@@ -2324,6 +2324,8 @@
 		C57343F2285753B10016705E /* JobsAnimationLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAnimationLabel.m; sourceTree = "<group>"; };
 		C5734402285755000016705E /* BaseLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLabel.h; sourceTree = "<group>"; };
 		C5734403285755000016705E /* BaseLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseLabel.m; sourceTree = "<group>"; };
+		C57569B3285859CF00C2ACE0 /* GKCustomNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKCustomNavigationBar.h; sourceTree = "<group>"; };
+		C57569B4285859CF00C2ACE0 /* GKCustomNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKCustomNavigationBar.m; sourceTree = "<group>"; };
 		C57A2025282CB59E0032156B /* ZLGestureLockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLGestureLockView.m; sourceTree = "<group>"; };
 		C57A2027282CB59E0032156B /* gesture_headIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_headIcon@2x.png"; sourceTree = "<group>"; };
 		C57A2028282CB59E0032156B /* gesture_indicator_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_indicator_normal@2x.png"; sourceTree = "<group>"; };
@@ -6200,6 +6202,7 @@
 		844B07AC2764CF4700B0513D /* PodsManual */ = {
 			isa = PBXGroup;
 			children = (
+				C57569B2285859B900C2ACE0 /* GKNavigationBar */,
 				844B07D42764CF4700B0513D /* ECPrivacyCheckTools */,
 				844B07CE2764CF4700B0513D /* FMDatabase+Manager */,
 				844B07B42764CF4700B0513D /* JXCategoryView */,
@@ -9280,6 +9283,15 @@
 				C5734403285755000016705E /* BaseLabel.m */,
 			);
 			path = BaseLabel;
+			sourceTree = "<group>";
+		};
+		C57569B2285859B900C2ACE0 /* GKNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				C57569B3285859CF00C2ACE0 /* GKCustomNavigationBar.h */,
+				C57569B4285859CF00C2ACE0 /* GKCustomNavigationBar.m */,
+			);
+			path = GKNavigationBar;
 			sourceTree = "<group>";
 		};
 		C57A2024282CB59E0032156B /* GestureLock */ = {

@@ -47,6 +47,7 @@
     [super viewDidLoad];
     self.gk_navItemRightSpace = JobsWidth(16);
     self.gk_navRightBarButtonItems = @[[UIBarButtonItem.alloc initWithCustomView:self.ruleBtn]];
+    self.topLineLab.alpha = 0;
     self.categoryView.alpha = 1;
 }
 
@@ -80,9 +81,21 @@
 - (UIView *)tableHeaderViewInPagerView:(JXPagerView *)pagerView {
     return self.collectionHeaderView;
 }
-
+/**
+    页面朝上走 crollView.contentOffset.y 为正值
+    页面朝下走 crollView.contentOffset.y 为负值
+    初始态是0
+ */
 - (void)pagerView:(JXPagerView *)pagerView
 mainTableViewDidScroll:(UIScrollView *)scrollView{
+    NSLog(@"contentOffsetY = %f",scrollView.contentOffset.y);
+    
+    self.gk_navigationBar.alpha = scrollView.contentOffset.y / 200;
+    self.gk_navigationBar.lab.hidden = NO;
+    self.gk_navigationBar.lab.alpha = scrollView.contentOffset.y / 200;
+    
+    self.topLineLab.alpha = scrollView.contentOffset.y / 200;
+    
     [self.collectionHeaderView scrollViewDidScrollWithContentOffsetY:scrollView.contentOffset.y];
 }
 /// 

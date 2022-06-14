@@ -6,6 +6,7 @@
 //
 
 #import "UICollectionHeaderFooterView.h"
+#import "JobsAnimationLabel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
