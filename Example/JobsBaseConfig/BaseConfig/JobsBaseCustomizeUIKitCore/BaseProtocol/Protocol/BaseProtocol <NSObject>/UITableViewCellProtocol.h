@@ -13,14 +13,23 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol UITableViewCellProtocol <BaseCellProtocol>
 
 @optional
-/// UITableViewCell系统自带控件的自定义frame
-@property(nonatomic,assign)CGRect detailTextLabelFrame;
+/// ⚠️执行return的顺序依照下列👇🏻属性的排序⚠️
+///【组 1】 UITableViewCell单独自定义设置系统自带控件的Frame 【形成Frame后直接return，避免被其他中间过程修改】❤️与组2、3属性互斥❤️
 @property(nonatomic,assign)CGRect textLabelFrame;
+@property(nonatomic,assign)CGRect detailTextLabelFrame;
 @property(nonatomic,assign)CGRect imageViewFrame;
-/// UITableViewCell系统自带控件的自定义宽度
+///【组 2】UITableViewCell单独自定义设置系统自带控件的Size【形成Frame后直接return，避免被其他中间过程修改】❤️与组1、3属性互斥❤️
+@property(nonatomic,assign)CGSize textLabelSize;
+@property(nonatomic,assign)CGSize detailTextLabelSize;
+@property(nonatomic,assign)CGSize imageViewSize;
+///【组 3】UITableViewCell单独自定义设置系统自带控件的宽高【形成Frame后直接return，避免被其他中间过程修改】❤️与组1、2属性互斥❤️
 @property(nonatomic,assign)CGFloat textLabelWidth;
+@property(nonatomic,assign)CGFloat textLabelHeight;
 @property(nonatomic,assign)CGFloat detailTextLabelWidth;
-/// UITableViewCell系统自带控件的自定义偏移量
+@property(nonatomic,assign)CGFloat detailTextLabelHeight;
+@property(nonatomic,assign)CGFloat imageViewWidth;
+@property(nonatomic,assign)CGFloat imageViewHeight;
+///【组 4】UITableViewCell单独自定义设置系统自带控件的偏移量
 @property(nonatomic,assign)CGFloat textLabelFrameOffsetX;
 @property(nonatomic,assign)CGFloat textLabelFrameOffsetY;
 @property(nonatomic,assign)CGFloat textLabelFrameOffsetWidth;
@@ -49,12 +58,20 @@ NS_ASSUME_NONNULL_END
 #ifndef UITableViewCellProtocol_synthesize
 #define UITableViewCellProtocol_synthesize \
 \
-@synthesize detailTextLabelFrame = _detailTextLabelFrame;\
 @synthesize textLabelFrame = _textLabelFrame;\
+@synthesize detailTextLabelFrame = _detailTextLabelFrame;\
 @synthesize imageViewFrame = _imageViewFrame;\
 \
+@synthesize textLabelSize = _textLabelSize;\
+@synthesize detailTextLabelSize = _detailTextLabelSize;\
+@synthesize imageViewSize = _imageViewSize;\
+\
 @synthesize textLabelWidth = _textLabelWidth;\
+@synthesize textLabelHeight = _textLabelHeight;\
 @synthesize detailTextLabelWidth = _detailTextLabelWidth;\
+@synthesize detailTextLabelHeight = _detailTextLabelHeight;\
+@synthesize imageViewWidth = _imageViewWidth;\
+@synthesize imageViewHeight = _imageViewHeight;\
 \
 @synthesize textLabelFrameOffsetX = _textLabelFrameOffsetX;\
 @synthesize textLabelFrameOffsetY = _textLabelFrameOffsetY;\
@@ -77,12 +94,20 @@ NS_ASSUME_NONNULL_END
 #ifndef UITableViewCellProtocol_dynamic
 #define UITableViewCellProtocol_dynamic \
 \
-@dynamic detailTextLabelFrame;\
 @dynamic textLabelFrame;\
+@dynamic detailTextLabelFrame;\
 @dynamic imageViewFrame;\
 \
+@dynamic textLabelSize;\
+@dynamic detailTextLabelSize;\
+@dynamic imageViewSize;\
+\
 @dynamic textLabelWidth;\
+@dynamic textLabelHeight;\
 @dynamic detailTextLabelWidth;\
+@dynamic detailTextLabelHeight;\
+@dynamic imageViewWidth;\
+@dynamic imageViewHeight;\
 \
 @dynamic textLabelFrameOffsetX;\
 @dynamic textLabelFrameOffsetY;\

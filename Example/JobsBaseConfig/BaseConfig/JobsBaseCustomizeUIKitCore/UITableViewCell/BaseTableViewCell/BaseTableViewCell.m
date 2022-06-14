@@ -43,94 +43,200 @@ UITableViewCellProtocol_synthesize
     }return self;
 }
 
+- (void)setSelected:(BOOL)selected
+           animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+}
+
+-(void)setEditing:(BOOL)editing
+         animated:(BOOL)animated{
+    [super setEditing:editing animated:animated];
+}
+ 
 -(void)layoutSubviews{
     [super layoutSubviews];
+    [self printValue];
+    /// 取内部类UITableViewCellEditControl,对编辑状态的Cell的点击按钮进行替换成自定义的
+    for (UIControl *control in self.subviews){
+        if ([control isMemberOfClass:NSClassFromString(@"UITableViewCellEditControl")]){
+            for (UIView *view in control.subviews){
+                if ([view isKindOfClass:UIImageView.class]) {
+                    UIImageView *img = (UIImageView *)view;
+                    if (KIMG(@"按钮已选中") && KIMG(@"按钮未选中")) {
+                        img.image = self.selected ? KIMG(@"按钮已选中") : KIMG(@"按钮未选中");
+                    }
+                }
+            }
+        }
+    }
     /// 修改 UITableViewCell 中默认子控件的frame
-    NSLog(@"%f",self.textLabelFrame.size.width);
-    NSLog(@"%f",self.textLabelFrame.size.height);
-    NSLog(@"%f",self.textLabelFrame.origin.x);
-    NSLog(@"%f",self.textLabelFrame.origin.y);
-    
-    NSLog(@"%f",self.detailTextLabelFrame.size.width);
-    NSLog(@"%f",self.detailTextLabelFrame.size.height);
-    NSLog(@"%f",self.detailTextLabelFrame.origin.x);
-    NSLog(@"%f",self.detailTextLabelFrame.origin.y);
-    
-    NSLog(@"%f",self.imageViewFrame.size.width);
-    NSLog(@"%f",self.imageViewFrame.size.height);
-    NSLog(@"%f",self.imageViewFrame.origin.x);
-    NSLog(@"%f",self.imageViewFrame.origin.y);
-    
-    NSLog(@"%f",self.textLabelWidth);
-    NSLog(@"%f",self.detailTextLabelWidth);
+    {///【组 1】 UITableViewCell单独自定义设置系统自带控件的Frame 【形成Frame后直接return，避免被其他中间过程修改】❤️与组2、3属性互斥❤️
+        if (!zeroRectValue(self.textLabelFrame)) {
+            self.textLabel.frame = self.textLabelFrame;
+        }
+        
+        if (!zeroRectValue(self.detailTextLabelFrame)) {
+            self.detailTextLabel.frame = self.detailTextLabelFrame;
+        }
 
-    NSLog(@"%f",self.textLabelFrameOffsetX);
-    NSLog(@"%f",self.textLabelFrameOffsetY);
-    NSLog(@"%f",self.textLabelFrameOffsetWidth);
-    NSLog(@"%f",self.textLabelFrameOffsetHeight);
-    
-    NSLog(@"%f",self.detailTextLabelOffsetX);
-    NSLog(@"%f",self.detailTextLabelOffsetY);
-    NSLog(@"%f",self.detailTextLabelOffsetWidth);
-    NSLog(@"%f",self.detailTextLabelOffsetHeight);
-    
-    NSLog(@"%f",self.imageViewFrameOffsetX);
-    NSLog(@"%f",self.imageViewFrameOffsetY);
-    NSLog(@"%f",self.imageViewFrameOffsetWidth);
-    NSLog(@"%f",self.imageViewFrameOffsetHeight);
-    /// 直接设置新的Frame
-    if (!zeroRectValue(self.textLabelFrame)) {
-        self.textLabel.frame = self.textLabelFrame;
+        if (!zeroRectValue(self.imageViewFrame)) {
+            self.imageView.frame = self.imageViewFrame;
+        }
+        
+        if (!zeroRectValue(self.textLabelFrame) ||
+            !zeroRectValue(self.detailTextLabelFrame) ||
+            !zeroRectValue(self.imageViewFrame)) return;
     }
     
-    if (!zeroRectValue(self.detailTextLabelFrame)) {
-        self.detailTextLabel.frame = self.detailTextLabelFrame;
+    {///【组 2】UITableViewCell单独自定义设置系统自带控件的Size【形成Frame后直接return，避免被其他中间过程修改】❤️与组1、3属性互斥❤️
+        if (!zeroSizeValue(self.textLabelSize)) {
+            CGRect textLabelFrame = self.textLabel.frame;
+            textLabelFrame.size = self.textLabelSize;
+            textLabelFrame.origin.x += self.textLabelFrameOffsetX;
+            textLabelFrame.origin.y += self.textLabelFrameOffsetY;
+            self.textLabel.frame = textLabelFrame;
+        }
+        
+        if (!zeroSizeValue(self.detailTextLabelSize)) {
+            CGRect detailTextLabelFrame = self.detailTextLabel.frame;
+            detailTextLabelFrame.size = self.detailTextLabelSize;
+            detailTextLabelFrame.origin.x += self.detailTextLabelOffsetX;
+            detailTextLabelFrame.origin.y += self.detailTextLabelOffsetY;
+            self.detailTextLabel.frame = detailTextLabelFrame;
+        }
+        
+        if (!zeroSizeValue(self.imageViewSize)) {
+            CGRect imageViewFrame = self.imageView.frame;
+            imageViewFrame.size = self.imageViewSize;
+            imageViewFrame.origin.x += self.imageViewFrameOffsetX;
+            imageViewFrame.origin.y += self.imageViewFrameOffsetY;
+            self.imageView.frame = imageViewFrame;
+        }
+        
+        if (!zeroSizeValue(self.textLabelSize) ||
+            !zeroSizeValue(self.detailTextLabelSize) ||
+            !zeroSizeValue(self.imageViewSize)) return;
     }
+    
+    {///【组 3】UITableViewCell单独自定义设置系统自带控件的宽高【形成Frame后直接return，避免被其他中间过程修改】❤️与组1、2属性互斥❤️
+        if (self.textLabelWidth) {
+            CGRect textLabelFrame = self.textLabel.frame;
+            textLabelFrame.size.width = self.textLabelWidth;
+            textLabelFrame.origin.x += self.textLabelFrameOffsetX;
+            textLabelFrame.origin.y += self.textLabelFrameOffsetY;
+            self.textLabel.frame = textLabelFrame;
+        }
+        
+        if (self.textLabelHeight) {
+            CGRect textLabelFrame = self.textLabel.frame;
+            textLabelFrame.size.height = self.textLabelHeight;
+            textLabelFrame.origin.x += self.textLabelFrameOffsetX;
+            textLabelFrame.origin.y += self.textLabelFrameOffsetY;
+            self.detailTextLabel.frame = textLabelFrame;
+        }
+        
+        if (self.detailTextLabelWidth) {
+            CGRect detailTextLabelFrame = self.detailTextLabel.frame;
+            detailTextLabelFrame.size.width = self.detailTextLabelWidth;
+            detailTextLabelFrame.origin.x += self.detailTextLabelOffsetX;
+            detailTextLabelFrame.origin.y += self.detailTextLabelOffsetY;
+            self.detailTextLabel.frame = detailTextLabelFrame;
+        }
+        
+        if (self.detailTextLabelHeight) {
+            CGRect detailTextLabelFrame = self.detailTextLabel.frame;
+            detailTextLabelFrame.size.height = self.detailTextLabelHeight;
+            detailTextLabelFrame.origin.x += self.detailTextLabelOffsetX;
+            detailTextLabelFrame.origin.y += self.detailTextLabelOffsetY;
+            self.detailTextLabel.frame = detailTextLabelFrame;
+        }
+        
+        if (self.imageViewWidth) {
+            CGRect imageViewFrame = self.imageView.frame;
+            imageViewFrame.size.width = self.imageViewWidth;
+            imageViewFrame.origin.x += self.imageViewFrameOffsetX;
+            imageViewFrame.origin.y += self.imageViewFrameOffsetY;
+            self.imageView.frame = imageViewFrame;
+        }
+        
+        if (self.imageViewHeight) {
+            CGRect imageViewFrame = self.imageView.frame;
+            imageViewFrame.size.height = self.imageViewHeight;
+            imageViewFrame.origin.x += self.imageViewFrameOffsetX;
+            imageViewFrame.origin.y += self.imageViewFrameOffsetY;
+            self.imageView.frame = imageViewFrame;
+        }
+        
+        if (self.textLabelWidth ||
+            self.textLabelHeight ||
+            self.detailTextLabelWidth ||
+            self.detailTextLabelHeight ||
+            self.imageViewWidth ||
+            self.imageViewHeight)  return;
+    }
+    
+    {/// 【组 4】UITableViewCell单独自定义设置系统自带控件的偏移量
+        {
+            UIViewModel *viewModel = UIViewModel.new;
+            viewModel.offsetXForEach = self.textLabelFrameOffsetX;
+            viewModel.offsetYForEach = self.textLabelFrameOffsetY;
+            viewModel.offsetWidth = self.textLabelFrameOffsetWidth;
+            viewModel.offsetHeight = self.textLabelFrameOffsetHeight;
+            
+            [self.textLabel offsetForView:viewModel];
+        }
+        
+        {
+            UIViewModel *viewModel = UIViewModel.new;
+            viewModel.offsetXForEach = self.detailTextLabelOffsetX;
+            viewModel.offsetYForEach = self.detailTextLabelOffsetY;
+            viewModel.offsetWidth = self.detailTextLabelOffsetWidth;
+            viewModel.offsetHeight = self.detailTextLabelOffsetHeight;
+            
+            [self.detailTextLabel offsetForView:viewModel];
+        }
+        {
+            UIViewModel *viewModel = UIViewModel.new;
+            viewModel.offsetXForEach = self.imageViewFrameOffsetX;
+            viewModel.offsetYForEach = self.imageViewFrameOffsetY;
+            viewModel.offsetWidth = self.imageViewFrameOffsetWidth;
+            viewModel.offsetHeight = self.imageViewFrameOffsetHeight;
+            
+            [self.imageView offsetForView:viewModel];
+        }
+    }
+}
 
-    if (!zeroRectValue(self.imageViewFrame)) {
-        self.imageView.frame = self.imageViewFrame;
-    }
-    /// UITableViewCell系统自带控件的自定义宽度
-    if (self.textLabelWidth) {
-        CGRect textLabelFrame = self.textLabel.frame;
-        textLabelFrame.size.width = self.textLabelWidth;
-        self.textLabel.frame = textLabelFrame;
-    }
+-(void)printValue{
+    NSLog(@"self.textLabelFrame = %@",NSStringFromCGRect(self.textLabelFrame));
+    NSLog(@"self.detailTextLabelFrame = %@",NSStringFromCGRect(self.detailTextLabelFrame));
+    NSLog(@"self.imageViewFrame = %@",NSStringFromCGRect(self.imageViewFrame));
     
-    if (self.detailTextLabelWidth) {
-        CGRect detailTextLabelFrame = self.detailTextLabel.frame;
-        detailTextLabelFrame.size.width = self.detailTextLabelWidth;
-        self.detailTextLabel.frame = detailTextLabelFrame;
-    }
-    /// 依据偏移量来设置Frame
-    {
-        UIViewModel *viewModel = UIViewModel.new;
-        viewModel.offsetXForEach = self.textLabelFrameOffsetX;
-        viewModel.offsetYForEach = self.textLabelFrameOffsetY;
-        viewModel.offsetWidth = self.textLabelFrameOffsetWidth;
-        viewModel.offsetHeight = self.textLabelFrameOffsetHeight;
-        
-        [self.textLabel offsetForView:viewModel];
-    }
+    NSLog(@"self.textLabelSize = %@",NSStringFromCGSize(self.textLabelSize));
+    NSLog(@"self.detailTextLabelSize = %@",NSStringFromCGSize(self.detailTextLabelSize));
+    NSLog(@"self.imageViewSize = %@",NSStringFromCGSize(self.imageViewSize));
     
-    {
-        UIViewModel *viewModel = UIViewModel.new;
-        viewModel.offsetXForEach = self.detailTextLabelOffsetX;
-        viewModel.offsetYForEach = self.detailTextLabelOffsetY;
-        viewModel.offsetWidth = self.detailTextLabelOffsetWidth;
-        viewModel.offsetHeight = self.detailTextLabelOffsetHeight;
-        
-        [self.detailTextLabel offsetForView:viewModel];
-    }
-    {
-        UIViewModel *viewModel = UIViewModel.new;
-        viewModel.offsetXForEach = self.imageViewFrameOffsetX;
-        viewModel.offsetYForEach = self.imageViewFrameOffsetY;
-        viewModel.offsetWidth = self.imageViewFrameOffsetWidth;
-        viewModel.offsetHeight = self.imageViewFrameOffsetHeight;
-        
-        [self.imageView offsetForView:viewModel];
-    }
+    NSLog(@"self.textLabelWidth = %f",self.textLabelWidth);
+    NSLog(@"self.textLabelHeight = %f",self.textLabelHeight);
+    NSLog(@"self.detailTextLabelWidth = %f",self.detailTextLabelWidth);
+    NSLog(@"elf.detailTextLabelHeight = %f",self.detailTextLabelHeight);
+    NSLog(@"self.imageViewWidth = %f",self.imageViewWidth);
+    NSLog(@"self.imageViewHeight = %f",self.imageViewHeight);
+    
+    NSLog(@"self.textLabelFrameOffsetX = %f",self.textLabelFrameOffsetX);
+    NSLog(@"self.textLabelFrameOffsetY = %f",self.textLabelFrameOffsetY);
+    NSLog(@"self.textLabelFrameOffsetWidth = %f",self.textLabelFrameOffsetWidth);
+    NSLog(@"self.textLabelFrameOffsetHeight = %f",self.textLabelFrameOffsetHeight);
+    
+    NSLog(@"self.detailTextLabelOffsetX = %f",self.detailTextLabelOffsetX);
+    NSLog(@"self.detailTextLabelOffsetY = %f",self.detailTextLabelOffsetY);
+    NSLog(@"self.detailTextLabelOffsetWidth = %f",self.detailTextLabelOffsetWidth);
+    NSLog(@"self.detailTextLabelOffsetHeight = %f",self.detailTextLabelOffsetHeight);
+    
+    NSLog(@"self.imageViewFrameOffsetX = %f",self.imageViewFrameOffsetX);
+    NSLog(@"self.imageViewFrameOffsetY = %f",self.imageViewFrameOffsetY);
+    NSLog(@"self.imageViewFrameOffsetWidth = %f",self.imageViewFrameOffsetWidth);
+    NSLog(@"self.imageViewFrameOffsetHeight = %f",self.imageViewFrameOffsetHeight);
 }
 // 在具体的子类去实现,分类调用异常
 -(void)setFrame:(CGRect)frame{
