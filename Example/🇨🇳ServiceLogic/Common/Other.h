@@ -64,5 +64,6 @@
 #import "OCDynamicRegisterVC.h"
 #import "ProtocolKitVC.h"
 #import "JXCategoryViewWithHeaderViewVC.h"
+#import "UILabelWordRotatingVC.h"
 
 #endif /* Other_h */

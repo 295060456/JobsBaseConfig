@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UIBezierPath+TextPath.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -39,6 +40,21 @@ NS_ASSUME_NONNULL_BEGIN
               replaceStrLenth:(NSInteger)replaceStrLenth
                 lineBreakMode:(NSLineBreakMode)lineBreakMode
                         limit:(NSInteger)limit;
+/**
+ 文本改变方向
+
+ @param aView 文本的控件
+ @param aRect 控件的尺寸
+ @param aFont 文字的字号
+ @param aColor 文字的颜色
+ @param directionStr 文字显示的方向
+ @return layer
+ */
+- (CAShapeLayer *)animateOnView:(UIView *)aView
+                         atRect:(CGRect)aRect
+                        forFont:(UIFont *)aFont
+                      withColor:(UIColor *)aColor
+                   andDirection:(TransformLayerDirectionType)directionStr;
 
 @end
 

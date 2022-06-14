@@ -872,6 +872,8 @@
 		C5C480A5284E250A007916B3 /* JobsSettingGestureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C480A4284E250A007916B3 /* JobsSettingGestureVC.m */; };
 		C5C48124284E254B007916B3 /* JobsMembersSubsBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C48123284E254B007916B3 /* JobsMembersSubsBaseVC.m */; };
 		C5D46FFC284E29A90090D20F /* JobsGetiOSNewestVersionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D46FFB284E29A90090D20F /* JobsGetiOSNewestVersionModel.m */; };
+		C5E4ABC02858BEED00B782F0 /* UILabelWordRotatingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E4ABBF2858BEED00B782F0 /* UILabelWordRotatingVC.m */; };
+		C5E4ABC62858C06500B782F0 /* UIBezierPath+TextPath.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E4ABC32858C06400B782F0 /* UIBezierPath+TextPath.m */; };
 		F65541EC060397D8F6D09547 /* Pods_JobsBaseConfigUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -2616,6 +2618,11 @@
 		C5C48123284E254B007916B3 /* JobsMembersSubsBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsMembersSubsBaseVC.m; sourceTree = "<group>"; };
 		C5D46FFA284E29A90090D20F /* JobsGetiOSNewestVersionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsGetiOSNewestVersionModel.h; sourceTree = "<group>"; };
 		C5D46FFB284E29A90090D20F /* JobsGetiOSNewestVersionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsGetiOSNewestVersionModel.m; sourceTree = "<group>"; };
+		C5E4ABBE2858BEED00B782F0 /* UILabelWordRotatingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UILabelWordRotatingVC.h; sourceTree = "<group>"; };
+		C5E4ABBF2858BEED00B782F0 /* UILabelWordRotatingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UILabelWordRotatingVC.m; sourceTree = "<group>"; };
+		C5E4ABC32858C06400B782F0 /* UIBezierPath+TextPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+TextPath.m"; sourceTree = "<group>"; };
+		C5E4ABC52858C06400B782F0 /* UIBezierPath+TextPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+TextPath.h"; sourceTree = "<group>"; };
+		C5E4ABCB2858C45200B782F0 /* JobsBezierPath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsBezierPath.h; sourceTree = "<group>"; };
 		FEDDD2E7A82BF58DE2012E29 /* Pods-JobsBaseConfigUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobsBaseConfigUITests.debug.xcconfig"; path = "Target Support Files/Pods-JobsBaseConfigUITests/Pods-JobsBaseConfigUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -3162,6 +3169,7 @@
 			isa = PBXGroup;
 			children = (
 				840F93E527736426004979E9 /* JobsBaseCustomizeUIKitCoreHeader.h */,
+				C5E4ABC82858C0C200B782F0 /* UIBezierPath */,
 				C57343E9285753690016705E /* UIProgressView */,
 				C520550C28534CC400CCB724 /* UICollectionHeaderFooterView */,
 				C50ED5CD283CC64B0097DE89 /* UISwitch */,
@@ -8472,6 +8480,7 @@
 		84CA609D278980E700E46E71 /* 功能模块 */ = {
 			isa = PBXGroup;
 			children = (
+				C5E4ABBD2858BE7D00B782F0 /* UILabel文字旋转 */,
 				C5B3AE7E285378700052A4A9 /* JXCategoryView下拉headerView变大 */,
 				C57208812852F1DF004BF695 /* 在 Objective-C 中实现协议扩展 */,
 				C57A8ED32851A88100DD089E /* OC动态添加类、方法列表、属性列表 */,
@@ -10262,6 +10271,41 @@
 			path = JobsGetiOSNewestVersionModel;
 			sourceTree = "<group>";
 		};
+		C5E4ABBD2858BE7D00B782F0 /* UILabel文字旋转 */ = {
+			isa = PBXGroup;
+			children = (
+				C5E4ABBE2858BEED00B782F0 /* UILabelWordRotatingVC.h */,
+				C5E4ABBF2858BEED00B782F0 /* UILabelWordRotatingVC.m */,
+			);
+			path = "UILabel文字旋转";
+			sourceTree = "<group>";
+		};
+		C5E4ABC82858C0C200B782F0 /* UIBezierPath */ = {
+			isa = PBXGroup;
+			children = (
+				C5E4ABCB2858C45200B782F0 /* JobsBezierPath.h */,
+				C5E4ABC92858C42800B782F0 /* UIBezierPath+Category */,
+			);
+			path = UIBezierPath;
+			sourceTree = "<group>";
+		};
+		C5E4ABC92858C42800B782F0 /* UIBezierPath+Category */ = {
+			isa = PBXGroup;
+			children = (
+				C5E4ABCA2858C43700B782F0 /* UIBezierPath+TextPath */,
+			);
+			path = "UIBezierPath+Category";
+			sourceTree = "<group>";
+		};
+		C5E4ABCA2858C43700B782F0 /* UIBezierPath+TextPath */ = {
+			isa = PBXGroup;
+			children = (
+				C5E4ABC52858C06400B782F0 /* UIBezierPath+TextPath.h */,
+				C5E4ABC32858C06400B782F0 /* UIBezierPath+TextPath.m */,
+			);
+			path = "UIBezierPath+TextPath";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -11077,6 +11121,7 @@
 				84CA61932789851300E46E71 /* A_VC.m in Sources */,
 				8456259D278BF2780067ABB9 /* JobsCommentConfig.m in Sources */,
 				C57A8BF42850D2DC00DD089E /* BaiShaETProjMembersBoardView.m in Sources */,
+				C5E4ABC02858BEED00B782F0 /* UILabelWordRotatingVC.m in Sources */,
 				C55C895628437190005295B1 /* JXCategoryPopupVC.m in Sources */,
 				C59478D62851E2D7009D040A /* OCDynamic.m in Sources */,
 				844B084E2764CF4800B0513D /* ECPrivacyCheckMotionAndFitness.m in Sources */,
@@ -11152,6 +11197,7 @@
 				84CA64BF2789C80600E46E71 /* MKRightBtnView.m in Sources */,
 				C596B7A4283F6F7900C13619 /* JobsHotLabelWithMultiLineCVCell.m in Sources */,
 				C5C47D0A284E1C26007916B3 /* UITableViewCellEditorVC.m in Sources */,
+				C5E4ABC62858C06500B782F0 /* UIBezierPath+TextPath.m in Sources */,
 				84CA64C02789C80600E46E71 /* ZFDouYinControlView.m in Sources */,
 				840F970A27736428004979E9 /* NSObject+UNUserNotificationCenterDelegate.m in Sources */,
 				8456259B278BF2780067ABB9 /* JobsCommentPopUpView_viewForHeaderInSection.m in Sources */,

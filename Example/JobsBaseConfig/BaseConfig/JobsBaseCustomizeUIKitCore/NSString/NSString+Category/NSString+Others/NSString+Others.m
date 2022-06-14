@@ -118,5 +118,39 @@
         }else{}
     }return resultStr;
 }
+/**
+ 文本改变方向
+
+ @param aView 文本的控件
+ @param aRect 控件的尺寸
+ @param aFont 文字的字号
+ @param aColor 文字的颜色
+ @param directionStr 文字显示的方向
+ @return layer
+ */
+- (CAShapeLayer *)animateOnView:(UIView *)aView
+                         atRect:(CGRect)aRect
+                        forFont:(UIFont *)aFont
+                      withColor:(UIColor *)aColor
+                   andDirection:(TransformLayerDirectionType)directionStr{
+    // 创建文字路径
+    UIBezierPath *path;
+    path = [UIBezierPath bezierPathWithText:self
+                                       font:aFont
+                           andWithDirection:directionStr];
+    // 创建路径图层
+    CAShapeLayer *pathLayer = CAShapeLayer.layer;
+    pathLayer.frame = aRect;
+    pathLayer.bounds = CGPathGetBoundingBox(path.CGPath);
+    pathLayer.geometryFlipped = NO;
+    pathLayer.path = path.CGPath;
+    pathLayer.strokeColor = [aColor CGColor];
+    pathLayer.fillColor = [aColor CGColor];
+    pathLayer.lineWidth = 1.0f;
+    pathLayer.lineJoin = kCALineJoinBevel;
+    [aView.layer addSublayer:pathLayer];
+    
+    return pathLayer;
+}
 
 @end

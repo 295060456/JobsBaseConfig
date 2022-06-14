@@ -8,11 +8,23 @@
 #import "UILabel+Extra.h"
 
 @implementation UILabel (Extra)
-
+#pragma mark —— 一些公共方法
+/// UILabel文字旋转
+-(void)transformLayer:(TransformLayerDirectionType)directionType{
+    /**
+     资料来源：
+     https://www.jianshu.com/p/3a08ef4762ac
+     https://github.com/wuzhenweichn/TextDirection
+     */
+    self.transformLayerDirectionType = directionType;
+    [self.layer addSublayer:self.shapeLayer];
+    self.textColor = UIColor.clearColor;
+}
+/// 通过传入的(UIImage *)bgImage 来设置背景颜色
 -(void)lbBackgroundImage:(UIImage *)bgImage{
     self.backgroundColor = [UIColor colorWithPatternImage:bgImage];
 }
-
+/// 设置UILabel的显示样式 【在Masonry以后拿到了frame】
 -(void)makeLabelByShowingType:(UILabelShowingType)labelShowingType{
     [self.superview layoutIfNeeded];
     self.labelShowingType = labelShowingType;
@@ -80,6 +92,43 @@ static char *UILabel_Extra_lastValue = "UILabel_Extra_lastValue";
     objc_setAssociatedObject(self,
                              UILabel_Extra_lastValue,
                              [NSNumber numberWithFloat:lastValue],
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+static char *UILabel_Extra_shapeLayer = "UILabel_Extra_shapeLayer";
+@dynamic shapeLayer;
+#pragma mark —— @property(nonatomic,strong)CAShapeLayer *shapeLayer;
+-(CAShapeLayer *)shapeLayer{
+    CAShapeLayer *ShapeLayer = objc_getAssociatedObject(self, UILabel_Extra_shapeLayer);
+    if (!ShapeLayer) {
+        ShapeLayer = [self.text animateOnView:self
+                                       atRect:self.bounds
+                                      forFont:self.font
+                                    withColor:self.textColor
+                                 andDirection:self.transformLayerDirectionType];
+        objc_setAssociatedObject(self,
+                                 UILabel_Extra_shapeLayer,
+                                 ShapeLayer,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return ShapeLayer;
+}
+
+-(void)setShapeLayer:(CAShapeLayer *)shapeLayer{
+    objc_setAssociatedObject(self,
+                             UILabel_Extra_shapeLayer,
+                             shapeLayer,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+static char *UILabel_Extra_transformLayerDirectionType = "UILabel_Extra_transformLayerDirectionType";
+@dynamic transformLayerDirectionType;
+#pragma mark —— @property(nonatomic,assign)TransformLayerDirectionType transformLayerDirectionType;
+-(TransformLayerDirectionType)transformLayerDirectionType{
+    return [objc_getAssociatedObject(self, UILabel_Extra_transformLayerDirectionType) unsignedIntegerValue];
+}
+
+-(void)setTransformLayerDirectionType:(TransformLayerDirectionType)transformLayerDirectionType{
+    objc_setAssociatedObject(self,
+                             UILabel_Extra_transformLayerDirectionType,
+                             [NSNumber numberWithUnsignedInteger:transformLayerDirectionType],
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 

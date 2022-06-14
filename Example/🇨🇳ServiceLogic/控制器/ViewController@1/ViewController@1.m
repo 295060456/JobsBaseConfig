@@ -420,6 +420,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             [_dataMutArr addObject:viewModel];
         }
         
+        {
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"UILabelWordRotatingVC"
+                                                           subTitle:Internationalization(@"UILabel文字旋转")];
+            viewModel.cls = UILabelWordRotatingVC.class;
+            [_dataMutArr addObject:viewModel];
+        }
         
 //        {
 //            UIViewModel *viewModel = [self configViewModelWithTitle:@"ProtocolKitVC"
