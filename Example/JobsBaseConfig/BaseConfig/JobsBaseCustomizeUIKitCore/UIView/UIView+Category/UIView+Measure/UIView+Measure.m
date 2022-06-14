@@ -10,6 +10,73 @@
 /* ❤️【优先级】 @implementation UIView (Measure) > Masonry,因为Masonry刷新后才有frame ❤️*/
 @implementation UIView (Measure)
 #pragma mark —— 一些工具方法
+/// 重设Frame
+-(JobsReturnCGRectByCGFloatBlock _Nonnull)resetPointX{
+    @jobs_weakify(self)
+    return ^(CGFloat data) {
+        @jobs_strongify(self)
+        CGRect frame = self.frame;
+        frame.origin.x = data;
+        self.frame = frame;
+        return frame;
+    };
+}
+
+-(JobsReturnCGRectByCGFloatBlock _Nonnull)resetPointY{
+    @jobs_weakify(self)
+    return ^(CGFloat data) {
+        @jobs_strongify(self)
+        CGRect frame = self.frame;
+        frame.origin.y = data;
+        self.frame = frame;
+        return frame;
+    };
+}
+
+-(JobsReturnCGRectByCGFloatBlock _Nonnull)resetWidth{
+    @jobs_weakify(self)
+    return ^(CGFloat data) {
+        @jobs_strongify(self)
+        CGRect frame = self.frame;
+        frame.size.width = data;
+        self.frame = frame;
+        return frame;
+    };
+}
+
+-(JobsReturnCGRectByCGFloatBlock _Nonnull)resetHeight{
+    @jobs_weakify(self)
+    return ^(CGFloat data) {
+        @jobs_strongify(self)
+        CGRect frame = self.frame;
+        frame.size.height = data;
+        self.frame = frame;
+        return frame;
+    };
+}
+
+-(JobsReturnCGRectByCGPointBlock _Nonnull)resetPoint{
+    @jobs_weakify(self)
+    return ^(CGPoint data) {
+        @jobs_strongify(self)
+        CGRect frame = self.frame;
+        frame.origin.x = data.x;
+        frame.origin.y = data.y;
+        self.frame = frame;
+        return frame;
+    };
+}
+
+-(JobsReturnCGRectByCGSizeBlock _Nonnull)resetSize{
+    @jobs_weakify(self)
+    return ^(CGSize data) {
+        @jobs_strongify(self)
+        CGRect frame = self.frame;
+        frame.size = data;
+        self.frame = frame;
+        return frame;
+    };
+}
 /// 依据偏移量重塑Frame
 -(void)offsetForView:(UIViewModel *)viewModel{
     CGRect viewFrame = self.frame;

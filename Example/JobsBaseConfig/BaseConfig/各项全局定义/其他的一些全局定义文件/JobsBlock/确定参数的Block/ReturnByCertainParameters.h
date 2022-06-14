@@ -11,10 +11,11 @@
 
 typedef CGSize(^JobsReturnCGSizeByVoidBlock)(void);
 typedef CGSize(^JobsReturnCGSizeByIDBlock)(id data);
-
 typedef CGRect(^JobsReturnCGRectByVoidBlock)(void);
 typedef CGRect(^JobsReturnCGRectByIDBlock)(id data);
-
+typedef CGRect(^JobsReturnCGRectByCGFloatBlock)(CGFloat data);
+typedef CGRect(^JobsReturnCGRectByCGSizeBlock)(CGSize data);
+typedef CGRect(^JobsReturnCGRectByCGPointBlock)(CGPoint data);
 typedef CGPoint(^JobsReturnCGPointByVoidBlock)(void);
 typedef CGPoint(^JobsReturnCGPointByIDBlock)(id data);
 

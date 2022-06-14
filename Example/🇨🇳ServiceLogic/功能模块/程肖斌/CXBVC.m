@@ -28,6 +28,9 @@
     UIView *v = [[UIView alloc]initWithFrame:frame];
     v.backgroundColor = UIColor.yellowColor;
     [take addSubview:v];
+    
+    take.resetSize(CGSizeMake(300, 500));
+    
 }
 
 
