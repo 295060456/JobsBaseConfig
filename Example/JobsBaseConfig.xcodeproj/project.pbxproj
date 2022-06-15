@@ -696,6 +696,12 @@
 		C5703FA7283FA5110048382E /* UIView+BRPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5703FA5283FA5110048382E /* UIView+BRPickerView.m */; };
 		C572088E2852F68A004BF695 /* ProtocolKitVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C57208892852F28C004BF695 /* ProtocolKitVC.m */; };
 		C572DA9328572A06002C7110 /* UIImage+Measure.m in Sources */ = {isa = PBXBuildFile; fileRef = C572DA9228572A05002C7110 /* UIImage+Measure.m */; };
+		C5733A7B2859C7C200D13A43 /* JobsVerticalMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5733A7A2859C7C200D13A43 /* JobsVerticalMenuVC.m */; };
+		C5733A872859C88B00D13A43 /* ThreeClassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5733A7F2859C88A00D13A43 /* ThreeClassCell.m */; };
+		C5733A882859C88B00D13A43 /* ThreeTopBannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5733A802859C88A00D13A43 /* ThreeTopBannerCell.m */; };
+		C5733A892859C88B00D13A43 /* LeftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5733A832859C88B00D13A43 /* LeftCell.m */; };
+		C5733A8A2859C88B00D13A43 /* TreeClassItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5733A862859C88B00D13A43 /* TreeClassItemCell.m */; };
+		C5733A8E2859C8A100D13A43 /* GoodsClassModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5733A8D2859C8A100D13A43 /* GoodsClassModel.m */; };
 		C57343EF285753690016705E /* UIProgressView+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = C57343EC285753690016705E /* UIProgressView+Extra.m */; };
 		C57343F5285753B10016705E /* JobsAnimationLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C57343F2285753B10016705E /* JobsAnimationLabel.m */; };
 		C5734404285755000016705E /* BaseLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5734403285755000016705E /* BaseLabel.m */; };
@@ -2337,6 +2343,19 @@
 		C572091928530FD2004BF695 /* ProtocolKit.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ProtocolKit.md; sourceTree = "<group>"; };
 		C572DA9128572A05002C7110 /* UIImage+Measure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Measure.h"; sourceTree = "<group>"; };
 		C572DA9228572A05002C7110 /* UIImage+Measure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Measure.m"; sourceTree = "<group>"; };
+		C5733A792859C7C200D13A43 /* JobsVerticalMenuVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsVerticalMenuVC.h; sourceTree = "<group>"; };
+		C5733A7A2859C7C200D13A43 /* JobsVerticalMenuVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsVerticalMenuVC.m; sourceTree = "<group>"; };
+		C5733A7F2859C88A00D13A43 /* ThreeClassCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreeClassCell.m; sourceTree = "<group>"; };
+		C5733A802859C88A00D13A43 /* ThreeTopBannerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreeTopBannerCell.m; sourceTree = "<group>"; };
+		C5733A812859C88B00D13A43 /* ThreeTopBannerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreeTopBannerCell.h; sourceTree = "<group>"; };
+		C5733A822859C88B00D13A43 /* LeftCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftCell.h; sourceTree = "<group>"; };
+		C5733A832859C88B00D13A43 /* LeftCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftCell.m; sourceTree = "<group>"; };
+		C5733A842859C88B00D13A43 /* TreeClassItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeClassItemCell.h; sourceTree = "<group>"; };
+		C5733A852859C88B00D13A43 /* ThreeClassCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreeClassCell.h; sourceTree = "<group>"; };
+		C5733A862859C88B00D13A43 /* TreeClassItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreeClassItemCell.m; sourceTree = "<group>"; };
+		C5733A8C2859C8A100D13A43 /* GoodsClassModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsClassModel.h; sourceTree = "<group>"; };
+		C5733A8D2859C8A100D13A43 /* GoodsClassModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsClassModel.m; sourceTree = "<group>"; };
+		C5733A942859DD6600D13A43 /* JobsVerticalMenuDefineHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsVerticalMenuDefineHeader.h; sourceTree = "<group>"; };
 		C57343EC285753690016705E /* UIProgressView+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIProgressView+Extra.m"; sourceTree = "<group>"; };
 		C57343ED285753690016705E /* UIProgressView+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgressView+Extra.h"; sourceTree = "<group>"; };
 		C57343EE285753690016705E /* JobsProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsProgressView.h; sourceTree = "<group>"; };
@@ -8535,6 +8554,7 @@
 		84CA609D278980E700E46E71 /* 功能模块 */ = {
 			isa = PBXGroup;
 			children = (
+				C5733A782859C75400D13A43 /* 竖形菜单选择功能 */,
 				C5BFA2F328599224009681C0 /* JXCategoryView垂直表达 */,
 				C5E4ABBD2858BE7D00B782F0 /* UILabel文字旋转 */,
 				C5B3AE7E285378700052A4A9 /* JXCategoryView下拉headerView变大 */,
@@ -9304,6 +9324,98 @@
 				C572DA9228572A05002C7110 /* UIImage+Measure.m */,
 			);
 			path = "UIImage+Measure";
+			sourceTree = "<group>";
+		};
+		C5733A782859C75400D13A43 /* 竖形菜单选择功能 */ = {
+			isa = PBXGroup;
+			children = (
+				C5733A942859DD6600D13A43 /* JobsVerticalMenuDefineHeader.h */,
+				C5733A8B2859C89500D13A43 /* Model */,
+				C5733A7E2859C88000D13A43 /* View */,
+				C5733A7C2859C86D00D13A43 /* ViewController */,
+			);
+			path = "竖形菜单选择功能";
+			sourceTree = "<group>";
+		};
+		C5733A7C2859C86D00D13A43 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C5733A7D2859C87800D13A43 /* JobsVerticalMenuVC */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C5733A7D2859C87800D13A43 /* JobsVerticalMenuVC */ = {
+			isa = PBXGroup;
+			children = (
+				C5733A792859C7C200D13A43 /* JobsVerticalMenuVC.h */,
+				C5733A7A2859C7C200D13A43 /* JobsVerticalMenuVC.m */,
+			);
+			path = JobsVerticalMenuVC;
+			sourceTree = "<group>";
+		};
+		C5733A7E2859C88000D13A43 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C5733A932859C8C800D13A43 /* TreeClassItemCell */,
+				C5733A922859C8C100D13A43 /* ThreeTopBannerCell */,
+				C5733A912859C8B900D13A43 /* ThreeClassCell */,
+				C5733A902859C8B100D13A43 /* LeftCell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C5733A8B2859C89500D13A43 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C5733A8F2859C8A700D13A43 /* GoodsClassModel */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C5733A8F2859C8A700D13A43 /* GoodsClassModel */ = {
+			isa = PBXGroup;
+			children = (
+				C5733A8C2859C8A100D13A43 /* GoodsClassModel.h */,
+				C5733A8D2859C8A100D13A43 /* GoodsClassModel.m */,
+			);
+			path = GoodsClassModel;
+			sourceTree = "<group>";
+		};
+		C5733A902859C8B100D13A43 /* LeftCell */ = {
+			isa = PBXGroup;
+			children = (
+				C5733A822859C88B00D13A43 /* LeftCell.h */,
+				C5733A832859C88B00D13A43 /* LeftCell.m */,
+			);
+			path = LeftCell;
+			sourceTree = "<group>";
+		};
+		C5733A912859C8B900D13A43 /* ThreeClassCell */ = {
+			isa = PBXGroup;
+			children = (
+				C5733A852859C88B00D13A43 /* ThreeClassCell.h */,
+				C5733A7F2859C88A00D13A43 /* ThreeClassCell.m */,
+			);
+			path = ThreeClassCell;
+			sourceTree = "<group>";
+		};
+		C5733A922859C8C100D13A43 /* ThreeTopBannerCell */ = {
+			isa = PBXGroup;
+			children = (
+				C5733A812859C88B00D13A43 /* ThreeTopBannerCell.h */,
+				C5733A802859C88A00D13A43 /* ThreeTopBannerCell.m */,
+			);
+			path = ThreeTopBannerCell;
+			sourceTree = "<group>";
+		};
+		C5733A932859C8C800D13A43 /* TreeClassItemCell */ = {
+			isa = PBXGroup;
+			children = (
+				C5733A842859C88B00D13A43 /* TreeClassItemCell.h */,
+				C5733A862859C88B00D13A43 /* TreeClassItemCell.m */,
+			);
+			path = TreeClassItemCell;
 			sourceTree = "<group>";
 		};
 		C57343E9285753690016705E /* UIProgressView */ = {
@@ -11122,6 +11234,7 @@
 				840F96E727736428004979E9 /* NSObject+OpenURL.m in Sources */,
 				846DF03927806D230050468A /* BaseContentView.m in Sources */,
 				C572088E2852F68A004BF695 /* ProtocolKitVC.m in Sources */,
+				C5733A7B2859C7C200D13A43 /* JobsVerticalMenuVC.m in Sources */,
 				C57A8BED2850D20C00DD089E /* BaiShaETProjMembersTBVCell2.m in Sources */,
 				84CA5FBB27897AFB00E46E71 /* WBTableViewDelegate.m in Sources */,
 				84CA5FE227897AFB00E46E71 /* FSAppIconManager.m in Sources */,
@@ -11177,6 +11290,7 @@
 				844B0E532764DE1A00B0513D /* DDResponseModel.m in Sources */,
 				C57A809F284F36BA00DD089E /* JobsMsgDetailVC.m in Sources */,
 				84A491F127904A970002A837 /* JobsIMChatInfoModel.m in Sources */,
+				C5733A892859C88B00D13A43 /* LeftCell.m in Sources */,
 				840F969127736428004979E9 /* NSString+Conversion.m in Sources */,
 				844B083B2764CF4800B0513D /* JXCategoryTitleBackgroundCell.m in Sources */,
 				844B08502764CF4800B0513D /* ECPrivacyCheckPhotos.m in Sources */,
@@ -11246,6 +11360,7 @@
 				84A160FA278956AF00DACA3C /* ViewController@3.m in Sources */,
 				840F9C72277368AE004979E9 /* NSObject+URLManager.m in Sources */,
 				C5B3AE9C285378FA0052A4A9 /* BaiShaETProjVIPSubCVCell_04.m in Sources */,
+				C5733A872859C88B00D13A43 /* ThreeClassCell.m in Sources */,
 				C5AA8B71282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_7.m in Sources */,
 				840F96DE27736428004979E9 /* DeleteSystemUITabBarButton.m in Sources */,
 				840F96D827736428004979E9 /* Nanosecond_TimerManager.m in Sources */,
@@ -11255,6 +11370,7 @@
 				84CA5FB827897AFB00E46E71 /* WBPopMenuSingleton.m in Sources */,
 				846DF02227806D230050468A /* JobsAppDoorLogoContentView.m in Sources */,
 				84A491F227904A970002A837 /* JobsIMListDataModel.m in Sources */,
+				C5733A8E2859C8A100D13A43 /* GoodsClassModel.m in Sources */,
 				840F965A27736428004979E9 /* UIButton+Timer.m in Sources */,
 				840F969B27736428004979E9 /* UIViewController+JXPagerViewListViewDelegate.m in Sources */,
 				840F96CD27736428004979E9 /* NSUserDefaults+Manager.m in Sources */,
@@ -11297,6 +11413,7 @@
 				840F960827736427004979E9 /* UITabBar+Ex.m in Sources */,
 				84401A8527919E3B0038FF6F /* JobsSearchResultDataListTBVCell.m in Sources */,
 				840F960927736427004979E9 /* JobsTabBar.m in Sources */,
+				C5733A882859C88B00D13A43 /* ThreeTopBannerCell.m in Sources */,
 				840F963E27736427004979E9 /* JobsSuspendBtn.m in Sources */,
 				C5C47D62284E1DF9007916B3 /* CasinoUpgradeContentView.m in Sources */,
 				84562599278BF2780067ABB9 /* JobsInfoTBVCell.m in Sources */,
@@ -11494,6 +11611,7 @@
 				84CA5FC627897AFB00E46E71 /* JhtBannerScrollView.m in Sources */,
 				840F95FE27736427004979E9 /* JobsTabbarVC.m in Sources */,
 				840F971727736428004979E9 /* CheckMemFreeVC.m in Sources */,
+				C5733A8A2859C88B00D13A43 /* TreeClassItemCell.m in Sources */,
 				840F96E427736428004979E9 /* JobsTimeModel.m in Sources */,
 				C5BFA18628598C7D009681C0 /* GKNavigationBarConfigure.m in Sources */,
 				84401A8327919E3B0038FF6F /* JobsSearchDataCVCell.m in Sources */,

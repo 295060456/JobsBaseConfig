@@ -66,5 +66,6 @@
 #import "JXCategoryViewWithHeaderViewVC.h"
 #import "UILabelWordRotatingVC.h"
 #import "JXCategoryViewVerticalShowVC.h"
+#import "JobsVerticalMenuVC.h"
 
 #endif /* Other_h */
