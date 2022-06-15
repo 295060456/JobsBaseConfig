@@ -65,5 +65,6 @@
 #import "ProtocolKitVC.h"
 #import "JXCategoryViewWithHeaderViewVC.h"
 #import "UILabelWordRotatingVC.h"
+#import "JXCategoryViewVerticalShowVC.h"
 
 #endif /* Other_h */

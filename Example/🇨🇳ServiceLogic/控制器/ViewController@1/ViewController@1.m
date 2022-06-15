@@ -427,6 +427,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             [_dataMutArr addObject:viewModel];
         }
         
+        {
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"JXCategoryViewVerticalShowVC"
+                                                           subTitle:Internationalization(@"JXCategoryView垂直表达")];
+            viewModel.cls = JXCategoryViewVerticalShowVC.class;
+            [_dataMutArr addObject:viewModel];
+        }
+        
 //        {
 //            UIViewModel *viewModel = [self configViewModelWithTitle:@"ProtocolKitVC"
 //                                                           subTitle:Internationalization(@"Objective-C中实现协议扩展")];

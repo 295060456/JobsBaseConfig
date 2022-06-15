@@ -9,6 +9,7 @@
 #import "JobsLabelDef.h"
 #import "UIView+Masonry.h"
 #import "UIView+AutoSelfAdaptionSize.h"
+#import "UIBezierPath+TextPath.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -755,6 +755,24 @@
 		C5B3AEB028537D180052A4A9 /* JXCategoryViewWithHeaderViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B3AEAF28537D180052A4A9 /* JXCategoryViewWithHeaderViewVC.m */; };
 		C5B3AEB628537D590052A4A9 /* BaiShaETProjMembersSubsBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B3AEB528537D590052A4A9 /* BaiShaETProjMembersSubsBaseVC.m */; };
 		C5B3AF3728537E320052A4A9 /* BaiShaETProjCollectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B3AF3428537E320052A4A9 /* BaiShaETProjCollectionHeaderView.m */; };
+		C5BFA17E28598C7C009681C0 /* GKCustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BFA15828598C7C009681C0 /* GKCustomNavigationBar.m */; };
+		C5BFA17F28598C7C009681C0 /* UIViewController+GKNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BFA15B28598C7C009681C0 /* UIViewController+GKNavigationBar.m */; };
+		C5BFA18028598C7D009681C0 /* UINavigationItem+GKNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BFA15D28598C7C009681C0 /* UINavigationItem+GKNavigationBar.m */; };
+		C5BFA18128598C7D009681C0 /* GKNavigationBar.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C5BFA15E28598C7C009681C0 /* GKNavigationBar.bundle */; };
+		C5BFA18228598C7D009681C0 /* UIBarButtonItem+GKNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BFA15F28598C7C009681C0 /* UIBarButtonItem+GKNavigationBar.m */; };
+		C5BFA18328598C7D009681C0 /* UIImage+GKNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BFA16128598C7C009681C0 /* UIImage+GKNavigationBar.m */; };
+		C5BFA18528598C7D009681C0 /* UINavigationController+GKNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BFA16728598C7C009681C0 /* UINavigationController+GKNavigationBar.m */; };
+		C5BFA18628598C7D009681C0 /* GKNavigationBarConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BFA16928598C7C009681C0 /* GKNavigationBarConfigure.m */; };
+		C5BFA18728598C7D009681C0 /* UIScrollView+GKGestureHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BFA16C28598C7C009681C0 /* UIScrollView+GKGestureHandle.m */; };
+		C5BFA18828598C7D009681C0 /* UINavigationController+GKGestureHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BFA17128598C7C009681C0 /* UINavigationController+GKGestureHandle.m */; };
+		C5BFA18928598C7D009681C0 /* GKGestureHandleConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BFA17228598C7C009681C0 /* GKGestureHandleConfigure.m */; };
+		C5BFA18A28598C7D009681C0 /* GKPopAnimatedTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BFA17328598C7C009681C0 /* GKPopAnimatedTransition.m */; };
+		C5BFA18B28598C7D009681C0 /* UIViewController+GKGestureHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BFA17628598C7C009681C0 /* UIViewController+GKGestureHandle.m */; };
+		C5BFA18C28598C7D009681C0 /* GKPushAnimatedTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BFA17728598C7C009681C0 /* GKPushAnimatedTransition.m */; };
+		C5BFA18D28598C7D009681C0 /* GKBaseAnimatedTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BFA17928598C7C009681C0 /* GKBaseAnimatedTransition.m */; };
+		C5BFA18E28598C7D009681C0 /* GKNavigationInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BFA17A28598C7C009681C0 /* GKNavigationInteractiveTransition.m */; };
+		C5BFA2F9285992BB009681C0 /* JXCategoryViewVerticalShowSubBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BFA2F8285992B8009681C0 /* JXCategoryViewVerticalShowSubBaseVC.m */; };
+		C5BFA2FA285992BE009681C0 /* JXCategoryViewVerticalShowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BFA2F62859927C009681C0 /* JXCategoryViewVerticalShowVC.m */; };
 		C5C47D0A284E1C26007916B3 /* UITableViewCellEditorVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D09284E1C26007916B3 /* UITableViewCellEditorVC.m */; };
 		C5C47D0F284E1C4B007916B3 /* MsgEditBoardView.png in Resources */ = {isa = PBXBuildFile; fileRef = C5C47D0D284E1C4B007916B3 /* MsgEditBoardView.png */; };
 		C5C47D10284E1C4B007916B3 /* MsgEditBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D0E284E1C4B007916B3 /* MsgEditBoardView.m */; };
@@ -2326,8 +2344,6 @@
 		C57343F2285753B10016705E /* JobsAnimationLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAnimationLabel.m; sourceTree = "<group>"; };
 		C5734402285755000016705E /* BaseLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLabel.h; sourceTree = "<group>"; };
 		C5734403285755000016705E /* BaseLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseLabel.m; sourceTree = "<group>"; };
-		C57569B3285859CF00C2ACE0 /* GKCustomNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKCustomNavigationBar.h; sourceTree = "<group>"; };
-		C57569B4285859CF00C2ACE0 /* GKCustomNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKCustomNavigationBar.m; sourceTree = "<group>"; };
 		C57A2025282CB59E0032156B /* ZLGestureLockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLGestureLockView.m; sourceTree = "<group>"; };
 		C57A2027282CB59E0032156B /* gesture_headIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_headIcon@2x.png"; sourceTree = "<group>"; };
 		C57A2028282CB59E0032156B /* gesture_indicator_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_indicator_normal@2x.png"; sourceTree = "<group>"; };
@@ -2466,6 +2482,45 @@
 		C5B3AF3428537E320052A4A9 /* BaiShaETProjCollectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiShaETProjCollectionHeaderView.m; sourceTree = "<group>"; };
 		C5B3AF3528537E320052A4A9 /* BaiShaETProjCollectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiShaETProjCollectionHeaderView.h; sourceTree = "<group>"; };
 		C5B3AF3628537E320052A4A9 /* BaiShaETProjCollectionHeaderView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BaiShaETProjCollectionHeaderView.png; sourceTree = "<group>"; };
+		C5BFA15728598C7C009681C0 /* GKCustomNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKCustomNavigationBar.h; sourceTree = "<group>"; };
+		C5BFA15828598C7C009681C0 /* GKCustomNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKCustomNavigationBar.m; sourceTree = "<group>"; };
+		C5BFA15B28598C7C009681C0 /* UIViewController+GKNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+GKNavigationBar.m"; sourceTree = "<group>"; };
+		C5BFA15D28598C7C009681C0 /* UINavigationItem+GKNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+GKNavigationBar.m"; sourceTree = "<group>"; };
+		C5BFA15E28598C7C009681C0 /* GKNavigationBar.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GKNavigationBar.bundle; sourceTree = "<group>"; };
+		C5BFA15F28598C7C009681C0 /* UIBarButtonItem+GKNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+GKNavigationBar.m"; sourceTree = "<group>"; };
+		C5BFA16028598C7C009681C0 /* GKNavigationBarConfigure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKNavigationBarConfigure.h; sourceTree = "<group>"; };
+		C5BFA16128598C7C009681C0 /* UIImage+GKNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GKNavigationBar.m"; sourceTree = "<group>"; };
+		C5BFA16228598C7C009681C0 /* GKNavigationBarDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKNavigationBarDefine.h; sourceTree = "<group>"; };
+		C5BFA16328598C7C009681C0 /* UINavigationController+GKNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+GKNavigationBar.h"; sourceTree = "<group>"; };
+		C5BFA16428598C7C009681C0 /* UIViewController+GKNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+GKNavigationBar.h"; sourceTree = "<group>"; };
+		C5BFA16528598C7C009681C0 /* UINavigationItem+GKNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+GKNavigationBar.h"; sourceTree = "<group>"; };
+		C5BFA16728598C7C009681C0 /* UINavigationController+GKNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+GKNavigationBar.m"; sourceTree = "<group>"; };
+		C5BFA16828598C7C009681C0 /* UIImage+GKNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GKNavigationBar.h"; sourceTree = "<group>"; };
+		C5BFA16928598C7C009681C0 /* GKNavigationBarConfigure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKNavigationBarConfigure.m; sourceTree = "<group>"; };
+		C5BFA16A28598C7C009681C0 /* UIBarButtonItem+GKNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+GKNavigationBar.h"; sourceTree = "<group>"; };
+		C5BFA16C28598C7C009681C0 /* UIScrollView+GKGestureHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+GKGestureHandle.m"; sourceTree = "<group>"; };
+		C5BFA16D28598C7C009681C0 /* GKPushAnimatedTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKPushAnimatedTransition.h; sourceTree = "<group>"; };
+		C5BFA16E28598C7C009681C0 /* UIViewController+GKGestureHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+GKGestureHandle.h"; sourceTree = "<group>"; };
+		C5BFA16F28598C7C009681C0 /* GKGestureHandleDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKGestureHandleDefine.h; sourceTree = "<group>"; };
+		C5BFA17028598C7C009681C0 /* GKBaseAnimatedTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKBaseAnimatedTransition.h; sourceTree = "<group>"; };
+		C5BFA17128598C7C009681C0 /* UINavigationController+GKGestureHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+GKGestureHandle.m"; sourceTree = "<group>"; };
+		C5BFA17228598C7C009681C0 /* GKGestureHandleConfigure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKGestureHandleConfigure.m; sourceTree = "<group>"; };
+		C5BFA17328598C7C009681C0 /* GKPopAnimatedTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKPopAnimatedTransition.m; sourceTree = "<group>"; };
+		C5BFA17428598C7C009681C0 /* GKNavigationInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKNavigationInteractiveTransition.h; sourceTree = "<group>"; };
+		C5BFA17528598C7C009681C0 /* UIScrollView+GKGestureHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+GKGestureHandle.h"; sourceTree = "<group>"; };
+		C5BFA17628598C7C009681C0 /* UIViewController+GKGestureHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+GKGestureHandle.m"; sourceTree = "<group>"; };
+		C5BFA17728598C7C009681C0 /* GKPushAnimatedTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKPushAnimatedTransition.m; sourceTree = "<group>"; };
+		C5BFA17828598C7C009681C0 /* UINavigationController+GKGestureHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+GKGestureHandle.h"; sourceTree = "<group>"; };
+		C5BFA17928598C7C009681C0 /* GKBaseAnimatedTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKBaseAnimatedTransition.m; sourceTree = "<group>"; };
+		C5BFA17A28598C7C009681C0 /* GKNavigationInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKNavigationInteractiveTransition.m; sourceTree = "<group>"; };
+		C5BFA17B28598C7C009681C0 /* GKPopAnimatedTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKPopAnimatedTransition.h; sourceTree = "<group>"; };
+		C5BFA17C28598C7C009681C0 /* GKGestureHandleConfigure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKGestureHandleConfigure.h; sourceTree = "<group>"; };
+		C5BFA17D28598C7C009681C0 /* GKNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKNavigationBar.h; sourceTree = "<group>"; };
+		C5BFA2F42859924A009681C0 /* JXCategoryView垂直表达.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JXCategoryView垂直表达.png"; sourceTree = "<group>"; };
+		C5BFA2F52859927C009681C0 /* JXCategoryViewVerticalShowVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JXCategoryViewVerticalShowVC.h; sourceTree = "<group>"; };
+		C5BFA2F62859927C009681C0 /* JXCategoryViewVerticalShowVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JXCategoryViewVerticalShowVC.m; sourceTree = "<group>"; };
+		C5BFA2F7285992B8009681C0 /* JXCategoryViewVerticalShowSubBaseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JXCategoryViewVerticalShowSubBaseVC.h; sourceTree = "<group>"; };
+		C5BFA2F8285992B8009681C0 /* JXCategoryViewVerticalShowSubBaseVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JXCategoryViewVerticalShowSubBaseVC.m; sourceTree = "<group>"; };
 		C5C47D08284E1C26007916B3 /* UITableViewCellEditorVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITableViewCellEditorVC.h; sourceTree = "<group>"; };
 		C5C47D09284E1C26007916B3 /* UITableViewCellEditorVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITableViewCellEditorVC.m; sourceTree = "<group>"; };
 		C5C47D0C284E1C4B007916B3 /* MsgEditBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgEditBoardView.h; sourceTree = "<group>"; };
@@ -8480,6 +8535,7 @@
 		84CA609D278980E700E46E71 /* 功能模块 */ = {
 			isa = PBXGroup;
 			children = (
+				C5BFA2F328599224009681C0 /* JXCategoryView垂直表达 */,
 				C5E4ABBD2858BE7D00B782F0 /* UILabel文字旋转 */,
 				C5B3AE7E285378700052A4A9 /* JXCategoryView下拉headerView变大 */,
 				C57208812852F1DF004BF695 /* 在 Objective-C 中实现协议扩展 */,
@@ -9297,8 +9353,8 @@
 		C57569B2285859B900C2ACE0 /* GKNavigationBar */ = {
 			isa = PBXGroup;
 			children = (
-				C57569B3285859CF00C2ACE0 /* GKCustomNavigationBar.h */,
-				C57569B4285859CF00C2ACE0 /* GKCustomNavigationBar.m */,
+				C5BFA15628598C7C009681C0 /* 我修改的部分 */,
+				C5BFA15928598C7C009681C0 /* GKNavigationBarCore */,
 			);
 			path = GKNavigationBar;
 			sourceTree = "<group>";
@@ -9851,6 +9907,98 @@
 				C5B3AF3628537E320052A4A9 /* BaiShaETProjCollectionHeaderView.png */,
 			);
 			path = BaiShaETProjCollectionHeaderView;
+			sourceTree = "<group>";
+		};
+		C5BFA15628598C7C009681C0 /* 我修改的部分 */ = {
+			isa = PBXGroup;
+			children = (
+				C5BFA15728598C7C009681C0 /* GKCustomNavigationBar.h */,
+				C5BFA15828598C7C009681C0 /* GKCustomNavigationBar.m */,
+			);
+			path = "我修改的部分";
+			sourceTree = "<group>";
+		};
+		C5BFA15928598C7C009681C0 /* GKNavigationBarCore */ = {
+			isa = PBXGroup;
+			children = (
+				C5BFA15A28598C7C009681C0 /* NavigationBar */,
+				C5BFA16B28598C7C009681C0 /* GestureHandle */,
+				C5BFA17D28598C7C009681C0 /* GKNavigationBar.h */,
+			);
+			path = GKNavigationBarCore;
+			sourceTree = "<group>";
+		};
+		C5BFA15A28598C7C009681C0 /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				C5BFA15E28598C7C009681C0 /* GKNavigationBar.bundle */,
+				C5BFA16028598C7C009681C0 /* GKNavigationBarConfigure.h */,
+				C5BFA16928598C7C009681C0 /* GKNavigationBarConfigure.m */,
+				C5BFA16228598C7C009681C0 /* GKNavigationBarDefine.h */,
+				C5BFA16A28598C7C009681C0 /* UIBarButtonItem+GKNavigationBar.h */,
+				C5BFA15F28598C7C009681C0 /* UIBarButtonItem+GKNavigationBar.m */,
+				C5BFA16828598C7C009681C0 /* UIImage+GKNavigationBar.h */,
+				C5BFA16128598C7C009681C0 /* UIImage+GKNavigationBar.m */,
+				C5BFA16328598C7C009681C0 /* UINavigationController+GKNavigationBar.h */,
+				C5BFA16728598C7C009681C0 /* UINavigationController+GKNavigationBar.m */,
+				C5BFA16528598C7C009681C0 /* UINavigationItem+GKNavigationBar.h */,
+				C5BFA15D28598C7C009681C0 /* UINavigationItem+GKNavigationBar.m */,
+				C5BFA16428598C7C009681C0 /* UIViewController+GKNavigationBar.h */,
+				C5BFA15B28598C7C009681C0 /* UIViewController+GKNavigationBar.m */,
+			);
+			path = NavigationBar;
+			sourceTree = "<group>";
+		};
+		C5BFA16B28598C7C009681C0 /* GestureHandle */ = {
+			isa = PBXGroup;
+			children = (
+				C5BFA17028598C7C009681C0 /* GKBaseAnimatedTransition.h */,
+				C5BFA17928598C7C009681C0 /* GKBaseAnimatedTransition.m */,
+				C5BFA17C28598C7C009681C0 /* GKGestureHandleConfigure.h */,
+				C5BFA17228598C7C009681C0 /* GKGestureHandleConfigure.m */,
+				C5BFA16F28598C7C009681C0 /* GKGestureHandleDefine.h */,
+				C5BFA17428598C7C009681C0 /* GKNavigationInteractiveTransition.h */,
+				C5BFA17A28598C7C009681C0 /* GKNavigationInteractiveTransition.m */,
+				C5BFA17B28598C7C009681C0 /* GKPopAnimatedTransition.h */,
+				C5BFA17328598C7C009681C0 /* GKPopAnimatedTransition.m */,
+				C5BFA16D28598C7C009681C0 /* GKPushAnimatedTransition.h */,
+				C5BFA17728598C7C009681C0 /* GKPushAnimatedTransition.m */,
+				C5BFA17828598C7C009681C0 /* UINavigationController+GKGestureHandle.h */,
+				C5BFA17128598C7C009681C0 /* UINavigationController+GKGestureHandle.m */,
+				C5BFA17528598C7C009681C0 /* UIScrollView+GKGestureHandle.h */,
+				C5BFA16C28598C7C009681C0 /* UIScrollView+GKGestureHandle.m */,
+				C5BFA16E28598C7C009681C0 /* UIViewController+GKGestureHandle.h */,
+				C5BFA17628598C7C009681C0 /* UIViewController+GKGestureHandle.m */,
+			);
+			path = GestureHandle;
+			sourceTree = "<group>";
+		};
+		C5BFA2F328599224009681C0 /* JXCategoryView垂直表达 */ = {
+			isa = PBXGroup;
+			children = (
+				C5BFA2F42859924A009681C0 /* JXCategoryView垂直表达.png */,
+				C5BFA2FB285992C2009681C0 /* JXCategoryViewVerticalShowVC */,
+				C5BFA2FC285992C8009681C0 /* JXCategoryViewVerticalShowSubBaseVC */,
+			);
+			path = "JXCategoryView垂直表达";
+			sourceTree = "<group>";
+		};
+		C5BFA2FB285992C2009681C0 /* JXCategoryViewVerticalShowVC */ = {
+			isa = PBXGroup;
+			children = (
+				C5BFA2F52859927C009681C0 /* JXCategoryViewVerticalShowVC.h */,
+				C5BFA2F62859927C009681C0 /* JXCategoryViewVerticalShowVC.m */,
+			);
+			path = JXCategoryViewVerticalShowVC;
+			sourceTree = "<group>";
+		};
+		C5BFA2FC285992C8009681C0 /* JXCategoryViewVerticalShowSubBaseVC */ = {
+			isa = PBXGroup;
+			children = (
+				C5BFA2F7285992B8009681C0 /* JXCategoryViewVerticalShowSubBaseVC.h */,
+				C5BFA2F8285992B8009681C0 /* JXCategoryViewVerticalShowSubBaseVC.m */,
+			);
+			path = JXCategoryViewVerticalShowSubBaseVC;
 			sourceTree = "<group>";
 		};
 		C5C47D07284E1C0A007916B3 /* UITableViewCellEditorVC */ = {
@@ -10697,6 +10845,7 @@
 				84CA5F9F27897AFB00E46E71 /* SHA-224 in Resources */,
 				840F965927736428004979E9 /* UIButton+ImageTitleSpacing.md in Resources */,
 				84A491F727904A970002A837 /* Drop@3x.png in Resources */,
+				C5BFA18128598C7D009681C0 /* GKNavigationBar.bundle in Resources */,
 				C5C48070284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-ThinItalic.ttf in Resources */,
 				C5C48048284E21E5007916B3 /* NotoSansDisplay-Regular.ttf in Resources */,
 				C5C4806D284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-Black.ttf in Resources */,
@@ -10923,6 +11072,7 @@
 				C5D46FFC284E29A90090D20F /* JobsGetiOSNewestVersionModel.m in Sources */,
 				C55E6B5628436F8100ABA84A /* JobsFiltrationView.m in Sources */,
 				844B08832764CF4800B0513D /* XHLaunchAdImageManager.m in Sources */,
+				C5BFA18D28598C7D009681C0 /* GKBaseAnimatedTransition.m in Sources */,
 				8456259A278BF2780067ABB9 /* JobsLoadMoreTBVCell.m in Sources */,
 				84CA63CA2789B1EC00E46E71 /* DynamicViewTestVC.m in Sources */,
 				840F96BD27736428004979E9 /* UIControl+XY.m in Sources */,
@@ -10968,6 +11118,7 @@
 				840F96C327736428004979E9 /* BaseTableViewHeaderView.m in Sources */,
 				C530CC29282E2DA800D5ECCF /* JobsUpDownLabModel.m in Sources */,
 				840F96E827736428004979E9 /* NSObject+Measure.m in Sources */,
+				C5BFA17F28598C7C009681C0 /* UIViewController+GKNavigationBar.m in Sources */,
 				840F96E727736428004979E9 /* NSObject+OpenURL.m in Sources */,
 				846DF03927806D230050468A /* BaseContentView.m in Sources */,
 				C572088E2852F68A004BF695 /* ProtocolKitVC.m in Sources */,
@@ -11002,6 +11153,7 @@
 				840F966727736428004979E9 /* SoundBtn.m in Sources */,
 				84CA5FB727897AFB00E46E71 /* WBTableViewDataSource.m in Sources */,
 				840F960727736427004979E9 /* UITabBar+TLAnimation.m in Sources */,
+				C5BFA18928598C7D009681C0 /* GKGestureHandleConfigure.m in Sources */,
 				840F964D27736427004979E9 /* UILabel+Measure.m in Sources */,
 				84CA60A12789817300E46E71 /* PHCycleView.m in Sources */,
 				C5C47D1B284E1CB3007916B3 /* JobsMsgTBVCell.m in Sources */,
@@ -11074,6 +11226,7 @@
 				840F96A827736428004979E9 /* UIViewController+BaseNavigationBar.m in Sources */,
 				84401A7F27919E3B0038FF6F /* JobsSearchBar.m in Sources */,
 				84401A8627919E3B0038FF6F /* JobsSearchShowHistoryDataTBVCell.m in Sources */,
+				C5BFA18328598C7D009681C0 /* UIImage+GKNavigationBar.m in Sources */,
 				844B08482764CF4800B0513D /* ECPrivacyCheckBluetooth.m in Sources */,
 				844B0E542764DE1A00B0513D /* BaseModel.m in Sources */,
 				840F971127736428004979E9 /* UITextField+Placeholder.m in Sources */,
@@ -11158,6 +11311,7 @@
 				84CA5FDC27897AFB00E46E71 /* CFGradientLabel.m in Sources */,
 				840F96F027736428004979E9 /* NSObject+RegularExpression.m in Sources */,
 				840F96A427736428004979E9 /* UIViewController+EmptyData.m in Sources */,
+				C5BFA18A28598C7D009681C0 /* GKPopAnimatedTransition.m in Sources */,
 				840F96F627736428004979E9 /* NSObject+Notification.m in Sources */,
 				C55E6B5428436F8100ABA84A /* JobsCustomView.m in Sources */,
 				840F965427736428004979E9 /* UITableViewCell+Margin.m in Sources */,
@@ -11191,6 +11345,7 @@
 				840F960427736427004979E9 /* TransitionController.m in Sources */,
 				C5B3AF3728537E320052A4A9 /* BaiShaETProjCollectionHeaderView.m in Sources */,
 				8459D61C2779A88A00125782 /* CasinoCustomerContactModel.m in Sources */,
+				C5BFA18028598C7D009681C0 /* UINavigationItem+GKNavigationBar.m in Sources */,
 				C530CC28282E2DA800D5ECCF /* JobsUpDownLab.m in Sources */,
 				84CA5FD527897AFB00E46E71 /* SearchView.m in Sources */,
 				84CA5F9927897AFB00E46E71 /* GTMBase64.m in Sources */,
@@ -11216,6 +11371,7 @@
 				84CA5F9527897AFB00E46E71 /* NSString+Base64.m in Sources */,
 				840F963B27736427004979E9 /* JobsPageTBVCell.m in Sources */,
 				840F971627736428004979E9 /* JobsMagicTextField.m in Sources */,
+				C5BFA18528598C7D009681C0 /* UINavigationController+GKNavigationBar.m in Sources */,
 				84A16102278956D000DACA3C /* ViewController@5.m in Sources */,
 				844B084B2764CF4800B0513D /* ECPrivacyCheckFilesAndFolders.m in Sources */,
 				840F95E627736427004979E9 /* UITabBarItem+TLAnimation.m in Sources */,
@@ -11232,6 +11388,7 @@
 				8459D6172779A6CC00125782 /* CasinoCustomerServiceView.m in Sources */,
 				844B087A2764CF4800B0513D /* XHLaunchImageView.m in Sources */,
 				840F96D527736428004979E9 /* FileFolderHandleTool.m in Sources */,
+				C5BFA17E28598C7C009681C0 /* GKCustomNavigationBar.m in Sources */,
 				840F96D627736428004979E9 /* DispatchTimerManager.m in Sources */,
 				840F971A27736428004979E9 /* AppInternationalizationVC.m in Sources */,
 				84CA5CD12789587900E46E71 /* AppDelegate+XHLaunchAdDelegate.m in Sources */,
@@ -11240,12 +11397,14 @@
 				840F961127736427004979E9 /* ZBRequestManager.m in Sources */,
 				84CA65FC2789D3B500E46E71 /* JobsAppDoorVC_Style2.m in Sources */,
 				C55C8959284371A9005295B1 /* JXCategoryPopupSubVC.m in Sources */,
+				C5BFA18728598C7D009681C0 /* UIScrollView+GKGestureHandle.m in Sources */,
 				845C795E2786D29F009843EE /* NSObject+RunrtimeGet.m in Sources */,
 				840F960227736427004979E9 /* TransitionAnimation.m in Sources */,
 				84CA5FA927897AFB00E46E71 /* HWTFCodeView.m in Sources */,
 				844B08802764CF4800B0513D /* XHLaunchAdImageView+XHLaunchAdCache.m in Sources */,
 				846DF03A27806D230050468A /* JobsAppDoorForgotCodeContentView.m in Sources */,
 				840F970927736428004979E9 /* NSObject+Class.m in Sources */,
+				C5BFA2FA285992BE009681C0 /* JXCategoryViewVerticalShowVC.m in Sources */,
 				840F96E527736428004979E9 /* CLLanguageManager.m in Sources */,
 				840F968427736428004979E9 /* UIDevice+XMUtils.m in Sources */,
 				844B08442764CF4800B0513D /* FMDatabase+Manager.m in Sources */,
@@ -11278,10 +11437,12 @@
 				C5C47D65284E1DF9007916B3 /* JobsDataShowBackView.m in Sources */,
 				84758D10279922660074B4BA /* JobsLaunchConfig.m in Sources */,
 				84401A8227919E3B0038FF6F /* JobsSearchTBVCell.m in Sources */,
+				C5BFA18828598C7D009681C0 /* UINavigationController+GKGestureHandle.m in Sources */,
 				840F96AD27736428004979E9 /* LOTAnimationMJRefreshHeader.m in Sources */,
 				C5AA8B78282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_2.m in Sources */,
 				8416F28427B23118008D10E2 /* JobsFormatTime.m in Sources */,
 				84CA65FD2789D3B500E46E71 /* JobsAppDoorRegisterContentView.m in Sources */,
+				C5BFA18B28598C7D009681C0 /* UIViewController+GKGestureHandle.m in Sources */,
 				844B083E2764CF4800B0513D /* JXCategoryTimelineCellModel.m in Sources */,
 				840F96BE27736428004979E9 /* NSArray+Safety.m in Sources */,
 				8456259E278BF2780067ABB9 /* JobsCommentCoreVC.m in Sources */,
@@ -11334,15 +11495,18 @@
 				840F95FE27736427004979E9 /* JobsTabbarVC.m in Sources */,
 				840F971727736428004979E9 /* CheckMemFreeVC.m in Sources */,
 				840F96E427736428004979E9 /* JobsTimeModel.m in Sources */,
+				C5BFA18628598C7D009681C0 /* GKNavigationBarConfigure.m in Sources */,
 				84401A8327919E3B0038FF6F /* JobsSearchDataCVCell.m in Sources */,
 				C5AA8B83282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_3.m in Sources */,
 				84CA5F9627897AFB00E46E71 /* NSData+Base64.m in Sources */,
 				C5B3AEA1285378FA0052A4A9 /* BaiShaETProjVIPSubCVCell_02.m in Sources */,
+				C5BFA18E28598C7D009681C0 /* GKNavigationInteractiveTransition.m in Sources */,
 				840F964027736427004979E9 /* JobsSuspendView.m in Sources */,
 				84A491F327904A970002A837 /* JobsIMInputview.m in Sources */,
 				840F966A27736428004979E9 /* UIColor+Hex.m in Sources */,
 				84432B96278C284E0028A27D /* UIWindow+Extra.m in Sources */,
 				C5B3AE81285378A70052A4A9 /* JXCategoryViewWithHeaderViewSubVC.m in Sources */,
+				C5BFA18228598C7D009681C0 /* UIBarButtonItem+GKNavigationBar.m in Sources */,
 				840F963D27736427004979E9 /* JobsPageView.m in Sources */,
 				846DF03B27806D230050468A /* JobsAppDoorContentView.m in Sources */,
 				844019902791997C0038FF6F /* NSMutableArray+Extra.m in Sources */,
@@ -11350,6 +11514,7 @@
 				C57A8BE32850D04B00DD089E /* IntervalTBVCellShow.m in Sources */,
 				840F968A27736428004979E9 /* BaseCollectionView.m in Sources */,
 				C57A203E282CB59F0032156B /* ZLGestureLockIndicator.m in Sources */,
+				C5BFA18C28598C7D009681C0 /* GKPushAnimatedTransition.m in Sources */,
 				844B02122764C8EE00B0513D /* AppDelegate.m in Sources */,
 				84CA5FAE27897AFB00E46E71 /* XLChannelHeader.m in Sources */,
 				840F970B27736428004979E9 /* NSObject+DefConfig.m in Sources */,
@@ -11387,6 +11552,7 @@
 				842475B527C0DE6100831270 /* YTKRequest+Custom.m in Sources */,
 				84CA5CD02789587900E46E71 /* AppDelegate+UIApplicationDelegate.m in Sources */,
 				848AAD6E2788213400856087 /* UIScrollViewAnimationKit.m in Sources */,
+				C5BFA2F9285992BB009681C0 /* JXCategoryViewVerticalShowSubBaseVC.m in Sources */,
 				840F96F327736428004979E9 /* NSObject+CurrentDevice.m in Sources */,
 				844B08822764CF4800B0513D /* XHLaunchAdCache.m in Sources */,
 				846DEFD927806BC50050468A /* NSObject+PopViewToLogOut.m in Sources */,
