@@ -1,9 +1,8 @@
 //
 //  GoodsClassModel.m
-//  MPMALL
+//  JobsBaseConfig
 //
-//  Created by xixi_wen on 2019/7/8.
-//  Copyright © 2019 panduola. All rights reserved.
+//  Created by Jobs on 2022/6/15.
 //
 
 #import "GoodsClassModel.h"

@@ -222,9 +222,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 }
 
 -(void)collectionView:(UICollectionView *)collectionView
-didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
-}
+didSelectItemAtIndexPath:(NSIndexPath *)indexPath{}
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
            viewForSupplementaryElementOfKind:(NSString *)kind
@@ -296,7 +294,7 @@ referenceSizeForFooterInSection:(NSInteger)section{
         _tableView.dataSource = self;
         _tableView.frame = CGRectMake(0,
                                       0,
-                                      90.f,
+                                      TableViewHeight,
                                       JobsMainScreen_HEIGHT());
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -334,10 +332,11 @@ referenceSizeForFooterInSection:(NSInteger)section{
 
 -(ThreeClassCell *)tempCell{
     if (!_tempCell){
-        _tempCell = [ThreeClassCell.alloc initWithFrame:CGRectMake(0,
-                                                                   0,
-                                                                   self.collectionView.width,
-                                                                   1000)];
+        _tempCell = ThreeClassCell.new;
+        _tempCell.frame = CGRectMake(0,
+                                     0,
+                                     [ThreeClassCell cellSizeWithModel:nil].width,
+                                     [ThreeClassCell cellSizeWithModel:nil].height);
     }return _tempCell;
 }
 

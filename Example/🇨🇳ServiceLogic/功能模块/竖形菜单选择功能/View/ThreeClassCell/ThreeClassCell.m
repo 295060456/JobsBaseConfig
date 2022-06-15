@@ -1,9 +1,8 @@
 //
 //  ThreeClassCell.m
-//  MPMALL
+//  JobsBaseConfig
 //
-//  Created by xixi_wen on 2019/7/4.
-//  Copyright © 2019 panduola. All rights reserved.
+//  Created by Jobs on 2022/6/15.
 //
 
 #import "ThreeClassCell.h"
@@ -47,26 +46,27 @@
 
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]){
-
-        self.sectionInsetTop = 15.f;
-        self.sectionInsetLeft = 15.f;
-        self.sectionInsetBottom = 15.f;
-        self.sectionInsetRight = 15.f;
-        self.minimumLineSpacing = 15.f;
-        self.minimumInteritemSpacing = 15.f;
         self.columns = 3;
-        self.itemHeight = TreeClassItemCell_Height;
-        
-        [self.contentView addSubview:self.collectionView];
+        [self richElementsInCellWithModel:nil];
     }return self;
 }
 /// 具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 -(void)richElementsInCellWithModel:(UIViewModel *_Nullable)model{
     self.viewModel = model ? : UIViewModel.new;
+    
+    self.sectionInsetTop = 15.f;
+    self.sectionInsetLeft = 15.f;
+    self.sectionInsetBottom = 15.f;
+    self.sectionInsetRight = 15.f;
+    self.minimumLineSpacing = 15.f;
+    self.minimumInteritemSpacing = 15.f;
+    self.itemHeight = TreeClassItemCell_Height;
+
+    [self.contentView addSubview:self.collectionView];
 }
 /// 具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 +(CGSize)cellSizeWithModel:(UIViewModel *_Nullable)model{
-    return CGSizeMake(JobsWidth(343), JobsWidth(160));
+    return CGSizeMake(JobsMainScreen_WIDTH() - TableViewHeight, JobsWidth(1000));
 }
 #pragma mark —— 一些公有方法
 -(CGFloat)getCollectionHeight:(NSMutableArray *)dataArray{
