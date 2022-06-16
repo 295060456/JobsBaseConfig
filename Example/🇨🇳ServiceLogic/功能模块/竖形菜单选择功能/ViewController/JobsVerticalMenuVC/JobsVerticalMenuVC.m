@@ -16,7 +16,7 @@ extern AppDelegate *appDelegate;
 @property(nonatomic,strong)ThreeClassCell *tempCell;
 @property(nonatomic,strong)UICollectionViewFlowLayout *flowLayout;
 /// Data
-@property(nonatomic,strong)NSMutableArray *leftDataArray;
+@property(nonatomic,strong)NSMutableArray <GoodsClassModel *>*leftDataArray;
 @property(nonatomic,strong)NSMutableArray <GoodsClassModel *>*rightDataArray;
 @property(nonatomic,strong)GoodsClassModel *currentSelectModel;
 
@@ -189,29 +189,29 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 -(void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView scrollToNearestSelectedRowAtScrollPosition:UITableViewScrollPositionMiddle animated:YES];
-    GoodsClassModel *model = [self.leftDataArray objectAtIndex:indexPath.row];
-    self.currentSelectModel = model;
-    [self getGoodsClassWithPid:model.idField];
+    self.currentSelectModel = [self.leftDataArray objectAtIndex:indexPath.row];
+    [self getGoodsClassWithPid:self.currentSelectModel.idField];
 }
 #pragma mark —— UICollectionViewDelegate,UICollectionViewDataSource
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                  cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    id model = [self.rightDataArray objectAtIndex:indexPath.section];
-    if ([model isKindOfClass:NSString.class]){
+    if (indexPath.section == 0 &&
+        indexPath.item == 0){
         ThreeTopBannerCell *cell = [ThreeTopBannerCell cellWithCollectionView:collectionView forIndexPath:indexPath];
+        self.currentSelectModel = [self.leftDataArray objectAtIndex:indexPath.row];
         [cell richElementsInCellWithModel:self.currentSelectModel];
         return cell;
-    }else{ //goodsclassmodel
+    }else{
         ThreeClassCell *cell = [ThreeClassCell cellWithCollectionView:collectionView forIndexPath:indexPath];
         
-        GoodsClassModel *model = [self.rightDataArray objectAtIndex:indexPath.section];
-        [cell getCollectionHeight:(NSMutableArray *)model.childrenList];
+        self.currentSelectModel = [self.rightDataArray objectAtIndex:indexPath.section];
+        [cell getCollectionHeight:(NSMutableArray *)self.currentSelectModel.childrenList];
         [cell richElementsInCellWithModel:nil];
         [cell reloadData];
-        @jobs_weakify(self)
+//        @jobs_weakify(self)
         [cell actionObjectBlock:^(GoodsClassModel *model) {
-            @jobs_strongify(self)
-            NSLog(@"pid : %@", self.currentSelectModel.idField);
+//            @jobs_strongify(self)
+            NSLog(@"pid : %@", model.idField);
             NSLog(@"选中id : %@", model.idField);
         }];return cell;
     }
@@ -354,7 +354,7 @@ referenceSizeForFooterInSection:(NSInteger)section{
     }return _tempCell;
 }
 
--(NSMutableArray *)leftDataArray{
+-(NSMutableArray<GoodsClassModel *> *)leftDataArray{
     if (!_leftDataArray) {
         _leftDataArray = NSMutableArray.array;
     }return _leftDataArray;

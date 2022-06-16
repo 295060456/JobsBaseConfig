@@ -8,8 +8,9 @@
 #import "ThreeClassCell.h"
 
 @interface ThreeClassCell()
-
+/// UI
 @property(nonatomic,strong)UICollectionView *collectionView;
+/// Data
 @property(nonatomic,assign)CGFloat sectionInsetTop;
 @property(nonatomic,assign)CGFloat sectionInsetLeft;
 @property(nonatomic,assign)CGFloat sectionInsetBottom;
@@ -20,7 +21,6 @@
 @property(nonatomic,assign)CGFloat itemHeight;/// 一个cell 的高度
 @property(nonatomic,assign)NSInteger columns;/// 一行有多少列
 @property(nonatomic,assign)NSInteger rowCount;/// 一共有都是行
-
 @property(nonatomic,strong)UICollectionViewFlowLayout *flowLayout;
 
 @end
@@ -47,6 +47,7 @@
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]){
         self.columns = 3;
+        self.backgroundColor = self.contentView.backgroundColor = UIColor.greenColor;
         [self richElementsInCellWithModel:nil];
     }return self;
 }
