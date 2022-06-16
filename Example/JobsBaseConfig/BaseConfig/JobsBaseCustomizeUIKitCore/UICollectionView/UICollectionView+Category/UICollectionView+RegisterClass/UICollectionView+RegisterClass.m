@@ -21,6 +21,7 @@
     [self registerCollectionViewCellClass:BaseCollectionViewCell.class];
     [self registerCollectionViewCellClass:JobsHotLabelWithMultiLineCVCell.class];
     [self registerCollectionViewCellClass:JobsSearchDataCVCell.class];
+    [self registerCollectionViewCellClass:JobsCVCell.class];
     
     [self registerCollectionViewCellClass:BaiShaETProjVIPSubCVCell_01.class];
     [self registerCollectionViewCellClass:BaiShaETProjVIPSubCVCell_02.class];

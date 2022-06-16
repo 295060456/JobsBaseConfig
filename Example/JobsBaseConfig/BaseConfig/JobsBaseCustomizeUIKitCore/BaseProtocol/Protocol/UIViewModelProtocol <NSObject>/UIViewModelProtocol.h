@@ -98,6 +98,8 @@ NS_ASSUME_NONNULL_END
 @synthesize axis = _axis;\
 @synthesize distribution = _distribution;\
 @synthesize alignment = _alignment;\
+@synthesize buttonEdgeInsetsStyle;\
+@synthesize imageTitleSpace;\
 @synthesize cellHeight = _cellHeight;\
 @synthesize heightForHeaderInSection = _heightForHeaderInSection;\
 @synthesize cellSize = _cellSize;\
@@ -175,6 +177,8 @@ NS_ASSUME_NONNULL_END
 @dynamic axis;\
 @dynamic distributio;\
 @dynamic alignment;\
+@dynamic buttonEdgeInsetsStyle;\
+@dynamic imageTitleSpace;\
 @dynamic cellHeight;\
 @dynamic heightForHeaderInSection;\
 @dynamic cellSize;\

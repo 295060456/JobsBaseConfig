@@ -29,6 +29,7 @@
 @dynamic axis;
 @dynamic distribution;
 @dynamic alignment;
+@dynamic buttonEdgeInsetsStyle;
 /// 标记📌
 @dynamic indexPath;
 @dynamic section;

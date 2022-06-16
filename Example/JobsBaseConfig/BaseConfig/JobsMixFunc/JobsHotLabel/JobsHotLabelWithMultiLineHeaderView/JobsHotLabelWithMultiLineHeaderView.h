@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface JobsHotLabelWithMultiLineHeaderView : BaseCollectionReusableView
 
+-(UILabel *)getTitleLab;
+
 @end
 
 NS_ASSUME_NONNULL_END

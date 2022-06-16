@@ -693,6 +693,7 @@
 		C55E6B5628436F8100ABA84A /* JobsFiltrationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C55E6B5228436F8100ABA84A /* JobsFiltrationView.m */; };
 		C55E6B5C2843701D00ABA84A /* UIViewController+TFPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = C55E6B582843701D00ABA84A /* UIViewController+TFPopupView.m */; };
 		C563415A2849DFE90047CA49 /* JobsTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C56341592849DFE90047CA49 /* JobsTestVC.m */; };
+		C56C4CDD285B7E2700999913 /* JobsCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C56C4CDB285B7E2700999913 /* JobsCVCell.m */; };
 		C5703FA7283FA5110048382E /* UIView+BRPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5703FA5283FA5110048382E /* UIView+BRPickerView.m */; };
 		C572088E2852F68A004BF695 /* ProtocolKitVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C57208892852F28C004BF695 /* ProtocolKitVC.m */; };
 		C572DA9328572A06002C7110 /* UIImage+Measure.m in Sources */ = {isa = PBXBuildFile; fileRef = C572DA9228572A05002C7110 /* UIImage+Measure.m */; };
@@ -2331,6 +2332,9 @@
 		C55E6B5B2843701D00ABA84A /* UIViewController+TFPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TFPopupView.h"; sourceTree = "<group>"; };
 		C56341582849DFE90047CA49 /* JobsTestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsTestVC.h; sourceTree = "<group>"; };
 		C56341592849DFE90047CA49 /* JobsTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsTestVC.m; sourceTree = "<group>"; };
+		C56C4CDA285B7E2700999913 /* JobsCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsCVCell.h; sourceTree = "<group>"; };
+		C56C4CDB285B7E2700999913 /* JobsCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsCVCell.m; sourceTree = "<group>"; };
+		C56C4CDC285B7E2700999913 /* JobsCVCell.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = JobsCVCell.md; sourceTree = "<group>"; };
 		C5703FA5283FA5110048382E /* UIView+BRPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BRPickerView.m"; sourceTree = "<group>"; };
 		C5703FA6283FA5110048382E /* UIView+BRPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BRPickerView.h"; sourceTree = "<group>"; };
 		C57208882852F28C004BF695 /* ProtocolKitVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProtocolKitVC.h; sourceTree = "<group>"; };
@@ -4007,8 +4011,8 @@
 		840F941027736426004979E9 /* UICollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				840F941927736426004979E9 /* BaseCollectionViewCell */,
 				840F941127736426004979E9 /* JobsCollectionViewCell.h */,
+				840F941927736426004979E9 /* BaseCollectionViewCell */,
 				840F941227736426004979E9 /* UICollectionViewCell+Category */,
 			);
 			path = UICollectionViewCell;
@@ -4044,8 +4048,8 @@
 		840F941927736426004979E9 /* BaseCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				840F941A27736426004979E9 /* BaseCollectionViewCell.h */,
-				840F941B27736426004979E9 /* BaseCollectionViewCell.m */,
+				C56C4CD9285B7E2700999913 /* JobsCVCell */,
+				C56C4D5A285B7FB000999913 /* BaseCollectionViewCell */,
 			);
 			path = BaseCollectionViewCell;
 			sourceTree = "<group>";
@@ -9261,6 +9265,25 @@
 			path = JobsTestVC;
 			sourceTree = "<group>";
 		};
+		C56C4CD9285B7E2700999913 /* JobsCVCell */ = {
+			isa = PBXGroup;
+			children = (
+				C56C4CDA285B7E2700999913 /* JobsCVCell.h */,
+				C56C4CDB285B7E2700999913 /* JobsCVCell.m */,
+				C56C4CDC285B7E2700999913 /* JobsCVCell.md */,
+			);
+			path = JobsCVCell;
+			sourceTree = "<group>";
+		};
+		C56C4D5A285B7FB000999913 /* BaseCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				840F941A27736426004979E9 /* BaseCollectionViewCell.h */,
+				840F941B27736426004979E9 /* BaseCollectionViewCell.m */,
+			);
+			path = BaseCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		C5703FA4283FA5110048382E /* UIView+BRPickerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -11148,6 +11171,7 @@
 				840F967D27736428004979E9 /* UIFont+Extras.m in Sources */,
 				84CA66102789D4CD00E46E71 /* ForgetCodeStep_01View.m in Sources */,
 				840F96B027736428004979E9 /* LOTAnimationMJRefreshFooter.m in Sources */,
+				C56C4CDD285B7E2700999913 /* JobsCVCell.m in Sources */,
 				840F967827736428004979E9 /* UIView+Animation.m in Sources */,
 				840F96D127736428004979E9 /* CALayer+Anim.m in Sources */,
 				84AA2AC42796B2C3000401C6 /* UIButton+Extra.m in Sources */,

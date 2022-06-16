@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "UIButton+ImageTitleSpacing.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -28,6 +29,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)UILayoutConstraintAxis axis;
 @property(nonatomic,assign)UIStackViewDistribution distribution;
 @property(nonatomic,assign)UIStackViewAlignment alignment;
+/// UIButton 专用属性 — 图文的相对位置
+@property(nonatomic,assign)GLButtonEdgeInsetsStyle buttonEdgeInsetsStyle;
+@property(nonatomic,assign)CGFloat imageTitleSpace;
 /// 关于 UITableViewCell 和 UICollectionViewCell
 @property(nonatomic,assign)CGFloat cellHeight;
 @property(nonatomic,assign)CGFloat heightForHeaderInSection;
@@ -83,6 +87,8 @@ NS_ASSUME_NONNULL_END
 @synthesize axis = _axis;\
 @synthesize distribution = _distribution;\
 @synthesize alignment = _alignment;\
+@synthesize buttonEdgeInsetsStyle;\
+@synthesize imageTitleSpace;\
 @synthesize cellHeight = _cellHeight;\
 @synthesize heightForHeaderInSection = _heightForHeaderInSection;\
 @synthesize cellSize = _cellSize;\
@@ -116,6 +122,8 @@ NS_ASSUME_NONNULL_END
 @dynamic axis;\
 @dynamic distributio;\
 @dynamic alignment;\
+@dynamic buttonEdgeInsetsStyle;\
+@dynamic imageTitleSpace;\
 @dynamic cellHeight;\
 @dynamic heightForHeaderInSection;\
 @dynamic cellSize;\

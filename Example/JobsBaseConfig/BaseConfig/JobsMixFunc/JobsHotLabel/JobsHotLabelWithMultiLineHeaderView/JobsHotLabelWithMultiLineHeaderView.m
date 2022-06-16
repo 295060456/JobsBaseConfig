@@ -22,15 +22,20 @@
         
     }return self;
 }
-//由具体的子类进行覆写
+#pragma mark —— BaseViewProtocol
+/// 由具体的子类进行覆写
 +(CGSize)viewSizeWithModel:(UIViewModel *_Nullable)model{
     return CGSizeZero;
 }
-//由具体的子类进行覆写
+/// 由具体的子类进行覆写
 -(void)richElementsInViewWithModel:(UIViewModel *_Nullable)model{
     self.viewModel = model;
     self.backgroundColor = self.viewModel.bgCor;
     self.titleLab.alpha = 1;
+}
+#pragma mark —— 一些公共方法
+-(UILabel *)getTitleLab{
+    return self.titleLab;
 }
 #pragma mark —— lazyLoad
 -(UILabel *)titleLab{
