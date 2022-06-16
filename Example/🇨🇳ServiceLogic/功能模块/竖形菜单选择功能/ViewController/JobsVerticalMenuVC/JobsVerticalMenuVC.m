@@ -12,10 +12,11 @@ extern AppDelegate *appDelegate;
 /// UI
 @property(nonatomic,strong)UITableView *tableView;///  左侧的标题
 @property(nonatomic,strong)UICollectionView *collectionView; /// 右侧的内容
+@property(nonatomic,strong)UICollectionViewFlowLayout *flowLayout;
 @property(nonatomic,strong)UIButton *editBtn;
 @property(nonatomic,strong)ThreeClassCell *tempCell;
-@property(nonatomic,strong)UICollectionViewFlowLayout *flowLayout;
 /// Data
+@property(nonatomic,strong)NSMutableArray <NSString *>*titleMutArr;
 @property(nonatomic,strong)NSMutableArray <GoodsClassModel *>*leftDataArray;
 @property(nonatomic,strong)NSMutableArray <GoodsClassModel *>*rightDataArray;
 @property(nonatomic,strong)GoodsClassModel *currentSelectModel;
@@ -167,7 +168,7 @@ extern AppDelegate *appDelegate;
 #pragma mark —— UITableViewDelegate,UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView
 numberOfRowsInSection:(NSInteger)section{
-    return self.leftDataArray.count;
+    return self.titleMutArr.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView
@@ -175,7 +176,7 @@ numberOfRowsInSection:(NSInteger)section{
     LeftCell *cell = [LeftCell cellWithTableView:tableView];
     
     UIViewModel *viewModel = UIViewModel.new;
-    viewModel.textModel.text = [NSString stringWithFormat:@"%zd", indexPath.row];
+    viewModel.textModel.text = self.titleMutArr[indexPath.row];
     [cell richElementsInCellWithModel:viewModel];
     
     return cell;
@@ -364,6 +365,18 @@ referenceSizeForFooterInSection:(NSInteger)section{
     if (!_rightDataArray) {
         _rightDataArray = NSMutableArray.array;
     }return _rightDataArray;
+}
+
+-(NSMutableArray<NSString *> *)titleMutArr{
+    if (!_titleMutArr) {
+        _titleMutArr = NSMutableArray.array;
+        [_titleMutArr addObject:Internationalization(@"收藏")];
+        [_titleMutArr addObject:Internationalization(@"真人")];
+        [_titleMutArr addObject:Internationalization(@"体育")];
+        [_titleMutArr addObject:Internationalization(@"电子")];
+        [_titleMutArr addObject:Internationalization(@"棋牌")];
+        [_titleMutArr addObject:Internationalization(@"彩票")];
+    }return _titleMutArr;
 }
 
 @end
