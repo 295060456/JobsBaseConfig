@@ -7,15 +7,17 @@
 
 #import "JobsVerticalMenuVC.h"
 
+extern AppDelegate *appDelegate;
 @interface JobsVerticalMenuVC ()
 /// UI
-@property(nonatomic,strong)UITableView *tableView;
-@property(nonatomic,strong)UICollectionView *collectionView;
+@property(nonatomic,strong)UITableView *tableView;///  左侧的标题
+@property(nonatomic,strong)UICollectionView *collectionView; /// 右侧的内容
+@property(nonatomic,strong)UIButton *editBtn;
 @property(nonatomic,strong)ThreeClassCell *tempCell;
 @property(nonatomic,strong)UICollectionViewFlowLayout *flowLayout;
 /// Data
 @property(nonatomic,strong)NSMutableArray *leftDataArray;
-@property(nonatomic,strong)NSMutableArray *rightDataArray;
+@property(nonatomic,strong)NSMutableArray <GoodsClassModel *>*rightDataArray;
 @property(nonatomic,strong)GoodsClassModel *currentSelectModel;
 
 @end
@@ -48,8 +50,9 @@
 
     [self setGKNav];
     [self setGKNavBackBtn];
-    self.gk_navigationBar.jobsVisible = NO;
+    self.gk_navigationBar.jobsVisible = YES;
     
+    self.editBtn.alpha = 1;
     self.tableView.alpha = 1;
     self.collectionView.alpha = 1;
     [self getLeftData];
@@ -81,13 +84,7 @@
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
 }
-#pragma mark ——  一些私有方法
-/// 初始化数据
--(int)getRandomNumber:(int)from
-                   to:(int)to{
-    return (int)(from + (arc4random() % (to - from + 1)));
-}
-
+#pragma mark —— 一些私有方法
 -(void)getLeftData{
     /// 这里可以调用接口去获取一级目录分类的数据
     for (int i = 0; i < 20; i++){
@@ -110,15 +107,28 @@
         });
     }
 }
+/// 初始化数据
+-(int)getRandomNumber:(int)from
+                   to:(int)to{
+    return (int)(from + (arc4random() % (to - from + 1)));
+}
+/// 预算高度
+-(CGFloat)getCellHeight:(NSMutableArray *)dataArray{
+    //获取cell 的高度
+    return [self.tempCell getCollectionHeight:dataArray];
+}
 /// 根据一级目录的id 获取二三级的分类数据
 -(void)getGoodsClassWithPid:(NSString *)pId{
     [self.rightDataArray removeAllObjects];
-    [self.rightDataArray addObject:@"banner"];
+    
+    GoodsClassModel *model = GoodsClassModel.new;
+    model.name = @"banner";
+    [self.rightDataArray addObject:model];
     for (int i = 0; i < 10; i++){
         [self.rightDataArray addObject:[self createTwoModel:i]];
     }
     [self.collectionView reloadData];
-    if (self.rightDataArray.count > 0){
+    if (self.rightDataArray.count){
         [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
                                     atScrollPosition:UICollectionViewScrollPositionTop
                                             animated:NO];
@@ -153,11 +163,6 @@
     model.pid = [NSString stringWithFormat:@"%d", iflag];
     model.name = [NSString stringWithFormat:@"三级目录 %d", iflag];
     return model;
-}
-/// 预算高度
--(CGFloat) getCellHeight:(NSMutableArray *)dataArray{
-    //获取cell 的高度
-    return [self.tempCell getCollectionHeight:dataArray];
 }
 #pragma mark —— UITableViewDelegate,UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView
@@ -258,44 +263,53 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath{}
 - (CGSize)collectionView:(UICollectionView*)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout
 referenceSizeForHeaderInSection:(NSInteger)section{
-    if (section) {
-        return CGSizeMake(self.collectionView.width, 40.f);;
-    }return CGSizeZero;
+    return section ? CGSizeMake(self.collectionView.width, 40.f) : CGSizeZero;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout*)collectionViewLayout
 referenceSizeForFooterInSection:(NSInteger)section{
-    if (section == self.rightDataArray.count){
-        CGSize size = CGSizeMake(CGRectGetWidth(self.collectionView.frame), 40.f);
-        return size;
-    }else return CGSizeZero;
+    return section == self.rightDataArray.count ? CGSizeMake(CGRectGetWidth(self.collectionView.frame), 40.f) : CGSizeZero;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout*)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0){
-        //比例是 宽高 53:18
-        CGFloat height = (self.collectionView.width - 20) * 18.f / 53.f;
-        CGSize size = CGSizeMake(self.collectionView.width, height + ThreeTopBannerCell_addHeight);
-        return size;
-    }else{
-        GoodsClassModel *model = [self.rightDataArray objectAtIndex:indexPath.section];
-        CGSize size = CGSizeMake(self.collectionView.width, [self getCellHeight:(NSMutableArray *)model.childrenList]);
-        return size;
-    }
+    /// 比例是 宽高 53:18
+    return indexPath.section ? CGSizeMake(self.collectionView.width, [self getCellHeight:(NSMutableArray *)[self.rightDataArray objectAtIndex:indexPath.section].childrenList]) : CGSizeMake(self.collectionView.width, ((self.collectionView.width - 20) * 18.f / 53.f ) + ThreeTopBannerCell_addHeight);
 }
 #pragma mark —— lazyLoad
+-(UIButton *)editBtn{
+    if (!_editBtn) {
+        _editBtn = UIButton.new;
+        _editBtn.backgroundColor = UIColor.yellowColor;
+        _editBtn.normalTitle = Internationalization(@"编辑");
+        _editBtn.normalTitleColor = HEXCOLOR(0xB0B0B0);
+        _editBtn.titleFont = notoSansRegular(12);
+        _editBtn.normalImage = KIMG(@"编辑");
+        [_editBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft imageTitleSpace:JobsWidth(5.75)];
+        BtnClickEvent(_editBtn, {
+            toast(Internationalization(@"编辑"));
+        })
+        [self.view addSubview:_editBtn];
+        [_editBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.view);
+            make.bottom.equalTo(self.view).offset(-JobsTabBarHeight(appDelegate.tabBarVC));
+            make.size.mas_equalTo(CGSizeMake(TableViewHeight, EditBtnHeight));
+        }];
+    }return _editBtn;
+}
+
 -(UITableView *)tableView{
     if (!_tableView){
         _tableView = UITableView.initWithStylePlain;
+        _tableView.backgroundColor = UIColor.redColor;
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.frame = CGRectMake(0,
-                                      0,
+                                      JobsTopSafeAreaHeight() + JobsStatusBarHeight(),
                                       TableViewHeight,
-                                      JobsMainScreen_HEIGHT());
+                                      JobsMainScreen_HEIGHT() - JobsTopSafeAreaHeight() - JobsStatusBarHeight() - JobsTabBarHeight(appDelegate.tabBarVC) - EditBtnHeight);
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self.view addSubview:_tableView];
@@ -312,13 +326,13 @@ referenceSizeForFooterInSection:(NSInteger)section{
 -(UICollectionView *)collectionView{
     if (!_collectionView){
         _collectionView = [UICollectionView.alloc initWithFrame:CGRectMake(self.tableView.right,
-                                                                           0,
+                                                                           self.tableView.top,
                                                                            JobsMainScreen_WIDTH() - self.tableView.width,
-                                                                           self.tableView.height)
+                                                                           self.tableView.height + EditBtnHeight)
                                            collectionViewLayout:self.flowLayout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
-        _collectionView.backgroundColor = UIColor.whiteColor;
+        _collectionView.backgroundColor = UIColor.blueColor;
         _collectionView.alwaysBounceVertical = YES;
 
         [_collectionView registerCollectionViewCellClass:ThreeTopBannerCell.class];
@@ -346,7 +360,7 @@ referenceSizeForFooterInSection:(NSInteger)section{
     }return _leftDataArray;
 }
 
--(NSMutableArray *)rightDataArray{
+-(NSMutableArray<GoodsClassModel *> *)rightDataArray{
     if (!_rightDataArray) {
         _rightDataArray = NSMutableArray.array;
     }return _rightDataArray;

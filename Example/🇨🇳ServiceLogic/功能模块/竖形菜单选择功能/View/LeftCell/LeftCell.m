@@ -52,7 +52,7 @@
     [super setSelected:selected
               animated:animated];
     if (selected){
-        self.bgView.backgroundColor = UIColor.whiteColor;
+        self.bgView.backgroundColor = UIColor.cyanColor;
         self.flagView.backgroundColor = UIColor.redColor;
         self.titleLabel.textColor = UIColor.blackColor;
         self.titleLabel.font = [UIFont boldSystemFontOfSize:12.f];
@@ -79,7 +79,6 @@
         self.titleLabel.textColor = UIColor.blackColor;
         self.titleLabel.font = [UIFont systemFontOfSize:12.f];
     }
-    
 }
 #pragma mark —— lazyLoad
 -(UIView *)bgView{
@@ -131,6 +130,5 @@
         [self.contentView addSubview:_flagView];
     }return _flagView;
 }
-
 
 @end

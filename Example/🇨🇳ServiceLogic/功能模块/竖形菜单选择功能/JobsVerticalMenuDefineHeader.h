@@ -13,6 +13,7 @@
 #define LeftCell_Height 90.f
 #define LeftCell_Width 90.f
 #define TableViewHeight 90.f
+#define EditBtnHeight 50.f
 
 typedef void(^ReturnSelectItemBlock)(NSString *selectItemId);
 
