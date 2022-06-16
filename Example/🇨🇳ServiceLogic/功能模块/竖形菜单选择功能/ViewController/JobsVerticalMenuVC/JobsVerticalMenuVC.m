@@ -20,6 +20,8 @@ extern AppDelegate *appDelegate;
 @property(nonatomic,strong)NSMutableArray <GoodsClassModel *>*leftDataArray;
 @property(nonatomic,strong)NSMutableArray <GoodsClassModel *>*rightDataArray;
 @property(nonatomic,strong)GoodsClassModel *currentSelectModel;
+@property(nonatomic,strong)NSMutableArray <UIImage *>*imageDataMutArr;
+@property(nonatomic,assign)NSUInteger thisIndex;
 
 @end
 
@@ -76,6 +78,8 @@ extern AppDelegate *appDelegate;
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    /// 只有在这个生命周期才有效
+    [self.collectionView setContentOffset:CGPointMake(0, JobsWidth(-5)) animated:YES];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -88,11 +92,11 @@ extern AppDelegate *appDelegate;
 #pragma mark —— 一些私有方法
 -(void)getLeftData{
     /// 这里可以调用接口去获取一级目录分类的数据
-    for (int i = 0; i < 20; i++){
+    for (int i = 0; i < self.titleMutArr.count; i++){
         [self.leftDataArray addObject:[self createOneModel:i]];
     }
     [self.tableView reloadData];
-    if (self.leftDataArray.count > 0){
+    if (self.leftDataArray.count){
         @jobs_weakify(self)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)),
                        dispatch_get_main_queue(), ^{
@@ -108,11 +112,6 @@ extern AppDelegate *appDelegate;
         });
     }
 }
-/// 初始化数据
--(int)getRandomNumber:(int)from
-                   to:(int)to{
-    return (int)(from + (arc4random() % (to - from + 1)));
-}
 /// 预算高度
 -(CGFloat)getCellHeight:(NSMutableArray *)dataArray{
     //获取cell 的高度
@@ -121,11 +120,8 @@ extern AppDelegate *appDelegate;
 /// 根据一级目录的id 获取二三级的分类数据
 -(void)getGoodsClassWithPid:(NSString *)pId{
     [self.rightDataArray removeAllObjects];
-    
-    GoodsClassModel *model = GoodsClassModel.new;
-    model.name = @"banner";
-    [self.rightDataArray addObject:model];
-    for (int i = 0; i < 10; i++){
+    /// 每个子页面的section个数
+    for (int i = 0; i < self.imageDataMutArr.count; i++){
         [self.rightDataArray addObject:[self createTwoModel:i]];
     }
     [self.collectionView reloadData];
@@ -141,6 +137,7 @@ extern AppDelegate *appDelegate;
     model.idField = [NSString stringWithFormat:@"%d", iflag];
     model.pid = @"0";
     model.name = [NSString stringWithFormat:@"一级目录 %d", iflag];
+    model.textModel.text = self.titleMutArr[iflag];
     return model;
 }
 
@@ -149,12 +146,17 @@ extern AppDelegate *appDelegate;
     model.idField = [NSString stringWithFormat:@"%d", iFlag];
     model.pid = [NSString stringWithFormat:@"%d", iFlag];
     model.name = [NSString stringWithFormat:@"随机-%d", iFlag];
+    model.textModel.text = @"1234";
+    model.subTextModel.text = Internationalization([NSString stringWithFormat:@"%d球桌球",iFlag]);
+    model.bgImage = self.imageDataMutArr[iFlag];
+    NSLog(@"%@",model.bgImage);
     NSMutableArray *arr = NSMutableArray.array;
-    int end = [self getRandomNumber:3 to:9];
-    for (int i = 0; i < end; i++){
+    /// 每个section里面的item数量
+    for (int i = 0; i < 9; i++){
         [arr addObject:[self createThreeModel:i]];
     }
     model.childrenList = arr;
+    NSLog(@"LKL = %ld",model.childrenList.count);
     return model;
 }
 
@@ -192,30 +194,22 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView scrollToNearestSelectedRowAtScrollPosition:UITableViewScrollPositionMiddle animated:YES];
     self.currentSelectModel = [self.leftDataArray objectAtIndex:indexPath.row];
     [self getGoodsClassWithPid:self.currentSelectModel.idField];
+    [self.collectionView setContentOffset:CGPointMake(0, JobsWidth(-5)) animated:YES];
 }
-#pragma mark —— UICollectionViewDelegate,UICollectionViewDataSource
+#pragma mark —— UICollectionViewDelegate,UICollectionViewDataSource ThreeTopBannerCell
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                  cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0 &&
-        indexPath.item == 0){
-        ThreeTopBannerCell *cell = [ThreeTopBannerCell cellWithCollectionView:collectionView forIndexPath:indexPath];
-        self.currentSelectModel = [self.leftDataArray objectAtIndex:indexPath.row];
-        [cell richElementsInCellWithModel:self.currentSelectModel];
-        return cell;
-    }else{
-        ThreeClassCell *cell = [ThreeClassCell cellWithCollectionView:collectionView forIndexPath:indexPath];
-        
-        self.currentSelectModel = [self.rightDataArray objectAtIndex:indexPath.section];
-        [cell getCollectionHeight:(NSMutableArray *)self.currentSelectModel.childrenList];
-        [cell richElementsInCellWithModel:nil];
-        [cell reloadData];
+    ThreeClassCell *cell = [ThreeClassCell cellWithCollectionView:collectionView forIndexPath:indexPath];
+    self.currentSelectModel = [self.rightDataArray objectAtIndex:indexPath.section];
+    [cell getCollectionHeight:(NSMutableArray *)self.currentSelectModel.childrenList];
+    [cell richElementsInCellWithModel:self.rightDataArray];
+    [cell reloadData];
 //        @jobs_weakify(self)
-        [cell actionObjectBlock:^(GoodsClassModel *model) {
+    [cell actionObjectBlock:^(GoodsClassModel *model) {
 //            @jobs_strongify(self)
-            NSLog(@"pid : %@", model.idField);
-            NSLog(@"选中id : %@", model.idField);
-        }];return cell;
-    }
+        NSLog(@"pid : %@", model.idField);
+        NSLog(@"选中id : %@", model.idField);
+    }];return cell;
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -226,9 +220,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
      numberOfItemsInSection:(NSInteger)section{
     return 1;
 }
-
--(void)collectionView:(UICollectionView *)collectionView
-didSelectItemAtIndexPath:(NSIndexPath *)indexPath{}
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
            viewForSupplementaryElementOfKind:(NSString *)kind
@@ -264,26 +255,25 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath{}
 - (CGSize)collectionView:(UICollectionView*)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout
 referenceSizeForHeaderInSection:(NSInteger)section{
-    return section ? CGSizeMake(self.collectionView.width, 40.f) : CGSizeZero;
+    return CGSizeMake(self.collectionView.width, JobsWidth(40.f));
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout*)collectionViewLayout
 referenceSizeForFooterInSection:(NSInteger)section{
-    return section == self.rightDataArray.count ? CGSizeMake(CGRectGetWidth(self.collectionView.frame), 40.f) : CGSizeZero;
+    return section == self.rightDataArray.count ? CGSizeMake(CGRectGetWidth(self.collectionView.frame), JobsWidth(40.f)) : CGSizeZero;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout*)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    /// 比例是 宽高 53:18
-    return indexPath.section ? CGSizeMake(self.collectionView.width, [self getCellHeight:(NSMutableArray *)[self.rightDataArray objectAtIndex:indexPath.section].childrenList]) : CGSizeMake(self.collectionView.width, ((self.collectionView.width - 20) * 18.f / 53.f ) + ThreeTopBannerCell_addHeight);
+    return CGSizeMake(self.collectionView.width, [self getCellHeight:(NSMutableArray *)[self.rightDataArray objectAtIndex:indexPath.section].childrenList]);
 }
 #pragma mark —— lazyLoad
 -(UIButton *)editBtn{
     if (!_editBtn) {
         _editBtn = UIButton.new;
-        _editBtn.backgroundColor = UIColor.yellowColor;
+        _editBtn.backgroundColor = HEXCOLOR(0xFCFBFB);
         _editBtn.normalTitle = Internationalization(@"编辑");
         _editBtn.normalTitleColor = HEXCOLOR(0xB0B0B0);
         _editBtn.titleFont = notoSansRegular(12);
@@ -295,8 +285,8 @@ referenceSizeForFooterInSection:(NSInteger)section{
         [self.view addSubview:_editBtn];
         [_editBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.view);
-            make.bottom.equalTo(self.view).offset(-JobsTabBarHeight(appDelegate.tabBarVC));
-            make.size.mas_equalTo(CGSizeMake(TableViewHeight, EditBtnHeight));
+            make.bottom.equalTo(self.view);
+            make.size.mas_equalTo(CGSizeMake(TableViewWidth, EditBtnHeight));
         }];
     }return _editBtn;
 }
@@ -304,12 +294,12 @@ referenceSizeForFooterInSection:(NSInteger)section{
 -(UITableView *)tableView{
     if (!_tableView){
         _tableView = UITableView.initWithStylePlain;
-        _tableView.backgroundColor = UIColor.redColor;
+        _tableView.backgroundColor = HEXCOLOR(0xFCFBFB);
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.frame = CGRectMake(0,
                                       JobsTopSafeAreaHeight() + JobsStatusBarHeight(),
-                                      TableViewHeight,
+                                      TableViewWidth,
                                       JobsMainScreen_HEIGHT() - JobsTopSafeAreaHeight() - JobsStatusBarHeight() - JobsTabBarHeight(appDelegate.tabBarVC) - EditBtnHeight);
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -333,10 +323,9 @@ referenceSizeForFooterInSection:(NSInteger)section{
                                            collectionViewLayout:self.flowLayout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
-        _collectionView.backgroundColor = UIColor.blueColor;
+        _collectionView.backgroundColor = ThreeClassCellBgCor;
         _collectionView.alwaysBounceVertical = YES;
 
-        [_collectionView registerCollectionViewCellClass:ThreeTopBannerCell.class];
         [_collectionView registerCollectionViewCellClass:ThreeClassCell.class];
         [_collectionView registerCollectionElementKindSectionHeaderClass:UICollectionReusableView.class];
         [_collectionView registerCollectionElementKindSectionFooterClass:UICollectionReusableView.class];
@@ -377,6 +366,48 @@ referenceSizeForFooterInSection:(NSInteger)section{
         [_titleMutArr addObject:Internationalization(@"棋牌")];
         [_titleMutArr addObject:Internationalization(@"彩票")];
     }return _titleMutArr;
+}
+
+-(NSMutableArray<UIImage *> *)imageDataMutArr{
+    if (_imageDataMutArr) {
+        [_imageDataMutArr removeAllObjects];
+    }else{
+        _imageDataMutArr = NSMutableArray.array;
+    }
+    /// 装载假数据
+    if (self.thisIndex == 0) {
+        for (int i = 1; i < 10; i++) {
+            [_imageDataMutArr addObject:KIMG([@"体育" stringByAppendingString:[NSString stringWithFormat:@"0%d",i]])];
+        }
+    }else if (self.thisIndex == 1){
+        for (int i = 1; i < 10; i++) {
+            [_imageDataMutArr addObject:KIMG([@"真人" stringByAppendingString:[NSString stringWithFormat:@"0%d",i]])];
+        }
+    }else if (self.thisIndex == 2){
+        for (int i = 1; i < 10; i++) {
+            [_imageDataMutArr addObject:KIMG([@"体育" stringByAppendingString:[NSString stringWithFormat:@"0%d",i]])];
+        }
+    }else if (self.thisIndex == 3){
+        for (int i = 1; i < 10; i++) {
+            [_imageDataMutArr addObject:KIMG([@"体育" stringByAppendingString:[NSString stringWithFormat:@"0%d",i]])];
+        }
+    }else if (self.thisIndex == 4){
+        for (int i = 1; i < 10; i++) {
+            [_imageDataMutArr addObject:KIMG([@"体育" stringByAppendingString:[NSString stringWithFormat:@"0%d",i]])];
+        }
+    }else if (self.thisIndex == 5){
+        for (int i = 1; i < 10; i++) {
+            [_imageDataMutArr addObject:KIMG([@"体育" stringByAppendingString:[NSString stringWithFormat:@"0%d",i]])];
+        }
+    }else{
+        for (int i = 1; i < 10; i++) {
+            [_imageDataMutArr addObject:KIMG([@"体育" stringByAppendingString:[NSString stringWithFormat:@"0%d",i]])];
+        }
+    }return _imageDataMutArr;
+}
+
+-(NSUInteger)thisIndex{
+    return [self.leftDataArray indexOfObject:self.currentSelectModel];
 }
 
 @end

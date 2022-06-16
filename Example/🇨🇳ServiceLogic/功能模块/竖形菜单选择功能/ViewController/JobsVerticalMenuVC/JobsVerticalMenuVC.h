@@ -8,7 +8,6 @@
 #import "BaseViewController.h"
 #import "JobsVerticalMenuDefineHeader.h"
 #import "LeftCell.h"
-#import "ThreeTopBannerCell.h"
 #import "ThreeClassCell.h"
 #import "GoodsClassModel.h"
 
