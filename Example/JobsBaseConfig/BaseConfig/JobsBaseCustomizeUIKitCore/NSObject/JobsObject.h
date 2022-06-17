@@ -32,6 +32,8 @@
 #import "JobsHeaderFooterViewModel.h"
 /// 时间格式化
 #import "JobsFormatTime.h"
+/// 记录SEL和IMP
+#import "JobsSEL_IMP.h"
 
 #pragma mark —— Category
 /// 【二次封装HXPhotoPicker】弹出系统相册选择页面 + 调取系统相机进行拍摄

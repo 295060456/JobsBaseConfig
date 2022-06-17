@@ -76,7 +76,7 @@ callingMethodWithName:(nullable NSString *)methodName{
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
     invocation.target = targetObj;
     invocation.selector = selector;
-    
+
     /// 【防崩溃】如果传的不是数组，则封装成数组进行处理
     if (![paramarrays isKindOfClass:NSArray.class]) {
         paramarrays = @[paramarrays];
@@ -159,38 +159,70 @@ existMethodWithName:(nullable NSString *)methodName{
     }
 }
 /// 用block来代替selector
-SEL _Nullable selectorBlocks(void (^_Nullable block)(id _Nullable weakSelf, id _Nullable arg),
+-(SEL _Nullable)jobsSelectorBlock:(JobsSelectorBlock)selectorBlock{
+    return selectorBlocks(selectorBlock, self);
+}
+
+SEL _Nullable selectorBlocks(JobsSelectorBlock block,
                              id _Nullable target){
     if (!block) {
-        {
-            [WHToast toastErrMsg:@"方法不存在,请检查参数"];
-        }
-        
-//        {// 【经常崩溃损伤硬件】
-//            [NSException raise:@"block can not be nil"
-//                        format:@"%@ selectorBlock error", target];
-//        }
-
+        toastErr(Internationalization(@"方法不存在,请检查参数"));
+        /// 【经常崩溃损伤硬件】
+//        [NSException raise:Internationalization(@"block can not be nil")
+//                    format:@"%@ selectorBlock error", target];
     }
+    /// 动态注册方法
     NSString *selName = [NSString stringWithFormat:@"selector_%p:", block];
     SEL sel = NSSelectorFromString(selName);
-    class_addMethod([target class],
-                    sel,
-                    (IMP)selectorImp,
-                    "v@:@");
-    objc_setAssociatedObject(target,
-                             sel,
-                             block,
-                             OBJC_ASSOCIATION_COPY_NONATOMIC);
-    return sel;
+    /**
+     方法签名由方法名称和一个参数列表（方法的参数的顺序和类型）组成
+     注意：方法签名不包括方法的返回类型。不包括返回值和访问修饰符
+     第一个参数是在哪个类中添加方法
+     第二个参数是所添加方法的编号SEL
+     第三个参数是所添加方法的函数实现的指针IMP
+     第四个参数是所添加方法的签名
+     */
+    if (class_addMethod([target class],
+                        sel,
+                        (IMP)selectorImp,
+                        "v@:@")) {
+        objc_setAssociatedObject(target,
+                                 sel,
+                                 block,
+                                 OBJC_ASSOCIATION_COPY_NONATOMIC);
+    }else{
+        [NSException raise:Internationalization(@"添加方法失败")
+                    format:@"%@ selectorBlock error", target];
+    }return sel;
 }
 /// 内部调用无需暴露
 static void selectorImp(id self,
                         SEL _cmd,
                         id arg) {
-    callback block = objc_getAssociatedObject(self, _cmd);
-    __weak typeof(self) weakSelf = self;
-    if (block) block(weakSelf, arg);
+    JobsSelectorBlock block = objc_getAssociatedObject(self, _cmd);
+    @jobs_weakify(self)
+    if (block) block(weak_self, arg);
+}
+/// 对 SEL和IMP的统一管理
+static char *NSObject_DynamicInvoke_selImp = "NSObject_DynamicInvoke_selImp";
+@dynamic selImp;
+#pragma mark —— @property(nonatomic,strong)JobsSEL_IMP *selImp;
+-(JobsSEL_IMP *)selImp{
+    JobsSEL_IMP *SelImp = objc_getAssociatedObject(self, NSObject_DynamicInvoke_selImp);
+    if (!SelImp) {
+        SelImp = JobsSEL_IMP.new;
+        objc_setAssociatedObject(self,
+                                 NSObject_DynamicInvoke_selImp,
+                                 SelImp,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }return SelImp;
+}
+
+-(void)setSelImp:(JobsSEL_IMP *)selImp{
+    objc_setAssociatedObject(self,
+                             NSObject_DynamicInvoke_selImp,
+                             selImp,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 @end

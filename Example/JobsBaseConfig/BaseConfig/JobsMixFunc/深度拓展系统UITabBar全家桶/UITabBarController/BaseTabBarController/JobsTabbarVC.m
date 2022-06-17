@@ -103,15 +103,15 @@ static JobsTabbarVC *static_tabbarVC = nil;
 /// 打开手势
 -(void)openPan{
     self.view.panGR.enabled = YES;
-    if (!self.view.callbackBlock) {
-        @jobs_weakify(self)
-        self.view.callbackBlock = ^(id weakSelf,
-                                    id arg,
-                                    UIGestureRecognizer *data3) {
-            @jobs_strongify(self)
-            [self panGestureRecognizer:(UIPanGestureRecognizer *)data3];
-        };
-    }
+//    if (!self.view.callbackBlock) {
+//        @jobs_weakify(self)
+//        self.view.callbackBlock = ^(id weakSelf,
+//                                    id arg,
+//                                    UIGestureRecognizer *data3) {
+//            @jobs_strongify(self)
+//            [self panGestureRecognizer:(UIPanGestureRecognizer *)data3];
+//        };
+//    }
 }
 /// 开启/关闭 PPBadgeView的效果,至少在viewDidLayoutSubviews后有效
 -(void)ppBadge:(BOOL)open{
@@ -268,43 +268,43 @@ static JobsTabbarVC *static_tabbarVC = nil;
 }
 
 -(void)添加长按手势{
-    for (UIView *subView in self.UITabBarButtonMutArr) {
-        subView.tag = [self.UITabBarButtonMutArr indexOfObject:subView];
-
-        subView.numberOfTouchesRequired = 1;//手指数
-        subView.minimumPressDuration = 1;
-        subView.target = self;
-        subView.longPressGR.enabled = YES;
-        subView.callbackBlock = ^(id weakSelf,
-                                  id arg,
-                                  UIGestureRecognizer *data3) {
-            UILongPressGestureRecognizer *longPressGR = (UILongPressGestureRecognizer *)data3;
-            switch (longPressGR.state) {
-                case UIGestureRecognizerStatePossible:{
-                    NSLog(@"没有触摸事件发生，所有手势识别的默认状态");
-                }break;
-                case UIGestureRecognizerStateBegan:{
-                    //长按手势
-                    [self 长按手势做什么:longPressGR];
-                    NSLog(@"一个手势已经开始  但尚未改变或者完成时");
-                }break;
-                case UIGestureRecognizerStateChanged:{
-                    NSLog(@"手势状态改变");
-                }break;
-                case UIGestureRecognizerStateEnded:{// = UIGestureRecognizerStateRecognized
-                    NSLog(@"手势完成");
-                }break;
-                case UIGestureRecognizerStateCancelled:{
-                    NSLog(@"手势取消，恢复至Possible状态");
-                }break;
-                case UIGestureRecognizerStateFailed:{
-                    NSLog(@"手势失败，恢复至Possible状态");
-                }break;
-                default:
-                    break;
-            }
-        };
-    }
+//    for (UIView *subView in self.UITabBarButtonMutArr) {
+//        subView.tag = [self.UITabBarButtonMutArr indexOfObject:subView];
+//
+//        subView.numberOfTouchesRequired = 1;//手指数
+//        subView.minimumPressDuration = 1;
+//        subView.target = self;
+//        subView.longPressGR.enabled = YES;
+//        subView.callbackBlock = ^(id weakSelf,
+//                                  id arg,
+//                                  UIGestureRecognizer *data3) {
+//            UILongPressGestureRecognizer *longPressGR = (UILongPressGestureRecognizer *)data3;
+//            switch (longPressGR.state) {
+//                case UIGestureRecognizerStatePossible:{
+//                    NSLog(@"没有触摸事件发生，所有手势识别的默认状态");
+//                }break;
+//                case UIGestureRecognizerStateBegan:{
+//                    //长按手势
+//                    [self 长按手势做什么:longPressGR];
+//                    NSLog(@"一个手势已经开始  但尚未改变或者完成时");
+//                }break;
+//                case UIGestureRecognizerStateChanged:{
+//                    NSLog(@"手势状态改变");
+//                }break;
+//                case UIGestureRecognizerStateEnded:{// = UIGestureRecognizerStateRecognized
+//                    NSLog(@"手势完成");
+//                }break;
+//                case UIGestureRecognizerStateCancelled:{
+//                    NSLog(@"手势取消，恢复至Possible状态");
+//                }break;
+//                case UIGestureRecognizerStateFailed:{
+//                    NSLog(@"手势失败，恢复至Possible状态");
+//                }break;
+//                default:
+//                    break;
+//            }
+//        };
+//    }
 }
 #pragma mark —— UITabBarDelegate
 /// 监听TabBarItem点击事件

@@ -34,19 +34,19 @@
         _imageView = UIImageView.new;
         _imageView.image = KIMG(@"登录弹窗");
         
-        {// A
-            _imageView.userInteractionEnabled = YES;
-            _imageView.target = self;
-            _imageView.numberOfTouchesRequired = 1;
-            _imageView.numberOfTapsRequired = 1;
-            _imageView.tapGR.enabled = YES;
-            @jobs_weakify(self)
-            _imageView.callbackBlock = ^(id weakSelf, id arg, UIGestureRecognizer *data3) {
-                @jobs_strongify(self)
-                NSLog(@"%@",self.popupView);
-                [self.popupView tf_hide];
-            };
-        }
+//        {// A
+//            _imageView.userInteractionEnabled = YES;
+//            _imageView.target = self;
+//            _imageView.numberOfTouchesRequired = 1;
+//            _imageView.numberOfTapsRequired = 1;
+//            _imageView.tapGR.enabled = YES;
+//            @jobs_weakify(self)
+//            _imageView.callbackBlock = ^(id weakSelf, id arg, UIGestureRecognizer *data3) {
+//                @jobs_strongify(self)
+//                NSLog(@"%@",self.popupView);
+//                [self.popupView tf_hide];
+//            };
+//        }
         
         [self addSubview:_imageView];
         [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {

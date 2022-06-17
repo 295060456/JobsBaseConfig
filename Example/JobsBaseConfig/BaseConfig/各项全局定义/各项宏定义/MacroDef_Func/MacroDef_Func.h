@@ -108,6 +108,10 @@ static inline id getSysSceneDelegate(){
 static inline void toast(NSString *msg){
     [WHToast toastMsg:Internationalization(msg)];
 }
+
+static inline void toastErr(NSString *msg){
+    [WHToast toastErrMsg:Internationalization(msg)];
+}
 /// 定义一些默认值
 #ifndef listContainerViewDefaultOffset
 #define listContainerViewDefaultOffset JobsWidth(50)

@@ -6,17 +6,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JobsSEL_IMP.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
 /**
  @param weakSelf 方便使用，用来打破循环引用。使用时需要改成实际类型，否则没有代码提示.
  @param arg 事件默认传递的对象，比如`NSNotification`，`UIButton`。
  */
-typedef void (^callback)(id _Nullable weakSelf, id _Nullable arg);
+typedef void (^_Nullable JobsSelectorBlock)(id _Nullable weakSelf, id _Nullable arg);
 
 @interface NSObject (DynamicInvoke)
 
+@property(nonatomic,strong)JobsSEL_IMP *selImp;
 #pragma mark —— 参数 和 相关调用
 /// 如果某个实例对象存在某个【不带参数的方法】，则对其调用执行
 /// @param targetObj 靶点，方法在哪里
@@ -47,9 +48,9 @@ callingMethodWithName:(nullable NSString *)methodName;
 +(BOOL)judgementObj:(nonnull NSObject *)obj
 existMethodWithName:(nullable NSString *)methodName;
 /// 用block来代替selector
-SEL _Nullable selectorBlocks(void (^_Nullable block)(id _Nullable weakSelf, id _Nullable arg),
+-(SEL _Nullable)jobsSelectorBlock:(JobsSelectorBlock)selectorBlock;
+SEL _Nullable selectorBlocks(JobsSelectorBlock,
                              id _Nullable target);
-
 
 @end
 

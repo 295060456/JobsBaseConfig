@@ -20,32 +20,32 @@
 //        self.longPressGR.enabled = YES;
 //    }
     
-    {
-        self.userInteractionEnabled = YES;
-        self.target = self;
-        self.numberOfTouchesRequired = 1;
-        self.minimumPressDuration = 1;
-        
-        
-        self.longPressGR.enabled = YES;
-        {
-            self.tapGR.enabled = YES;
-            self.numberOfTapsRequired = 1;
-        }
-        
-        @jobs_weakify(self)
-        self.callbackBlock = ^(id weakSelf,
-                               id arg,
-                               UIGestureRecognizer *data3) {
-            @jobs_strongify(self)
-            if ([data3 isKindOfClass:UITapGestureRecognizer.class]) {
-                NSLog(@"UILabel 的 Tap 手势");
-                [self clickLink];
-            }else if ([data3 isKindOfClass:UILongPressGestureRecognizer.class]){
-                NSLog(@"UILabel 的 长按 手势");
-            }else{}
-        };
-    };
+//    {
+//        self.userInteractionEnabled = YES;
+//        self.target = self;
+//        self.numberOfTouchesRequired = 1;
+//        self.minimumPressDuration = 1;
+//        
+//        
+//        self.longPressGR.enabled = YES;
+//        {
+//            self.tapGR.enabled = YES;
+//            self.numberOfTapsRequired = 1;
+//        }
+//        
+//        @jobs_weakify(self)
+//        self.callbackBlock = ^(id weakSelf,
+//                               id arg,
+//                               UIGestureRecognizer *data3) {
+//            @jobs_strongify(self)
+//            if ([data3 isKindOfClass:UITapGestureRecognizer.class]) {
+//                NSLog(@"UILabel 的 Tap 手势");
+//                [self clickLink];
+//            }else if ([data3 isKindOfClass:UILongPressGestureRecognizer.class]){
+//                NSLog(@"UILabel 的 长按 手势");
+//            }else{}
+//        };
+//    };
 }
 
 // 点击文本处理链接跳转

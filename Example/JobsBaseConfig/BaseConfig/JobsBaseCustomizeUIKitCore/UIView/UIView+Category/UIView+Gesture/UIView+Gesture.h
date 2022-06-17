@@ -6,8 +6,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <objc/runtime.h>
 #import "JobsString.h"
 #import "NSObject+Extras.h"
+#import "NSObject+DynamicInvoke.h"
 
 #if __has_include(<ReactiveObjC/RACmetamacros.h>)
 #import <ReactiveObjC/RACmetamacros.h>
@@ -64,23 +66,30 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIView (Gesture)
 // config
 @property(nonatomic,weak,nullable)id target;
-@property(nonatomic,assign)jobsByThreeIDBlock callbackBlock;//手势触发方法
-@property(nonatomic,assign)NSUInteger numberOfTapsRequired;//设置轻拍次数【UILongPressGestureRecognizer】【UITapGestureRecognizer】
-@property(nonatomic,assign)NSUInteger numberOfTouchesRequired;//设置手指字数【UILongPressGestureRecognizer】【UITapGestureRecognizer】
-@property(nonatomic,assign)NSTimeInterval minimumPressDuration;//longPressGR最小长按时间【UILongPressGestureRecognizer】
-@property(nonatomic,assign)CGFloat allowableMovement;//【UILongPressGestureRecognizer】
-@property(nonatomic,assign)UISwipeGestureRecognizerDirection swipeGRDirection;//swipe手势清扫方向
+@property(nonatomic,assign)NSUInteger numberOfTapsRequired;/// 设置轻拍次数【UILongPressGestureRecognizer】【UITapGestureRecognizer】⚠️注意：如果要设置长按手势，此属性必须设置为0⚠️
+@property(nonatomic,assign)NSUInteger numberOfTouchesRequired;/// 设置手指字数【UILongPressGestureRecognizer】【UITapGestureRecognizer】
+@property(nonatomic,assign)NSTimeInterval minimumPressDuration;/// longPressGR最小长按时间【UILongPressGestureRecognizer】
+@property(nonatomic,assign)CGFloat allowableMovement;///【UILongPressGestureRecognizer】
+@property(nonatomic,assign)UISwipeGestureRecognizerDirection swipeGRDirection;/// swipe手势清扫方向
 @property(nonatomic,assign)UIScrollTypeMask allowedScrollTypesMask API_AVAILABLE(ios(13.4));
-@property(nonatomic,assign)CGFloat scale;//捏合范围
-@property(nonatomic,assign)CGFloat rotate;//旋转角度
+@property(nonatomic,assign)CGFloat scale;/// 捏合范围
+@property(nonatomic,assign)CGFloat rotate;/// 旋转角度
 // UIGestureRecognizer
-@property(nonatomic,strong)UILongPressGestureRecognizer *longPressGR;//长按手势
-@property(nonatomic,strong)UITapGestureRecognizer *tapGR;//点击手势
-@property(nonatomic,strong)UISwipeGestureRecognizer *swipeGR;//轻扫手势
-@property(nonatomic,strong)UIPanGestureRecognizer *panGR;//平移手势
-@property(nonatomic,strong)UIPinchGestureRecognizer *pinchGR;//捏合（缩放）手势
-@property(nonatomic,strong)UIRotationGestureRecognizer *rotationGR;//旋转手势
-@property(nonatomic,strong)UIScreenEdgePanGestureRecognizer *screenEdgePanGR;//屏幕边缘平移
+@property(nonatomic,strong)UILongPressGestureRecognizer *longPressGR;/// 长按手势
+@property(nonatomic,strong)UITapGestureRecognizer *tapGR;/// 点击手势
+@property(nonatomic,strong)UISwipeGestureRecognizer *swipeGR;/// 轻扫手势
+@property(nonatomic,strong)UIPanGestureRecognizer *panGR;/// 平移手势
+@property(nonatomic,strong)UIPinchGestureRecognizer *pinchGR;/// 捏合（缩放）手势
+@property(nonatomic,strong)UIRotationGestureRecognizer *rotationGR;/// 旋转手势
+@property(nonatomic,strong)UIScreenEdgePanGestureRecognizer *screenEdgePanGR;/// 屏幕边缘平移
+// action
+@property(nonatomic,strong)JobsSEL_IMP *longPressGR_SelImp;
+@property(nonatomic,strong)JobsSEL_IMP *tapGR_SelImp;
+@property(nonatomic,strong)JobsSEL_IMP *swipeGR_SelImp;
+@property(nonatomic,strong)JobsSEL_IMP *panGR_SelImp;
+@property(nonatomic,strong)JobsSEL_IMP *pinchGR_SelImp;
+@property(nonatomic,strong)JobsSEL_IMP *rotationGR_SelImp;
+@property(nonatomic,strong)JobsSEL_IMP *screenEdgePanGR_SelImp;
 
 -(void)Dealloc;
 
@@ -88,63 +97,26 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 
-/*
- 
- 使用示例_1：某View_A上加载控件userHeaderIMGV，这时候_userHeaderIMGV.target = self;这个self就是View_A
- 
- -(UIImageView *)mainIMGV{
-     if (!_mainIMGV) {
-         _mainIMGV = UIImageView.new;
-         _mainIMGV.userInteractionEnabled = YES;
-         {// A
-             _mainIMGV.userInteractionEnabled = YES;
-             _mainIMGV.target = self;
-             _mainIMGV.numberOfTouchesRequired = 1;
-             _mainIMGV.numberOfTapsRequired = 1;
-             _mainIMGV.tapGR.enabled = YES;
- //            @jobs_weakify(self)
-             _mainIMGV.callbackBlock = ^(id weakSelf, id arg, UIGestureRecognizer *data3) {
- //                @jobs_strongify(self)
-                 [weakSelf gameClick];
-             };
-         }
-         _mainIMGV.image = KIMG(@"社区图_2");
-         [self.view addSubview:_mainIMGV];
-         [_mainIMGV mas_makeConstraints:^(MASConstraintMaker *make) {
-             make.size.mas_equalTo(CGSizeMake(JobsMainScreen_WIDTH(), JobsMainScreen_WIDTH()));
-             make.centerX.equalTo(self.view);
-             make.top.equalTo(self.titleIMGV.mas_bottom).offset(-JobsHeight()(10));
-         }];
-     }return _mainIMGV;
- }
- 
-*/
 
-/***
- 使用示例_2:
-     {// A
-         self.userInteractionEnabled = YES;
-         self.target = self;
-         self.numberOfTouchesRequired = 1;
-         self.numberOfTapsRequired = 1;
-         self.tapGR.enabled = YES;
-     }
+/**
+ 示例代码：设置长按手势和点击手势
+ {
+     _collectionView.numberOfTouchesRequired = 1;
+     _collectionView.numberOfTapsRequired = 1;/// ⚠️注意：如果要设置长按手势，此属性必须设置为0⚠️
+     _collectionView.minimumPressDuration = 0.1;
+     _collectionView.numberOfTouchesRequired = 1;
+     _collectionView.allowableMovement = 1;
+     _collectionView.userInteractionEnabled = YES;
+     _collectionView.target = self;
+     _collectionView.longPressGR_SelImp.selector = [self jobsSelectorBlock:^(id  _Nullable weakSelf, id  _Nullable arg) {
+         NSLog(@"");
+     }];
+     _collectionView.longPressGR.enabled = YES;/// 必须在设置完Target和selector以后方可开启执行
      
-    //        {// B
-    //            self.userInteractionEnabled = YES;
-    //            self.target = self;
-    //            self.numberOfTouchesRequired = 1;
-    //            self.minimumPressDuration = 1;
-    //            self.longPressGR.enabled = YES;
-    //        }
-    //        @jobs_weakify(self)
-     self.callbackBlock = ^(id weakSelf, id arg, UIGestureRecognizer *data3) {
-    //            @jobs_strongify(self)
-         if ([data3 isKindOfClass:UITapGestureRecognizer.class]) {
-             [weakSelf LZBTabBarItemTap:(UITapGestureRecognizer *)data3];
-         }else if ([data3 isKindOfClass:UILongPressGestureRecognizer.class]){
-    //                [weakSelf LZBTabBarItemLongPress:(UILongPressGestureRecognizer *)data3];
-         }else{}
-     };
- 
+     _collectionView.tapGR_SelImp.selector = [self jobsSelectorBlock:^(id  _Nullable weakSelf, id  _Nullable arg) {
+         NSLog(@"");
+     }];
+     _collectionView.tapGR.enabled = YES;/// 必须在设置完Target和selector以后方可开启执行
+ }
+
  */

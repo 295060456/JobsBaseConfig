@@ -677,6 +677,7 @@
 		ABB2A8B711CC6C1FEF7A4899 /* Pods_JobsBaseConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 013934AB50FCDA373FFA6597 /* Pods_JobsBaseConfig.framework */; };
 		C50ED5D3283CC64B0097DE89 /* UISwitch+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = C50ED5D2283CC64B0097DE89 /* UISwitch+UI.m */; };
 		C520550F28534CC400CCB724 /* UICollectionHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C520550E28534CC400CCB724 /* UICollectionHeaderFooterView.m */; };
+		C52BFE06285C7948002B5D0F /* JobsSEL_IMP.m in Sources */ = {isa = PBXBuildFile; fileRef = C52BFE04285C7948002B5D0F /* JobsSEL_IMP.m */; };
 		C530CC28282E2DA800D5ECCF /* JobsUpDownLab.m in Sources */ = {isa = PBXBuildFile; fileRef = C530CC14282E2DA700D5ECCF /* JobsUpDownLab.m */; };
 		C530CC29282E2DA800D5ECCF /* JobsUpDownLabModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C530CC16282E2DA700D5ECCF /* JobsUpDownLabModel.m */; };
 		C530CC2A282E2DA800D5ECCF /* JobsLabBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C530CC1C282E2DA700D5ECCF /* JobsLabBaseModel.m */; };
@@ -2288,6 +2289,8 @@
 		C50ED5D2283CC64B0097DE89 /* UISwitch+UI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISwitch+UI.m"; sourceTree = "<group>"; };
 		C520550D28534CC400CCB724 /* UICollectionHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionHeaderFooterView.h; sourceTree = "<group>"; };
 		C520550E28534CC400CCB724 /* UICollectionHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionHeaderFooterView.m; sourceTree = "<group>"; };
+		C52BFE04285C7948002B5D0F /* JobsSEL_IMP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsSEL_IMP.m; sourceTree = "<group>"; };
+		C52BFE05285C7948002B5D0F /* JobsSEL_IMP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsSEL_IMP.h; sourceTree = "<group>"; };
 		C530CC10282E2DA700D5ECCF /* JobsUpDownLab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobsUpDownLab.png; sourceTree = "<group>"; };
 		C530CC11282E2DA700D5ECCF /* JobsUpDownLab.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = JobsUpDownLab.md; sourceTree = "<group>"; };
 		C530CC13282E2DA700D5ECCF /* JobsUpDownLab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsUpDownLab.h; sourceTree = "<group>"; };
@@ -4849,9 +4852,10 @@
 		840F950427736427004979E9 /* BaseObject */ = {
 			isa = PBXGroup;
 			children = (
+				840F950527736427004979E9 /* BaseObject.md */,
+				C52BFE03285C7948002B5D0F /* JobsSEL_IMP */,
 				84D764B4278093650003F0E4 /* 存取页面数据 */,
 				84D764B0278092C00003F0E4 /* 请求的公共配置文件 */,
-				840F950527736427004979E9 /* BaseObject.md */,
 				840F953127736427004979E9 /* CLLanguageManager */,
 				840F952227736427004979E9 /* DeleteSystemUITabBarButton */,
 				840F950627736427004979E9 /* FileFolderHandleTool */,
@@ -9064,6 +9068,15 @@
 			path = UICollectionHeaderFooterView;
 			sourceTree = "<group>";
 		};
+		C52BFE03285C7948002B5D0F /* JobsSEL_IMP */ = {
+			isa = PBXGroup;
+			children = (
+				C52BFE05285C7948002B5D0F /* JobsSEL_IMP.h */,
+				C52BFE04285C7948002B5D0F /* JobsSEL_IMP.m */,
+			);
+			path = JobsSEL_IMP;
+			sourceTree = "<group>";
+		};
 		C530CC0F282E2DA700D5ECCF /* JobsUpDownLab */ = {
 			isa = PBXGroup;
 			children = (
@@ -11380,6 +11393,7 @@
 				840F96DE27736428004979E9 /* DeleteSystemUITabBarButton.m in Sources */,
 				840F96D827736428004979E9 /* Nanosecond_TimerManager.m in Sources */,
 				C57A8ED62851A8E600DD089E /* OCDynamicRegisterVC.m in Sources */,
+				C52BFE06285C7948002B5D0F /* JobsSEL_IMP.m in Sources */,
 				840F96EF27736428004979E9 /* NSObject+Shake.m in Sources */,
 				840F95E327736427004979E9 /* JobsBitsMonitorSuspendLab.m in Sources */,
 				84CA5FB827897AFB00E46E71 /* WBPopMenuSingleton.m in Sources */,
