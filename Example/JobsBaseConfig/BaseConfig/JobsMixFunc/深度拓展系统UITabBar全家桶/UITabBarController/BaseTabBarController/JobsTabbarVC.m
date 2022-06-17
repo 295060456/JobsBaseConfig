@@ -25,7 +25,7 @@
 
 - (void)dealloc{
     NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 #pragma mark —— 初始化方法
 static JobsTabbarVC *static_tabbarVC = nil;
@@ -126,7 +126,7 @@ static JobsTabbarVC *static_tabbarVC = nil;
                 [item pp_addBadgeWithText:@"919+"];
     #pragma mark —— 动画
                 [item.badgeView animationAlert];//图片从小放大
-                shakerAnimation(item.badgeView, 2, 20);//重力弹跳动画效果
+                [item.badgeView shakerAnimationWithDuration:2 height:20];//重力弹跳动画效果
     //            [UIView 视图上下一直来回跳动的动画:item.badgeView];
             }
         }
@@ -335,15 +335,15 @@ static JobsTabbarVC *static_tabbarVC = nil;
         }
         // 震动反馈
         if (self.isFeedbackGenerator) {
-            [NSObject feedbackGenerator];
+            [self feedbackGenerator];
         }
         // 点击声音
         if (self.isPlaySound) {
-            [NSObject playSoundWithFileName:@"Sound.wav"];
+            [self playSoundWithFileName:@"Sound.wav"];
         }
         // 重力弹跳动画效果
         if (self.isShakerAnimation) {
-            shakerAnimation(item.badgeView, 2, 20);
+            [item.badgeView shakerAnimationWithDuration:2 height:20];
         }
         // 点击增加标数
         if (self.isOpenPPBadge) {
@@ -351,8 +351,7 @@ static JobsTabbarVC *static_tabbarVC = nil;
         }
         // 图片从小放大
         if (self.isAnimationAlert) {
-            UIView *UITabBarButton = self.UITabBarButtonMutArr[index];
-            [UITabBarButton animationAlert];
+            [self.UITabBarButtonMutArr[index] animationAlert];
         }
     }
 }

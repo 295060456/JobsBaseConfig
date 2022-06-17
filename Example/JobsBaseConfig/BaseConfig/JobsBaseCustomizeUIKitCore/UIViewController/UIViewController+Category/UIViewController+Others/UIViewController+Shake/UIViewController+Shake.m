@@ -7,23 +7,10 @@
 //
 
 #import "UIViewController+Shake.h"
-#import "NSObject+Shake.h"
-#import <objc/runtime.h>
 
 @implementation UIViewController (Shake)
 
-static char *UIViewController_motionManager = "UIViewController_motionManager";
-@dynamic motionManager;
-
-static char *UIViewController_ShakeBegan = "UIViewController_ShakeBegan";
-@dynamic UIViewControllerShakeBeganBlock;
-
-static char *UIViewController_ShakeCancel = "UIViewController_ShakeCancel";
-@dynamic UIViewControllerShakeCancelBlock;
-
-static char *UIViewController_ShakeEnd = "UIViewController_ShakeEnd";
-@dynamic UIViewControllerShakeEndBlock;
-
+#pragma mark —— 一些公有方法
 -(void)VC_ShakeBegan:(jobsByIDBlock)UIViewControllerShakeBeganBlock{
     self.UIViewControllerShakeBeganBlock = UIViewControllerShakeBeganBlock;
 }
@@ -35,11 +22,10 @@ static char *UIViewController_ShakeEnd = "UIViewController_ShakeEnd";
 -(void)VC_ShakeEnd:(jobsByIDBlock)UIViewControllerShakeEndBlock{
     self.UIViewControllerShakeEndBlock = UIViewControllerShakeEndBlock;
 }
-
 #pragma mark —— 系统方法
 -(void)invokeWhenViewDidLoadUsingSysFunc{
     //设置允许摇一摇功能
-    [UIApplication sharedApplication].applicationSupportsShakeToEdit = YES;
+    UIApplication.sharedApplication.applicationSupportsShakeToEdit = YES;
     [self becomeFirstResponder];
 }
 /// 摇一摇开始摇动
@@ -66,26 +52,25 @@ static char *UIViewController_ShakeEnd = "UIViewController_ShakeEnd";
 /// 摇一摇取消摇动
 - (void)motionCancelled:(UIEventSubtype)motion
               withEvent:(UIEvent *)event {
-    if (self.UIViewControllerShakeCancelBlock) {
-        self.UIViewControllerShakeCancelBlock(self);
-    }
+    @jobs_weakify(self)
+    if (self.UIViewControllerShakeCancelBlock) self.UIViewControllerShakeCancelBlock(weak_self);
 }
 #pragma mark —— 加速仪
 -(void)invokeWhenViewDidAppearUsingCMMotionManager{
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(receiveNotification:)
-                                                 name:UIApplicationDidEnterBackgroundNotification
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(receiveNotification:)
-                                                 name:UIApplicationWillEnterForegroundNotification
-                                               object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self
+                                           selector:@selector(receiveNotification:)
+                                               name:UIApplicationDidEnterBackgroundNotification
+                                             object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self
+                                           selector:@selector(receiveNotification:)
+                                               name:UIApplicationWillEnterForegroundNotification
+                                             object:nil];
 }
 
 -(void)startAccelerometer{
     //以push的方式更新并在block中接收加速度
     @jobs_weakify(self)
-    [self.motionManager startAccelerometerUpdatesToQueue:[[NSOperationQueue alloc]init]
+    [self.motionManager startAccelerometerUpdatesToQueue:NSOperationQueue.new
                                              withHandler:^(CMAccelerometerData *accelerometerData,
                                                            NSError *error) {
         @jobs_strongify(self)
@@ -98,12 +83,12 @@ static char *UIViewController_ShakeEnd = "UIViewController_ShakeEnd";
 
 -(void)stopAccelerometerWhenViewDidDisappear{
     [self.motionManager stopAccelerometerUpdates];
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIApplicationDidEnterBackgroundNotification
-                                                  object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIApplicationWillEnterForegroundNotification
-                                                  object:nil];
+    [NSNotificationCenter.defaultCenter removeObserver:self
+                                                  name:UIApplicationDidEnterBackgroundNotification
+                                                object:nil];
+    [NSNotificationCenter.defaultCenter removeObserver:self
+                                                  name:UIApplicationWillEnterForegroundNotification
+                                                object:nil];
 }
 //对应上面的通知中心回调的消息接收
 -(void)receiveNotification:(NSNotification *)notification{
@@ -134,16 +119,15 @@ static char *UIViewController_ShakeEnd = "UIViewController_ShakeEnd";
         });
     }
 }
+static char *UIViewController_motionManager = "UIViewController_motionManager";
+@dynamic motionManager;
 #pragma mark —— @property(nonatomic,strong)CMMotionManager *motionManager;
 -(CMMotionManager *)motionManager{
     CMMotionManager *MotionManager = objc_getAssociatedObject(self, UIViewController_motionManager);
     if (!MotionManager) {
         MotionManager = CMMotionManager.new;
         MotionManager.accelerometerUpdateInterval = 0.5;//加速仪更新频率，以秒为单位
-        objc_setAssociatedObject(self,
-                                 UIViewController_motionManager,
-                                 MotionManager,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [self setMotionManager:MotionManager];
     }return MotionManager;
 }
 
@@ -153,6 +137,8 @@ static char *UIViewController_ShakeEnd = "UIViewController_ShakeEnd";
                              motionManager,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+static char *UIViewController_ShakeBegan = "UIViewController_ShakeBegan";
+@dynamic UIViewControllerShakeBeganBlock;
 #pragma mark —— @property(nonatomic,copy)jobsByIDBlock UIViewControllerShakeBeganBlock;
 -(jobsByIDBlock)UIViewControllerShakeBeganBlock{
     return objc_getAssociatedObject(self, UIViewController_ShakeBegan);
@@ -164,6 +150,8 @@ static char *UIViewController_ShakeEnd = "UIViewController_ShakeEnd";
                              UIViewControllerShakeBeganBlock,
                              OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
+static char *UIViewController_ShakeCancel = "UIViewController_ShakeCancel";
+@dynamic UIViewControllerShakeCancelBlock;
 #pragma mark —— @property(nonatomic,copy)jobsByIDBlock UIViewControllerShakeCancelBlock;
 -(jobsByIDBlock)UIViewControllerShakeCancelBlock{
     return objc_getAssociatedObject(self, UIViewController_ShakeCancel);
@@ -175,6 +163,8 @@ static char *UIViewController_ShakeEnd = "UIViewController_ShakeEnd";
                              UIViewControllerShakeCancelBlock,
                              OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
+static char *UIViewController_ShakeEnd = "UIViewController_ShakeEnd";
+@dynamic UIViewControllerShakeEndBlock;
 #pragma mark —— @property(nonatomic,copy)jobsByIDBlock UIViewControllerShakeEndBlock;
 -(jobsByIDBlock)UIViewControllerShakeEndBlock{
     return objc_getAssociatedObject(self, UIViewController_ShakeEnd);

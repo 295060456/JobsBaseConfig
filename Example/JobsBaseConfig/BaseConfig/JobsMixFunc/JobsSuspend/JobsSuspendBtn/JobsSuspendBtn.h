@@ -54,7 +54,7 @@ NS_ASSUME_NONNULL_END
           _suspendBtn.frame = CGRectMake(80, 100, 50, 50);
           [[_suspendBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
               @jobs_strongify(self)
-              [self->_suspendBtn startRotateAnimation];
+              [self->_suspendBtn rotateAnimation:YES];
               
           }];
       }return _suspendBtn;

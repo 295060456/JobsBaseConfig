@@ -2283,6 +2283,7 @@
 		84D764B6278093650003F0E4 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		84ED5203278C09F5009A22C1 /* 二级标题.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "二级标题.md"; sourceTree = "<group>"; };
 		949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JobsBaseConfigUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C50708D8285CA049002983B3 /* NSObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObject.h; sourceTree = "<group>"; };
 		C50ED323283C89B90097DE89 /* MacroDef_Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDef_Font.h; sourceTree = "<group>"; };
 		C50ED5CE283CC64B0097DE89 /* JobsSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsSwitch.h; sourceTree = "<group>"; };
 		C50ED5D1283CC64B0097DE89 /* UISwitch+UI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISwitch+UI.h"; sourceTree = "<group>"; };
@@ -5299,6 +5300,7 @@
 		840F958827736427004979E9 /* NSObject+Extras */ = {
 			isa = PBXGroup;
 			children = (
+				C50708D8285CA049002983B3 /* NSObject.h */,
 				840F958927736427004979E9 /* NSObject+Extras.h */,
 				840F958A27736427004979E9 /* NSObject+Extras.m */,
 			);

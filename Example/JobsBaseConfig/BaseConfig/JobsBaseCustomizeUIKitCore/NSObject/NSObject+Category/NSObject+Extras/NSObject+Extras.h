@@ -19,6 +19,7 @@
 #import "MacroDef_SysWarning.h"
 #import "FileFolderHandleTool.h"
 #import "NSObject+Class.h"
+#import "NSObject.h"
 
 #if __has_include(<WHToast/WHToast.h>)
 #import <WHToast/WHToast.h>
@@ -63,48 +64,6 @@
 #endif
 
 #import "JobsDropDownListView.h"
-
-typedef struct{
-    NSInteger rowOrItem;
-    NSInteger section;
-}JobsIndexPath;
-
-typedef NS_ENUM(NSInteger, CompareRes) {
-    CompareRes_Error,
-    /// >
-    CompareRes_MoreThan,
-    /// ==
-    CompareRes_Equal,
-    /// <
-    CompareRes_LessThan
-};
-
-typedef NS_ENUM(NSInteger, JobsSearchStrategy) {
-    /// 精确查询
-    JobsSearchStrategy_Accurate = 0,
-    /// 模糊查询
-    JobsSearchStrategy_Fuzzy
-};
-
-typedef NS_ENUM(NSInteger, ScrollDirection) {
-    ScrollDirectionNone = 0,
-    /// 右👉🏻
-    ScrollDirectionRight,
-    /// 左👈🏻
-    ScrollDirectionLeft,
-    /// 上面👆🏻
-    ScrollDirectionUp,
-    /// 下面👇🏻
-    ScrollDirectionDown,
-    /// 右上👉🏻👆🏻
-    ScrollDirectionRight_UP,
-    /// 左上👈🏻👆🏻
-    ScrollDirectionLeft_UP,
-    /// 右下👉🏻👇🏻
-    ScrollDirectionRight_Down,
-    /// 左下👈🏻👇🏻
-    ScrollDirectionLeft_Down,
-};
 
 @interface NSObject (Extras)
 <
@@ -214,23 +173,23 @@ BaseProtocol
                                 motivateViewOffset:(CGFloat)motivateViewOffset
                                        finishBlock:(jobsByIDBlock _Nullable)finishBlock;
 /// iOS 获取任意控件在屏幕中的坐标
-+(CGRect)getWindowFrameByView:(UIView *_Nonnull)view;
+-(CGRect)getWindowFrameByView:(UIView *_Nonnull)view;
 /// 依据View上铆定的internationalizationKEY来全局更改文字以适配国际化
 -(void)languageSwitch;
 /// 打印请求体
-+(void)printRequestMessage:(NSURLSessionDataTask *_Nonnull)task;
+-(void)printRequestMessage:(NSURLSessionDataTask *_Nonnull)task;
 /// 判断是否是此版本App的首次启动
 -(BOOL)isAppFirstLaunch;
 /// 判断是否是App今日的首次启动
 -(BOOL)isTodayAppFirstLaunch;
 /// 震动特效反馈
-+(void)feedbackGenerator;
+-(void)feedbackGenerator;
 /// 检测用户是否锁屏：根据屏幕光线来进行判定，而不是系统通知
-+(BOOL)didUserPressLockButton;
+-(BOOL)didUserPressLockButton;
 /// iOS 限制自动锁屏 lockSwitch:YES(关闭自动锁屏)
-+(void)autoLockedScreen:(BOOL)lockSwitch;
+-(void)autoLockedScreen:(BOOL)lockSwitch;
 
-+(void)savePic:(GKPhotoBrowser *_Nonnull)browser;
+-(void)savePic:(GKPhotoBrowser *_Nonnull)browser;
 /// 将基本数据类型（先统一默认视作浮点数）转化为图片进行显示。使用前提，图片的名字命令为0~9，方便进行映射
 /// @param inputData 需要进行转换映射的基本数据类型数据
 /// @param bitNum 如果操作对象是浮点数，那么小数点后需要保留的位数
@@ -242,11 +201,11 @@ BaseProtocol
 /// 监听程序被杀死前的时刻，进行一些需要异步的操作：磁盘读写、网络请求...
 -(void)terminalCheck:(jobsByIDBlock _Nullable)checkBlock;
 /// Object转换为NSData
-+(NSData *_Nullable)transformToData:(id _Nullable)object;
+-(NSData *_Nullable)transformToData:(id _Nullable)object;
 /// 获取当前设备可用内存
-+(double)availableMemory;
+-(double)availableMemory;
 /// 获取当前任务所占用内存
-+(double)usedMemory;
+-(double)usedMemory;
 #pragma mark —— 尺寸
 /*
     参考资料：https://blog.csdn.net/www9500net_/article/details/52437987

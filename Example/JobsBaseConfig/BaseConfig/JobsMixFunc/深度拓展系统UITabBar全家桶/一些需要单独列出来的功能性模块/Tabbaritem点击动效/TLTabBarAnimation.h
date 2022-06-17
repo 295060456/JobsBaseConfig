@@ -9,6 +9,13 @@
 
 #import "TLAnimationProtocol.h"
 
+#define  kDuration  0.5f
+#define  kAnimationKeyPathScale @"transform.scale"
+#define  kAnimationKeyPathRotation @"transform.rotation"
+#define  kAnimationKeyPathKeyFrame @"contents"
+#define  kAnimationKeyPathPositionY @"position.y"
+#define  kAnimationKeyPathOpacity @"opacity"
+
 NS_ASSUME_NONNULL_BEGIN
 
 /** 弹性动画 */

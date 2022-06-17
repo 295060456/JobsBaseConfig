@@ -160,13 +160,14 @@
                     switch (searchStrategy) {
                         case JobsSearchStrategy_Accurate:{
                             /// 精确查询
-                            if ([[[customObj valueForKey:str] stringValue].lowercaseString containsString:keywords.lowercaseString]) {
+                            
+                            if ([[customObj.valueForKeyBlock(str) stringValue].lowercaseString containsString:keywords.lowercaseString]) {
                                 [resMutSet addObject:customObj];
                             }
                         }break;
                         case JobsSearchStrategy_Fuzzy:{
                             /// 模糊查询
-                            if ([[[customObj valueForKey:str] stringValue] containsString:keywords]) {
+                            if ([[customObj.valueForKeyBlock(str) stringValue] containsString:keywords]) {
                                 [resMutSet addObject:customObj];
                             }
                         }break;
@@ -351,7 +352,7 @@
         }
     }
     [dropDownListView richElementsInViewWithModel:data];
-    CGRect f = [NSObject getWindowFrameByView:motivateFromView];
+    CGRect f = [self getWindowFrameByView:motivateFromView];
     dropDownListView.frame = CGRectMake(f.origin.x,
                                         f.origin.y + f.size.height + motivateViewOffset,
                                         f.size.width,
@@ -360,7 +361,7 @@
     return dropDownListView;
 }
 /// iOS 获取任意控件在屏幕中的坐标
-+(CGRect)getWindowFrameByView:(UIView *_Nonnull)view{
+-(CGRect)getWindowFrameByView:(UIView *_Nonnull)view{
     // 将rect由rect所在视图转换到目标视图view中，返回在目标视图view中的rect
     CGRect rect = [view convertRect:view.bounds toView:getMainWindow()];
     return rect;
@@ -402,7 +403,7 @@
     }
 }
 /// 打印请求体
-+(void)printRequestMessage:(NSURLSessionDataTask *_Nonnull)task{
+-(void)printRequestMessage:(NSURLSessionDataTask *_Nonnull)task{
     if (task) {
         // 请求URL
         NSLog(@"请求URL:%@\n",task.originalRequest.URL);
@@ -414,7 +415,7 @@
         NSLog(@"请求头信息:%@\n",task.originalRequest.allHTTPHeaderFields);
         
         // 请求正文信息
-        NSLog(@"请求正文信息:%@\n",[[NSString alloc] initWithData:task.originalRequest.HTTPBody encoding:NSUTF8StringEncoding]);
+        NSLog(@"请求正文信息:%@\n",[NSString.alloc initWithData:task.originalRequest.HTTPBody encoding:NSUTF8StringEncoding]);
         
     //    // 请求响应时间
     //    NSTimeInterval time = [[NSDate date] timeIntervalSinceDate:NSDate.date];
@@ -434,7 +435,7 @@
 }
 /// 判断是否是App今日的首次启动
 -(BOOL)isTodayAppFirstLaunch{
-    NSString *recordToday = [NSUserDefaults.standardUserDefaults valueForKey:@"TodayAppFirstLaunch"];
+    NSString *recordToday = NSUserDefaults.standardUserDefaults.valueForKeyBlock(@"TodayAppFirstLaunch");
     JobsTimeModel *timeModel = JobsTimeModel.new;
     NSString *today = [NSString stringWithFormat:@"%ld-%ld-%ld-%ld",timeModel.currentEra,timeModel.currentYear,timeModel.currentMonth,timeModel.currentDay];
     if ([recordToday isEqualToString:today]) {
@@ -446,7 +447,7 @@
     }return ![recordToday isEqualToString:today];
 }
 /// 震动特效反馈
-+(void)feedbackGenerator{
+-(void)feedbackGenerator{
     if (@available(iOS 10.0, *)) {
         UIImpactFeedbackGenerator *generator = [UIImpactFeedbackGenerator.alloc initWithStyle:UIImpactFeedbackStyleMedium];
         [generator prepare];
@@ -457,45 +458,43 @@
     }
 }
 /// 检测用户是否锁屏：根据屏幕光线来进行判定，而不是系统通知
-+(BOOL)didUserPressLockButton{
+-(BOOL)didUserPressLockButton{
     //获取屏幕亮度
     CGFloat oldBrightness = UIScreen.mainScreen.brightness;
     //以较小的数量改变屏幕亮度
-    [UIScreen mainScreen].brightness = oldBrightness + (oldBrightness <= 0.01 ? (0.01) : (-0.01));
-    CGFloat newBrightness  = UIScreen.mainScreen.brightness;
+    UIScreen.mainScreen.brightness = oldBrightness + (oldBrightness <= 0.01 ? (0.01) : (-0.01));
+    CGFloat newBrightness = UIScreen.mainScreen.brightness;
     //恢复屏幕亮度
-    [UIScreen mainScreen].brightness = oldBrightness;
+    UIScreen.mainScreen.brightness = oldBrightness;
     //判断屏幕亮度是否能够被改变
     return oldBrightness != newBrightness;
 }
 /// iOS 限制自动锁屏 lockSwitch:YES(关闭自动锁屏)
-+(void)autoLockedScreen:(BOOL)lockSwitch{
+-(void)autoLockedScreen:(BOOL)lockSwitch{
     [UIApplication.sharedApplication setIdleTimerDisabled:lockSwitch];
 }
 
-+(void)savePic:(GKPhotoBrowser *_Nonnull)browser{
+-(void)savePic:(GKPhotoBrowser *_Nonnull)browser{
     if (browser) {
         GKPhoto *photo = browser.photos[browser.currentIndex];
-        
         NSData *imageData = nil;
-        
         if ([photo.image isKindOfClass:SDAnimatedImage.class]) {
             imageData = [(SDAnimatedImage *)photo.image animatedImageData];
         }else if ([photo.image isKindOfClass:YYImage.class]) {
             imageData = [(YYImage *)photo.image animatedImageData];
         }else {
-            imageData = [photo.image sd_imageData];
+            imageData = photo.image.sd_imageData;
         }
         
         if (!imageData) return;
         
-        [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+        [PHPhotoLibrary.sharedPhotoLibrary performChanges:^{
             if (@available(iOS 9, *)) {
-                PHAssetCreationRequest *request = [PHAssetCreationRequest creationRequestForAsset];
+                PHAssetCreationRequest *request = PHAssetCreationRequest.creationRequestForAsset;
                 [request addResourceWithType:PHAssetResourceTypePhoto
                                         data:imageData
                                      options:nil];
-                request.creationDate = [NSDate date];
+                request.creationDate = NSDate.date;
             }
         } completionHandler:^(BOOL success,
                               NSError *error) {
@@ -584,7 +583,7 @@
                                              object:nil];
 }
 /// Object转换为NSData
-+(NSData *_Nullable)transformToData:(id _Nullable)object{
+-(NSData *_Nullable)transformToData:(id _Nullable)object{
     if ([object isKindOfClass:NSString.class]) {
         NSString *string = (NSString *)object;
         return [string dataUsingEncoding:NSUTF8StringEncoding];
@@ -600,7 +599,7 @@
             return [NSKeyedArchiver archivedDataWithRootObject:array
                                          requiringSecureCoding:YES
                                                          error:&err];
-        } else {
+        }else{
             SuppressWdeprecatedDeclarationsWarning(return [NSKeyedArchiver archivedDataWithRootObject:array]);
         }
     }else if ([object isKindOfClass:NSDictionary.class]){
@@ -609,12 +608,10 @@
         return [NSJSONSerialization dataWithJSONObject:dictionary
                                                options:NSJSONWritingPrettyPrinted
                                                  error:&err];
-    }else{
-        return nil;
-    }
+    }else return nil;
 }
 /// 获取当前设备可用内存
-+(double)availableMemory{
+-(double)availableMemory{
     vm_statistics_data_t vmStats;
     mach_msg_type_number_t infoCount = HOST_VM_INFO_COUNT;
     kern_return_t kernReturn = host_statistics(mach_host_self(),
@@ -626,7 +623,7 @@
     }return ((vm_page_size * vmStats.free_count)/1024.0)/1024.0;
 }
 /// 获取当前任务所占用内存
-+(double)usedMemory{
+-(double)usedMemory{
     task_basic_info_data_t taskInfo;
     mach_msg_type_number_t infoCount = TASK_BASIC_INFO_COUNT;
     kern_return_t kernReturn = task_info(mach_task_self(),

@@ -8,14 +8,7 @@
 
 #import "TLTabBarAnimation.h"
 
-#define kDuration  0.5f
-#define  kAnimationKeyPathScale @"transform.scale"
-#define  kAnimationKeyPathRotation @"transform.rotation"
-#define  kAnimationKeyPathKeyFrame @"contents"
-#define  kAnimationKeyPathPositionY @"position.y"
-#define  kAnimationKeyPathOpacity @"opacity"
-
-// MARK: - 功能函数
+#pragma mark —— 功能函数
 /// 反转数组
 NSArray *reversedArray(NSArray *arr) {
     NSMutableArray *temp = [NSMutableArray arrayWithCapacity:arr.count];
@@ -126,7 +119,7 @@ void playFireworksAnimation(UIView *view,
         });
     });
 }
-// MARK: - TLBounceAnimation 弹性动画
+#pragma mark —— TLBounceAnimation 弹性动画
 @implementation TLBounceAnimation
 
 - (void)playSelectAnimationWhitTabBarButton:(UIView *)button
@@ -154,7 +147,7 @@ void playFireworksAnimation(UIView *view,
 }
 
 @end
-// MARK: - TLFumeAnimation 仿烟动画
+#pragma mark —— TLFumeAnimation 仿烟动画
 @implementation TLFumeAnimation
 
 - (void)playSelectAnimationWhitTabBarButton:(UIView *)button
@@ -219,8 +212,7 @@ void playDeselectLabelAnimation(UILabel *textLabel) {
 }
 
 @end
-
-// MARK: - TLRotationAnimation 旋转动画
+#pragma mark —— TLRotationAnimation 旋转动画
 @implementation TLRotationAnimation
 
 - (void)playSelectAnimationWhitTabBarButton:(UIView *)button
@@ -241,8 +233,7 @@ void playDeselectLabelAnimation(UILabel *textLabel) {
 }
 
 @end
-
-// MARK: - TLFrameAnimation Frame动画
+#pragma mark —— TLFrameAnimation Frame动画
 @implementation TLFrameAnimation
 
 - (void)playSelectAnimationWhitTabBarButton:(UIView *)button
@@ -269,8 +260,7 @@ void playDeselectLabelAnimation(UILabel *textLabel) {
 }
 
 @end
-
-// MARK: - TLTransitionAniamtion 翻转动画
+#pragma mark —— TLTransitionAniamtion 翻转动画
 @implementation TLTransitionAniamtion
 - (void)playSelectAnimationWhitTabBarButton:(UIView *)button
                             buttonImageView:(UIImageView *)imageView
