@@ -106,8 +106,22 @@
     /// 通过KVC的方式给myObj对象的jobsName属性赋值
     [myobjc setValue:@"我是Jobs" forKey:@"jobsName"];// ⚠️注意⚠️：此时，运行程序后会报错。这是因为我只添加了属性，并没有给属性添加对应的setter和getter
     /// 添加对应的setter和getter
-    class_addMethod(MyClass, @selector(setJobsName:), (IMP)jobsNameSetter, "v@:@");
-    class_addMethod(MyClass, @selector(jobsName), (IMP)jobsName, "@@:");
+    /**
+     方法签名由方法名称和一个参数列表（方法的参数的顺序和类型）组成
+     注意：方法签名不包括方法的返回类型。不包括返回值和访问修饰符
+     第一个参数是在哪个类中添加方法
+     第二个参数是所添加方法的编号SEL
+     第三个参数是所添加方法的函数实现的指针IMP
+     第四个参数是所添加方法的签名
+     */
+    class_addMethod(MyClass,
+                    @selector(setJobsName:),
+                    (IMP)jobsNameSetter,
+                    "v@:@");
+    class_addMethod(MyClass,
+                    @selector(jobsName),
+                    (IMP)jobsName,
+                    "@@:");
     
     id A = [myobjc performSelector:@selector(setJobsName:) withObject:@"bmw"];
     id B = [myobjc performSelector:@selector(jobsName) withObject:nil];
@@ -162,6 +176,10 @@ NSString *jobsName(){
 }
 /// 【添加方法】
 -(void)addMethod{
+    /**
+     方法签名由方法名称和一个参数列表（方法的参数的顺序和类型）组成
+     注意：方法签名不包括方法的返回类型。不包括返回值和访问修饰符
+     */
     class_addMethod(newClass,/// 第一个参数是在哪个类中添加方法
                     @selector(test),/// 第二个参数是所添加方法的编号SEL
                     (IMP)funcIMP,/// 第三个参数是所添加方法的函数实现的指针IMP
