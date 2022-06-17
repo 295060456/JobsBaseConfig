@@ -102,16 +102,20 @@ static JobsTabbarVC *static_tabbarVC = nil;
 }
 /// 打开手势
 -(void)openPan{
-    self.view.panGR.enabled = YES;
-//    if (!self.view.callbackBlock) {
-//        @jobs_weakify(self)
-//        self.view.callbackBlock = ^(id weakSelf,
-//                                    id arg,
-//                                    UIGestureRecognizer *data3) {
-//            @jobs_strongify(self)
-//            [self panGestureRecognizer:(UIPanGestureRecognizer *)data3];
-//        };
-//    }
+    
+    self.view.numberOfTouchesRequired = 1;
+    self.view.numberOfTapsRequired = 1;/// ⚠️注意：如果要设置长按手势，此属性必须设置为0⚠️
+    self.view.minimumPressDuration = 0.1;
+    self.view.numberOfTouchesRequired = 1;
+    self.view.allowableMovement = 1;
+    self.view.userInteractionEnabled = YES;
+    self.view.target = self;
+    @jobs_weakify(self)
+    self.view.panGR_SelImp.selector = [self jobsSelectorBlock:^(id  _Nullable target, UIPanGestureRecognizer *_Nullable arg) {
+        @jobs_strongify(self)
+        [self panGestureRecognizer:arg];
+    }];
+    self.view.panGR.enabled = YES;/// 必须在设置完Target和selector以后方可开启执行
 }
 /// 开启/关闭 PPBadgeView的效果,至少在viewDidLayoutSubviews后有效
 -(void)ppBadge:(BOOL)open{
@@ -268,43 +272,45 @@ static JobsTabbarVC *static_tabbarVC = nil;
 }
 
 -(void)添加长按手势{
-//    for (UIView *subView in self.UITabBarButtonMutArr) {
-//        subView.tag = [self.UITabBarButtonMutArr indexOfObject:subView];
-//
-//        subView.numberOfTouchesRequired = 1;//手指数
-//        subView.minimumPressDuration = 1;
-//        subView.target = self;
-//        subView.longPressGR.enabled = YES;
-//        subView.callbackBlock = ^(id weakSelf,
-//                                  id arg,
-//                                  UIGestureRecognizer *data3) {
-//            UILongPressGestureRecognizer *longPressGR = (UILongPressGestureRecognizer *)data3;
-//            switch (longPressGR.state) {
-//                case UIGestureRecognizerStatePossible:{
-//                    NSLog(@"没有触摸事件发生，所有手势识别的默认状态");
-//                }break;
-//                case UIGestureRecognizerStateBegan:{
-//                    //长按手势
-//                    [self 长按手势做什么:longPressGR];
-//                    NSLog(@"一个手势已经开始  但尚未改变或者完成时");
-//                }break;
-//                case UIGestureRecognizerStateChanged:{
-//                    NSLog(@"手势状态改变");
-//                }break;
-//                case UIGestureRecognizerStateEnded:{// = UIGestureRecognizerStateRecognized
-//                    NSLog(@"手势完成");
-//                }break;
-//                case UIGestureRecognizerStateCancelled:{
-//                    NSLog(@"手势取消，恢复至Possible状态");
-//                }break;
-//                case UIGestureRecognizerStateFailed:{
-//                    NSLog(@"手势失败，恢复至Possible状态");
-//                }break;
-//                default:
-//                    break;
-//            }
-//        };
-//    }
+    for (UIView *subView in self.UITabBarButtonMutArr) {
+        subView.tag = [self.UITabBarButtonMutArr indexOfObject:subView];
+        
+        subView.numberOfTouchesRequired = 1;
+        subView.numberOfTapsRequired = 1;/// ⚠️注意：如果要设置长按手势，此属性必须设置为0⚠️
+        subView.minimumPressDuration = 0.1;
+        subView.numberOfTouchesRequired = 1;
+        subView.allowableMovement = 1;
+        subView.userInteractionEnabled = YES;
+        subView.target = self;
+        subView.longPressGR_SelImp.selector = [self jobsSelectorBlock:^(id _Nullable target, UILongPressGestureRecognizer *_Nullable longPressGR) {
+            NSLog(@"");
+            switch (longPressGR.state) {
+                case UIGestureRecognizerStatePossible:{
+                    NSLog(@"没有触摸事件发生，所有手势识别的默认状态");
+                }break;
+                case UIGestureRecognizerStateBegan:{
+                    //长按手势
+                    [self 长按手势做什么:longPressGR];
+                    NSLog(@"一个手势已经开始  但尚未改变或者完成时");
+                }break;
+                case UIGestureRecognizerStateChanged:{
+                    NSLog(@"手势状态改变");
+                }break;
+                case UIGestureRecognizerStateEnded:{// = UIGestureRecognizerStateRecognized
+                    NSLog(@"手势完成");
+                }break;
+                case UIGestureRecognizerStateCancelled:{
+                    NSLog(@"手势取消，恢复至Possible状态");
+                }break;
+                case UIGestureRecognizerStateFailed:{
+                    NSLog(@"手势失败，恢复至Possible状态");
+                }break;
+                default:
+                    break;
+            }
+        }];
+        subView.longPressGR.enabled = YES;/// 必须在设置完Target和selector以后方可开启执行
+    }
 }
 #pragma mark —— UITabBarDelegate
 /// 监听TabBarItem点击事件

@@ -35,19 +35,23 @@ extern NetworkingEnvir networkingEnvir;
                                                selector:@selector(uploadAndDownload:)
                                                    name:GSUploadAndDownloadNetworkSpeedNotificationKey
                                                  object:nil];
-//        {// A
-//            self.userInteractionEnabled = YES;
-//            self.target = self;
-//            self.numberOfTouchesRequired = 1;
-//            self.numberOfTapsRequired = 1;
-//            self.tapGR.enabled = YES;
-//
-////            @jobs_weakify(self)
-//            self.callbackBlock = ^(id weakSelf, id arg, UIGestureRecognizer *data3) {
-////                @jobs_strongify(self)
-//                [weakSelf showMenu];
-//            };
-//        }
+        
+        {
+            self.numberOfTouchesRequired = 1;
+            self.numberOfTapsRequired = 1;/// ⚠️注意：如果要设置长按手势，此属性必须设置为0⚠️
+            self.minimumPressDuration = 0.1;
+            self.numberOfTouchesRequired = 1;
+            self.allowableMovement = 1;
+            self.userInteractionEnabled = YES;
+            @jobs_weakify(self)
+            self.target = weak_self;
+            self.tapGR_SelImp.selector = [self jobsSelectorBlock:^(id _Nullable target, UITapGestureRecognizer *_Nullable arg) {
+                @jobs_strongify(self)
+                [self showMenu];
+            }];
+            self.tapGR.enabled = YES;/// 必须在设置完Target和selector以后方可开启执行
+        }
+        
     }return self;
 }
 #pragma mark —— 一些私有方法

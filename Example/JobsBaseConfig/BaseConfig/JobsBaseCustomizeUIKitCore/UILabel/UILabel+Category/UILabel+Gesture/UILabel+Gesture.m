@@ -12,40 +12,23 @@
 -(void)makeLabelGesture{
     NSLog(@"给UILabel的子类加手势");
     
-//    {// B
-//        self.userInteractionEnabled = YES;
-//        self.target = self;
-//        self.numberOfTouchesRequired = 1;
-//        self.minimumPressDuration = 1;
-//        self.longPressGR.enabled = YES;
-//    }
+    self.numberOfTouchesRequired = 1;
+    self.numberOfTapsRequired = 1;/// ⚠️注意：如果要设置长按手势，此属性必须设置为0⚠️
+    self.minimumPressDuration = 0.1;
+    self.numberOfTouchesRequired = 1;
+    self.allowableMovement = 1;
+    self.userInteractionEnabled = YES;
+    self.target = self;
+    self.longPressGR_SelImp.selector = [self jobsSelectorBlock:^(id _Nullable target, UILongPressGestureRecognizer *_Nullable arg) {
+        NSLog(@"UILabel 的 长按 手势");
+    }];
+    self.longPressGR.enabled = YES;/// 必须在设置完Target和selector以后方可开启执行
     
-//    {
-//        self.userInteractionEnabled = YES;
-//        self.target = self;
-//        self.numberOfTouchesRequired = 1;
-//        self.minimumPressDuration = 1;
-//        
-//        
-//        self.longPressGR.enabled = YES;
-//        {
-//            self.tapGR.enabled = YES;
-//            self.numberOfTapsRequired = 1;
-//        }
-//        
-//        @jobs_weakify(self)
-//        self.callbackBlock = ^(id weakSelf,
-//                               id arg,
-//                               UIGestureRecognizer *data3) {
-//            @jobs_strongify(self)
-//            if ([data3 isKindOfClass:UITapGestureRecognizer.class]) {
-//                NSLog(@"UILabel 的 Tap 手势");
-//                [self clickLink];
-//            }else if ([data3 isKindOfClass:UILongPressGestureRecognizer.class]){
-//                NSLog(@"UILabel 的 长按 手势");
-//            }else{}
-//        };
-//    };
+    self.tapGR_SelImp.selector = [self jobsSelectorBlock:^(id _Nullable target, UITapGestureRecognizer *_Nullable arg) {
+        NSLog(@"UILabel 的 Tap 手势");
+        [self clickLink];
+    }];
+    self.tapGR.enabled = YES;/// 必须在设置完Target和selector以后方可开启执行
 }
 
 // 点击文本处理链接跳转
