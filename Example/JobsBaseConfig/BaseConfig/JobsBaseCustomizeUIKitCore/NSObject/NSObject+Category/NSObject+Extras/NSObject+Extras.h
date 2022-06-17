@@ -11,6 +11,7 @@
 #import <objc/runtime.h>
 #import <sys/sysctl.h>
 #import <mach/mach.h>
+#import <ImageIO/CGImageSource.h>
 
 #import "BaseProtocol.h"
 #import "UIViewModelProtocol.h"
@@ -65,6 +66,14 @@
 
 #import "JobsDropDownListView.h"
 
+@interface ImageModel : NSObject
+
+@property(nonatomic,strong,nullable)UIImage *image;
+@property(nonatomic,strong,nullable)NSDictionary *info;
+@property(nonatomic,strong,nullable)NSDictionary *timeDic;
+
+@end
+
 @interface NSObject (Extras)
 <
 BaseProtocol
@@ -116,6 +125,7 @@ BaseProtocol
 /// 添加监听【针对UIScrollView 的 ContentOffset 属性】
 -(void)monitorContentOffsetScrollView:(UIScrollView *_Nonnull)scrollView;
 #pragma mark —— 功能性的
+-(NSMutableArray <ImageModel *>*_Nonnull)changeGifToImage:(NSData *_Nonnull)gifData;
 -(void)addNotificationObserverWithName:(NSString *_Nonnull)notificationName
                          selectorBlock:(jobsByTwoIDBlock _Nullable)selectorBlock;
 +(instancetype _Nonnull)jobsInitWithReuseIdentifier;

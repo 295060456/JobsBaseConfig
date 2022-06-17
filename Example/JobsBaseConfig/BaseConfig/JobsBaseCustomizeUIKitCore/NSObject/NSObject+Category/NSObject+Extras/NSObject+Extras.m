@@ -110,6 +110,27 @@
                     context:nil];
 }
 #pragma mark —— 功能性的
+-(NSMutableArray <ImageModel *>*_Nonnull)changeGifToImage:(NSData *_Nonnull)gifData{
+    /// 通过文件的url来将gif文件读取为图片数据引用
+    CFDataRef my_cfdata = CFBridgingRetain(gifData);
+    CGImageSourceRef source = CGImageSourceCreateWithData(my_cfdata, NULL);
+    /// 获取gif文件里图片的个数
+    size_t count = CGImageSourceGetCount(source);
+    /// 存放全部图片
+    NSMutableArray <ImageModel *>*imageModelArr = NSMutableArray.array;
+    /// 遍历
+    for (size_t i = 0; i < count; i++) {
+        ImageModel *imageModel = ImageModel.new;
+        CGImageRef image = CGImageSourceCreateImageAtIndex(source, i, NULL);
+        imageModel.image = [UIImage imageWithCGImage:image];
+        CGImageRelease(image);
+        //获取图片信息
+        imageModel.info = (__bridge NSDictionary*)CGImageSourceCopyPropertiesAtIndex(source, i, NULL);
+        imageModel.timeDic = [imageModel.info objectForKey:(__bridge NSString *)kCGImagePropertyGIFDictionary];
+        [imageModelArr addObject:imageModel];
+    }return imageModelArr;
+}
+
 -(JobsReturnIDByIDBlock _Nonnull)valueForKeyBlock{
     return ^(NSString *data) {
         return [data isKindOfClass:NSString.class] ? [self valueForKey:data] : nil;
@@ -963,6 +984,10 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
                              internationalizationKEY,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+
+@end
+
+@implementation ImageModel
 
 @end
 
