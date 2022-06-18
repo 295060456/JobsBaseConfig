@@ -13,13 +13,19 @@ extern AppDelegate *appDelegate;
 @property(nonatomic,strong)UITableView *tableView;///  左侧的标题
 @property(nonatomic,strong)UICollectionView *collectionView; /// 右侧的内容
 @property(nonatomic,strong)UICollectionViewFlowLayout *flowLayout;
+@property(nonatomic,strong)UIButton *customerServiceBtn;
+@property(nonatomic,strong)UIButton *msgBtn;
 @property(nonatomic,strong)UIButton *editBtn;
 @property(nonatomic,strong)ThreeClassCell *tempCell;
+@property(nonatomic,strong)BaiShaETProjSearchView *searchView;
+@property(nonatomic,strong)BaiShaETProjPopupView10 *popupView;
 /// Data
-@property(nonatomic,strong)NSMutableArray <NSString *>*titleMutArr;
-@property(nonatomic,strong)NSMutableArray <GoodsClassModel *>*leftDataArray;
-@property(nonatomic,strong)NSMutableArray <GoodsClassModel *>*rightDataArray;
-@property(nonatomic,strong)GoodsClassModel *currentSelectModel;
+@property(nonatomic,strong)NSMutableArray <UIViewModel *>*titleMutArr;
+@property(nonatomic,strong)NSMutableArray <UIViewModel *>*popupViewDataMutArr;
+@property(nonatomic,strong)NSMutableArray <UIViewModel *>*leftDataArray;/// 左边的数据源
+@property(nonatomic,strong)NSMutableArray <GoodsClassModel *>*rightDataArray;/// 右边的数据源
+@property(nonatomic,strong)GoodsClassModel *rightViewCurrentSelectModel;
+@property(nonatomic,strong)UIViewModel *leftViewCurrentSelectModel;
 @property(nonatomic,strong)NSMutableArray <UIImage *>*imageDataMutArr;
 @property(nonatomic,assign)NSUInteger thisIndex;
 
@@ -34,7 +40,6 @@ extern AppDelegate *appDelegate;
 
 -(void)loadView{
     [super loadView];
-    
     if ([self.requestParams isKindOfClass:UIViewModel.class]) {
         self.viewModel = (UIViewModel *)self.requestParams;
     }
@@ -42,59 +47,110 @@ extern AppDelegate *appDelegate;
     
     self.viewModel.backBtnTitleModel.text = @"";
     self.viewModel.textModel.textCor = HEXCOLOR(0x3D4A58);
-    self.viewModel.textModel.text = Internationalization(@"竖形菜单选择功能");
+    self.viewModel.textModel.text = Internationalization(@"");
     self.viewModel.textModel.font = notoSansBold(16);
 
     self.bgImage = nil;
+    
+    [self loadData];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     [self setGKNav];
     [self setGKNavBackBtn];
-    self.gk_navigationBar.jobsVisible = YES;
     
-    self.editBtn.alpha = 1;
+    self.gk_navigationBar.jobsVisible = YES;
+    self.gk_navRightBarButtonItems = @[[UIBarButtonItem.alloc initWithCustomView:self.msgBtn],
+                                       [UIBarButtonItem.alloc initWithCustomView:self.customerServiceBtn]];
+    
+    self.searchView.alpha = 1;
     self.tableView.alpha = 1;
+    self.editBtn.alpha = 1;
     self.collectionView.alpha = 1;
-    [self getLeftData];
+    [self refreshLeftView];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
 }
 
 -(void)viewWillLayoutSubviews{
     [super viewWillLayoutSubviews];
-    NSLog(@"");
 }
 
 -(void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
-    NSLog(@"");
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    /// 只有在这个生命周期才有效
     [self.collectionView setContentOffset:CGPointMake(0, JobsWidth(-5)) animated:YES];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
 }
-
--(void)viewDidDisappear:(BOOL)animated{
-    [super viewDidDisappear:animated];
-}
 #pragma mark —— 一些私有方法
--(void)getLeftData{
+-(NSUInteger)thisIndex{
+    return self.leftViewCurrentSelectModel ? [self.leftDataArray indexOfObject:self.leftViewCurrentSelectModel] : 0;
+}
+
+-(void)loadData{
     /// 这里可以调用接口去获取一级目录分类的数据
     for (int i = 0; i < self.titleMutArr.count; i++){
         [self.leftDataArray addObject:[self createOneModel:i]];
     }
+}
+/// 最初默认的数据
+-(NSMutableArray<UIViewModel *> *)makeTitleMutArr{
+    NSMutableArray *titleMutArr = NSMutableArray.array;
+    {
+        UIViewModel *viewModel = UIViewModel.new;
+        viewModel.textModel.text = Internationalization(@"收藏");
+        [titleMutArr addObject:viewModel];
+    }
+    
+    [titleMutArr addObjectsFromArray:self.makePopViewDataMutArr];
+    return titleMutArr;
+}
+
+-(NSMutableArray<UIViewModel *> *)makePopViewDataMutArr{
+    NSMutableArray *titleMutArr = NSMutableArray.array;
+    
+    {
+        UIViewModel *viewModel = UIViewModel.new;
+        viewModel.textModel.text = Internationalization(@"真人");
+        [titleMutArr addObject:viewModel];
+    }
+    
+    {
+        UIViewModel *viewModel = UIViewModel.new;
+        viewModel.textModel.text = Internationalization(@"体育");
+        [titleMutArr addObject:viewModel];
+    }
+    
+    {
+        UIViewModel *viewModel = UIViewModel.new;
+        viewModel.textModel.text = Internationalization(@"电子");
+        [titleMutArr addObject:viewModel];
+    }
+    
+    {
+        UIViewModel *viewModel = UIViewModel.new;
+        viewModel.textModel.text = Internationalization(@"棋牌");
+        [titleMutArr addObject:viewModel];
+    }
+    
+    {
+        UIViewModel *viewModel = UIViewModel.new;
+        viewModel.textModel.text = Internationalization(@"彩票");
+        [titleMutArr addObject:viewModel];
+    }return titleMutArr;
+}
+
+-(void)refreshLeftView{
     [self.tableView reloadData];
     if (self.leftDataArray.count){
         @jobs_weakify(self)
@@ -137,7 +193,7 @@ extern AppDelegate *appDelegate;
     model.idField = [NSString stringWithFormat:@"%d", iflag];
     model.pid = @"0";
     model.name = [NSString stringWithFormat:@"一级目录 %d", iflag];
-    model.textModel.text = self.titleMutArr[iflag];
+    model.textModel.text = self.titleMutArr[iflag].textModel.text;
     return model;
 }
 
@@ -176,9 +232,9 @@ numberOfRowsInSection:(NSInteger)section{
 -(UITableViewCell *)tableView:(UITableView *)tableView
         cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     LeftCell *cell = [LeftCell cellWithTableView:tableView];
-    
+
     UIViewModel *viewModel = UIViewModel.new;
-    viewModel.textModel.text = self.titleMutArr[indexPath.row];
+    viewModel.textModel.text = self.titleMutArr[indexPath.row].textModel.text;
     [cell richElementsInCellWithModel:viewModel];
     
     return cell;
@@ -192,21 +248,26 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 -(void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView scrollToNearestSelectedRowAtScrollPosition:UITableViewScrollPositionMiddle animated:YES];
-    self.currentSelectModel = [self.leftDataArray objectAtIndex:indexPath.row];
-    [self getGoodsClassWithPid:self.currentSelectModel.idField];
+    if (self.rightDataArray.count) {
+        self.rightViewCurrentSelectModel = [self.rightDataArray objectAtIndex:indexPath.row];
+    }
+    if (self.leftDataArray.count) {
+        self.leftViewCurrentSelectModel = [self.leftDataArray objectAtIndex:indexPath.row];
+    }
+    [self getGoodsClassWithPid:self.rightViewCurrentSelectModel.idField];
     [self.collectionView setContentOffset:CGPointMake(0, JobsWidth(-5)) animated:YES];
 }
 #pragma mark —— UICollectionViewDelegate,UICollectionViewDataSource ThreeTopBannerCell
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                  cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     ThreeClassCell *cell = [ThreeClassCell cellWithCollectionView:collectionView forIndexPath:indexPath];
-    self.currentSelectModel = [self.rightDataArray objectAtIndex:indexPath.section];
-    [cell getCollectionHeight:(NSMutableArray *)self.currentSelectModel.childrenList];
+    self.rightViewCurrentSelectModel = [self.rightDataArray objectAtIndex:indexPath.section];
+    [cell getCollectionHeight:(NSMutableArray *)self.rightViewCurrentSelectModel.childrenList];
     [cell richElementsInCellWithModel:self.rightDataArray];
     [cell reloadData];
-//        @jobs_weakify(self)
+//    @jobs_weakify(self)
     [cell actionObjectBlock:^(GoodsClassModel *model) {
-//            @jobs_strongify(self)
+//        @jobs_strongify(self)
         NSLog(@"pid : %@", model.idField);
         NSLog(@"选中id : %@", model.idField);
     }];return cell;
@@ -270,6 +331,33 @@ referenceSizeForFooterInSection:(NSInteger)section{
     return CGSizeMake(self.collectionView.width, [self getCellHeight:(NSMutableArray *)[self.rightDataArray objectAtIndex:indexPath.section].childrenList]);
 }
 #pragma mark —— lazyLoad
+-(UIButton *)customerServiceBtn{
+    if (!_customerServiceBtn) {
+        _customerServiceBtn = UIButton.new;
+        _customerServiceBtn.normalImage = KIMG(@"人工客服");
+    }return _customerServiceBtn;
+}
+
+-(UIButton *)msgBtn{
+    if (!_msgBtn) {
+        _msgBtn = UIButton.new;
+        _msgBtn.normalImage = KIMG(@"消息");
+    }return _msgBtn;
+}
+
+-(BaiShaETProjSearchView *)searchView{
+    if (!_searchView) {
+        _searchView = [BaiShaETProjSearchView.alloc initWithSize:CGSizeZero];
+        [_searchView richElementsInViewWithModel:nil];
+        [self.gk_navigationBar addSubview:_searchView];
+        [_searchView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.size.mas_equalTo([BaiShaETProjSearchView viewSizeWithModel:nil]);
+            make.left.equalTo(self.gk_navigationBar).offset(JobsWidth(16));
+            make.bottom.equalTo(self.gk_navigationBar.mas_bottom).offset(JobsWidth(-5));
+        }];
+    }return _searchView;
+}
+
 -(UIButton *)editBtn{
     if (!_editBtn) {
         _editBtn = UIButton.new;
@@ -280,12 +368,17 @@ referenceSizeForFooterInSection:(NSInteger)section{
         _editBtn.normalImage = KIMG(@"编辑");
         [_editBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft imageTitleSpace:JobsWidth(5.75)];
         BtnClickEvent(_editBtn, {
-            toast(Internationalization(@"编辑"));
+//            toast(Internationalization(@"编辑"));
+            self.popupParameter.dragEnable = YES;
+            self.popupParameter.disuseBackgroundTouchHide = NO;
+            [self.popupView tf_showSlide:getMainWindow()
+                               direction:PopupDirectionBottom
+                              popupParam:self.popupParameter];
         })
         [self.view addSubview:_editBtn];
         [_editBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.view);
-            make.bottom.equalTo(self.view);
+            make.top.equalTo(self.tableView.mas_bottom);
             make.size.mas_equalTo(CGSizeMake(TableViewWidth, EditBtnHeight));
         }];
     }return _editBtn;
@@ -344,7 +437,7 @@ referenceSizeForFooterInSection:(NSInteger)section{
     }return _tempCell;
 }
 
--(NSMutableArray<GoodsClassModel *> *)leftDataArray{
+-(NSMutableArray<UIViewModel *> *)leftDataArray{
     if (!_leftDataArray) {
         _leftDataArray = NSMutableArray.array;
     }return _leftDataArray;
@@ -354,18 +447,6 @@ referenceSizeForFooterInSection:(NSInteger)section{
     if (!_rightDataArray) {
         _rightDataArray = NSMutableArray.array;
     }return _rightDataArray;
-}
-
--(NSMutableArray<NSString *> *)titleMutArr{
-    if (!_titleMutArr) {
-        _titleMutArr = NSMutableArray.array;
-        [_titleMutArr addObject:Internationalization(@"收藏")];
-        [_titleMutArr addObject:Internationalization(@"真人")];
-        [_titleMutArr addObject:Internationalization(@"体育")];
-        [_titleMutArr addObject:Internationalization(@"电子")];
-        [_titleMutArr addObject:Internationalization(@"棋牌")];
-        [_titleMutArr addObject:Internationalization(@"彩票")];
-    }return _titleMutArr;
 }
 
 -(NSMutableArray<UIImage *> *)imageDataMutArr{
@@ -406,8 +487,62 @@ referenceSizeForFooterInSection:(NSInteger)section{
     }return _imageDataMutArr;
 }
 
--(NSUInteger)thisIndex{
-    return [self.leftDataArray indexOfObject:self.currentSelectModel];
+-(BaiShaETProjPopupView10 *)popupView{
+    if (!_popupView) {
+        _popupView = BaiShaETProjPopupView10.new;
+        _popupView.size = [BaiShaETProjPopupView10 viewSizeWithModel:nil];
+        @jobs_weakify(self)
+        [_popupView tf_observerDelegateProcess:^(UIView *pop, DelegateProcess pro) {
+            @strongify(self)
+            if (pro == DelegateProcessWillHide) {
+                [self.popupView shakeCell:NO];
+            }
+        }];
+        [_popupView actionObjectBlock:^(id data) {
+            @strongify(self)
+            if ([data isKindOfClass:NSMutableArray.class]) {
+                NSMutableArray *dataMutArr = NSMutableArray.array;
+                [dataMutArr addObject:self.titleMutArr[0]];
+                [dataMutArr addObjectsFromArray:(NSMutableArray *)data];
+#ifdef DEBUG
+                NSMutableArray *mutArr = NSMutableArray.array;
+                for (UIViewModel *viewModel in dataMutArr) {
+                    [mutArr addObject:viewModel.textModel.text];
+                }
+                NSLog(@"%@",mutArr);
+#endif
+                self.titleMutArr = dataMutArr;
+            }else if ([data isKindOfClass:UIButton.class]){
+                UIButton *btn = (UIButton *)data;
+                if ([btn.titleForNormalState isEqualToString:Internationalization(@"恢复默认")]) {
+                    self.titleMutArr = self.makeTitleMutArr;
+                }
+            }else{}
+            
+            [self.tableView reloadData];
+            [self.collectionView reloadData];
+        }];
+    }
+    NSLog(@"self.thisIndex = %ld",self.thisIndex);
+    
+    UIViewModel *viewModel = UIViewModel.new;
+    viewModel.index = self.thisIndex;
+    viewModel.data = self.popupViewDataMutArr;
+    
+    [_popupView richElementsInViewWithModel:viewModel];
+    return _popupView;
+}
+
+-(NSMutableArray<UIViewModel *> *)popupViewDataMutArr{
+    if (!_popupViewDataMutArr) {
+        _popupViewDataMutArr = self.makePopViewDataMutArr;
+    }return _popupViewDataMutArr;
+}
+
+-(NSMutableArray<UIViewModel *> *)titleMutArr{
+    if (!_titleMutArr) {
+        _titleMutArr = self.makeTitleMutArr;
+    }return _titleMutArr;
 }
 
 @end

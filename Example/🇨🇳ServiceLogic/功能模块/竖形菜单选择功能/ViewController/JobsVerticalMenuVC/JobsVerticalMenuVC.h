@@ -10,6 +10,8 @@
 #import "LeftCell.h"
 #import "ThreeClassCell.h"
 #import "GoodsClassModel.h"
+#import "BaiShaETProjSearchView.h"
+#import "BaiShaETProjPopupView10.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
