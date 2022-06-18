@@ -8,14 +8,25 @@
 #import "NSObject+CallBackInfoByBlock.h"
 
 @implementation NSObject (CallBackInfoByBlock)
-#pragma mark —— block的set
-/// 对应 objectBlock
+#pragma mark —— 没有返回值的Block | Set
 -(void)actionVoidBlock:(jobsByVoidBlock)voidBlock{
     self.voidBlock = voidBlock;
 }
 
 -(void)actionObjectBlock:(jobsByIDBlock)objectBlock{
     self.objectBlock = objectBlock;
+}
+
+-(void)actionGestureRecognizerBlock:(jobsByGestureRecognizerBlock)gestureRecognizerBlock{
+    self.gestureRecognizerBlock = gestureRecognizerBlock;
+}
+
+-(void)actionSELBlock:(jobsBySELBlock)selBlock{
+    self.selBlock = selBlock;
+}
+
+-(void)actionStringBlock:(jobsByStringBlock)stringBlock{
+    self.stringBlock = stringBlock;
 }
 
 -(void)actionNSIntegerBlock:(jobsByNSIntegerBlock)NSIntegerBlock{
@@ -77,7 +88,23 @@
 -(void)actionUnsignedLongLongBlock:(jobsByUnsignedLongLongBlock)UnsignedLongLongBlock{
     self.UnsignedLongLongBlock = UnsignedLongLongBlock;
 }
-/// =============================❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️=============================
+#pragma mark —— 有返回值的Block | Set
+-(void)actionReturnIDByVoidBlock:(JobsReturnIDByVoidBlock)returnObjectByVoidBlock{
+    self.returnObjectByVoidBlock = returnObjectByVoidBlock;
+}
+
+-(void)actionReturnIDByGestureRecognizerBlock:(JobsReturnIDByGestureRecognizerBlock)returnObjectByGestureRecognizerBlock{
+    self.returnObjectByGestureRecognizerBlock = returnObjectByGestureRecognizerBlock;
+}
+
+-(void)actionReturnIDBySELBlock:(JobsReturnIDBySELBlock)returnObjectBySELBlock{
+    self.returnObjectBySELBlock = returnObjectBySELBlock;
+}
+
+-(void)actionReturnIDByStringBlock:(JobsReturnIDByStringBlock)returnObjectByStringBlock{
+    self.returnObjectByStringBlock = returnObjectByStringBlock;
+}
+
 -(void)actionReturnObjectBlock:(JobsReturnIDByIDBlock)returnObjectBlock{
     self.returnObjectBlock = returnObjectBlock;
 }

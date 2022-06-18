@@ -7,22 +7,25 @@
 
 #ifndef ReturnByCertainParameters_h
 #define ReturnByCertainParameters_h
-/// 确定入参个数 并且 有返回值的Block定义
-
+///【 确定入参个数 并且 有返回值的Block定义】
+#pragma mark —— 单形参
+/// 1、无入参、且返回ID类型的Block定义
+typedef id(^JobsReturnIDByVoidBlock)(void);
+/// 2、入参的个数为1、且入参和返回值的类型不定的Block定义
+typedef id(^JobsReturnIDBySELBlock)(SEL data);
+typedef id(^JobsReturnIDByIDBlock)(id data);
+typedef id(^JobsReturnIDByStringBlock)(NSString *data);
+typedef id(^JobsReturnIDByGestureRecognizerBlock)(UIGestureRecognizer *data);
+typedef CGPoint(^JobsReturnCGPointByVoidBlock)(void);
+typedef CGPoint(^JobsReturnCGPointByIDBlock)(id data);
 typedef CGSize(^JobsReturnCGSizeByVoidBlock)(void);
 typedef CGSize(^JobsReturnCGSizeByIDBlock)(id data);
 typedef CGRect(^JobsReturnCGRectByVoidBlock)(void);
 typedef CGRect(^JobsReturnCGRectByIDBlock)(id data);
-typedef CGRect(^JobsReturnCGRectByCGFloatBlock)(CGFloat data);
-typedef CGRect(^JobsReturnCGRectByCGSizeBlock)(CGSize data);
 typedef CGRect(^JobsReturnCGRectByCGPointBlock)(CGPoint data);
-typedef CGPoint(^JobsReturnCGPointByVoidBlock)(void);
-typedef CGPoint(^JobsReturnCGPointByIDBlock)(id data);
-
-typedef id(^JobsReturnIDByVoidBlock)(void);
-typedef id(^JobsReturnIDByIDBlock)(id data);
-/// 单形参
-/// 统一返回ID类型
+typedef CGRect(^JobsReturnCGRectByCGSizeBlock)(CGSize data);
+typedef CGRect(^JobsReturnCGRectByCGFloatBlock)(CGFloat data);
+/// 3、入参为基本数据类型、且统一返回ID类型的Block定义
 typedef id(^JobsReturnIDByNSIntegerBlock)(NSInteger data);
 typedef id(^JobsReturnIDByUIntegerBlock)(NSUInteger data);
 typedef id(^JobsReturnIDByCGFloatBlock)(CGFloat data);
@@ -38,7 +41,7 @@ typedef id(^JobsReturnIDByUnsignedShortBlock)(unsigned short data);
 typedef id(^JobsReturnIDByLongBlock)(long data);
 typedef id(^JobsReturnIDByUnsignedLongBlock)(unsigned long data);
 typedef id(^JobsReturnIDByUnsignedLongLongBlock)(unsigned long long data);
-/// 返回入参类型
+/// 4、入参为基本数据类型、且返回入参类型的Block定义
 typedef NSInteger(^JobsReturnByNSIntegerBlock)(NSInteger data);
 typedef NSUInteger(^JobsReturnByNSUIntegerBlock)(NSUInteger data);
 typedef CGFloat(^JobsReturnByCGFloatBlock)(CGFloat data);
@@ -54,7 +57,7 @@ typedef unsigned short(^JobsReturnByUnsignedShortBlock)(unsigned short data);
 typedef long(^JobsReturnByLongBlock)(long data);
 typedef unsigned long(^JobsReturnByUnsignedLongBlock)(unsigned long data);
 typedef unsigned long long(^JobsReturnByUnsignedLongLongBlock)(unsigned long long data);
-
+/// 5、入参为ID类型、且返回基本数据类型的Block定义
 typedef NSInteger(^JobsReturnNSIntegerByIDBlock)(id data);
 typedef NSUInteger(^JobsReturnNSUIntegerByIDBlock)(id data);
 typedef CGFloat(^JobsReturnCGFloatByIDBlock)(CGFloat data);
@@ -70,7 +73,7 @@ typedef unsigned short(^JobsReturnUnsignedShortByIDBlock)(id data);
 typedef long(^JobsReturnLongByIDBlock)(id data);
 typedef unsigned long(^JobsReturnUnsignedLongByIDBlock)(id data);
 typedef unsigned long long(^JobsReturnUnsignedLongLongByIDBlock)(id data);
-
+/// 6、入参为基本数据类型、且返回CGSize的Block定义
 typedef CGSize(^JobsReturnSizeByNSIntegerBlock)(NSInteger data);
 typedef CGSize(^JobsReturnSizeByUIntegerBlock)(NSUInteger data);
 typedef CGSize(^JobsReturnSizeByCGFloatBlock)(CGFloat data);
@@ -86,7 +89,7 @@ typedef CGSize(^JobsReturnSizeByUnsignedShortBlock)(unsigned short data);
 typedef CGSize(^JobsReturnSizeByLongBlock)(long data);
 typedef CGSize(^JobsReturnSizeByUnsignedLongBlock)(unsigned long data);
 typedef CGSize(^JobsReturnSizeByUnsignedLongLongBlock)(unsigned long long data);
-
+/// 7、入参为基本数据类型、且返回CGRect的Block定义
 typedef CGRect(^JobsReturnRectByNSIntegerBlock)(NSInteger data);
 typedef CGRect(^JobsReturnRectByUIntegerBlock)(NSUInteger data);
 typedef CGRect(^JobsReturnRectByCGFloatBlock)(CGFloat data);
@@ -102,7 +105,7 @@ typedef CGRect(^JobsReturnRectByUnsignedShortBlock)(unsigned short data);
 typedef CGRect(^JobsReturnRectByLongBlock)(long data);
 typedef CGRect(^JobsReturnRectByUnsignedLongBlock)(unsigned long data);
 typedef CGRect(^JobsReturnRectByUnsignedLongLongBlock)(unsigned long long data);
-
+/// 8、入参为基本数据类型、且返回CGPoint的Block定义
 typedef CGPoint(^JobsReturnCGPointByNSIntegerBlock)(NSInteger data);
 typedef CGPoint(^JobsReturnCGPointByUIntegerBlock)(NSUInteger data);
 typedef CGPoint(^JobsReturnCGPointByCGFloatBlock)(CGFloat data);
@@ -118,8 +121,8 @@ typedef CGPoint(^JobsReturnCGPointByUnsignedShortBlock)(unsigned short data);
 typedef CGPoint(^JobsReturnCGPointByLongBlock)(long data);
 typedef CGPoint(^JobsReturnCGPointByUnsignedLongBlock)(unsigned long data);
 typedef CGPoint(^JobsReturnCGPointByUnsignedLongLongBlock)(unsigned long long data);
-
-/// 多形参
+#pragma mark —— 多形参
+/// 9、返回ID类型
 typedef id(^JobsReturnIDByTwoIDBlock)(id data,id data2);
 typedef id(^JobsReturnIDByThreeIDBlock)(id data,id data2,id data3);
 typedef id(^JobsReturnIDByFourIDBlock)(id data,id data2,id data3,id data4);
@@ -129,7 +132,7 @@ typedef id(^JobsReturnIDBySevenIDBlock)(id data,id data2,id data3,id data4,id da
 typedef id(^JobsReturnIDByEightIDBlock)(id data,id data2,id data3,id data4,id data5,id data7,id data8);
 typedef id(^JobsReturnIDByNineIDBlock)(id data,id data2,id data3,id data4,id data5,id data7,id data8,id data9);
 typedef id(^JobsReturnIDByTenIDBlock)(id data,id data2,id data3,id data4,id data5,id data7,id data8,id data9,id data10);
-
+/// 10、返回CGSize类型
 typedef CGSize(^JobsReturnCGSizeByTwoIDBlock)(id data,id data2);
 typedef CGSize(^JobsReturnCGSizeByThreeIDBlock)(id data,id data2,id data3);
 typedef CGSize(^JobsReturnCGSizeByFourIDBlock)(id data,id data2,id data3,id data4);
@@ -139,7 +142,7 @@ typedef CGSize(^JobsReturnCGSizeBySevenIDBlock)(id data,id data2,id data3,id dat
 typedef CGSize(^JobsReturnCGSizeByEightIDBlock)(id data,id data2,id data3,id data4,id data5,id data7,id data8);
 typedef CGSize(^JobsReturnCGSizeByNineIDBlock)(id data,id data2,id data3,id data4,id data5,id data7,id data8,id data9);
 typedef CGSize(^JobsReturnCGSizeByTenIDBlock)(id data,id data2,id data3,id data4,id data5,id data7,id data8,id data9,id data10);
-
+/// 11、返回CGRect类型
 typedef CGRect(^JobsReturnCGRectByTwoIDBlock)(id data,id data2);
 typedef CGRect(^JobsReturnCGRectByThreeIDBlock)(id data,id data2,id data3);
 typedef CGRect(^JobsReturnCGRectByFourIDBlock)(id data,id data2,id data3,id data4);
@@ -149,7 +152,7 @@ typedef CGRect(^JobsReturnCGRectBySevenIDBlock)(id data,id data2,id data3,id dat
 typedef CGRect(^JobsReturnCGRectByEightIDBlock)(id data,id data2,id data3,id data4,id data5,id data7,id data8);
 typedef CGRect(^JobsReturnCGRectByNineIDBlock)(id data,id data2,id data3,id data4,id data5,id data7,id data8,id data9);
 typedef CGRect(^JobsReturnCGRectByTenIDBlock)(id data,id data2,id data3,id data4,id data5,id data7,id data8,id data9,id data10);
-
+/// 12、返回CGPoint类型
 typedef CGPoint(^JobsReturnCGPointByTwoIDBlock)(id data,id data2);
 typedef CGPoint(^JobsReturnCGPointByThreeIDBlock)(id data,id data2,id data3);
 typedef CGPoint(^JobsReturnCGPointByFourIDBlock)(id data,id data2,id data3,id data4);
