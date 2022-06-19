@@ -13,7 +13,7 @@
     [self backBtnClickEvent:sender];
 }
 /// 【创建返回键】没有配置按钮的normalImage属性，也没有配置点击事件
-+(UIButton *)makeBackBtn:(UIViewModel *)viewModel{
+-(UIButton *)makeBackBtn:(UIViewModel *)viewModel{
     UIButton *backBtnCategory = UIButton.new;
     backBtnCategory.titleFont = viewModel.backBtnTitleModel.font;
     backBtnCategory.normalTitle = viewModel.backBtnTitleModel.text;
@@ -22,6 +22,10 @@
                                      imageTitleSpace:JobsWidth(8)];
     [backBtnCategory makeBtnLabelByShowingType:UILabelShowingType_03];
     return backBtnCategory;
+}
+/// 配置返回键图片
+-(UIImage *)makeBackBtnImage{
+    return self.viewModel.backBtnIMG ? : KBuddleIMG(nil,@"Frameworks/GKNavigationBar.framework/GKNavigationBar",nil,self.gk_backStyle == GKNavigationBarBackStyleBlack ? @"btn_back_black" : @"btn_back_white");
 }
 ///【子类需要覆写 】创建返回键的点击事件
 -(void)backBtnClickEvent:(UIButton *_Nullable)sender{
@@ -44,12 +48,9 @@ static char *BaseVC_BackBtn_backBtnCategory = "BaseVC_BackBtn_backBtnCategory";
 -(UIButton *)backBtnCategory{
     UIButton *BackBtnCategory = objc_getAssociatedObject(self, BaseVC_BackBtn_backBtnCategory);
     if (!BackBtnCategory) {
-        BackBtnCategory = [UIViewController makeBackBtn:self.viewModel];
+        BackBtnCategory = [self makeBackBtn:self.viewModel];
         BtnClickEvent(BackBtnCategory, [self backBtnClickEvent:x];);
-        BackBtnCategory.normalImage = self.viewModel.backBtnIMG ? : KBuddleIMG(nil,
-                                                                               @"Frameworks/GKNavigationBar.framework/GKNavigationBar",
-                                                                               nil,
-                                                                               self.gk_backStyle == GKNavigationBarBackStyleBlack ? @"btn_back_black" : @"btn_back_white");
+        BackBtnCategory.normalImage = self.makeBackBtnImage;
         objc_setAssociatedObject(self,
                                  BaseVC_BackBtn_backBtnCategory,
                                  BackBtnCategory,

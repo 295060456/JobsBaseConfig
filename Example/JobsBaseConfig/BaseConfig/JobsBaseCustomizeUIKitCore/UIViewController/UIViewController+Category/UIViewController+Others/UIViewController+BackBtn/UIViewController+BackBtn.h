@@ -35,7 +35,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)UIButton *backBtnCategory;
 @property(nonatomic,strong)UIBarButtonItem *backBtnCategoryItem;
 /// 创建返回键，没有配置按钮的normalImage属性
-+(UIButton *)makeBackBtn:(UIViewModel *)viewModel;
+-(UIButton *)makeBackBtn:(UIViewModel *)viewModel;
+/// 配置返回键图片
+-(UIImage *)makeBackBtnImage;
 ///【子类需要覆写 】创建返回键的点击事件
 -(void)backBtnClickEvent:(UIButton *_Nullable)sender;
 
