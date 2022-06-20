@@ -10,10 +10,11 @@
 @implementation NSString (Others)
 #pragma mark —— 其他
 /// 复制到系统剪切板
--(void)pasteboard{
+-(NSString *)pasteboard{
     UIPasteboard *pasteboard = UIPasteboard.generalPasteboard;
     pasteboard.string = self;
     [WHToast toastSuccessMsg:Internationalization(@"Copy success")];
+    return pasteboard.string;
 }
 
 +(NSString *)test:(NSArray <NSString *>*)arr{

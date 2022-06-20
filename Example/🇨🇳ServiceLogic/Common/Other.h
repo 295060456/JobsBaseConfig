@@ -67,5 +67,6 @@
 #import "UILabelWordRotatingVC.h"
 #import "JXCategoryViewVerticalShowVC.h"
 #import "JobsVerticalMenuVC.h"
+#import "TestBaseLabelVC.h"
 
 #endif /* Other_h */

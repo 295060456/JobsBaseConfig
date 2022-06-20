@@ -11,6 +11,7 @@
 #pragma mark —— Base
 #import "BaseLabel.h"
 #import "JobsAnimationLabel.h"
+#import "JobsBaseLabel.h"
 #pragma mark —— Category
 #import "UILabel+Gesture.h"
 #import "UILabel+Measure.h"

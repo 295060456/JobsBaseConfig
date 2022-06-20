@@ -9,9 +9,6 @@
 #import "UIView+BackgroundImage.h"
 
 @implementation UIView (BackgroundImage)
-
-static char *UIView_BackgroundImage_backgroundImageView = "UIView_BackgroundImage_backgroundImageView";
-@dynamic backgroundImageView;
 /**
  【特别指出】
  如果self 是 诸如UICollectionViewCell 或者UITableViewCell,即：
@@ -19,6 +16,8 @@ static char *UIView_BackgroundImage_backgroundImageView = "UIView_BackgroundImag
  如果上面覆盖一个按钮，则需要[self.contentView addSubview:self.backgroundImageView];
  否则按钮点击事件被截断
  */
+static char *UIView_BackgroundImage_backgroundImageView = "UIView_BackgroundImage_backgroundImageView";
+@dynamic backgroundImageView;
 -(UIImageView *)backgroundImageView{
     UIImageView *BackgroundImageView = objc_getAssociatedObject(self, UIView_BackgroundImage_backgroundImageView);
     if (!BackgroundImageView) {
@@ -26,7 +25,7 @@ static char *UIView_BackgroundImage_backgroundImageView = "UIView_BackgroundImag
         BackgroundImageView.userInteractionEnabled = YES;
         BackgroundImageView.contentMode = UIViewContentModeScaleToFill;
 
-        self.backgroundColor = UIColor.whiteColor;
+        self.backgroundColor = UIColor.clearColor;
         if ([self isKindOfClass:UICollectionViewCell.class]) {
             UICollectionViewCell *cell = (UICollectionViewCell *)self;
             [cell.contentView addSubview:BackgroundImageView];
@@ -42,10 +41,8 @@ static char *UIView_BackgroundImage_backgroundImageView = "UIView_BackgroundImag
         [BackgroundImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self);
         }];
-        objc_setAssociatedObject(self,
-                                 UIView_BackgroundImage_backgroundImageView,
-                                 BackgroundImageView,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        
+        [self setBackgroundImageView:BackgroundImageView];
     }return BackgroundImageView;
 }
 

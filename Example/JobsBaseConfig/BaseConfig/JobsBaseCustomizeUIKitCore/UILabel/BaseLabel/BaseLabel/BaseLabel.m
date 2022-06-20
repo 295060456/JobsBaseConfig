@@ -8,6 +8,9 @@
 #import "BaseLabel.h"
 
 @interface BaseLabel ()
+/// Data
+@property(nonatomic,assign)JobsReturnIDByGestureRecognizerBlock tapGRBlock;
+@property(nonatomic,assign)JobsReturnIDByGestureRecognizerBlock longPressGRBlock;
 
 @end
 
@@ -21,10 +24,43 @@
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        
+       
+        {/// 配置相关手势
+            self.numberOfTouchesRequired = 1;
+            self.numberOfTapsRequired = 1;/// ⚠️注意：如果要设置长按手势，此属性必须设置为0⚠️
+            self.minimumPressDuration = 0.1;
+            self.numberOfTouchesRequired = 1;
+            self.allowableMovement = 1;
+            self.userInteractionEnabled = YES;
+            self.target = self;
+            @jobs_weakify(self)
+            self.longPressGR_SelImp.selector = [self jobsSelectorBlock:^(id _Nullable target, UILongPressGestureRecognizer *_Nullable arg) {
+                @jobs_strongify(self)
+                if (self.longPressGRBlock) self.longPressGRBlock(arg);
+            }];
+            self.tapGR_SelImp.selector = [self jobsSelectorBlock:^(id _Nullable target, UITapGestureRecognizer *_Nullable arg) {
+                @jobs_strongify(self)
+                if (self.tapGRBlock) self.tapGRBlock(arg);
+            }];
+        }
     }return self;
 }
+#pragma mark —— 一些公有方法
+-(void)actionTapGRBlock:(JobsReturnIDByGestureRecognizerBlock _Nullable)tapGRBlock{
+    self.tapGRBlock = tapGRBlock;
+    self.tapGR.enabled = (BOOL)self.tapGRBlock;/// 必须在设置完Target和selector以后方可开启执行
+}
 
+-(void)actionLongPressGRBlock:(JobsReturnIDByGestureRecognizerBlock _Nullable)longPressGRBlock{
+    self.longPressGRBlock = longPressGRBlock;
+    self.longPressGR.enabled = (BOOL)self.longPressGRBlock;/// 必须在设置完Target和selector以后方可开启执行
+}
+/// UILabel文字的复制
+-(void)copyText{
+    [self.text pasteboard];
+    NSLog(@"%@%@",Internationalization(@"复制的文字："),self.text.pasteboard);
+}
+#pragma mark —— 复写相关父类方法
 - (void)drawRect:(CGRect)rect{
     if (self.labelShowingType == UILabelShowingType_02) {
         self.layer.masksToBounds = true;

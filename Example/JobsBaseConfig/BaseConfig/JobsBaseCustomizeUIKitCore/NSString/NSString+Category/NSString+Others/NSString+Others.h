@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSString (Others)
 #pragma mark —— 其他
 /// 复制到系统剪切板
--(void)pasteboard;
+-(NSString *)pasteboard;
 +(NSString *)test:(NSArray <NSString *>*)arr;
 /// ？？？
 -(NSString *)formatDecimalNumber;

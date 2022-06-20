@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 /// 渐变色
 @interface UIColor (Gradient)
-
+/// ⚠️在cell上可能失灵，目前原因不明⚠️
 +(UIColor *)gradientCorDataMutArr:(NSMutableArray <UIColor *>*_Nullable)CorDataMutArr
                        startPoint:(CGPoint)startPoint
                          endPoint:(CGPoint)endPoint
