@@ -65,7 +65,7 @@ static dispatch_once_t static_jobsAppDoor_Style2OnceToken;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = kBlueColor;
+    self.view.backgroundColor = JobsBlueColor;
 
     //标的值初始化
     self.logoContentViewY = 0;
@@ -341,7 +341,7 @@ static dispatch_once_t static_jobsAppDoor_Style2OnceToken;
         [self.view layoutIfNeeded];
         self.loginCustomerServiceBtnY = _customerServiceBtn.y;
         [_customerServiceBtn cornerCutToCircleWithCornerRadius:_customerServiceBtn.height / 2];
-        [_customerServiceBtn layerBorderColour:kWhiteColor andBorderWidth:2];
+        [_customerServiceBtn layerBorderColour:JobsWhiteColor andBorderWidth:2];
     }return _customerServiceBtn;
 }
 

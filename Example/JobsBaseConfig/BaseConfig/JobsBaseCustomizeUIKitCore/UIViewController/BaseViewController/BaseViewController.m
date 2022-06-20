@@ -65,7 +65,7 @@ BaseViewControllerProtocol_synthesize
      *  #pragma mark —— 全局配置 GKNavigationBar -(void)makeGKNavigationBarConfigure
      */
 //    {
-//        self.gk_navBackgroundColor = kWhiteColor;
+//        self.gk_navBackgroundColor = JobsWhiteColor;
 //        self.gk_navTitleFont = [UIFont systemFontOfSize:18 weight:UIFontWeightMedium];
 //        self.gk_navTitleColor = AppMainCor_01;
 //        self.gk_backStyle = GKNavigationBarBackStyleBlack;

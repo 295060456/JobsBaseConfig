@@ -177,7 +177,7 @@ ratio:(CGFloat)ratio {
 -(JXCategoryIndicatorLineView *)lineView{
     if (!_lineView) {
         _lineView = JXCategoryIndicatorLineView.new;
-        _lineView.indicatorColor = kWhiteColor;
+        _lineView.indicatorColor = JobsWhiteColor;
         _lineView.indicatorHeight = JobsWidth(4);
         _lineView.indicatorWidthIncrement = JobsWidth(10);
         _lineView.verticalMargin = 0;

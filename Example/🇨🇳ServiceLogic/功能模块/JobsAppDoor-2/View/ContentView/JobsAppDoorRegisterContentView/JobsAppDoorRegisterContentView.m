@@ -135,7 +135,7 @@
     if (!_titleLab) {
         _titleLab = UILabel.new;
         _titleLab.text = Title6;
-        _titleLab.textColor = kWhiteColor;
+        _titleLab.textColor = JobsWhiteColor;
         _titleLab.font = [UIFont systemFontOfSize:JobsWidth(20)
                                            weight:UIFontWeightRegular];
         [_titleLab sizeToFit];
@@ -149,7 +149,7 @@
     if (!_sendBtn) {
         _sendBtn = UIButton.new;
         [_sendBtn normalTitle:Title6];
-        _sendBtn.backgroundColor = [KSystemPinkColor colorWithAlphaComponent:0.7];
+        _sendBtn.backgroundColor = [JobsSystemPinkColor colorWithAlphaComponent:0.7];
         [_sendBtn normalTitleColor:UIColor.whiteColor];
         [_sendBtn titleFont:[UIFont systemFontOfSize:JobsWidth(16) weight:UIFontWeightRegular]];
         [_sendBtn buttonAutoWidthByFont];

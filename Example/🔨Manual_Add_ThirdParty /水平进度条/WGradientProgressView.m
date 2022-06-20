@@ -72,7 +72,7 @@ static dispatch_once_t dispatchOnce;
 
 -(UIColor *)titleColor{
     if (!_titleColor) {
-        _titleColor = kRedColor;
+        _titleColor = JobsRedColor;
     }return _titleColor;
 }
 

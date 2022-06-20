@@ -23,16 +23,16 @@
 
 - (instancetype)init{
     if (self = [super init]) {
-//        self.backgroundColor = kRedColor;
-        [self layerBorderColour:kWhiteColor andBorderWidth:1];
+//        self.backgroundColor = JobsRedColor;
+        [self layerBorderColour:JobsWhiteColor andBorderWidth:1];
     }return self;
 }
 #pragma mark —— BaseViewProtocol
 - (instancetype)initWithSize:(CGSize)thisViewSize{
     if (self = [super init]) {
-//        self.backgroundColor = kRedColor;
+//        self.backgroundColor = JobsRedColor;
         self.thisViewSize = thisViewSize;
-        [self layerBorderColour:kWhiteColor andBorderWidth:1];
+        [self layerBorderColour:JobsWhiteColor andBorderWidth:1];
     }return self;
 }
 
@@ -102,7 +102,7 @@
         _imageCodeView = ImageCodeView.new;
         _imageCodeView.font = JobsFontRegular(16);
         _imageCodeView.alpha = 0.7;
-        _imageCodeView.bgColor = kWhiteColor;
+        _imageCodeView.bgColor = JobsWhiteColor;
         [self addSubview:_imageCodeView];
         [_imageCodeView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self).offset(JobsWidth(5));

@@ -44,7 +44,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = kWhiteColor;
+    self.view.backgroundColor = JobsWhiteColor;
     {
         [self setGKNav];
         [self setGKNavBackBtn];
@@ -318,7 +318,7 @@ willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {
     rowActionView.frame = frame;
     // 拿到按钮,设置图片
     UIButton *button = rowActionView.subviews.firstObject;
-    button.backgroundColor = kRedColor;
+    button.backgroundColor = JobsRedColor;
     [button normalTitle:@"删除"];
     [button normalImage:KBuddleIMG(@"⚽️PicResource", @"Others", nil, @"删除")];
 }

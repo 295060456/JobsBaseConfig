@@ -22,14 +22,14 @@
 
 - (instancetype)init{
     if (self = [super init]) {
-//        self.backgroundColor = kRedColor;
+//        self.backgroundColor = JobsRedColor;
         [self layerBorderColour:Cor4 andBorderWidth:1];
     }return self;
 }
 #pragma mark —— BaseViewProtocol
 - (instancetype)initWithSize:(CGSize)thisViewSize{
     if (self = [super init]) {
-        self.backgroundColor = kClearColor;
+        self.backgroundColor = JobsClearColor;
         [self layerBorderColour:Cor4 andBorderWidth:1];
     }return self;
 }
@@ -118,7 +118,7 @@
             UIViewModel *jobsPageViewModel = UIViewModel.new;
             jobsPageViewModel.textModel.text = Internationalization(@"請選擇區號");
             jobsPageViewModel.textModel.textCor = HEXCOLOR(0xC4C4C4);
-            jobsPageViewModel.bgCor = kClearColor;
+            jobsPageViewModel.bgCor = JobsClearColor;
             jobsPageViewModel.textModel.font = [UIFont systemFontOfSize:JobsWidth(16) weight:UIFontWeightRegular];
             [_jobsPageViewDataMutArr addObject:jobsPageViewModel];
         }
@@ -127,7 +127,7 @@
             UIViewModel *jobsPageViewModel = UIViewModel.new;
             jobsPageViewModel.textModel.text = @"+87";
             jobsPageViewModel.textModel.textCor = HEXCOLOR(0xC4C4C4);
-            jobsPageViewModel.bgCor = kClearColor;
+            jobsPageViewModel.bgCor = JobsClearColor;
             jobsPageViewModel.textModel.font = [UIFont systemFontOfSize:JobsWidth(16) weight:UIFontWeightRegular];
             [_jobsPageViewDataMutArr addObject:jobsPageViewModel];
         }
@@ -136,7 +136,7 @@
             UIViewModel *jobsPageViewModel = UIViewModel.new;
             jobsPageViewModel.textModel.text = @"+88";
             jobsPageViewModel.textModel.textCor = HEXCOLOR(0xC4C4C4);
-            jobsPageViewModel.bgCor = kClearColor;
+            jobsPageViewModel.bgCor = JobsClearColor;
             jobsPageViewModel.textModel.font = [UIFont systemFontOfSize:JobsWidth(16) weight:UIFontWeightRegular];
             [_jobsPageViewDataMutArr addObject:jobsPageViewModel];
         }
@@ -147,7 +147,7 @@
 -(JobsPageView *)jobsPageView{
     if (!_jobsPageView) {
         _jobsPageView = JobsPageView.new;
-        _jobsPageView.backgroundColor = kClearColor;
+        _jobsPageView.backgroundColor = JobsClearColor;
         [_jobsPageView richElementsInViewWithModel:self.jobsPageViewDataMutArr];
         [self addSubview:_jobsPageView];
         [_jobsPageView mas_makeConstraints:^(MASConstraintMaker *make) {

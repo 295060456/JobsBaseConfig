@@ -80,7 +80,7 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self keyboard];
-//    self.view.backgroundColor = kBlueColor;
+//    self.view.backgroundColor = JobsBlueColor;
     //标的值初始化
     self.logoContentViewY = 0;
     self.jobsAppDoorContentViewY = 0;
@@ -416,7 +416,7 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
         self.customerServiceBtnY = _customerServiceBtn.y;
         BtnClickEvent(_customerServiceBtn, NSLog(@"点击客服按钮"););
         [_customerServiceBtn cornerCutToCircleWithCornerRadius:_customerServiceBtn.height / 2];
-        [_customerServiceBtn layerBorderColour:kWhiteColor andBorderWidth:2];
+        [_customerServiceBtn layerBorderColour:JobsWhiteColor andBorderWidth:2];
     }return _customerServiceBtn;
 }
 

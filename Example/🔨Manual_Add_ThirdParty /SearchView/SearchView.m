@@ -27,7 +27,7 @@ UIScrollViewDelegate
     if (self = [super init]) {
         self.btnTitleArr = btnTitleMutArr;
         self.scrollView.alpha = 1;
-        self.backgroundColor = kClearColor;
+        self.backgroundColor = JobsClearColor;
         
         if (btnTitleMutArr.count < 5) {
             self.BtnWidth = (JobsMainScreen_WIDTH() - 5 * 2 - 10 * (btnTitleMutArr.count - 1))/ btnTitleMutArr.count;
@@ -39,7 +39,7 @@ UIScrollViewDelegate
             UIButton *btn = UIButton.new;
 //            btn.backgroundColor = RandomColor;
             [btn cornerCutToCircleWithCornerRadius:7.f];
-            [btn layerBorderColour:KLightGrayColor andBorderWidth:.5f];
+            [btn layerBorderColour:JobsLightGrayColor andBorderWidth:.5f];
             
             if ([btnTitleMutArr[i] isKindOfClass:[UIImage class]]) {
                 [btn setBackgroundImage:btnTitleMutArr[i]
@@ -51,9 +51,9 @@ UIScrollViewDelegate
 //                     forState:UIControlStateNormal];
 //                [btn setImage:KIMG(@"TwoWayArrow_2")
 //                     forState:UIControlStateSelected];
-                [btn setTitleColor:kBlackColor
+                [btn setTitleColor:JobsBlackColor
                           forState:UIControlStateNormal];
-                [btn setTitleColor:kRedColor
+                [btn setTitleColor:JobsRedColor
                           forState:UIControlStateSelected];
             }else{}
             [btn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleRight
@@ -77,7 +77,7 @@ UIScrollViewDelegate
                     self.block(x);
                 }
             }];
-            [btn setTitleColor:kBlackColor
+            [btn setTitleColor:JobsBlackColor
                       forState:UIControlStateNormal];
             [self.scrollView addSubview:btn];
             btn.frame = CGRectMake((self.BtnWidth + 10) * (i) + 5,

@@ -39,9 +39,9 @@
     if (self = [super initWithStyle:style
                     reuseIdentifier:reuseIdentifier]) {
         self.longPG.enabled = YES;
-        self.swipeBackgroundColor = kClearColor;
+        self.swipeBackgroundColor = JobsClearColor;
         self.selectedBackgroundView = UIView.new;
-        self.selectedBackgroundView.backgroundColor = [KYellowColor colorWithAlphaComponent:0.3];
+        self.selectedBackgroundView.backgroundColor = [JobsYellowColor colorWithAlphaComponent:0.3];
         self.leftSwipeSettings.transition = MGSwipeTransitionBorder;
         self.rightSwipeSettings.transition = MGSwipeTransitionDrag;
         self.leftExpansion.buttonIndex = 0;
@@ -58,8 +58,8 @@
     if (!cell) {
         cell = [JobsIMChatInfoTBVCell initTableViewCellWithStyle:UITableViewCellStyleDefault];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.contentView.backgroundColor = kClearColor;
-        cell.backgroundColor = kClearColor;
+        cell.contentView.backgroundColor = JobsClearColor;
+        cell.backgroundColor = JobsClearColor;
     }return cell;
 }
 
@@ -255,7 +255,7 @@
 -(UILabel *)chatUserNameLab{
     if (!_chatUserNameLab) {
         _chatUserNameLab = UILabel.new;
-        _chatUserNameLab.textColor = kBlackColor;
+        _chatUserNameLab.textColor = JobsBlackColor;
         _chatUserNameLab.font = [UIFont systemFontOfSize:10 weight:UIFontWeightRegular];
         _chatUserNameLab.textAlignment = NSTextAlignmentCenter;
         _chatUserNameLab.text = self.senderUserNameStr;
@@ -283,7 +283,7 @@
     if (!_chatContentLab) {
         _chatContentLab = UILabel.new;
         _chatContentLab.numberOfLines = 0;
-        _chatContentLab.textColor = kBlackColor;
+        _chatContentLab.textColor = JobsBlackColor;
         _chatContentLab.font = [UIFont systemFontOfSize:10 weight:UIFontWeightRegular];
         
         switch (self.infoLocation) {
@@ -311,8 +311,8 @@
         _timeLab.font = [UIFont systemFontOfSize:10 weight:UIFontWeightRegular];
         _timeLab.textAlignment = NSTextAlignmentCenter;
         _timeLab.text = self.senderChatTextTimeStr;
-        _timeLab.textColor = kWhiteColor;
-        _timeLab.backgroundColor = KLightGrayColor;
+        _timeLab.textColor = JobsWhiteColor;
+        _timeLab.backgroundColor = JobsLightGrayColor;
         [_timeLab sizeToFit];
         
         [self.contentView addSubview:_timeLab];
@@ -368,7 +368,7 @@
         MGSwipeButtonModel *model_1 = MGSwipeButtonModel.new;
         model_1.titleStr = @"L1";
         model_1.IconIMG = KIMG(@"Check");
-        model_1.bgCor = KGreenColor;
+        model_1.bgCor = JobsGreenColor;
         
         MGSwipeButtonModel *model_2 = MGSwipeButtonModel.new;
         model_2.titleStr = @"L2";
@@ -394,17 +394,17 @@
         MGSwipeButtonModel *model_1 = MGSwipeButtonModel.new;
         model_1.titleStr = @"R1";
         model_1.IconIMG = KIMG(@"Class");
-        model_1.bgCor = KPurpleColor;
+        model_1.bgCor = JobsPurpleColor;
         
         MGSwipeButtonModel *model_2 = MGSwipeButtonModel.new;
         model_2.titleStr = @"R2";
         model_2.IconIMG = KIMG(@"Drop");
-        model_2.bgCor = KDarkTextColor;
+        model_2.bgCor = JobsDarkTextColor;
         
         MGSwipeButtonModel *model_3 = MGSwipeButtonModel.new;
         model_3.titleStr = @"R3";
         model_3.IconIMG = KIMG(@"Header");
-        model_3.bgCor = kCyanColor;
+        model_3.bgCor = JobsCyanColor;
         
         [_rightBtnMutArr addObject:model_1];
         [_rightBtnMutArr addObject:model_2];

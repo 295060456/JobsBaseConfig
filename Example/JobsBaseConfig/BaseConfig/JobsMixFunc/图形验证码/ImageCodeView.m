@@ -137,7 +137,7 @@
 
 -(UIColor *)color{
     if (!_color) {
-        _color = kWhiteColor;
+        _color = JobsWhiteColor;
     }return _color;
 }
 

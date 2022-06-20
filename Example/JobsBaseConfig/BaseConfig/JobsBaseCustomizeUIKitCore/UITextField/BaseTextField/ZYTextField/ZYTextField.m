@@ -150,7 +150,7 @@
 
 -(UIColor *)ZYTextFieldBorderColor{
     if (!_ZYTextFieldBorderColor) {
-        _ZYTextFieldBorderColor = kBlackColor;
+        _ZYTextFieldBorderColor = JobsBlackColor;
     }return _ZYTextFieldBorderColor;
 }
 

@@ -92,8 +92,8 @@ NS_ASSUME_NONNULL_END
      if (!_channelBtn) {
          _channelBtn = UIButton.new;
          [_channelBtn setTitle:@"渠道切换点我就行" forState:UIControlStateNormal];
-         [_channelBtn setTitleColor:kRedColor forState:UIControlStateNormal];
-         _channelBtn.backgroundColor = KYellowColor;
+         [_channelBtn setTitleColor:JobsRedColor forState:UIControlStateNormal];
+         _channelBtn.backgroundColor = JobsYellowColor;
          @jobs_weakify(self)
          [[_channelBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
              @jobs_strongify(self)
@@ -168,7 +168,7 @@ NS_ASSUME_NONNULL_END
          richLabelFontModel.range = NSMakeRange(0, title_1_Model.dataString.length);
          
          RichLabelTextCorModel *richLabelTextCorModel = RichLabelTextCorModel.new;
-         richLabelTextCorModel.cor = kBlackColor;
+         richLabelTextCorModel.cor = JobsBlackColor;
          richLabelTextCorModel.range = NSMakeRange(0, title_1_Model.dataString.length);
          
          title_1_Model.richLabelFontModel = richLabelFontModel;
@@ -198,7 +198,7 @@ NS_ASSUME_NONNULL_END
          richLabelFontModel.range = NSMakeRange(title_1_Model.dataString.length + title_2_Model.dataString.length, title_3_Model.dataString.length);
 
          RichLabelTextCorModel *richLabelTextCorModel = RichLabelTextCorModel.new;
-         richLabelTextCorModel.cor = kBlackColor;
+         richLabelTextCorModel.cor = JobsBlackColor;
          richLabelTextCorModel.range = NSMakeRange(title_1_Model.dataString.length + title_2_Model.dataString.length, title_3_Model.dataString.length);
 
          title_3_Model.richLabelFontModel = richLabelFontModel;
@@ -228,7 +228,7 @@ NS_ASSUME_NONNULL_END
          richLabelFontModel.range = NSMakeRange(title_1_Model.dataString.length + title_2_Model.dataString.length + title_3_Model.dataString.length + title_4_Model.dataString.length, title_5_Model.dataString.length);
 
          RichLabelTextCorModel *richLabelTextCorModel = RichLabelTextCorModel.new;
-         richLabelTextCorModel.cor = kBlackColor;
+         richLabelTextCorModel.cor = JobsBlackColor;
          richLabelTextCorModel.range = NSMakeRange(title_1_Model.dataString.length + title_2_Model.dataString.length + title_3_Model.dataString.length + title_4_Model.dataString.length, title_5_Model.dataString.length);
 
          title_5_Model.richLabelFontModel = richLabelFontModel;

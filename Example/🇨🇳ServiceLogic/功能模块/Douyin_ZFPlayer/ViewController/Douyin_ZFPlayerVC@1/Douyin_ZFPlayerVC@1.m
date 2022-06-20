@@ -40,7 +40,7 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
 
-    self.view.backgroundColor = KYellowColor;
+    self.view.backgroundColor = JobsYellowColor;
     [self setGKNav];
     [self setGKNavBackBtn];
     
@@ -268,7 +268,7 @@ forRowAtIndexPath:(NSIndexPath*)indexPath{
 -(UITableView *)tableView{
     if (!_tableView) {
         _tableView = UITableView.new;
-        _tableView.backgroundColor = kWhiteColor;
+        _tableView.backgroundColor = JobsWhiteColor;
         _tableView.pagingEnabled = YES;
         _tableView.delegate = self;
         _tableView.dataSource = self;
@@ -298,7 +298,7 @@ forRowAtIndexPath:(NSIndexPath*)indexPath{
             // 用值
             _tableView.mj_header = self.lotAnimMJRefreshHeader;
             _tableView.mj_footer = self.mjRefreshAutoGifFooter;
-            _tableView.mj_footer.backgroundColor = kRedColor;
+            _tableView.mj_footer.backgroundColor = JobsRedColor;
             self.view.mjRefreshTargetView = _tableView;
         }
         

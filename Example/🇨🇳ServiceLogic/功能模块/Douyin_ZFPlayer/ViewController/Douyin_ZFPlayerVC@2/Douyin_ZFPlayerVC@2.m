@@ -321,7 +321,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 //                                                               detailStr:@""];
             _tableView.ly_emptyView = [EmptyView diyEmptyViewWithTitle:@"暂无数据"];
             _tableView.ly_emptyView.autoShowEmptyView = NO;
-            _tableView.ly_emptyView.titleLabTextColor = kWhiteColor;
+            _tableView.ly_emptyView.titleLabTextColor = JobsWhiteColor;
             _tableView.ly_emptyView.contentViewOffset = -JobsWidth(40);
         }
         
@@ -488,8 +488,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (!_bitsMonitorSuspendLab) {
         _bitsMonitorSuspendLab = JobsBitsMonitorSuspendLab.new;
         _bitsMonitorSuspendLab.font = [UIFont systemFontOfSize:10 weight:UIFontWeightBold];
-        _bitsMonitorSuspendLab.backgroundColor = KLightGrayColor;
-        _bitsMonitorSuspendLab.textColor = kRedColor;
+        _bitsMonitorSuspendLab.backgroundColor = JobsLightGrayColor;
+        _bitsMonitorSuspendLab.textColor = JobsRedColor;
         @jobs_weakify(self)
         _bitsMonitorSuspendLab.vc = weak_self;
         _bitsMonitorSuspendLab.isAllowDrag = YES;//悬浮效果必须要的参数

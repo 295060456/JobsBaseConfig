@@ -20,7 +20,7 @@
 
 -(instancetype)init{
     if (self = [super init]) {
-        self.backgroundColor = kWhiteColor;
+        self.backgroundColor = JobsWhiteColor;
     }return self;
 }
 
@@ -64,9 +64,9 @@
         _sendBtn.enabled = NO;
         [_sendBtn normalTitle:@"发送"];
         [_sendBtn normalTitleColor:UIColor.blackColor];
-        [_sendBtn setTitleColor:kWhiteColor forState:UIControlStateDisabled];
-        [_sendBtn normalBackgroundImage:[UIImage imageWithColor:kCyanColor]];
-        [_sendBtn setBackgroundImage:[UIImage imageWithColor:KLightGrayColor] forState:UIControlStateDisabled];
+        [_sendBtn setTitleColor:JobsWhiteColor forState:UIControlStateDisabled];
+        [_sendBtn normalBackgroundImage:[UIImage imageWithColor:JobsCyanColor]];
+        [_sendBtn setBackgroundImage:[UIImage imageWithColor:JobsLightGrayColor] forState:UIControlStateDisabled];
         
         BtnClickEvent(_sendBtn, {
             [self endEditing:YES];
@@ -116,7 +116,7 @@
         [self layoutIfNeeded];
         
         [_inputTextField cornerCutToCircleWithCornerRadius:_inputTextField.mj_h / 2];
-        [_inputTextField layerBorderColour:kWhiteColor andBorderWidth:1];
+        [_inputTextField layerBorderColour:JobsWhiteColor andBorderWidth:1];
         
         @jobs_weakify(self)
         [[_inputTextField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {

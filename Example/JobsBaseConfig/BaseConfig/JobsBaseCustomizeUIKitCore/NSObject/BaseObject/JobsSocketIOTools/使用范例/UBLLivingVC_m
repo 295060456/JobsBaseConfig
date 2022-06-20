@@ -248,7 +248,7 @@ didScrollSelectedItemAtIndex:(NSInteger)index {
 -(JXCategoryDotView *)categoryTitleView{
     if (!_categoryTitleView) {
         _categoryTitleView = JXCategoryDotView.new;
-        _categoryTitleView.backgroundColor = kWhiteColor;
+        _categoryTitleView.backgroundColor = JobsWhiteColor;
         _categoryTitleView.titles = self.titlesMutArr;
         _categoryTitleView.dotStates = self.dotStatesMutArr;
         _categoryTitleView.indicators = @[self.lineView];
@@ -256,7 +256,7 @@ didScrollSelectedItemAtIndex:(NSInteger)index {
         _categoryTitleView.titleSelectedColor = RGB_COLOR(105,
                                                          144,
                                                          239);
-        _categoryTitleView.titleColor = kBlackColor;
+        _categoryTitleView.titleColor = JobsBlackColor;
         _categoryTitleView.dotSize = CGSizeMake(JobsWidth(5), JobsWidth(5));
         _categoryTitleView.titleFont = [UIFont systemFontOfSize:JobsWidth(14)
                                                          weight:UIFontWeightMedium];

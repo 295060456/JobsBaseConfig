@@ -27,7 +27,7 @@
 #pragma mark —— BaseViewProtocol
 - (instancetype)initWithSize:(CGSize)thisViewSize{
     if (self = [super init]) {
-//        self.backgroundColor = kRedColor;
+//        self.backgroundColor = JobsRedColor;
         self.thisViewSize = thisViewSize;
     }return self;
 }
@@ -150,16 +150,16 @@
         /// 计时器未开始【静态值】
         _btnTimerConfigModel.readyPlayValue.layerBorderWidth = 1;
         _btnTimerConfigModel.readyPlayValue.layerCornerRadius = 18;
-        _btnTimerConfigModel.readyPlayValue.bgCor = KYellowColor;
-        _btnTimerConfigModel.readyPlayValue.layerBorderColour = kClearColor;
-        _btnTimerConfigModel.readyPlayValue.textCor = kBlackColor;
+        _btnTimerConfigModel.readyPlayValue.bgCor = JobsYellowColor;
+        _btnTimerConfigModel.readyPlayValue.layerBorderColour = JobsClearColor;
+        _btnTimerConfigModel.readyPlayValue.textCor = JobsBlackColor;
         _btnTimerConfigModel.readyPlayValue.text = Title9;
         _btnTimerConfigModel.readyPlayValue.font = [UIFont systemFontOfSize:JobsWidth(13)
                                                                                weight:UIFontWeightMedium];
         /// 计时器进行中【动态值】
-        _btnTimerConfigModel.runningValue.bgCor = kCyanColor;
+        _btnTimerConfigModel.runningValue.bgCor = JobsCyanColor;
         /// 计时器结束【静态值】
-        _btnTimerConfigModel.endValue.bgCor = kRedColor;
+        _btnTimerConfigModel.endValue.bgCor = JobsRedColor;
         
     }return _btnTimerConfigModel;
 }

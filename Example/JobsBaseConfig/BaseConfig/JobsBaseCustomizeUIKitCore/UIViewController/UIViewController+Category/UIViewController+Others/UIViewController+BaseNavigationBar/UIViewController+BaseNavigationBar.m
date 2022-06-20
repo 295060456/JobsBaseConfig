@@ -80,8 +80,8 @@ static char *UIViewController_NavigationBar_shadowCor = "UIViewController_Naviga
             NSShadowAttributeName:self.shadow,
             NSFontAttributeName:self.fontAttributeName
         };//设置导航上的title显示样式
-        [NavBar setBarTintColor:kRedColor];//一般的业务是全局设置，因为一个App里面只有一个主题
-        NavBar.tintColor = kBlackColor;//系统的组件着色（返回按钮——箭头图标 和 上面的字）
+        [NavBar setBarTintColor:JobsRedColor];//一般的业务是全局设置，因为一个App里面只有一个主题
+        NavBar.tintColor = JobsBlackColor;//系统的组件着色（返回按钮——箭头图标 和 上面的字）
         NavBar.items = @[self.navItem];
 
         NavBar.translucent = self.isBarTranslucent;
@@ -130,7 +130,7 @@ static char *UIViewController_NavigationBar_shadowCor = "UIViewController_Naviga
 -(UIColor *)bgCor{
     UIColor *BgCor = objc_getAssociatedObject(self, UIViewController_NavigationBar_bgCor);
     if (!BgCor) {
-        BgCor = KLightGrayColor;
+        BgCor = JobsLightGrayColor;
         objc_setAssociatedObject(self,
                                  UIViewController_NavigationBar_bgCor,
                                  BgCor,
@@ -231,7 +231,7 @@ static char *UIViewController_NavigationBar_shadowCor = "UIViewController_Naviga
 -(UIColor *)foregroundColorAttributeNameCor{
     UIColor *ForegroundColorAttributeNameCor = objc_getAssociatedObject(self, UIViewController_NavigationBar_foregroundColorAttributeNameCor);
     if (!ForegroundColorAttributeNameCor) {
-        ForegroundColorAttributeNameCor = KGreenColor;//kBlackColor;
+        ForegroundColorAttributeNameCor = JobsGreenColor;//JobsBlackColor;
         objc_setAssociatedObject(self,
                                  UIViewController_NavigationBar_foregroundColorAttributeNameCor,
                                  ForegroundColorAttributeNameCor,
@@ -260,7 +260,7 @@ static char *UIViewController_NavigationBar_shadowCor = "UIViewController_Naviga
 -(UIColor *)tintColor{
     UIColor *TintColor = objc_getAssociatedObject(self, UIViewController_NavigationBar_tintColor);
     if (!TintColor) {
-        TintColor = KGreenColor;//kBlackColor;
+        TintColor = JobsGreenColor;//JobsBlackColor;
         objc_setAssociatedObject(self,
                                  UIViewController_NavigationBar_tintColor,
                                  TintColor,
@@ -278,7 +278,7 @@ static char *UIViewController_NavigationBar_shadowCor = "UIViewController_Naviga
 -(UIColor *)barTintColor{
     UIColor *BarTintColor = objc_getAssociatedObject(self, UIViewController_NavigationBar_barTintColor);
     if (!BarTintColor) {
-        BarTintColor = KGreenColor;//kBlackColor;
+        BarTintColor = JobsGreenColor;//JobsBlackColor;
         objc_setAssociatedObject(self,
                                  UIViewController_NavigationBar_barTintColor,
                                  BarTintColor,

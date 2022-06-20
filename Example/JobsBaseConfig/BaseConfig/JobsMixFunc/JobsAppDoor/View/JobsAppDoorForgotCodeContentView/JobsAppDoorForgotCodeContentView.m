@@ -66,7 +66,7 @@
     if (!_titleLab) {
         _titleLab = UILabel.new;
         _titleLab.text = Internationalization(Title10);
-        _titleLab.textColor = kWhiteColor;
+        _titleLab.textColor = JobsWhiteColor;
         _titleLab.font = [UIFont systemFontOfSize:JobsWidth(20)
                                            weight:UIFontWeightRegular];
         [_titleLab sizeToFit];
@@ -136,7 +136,7 @@
         _subTitleLab.text = Internationalization(Title11);
         _subTitleLab.textAlignment = NSTextAlignmentCenter;
         _subTitleLab.numberOfLines = 0;
-        _subTitleLab.textColor = kWhiteColor;
+        _subTitleLab.textColor = JobsWhiteColor;
         _subTitleLab.font = [UIFont systemFontOfSize:JobsWidth(12)
                                               weight:UIFontWeightMedium];
         [_subTitleLab sizeToFit];
@@ -152,7 +152,7 @@
 -(JobsHotLabelWithSingleLine *)hl{
     if (!_hl) {
         _hl = JobsHotLabelWithSingleLine.new;
-        _hl.backgroundColor = kClearColor;
+        _hl.backgroundColor = JobsClearColor;
         _hl.labelShowingType = UILabelShowingType_02;
         _hl.elementDefaultSize = CGSizeMake(JobsWidth(46), JobsWidth(46));
         [self actionForHotLabel:_hl];

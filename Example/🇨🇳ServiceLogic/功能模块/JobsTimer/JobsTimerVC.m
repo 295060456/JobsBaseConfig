@@ -34,7 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = KMagentaColor;
+    self.view.backgroundColor = JobsMagentaColor;
     [self setGKNav];
     [self setGKNavBackBtn];
     

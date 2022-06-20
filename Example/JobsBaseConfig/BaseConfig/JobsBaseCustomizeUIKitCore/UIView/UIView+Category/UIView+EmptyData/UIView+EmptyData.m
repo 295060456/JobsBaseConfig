@@ -46,7 +46,7 @@ static char *UIView_EmptyData_tipsTitle = "UIView_EmptyData_tipsTitle";
         TipsLab.text = self.tipsTitle;
         TipsLab.numberOfLines = 0;
         TipsLab.textAlignment = NSTextAlignmentCenter;
-        TipsLab.textColor = self.backgroundColor == kBlueColor ? kRedColor : kBlueColor;// 防止某些VC在调试阶段，设置view.backgroundColor为随机色
+        TipsLab.textColor = self.backgroundColor == JobsBlueColor ? JobsRedColor : JobsBlueColor;// 防止某些VC在调试阶段，设置view.backgroundColor为随机色
         TipsLab.font = [UIFont systemFontOfSize:20 weight:UIFontWeightBold];
         [TipsLab sizeToFit];
         [self addSubview:TipsLab];

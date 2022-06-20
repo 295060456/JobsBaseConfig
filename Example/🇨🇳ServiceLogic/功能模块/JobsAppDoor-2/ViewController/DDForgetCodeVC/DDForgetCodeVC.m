@@ -39,7 +39,7 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-    self.view.backgroundColor = kWhiteColor;
+    self.view.backgroundColor = JobsWhiteColor;
     @jobs_weakify(self)
     [UIView transitionWithView:self.view
                       duration:0.5
@@ -117,7 +117,7 @@
         inputViewStyleModel.placeHolderAlignment = PlaceHolderAlignmentLeft;
         inputViewStyleModel.leftViewOffsetX = 0.1;
         inputViewStyleModel.offset = 0.1;
-        inputViewStyleModel.ZYtextColor = KLightGrayColor;
+        inputViewStyleModel.ZYtextColor = JobsLightGrayColor;
         
         [inputView richElementsInViewWithModel:inputViewStyleModel];
         @jobs_weakify(self)
@@ -167,7 +167,7 @@
         inputViewStyleModel.placeHolderAlignment = PlaceHolderAlignmentLeft;
         inputViewStyleModel.leftViewOffsetX = 0.1;
         inputViewStyleModel.offset = 0.1;
-        inputViewStyleModel.ZYtextColor = KLightGrayColor;
+        inputViewStyleModel.ZYtextColor = JobsLightGrayColor;
         
         [inputView richElementsInViewWithModel:inputViewStyleModel];
         @jobs_weakify(self)

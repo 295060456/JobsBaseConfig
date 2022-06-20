@@ -20,15 +20,15 @@
 
 - (instancetype)init{
     if (self = [super init]) {
-        self.backgroundColor = kClearColor;
-        [self layerBorderColour:kWhiteColor andBorderWidth:1];
+        self.backgroundColor = JobsClearColor;
+        [self layerBorderColour:JobsWhiteColor andBorderWidth:1];
     }return self;
 }
 #pragma mark —— BaseViewProtocol
 - (instancetype)initWithSize:(CGSize)thisViewSize{
     if (self = [super init]) {
-        self.backgroundColor = kClearColor;
-        [self layerBorderColour:kWhiteColor andBorderWidth:1];
+        self.backgroundColor = JobsClearColor;
+        [self layerBorderColour:JobsWhiteColor andBorderWidth:1];
     }return self;
 }
 
@@ -40,7 +40,7 @@
     [super drawRect:rect];
     [self.authCodeLab appointCornerCutToCircleByRoundingCorners:UIRectCornerTopRight | UIRectCornerBottomRight
                                                  cornerRadii:CGSizeMake(self.authCodeLab.height / 2, self.authCodeLab.height / 2)];
-    [self.authCodeLab setBorderWithColor:kWhiteColor
+    [self.authCodeLab setBorderWithColor:JobsWhiteColor
                              borderWidth:1
                               borderType:UIBorderSideTypeLeft];
 }
@@ -60,7 +60,7 @@
     _textField.placeholderFont = self.doorInputViewBaseStyleModel.placeholderFont;
     _textField.objBindingParams = self.textFieldInputModel;
     _textField.leftViewOffsetX = self.doorInputViewBaseStyleModel.leftViewOffsetX ? : JobsWidth(17);
-    _textField.animationColor = self.doorInputViewBaseStyleModel.animationColor ? : kWhiteColor;
+    _textField.animationColor = self.doorInputViewBaseStyleModel.animationColor ? : JobsWhiteColor;
     _textField.placeHolderAlignment = self.doorInputViewBaseStyleModel.placeHolderAlignment ? : PlaceHolderAlignmentLeft;
     _textField.placeHolderOffset = self.doorInputViewBaseStyleModel.placeHolderOffset ? : JobsWidth(20);
     _textField.moveDistance = self.doorInputViewBaseStyleModel.moveDistance ? : JobsWidth(40);
@@ -109,8 +109,8 @@
         _authCodeLab.text = @"ss";
         _authCodeLab.font = JobsFontRegular(16);
         _authCodeLab.alpha = 0.7;
-        _authCodeLab.textColor = kWhiteColor;
-        _authCodeLab.backgroundColor = kBlackColor;
+        _authCodeLab.textColor = JobsWhiteColor;
+        _authCodeLab.backgroundColor = JobsBlackColor;
 
         [self addSubview:_authCodeLab];
         [_authCodeLab mas_makeConstraints:^(MASConstraintMaker *make) {

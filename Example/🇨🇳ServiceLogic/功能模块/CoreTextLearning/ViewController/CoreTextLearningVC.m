@@ -30,7 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = KYellowColor;
+    self.view.backgroundColor = JobsYellowColor;
     [self setGKNav];
     [self setGKNavBackBtn];
 }

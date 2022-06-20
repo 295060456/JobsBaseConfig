@@ -140,7 +140,7 @@
     
     targetShadowview.layer.shadowOpacity = (shadowOpacity != 0) ? : 0.7f;//shadowOpacity设置了阴影的不透明度,取值范围在0~1;
     targetShadowview.layer.shadowOffset = shadowOffset;//阴影偏移量
-    targetShadowview.layer.shadowColor = (layerShadowColor ? :KDarkGrayColor).CGColor;//阴影颜色   KLightGrayColor.CGColor;
+    targetShadowview.layer.shadowColor = (layerShadowColor ? :JobsDarkGrayColor).CGColor;//阴影颜色   JobsLightGrayColor.CGColor;
     targetShadowview.layer.shadowRadius = (layerShadowRadius != 0) ? : 8.0f;//模糊计算的半径
     
     UIBezierPath *path = UIBezierPath.bezierPath;

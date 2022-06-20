@@ -170,7 +170,7 @@
 }
 
 -(void)initialSendBtn{
-//        _sendBtn.backgroundColor = [KSystemPinkColor colorWithAlphaComponent:0.3];
+//        _sendBtn.backgroundColor = [JobsSystemPinkColor colorWithAlphaComponent:0.3];
     
     self.sendBtn.size = CGSizeMake(self.width - self.toRegisterBtn.width - JobsWidth(40), ThingsHeight);
     [self.sendBtn setBackgroundImage:KIMG(@"登录注册按钮背景图") forState:UIControlStateNormal];

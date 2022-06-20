@@ -76,7 +76,7 @@
     if (!_tableView) {
         _tableView = [[UITableView alloc]initWithFrame:[self menuFrame]
                                                  style:UITableViewStylePlain];
-//        _tableView.backgroundColor = kRedColor;
+//        _tableView.backgroundColor = JobsRedColor;
         _tableView.dataSource = self.tableViewDataSource;
         _tableView.delegate = self.tableViewDelegate;
         _tableView.layer.cornerRadius = 10.0f;

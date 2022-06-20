@@ -144,7 +144,7 @@
 - (UIView *)coverView {
     if (!_coverView) {
         _coverView = UIView.new;
-        _coverView.backgroundColor = kClearColor;
+        _coverView.backgroundColor = JobsClearColor;
         _coverView.hidden = YES;
         [_coverView addGestureRecognizer:self.coverViewTap];
         [self addSubview:_coverView];

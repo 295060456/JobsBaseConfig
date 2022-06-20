@@ -49,7 +49,7 @@
         _textField.placeholder = @"请输入搜索内容";
         _textField.delegate = self;
         _textField.leftView = self.imgView;
-        _textField.textColor = KPurpleColor;
+        _textField.textColor = JobsPurpleColor;
         _textField.inputAccessoryView = self.adNoticeView;
         _textField.leftViewMode = UITextFieldViewModeAlways;
         _textField.backgroundColor = HEXCOLOR(0xFFFFFF);
@@ -87,7 +87,7 @@
 //        }];
         
         [_textField cornerCutToCircleWithCornerRadius:JobsWidth(8)];
-        [_textField layerBorderColour:kBlueColor andBorderWidth:.05f];
+        [_textField layerBorderColour:JobsBlueColor andBorderWidth:.05f];
         
     }return _textField;
 }

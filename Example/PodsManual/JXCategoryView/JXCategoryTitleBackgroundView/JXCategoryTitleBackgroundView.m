@@ -21,9 +21,9 @@
 
     self.cellWidthIncrement = 20;
     self.normalBackgroundColor = RGB_COLOR(237, 236, 242);
-    self.normalBorderColor = kClearColor;
+    self.normalBorderColor = JobsClearColor;
     self.selectedBackgroundColor = [RGB_COLOR(255, 232, 236) colorWithAlphaComponent:0.3];
-    self.selectedBorderColor = kClearColor;
+    self.selectedBorderColor = JobsClearColor;
     self.borderLineWidth = 1;
     self.backgroundCornerRadius = 13;
     self.backgroundWidth = JXCategoryViewAutomaticDimension;

@@ -30,7 +30,7 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-    self.view.backgroundColor = kRedColor;
+    self.view.backgroundColor = JobsRedColor;
     self.isHiddenNavigationBar = YES;//禁用系统的导航栏
 }
 

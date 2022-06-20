@@ -21,8 +21,8 @@
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = kWhiteColor;
-        self.contentView.backgroundColor = kWhiteColor;
+        self.backgroundColor = JobsWhiteColor;
+        self.contentView.backgroundColor = JobsWhiteColor;
     }return self;
 }
 #pragma mark —— BaseCellProtocol
@@ -52,7 +52,7 @@
         _serialNumLab = UILabel.new;
         _serialNumLab.text = self.serialStr;
         _serialNumLab.textAlignment = NSTextAlignmentCenter;
-        _serialNumLab.textColor = kWhiteColor;
+        _serialNumLab.textColor = JobsWhiteColor;
         _serialNumLab.backgroundColor = self.serialNumLabBGCor;
         [self.contentView addSubview:_serialNumLab];
         [_serialNumLab mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -68,7 +68,7 @@
     if (!_contentLab) {
         _contentLab = UILabel.new;
         _contentLab.text = self.viewModel.textModel.text;
-        _contentLab.textColor = KLightGrayColor;
+        _contentLab.textColor = JobsLightGrayColor;
         [self.contentView addSubview:_contentLab];
         [_contentLab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self.serialNumLab);

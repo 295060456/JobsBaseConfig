@@ -85,9 +85,9 @@
 -(void)makeGKNavigationBarConfigure{
     [GKConfigure setupCustomConfigure:^(GKNavigationBarConfigure * _Nonnull configure) {
         // 导航栏背景色
-        configure.backgroundColor = kClearColor;
+        configure.backgroundColor = JobsClearColor;
         // 导航栏标题颜色
-        configure.titleColor = kWhiteColor;
+        configure.titleColor = JobsWhiteColor;
         // 导航栏标题字体
         configure.titleFont = [UIFont systemFontOfSize:JobsWidth(16.0f) weight:UIFontWeightRegular];
         // 导航栏返回按钮样式

@@ -28,8 +28,8 @@
     if (!cell) {
         cell = [JobsIMListTBVCell initTableViewCellWithStyle:UITableViewCellStyleSubtitle];;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.contentView.backgroundColor = kWhiteColor;
-        cell.backgroundColor = kWhiteColor;
+        cell.contentView.backgroundColor = JobsWhiteColor;
+        cell.backgroundColor = JobsWhiteColor;
     }return cell;
 }
 
@@ -38,9 +38,9 @@
     if (self = [super initWithStyle:style
                     reuseIdentifier:reuseIdentifier]) {
         self.longPG.enabled = YES;
-        self.swipeBackgroundColor = kClearColor;
+        self.swipeBackgroundColor = JobsClearColor;
         self.selectedBackgroundView = UIView.new;
-        self.selectedBackgroundView.backgroundColor = [KYellowColor colorWithAlphaComponent:0.3];
+        self.selectedBackgroundView.backgroundColor = [JobsYellowColor colorWithAlphaComponent:0.3];
         self.leftSwipeSettings.transition = MGSwipeTransitionBorder;
         self.rightSwipeSettings.transition = MGSwipeTransitionDrag;
         self.leftExpansion.buttonIndex = 0;
@@ -73,7 +73,7 @@
     
     self.textLabel.text = self.usernameStr;
     self.detailTextLabel.text = self.contentStr;
-    self.detailTextLabel.textColor = KLightGrayColor;
+    self.detailTextLabel.textColor = JobsLightGrayColor;
     self.imageView.image = self.userHeaderIMG;
     self.timeLab.alpha = 1;
 }
@@ -122,7 +122,7 @@
     if (!_timeLab) {
         _timeLab = UILabel.new;
         _timeLab.text = self.timeStr;
-        _timeLab.textColor = KLightGrayColor;
+        _timeLab.textColor = JobsLightGrayColor;
         _timeLab.font = [UIFont systemFontOfSize:12
                                           weight:UIFontWeightRegular];
         [_timeLab sizeToFit];
@@ -148,7 +148,7 @@
         MGSwipeButtonModel *model_1 = MGSwipeButtonModel.new;
         model_1.titleStr = @"L1";
         model_1.IconIMG = KIMG(@"Check");
-        model_1.bgCor = KGreenColor;
+        model_1.bgCor = JobsGreenColor;
         
         MGSwipeButtonModel *model_2 = MGSwipeButtonModel.new;
         model_2.titleStr = @"L2";
@@ -174,17 +174,17 @@
         MGSwipeButtonModel *model_1 = MGSwipeButtonModel.new;
         model_1.titleStr = @"R1";
         model_1.IconIMG = KIMG(@"Class");
-        model_1.bgCor = KPurpleColor;
+        model_1.bgCor = JobsPurpleColor;
         
         MGSwipeButtonModel *model_2 = MGSwipeButtonModel.new;
         model_2.titleStr = @"R2";
         model_2.IconIMG = KIMG(@"Drop");
-        model_2.bgCor = KDarkTextColor;
+        model_2.bgCor = JobsDarkTextColor;
         
         MGSwipeButtonModel *model_3 = MGSwipeButtonModel.new;
         model_3.titleStr = @"R3";
         model_3.IconIMG = KIMG(@"Header");
-        model_3.bgCor = kCyanColor;
+        model_3.bgCor = JobsCyanColor;
         
         [_rightBtnMutArr addObject:model_1];
         [_rightBtnMutArr addObject:model_2];

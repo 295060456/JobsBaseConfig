@@ -177,7 +177,7 @@ static DDUploadingProgressView *static_uploadingProgressView = nil;
 - (UILabel *)refreshLabel{
     if (!_refreshLabel) {
         _refreshLabel = UILabel.new;
-        _refreshLabel.textColor = kWhiteColor;
+        _refreshLabel.textColor = JobsWhiteColor;
         _refreshLabel.text = @"正在上传...";
         [self addSubview:_refreshLabel];
         [_refreshLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -190,7 +190,7 @@ static DDUploadingProgressView *static_uploadingProgressView = nil;
 - (UILabel *)subrefreshLabel{
     if (!_subrefreshLabel) {
         _subrefreshLabel = UILabel.new;
-        _subrefreshLabel.textColor = kWhiteColor;
+        _subrefreshLabel.textColor = JobsWhiteColor;
         _subrefreshLabel.textAlignment = NSTextAlignmentRight;
         _subrefreshLabel.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular];
         [self addSubview:_subrefreshLabel];

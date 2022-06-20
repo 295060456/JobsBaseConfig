@@ -102,7 +102,7 @@
     if (!_toRegisterBtn) {
         _toRegisterBtn = UIButton.new;
         [_toRegisterBtn makeNewLineShows:YES];
-        _toRegisterBtn.backgroundColor = kBlackColor;
+        _toRegisterBtn.backgroundColor = JobsBlackColor;
         [_toRegisterBtn titleFont:[UIFont systemFontOfSize:JobsWidth(13) weight:UIFontWeightMedium]];
         _toRegisterBtn.alpha = 0.7f;
         [_toRegisterBtn normalTitle:Title2];
@@ -125,7 +125,7 @@
     if (!_titleLab) {
         _titleLab = UILabel.new;
         _titleLab.text = Title7;
-        _titleLab.textColor = kWhiteColor;
+        _titleLab.textColor = JobsWhiteColor;
         _titleLab.font = [UIFont systemFontOfSize:JobsWidth(20)
                                            weight:UIFontWeightRegular];
         [_titleLab sizeToFit];
@@ -156,7 +156,7 @@
     if (!_sendBtn) {
         _sendBtn = UIButton.new;
         [_sendBtn normalTitle:Title7];
-        _sendBtn.backgroundColor = [KSystemPinkColor colorWithAlphaComponent:0.7];
+        _sendBtn.backgroundColor = [JobsSystemPinkColor colorWithAlphaComponent:0.7];
         [_sendBtn normalTitleColor:UIColor.whiteColor];
         [_sendBtn titleFont:[UIFont systemFontOfSize:JobsWidth(15) weight:UIFontWeightSemibold]];
         [self addSubview:_sendBtn];
@@ -179,7 +179,7 @@
         _storeCodeBtn.selected = YES;// 默认记住密码
         [_storeCodeBtn normalImage:KIMG(@"没有记住密码")];
         [_storeCodeBtn selectedImage:KIMG(@"记住密码")];
-        _storeCodeBtn.titleLabel.textColor = kWhiteColor;
+        _storeCodeBtn.titleLabel.textColor = JobsWhiteColor;
         [_storeCodeBtn buttonAutoWidthByFont];
         [self addSubview:_storeCodeBtn];
         [_storeCodeBtn mas_makeConstraints:^(MASConstraintMaker *make) {

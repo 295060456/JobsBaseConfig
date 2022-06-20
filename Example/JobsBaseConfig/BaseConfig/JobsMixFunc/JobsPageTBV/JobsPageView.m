@@ -73,7 +73,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 -(UITableView *)tableView{
     if (!_tableView) {
         _tableView = UITableView.new;
-        _tableView.backgroundColor = kClearColor;
+        _tableView.backgroundColor = JobsClearColor;
         _tableView.pagingEnabled = YES;
 //        _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         _tableView.scrollEnabled = NO;

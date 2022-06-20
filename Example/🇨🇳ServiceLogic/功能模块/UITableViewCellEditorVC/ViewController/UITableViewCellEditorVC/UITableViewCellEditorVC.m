@@ -281,7 +281,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
                                                                 titleStr:Internationalization(@"暂无数据")
                                                                detailStr:Internationalization(@"")];
             
-            _tableView.ly_emptyView.titleLabTextColor = KLightGrayColor;
+            _tableView.ly_emptyView.titleLabTextColor = JobsLightGrayColor;
             _tableView.ly_emptyView.contentViewOffset = -JobsWidth(180);
             _tableView.ly_emptyView.titleLabFont = [UIFont systemFontOfSize:JobsWidth(16) weight:UIFontWeightMedium];
         }

@@ -407,7 +407,7 @@ shouldSelectViewController:(UIViewController *)viewController {
 -(UIViewModel *)viewModel{
     if (!_viewModel) {
         _viewModel = UIViewModel.new;
-        _viewModel.bgCor = kWhiteColor;
+        _viewModel.bgCor = JobsWhiteColor;
         _viewModel.bgImage = isiPhoneX_series() ? KIMG(@"底部导航栏背景(刘海屏)") : KIMG(@"底部导航栏背景(非刘海屏)");
         _viewModel.isTranslucent = NO;
         _viewModel.offsetHeight = JobsWidth(5);

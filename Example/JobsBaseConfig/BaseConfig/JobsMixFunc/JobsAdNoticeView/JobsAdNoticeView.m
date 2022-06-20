@@ -17,7 +17,7 @@
 
 -(instancetype)init{
     if (self = [super init]) {
-        self.backgroundColor = kCyanColor;
+        self.backgroundColor = JobsCyanColor;
 
     }return self;
 }
@@ -38,10 +38,10 @@
     if (!_adNoticeLab) {
         _adNoticeLab = UILabel.new;
         _adNoticeLab.text = @"Jobs安全聊天，为您的聊天加密护航";
-        _adNoticeLab.textColor = kRedColor;
+        _adNoticeLab.textColor = JobsRedColor;
         _adNoticeLab.textAlignment = NSTextAlignmentCenter;
         _adNoticeLab.font = [UIFont systemFontOfSize:12 weight:UIFontWeightRegular];
-        _adNoticeLab.backgroundColor = kClearColor;
+        _adNoticeLab.backgroundColor = JobsClearColor;
         [self addSubview:_adNoticeLab];
         [_adNoticeLab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self);

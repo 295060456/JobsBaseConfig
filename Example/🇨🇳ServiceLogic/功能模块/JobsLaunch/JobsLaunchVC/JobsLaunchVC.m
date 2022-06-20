@@ -56,7 +56,7 @@ static dispatch_once_t static_launchVCOnceToken;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = KYellowColor;
+    self.view.backgroundColor = JobsYellowColor;
     self.skipBtn.alpha = 1;
 }
 

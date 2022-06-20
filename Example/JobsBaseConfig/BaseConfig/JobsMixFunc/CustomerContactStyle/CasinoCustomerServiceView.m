@@ -156,7 +156,7 @@ static CasinoCustomerServiceView *static_customerServiceView = nil;
 -(JobsHotLabelWithSingleLine *)hl{
     if (!_hl) {
         _hl = JobsHotLabelWithSingleLine.new;
-        _hl.backgroundColor = kClearColor;
+        _hl.backgroundColor = JobsClearColor;
         [self actionForHotLabel:_hl];
         [self addSubview:_hl];
         [_hl mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -52,7 +52,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = KYellowColor;
+    self.view.backgroundColor = JobsYellowColor;
     [self setGKNav];
     [self setGKNavBackBtn];
     
@@ -105,21 +105,21 @@
         
         RichTextConfig *config_01 = RichTextConfig.new;
         config_01.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular];
-        config_01.textCor = kBlueColor;
+        config_01.textCor = JobsBlueColor;
         config_01.targetString = @"编译器自动管理内存地址,\n";
         config_01.textBgCor = UIColor.brownColor;
         config_01.paragraphStyle = self.paragtaphStyle;
         
         RichTextConfig *config_02 = RichTextConfig.new;
         config_02.font = [UIFont systemFontOfSize:JobsWidth(13) weight:UIFontWeightMedium];
-        config_02.textCor = kWhiteColor;
+        config_02.textCor = JobsWhiteColor;
         config_02.targetString = @"让程序员更加专注于\n";
         config_02.textBgCor = UIColor.brownColor;
         config_02.paragraphStyle = self.paragtaphStyle;
         
         RichTextConfig *config_03 = RichTextConfig.new;
         config_03.font = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightSemibold];
-        config_03.textCor = KGreenColor;
+        config_03.textCor = JobsGreenColor;
         config_03.targetString = @"APP的业务。";
         config_03.textBgCor = UIColor.brownColor;
         config_03.paragraphStyle = self.paragtaphStyle;

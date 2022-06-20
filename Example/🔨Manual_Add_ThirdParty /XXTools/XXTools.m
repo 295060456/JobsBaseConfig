@@ -28,7 +28,7 @@
                                     -width/2,
                                     width,
                                     width);
-    self.labView.backgroundColor = KYellowColor;
+    self.labView.backgroundColor = JobsYellowColor;
     self.labView.clipsToBounds = YES;
     self.labView.layer.cornerRadius = cornerRadius;
     self.labView.transform = CGAffineTransformMakeRotation(-M_PI_4);
@@ -39,14 +39,14 @@
                                  width,
                                  width);
     self.lab2.text = text;
-    self.lab2.textColor = kRedColor;
+    self.lab2.textColor = JobsRedColor;
     self.lab2.textAlignment = NSTextAlignmentCenter;
     if (@available(iOS 8.2, *)) {
         self.lab2.font = [UIFont systemFontOfSize:10 weight:-0.4];
     } else {
         self.lab2.font = [UIFont systemFontOfSize:10 weight:UIFontWeightRegular];
     }
-    self.lab2.backgroundColor = kClearColor;//lab2 不要颜色
+    self.lab2.backgroundColor = JobsClearColor;//lab2 不要颜色
     self.lab2.transform = CGAffineTransformMakeRotation(-M_PI_4);
     [superView addSubview:self.lab2];
     return @[self.labView,self.lab2];

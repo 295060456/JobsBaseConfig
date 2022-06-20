@@ -32,7 +32,7 @@
     if (!_titleLab) {
         _titleLab = UILabel.new;
         _titleLab.text = @"评论";
-        _titleLab.textColor = kRedColor;
+        _titleLab.textColor = JobsRedColor;
         _titleLab.font = [UIFont systemFontOfSize:18 weight:UIFontWeightRegular];
         [_titleLab sizeToFit];
         [self addSubview:_titleLab];

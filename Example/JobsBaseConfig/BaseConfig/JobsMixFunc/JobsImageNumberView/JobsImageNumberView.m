@@ -20,7 +20,7 @@
 
 -(instancetype)init{
     if (self = [super init]) {
-        self.backgroundColor = kClearColor;
+        self.backgroundColor = JobsClearColor;
     }return self;
 }
 
@@ -125,7 +125,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
         _collectionView = [[BaseCollectionView alloc] initWithFrame:CGRectZero
                                                collectionViewLayout:self.layout];
         
-        _collectionView.backgroundColor = kClearColor;
+        _collectionView.backgroundColor = JobsClearColor;
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
         _collectionView.showsVerticalScrollIndicator = NO;

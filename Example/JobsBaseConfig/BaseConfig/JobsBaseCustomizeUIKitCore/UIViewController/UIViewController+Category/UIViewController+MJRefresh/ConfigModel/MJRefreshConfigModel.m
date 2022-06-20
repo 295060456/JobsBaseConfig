@@ -20,7 +20,7 @@
 /// TextColor
 -(UIColor *)textColor{
     if (!_textColor) {
-        _textColor = KLightGrayColor;
+        _textColor = JobsLightGrayColor;
     }return _textColor;
 }
 /// duration

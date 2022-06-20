@@ -23,7 +23,7 @@
 
 -(UIColor *)titleStrCor{
     if (!_titleStrCor) {
-        _titleStrCor = kWhiteColor;
+        _titleStrCor = JobsWhiteColor;
     }return _titleStrCor;
 }
 

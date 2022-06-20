@@ -27,20 +27,20 @@
 
 - (instancetype)init{
     if (self = [super init]) {
-//        self.backgroundColor = kRedColor;
+//        self.backgroundColor = JobsRedColor;
         self.titleStr_1 = @"点击";
         self.titleStr_2 = @"发送验证码";
-        [self layerBorderColour:kWhiteColor andBorderWidth:1];
+        [self layerBorderColour:JobsWhiteColor andBorderWidth:1];
     }return self;
 }
 #pragma mark —— BaseViewProtocol
 - (instancetype)initWithSize:(CGSize)thisViewSize{
     if (self = [super init]) {
-//        self.backgroundColor = kRedColor;
+//        self.backgroundColor = JobsRedColor;
         self.thisViewSize = thisViewSize;
         self.titleStr_1 = Internationalization(@"点击");
         self.titleStr_2 = Internationalization(@"发送验证码");
-        [self layerBorderColour:kWhiteColor andBorderWidth:1];
+        [self layerBorderColour:JobsWhiteColor andBorderWidth:1];
     }return self;
 }
 
@@ -125,7 +125,7 @@
         _btnTimerConfigModel.readyPlayValue.layerBorderWidth = 1;
         _btnTimerConfigModel.readyPlayValue.layerCornerRadius = JobsWidth(18);
         _btnTimerConfigModel.readyPlayValue.bgCor = UIColor.clearColor;
-        _btnTimerConfigModel.readyPlayValue.layerBorderColour = kClearColor;
+        _btnTimerConfigModel.readyPlayValue.layerBorderColour = JobsClearColor;
         _btnTimerConfigModel.readyPlayValue.textCor = HEXCOLOR_ALPHA(0xAE8330, 1);
         _btnTimerConfigModel.readyPlayValue.text = Title9;
         _btnTimerConfigModel.readyPlayValue.font = [UIFont systemFontOfSize:JobsWidth(14)
@@ -175,12 +175,12 @@
 //        
 //        RichTextConfig *config_01 = RichTextConfig.new;
 //        config_01.font = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightMedium];
-//        config_01.cor = kBlueColor;
+//        config_01.cor = JobsBlueColor;
 //        config_01.targetString = self.titleStr_1;
 //        
 //        RichTextConfig *config_02 = RichTextConfig.new;
 //        config_02.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightMedium];
-//        config_02.cor = kRedColor;
+//        config_02.cor = JobsRedColor;
 //        config_02.targetString = self.titleStr_2;
 //        
 //        [_richLabelDataStringsMutArr addObject:config_01];

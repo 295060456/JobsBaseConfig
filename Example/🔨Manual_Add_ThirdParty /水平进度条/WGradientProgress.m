@@ -25,7 +25,7 @@
 
 -(instancetype)init{
     if (self = [super init]) {
-        self.backgroundColor = KBrownColor;
+        self.backgroundColor = JobsBrownColor;
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth;//自动调整view的宽度，保证左边距和右边距不变
     }return self;
 }
@@ -242,7 +242,7 @@
     if (!_roadLayer) {
         _roadLayer = CALayer.layer;
         _roadLayer.frame = self.bounds;
-        _roadLayer.backgroundColor = KLightGrayColor.CGColor;
+        _roadLayer.backgroundColor = JobsLightGrayColor.CGColor;
         [self.layer addSublayer:_roadLayer];
     }return _roadLayer;
 }
@@ -279,7 +279,7 @@
 
 -(UIColor *)progressColor{
     if (!_progressColor) {
-        _progressColor = kRedColor;
+        _progressColor = JobsRedColor;
     }return _progressColor;
 }
 

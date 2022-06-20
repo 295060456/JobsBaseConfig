@@ -26,11 +26,11 @@
 #pragma mark —— BaseViewProtocol
 - (instancetype)initWithSize:(CGSize)thisViewSize{
     if (self = [super init]) {
-//        self.backgroundColor = kRedColor;
+//        self.backgroundColor = JobsRedColor;
         self.thisViewSize = thisViewSize;
         self.titleStr_1 = Internationalization(@"請輸入金額");
         self.titleStr_2 = Internationalization(@"全部金額");
-        [self layerBorderColour:kWhiteColor andBorderWidth:1];
+        [self layerBorderColour:JobsWhiteColor andBorderWidth:1];
         
     }return self;
 }

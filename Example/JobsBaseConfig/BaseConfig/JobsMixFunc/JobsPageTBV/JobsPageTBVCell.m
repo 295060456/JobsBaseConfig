@@ -22,7 +22,7 @@
         cell = [JobsPageTBVCell initTableViewCellWithStyle:UITableViewCellStyleSubtitle];
 //        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.backgroundColor = cell.contentView.backgroundColor = kClearColor;
+        cell.backgroundColor = cell.contentView.backgroundColor = JobsClearColor;
     }return cell;
 }
 

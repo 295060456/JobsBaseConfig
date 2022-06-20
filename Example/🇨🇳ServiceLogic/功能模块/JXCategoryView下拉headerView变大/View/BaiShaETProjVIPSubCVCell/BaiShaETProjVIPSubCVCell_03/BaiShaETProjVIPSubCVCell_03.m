@@ -17,7 +17,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        self.contentView.backgroundColor = KGreenColor;
+        self.contentView.backgroundColor = JobsGreenColor;
     }return self;
 }
 #pragma mark —— JobsDoorInputViewProtocol

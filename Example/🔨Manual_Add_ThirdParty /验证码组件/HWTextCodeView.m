@@ -36,8 +36,8 @@
     self.labels = @[].mutableCopy;
     self.lines = @[].mutableCopy;
     UITextField *textField = [[UITextField alloc] init];
-    textField.textColor = kClearColor;
-    textField.tintColor = kClearColor;
+    textField.textColor = JobsClearColor;
+    textField.tintColor = JobsClearColor;
     textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     textField.keyboardType = UIKeyboardTypeNumberPad;
     [textField addTarget:self
@@ -46,7 +46,7 @@
     [self addSubview:textField];
     self.textField = textField;
     UIButton *maskView = [UIButton new];
-    maskView.backgroundColor = kClearColor;
+    maskView.backgroundColor = JobsClearColor;
     [maskView addTarget:self
                  action:@selector(clickMaskView)
        forControlEvents:(UIControlEventTouchUpInside)];

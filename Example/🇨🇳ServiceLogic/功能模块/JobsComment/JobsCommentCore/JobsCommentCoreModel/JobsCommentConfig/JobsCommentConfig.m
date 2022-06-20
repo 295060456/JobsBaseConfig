@@ -48,11 +48,11 @@ static JobsCommentConfig *static_jobsCommentConfig = nil;
 }
 
 -(UIColor *)subTitleCor{
-    return kBlackColor;
+    return JobsBlackColor;
 }
 
 -(UIColor *)bgCor{
-    return kWhiteColor;
+    return JobsWhiteColor;
 }
 
 -(CGFloat)cellHeight{

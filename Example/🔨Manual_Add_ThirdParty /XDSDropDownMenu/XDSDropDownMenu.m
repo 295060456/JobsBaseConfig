@@ -30,7 +30,7 @@
             arrayOfImage:(NSArray *)imageArr
       animationDirection:(NSString *)direction{
     
-    self.backgroundColor = kWhiteColor;
+    self.backgroundColor = JobsWhiteColor;
     
     self.animationDirection = direction;
     
@@ -89,7 +89,7 @@
         
         self.menuTableView.separatorInset = UIEdgeInsetsMake(0, -20, 0, 0);
         
-        self.menuTableView.backgroundColor = kWhiteColor;
+        self.menuTableView.backgroundColor = JobsWhiteColor;
         
         self.menuTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, btnRect.size.width, 0.001)];//最后无分割线
         

@@ -38,7 +38,7 @@ NS_ASSUME_NONNULL_END
  -(JobsHotLabelWithSingleLine *)hl{
      if (!_hl) {
          _hl = JobsHotLabelWithSingleLine.new;
-         _hl.backgroundColor = kClearColor;
+         _hl.backgroundColor = JobsClearColor;
          _hl.labelShowingType = UILabelShowingType_05;
          _hl.hotLabelDefaultHeight = JobsWidth(30);
          @jobs_weakify(self)

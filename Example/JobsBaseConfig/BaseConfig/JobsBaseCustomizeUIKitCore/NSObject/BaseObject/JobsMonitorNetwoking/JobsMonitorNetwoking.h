@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_END
 //}
 //
 //-(void)viewDidLoad{
-//    self.view.backgroundColor = kBlueColor;
+//    self.view.backgroundColor = JobsBlueColor;
 //    #ifdef DEBUG
 //    self.mytimer = [NSTimer scheduledTimerWithTimeInterval:1.0
 //                                                    target:self

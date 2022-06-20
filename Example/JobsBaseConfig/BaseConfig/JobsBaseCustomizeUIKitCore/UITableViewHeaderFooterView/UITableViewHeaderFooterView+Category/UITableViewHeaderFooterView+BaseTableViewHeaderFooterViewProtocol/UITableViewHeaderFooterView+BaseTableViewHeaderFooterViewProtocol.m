@@ -13,7 +13,7 @@
 -(void)richElementsInViewWithModel:(UIViewModel *_Nullable)model{
     if ([model isKindOfClass:UIViewModel.class]) {
         // TODO
-        self.contentView.backgroundColor = kCyanColor;
+        self.contentView.backgroundColor = JobsCyanColor;
     }
 }
 //具体由子类进行复写【数据定高】

@@ -347,7 +347,7 @@
         [dropDownListView dropDownListViewDisappear];
     }];
     
-//    dropDownListView.backgroundColor = kRedColor;
+//    dropDownListView.backgroundColor = JobsRedColor;
 
     if (!data) {
         data = NSMutableArray.array;

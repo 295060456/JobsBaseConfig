@@ -18,7 +18,7 @@
 
 -(instancetype)initWithReuseIdentifier:(nullable NSString *)reuseIdentifier{
     if (self = [super initWithReuseIdentifier:reuseIdentifier]) {
-        self.contentView.backgroundColor = kWhiteColor;
+        self.contentView.backgroundColor = JobsWhiteColor;
     }return self;
 }
 

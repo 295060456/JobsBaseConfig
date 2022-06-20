@@ -16,7 +16,7 @@
 
 -(instancetype)init{
     if (self = [super init]) {
-        self.backgroundColor = self.backgroundColor ? :kBlackColor;
+        self.backgroundColor = self.backgroundColor ? :JobsBlackColor;
         [self cornerCutToCircleWithCornerRadius:8];
     }return self;
 }
