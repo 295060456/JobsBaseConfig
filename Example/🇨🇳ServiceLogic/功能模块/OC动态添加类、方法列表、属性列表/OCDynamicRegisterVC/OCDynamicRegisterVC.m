@@ -50,6 +50,16 @@
 //    [self msgSend];
     [self work];
 }
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches
+          withEvent:(UIEvent *)event{
+    [OCDynamic Test];
+    
+    OCDynamic *dynamic = OCDynamic.new;
+    [dynamic test];
+    
+    DynamicInvoke.new;
+}
 /**
  参考资料：https://www.iloveanan.com/new-prototype-of-objc_msgsend.html
  
@@ -137,14 +147,6 @@ void jobsNameSetter(NSString *value){
 NSString *jobsName(){
     printf("%s/n",__func__);
     return @"master NB";
-}
-
--(void)touchesBegan:(NSSet<UITouch *> *)touches
-          withEvent:(UIEvent *)event{
-    [OCDynamic Test];
-    
-    OCDynamic *dynamic = OCDynamic.new;
-    [dynamic test];
 }
 #pragma mark —— 一些私有方法
 /// 动态创建类并添加：成员变量、属性、方法、协议

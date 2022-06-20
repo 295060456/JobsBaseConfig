@@ -78,7 +78,7 @@ callingMethodWithName:(nullable NSString *)methodName{
     invocation.selector = selector;
 
     /// 【防崩溃】如果传的不是数组，则封装成数组进行处理
-    if (![paramarrays isKindOfClass:NSArray.class]) {
+    if (![paramarrays isKindOfClass:NSArray.class] && paramarrays) {
         paramarrays = @[paramarrays];
     }
     /*

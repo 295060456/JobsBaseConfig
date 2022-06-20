@@ -10,6 +10,7 @@
 #import "NSObject+Class.h"
 #import "BaseViewController.h"
 #import "OCDynamic.h"
+#import "DynamicInvoke.h"
 
 NS_ASSUME_NONNULL_BEGIN
 /**
