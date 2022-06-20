@@ -38,11 +38,44 @@ UITableViewCellProtocol_synthesize
         self.selectionStyle = UITableViewCellSelectionStyleNone;// 取消点击效果 【不能在cellWithTableView里面写】
         /// 适配iOS 13夜间模式/深色外观(Dark Mode)
         self.backgroundColor = [UIColor xy_createWithLightColor:UIColor.whiteColor darkColor:UIColor.whiteColor];
+        JobsRedColor;
         self.detailTextLabel.textColor = UIColor.brownColor;
         self.textLabel.textColor = UIColor.blackColor;
     }return self;
 }
-
+#pragma mark —— 一些私有方法
+-(void)printValue{
+    NSLog(@"self.textLabelFrame = %@",NSStringFromCGRect(self.textLabelFrame));
+    NSLog(@"self.detailTextLabelFrame = %@",NSStringFromCGRect(self.detailTextLabelFrame));
+    NSLog(@"self.imageViewFrame = %@",NSStringFromCGRect(self.imageViewFrame));
+    
+    NSLog(@"self.textLabelSize = %@",NSStringFromCGSize(self.textLabelSize));
+    NSLog(@"self.detailTextLabelSize = %@",NSStringFromCGSize(self.detailTextLabelSize));
+    NSLog(@"self.imageViewSize = %@",NSStringFromCGSize(self.imageViewSize));
+    
+    NSLog(@"self.textLabelWidth = %f",self.textLabelWidth);
+    NSLog(@"self.textLabelHeight = %f",self.textLabelHeight);
+    NSLog(@"self.detailTextLabelWidth = %f",self.detailTextLabelWidth);
+    NSLog(@"elf.detailTextLabelHeight = %f",self.detailTextLabelHeight);
+    NSLog(@"self.imageViewWidth = %f",self.imageViewWidth);
+    NSLog(@"self.imageViewHeight = %f",self.imageViewHeight);
+    
+    NSLog(@"self.textLabelFrameOffsetX = %f",self.textLabelFrameOffsetX);
+    NSLog(@"self.textLabelFrameOffsetY = %f",self.textLabelFrameOffsetY);
+    NSLog(@"self.textLabelFrameOffsetWidth = %f",self.textLabelFrameOffsetWidth);
+    NSLog(@"self.textLabelFrameOffsetHeight = %f",self.textLabelFrameOffsetHeight);
+    
+    NSLog(@"self.detailTextLabelOffsetX = %f",self.detailTextLabelOffsetX);
+    NSLog(@"self.detailTextLabelOffsetY = %f",self.detailTextLabelOffsetY);
+    NSLog(@"self.detailTextLabelOffsetWidth = %f",self.detailTextLabelOffsetWidth);
+    NSLog(@"self.detailTextLabelOffsetHeight = %f",self.detailTextLabelOffsetHeight);
+    
+    NSLog(@"self.imageViewFrameOffsetX = %f",self.imageViewFrameOffsetX);
+    NSLog(@"self.imageViewFrameOffsetY = %f",self.imageViewFrameOffsetY);
+    NSLog(@"self.imageViewFrameOffsetWidth = %f",self.imageViewFrameOffsetWidth);
+    NSLog(@"self.imageViewFrameOffsetHeight = %f",self.imageViewFrameOffsetHeight);
+}
+#pragma mark —— 子类重写父类方法
 - (void)setSelected:(BOOL)selected
            animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
@@ -206,46 +239,20 @@ UITableViewCellProtocol_synthesize
         }
     }
 }
-
--(void)printValue{
-    NSLog(@"self.textLabelFrame = %@",NSStringFromCGRect(self.textLabelFrame));
-    NSLog(@"self.detailTextLabelFrame = %@",NSStringFromCGRect(self.detailTextLabelFrame));
-    NSLog(@"self.imageViewFrame = %@",NSStringFromCGRect(self.imageViewFrame));
-    
-    NSLog(@"self.textLabelSize = %@",NSStringFromCGSize(self.textLabelSize));
-    NSLog(@"self.detailTextLabelSize = %@",NSStringFromCGSize(self.detailTextLabelSize));
-    NSLog(@"self.imageViewSize = %@",NSStringFromCGSize(self.imageViewSize));
-    
-    NSLog(@"self.textLabelWidth = %f",self.textLabelWidth);
-    NSLog(@"self.textLabelHeight = %f",self.textLabelHeight);
-    NSLog(@"self.detailTextLabelWidth = %f",self.detailTextLabelWidth);
-    NSLog(@"elf.detailTextLabelHeight = %f",self.detailTextLabelHeight);
-    NSLog(@"self.imageViewWidth = %f",self.imageViewWidth);
-    NSLog(@"self.imageViewHeight = %f",self.imageViewHeight);
-    
-    NSLog(@"self.textLabelFrameOffsetX = %f",self.textLabelFrameOffsetX);
-    NSLog(@"self.textLabelFrameOffsetY = %f",self.textLabelFrameOffsetY);
-    NSLog(@"self.textLabelFrameOffsetWidth = %f",self.textLabelFrameOffsetWidth);
-    NSLog(@"self.textLabelFrameOffsetHeight = %f",self.textLabelFrameOffsetHeight);
-    
-    NSLog(@"self.detailTextLabelOffsetX = %f",self.detailTextLabelOffsetX);
-    NSLog(@"self.detailTextLabelOffsetY = %f",self.detailTextLabelOffsetY);
-    NSLog(@"self.detailTextLabelOffsetWidth = %f",self.detailTextLabelOffsetWidth);
-    NSLog(@"self.detailTextLabelOffsetHeight = %f",self.detailTextLabelOffsetHeight);
-    
-    NSLog(@"self.imageViewFrameOffsetX = %f",self.imageViewFrameOffsetX);
-    NSLog(@"self.imageViewFrameOffsetY = %f",self.imageViewFrameOffsetY);
-    NSLog(@"self.imageViewFrameOffsetWidth = %f",self.imageViewFrameOffsetWidth);
-    NSLog(@"self.imageViewFrameOffsetHeight = %f",self.imageViewFrameOffsetHeight);
-}
-// 在具体的子类去实现,分类调用异常
+/**
+ 1、-(void)setFrame:(CGRect)frame 此方法仅限于具体的 UITableViewCell子类使用
+ 2、如果在 BaseTableViewCell 实现此方法，那么一单相关子类集成 BaseTableViewCell 则会对-(void)setFrame:(CGRect)frame进行反复调用，因为[super setFrame:frame];
+ 3、禁止分类去调用，否则引起异常
+ */
 -(void)setFrame:(CGRect)frame{
-    NSLog(@"self.offsetXForEach = %f",self.offsetXForEach);
-    NSLog(@"self.offsetYForEach = %f",self.offsetYForEach);
-    frame.origin.x += self.offsetXForEach;
-    frame.origin.y += self.offsetYForEach;
-    frame.size.height -= self.offsetYForEach * 2;
-    frame.size.width -= self.offsetXForEach * 2;
+    if (self.class == BaseTableViewCell.class) {
+        NSLog(@"self.offsetXForEach = %f",self.offsetXForEach);
+        NSLog(@"self.offsetYForEach = %f",self.offsetYForEach);
+        frame.origin.x += self.offsetXForEach;
+        frame.origin.y += self.offsetYForEach;
+        frame.size.height -= self.offsetYForEach * 2;
+        frame.size.width -= self.offsetXForEach * 2;
+    }
     [super setFrame:frame];
 }
 #pragma mark —— BaseViewProtocol
@@ -302,7 +309,7 @@ UITableViewCellProtocol_synthesize
 #pragma mark —— 协议属性合成set & get方法
 /// UIViewModelProtocol
 UIViewModelProtocol_synthesize
--(void)setindexPath:(NSIndexPath *)indexPath{
+-(void)setIndexPath:(NSIndexPath *)indexPath{
     _indexPath = indexPath;
 }
 
