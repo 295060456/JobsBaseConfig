@@ -68,5 +68,6 @@
 #import "JXCategoryViewVerticalShowVC.h"
 #import "JobsVerticalMenuVC.h"
 #import "TestBaseLabelVC.h"
+#import "RandomTestVC.h"
 
 #endif /* Other_h */

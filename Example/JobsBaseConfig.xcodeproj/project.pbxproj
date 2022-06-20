@@ -672,6 +672,7 @@
 		ABB2A8B711CC6C1FEF7A4899 /* Pods_JobsBaseConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 013934AB50FCDA373FFA6597 /* Pods_JobsBaseConfig.framework */; };
 		C50ED5D3283CC64B0097DE89 /* UISwitch+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = C50ED5D2283CC64B0097DE89 /* UISwitch+UI.m */; };
 		C520550F28534CC400CCB724 /* UICollectionHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C520550E28534CC400CCB724 /* UICollectionHeaderFooterView.m */; };
+		C521807A2860B22000ACA6D9 /* RandomTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C52180792860B22000ACA6D9 /* RandomTestVC.m */; };
 		C52809BD2860770500654584 /* JobsBaseLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C52809BC2860770500654584 /* JobsBaseLabel.m */; };
 		C52809E128608BE100654584 /* TestBaseLabelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C52809E028608BE100654584 /* TestBaseLabelVC.m */; };
 		C52BFE06285C7948002B5D0F /* JobsSEL_IMP.m in Sources */ = {isa = PBXBuildFile; fileRef = C52BFE04285C7948002B5D0F /* JobsSEL_IMP.m */; };
@@ -2290,6 +2291,8 @@
 		C50ED5D2283CC64B0097DE89 /* UISwitch+UI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISwitch+UI.m"; sourceTree = "<group>"; };
 		C520550D28534CC400CCB724 /* UICollectionHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionHeaderFooterView.h; sourceTree = "<group>"; };
 		C520550E28534CC400CCB724 /* UICollectionHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionHeaderFooterView.m; sourceTree = "<group>"; };
+		C52180782860B22000ACA6D9 /* RandomTestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RandomTestVC.h; sourceTree = "<group>"; };
+		C52180792860B22000ACA6D9 /* RandomTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RandomTestVC.m; sourceTree = "<group>"; };
 		C52809BB2860770500654584 /* JobsBaseLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBaseLabel.h; sourceTree = "<group>"; };
 		C52809BC2860770500654584 /* JobsBaseLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsBaseLabel.m; sourceTree = "<group>"; };
 		C52809DF28608BE100654584 /* TestBaseLabelVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestBaseLabelVC.h; sourceTree = "<group>"; };
@@ -8564,6 +8567,7 @@
 		84CA609D278980E700E46E71 /* 功能模块 */ = {
 			isa = PBXGroup;
 			children = (
+				C52180772860B20800ACA6D9 /* 随机数测试模块 */,
 				C52809DE28608BC600654584 /* TestBaseLabel */,
 				C5733A782859C75400D13A43 /* 竖形菜单选择功能 */,
 				C5BFA2F328599224009681C0 /* JXCategoryView垂直表达 */,
@@ -9078,6 +9082,15 @@
 				848691DB277B03410098BE7A /* DynamicInvoke.m */,
 			);
 			path = DynamicInvoke;
+			sourceTree = "<group>";
+		};
+		C52180772860B20800ACA6D9 /* 随机数测试模块 */ = {
+			isa = PBXGroup;
+			children = (
+				C52180782860B22000ACA6D9 /* RandomTestVC.h */,
+				C52180792860B22000ACA6D9 /* RandomTestVC.m */,
+			);
+			path = "随机数测试模块";
 			sourceTree = "<group>";
 		};
 		C52809BA2860770500654584 /* JobsBaseLabel */ = {
@@ -11246,6 +11259,7 @@
 				840F96E127736428004979E9 /* TouchID.m in Sources */,
 				840F96B127736428004979E9 /* BaseViewController.m in Sources */,
 				840F967D27736428004979E9 /* UIFont+Extras.m in Sources */,
+				C521807A2860B22000ACA6D9 /* RandomTestVC.m in Sources */,
 				84CA66102789D4CD00E46E71 /* ForgetCodeStep_01View.m in Sources */,
 				840F96B027736428004979E9 /* LOTAnimationMJRefreshFooter.m in Sources */,
 				C56C4CDD285B7E2700999913 /* JobsCVCell.m in Sources */,

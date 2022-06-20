@@ -19,14 +19,18 @@ static char *UIViewController_SuspendBtn_suspendBtn = "UIViewController_SuspendB
         SuspendBtn.normalImage = KIMG(@"旋转");
         SuspendBtn.isAllowDrag = YES;//悬浮效果必须要的参数
         BtnClickEvent(SuspendBtn, {
-            [x rotateAnimation:YES];
+            x.selected = !x.selected;
+            NSLog(@"%@",x.selected ? Internationalization(@"开始旋转") : Internationalization(@"停止旋转"));
+//            [x rotateAnimation:x.selected];
+            if (self.objectBlock) self.objectBlock(x);
         });
         self.view.vc = weak_self;
         [self.view addSubview:SuspendBtn];
-        SuspendBtn.frame = CGRectMake(JobsWidth(80),
-                                       JobsWidth(100),
-                                       JobsWidth(50),
-                                       JobsWidth(50));
+
+        SuspendBtn.frame = CGRectMake(JobsMainScreen_WIDTH() - JobsWidth(50) - JobsWidth(5),
+                                      JobsMainScreen_HEIGHT() - JobsTabBarHeightByBottomSafeArea(nil) - JobsWidth(100),
+                                      JobsWidth(50),
+                                      JobsWidth(50));
         [SuspendBtn cornerCutToCircleWithCornerRadius:SuspendBtn.width / 2];
         [self setSuspendBtn:SuspendBtn];
     }return SuspendBtn;

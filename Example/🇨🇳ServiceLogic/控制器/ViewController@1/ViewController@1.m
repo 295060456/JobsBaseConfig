@@ -46,6 +46,20 @@
     [self setGKNavBackBtn];
     self.gk_navLeftBarButtonItem = [UIBarButtonItem.alloc initWithCustomView:self.userHeadBtn];
     self.tableView.alpha = 1;
+    self.suspendBtn.alpha = 1;
+    
+    @jobs_weakify(self)
+    self.objectBlock = ^(id data) {
+        @jobs_strongify(self)
+        if ([data isKindOfClass:JobsSuspendBtn.class]) {
+            NSInteger s = [self.tableView numberOfSections];/// 有多少组
+            if (s < 1) return;
+            NSInteger r = [self.tableView numberOfRowsInSection:s-1];/// 最后一组有多少行
+            if (r < 1) return;
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:r - 1 inSection:s - 1];/// 取最后一行数据
+            [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];/// 滚动到最后一行
+        }
+    };
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -445,6 +459,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             UIViewModel *viewModel = [self configViewModelWithTitle:@"TestBaseLabelVC"
                                                            subTitle:Internationalization(@"测试 -BaseLabel-")];
             viewModel.cls = TestBaseLabelVC.class;
+            [_dataMutArr addObject:viewModel];
+        }
+        
+        {
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"RandomTestVC"
+                                                           subTitle:Internationalization(@"随机数测试模块")];
+            viewModel.cls = RandomTestVC.class;
             [_dataMutArr addObject:viewModel];
         }
         
