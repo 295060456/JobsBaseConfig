@@ -172,7 +172,8 @@ SEL _Nullable selectorBlocks(JobsSelectorBlock block,
 //                    format:@"%@ selectorBlock error", target];
     }
     /// 动态注册方法
-    NSString *selName = [NSString stringWithFormat:@"selector_%p:", block];
+    NSString *selName = [NSString stringWithFormat:@"selector_%d_%p:",random100__200(),block];
+    NSLog(@"selName = %@",selName);
     SEL sel = NSSelectorFromString(selName);
     /**
      方法签名由方法名称和一个参数列表（方法的参数的顺序和类型）组成
@@ -182,10 +183,15 @@ SEL _Nullable selectorBlocks(JobsSelectorBlock block,
      第三个参数是所添加方法的函数实现的指针IMP
      第四个参数是所添加方法的签名
      */
+    NSLog(@"%@",[NSString stringWithFormat:@"%d",random100__200()]);
+//    [NSString stringWithFormat:@"%d",random100__200()].UTF8String
+    /**
+     class_addMethod这个方法的实现会覆盖父类的方法实现，但不会取代本类中已存在的实现，如果本类中包含一个同名的实现，则函数会返回NO
+     */
     if (class_addMethod([target class],
                         sel,
                         (IMP)selectorImp,
-                        "v@:@")) {
+                        "111")) {
         objc_setAssociatedObject(target,
                                  sel,
                                  block,

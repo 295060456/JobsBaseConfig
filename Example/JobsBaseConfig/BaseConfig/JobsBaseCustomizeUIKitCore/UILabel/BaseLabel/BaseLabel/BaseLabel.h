@@ -17,7 +17,11 @@ NS_ASSUME_NONNULL_BEGIN
  2、自定义UILabel 实现添加长按手势和点击手势
  https://www.jianshu.com/p/541ef795a1f2
  */
-@interface BaseLabel : UILabel<BaseViewProtocol>
+@interface BaseLabel : UILabel
+<
+BaseViewProtocol,
+UIGestureRecognizerDelegate
+>
 
 @property(nonatomic,assign)UIEdgeInsets edgeInsets;
 @property(nonatomic,assign)CGFloat offsetY;
