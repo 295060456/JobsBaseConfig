@@ -115,10 +115,10 @@ static inline BOOL zeroPointValue(CGPoint pointValue){
 }
 /// 构建一个四边距离相等的 UIEdgeInsets
 static inline UIEdgeInsets makeSameEdgeInset(CGFloat insets){
-    return (UIEdgeInsetsMake(JobsWidth(JobsWidth(insets)),
-                             JobsWidth(JobsWidth(insets)),
-                             JobsWidth(JobsWidth(insets)),
-                             JobsWidth(JobsWidth(insets))));
+    return (UIEdgeInsetsMake(JobsWidth(insets),
+                             JobsWidth(insets),
+                             JobsWidth(insets),
+                             JobsWidth(insets)));
 }
 
 #endif /* MacroDef_Size_h */

@@ -11,6 +11,7 @@
 /// 注册的时候不开辟内存，只有当用字符串进行取值的时候才开辟内存
 -(void)registerCollectionViewClass{
     // CollectionReusableView
+    [self registerCollectionElementKindSectionHeaderClass:BaseCollectionReusableView.class];
     /// Header
     [self registerCollectionElementKindSectionHeaderClass:JobsHotLabelWithMultiLineHeaderView.class];
     /// Footer

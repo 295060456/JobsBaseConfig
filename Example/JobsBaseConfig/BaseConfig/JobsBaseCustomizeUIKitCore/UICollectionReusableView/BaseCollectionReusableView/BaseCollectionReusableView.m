@@ -8,10 +8,14 @@
 #import "BaseCollectionReusableView.h"
 
 @interface BaseCollectionReusableView ()
+/// UI
+@property(nonatomic,strong)UIImageView *bgImageView;
 
 @end
 
 @implementation BaseCollectionReusableView
+
+@synthesize viewModel = _viewModel;
 
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
@@ -25,15 +29,26 @@
     if (self.objectBlock) self.objectBlock(weak_self);
 }
 /// 由具体的子类进行覆写
-+(CGSize)viewSizeWithModel:(id _Nullable)model{
-    return CGSizeZero;
+-(void)richElementsInViewWithModel:(UIViewModel *_Nullable)model{
+    self.viewModel = model;
+    self.bgImageView.jobsVisible = model.bgImage;
 }
-/// 由具体的子类进行覆写
--(void)richElementsInViewWithModel:(id _Nullable)model{}
 /// 具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 /// UICollectionViewDelegateFlowLayout
-+(CGSize)collectionReusableViewSizeWithModel:(id _Nullable)model{
++(CGSize)collectionReusableViewSizeWithModel:(UIViewModel *_Nullable)model{
     return CGSizeMake(JobsMainScreen_WIDTH(), JobsWidth(50));
+}
+#pragma mark —— lazyLoad
+-(UIImageView *)bgImageView{
+    if (!_bgImageView) {
+        _bgImageView = UIImageView.new;
+        [self addSubview:_bgImageView];
+        [_bgImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self);
+        }];
+    }
+    _bgImageView.image = self.viewModel.bgImage;
+    return _bgImageView;
 }
 
 @end
