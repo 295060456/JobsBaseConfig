@@ -33,7 +33,7 @@ static inline CGFloat SCREEN_MIN_LENGTH(){
 }
 /// 输入原型图上的宽和高，对外输出App对应的移动设备的真实宽高
 static inline CGFloat JobsWidth(CGFloat width){
-    return (MIN(JobsMainScreen_WIDTH(), JobsMainScreen_HEIGHT()) / 375) * width; //375 对应原型图的宽
+    return (MIN(JobsMainScreen_WIDTH(), JobsMainScreen_HEIGHT()) / 375) * width; //375 对应原型图的宽 在iph 12 pro max 此系数 = 1.1413333333333333
 }
 
 static inline CGFloat JobsHeight(CGFloat height){
@@ -114,11 +114,19 @@ static inline BOOL zeroPointValue(CGPoint pointValue){
     return CGPointEqualToPoint(CGPointZero, pointValue);
 }
 /// 构建一个四边距离相等的 UIEdgeInsets
-static inline UIEdgeInsets makeSameEdgeInset(CGFloat insets){
+static inline UIEdgeInsets jobsSameEdgeInset(CGFloat insets){
     return (UIEdgeInsetsMake(JobsWidth(insets),
                              JobsWidth(insets),
                              JobsWidth(insets),
                              JobsWidth(insets)));
+}
+/// 构建一个宽高相等的 CGSize
+static inline CGSize jobsSameSize(CGFloat x){
+    return CGSizeMake(JobsWidth(x), JobsWidth(x));
+}
+/// 构建一个XY相等的 CGPoint
+static inline CGPoint jobsSamePoint(CGFloat x){
+    return CGPointMake(JobsWidth(x), JobsWidth(x));
 }
 
 #endif /* MacroDef_Size_h */

@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "MacroDef_Strong@Weak.h"
 #import "JobsBlock.h"
+#import "MacroDef_Cor.h"
 /// For RAC
 /// @jobs_weakify(self) 在内层定义
 #define BtnClickEvent(button,action)\
@@ -29,7 +30,7 @@
  forControlEvents:UIControlEventTouchUpInside];\
 
 NS_ASSUME_NONNULL_BEGIN
-
+/// ⚠️当font描绘的文字,或者文字大于UIButton的frame,UIButton的Title将不会显现⚠️
 @interface UIButton (UI)
 /// 为了迎合点语法而故意把下列方法属性化
 /// Common

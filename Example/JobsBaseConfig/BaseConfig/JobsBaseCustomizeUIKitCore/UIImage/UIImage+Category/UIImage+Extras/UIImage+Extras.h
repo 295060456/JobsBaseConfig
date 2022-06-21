@@ -46,8 +46,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param size 字符串的尺寸
 +(UIImage *)createNonInterpolatedUIImageFormString:(NSString *)string
                                           withSize:(CGFloat)size;
-///根据字符串生成二维码
-+(UIImage *)createRRcode:(NSString *)sourceString;
 
 +(UIImage *)imageResize:(UIImage*)img
             andResizeTo:(CGSize)newSize;

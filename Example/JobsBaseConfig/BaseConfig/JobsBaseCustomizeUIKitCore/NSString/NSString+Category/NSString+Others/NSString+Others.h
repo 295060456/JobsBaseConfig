@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark —— 其他
 /// 复制到系统剪切板
 -(NSString *)pasteboard;
+/// 根据字符串生成二维码图像
+-(UIImage *)createQRcode;
 +(NSString *)test:(NSArray <NSString *>*)arr;
 /// ？？？
 -(NSString *)formatDecimalNumber;

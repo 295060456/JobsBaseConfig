@@ -196,7 +196,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView
                        layout:(UICollectionViewLayout *)collectionViewLayout
        insetForSectionAtIndex:(NSInteger)section {
-    return makeSameEdgeInset(5);
+    return jobsSameEdgeInset(5);
 }
 #pragma mark —— lazyLoad
 -(UICollectionViewFlowLayout *)layout{
@@ -220,7 +220,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
         
         [self addSubview:_collectionView];
         [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self).insets(makeSameEdgeInset(JobsWidth(2)));
+            make.edges.equalTo(self).insets(jobsSameEdgeInset(JobsWidth(2)));
         }];
     }return _collectionView;
 }
