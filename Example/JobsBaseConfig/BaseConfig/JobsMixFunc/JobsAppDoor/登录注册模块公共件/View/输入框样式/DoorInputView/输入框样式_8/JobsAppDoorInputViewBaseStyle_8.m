@@ -47,7 +47,7 @@
     _textField.disabledBackground = self.doorInputViewBaseStyleModel.disabledBackground;
     _textField.leftView = [UIImageView.alloc initWithImage:self.doorInputViewBaseStyleModel.leftViewIMG];
     _textField.leftViewMode = self.doorInputViewBaseStyleModel.leftViewMode;
-    _textField.background = KIMG(@"全局输入框背景图2");
+    _textField.background = self.doorInputViewBaseStyleModel.background;
     _textField.textColor = self.doorInputViewBaseStyleModel.titleStrCor;
     _textField.placeholder = self.doorInputViewBaseStyleModel.placeHolderStr;
     _textField.returnKeyType = self.doorInputViewBaseStyleModel.returnKeyType;
@@ -81,14 +81,12 @@
 }
 
 -(void)richElementsInViewWithModel:(JobsAppDoorInputViewBaseStyleModel *_Nullable)doorInputViewBaseStyleModel{
-    if (doorInputViewBaseStyleModel) {
-        self.doorInputViewBaseStyleModel = doorInputViewBaseStyleModel;
-        
-        self.titleLab.alpha = 1;
-        self.securityModeBtn.alpha = 1;
-        self.textField.alpha = 1;
-        [self configTextField];
-    }
+    self.doorInputViewBaseStyleModel = doorInputViewBaseStyleModel ? : JobsAppDoorInputViewBaseStyleModel.new;
+    
+    self.titleLab.alpha = 1;
+    self.securityModeBtn.alpha = 1;
+    self.textField.alpha = 1;
+    [self configTextField];
 }
 #pragma mark —— JobsDoorInputViewProtocol
 -(ZYTextField *_Nullable)getTextField{
