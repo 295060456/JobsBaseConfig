@@ -96,7 +96,6 @@
 		840F964227736427004979E9 /* UIScrollView+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F933027736426004979E9 /* UIScrollView+FDFullscreenPopGesture.m */; };
 		840F964327736427004979E9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 840F933227736426004979E9 /* README.md */; };
 		840F964427736427004979E9 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F933427736426004979E9 /* UINavigationController+FDFullscreenPopGesture.m */; };
-		840F964527736427004979E9 /* UIImage+ScreenShot.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F933B27736426004979E9 /* UIImage+ScreenShot.m */; };
 		840F964627736427004979E9 /* UIImage+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F933E27736426004979E9 /* UIImage+Extras.m */; };
 		840F964727736427004979E9 /* UIImage+SYS.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F934227736426004979E9 /* UIImage+SYS.m */; };
 		840F964827736427004979E9 /* UIImage+YBGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F934427736426004979E9 /* UIImage+YBGIF.m */; };
@@ -1063,8 +1062,6 @@
 		840F933427736426004979E9 /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
 		840F933727736426004979E9 /* JobsImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsImage.h; sourceTree = "<group>"; };
 		840F933827736426004979E9 /* LoadingImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingImage.h; sourceTree = "<group>"; };
-		840F933B27736426004979E9 /* UIImage+ScreenShot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ScreenShot.m"; sourceTree = "<group>"; };
-		840F933C27736426004979E9 /* UIImage+ScreenShot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ScreenShot.h"; sourceTree = "<group>"; };
 		840F933E27736426004979E9 /* UIImage+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extras.m"; sourceTree = "<group>"; };
 		840F933F27736426004979E9 /* UIImage+Extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extras.h"; sourceTree = "<group>"; };
 		840F934127736426004979E9 /* UIImage+SYS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SYS.h"; sourceTree = "<group>"; };
@@ -3319,7 +3316,6 @@
 			isa = PBXGroup;
 			children = (
 				C572DA9028572A05002C7110 /* UIImage+Measure */,
-				840F933A27736426004979E9 /* UIImage+ScreenShot */,
 				840F933D27736426004979E9 /* UIImage+Extras */,
 				840F934027736426004979E9 /* UIImage+SYS */,
 				840F934327736426004979E9 /* UIImage+YBGIF */,
@@ -3327,15 +3323,6 @@
 				840F934927736426004979E9 /* UIImage+Overlay */,
 			);
 			path = "UIImage+Category";
-			sourceTree = "<group>";
-		};
-		840F933A27736426004979E9 /* UIImage+ScreenShot */ = {
-			isa = PBXGroup;
-			children = (
-				840F933B27736426004979E9 /* UIImage+ScreenShot.m */,
-				840F933C27736426004979E9 /* UIImage+ScreenShot.h */,
-			);
-			path = "UIImage+ScreenShot";
 			sourceTree = "<group>";
 		};
 		840F933D27736426004979E9 /* UIImage+Extras */ = {
@@ -11319,7 +11306,6 @@
 				840F966F27736428004979E9 /* UIView+Gesture.m in Sources */,
 				C5AA8B7D282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle.m in Sources */,
 				C5C48124284E254B007916B3 /* JobsMembersSubsBaseVC.m in Sources */,
-				840F964527736427004979E9 /* UIImage+ScreenShot.m in Sources */,
 				840F970027736428004979E9 /* NSObject+IDFV.m in Sources */,
 				840F967C27736428004979E9 /* UIView+Extras.m in Sources */,
 				842D299C276C9547003B6C8E /* JobsBaseConfigNotificationManager.m in Sources */,

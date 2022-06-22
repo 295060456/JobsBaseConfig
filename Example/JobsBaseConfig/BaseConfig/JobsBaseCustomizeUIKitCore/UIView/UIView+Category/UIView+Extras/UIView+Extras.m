@@ -55,7 +55,7 @@
         view.frame = window.bounds;
         [window addSubview:view];
         [window layoutIfNeeded];
-        UIImage *image = [UIImage getCurrentViewShot:view];
+        UIImage *image = self.screenShot;
         window = nil;
         return image;
     }return nil;
