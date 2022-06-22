@@ -49,7 +49,7 @@
 /// 用于替换系统的drawText方法
 /// @param rect frame
 -(void)autoScrollDrawText:(CGRect)rect{
-    if (![self shouldAutoScroll]){
+    if (!self.shouldAutoScroll){
         [self autoScrollDrawText:rect];
     }
     [self setTextLayerScroll];

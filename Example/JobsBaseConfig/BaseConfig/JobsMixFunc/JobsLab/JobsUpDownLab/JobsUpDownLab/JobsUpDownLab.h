@@ -20,6 +20,21 @@ NS_ASSUME_NONNULL_BEGIN
 NS_ASSUME_NONNULL_END
 /**
  
+ -(JobsUpDownLab *)titleLab{
+     if (!_titleLab) {
+         _titleLab = JobsUpDownLab.new;
+         [self addSubview:_titleLab];
+         [_titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
+             make.centerY.equalTo(self);
+             make.size.mas_equalTo(CGSizeMake(JobsWidth(103), JobsWidth(50)));
+             make.left.equalTo(self).offset(JobsWidth(12));
+         }];
+     }
+     [_titleLab richElementsInViewWithModel:self.upDownLabModel];
+     [_titleLab.getUpBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleRight imageTitleSpace:JobsWidth(3)];
+     return _titleLab;
+ }
+ 
  {
     JobsUpDownLabModel *upDownLabModel = JobsUpDownLabModel.new;
     upDownLabModel.upLabText = @"2.2";

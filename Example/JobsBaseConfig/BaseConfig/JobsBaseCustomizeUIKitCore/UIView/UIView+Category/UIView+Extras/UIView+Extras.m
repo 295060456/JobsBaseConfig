@@ -61,19 +61,22 @@
     }return nil;
 }
 /// 获取某个view 上的截图
--(UIImage *_Nullable)getCurrentViewShots{
+-(UIImage *_Nullable)viewShots{
     if (CGRectIsEmpty(self.frame)) return nil;
     CGSize size = self.bounds.size;
     CGFloat scale = UIScreen.mainScreen.scale;
     UIGraphicsBeginImageContextWithOptions(size,
                                            NO,
                                            scale);
-//    if ([view respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]) {
-//        [view drawViewHierarchyInRect:view.bounds afterScreenUpdates:YES];
-//    }else{
-//        [view.layer renderInContext:UIGraphicsGetCurrentContext()];
-//    }
-    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    if ([self respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]) {
+        /// 对view进行一个快照，然后将快照渲染到当前的上下文中 https://www.jianshu.com/p/3d246235388c
+        /// rect：指定图片绘制的坐标
+        /// afterUpdates：截图的瞬间是否将屏幕当前的变更渲染进去
+        [self drawViewHierarchyInRect:self.bounds afterScreenUpdates:YES];
+    }else{
+        /// 将view的layer渲染到当前的绘制的上下文中
+        [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    }
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;

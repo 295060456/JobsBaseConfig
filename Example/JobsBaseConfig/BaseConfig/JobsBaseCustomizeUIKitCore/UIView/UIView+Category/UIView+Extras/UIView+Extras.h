@@ -49,7 +49,7 @@ typedef NS_OPTIONS(NSUInteger, UIBorderSideType) {
 /// 获取启动页的截图
 -(UIImage *_Nullable)lanuchScreenShot;
 /// 获取某个view 上的截图
--(UIImage *_Nullable)getCurrentViewShots;
+-(UIImage *_Nullable)viewShots;
 /// 获取某个scrollview 上的截图
 -(UIImage *_Nullable)scrollViewShot;
 /// 获取某个 范围内的 截图

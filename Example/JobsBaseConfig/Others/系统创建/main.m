@@ -7,8 +7,8 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
-//#import "Forkingdog.h"
 
+//open -a Simulator
 int main(int argc, char * argv[]) {
     NSString * appDelegateClassName;
     @autoreleasepool {

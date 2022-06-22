@@ -62,7 +62,7 @@ NTESVerifyCodeManagerProtocol_synthesize
 
 -(CGFloat)cornerRadius{
     if (!_cornerRadius) {
-        _cornerRadius = 3;
+//        _cornerRadius = 3;
     }return _cornerRadius;
 }
 
@@ -80,13 +80,13 @@ NTESVerifyCodeManagerProtocol_synthesize
 
 -(CGFloat)offsetXForEach{
     if (_offsetXForEach == 0) {
-        _offsetXForEach = 8;
+//        _offsetXForEach = 8;
     }return _offsetXForEach;
 }
 
 -(CGFloat)offsetYForEach{
     if (_offsetYForEach == 0) {
-        _offsetYForEach = 8;
+//        _offsetYForEach = 8;
     }return _offsetYForEach;
 }
 
