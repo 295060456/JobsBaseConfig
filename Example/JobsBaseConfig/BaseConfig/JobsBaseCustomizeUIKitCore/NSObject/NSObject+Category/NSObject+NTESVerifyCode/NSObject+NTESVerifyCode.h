@@ -13,6 +13,7 @@
 #import "LoadingImage.h"
 #import "NSObject+CallBackInfoByBlock.h"
 #import "UIButton+UI.h"
+#import "UIView+Extras.h"
 #import "UIViewModel.h"
 
 #import "APIKey.h"
@@ -36,8 +37,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (NTESVerifyCode)<NTESVerifyCodeManagerDelegate>
 
-@property (nonatomic,strong)NTESVerifyCodeManager *ntesVerifyCodeManager;
-@property (nonatomic,strong)UIButton *NTESVerifyCodeCloseBtn;/// 本地化解决网易云验证的一个UI方面的Bug：https://github.com/yidun/captcha-ios-demo/issues/10
+@property(nonatomic,strong)NTESVerifyCodeManager *ntesVerifyCodeManager;
+@property(nonatomic,strong)UIButton *NTESVerifyCodeCloseBtn;/// 本地化解决网易云验证的一个UI方面的Bug：https://github.com/yidun/captcha-ios-demo/issues/10
 #pragma mark —— 一些公有化方法
 /// 开启网易云盾
 -(void)openVerifyCodeView:(UIView *_Nullable)topView;

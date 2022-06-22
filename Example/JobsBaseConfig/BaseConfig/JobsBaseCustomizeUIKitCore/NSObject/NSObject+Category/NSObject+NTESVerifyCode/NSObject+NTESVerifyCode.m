@@ -8,13 +8,6 @@
 #import "NSObject+NTESVerifyCode.h"
 
 @implementation NSObject (NTESVerifyCode)
-
-static char *NSObject_NTESVerifyCode_ntesVerifyCodeManager = "NSObject_NTESVerifyCode_ntesVerifyCodeManager";
-@dynamic ntesVerifyCodeManager;
-
-static char *UIView_BaseView_NTESVerifyCodeCloseBtn = "UIView_BaseView_NTESVerifyCodeCloseBtn";
-@dynamic NTESVerifyCodeCloseBtn;
-
 #pragma mark —— 一些公有化方法
 /// 开启网易云盾
 -(void)openVerifyCodeView:(UIView *_Nullable)topView{
@@ -40,7 +33,6 @@ static char *UIView_BaseView_NTESVerifyCodeCloseBtn = "UIView_BaseView_NTESVerif
 }
 /**
  * 验证码组件初始化出错
- *
  * @param error 错误信息
  */
 -(void)verifyCodeInitFailed:(NSArray *)error{
@@ -51,11 +43,9 @@ static char *UIView_BaseView_NTESVerifyCodeCloseBtn = "UIView_BaseView_NTESVerif
 }
 /**
  * 完成验证之后的回调
- *
  * @param result 验证结果 BOOL:YES/NO
  * @param validate 二次校验数据，如果验证结果为false，validate返回空
  * @param message 结果描述信息
- *
  */
 -(void)verifyCodeValidateFinish:(BOOL)result
                        validate:(NSString *)validate
@@ -81,10 +71,11 @@ static char *UIView_BaseView_NTESVerifyCodeCloseBtn = "UIView_BaseView_NTESVerif
     viewModel.ntesVerifyCodeClose = close;
     if (self.objectBlock) self.objectBlock(viewModel);
 }
+static char *NSObject_NTESVerifyCode_ntesVerifyCodeManager = "NSObject_NTESVerifyCode_ntesVerifyCodeManager";
+@dynamic ntesVerifyCodeManager;
 #pragma mark —— @property (nonatomic,strong)NTESVerifyCodeManager *ntesVerifyCodeManager;
 -(NTESVerifyCodeManager *)ntesVerifyCodeManager{
     NTESVerifyCodeManager *ntesVerifyCodeManager = objc_getAssociatedObject(self, NSObject_NTESVerifyCode_ntesVerifyCodeManager);
-    
     if (!ntesVerifyCodeManager) {
         ntesVerifyCodeManager = NTESVerifyCodeManager.getInstance;
         ntesVerifyCodeManager.lang = NSBundle.isChineseLanguage ? NTESVerifyCodeLangCN : NTESVerifyCodeLangEN;
@@ -99,11 +90,7 @@ static char *UIView_BaseView_NTESVerifyCodeCloseBtn = "UIView_BaseView_NTESVerif
         ntesVerifyCodeManager.color = UIColor.blackColor;
         [ntesVerifyCodeManager configureVerifyCode:NTESVerifyCodeKEY timeout:30.0];
         ntesVerifyCodeManager.closeButtonHidden = NO;
-        
-        objc_setAssociatedObject(self,
-                                 NSObject_NTESVerifyCode_ntesVerifyCodeManager,
-                                 ntesVerifyCodeManager,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [self setNtesVerifyCodeManager:ntesVerifyCodeManager];
     }return ntesVerifyCodeManager;
 }
 
@@ -113,13 +100,15 @@ static char *UIView_BaseView_NTESVerifyCodeCloseBtn = "UIView_BaseView_NTESVerif
                              ntesVerifyCodeManager,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+static char *UIView_BaseView_NTESVerifyCodeCloseBtn = "UIView_BaseView_NTESVerifyCodeCloseBtn";
+@dynamic NTESVerifyCodeCloseBtn;
 #pragma mark —— @property (nonatomic,strong)UIButton *NTESVerifyCodeCloseBtn;
 /// 本地化解决网易云验证的一个UI方面的Bug：https://github.com/yidun/captcha-ios-demo/issues/10
 -(UIButton *)NTESVerifyCodeCloseBtn{
     UIButton *btn = objc_getAssociatedObject(self, UIView_BaseView_NTESVerifyCodeCloseBtn);
     if (!btn) {
         btn = UIButton.new;
-        [btn normalImage:KBuddleIMG(nil,@"ZYTextField",@"", @"CloseCircle（大号）.png")];
+        btn.normalImage = KBuddleIMG(nil,@"ZYTextField",@"", @"CloseCircle（大号）.png");
         btn.frame = CGRectMake(JobsMainScreen_WIDTH() - JobsWidth(50),
                                JobsMainScreen_HEIGHT() / 4,
                                JobsWidth(30),
@@ -129,11 +118,7 @@ static char *UIView_BaseView_NTESVerifyCodeCloseBtn = "UIView_BaseView_NTESVerif
             x.jobsVisible = NO;
         });
         [getMainWindow() addSubview:btn];
-        
-        objc_setAssociatedObject(self,
-                                 UIView_BaseView_NTESVerifyCodeCloseBtn,
-                                 btn,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [self setNTESVerifyCodeCloseBtn:btn];
     }return btn;
 }
 

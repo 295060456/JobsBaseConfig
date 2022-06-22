@@ -508,7 +508,19 @@
         }
         
         if (!imageData) return;
-        
+        [self saveImageData:imageData];
+    }else{
+        NSLog(@"GKPhotoBrowser * 为空");
+    }
+}
+
+-(void)saveImageData:(NSData *_Nonnull)imageData{
+    /// OC 是强类型、弱语法的语言，所以这里需要进行过滤判定保证安全性
+    if ([imageData isKindOfClass:UIImage.class]){
+        imageData = UIImagePNGRepresentation((UIImage *)imageData);
+    }
+    
+    if ([imageData isKindOfClass:NSData.class]) {
         [PHPhotoLibrary.sharedPhotoLibrary performChanges:^{
             if (@available(iOS 9, *)) {
                 PHAssetCreationRequest *request = PHAssetCreationRequest.creationRequestForAsset;
@@ -522,20 +534,14 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (success) {
                     NSLog(@"保存照片成功");
-                    [WHToast showSuccessWithMessage:@"图片保存成功"
-                                           duration:2
-                                      finishHandler:^{}];
+                    toast(Internationalization(@"图片保存成功"));
                 } else if (error) {
-                    [WHToast showErrorWithMessage:@"保存保存失败"
-                                         duration:2
-                                    finishHandler:^{}];
                     NSLog(@"保存照片出错:%@",error.localizedDescription);
+                    toastErr(Internationalization(@"保存保存失败"));
                 }
             });
         }];
-    }else{
-        NSLog(@"GKPhotoBrowser * 为空");
-    }
+    }else return;
 }
 /// 将基本数据类型（先统一默认视作浮点数）转化为图片进行显示。使用前提，图片的名字命令为0~9，方便进行映射
 /// @param inputData 需要进行转换映射的基本数据类型数据
@@ -593,9 +599,7 @@
         dispatch_once(&onceToken, ^{
             NSLog(@"我只执行一次");
             // 在这里写遗言：最后希望去完成的事情
-            if (checkBlock) {
-                checkBlock(@1);
-            }
+            if (checkBlock) checkBlock(@1);
             [NSThread sleepForTimeInterval:60];
             NSLog(@"程序被杀死");
         });
@@ -756,22 +760,16 @@
 -(BOOL)judgementExactDivisionByNum1:(NSNumber *_Nonnull)num1
                                num2:(NSNumber *_Nonnull)num2{
     /// 过滤数据类型
-    if (![num1 isKindOfClass:NSNumber.class] || ![num2 isKindOfClass:NSNumber.class]) {
-        return NO;
-    }
+    if (![num1 isKindOfClass:NSNumber.class] || ![num2 isKindOfClass:NSNumber.class]) return NO;
     /// 在数据类型为NSNumber* 的基础上进行讨论和判断
-    if (num1 == num2) {
-        return YES;
-    }
+    if (num1 == num2) return YES;
     
     if (num2.floatValue) {
         int a = num2.intValue;
         double s1 = num1.doubleValue;
         int s2 = num1.intValue;
         return s1/a-s2/a <= 0;
-    }else{
-        return YES;
-    }
+    }else return YES;
 }
 #pragma mark —— 键盘⌨️
 /// 加入键盘通知的监听者
@@ -872,8 +870,7 @@ static char *NSObject_Extras_lastPoint = "NSObject_Extras_lastPoint";
 @dynamic lastPoint;
 #pragma mark —— @property(nonatomic,assign)CGPoint lastPoint;
 -(CGPoint)lastPoint{
-    CGPoint LastPoint = [objc_getAssociatedObject(self,
-                                                  NSObject_Extras_lastPoint) CGPointValue];
+    CGPoint LastPoint = [objc_getAssociatedObject(self,NSObject_Extras_lastPoint) CGPointValue];
     return LastPoint;
 }
 
@@ -903,10 +900,7 @@ static char *NSObject_Extras_currentPage = "NSObject_Extras_currentPage";
     NSInteger CurrentPage = [objc_getAssociatedObject(self, NSObject_Extras_currentPage) integerValue];
     if (CurrentPage == 0) {
         CurrentPage = 1;
-        objc_setAssociatedObject(self,
-                                 NSObject_Extras_currentPage,
-                                 [NSNumber numberWithInteger:CurrentPage],
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [self setCurrentPage:CurrentPage];
     }return CurrentPage;
 }
 
@@ -923,10 +917,7 @@ static char *NSObject_Extras_pageSize = "NSObject_Extras_pageSize";
     NSInteger PageSize = [objc_getAssociatedObject(self, NSObject_Extras_pageSize) integerValue];
     if (PageSize == 0) {
         PageSize = 10;
-        objc_setAssociatedObject(self,
-                                 NSObject_Extras_pageSize,
-                                 [NSNumber numberWithInteger:PageSize],
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [self setPageSize:PageSize];
     }return PageSize;
 }
 
@@ -957,10 +948,7 @@ static char *NSObject_Extras_viewModel = "NSObject_Extras_viewModel";
     UIViewModel *ViewModel = objc_getAssociatedObject(self, NSObject_Extras_viewModel);
     if (!ViewModel) {
         ViewModel = UIViewModel.new;
-        objc_setAssociatedObject(self,
-                                 NSObject_Extras_viewModel,
-                                 ViewModel,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [self setViewModel:ViewModel];
     }return ViewModel;
 }
 

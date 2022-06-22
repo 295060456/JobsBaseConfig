@@ -34,6 +34,27 @@ typedef NS_OPTIONS(NSUInteger, UIBorderSideType) {
 };
 
 @interface UIView (Extras)
+#pragma mark —— 键盘
+/// 监听键盘事件
+-(void)monitorKeyboardAction;
+#pragma mark —— 截屏
+/*
+ 1、将图片存本地相册 UIImageWriteToSavedPhotosAlbum
+ 2、iOS安全 —— 录屏、截屏判断
+    2.1、UIApplicationUserDidTakeScreenshotNotification iOS7+ 截屏事件通知
+    2.2、UIScreenCapturedDidChangeNotification 判断是否在录屏状态 而当录屏状态改变时，UIKit会发送录屏通知
+ */
+/// 获取屏幕截图
+-(UIImage *_Nullable)screenShot;
+/// 获取启动页的截图
+-(UIImage *_Nullable)lanuchScreenShot;
+/// 获取某个view 上的截图
+-(UIImage *_Nullable)getCurrentViewShots;
+/// 获取某个scrollview 上的截图
+-(UIImage *_Nullable)scrollViewShot;
+/// 获取某个 范围内的 截图
+-(UIImage *_Nullable)innerViewShotAtFrame:(CGRect)rect;
+#pragma mark —— 描边
 /// 指定描边
 /// @param color 作用颜色
 /// @param borderWidth 线宽
@@ -52,9 +73,21 @@ typedef NS_OPTIONS(NSUInteger, UIBorderSideType) {
 /// 指定圆切角
 -(void)appointCornerCutToCircleByRoundingCorners:(UIRectCorner)corners
                                      cornerRadii:(CGSize)cornerRadii;
-
+#pragma mark —— @implementation UILabel (AutoScroll)
+/// 根据文字长短自动判断是否需要显示TextLayer，并且滚动
+-(void)setTextLayerScroll;
+/// runtime存放textLayer，避免多次生成
+-(CATextLayer *_Nonnull)getTextLayer;
+/// runtime存放动画对象，避免多次生成
+-(CABasicAnimation *_Nonnull)getAnimation;
+/// 判断是否需要滚动
+-(BOOL)shouldAutoScroll;
+#pragma mark —— 其他
+-(BOOL)jobsVisible;
+-(void)setJobsVisible:(BOOL)jobsVisible;
+/// popView取消按钮常规处理方法
+-(void)cancelBtnActionForPopView:(id _Nullable)object;
 -(void)transformByRadians:(CGFloat)radians;
-
 -(UIImage *_Nullable)getImage;
 /// iOS 阴影效果 添加了shadowPath后消除了离屏渲染问题 。特别提示：不能存在 -(void)drawRect:(CGRect)rect 或者在-(void)drawRect:(CGRect)rect里面写，否则无效
 /// @param targetShadowview 需要作用阴影效果的View
@@ -77,20 +110,5 @@ typedef NS_OPTIONS(NSUInteger, UIBorderSideType) {
               shadowOpacity:(CGFloat)shadowOpacity
            layerShadowColor:(UIColor *__nullable)layerShadowColor
           layerShadowRadius:(CGFloat)layerShadowRadius;
-/// 监听键盘事件
--(void)monitorKeyboardAction;
-#pragma mark —— UILabel & UIButton 自适应
-/// 根据文字长短自动判断是否需要显示TextLayer，并且滚动
--(void)setTextLayerScroll;
-/// runtime存放textLayer，避免多次生成
--(CATextLayer *_Nonnull)getTextLayer;
-/// runtime存放动画对象，避免多次生成
--(CABasicAnimation *_Nonnull)getAnimation;
-/// 判断是否需要滚动
--(BOOL)shouldAutoScroll;
-/// 设置控件是否可见，对影响可视化的hidden 和 alpha属性进行操作
-/// 需要特别注意的是：这个地方的jobsVisible不能属性化，否则在某些情况下会出现异常（只会走子类方法不会走分类方法）
--(BOOL)jobsVisible;
--(void)setJobsVisible:(BOOL)jobsVisible;
 
 @end

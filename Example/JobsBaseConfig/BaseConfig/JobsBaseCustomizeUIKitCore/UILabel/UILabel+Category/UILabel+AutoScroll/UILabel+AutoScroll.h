@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import <objc/runtime.h>
 #import "NSObject+Swizzling.h"
+#import "UIView+Extras.h"
 
 NS_ASSUME_NONNULL_BEGIN
 /**
