@@ -141,12 +141,12 @@ static inline void toastErr(NSString *msg){
 #define AvailableSysVersion(version) @available(iOS version, *)
 #endif
 
-//#ifndef JobsSynthesize
-//#define JobsSynthesize(property) @synthesize property = _property;
-//#endif
-//
-//#ifndef JobsDynamic
-//#define JobsDynamic(property) @dynamic property;
-//#endif
+#ifndef JobsCellRandomCor
+#define JobsCellRandomCor cell.backgroundColor = cell.contentView.backgroundColor = RandomColor;
+#endif
+
+#ifndef JobsCellCor
+#define JobsCellCor(cor) cell.backgroundColor = cell.contentView.backgroundColor = cor;
+#endif
 
 #endif /* MacroDef_Func_h */
