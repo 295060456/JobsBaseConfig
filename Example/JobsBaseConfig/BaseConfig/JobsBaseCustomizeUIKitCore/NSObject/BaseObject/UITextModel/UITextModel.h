@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "UITextModelProtocol.h"
+#import "UIViewModelOthersProtocol.h"
 
 #define TextModelDataString @"主文字默认占位内容"
 /// 数据归位
@@ -24,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 <
 UITextModelProtocol
 ,UILocationProtocol
+,UIViewModelOthersProtocol
 >
 
 @end

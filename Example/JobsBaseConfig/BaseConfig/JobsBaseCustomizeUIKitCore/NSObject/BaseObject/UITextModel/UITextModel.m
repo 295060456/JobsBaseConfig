@@ -11,6 +11,7 @@
 
 UITextModelProtocol_synthesize
 UILocationProtocol_synthesize
+UIViewModelOthersProtocol_synthesize
 
 -(UIColor *)textCor{
     if (!_textCor) {
@@ -30,6 +31,13 @@ UILocationProtocol_synthesize
         _text = Internationalization(TextModelDataString);
 #endif
     }return _text;
+}
+
+-(UILabelShowingType)labelShowingType{
+    if (!_labelShowingType) {
+        /// 默认：一行显示。不定宽、定高、定字体。宽度自适应 【单行：ByFont】
+        _labelShowingType = UILabelShowingType_03;
+    }return _labelShowingType;
 }
 
 @end

@@ -9,10 +9,11 @@
 
 @implementation NSObject (CallBackInfoByBlock)
 #pragma mark —— 没有返回值的Block | Set
+/// 1、没有入参、没有返回值的回调
 -(void)actionVoidBlock:(jobsByVoidBlock)voidBlock{
     self.voidBlock = voidBlock;
 }
-
+/// 2、有（单一）入参、没有返回值的回调
 -(void)actionObjectBlock:(jobsByIDBlock)objectBlock{
     self.objectBlock = objectBlock;
 }
@@ -28,7 +29,7 @@
 -(void)actionStringBlock:(jobsByStringBlock)stringBlock{
     self.stringBlock = stringBlock;
 }
-
+/// 3、入参为基本数据类型、 且没有返回值的Block定义
 -(void)actionNSIntegerBlock:(jobsByNSIntegerBlock)NSIntegerBlock{
     self.NSIntegerBlock = NSIntegerBlock;
 }
@@ -89,10 +90,11 @@
     self.UnsignedLongLongBlock = UnsignedLongLongBlock;
 }
 #pragma mark —— 有返回值的Block | Set
+/// 4、无入参、有返回值的回调
 -(void)actionReturnIDByVoidBlock:(JobsReturnIDByVoidBlock)returnObjectByVoidBlock{
     self.returnObjectByVoidBlock = returnObjectByVoidBlock;
 }
-
+/// 5、有（单一）入参、有返回值的回调【返回其他类型】
 -(void)actionReturnIDByGestureRecognizerBlock:(JobsReturnIDByGestureRecognizerBlock)returnObjectByGestureRecognizerBlock{
     self.returnObjectByGestureRecognizerBlock = returnObjectByGestureRecognizerBlock;
 }
@@ -104,7 +106,7 @@
 -(void)actionReturnIDByStringBlock:(JobsReturnIDByStringBlock)returnObjectByStringBlock{
     self.returnObjectByStringBlock = returnObjectByStringBlock;
 }
-
+/// 6、有（单一）入参、有返回值的回调【返回入参类型】
 -(void)actionReturnObjectBlock:(JobsReturnIDByIDBlock)returnObjectBlock{
     self.returnObjectBlock = returnObjectBlock;
 }
@@ -168,6 +170,7 @@
 -(void)actionReturnUnsignedLongLongBlock:(JobsReturnByUnsignedLongLongBlock)returnUnsignedLongLongBlock{
     self.returnUnsignedLongLongBlock = returnUnsignedLongLongBlock;
 }
+/// 1、没有入参、没有返回值的回调
 #pragma mark —— @property(nonatomic,assign)jobsByVoidBlock voidBlock;/// 无入参，无返回值的回调
 static char *NSObject_CallBackInfoByBlock_voidBlock = "NSObject_CallBackInfoByBlock_voidBlock";
 @dynamic voidBlock;
@@ -181,6 +184,7 @@ static char *NSObject_CallBackInfoByBlock_voidBlock = "NSObject_CallBackInfoByBl
                              voidBlock,
                              OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
+/// 2、有（单一）入参、没有返回值的回调
 #pragma mark —— @property(nonatomic,assign)jobsByIDBlock objectBlock;/// 入参为ID类型，无返回值的回调
 static char *NSObject_CallBackInfoByBlock_objectBlock = "NSObject_CallBackInfoByBlock_objectBlock";
 @dynamic objectBlock;
@@ -194,6 +198,46 @@ static char *NSObject_CallBackInfoByBlock_objectBlock = "NSObject_CallBackInfoBy
                              objectBlock,
                              OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
+#pragma mark —— @property(nonatomic,assign)jobsBySELBlock selBlock;///入参为SEL，无返回值的回调
+static char *NSObject_CallBackInfoByBlock_jobsBySELBlock = "NSObject_CallBackInfoByBlock_jobsBySELBlock";
+@dynamic selBlock;
+-(jobsBySELBlock)selBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_jobsBySELBlock);
+}
+
+-(void)setSelBlock:(jobsBySELBlock)selBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_jobsBySELBlock,
+                             selBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)jobsByStringBlock stringBlock;///入参为NSString，无返回值的回调
+static char *NSObject_CallBackInfoByBlock_stringBlock = "NSObject_CallBackInfoByBlock_stringBlock";
+@dynamic stringBlock;
+-(jobsByStringBlock)stringBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_stringBlock);
+}
+
+-(void)setStringBlock:(jobsByStringBlock)stringBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_stringBlock,
+                             stringBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)jobsByGestureRecognizerBlock gestureRecognizerBlock;/// 入参为UIGestureRecognizer，无返回值的回调
+static char *NSObject_CallBackInfoByBlock_gestureRecognizerBlock = "NSObject_CallBackInfoByBlock_gestureRecognizerBlock";
+@dynamic gestureRecognizerBlock;
+-(jobsByGestureRecognizerBlock)gestureRecognizerBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_gestureRecognizerBlock);
+}
+
+-(void)setGestureRecognizerBlock:(jobsByGestureRecognizerBlock)gestureRecognizerBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_gestureRecognizerBlock,
+                             gestureRecognizerBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+/// 3、入参为基本数据类型、 且没有返回值的Block定义
 #pragma mark —— @property(nonatomic,assign)jobsByNSIntegerBlock NSIntegerBlock;/// 入参为NSInteger，无返回值的回调
 static char *NSObject_CallBackInfoByBlock_NSIntegerBlock = "NSObject_CallBackInfoByBlock_NSIntegerBlock";
 @dynamic NSIntegerBlock;
@@ -389,7 +433,61 @@ static char *NSObject_CallBackInfoByBlock_UnsignedLongLongBlock = "NSObject_Call
                              UnsignedLongLongBlock,
                              OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
-/// =============================❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️=============================
+/// 4、无入参、有返回值的回调
+#pragma mark —— @property(nonatomic,assign)JobsReturnIDByVoidBlock returnObjectByVoidBlock;/// 无入参，返回值为ID的回调
+static char *NSObject_CallBackInfoByBlock_returnObjectByVoidBlock = "NSObject_CallBackInfoByBlock_returnObjectByVoidBlock";
+@dynamic returnObjectByVoidBlock;
+-(JobsReturnIDByVoidBlock)returnObjectByVoidBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnObjectByVoidBlock);
+}
+
+-(void)setReturnObjectByVoidBlock:(JobsReturnIDByVoidBlock)returnObjectByVoidBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnObjectByVoidBlock,
+                             returnObjectByVoidBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnIDByGestureRecognizerBlock returnObjectByGestureRecognizerBlock;/// 入参为UIGestureRecognizer，返回值为ID的回调
+static char *NSObject_CallBackInfoByBlock_returnObjectByGestureRecognizerBlock = "NSObject_CallBackInfoByBlock_returnObjectByGestureRecognizerBlock";
+@dynamic returnObjectByGestureRecognizerBlock;
+-(JobsReturnIDByGestureRecognizerBlock)returnObjectByGestureRecognizerBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnObjectByGestureRecognizerBlock);
+}
+
+-(void)setReturnObjectByGestureRecognizerBlock:(JobsReturnIDByGestureRecognizerBlock)returnObjectByGestureRecognizerBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnObjectByGestureRecognizerBlock,
+                             returnObjectByGestureRecognizerBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+#pragma mark —— @property(nonatomic,assign)JobsReturnIDBySELBlock returnObjectBySELBlock;/// 入参为SEL，返回值为ID的回调
+static char *NSObject_CallBackInfoByBlock_returnObjectBySELBlock = "NSObject_CallBackInfoByBlock_returnObjectBySELBlock";
+@dynamic returnObjectBySELBlock;
+-(JobsReturnIDBySELBlock)returnObjectBySELBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnObjectBySELBlock);
+}
+
+-(void)setReturnObjectBySELBlock:(JobsReturnIDBySELBlock)returnObjectBySELBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnObjectBySELBlock,
+                             returnObjectBySELBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnIDByStringBlock returnObjectByStringBlock;/// 入参为NSString，返回值为ID的回调
+static char *NSObject_CallBackInfoByBlock_returnObjectByStringBlock = "NSObject_CallBackInfoByBlock_returnObjectByStringBlock";
+@dynamic returnObjectByStringBlock;
+-(JobsReturnIDByStringBlock)returnObjectByStringBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnObjectByStringBlock);
+}
+
+-(void)setReturnObjectByStringBlock:(JobsReturnIDByStringBlock)returnObjectByStringBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnObjectByStringBlock,
+                             returnObjectByStringBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+/// 6、有（单一）入参、有返回值的回调【返回入参类型】
 #pragma mark —— @property(nonatomic,assign)JobsReturnIDByIDBlock returnObjectBlock;
 static char *NSObject_CallBackInfoByBlock_returnObjectBlock = "NSObject_CallBackInfoByBlock_returnObjectBlock";
 @dynamic returnObjectBlock;

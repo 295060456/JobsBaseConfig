@@ -104,7 +104,7 @@ numberOfItemsInSection:(NSInteger)section {
 viewForSupplementaryElementOfKind:(NSString *)kind
 atIndexPath:(NSIndexPath *)indexPath {
     if (kind == UICollectionElementKindSectionHeader) {
-        JobsHotLabelWithMultiLineHeaderView *headerView = [collectionView UICollectionElementKindSectionHeaderClass:JobsHotLabelWithMultiLineHeaderView.class
+        JobsHotLabelWithMultiLineHeaderFooterView *headerView = [collectionView UICollectionElementKindSectionHeaderClass:JobsHotLabelWithMultiLineHeaderFooterView.class
                                                                                                        forIndexPath:indexPath];
         
         UIViewModel *viewModel = UIViewModel.new;
@@ -341,8 +341,7 @@ insetForSectionAtIndex:(NSInteger)section {
         BtnClickEvent(_closeBtn, {
             NSLog(@"关闭");
             x.selected = !x.selected;
-            [self tf_hide];
-            [self.class destroySingleton];
+            [self cancelBtnActionForPopView:x];
             [self shakeCell:NO];
         });
     }return _closeBtn;
@@ -366,10 +365,8 @@ insetForSectionAtIndex:(NSInteger)section {
         BtnClickEvent(_cancelBtn, {
             NSLog(@"恢复默认");
             x.selected = !x.selected;
-            [self tf_hide];
-            [self.class destroySingleton];
+            [self cancelBtnActionForPopView:x];
             [self shakeCell:NO];
-            if(self.objectBlock) self.objectBlock(x);
         });
     }return _cancelBtn;
 }
@@ -393,12 +390,9 @@ insetForSectionAtIndex:(NSInteger)section {
             NSLog(@"确定");
             @jobs_strongify(self)
             x.selected = !x.selected;
-            [self tf_hide];
-            [self.class destroySingleton];
+            [self cancelBtnActionForPopView:self.dataMutArr];
             [self shakeCell:NO];
-            if(self.objectBlock) self.objectBlock(self.dataMutArr);
         });
-        
     }return _sureBtn;
 }
 

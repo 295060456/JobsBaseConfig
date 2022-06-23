@@ -99,5 +99,7 @@
 #import "NSObject+DataSave.h"
 /// UIScrollViewDelegate 协议
 #import "NSObject+UIScrollViewDelegate.h"
+/// Cell 部署策略
+#import "NSObject+JobsDeployCellConfig.h"
 
 #endif /* JobsObject_h */

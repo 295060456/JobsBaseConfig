@@ -9,8 +9,7 @@
 
 #import "BaseView.h"
 #import "JobsHotLabelWithMultiLineCVCell.h"
-#import "JobsHotLabelWithMultiLineHeaderView.h"
-#import "JobsHotLabelWithMultiLineFooterView.h"
+#import "JobsHotLabelWithMultiLineHeaderFooterView.h"
 #import "JobsHeaderFooterViewModel.h"
 
 NS_ASSUME_NONNULL_BEGIN

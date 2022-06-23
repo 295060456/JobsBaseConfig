@@ -10,7 +10,7 @@
 
 typedef enum : NSInteger {
     /// 一行显示。定宽、定高、定字体。多余部分用…表示（省略号的位置由NSLineBreakMode控制）
-    UILabelShowingType_01 = 0,
+    UILabelShowingType_01 = 1,
     /// 一行显示。定宽、定高、定字体。多余部分scrollerView
     UILabelShowingType_02,
     /// 一行显示。不定宽、定高、定字体。宽度自适应 【单行：ByFont】

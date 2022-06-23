@@ -13,9 +13,9 @@
     // CollectionReusableView
     [self registerCollectionElementKindSectionHeaderClass:BaseCollectionReusableView.class];
     /// Header
-    [self registerCollectionElementKindSectionHeaderClass:JobsHotLabelWithMultiLineHeaderView.class];
+    [self registerCollectionElementKindSectionHeaderClass:JobsHotLabelWithMultiLineHeaderFooterView.class];
     /// Footer
-    [self registerCollectionElementKindSectionFooterClass:JobsHotLabelWithMultiLineFooterView.class];
+    [self registerCollectionElementKindSectionFooterClass:JobsHotLabelWithMultiLineHeaderFooterView.class];
     [self registerCollectionElementKindSectionFooterClass:BaiShaETProjVIPSubCVFooterView.class];
     // CollectionViewCell
     [self registerCollectionViewCellClass:UICollectionViewCell.class];

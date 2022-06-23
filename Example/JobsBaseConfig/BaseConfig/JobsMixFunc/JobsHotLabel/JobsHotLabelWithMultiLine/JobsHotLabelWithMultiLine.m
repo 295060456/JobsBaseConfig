@@ -89,7 +89,12 @@ static dispatch_once_t static_hotLabelWithMultiLineOnceToken;
     [cell richElementsInCellWithModel:self.dataModel.viewModelMutArr[indexPath.item]];
     CGSize itemSize = zeroSizeValue(self.dataModel.cellSize) ? [JobsHotLabelWithMultiLineCVCell cellSizeWithModel:self.dataModel.viewModelMutArr[indexPath.item]] : self.dataModel.cellSize;
     [cell cornerCutToCircleWithCornerRadius:itemSize.height / 2];
-    return cell;
+    [cell.contentView cornerCutToCircleWithCornerRadius:itemSize.height / 2];
+    
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        cell.getTextLab.textColor = HEXCOLOR(0xAE8330);
+        cell.getTextLab.backgroundColor = HEXCOLOR(0xFFEABA);
+    }return cell;
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView
@@ -101,12 +106,12 @@ static dispatch_once_t static_hotLabelWithMultiLineOnceToken;
            viewForSupplementaryElementOfKind:(NSString *)kind
                                  atIndexPath:(NSIndexPath *)indexPath {
     if (kind == UICollectionElementKindSectionHeader) {
-        JobsHotLabelWithMultiLineHeaderView *headerView = [collectionView UICollectionElementKindSectionHeaderClass:JobsHotLabelWithMultiLineHeaderView.class
+        JobsHotLabelWithMultiLineHeaderFooterView *headerView = [collectionView UICollectionElementKindSectionHeaderClass:JobsHotLabelWithMultiLineHeaderFooterView.class
                                                                                                        forIndexPath:indexPath];
         [headerView richElementsInViewWithModel:self.dataModel.headerViewModel];
         return headerView;
     }else if (kind == UICollectionElementKindSectionFooter) {
-        JobsHotLabelWithMultiLineFooterView *footerView = [collectionView UICollectionElementKindSectionFooterClass:JobsHotLabelWithMultiLineFooterView.class
+        JobsHotLabelWithMultiLineHeaderFooterView *footerView = [collectionView UICollectionElementKindSectionFooterClass:JobsHotLabelWithMultiLineHeaderFooterView.class
                                                                                                        forIndexPath:indexPath];
         [footerView richElementsInViewWithModel:self.dataModel.footerViewModel];
         return footerView;
@@ -145,9 +150,17 @@ shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
 -(void)collectionView:(UICollectionView *)collectionView
 didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"%s", __FUNCTION__);
-    JobsHotLabelWithMultiLineCVCell *cell = (JobsHotLabelWithMultiLineCVCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    [WHToast toastSuccessMsg:cell.getViewModel.textModel.text];
-    if (self.objectBlock) self.objectBlock(cell);
+    JobsHotLabelWithMultiLineCVCell *_cell = (JobsHotLabelWithMultiLineCVCell *)[collectionView cellForItemAtIndexPath:indexPath];
+//    [WHToast toastSuccessMsg:_cell.getViewModel.textModel.text];
+    
+    for (JobsHotLabelWithMultiLineCVCell *cell in collectionView.visibleCells) {
+        cell.getTextLab.backgroundColor = HEXCOLOR(0xF3F3F3);
+        cell.getTextLab.textColor = HEXCOLOR(0x757575);
+    }
+    _cell.getTextLab.textColor = HEXCOLOR(0xAE8330);
+    _cell.getTextLab.backgroundColor = HEXCOLOR(0xFFEABA);
+    
+    if (self.objectBlock) self.objectBlock(_cell);
 }
 /// 取消选中操作
 -(void)collectionView:(UICollectionView *)collectionView
@@ -161,7 +174,7 @@ didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
 referenceSizeForHeaderInSection:(NSInteger)section {
     /// ❤️外部传入配置优先❤️
     if (self.dataModel.headerViewModel.useHeaderView) {
-        return zeroSizeValue(self.dataModel.headerViewModel.jobsSize) ? [JobsHotLabelWithMultiLineHeaderView collectionReusableViewSizeWithModel:nil] : self.dataModel.headerViewModel.jobsSize;
+        return zeroSizeValue(self.dataModel.headerViewModel.jobsSize) ? [JobsHotLabelWithMultiLineHeaderFooterView collectionReusableViewSizeWithModel:nil] : self.dataModel.headerViewModel.jobsSize;
     }return CGSizeZero;
 }
 /// footer 大小
@@ -170,7 +183,7 @@ referenceSizeForHeaderInSection:(NSInteger)section {
 referenceSizeForFooterInSection:(NSInteger)section {
     /// ❤️外部传入配置优先❤️
     if (self.dataModel.footerViewModel.useFooterView) {
-        return zeroSizeValue(self.dataModel.footerViewModel.jobsSize) ? [JobsHotLabelWithMultiLineFooterView collectionReusableViewSizeWithModel:nil] : self.dataModel.headerViewModel.jobsSize;
+        return zeroSizeValue(self.dataModel.footerViewModel.jobsSize) ? [JobsHotLabelWithMultiLineHeaderFooterView collectionReusableViewSizeWithModel:nil] : self.dataModel.headerViewModel.jobsSize;
     }return CGSizeZero;
 }
 /// item/cell 的大小
@@ -231,7 +244,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
         for (UIViewModel *viewModel in self.dataModel.viewModelMutArr) {
             NSUInteger index = [self.dataModel.viewModelMutArr indexOfObject:viewModel];
             [_cvcellMutArr addObject:[JobsHotLabelWithMultiLineCVCell cellWithCollectionView:self.collectionView
-                                                                                forIndexPath:[self myIndexPath:(JobsIndexPath){index,0}]]];
+                                                                                forIndexPath:[self myIndexPath:(JobsIndexPath){0,index}]]];
         }
     }return _cvcellMutArr;
 }
