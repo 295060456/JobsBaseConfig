@@ -149,4 +149,8 @@ static inline void toastErr(NSString *msg){
 #define JobsCellCor(cor) cell.backgroundColor = cell.contentView.backgroundColor = cor;
 #endif
 
+#ifndef JobsCellSelfCor
+#define JobsCellSelfCor(cor) self.backgroundColor = self.contentView.backgroundColor = cor;
+#endif
+
 #endif /* MacroDef_Func_h */

@@ -9,8 +9,8 @@
 
 @interface BaseCollectionViewCell ()
 /// UI
-@property(nonatomic,strong)UIImageView *bgImageView;
 @property(nonatomic,strong)UITextView *textView;
+@property(nonatomic,strong)UIButton *bgBtn;
 
 @end
 
@@ -18,6 +18,11 @@
 
 @synthesize viewModel = _viewModel;
 
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+//        [self richElementsInCellWithModel:nil];
+    }return self;
+}
 #pragma mark —— UICollectionViewCellProtocol
 +(instancetype)cellWithCollectionView:(nonnull UICollectionView *)collectionView
                          forIndexPath:(nonnull NSIndexPath *)indexPath{
@@ -31,10 +36,12 @@
     return cell;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
-//        [self richElementsInCellWithModel:nil];
-    }return self;
+-(UITextView *)getTextView{
+    return self.textView;
+}
+
+-(UIButton *)getBgBtn{
+    return self.bgBtn;
 }
 #pragma mark —— BaseCellProtocol
 /// 具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
@@ -45,13 +52,16 @@
 -(void)richElementsInCellWithModel:(UIViewModel *_Nullable)model{
     self.viewModel = model;
     /// 如果有图片则只显示这个图片，并铺满
-    if (model.bgImage) {
-        self.bgImageView.jobsVisible = model.bgImage;
+    BOOL A = model.bgImage || model.image;
+    BOOL B = (![model.textModel.text isEqualToString:Internationalization(TextModelDataString)] && model.textModel.text) || model.textModel.attributedText;
+
+    if (A) {
+        self.bgBtn.jobsVisible = A;
         return;
     }
     /// 如果有文字（普通文本 或者富文本）则只显示这个文字（普通文本 或者富文本），并铺满
-    if (model.textModel.text || model.textModel.attributedText) {
-        self.textView.jobsVisible = model.textModel.text || model.textModel.attributedText;
+    if (B) {
+        self.textView.jobsVisible = B;
         return;
     }
 }
@@ -73,23 +83,40 @@
     _index = index;
 }
 #pragma mark —— lazyLoad
--(UIImageView *)bgImageView{
-    if (!_bgImageView) {
-        _bgImageView = UIImageView.new;
-        [self.contentView addSubview:_bgImageView];
-        [_bgImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+-(UIButton *)bgBtn{
+    if (!_bgBtn) {
+        _bgBtn = UIButton.new;
+        _bgBtn.userInteractionEnabled = NO;
+        [self.contentView addSubview:_bgBtn];
+        [_bgBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.contentView);
         }];
     }
-    _bgImageView.image = self.viewModel.bgImage;
-    return _bgImageView;
+    _bgBtn.normalImage = self.viewModel.image;
+    _bgBtn.normalTitle = self.viewModel.textModel.text;
+    _bgBtn.normalBackgroundImage = self.viewModel.bgImage;
+    _bgBtn.normalAttributedTitle = self.viewModel.textModel.attributedText;
+    _bgBtn.normalTitleColor = self.viewModel.textModel.textCor;
+    
+    _bgBtn.selectedImage = self.viewModel.selectedImage;
+    _bgBtn.selectedTitle = self.viewModel.textModel.selectedText;
+    _bgBtn.selectedBackgroundImage = self.viewModel.bgSelectedImage;
+    _bgBtn.selectedAttributedTitle = self.viewModel.textModel.selectedAttributedText;
+    _bgBtn.selectedTitleColor = self.viewModel.textModel.selectedTextCor;
+    
+    _bgBtn.titleFont = self.viewModel.textModel.font;
+    _bgBtn.titleAlignment = self.viewModel.textModel.textAlignment;
+//        _bgBtn.makeNewLineShows = self.viewModel.textModel.lineBreakMode;
+    [_bgBtn layoutButtonWithEdgeInsetsStyle:self.viewModel.buttonEdgeInsetsStyle
+                            imageTitleSpace:self.viewModel.imageTitleSpace];
+    return _bgBtn;
 }
 
 -(UITextView *)textView{
     if (!_textView) {
         _textView = UITextView.new;
-        _textView.font = self.viewModel.textModel.font;//notoSansRegular(14);
-        _textView.textColor = self.viewModel.textModel.textCor;//HEXCOLOR(0x757575);
+        _textView.font = self.viewModel.textModel.font;
+        _textView.textColor = self.viewModel.textModel.textCor;
         [self.contentView addSubview:_textView];
         [_textView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.contentView);
