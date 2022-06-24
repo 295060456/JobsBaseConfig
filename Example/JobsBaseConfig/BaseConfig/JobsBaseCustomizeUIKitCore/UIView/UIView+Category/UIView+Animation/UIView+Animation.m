@@ -239,9 +239,9 @@ static char *UIView_Animation_shakeAnim = "UIView_Animation_shakeAnim";
         #define Angle2Radian(angle) ((angle) / 180.0 * M_PI)
         ShakeAnim = CAKeyframeAnimation.animation;
         ShakeAnim.keyPath = @"transform.rotation";
-        ShakeAnim.values = @[@(Angle2Radian(baseRandomContainBorderValue(-7))),
+        ShakeAnim.values = @[@(Angle2Radian(-baseRandomContainBorderValue(7))),
                              @(Angle2Radian(baseRandomContainBorderValue(7))),
-                             @(Angle2Radian(baseRandomContainBorderValue(-7)))];
+                             @(Angle2Radian(-baseRandomContainBorderValue(7)))];
         ShakeAnim.duration = 0.25;
         ShakeAnim.repeatCount = MAXFLOAT;// 动画次数设置为最大
         ShakeAnim.removedOnCompletion = NO;// 保持动画执行完毕后的状态

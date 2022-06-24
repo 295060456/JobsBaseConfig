@@ -109,6 +109,7 @@ atIndexPath:(NSIndexPath *)indexPath {
         
         UIViewModel *viewModel = UIViewModel.new;
         viewModel.textModel.text = Internationalization(@"拖動按鈕迸行位置調整");
+        viewModel.subTextModel.text = @"";
         
         [headerView richElementsInViewWithModel:viewModel];
         headerView.backgroundColor = HEXCOLOR(0xFFFCF7);

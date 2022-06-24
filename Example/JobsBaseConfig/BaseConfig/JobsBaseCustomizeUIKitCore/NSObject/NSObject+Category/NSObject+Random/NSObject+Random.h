@@ -12,27 +12,43 @@
 NS_ASSUME_NONNULL_BEGIN
 /// ❤️获取一个随机整数范围在【0、borderValue）： 包括0、不包括borderValue❤️
 static inline int baseRandomNOContainBorderValue(int borderValue){
-    return arc4random() % borderValue;
+    if (borderValue > 0) {
+        return arc4random() % borderValue;
+    }else if(borderValue < 0){
+        return -(arc4random() % -borderValue);
+    }else return 0;
 }
 /// ❤️获取一个随机整数范围在【0、borderValue】： 包括0、包括borderValue❤️
 static inline int baseRandomContainBorderValue(int borderValue){
-    return arc4random() % (borderValue + 1);
+    if (borderValue > 0) {
+        return arc4random() % (borderValue + 1);
+    }else if (borderValue < 0){
+        return -(arc4random() % (-borderValue + 1));
+    }else return 0;
 }
 /// ❤️获取一个随机整数范围在【offsetValue、borderValue）： 包括offsetValue、不包括borderValue❤️
 static inline int baseRandomOffsetValueWithNoContainborderValue(int offsetValue,int borderValue){
-    return offsetValue + baseRandomNOContainBorderValue(borderValue - offsetValue);
+    if (offsetValue <= borderValue) {
+        return offsetValue + baseRandomNOContainBorderValue(borderValue - offsetValue);
+    }else return borderValue + baseRandomNOContainBorderValue(offsetValue - borderValue);
 }
 /// ❤️获取一个随机整数范围在【offsetValue、borderValue】： 包括offsetValue、包括borderValue❤️
 static inline int baseRandomOffsetValueWithContainborderValue(int offsetValue,int borderValue){
-    return offsetValue + baseRandomContainBorderValue(borderValue - offsetValue);
+    if (offsetValue <= borderValue) {
+        return offsetValue + baseRandomContainBorderValue(borderValue - offsetValue);
+    }else return borderValue + baseRandomContainBorderValue(offsetValue - borderValue);
 }
 /// ❤️获取一个随机整数，范围在【from、to】：包括from，包括to❤️
 static inline int getRandomNumber(int from,int to){
-    return (int)(from + (arc4random() % to - from + 1));
+    if (from <= to) {
+        return (int)(from + (arc4random() % to - from + 1));
+    }else return (int)(to + (arc4random() % from - to + 1));
 }
 /// ❤️用rand()随机生成在[x,y]内的整数。rand()%a的结果最大为a-1❤️
 static inline int randomXY(int x,int y){
-    return x + rand() % (y - x + 1);
+    if (x <= y) {
+        return x + rand() % (y - x + 1);
+    }else return y + rand() % (x - y + 1);
 }
 /// 示例：获取一个随机整数范围在【0、100）： 包括0、不包括100
 static inline int random0_100(){
