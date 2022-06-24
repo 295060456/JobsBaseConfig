@@ -9,6 +9,11 @@
 
 @implementation UIButton (UI)
 #pragma mark —— 一些功能性
+-(void)btnClickEventBlock:(jobsByIDBlock)subscribeNextBlock{
+    [[self rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
+        if(subscribeNextBlock) subscribeNextBlock(x);
+    }];
+}
 /// 方法名字符串（带参数、参数之间用"："隔开）、作用对象、参数
 -(jobsByThreeIDBlock)btnClickActionWithParamarrays{
     // SEL method = @selector(func);//定义一个类方法的指针，selector查找是当前类（包含子类）的方法

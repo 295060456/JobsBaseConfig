@@ -53,6 +53,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)UIColor *endableNormalTitleColor;
 
 #pragma mark —— 一些功能性
+-(void)btnClickEventBlock:(jobsByIDBlock)subscribeNextBlock;
 /// 方法名字符串（带参数、参数之间用"："隔开）、作用对象、参数
 -(jobsByThreeIDBlock)btnClickActionWithParamarrays;
 /// 方法名字符串（不带参数）、作用对象

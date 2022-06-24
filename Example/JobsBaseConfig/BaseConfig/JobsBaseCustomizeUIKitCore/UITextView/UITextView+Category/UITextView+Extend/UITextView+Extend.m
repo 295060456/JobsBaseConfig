@@ -8,6 +8,15 @@
 #import "UITextView+Extend.h"
 
 @implementation UITextView (Extend)
+
+-(void)textViewEvent:(JobsReturnBOOLByIDBlock)filterBlock
+   subscribeNextBlock:(jobsByIDBlock)subscribeNextBlock{
+    [[self.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
+        return filterBlock ? filterBlock(value) : YES;
+    }] subscribeNext:^(NSString * _Nullable x) {
+        if (subscribeNextBlock) subscribeNextBlock(x);
+    }];
+}
 /**
  IOS UITextView内容垂直居中方法 https://www.jianshu.com/p/5e4cf8488bfd
  原理：由于textView是继承自UIScrollview，所以会有ContentSize属性。

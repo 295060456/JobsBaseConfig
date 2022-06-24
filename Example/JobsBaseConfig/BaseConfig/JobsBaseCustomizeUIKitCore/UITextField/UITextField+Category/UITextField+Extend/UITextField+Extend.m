@@ -9,9 +9,15 @@
 #import "UITextField+Extend.h"
 
 @implementation UITextField (Extend)
-
-static char *UITextField_Extend_customSysClearBtn = "UITextField_Extend_customSysClearBtn";
-@dynamic customSysClearBtn;
+#pragma mark —— 一些功能方法
+-(void)textFieldEvent:(JobsReturnBOOLByIDBlock)filterBlock
+   subscribeNextBlock:(jobsByIDBlock)subscribeNextBlock{
+    [[self.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
+        return filterBlock ? filterBlock(value) : YES;
+    }] subscribeNext:^(NSString * _Nullable x) {
+        if (subscribeNextBlock) subscribeNextBlock(x);
+    }];
+}
 
 -(NSString *)getCurrentTextFieldValueByReplacementString:(NSString *)replacementString{
     if (self.text.length >= 1) {
@@ -27,7 +33,9 @@ static char *UITextField_Extend_customSysClearBtn = "UITextField_Extend_customSy
     self.rightView = self.customSysClearBtn;
     self.rightViewMode = UITextFieldViewModeWhileEditing;
 }
-#pragma mark SET | GET
+#pragma mark —— SET | GET
+static char *UITextField_Extend_customSysClearBtn = "UITextField_Extend_customSysClearBtn";
+@dynamic customSysClearBtn;
 -(UIButton *)customSysClearBtn{
     UIButton *CustomSysClearBtn = objc_getAssociatedObject(self, UITextField_Extend_customSysClearBtn);
     if (!CustomSysClearBtn) {

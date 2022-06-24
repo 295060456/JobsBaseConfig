@@ -50,16 +50,19 @@
         [self addSubview:_titleLab];
         [_titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self).offset(self.viewModel.textModel.offsetXForEach);
-//            offset(JobsWidth(16));
             make.top.bottom.equalTo(self);
         }];
     }
-    _titleLab.text = self.viewModel.textModel.text;
-    _titleLab.font = self.viewModel.textModel.font;
-    _titleLab.textColor = self.viewModel.textModel.textCor;
-    _titleLab.textAlignment = self.viewModel.textModel.textAlignment;
-    [_titleLab makeLabelByShowingType:self.viewModel.textModel.labelShowingType];    /// 一行显示。不定宽、定高、定字体。宽度自适应 【单行：ByFont】
-    return _titleLab;
+    
+    if (self.viewModel.textModel.attributedText) {
+        _titleLab.attributedText = self.viewModel.textModel.attributedText;
+    }else{
+        _titleLab.text = self.viewModel.textModel.text;
+        _titleLab.font = self.viewModel.textModel.font;
+        _titleLab.textColor = self.viewModel.textModel.textCor;
+        _titleLab.textAlignment = self.viewModel.textModel.textAlignment;
+        [_titleLab makeLabelByShowingType:self.viewModel.textModel.labelShowingType];/// 一行显示。不定宽、定高、定字体。宽度自适应 【单行：ByFont】
+    }return _titleLab;
 }
 
 -(BaseButton *)subTitleBtn{

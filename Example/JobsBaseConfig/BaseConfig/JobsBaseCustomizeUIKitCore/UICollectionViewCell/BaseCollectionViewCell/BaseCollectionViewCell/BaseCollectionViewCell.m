@@ -129,7 +129,13 @@
             make.edges.equalTo(self.contentView);
         }];
         [self layoutIfNeeded];
-        NSLog(@"");
+        @jobs_weakify(self)
+        [_textView textViewEvent:^BOOL(NSString *data) {
+            @jobs_strongify(self)
+            return YES;
+        } subscribeNextBlock:^(NSString *data) {
+            @jobs_strongify(self)
+        }];
     }
     NSLog(@"SSS = %d,self = %@",self.selected,self);
 //    _textView.attributedText = self.viewModel.textModel.attributedText;

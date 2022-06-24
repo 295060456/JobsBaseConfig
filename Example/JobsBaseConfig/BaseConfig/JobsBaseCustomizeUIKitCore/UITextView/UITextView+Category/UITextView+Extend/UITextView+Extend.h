@@ -11,12 +11,26 @@
 #import "JobsString.h"
 #import "UITextView+IndicateWordLimit.h"
 
+#define TextFieldEvent(textField,filterAction,subscribeNextAction)\
+@jobs_weakify(self)\
+[[textField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {\
+    @jobs_strongify(self)\
+    filterAction\
+}] subscribeNext:^(NSString * _Nullable x) {\
+    @jobs_strongify(self)\
+    subscribeNextAction\
+    NSLog(@"MMM = %@",x);\
+}];\
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UITextView (Extend)
 
 @property(nonatomic,strong)NSString *replacementText;
 @property(nonatomic,strong)NSString *resStr;
+
+-(void)textViewEvent:(JobsReturnBOOLByIDBlock)filterBlock
+  subscribeNextBlock:(jobsByIDBlock)subscribeNextBlock;
 /**
  IOS UITextView内容垂直居中方法 https://www.jianshu.com/p/5e4cf8488bfd
  原理：由于textView是继承自UIScrollview，所以会有ContentSize属性。
