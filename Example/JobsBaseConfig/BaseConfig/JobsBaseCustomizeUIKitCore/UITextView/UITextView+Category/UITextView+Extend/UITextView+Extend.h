@@ -17,6 +17,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,strong)NSString *replacementText;
 @property(nonatomic,strong)NSString *resStr;
+/**
+ IOS UITextView内容垂直居中方法 https://www.jianshu.com/p/5e4cf8488bfd
+ 原理：由于textView是继承自UIScrollview，所以会有ContentSize属性。
+ 所以可以通过文字内容的高度（也就是ContentSize）的高度和textView的高度之间的差值，设置内边距，就相当于把内容居中了。
+ */
+- (void)contentSizeToFitByFont:(UIFont *_Nullable)font;
 /*
     如果执行的是删除动作，那么textView.text 去掉最后一个字符向外输出
     否则textView.text + replacementString进行输出

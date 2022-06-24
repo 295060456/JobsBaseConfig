@@ -13,5 +13,6 @@
 
 #pragma mark —— Category
 #import "UICollectionView+RegisterClass.h"
+#import "UICollectionView+Func.h"
 
 #endif /* JobsCollectionView_h */

@@ -8,22 +8,48 @@
 #import "UITextView+Extend.h"
 
 @implementation UITextView (Extend)
-
-static char *UITextView_Extend_replacementText = "UITextView_Extend_replacementText";
-@dynamic replacementText;
-
-static char *UITextView_Extend_resStr = "UITextView_Extend_resStr";
-@dynamic resStr;
+/**
+ IOS UITextView内容垂直居中方法 https://www.jianshu.com/p/5e4cf8488bfd
+ 原理：由于textView是继承自UIScrollview，所以会有ContentSize属性。
+ 所以可以通过文字内容的高度（也就是ContentSize）的高度和textView的高度之间的差值，设置内边距，就相当于把内容居中了。
+ */
+- (void)contentSizeToFitByFont:(UIFont *_Nullable)font{
+    /// 先判断一下有没有文字（没文字就没必要设置居中了）
+    if(self.text.length){
+        /// textView的contentSize属性
+        CGSize contentSize = self.contentSize;
+        /// textView的内边距属性
+        UIEdgeInsets offset;
+        CGSize newSize = contentSize;
+        /// 如果文字内容高度没有超过textView的高度
+        if(contentSize.height <= self.frame.size.height){
+            /// textView的高度减去文字高度除以2就是Y方向的偏移量，也就是textView的上内边距
+            offset = UIEdgeInsetsMake((self.frame.size.height - contentSize.height)/2, 0, 0, 0);
+        }else{/// 如果文字高度超出textView的高度
+            newSize = self.frame.size;
+            offset = UIEdgeInsetsZero;
+           /// 通过一个while循环，设置textView的文字大小，使内容不超过整个textView的高度（这个根据需要可以自己设置）
+            while (contentSize.height > self.frame.size.height){
+                if (!font) {
+                    font = [UIFont fontWithName:@"Helvetica Neue" size:18];
+                }
+                [self setFont:font];
+                contentSize = self.contentSize;
+            }newSize = contentSize;
+        }
+        /// 根据前面计算设置textView的ContentSize和Y方向偏移量
+        [self setContentSize:newSize];
+        [self setContentInset:offset];
+    }
+}
 /*
     如果执行的是删除动作，那么textView.text 去掉最后一个字符向外输出
     否则textView.text + replacementString进行输出
  */
 -(NSString *)getCurrentTextViewValueByReplacementText:(NSString *)replacementString{
-    if (self.text.length >= 1) {
+    if (self.text.length) {
         return [replacementString isEqualToString:@""] ? [self.text substringToIndex:(self.text.length - 1)] : [self.text stringByAppendingString:replacementString];
-    }else{
-        return replacementString;
-    }
+    }return replacementString;
 }
 /*
     一般用于终值部分，对应协议方法:textViewDidChange
@@ -38,13 +64,9 @@ static char *UITextView_Extend_resStr = "UITextView_Extend_resStr";
     if (placeholderValue.length) {//占位符有值
         NSString *str = [self.text stringByReplacingOccurrencesOfString:placeholderValue
                                                              withString:@""];
-        if (valueBlock) {
-            valueBlock(str);// 回调TextView的确定值
-        }
+        if (valueBlock) valueBlock(str);// 回调TextView的确定值
     }else{//占位符无值
-        if (invalidBlock) {
-            invalidBlock();
-        }
+        if (invalidBlock) invalidBlock();
     }
 }
 /*
@@ -57,9 +79,8 @@ static char *UITextView_Extend_resStr = "UITextView_Extend_resStr";
       normalInputBlock:(jobsByIDBlock)normalInputBlock{
     self.replacementText = replacementText;
     if ([replacementText isEqualToString:@"\n"]) {//提行
-        if (beginNewLineBlock) {
-            beginNewLineBlock(self.text);
-        }return NO;
+        if (beginNewLineBlock) beginNewLineBlock(self.text);
+        return NO;
     }else if([replacementText isEqualToString:@""]){//删除
         /*
              删除操作是系统接收@“”作为指令内部进行删除操作
@@ -86,15 +107,12 @@ static char *UITextView_Extend_resStr = "UITextView_Extend_resStr";
         }
         self.currentWordNum = res.length;
         NSLog(@"SSS = %ld",self.currentWordNum);
-        if (delBlock) {
-            delBlock(res);
-        }return YES;
+        if (delBlock) delBlock(res);
+        return YES;
     }else{//正向输入
         if ([replacementText isAllLetterCharacter]) {//还在占位符拼音阶段
             if ([self textInRange:self.markedTextRange].length) {
-                if (normalInputBlock) {
-                    normalInputBlock([self.text stringByAppendingString:replacementText]);
-                }
+                if (normalInputBlock) normalInputBlock([self.text stringByAppendingString:replacementText]);
             }else{
                 NSString *res = @"";
                 if (replacementText.length == 1) {//单字母输入
@@ -102,18 +120,13 @@ static char *UITextView_Extend_resStr = "UITextView_Extend_resStr";
                 }else{//按下确定键
                     res = replacementText;
                 }
-                
                 self.currentWordNum = res.length;
-
-                if (normalInputBlock) {
-                    normalInputBlock(res);
-                }
+                if (normalInputBlock) normalInputBlock(res);
 //                NSLog(@"QQQQQ = %ld",self.currentWordNum);
                 
                 if (self.currentWordNum - 2 >= self.wordLimitNum) {
                     self.currentWordNum = self.wordLimitNum;
                 }
-                NSLog(@"QQQQQ = %ld",self.currentWordNum);
             }
         }else{//最终确定的中文
             NSString *res = [[self.text stringByReplacingOccurrencesOfString:[self textInRange:self.markedTextRange]
@@ -125,14 +138,14 @@ static char *UITextView_Extend_resStr = "UITextView_Extend_resStr";
                 self.currentWordNum = self.text.length;
             }
             self.resStr = res;
-            if (normalInputBlock) {
-                normalInputBlock(res);
-            }
+            if (normalInputBlock) normalInputBlock(res);
         }
         return self.currentWordNum < self.wordLimitNum;
     }
 }
 #pragma mark SET | GET
+static char *UITextView_Extend_replacementText = "UITextView_Extend_replacementText";
+@dynamic replacementText;
 #pragma mark —— @property(nonatomic,strong)NSString *replacementText;
 -(NSString *)replacementText{
     return objc_getAssociatedObject(self, UITextView_Extend_replacementText);
@@ -144,6 +157,8 @@ static char *UITextView_Extend_resStr = "UITextView_Extend_resStr";
                              replacementText,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+static char *UITextView_Extend_resStr = "UITextView_Extend_resStr";
+@dynamic resStr;
 #pragma mark —— @property(nonatomic,strong)NSString *resStr;
 -(NSString *)resStr{
     return objc_getAssociatedObject(self, UITextView_Extend_resStr);

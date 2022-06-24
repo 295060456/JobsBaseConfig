@@ -55,15 +55,21 @@
     BOOL A = model.bgImage || model.image;
     BOOL B = (![model.textModel.text isEqualToString:Internationalization(TextModelDataString)] && model.textModel.text) || model.textModel.attributedText;
 
-    if (A) {
-        self.bgBtn.jobsVisible = A;
+    if (A || self.forceUseBgBtn) {
+        self.bgBtn.jobsVisible = A || self.forceUseBgBtn;
         return;
     }
     /// 如果有文字（普通文本 或者富文本）则只显示这个文字（普通文本 或者富文本），并铺满
-    if (B) {
-        self.textView.jobsVisible = B;
+    if (B || self.forceUsetextView) {
+        /// ❤️textView 和 bgBtn不能共存❤️
+        self.bgBtn.jobsVisible = !B || self.forceUsetextView;
+        self.textView.jobsVisible = B || self.forceUsetextView;
         return;
     }
+}
+#pragma mark —— 复写父类相关方法和属性
+-(void)setSelected:(BOOL)selected{
+    [super setSelected:selected];
 }
 #pragma mark —— <UIViewModelProtocol> 协议属性合成set & get方法
 @synthesize indexPath = _indexPath;
@@ -115,8 +121,9 @@
 -(UITextView *)textView{
     if (!_textView) {
         _textView = UITextView.new;
-        _textView.font = self.viewModel.textModel.font;
-        _textView.textColor = self.viewModel.textModel.textCor;
+        _textView.editable = NO;
+        _textView.userInteractionEnabled = NO;
+        _textView.textColor = self.selected ? self.viewModel.textModel.selectedTextCor : self.viewModel.textModel.textCor;
         [self.contentView addSubview:_textView];
         [_textView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.contentView);
@@ -124,8 +131,12 @@
         [self layoutIfNeeded];
         NSLog(@"");
     }
+    NSLog(@"SSS = %d,self = %@",self.selected,self);
 //    _textView.attributedText = self.viewModel.textModel.attributedText;
+    _textView.font = self.viewModel.textModel.font;
+    _textView.textAlignment = self.viewModel.textModel.textAlignment;
     _textView.text = self.viewModel.textModel.text;
+    [_textView contentSizeToFitByFont:_textView.font];
     NSLog(@"textView.text = %@",_textView.text);
     return _textView;
 }

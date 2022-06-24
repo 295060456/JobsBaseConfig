@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseCollectionViewCell : UICollectionViewCell<UICollectionViewCellProtocol>
 
+@property(nonatomic,assign)BOOL forceUsetextView;
+@property(nonatomic,assign)BOOL forceUseBgBtn;
+
 @end
 
 NS_ASSUME_NONNULL_END

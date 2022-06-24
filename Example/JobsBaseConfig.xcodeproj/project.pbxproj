@@ -898,6 +898,7 @@
 		C5C480A5284E250A007916B3 /* JobsSettingGestureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C480A4284E250A007916B3 /* JobsSettingGestureVC.m */; };
 		C5C48124284E254B007916B3 /* JobsMembersSubsBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C48123284E254B007916B3 /* JobsMembersSubsBaseVC.m */; };
 		C5D46FFC284E29A90090D20F /* JobsGetiOSNewestVersionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5D46FFB284E29A90090D20F /* JobsGetiOSNewestVersionModel.m */; };
+		C5E28FB92865AD8F0017466D /* UICollectionView+Func.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E28FB82865AD8F0017466D /* UICollectionView+Func.m */; };
 		C5E4ABC02858BEED00B782F0 /* UILabelWordRotatingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E4ABBF2858BEED00B782F0 /* UILabelWordRotatingVC.m */; };
 		C5E4ABC62858C06500B782F0 /* UIBezierPath+TextPath.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E4ABC32858C06400B782F0 /* UIBezierPath+TextPath.m */; };
 		F65541EC060397D8F6D09547 /* Pods_JobsBaseConfigUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */; };
@@ -2709,6 +2710,8 @@
 		C5C48123284E254B007916B3 /* JobsMembersSubsBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsMembersSubsBaseVC.m; sourceTree = "<group>"; };
 		C5D46FFA284E29A90090D20F /* JobsGetiOSNewestVersionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsGetiOSNewestVersionModel.h; sourceTree = "<group>"; };
 		C5D46FFB284E29A90090D20F /* JobsGetiOSNewestVersionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsGetiOSNewestVersionModel.m; sourceTree = "<group>"; };
+		C5E28FB72865AD8F0017466D /* UICollectionView+Func.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+Func.h"; sourceTree = "<group>"; };
+		C5E28FB82865AD8F0017466D /* UICollectionView+Func.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+Func.m"; sourceTree = "<group>"; };
 		C5E4ABBE2858BEED00B782F0 /* UILabelWordRotatingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UILabelWordRotatingVC.h; sourceTree = "<group>"; };
 		C5E4ABBF2858BEED00B782F0 /* UILabelWordRotatingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UILabelWordRotatingVC.m; sourceTree = "<group>"; };
 		C5E4ABC32858C06400B782F0 /* UIBezierPath+TextPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+TextPath.m"; sourceTree = "<group>"; };
@@ -3987,6 +3990,7 @@
 		840F940027736426004979E9 /* UICollectionView+Category */ = {
 			isa = PBXGroup;
 			children = (
+				C5E28FB62865AD8F0017466D /* UICollectionView+Func */,
 				840F940927736426004979E9 /* UICollectionView+RegisterClass */,
 			);
 			path = "UICollectionView+Category";
@@ -10627,6 +10631,15 @@
 			path = JobsGetiOSNewestVersionModel;
 			sourceTree = "<group>";
 		};
+		C5E28FB62865AD8F0017466D /* UICollectionView+Func */ = {
+			isa = PBXGroup;
+			children = (
+				C5E28FB72865AD8F0017466D /* UICollectionView+Func.h */,
+				C5E28FB82865AD8F0017466D /* UICollectionView+Func.m */,
+			);
+			path = "UICollectionView+Func";
+			sourceTree = "<group>";
+		};
 		C5E4ABBD2858BE7D00B782F0 /* UILabel文字旋转 */ = {
 			isa = PBXGroup;
 			children = (
@@ -11262,6 +11275,7 @@
 				845625A5278BF2BB0067ABB9 /* JobsCommentVC.m in Sources */,
 				840F969C27736428004979E9 /* UIViewController+JXCategoryListContentViewDelegate.m in Sources */,
 				C520550F28534CC400CCB724 /* UICollectionHeaderFooterView.m in Sources */,
+				C5E28FB92865AD8F0017466D /* UICollectionView+Func.m in Sources */,
 				840F969027736428004979E9 /* BaseNavigationBar.m in Sources */,
 				840F96E927736428004979E9 /* NSObject+NTESVerifyCode.m in Sources */,
 				840F970327736428004979E9 /* NSObject+DeviceIP.m in Sources */,
