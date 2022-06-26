@@ -99,15 +99,12 @@
     }return self.nsTimer;
 }
 /// 定时器启动 手动添加定时器到RunLoop
-+(void)nsTimeStart:(NSTimerManager *_Nonnull)timerManager
-       withRunLoop:(NSRunLoop *_Nullable)runLoop{
-    if (timerManager.nsTimer) {
-        if (!runLoop) {
-            runLoop = NSRunLoop.mainRunLoop;
-        }
-        [runLoop addTimer:timerManager.nsTimer
+-(void)nsTimeStartWithRunLoop:(NSRunLoop *_Nullable)runLoop{
+    if (_nsTimer) {
+        if (!runLoop) runLoop = NSRunLoop.mainRunLoop;
+        [runLoop addTimer:_nsTimer
                   forMode:NSRunLoopCommonModes];
-        timerManager.timerCurrentStatus = NSTimerCurrentStatusRun;
+        _timerCurrentStatus = NSTimerCurrentStatusRun;
     }else{
          NSAssert(0,@"属性 nsTimer 没有被成功创建,请检查");
     }

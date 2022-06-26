@@ -36,12 +36,6 @@
 #import "RACEXTKeyPathCoding.h"
 #endif
 
-//#if __has_include(<ReactiveObjC/RACEXTRuntimeExtensions.h>)
-//#import <ReactiveObjC/RACEXTRuntimeExtensions.h>
-//#else
-//#import "RACEXTRuntimeExtensions.h"
-//#endif
-
 NS_ASSUME_NONNULL_BEGIN
 
 /// 记录过程值

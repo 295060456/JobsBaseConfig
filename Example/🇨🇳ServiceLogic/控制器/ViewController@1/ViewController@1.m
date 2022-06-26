@@ -330,8 +330,15 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         
         {
             UIViewModel *viewModel = [self configViewModelWithTitle:@"JobsTimer"
-                                                           subTitle:Internationalization(@"时间模块")];
+                                                           subTitle:Internationalization(@"☀️时间模块")];
             viewModel.cls = JobsTimerVC.class;
+            [_dataMutArr addObject:viewModel];
+        }
+        
+        {
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"NSTimerManagerTestVC"
+                                                           subTitle:Internationalization(@"🌛NSTimerManager模块测试")];
+            viewModel.cls = NSTimerManagerTestVC.class;
             [_dataMutArr addObject:viewModel];
         }
         
@@ -466,13 +473,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             UIViewModel *viewModel = [self configViewModelWithTitle:@"RandomTestVC"
                                                            subTitle:Internationalization(@"随机数测试模块")];
             viewModel.cls = RandomTestVC.class;
-            [_dataMutArr addObject:viewModel];
-        }
-        
-        {
-            UIViewModel *viewModel = [self configViewModelWithTitle:@"NSTimerManagerTestVC"
-                                                           subTitle:Internationalization(@"NSTimerManager模块测试")];
-            viewModel.cls = NSTimerManagerTestVC.class;
             [_dataMutArr addObject:viewModel];
         }
         

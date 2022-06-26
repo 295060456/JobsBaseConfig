@@ -8,7 +8,6 @@
 #import "UIButton+Timer.h"
 
 @implementation UIButton (Timer)
-
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wobjc-designated-initializers"
 -(instancetype)initWithConfig:(nullable ButtonTimerConfigModel *)config{
@@ -26,6 +25,7 @@
     }return self;
 }
 #pragma clang diagnostic pop
+#pragma mark —— 一些私有方法
 /// 当设置了圆角的时候，会造成UI的一些畸形，这个地方的补偿值正好等于按钮的高的一半
 -(void)extraWidth:(CGFloat)offsetWidth{
     if (self.layer.cornerRadius) {
@@ -34,8 +34,7 @@
         }];
     }
 }
-#pragma mark —— UI配置
-/// 1.1、【计时器未开始】设置Layer层 和 背景颜色
+#pragma mark —— UI配置 1.1、【计时器未开始】设置Layer层 和 背景颜色
 -(void)setLayerConfigReadyPlay{
     self.layer.borderColor = self.btnTimerConfig.readyPlayValue.layerBorderColour.CGColor;
     self.layer.cornerRadius = self.btnTimerConfig.readyPlayValue.layerCornerRadius;
@@ -43,7 +42,7 @@
     
     self.backgroundColor = self.btnTimerConfig.readyPlayValue.bgCor;
 }
-/// 1.2、【计时器未开始】设置文字
+#pragma mark —— UI配置 1.2、【计时器未开始】设置文字
 -(void)setTitleLabelConfigReadyPlay{
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.titleFont = self.btnTimerConfig.readyPlayValue.font;
@@ -52,7 +51,7 @@
     
     [self extraWidth:JobsWidth(8)];
 }
-/// 2.1、【计时器进行中】设置Layer层 和 背景颜色
+#pragma mark —— UI配置 2.1、【计时器进行中】设置Layer层 和 背景颜色
 -(void)setLayerConfigRunning{
     self.layer.borderColor = self.btnTimerConfig.runningValue.layerBorderColour.CGColor;
     self.layer.cornerRadius = self.btnTimerConfig.runningValue.layerCornerRadius;
@@ -60,7 +59,7 @@
     
     self.backgroundColor = self.btnTimerConfig.runningValue.bgCor;
 }
-/// 2.2、【计时器进行中】设置文字
+#pragma mark —— UI配置 2.2、【计时器进行中】设置文字
 -(void)setTitleLabelConfigRunning{
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.titleFont = self.btnTimerConfig.runningValue.font;
@@ -68,7 +67,7 @@
     [self makeBtnLabelByShowingType:self.btnTimerConfig.labelShowingType];
     [self extraWidth:0];
 }
-/// 3.1、【计时器结束】设置Layer层 和 背景颜色
+#pragma mark —— UI配置 3.1、【计时器结束】设置Layer层 和 背景颜色
 -(void)setLayerConfigEnd{
     self.layer.borderColor = self.btnTimerConfig.endValue.layerBorderColour.CGColor;
     self.layer.cornerRadius = self.btnTimerConfig.endValue.layerCornerRadius;
@@ -76,7 +75,7 @@
     
     self.backgroundColor = self.btnTimerConfig.endValue.bgCor;
 }
-/// 3.2、【计时器结束】设置文字
+#pragma mark —— UI配置 3.2、【计时器结束】设置文字
 -(void)setTitleLabelConfigEnd{
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.titleLabel.numberOfLines = 1;//不加这一句会有UI异常
@@ -85,8 +84,7 @@
     [self makeBtnLabelByShowingType:self.btnTimerConfig.labelShowingType];
     [self extraWidth:JobsWidth(8)];
 }
-#pragma mark —— 设置普通标题或者富文本标题
-/// 计时器未开始
+#pragma mark —— 设置普通标题或者富文本标题【计时器未开始】
 -(void)setTitleReadyPlay{
     if (self.btnTimerConfig.readyPlayValue.titleAttributedDataMutArr.count ||
         self.btnTimerConfig.readyPlayValue.attributedText) {
@@ -96,18 +94,18 @@
         self.normalTitle = self.btnTimerConfig.readyPlayValue.text;
     }
 }
-/// 计时器进行中
+#pragma mark —— 设置普通标题或者富文本标题【计时器进行中】
 -(void)setTitleRunning{
     if (self.btnTimerConfig.runningValue.titleAttributedDataMutArr.count ||
         self.btnTimerConfig.runningValue.attributedText) {
         //富文本
         self.normalAttributedTitle = self.btnTimerConfig.runningValue.attributedText;
     }else{
+        NSLog(@"☕️☕️☕️☕️ = %@",self.btnTimerConfig.runningValue.text);
         self.normalTitle = self.btnTimerConfig.runningValue.text;
     }
-    NSLog(@"☕️☕️☕️☕️ = %@",self.btnTimerConfig.runningValue.text);
 }
-/// 计时器结束
+#pragma mark —— 设置普通标题或者富文本标题【计时器结束】
 -(void)setTitleEnd{
     if (self.btnTimerConfig.endValue.titleAttributedDataMutArr.count ||
         self.btnTimerConfig.endValue.attributedText) {
@@ -117,31 +115,29 @@
         self.normalTitle = self.btnTimerConfig.endValue.text;
     }
 }
-#pragma mark —— 时间方法
-/// 开启计时【用初始化时间】
+#pragma mark —— 时间相关方法【开启定时器】
+/// 1、开启计时【用初始化时间】
 -(void)startTimer{
     [self startTimer:self.btnTimerConfig.count];
 }
-/// 开启计时【从某个时间】
+/// 2、开启计时【从某个时间】
 -(void)startTimer:(NSInteger)timeCount{
     [self setTitleReadyPlay];
     [self setLayerConfigReadyPlay];
     [self setTitleLabelConfigReadyPlay];
     self.btnTimerConfig.count = timeCount;
     //启动方式——1
-//    [NSTimerManager nsTimeStart:self.nsTimerManager
-//                    withRunLoop:nil];
+//    [self.nsTimerManager nsTimeStartWithRunLoop:nil];
     //启动方式——2
     [self.btnTimerConfig.timerManager nsTimeStartSysAutoInRunLoop];
 }
-/// 核心方法
+#pragma mark —— 时间相关方法【定时器运行中】❤️核心方法❤️
 -(void)timerRuning:(long)currentTime{
     // 其他一些基础设置
     {
         self.enabled = self.btnTimerConfig.isCanBeClickWhenTimerCycle;//倒计时期间，默认不接受任何的点击事件
         self.backgroundColor = self.btnTimerConfig.runningValue.bgCor;
     }
-
     // 清除上一次拼装的数据
     if (self.btnTimerConfig.formatTimeStr.length > 0 &&
         [self.btnTimerConfig.runningValue.text containsString:self.btnTimerConfig.formatTimeStr]) {
@@ -180,7 +176,7 @@
     // 富文本：锚定 titleRunningStr 和 formatTimeStr
     if(self.btnTimerConfig.runningValue.titleAttributedDataMutArr.count ||
        self.btnTimerConfig.runningValue.attributedText){
-        //富文本 每一次时间触发方法都刷新数据并赋值
+        // 富文本 每一次时间触发方法都刷新数据并赋值
         NSMutableArray *tempDataMutArr = NSMutableArray.array;
         
         // 亟待补充 见 RichTextConfig 的使用示例
@@ -201,7 +197,15 @@
     [self setLayerConfigRunning];
     [self setTitleLabelConfigRunning];
 }
-
+#pragma mark —— 时间相关方法【定时器暂停】
+-(void)timerSuspend{
+    [self.btnTimerConfig.timerManager nsTimePause];
+}
+#pragma mark —— 时间相关方法【定时器继续】
+-(void)timerContinue{
+    [self.btnTimerConfig.timerManager nsTimecontinue];
+}
+#pragma mark —— 时间相关方法【定时器销毁】
 -(void)timerDestroy{
     self.enabled = YES;
     NSLog(@"self.btnTimerConfig.titleEndStr = %@",self.btnTimerConfig.endValue.text);
@@ -219,12 +223,7 @@ static char *UIButton_Timer_btnTimerConfig = "UIButton_Timer_btnTimerConfig";
     ButtonTimerConfigModel *BtnTimerConfig = objc_getAssociatedObject(self, UIButton_Timer_btnTimerConfig);
     if (!BtnTimerConfig) {
         BtnTimerConfig = ButtonTimerConfigModel.new;
-        // 这里添加默认配置
-//        BtnTimerConfig.
-        objc_setAssociatedObject(self,
-                                 UIButton_Timer_btnTimerConfig,
-                                 BtnTimerConfig,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [self setBtnTimerConfig:BtnTimerConfig];
     }
     // 定时器运行时的Block
     @jobs_weakify(self)

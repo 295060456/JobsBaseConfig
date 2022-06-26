@@ -31,16 +31,14 @@
 
 -(void)makeTimer_color{
     //启动方式——1
-    [NSTimerManager nsTimeStart:self.nsTimerManager_color
-                    withRunLoop:nil];
+    [self.nsTimerManager_color nsTimeStartWithRunLoop:nil];
     //启动方式——2
 //    [self.nsTimerManager nsTimeStartSysAutoInRunLoop];
 }
 
 -(void)makeTimer_length{
     //启动方式——1
-    [NSTimerManager nsTimeStart:self.nsTimerManager_length
-                    withRunLoop:nil];
+    [self.nsTimerManager_length nsTimeStartWithRunLoop:nil];
     //启动方式——2
 //    [self.nsTimerManager nsTimeStartSysAutoInRunLoop];
 }
@@ -173,7 +171,6 @@
         [_nsTimerManager_length actionObjectBlock:^(TimerProcessModel *data) {
             NSLog(@"你好");
             @jobs_strongify(self)
-            
             switch (data.timerProcessType) {
                 case TimerProcessType_ready:{
                     

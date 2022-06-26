@@ -64,14 +64,13 @@ UILocationProtocol_synthesize
     if (!_readyPlayValue) {
         _readyPlayValue = ButtonTimerProcessValueModel.new;
         
-        _readyPlayValue.layerBorderColour = UIColor.whiteColor;
-        _readyPlayValue.textCor = UIColor.whiteColor;
-        _readyPlayValue.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular];
-        _readyPlayValue.bgCor = UIColor.lightGrayColor;
+        _readyPlayValue.layerBorderColour = JobsWhiteColor;
+        _readyPlayValue.textCor = JobsWhiteColor;
+        _readyPlayValue.font = UIFontWeightRegularSize(12);
+        _readyPlayValue.bgCor = JobsLightGrayColor;
         _readyPlayValue.layerCornerRadius = JobsWidth(8);
         _readyPlayValue.layerBorderWidth = 0.5f;
 
-        
         _readyPlayValue.labelShowingType = UILabelShowingType_01;
         /// 普通文本
         _readyPlayValue.text = Internationalization(@"准备开始");
@@ -90,21 +89,18 @@ UILocationProtocol_synthesize
     if (!_runningValue) {
         _runningValue = ButtonTimerProcessValueModel.new;
         
-        _runningValue.layerBorderColour = UIColor.redColor;
-        _runningValue.textCor = UIColor.greenColor;
-        _runningValue.font = [UIFont systemFontOfSize:JobsWidth(15) weight:UIFontWeightRegular];
-        _runningValue.bgCor = UIColor.cyanColor;
+        _runningValue.layerBorderColour = JobsRedColor;
+        _runningValue.textCor = JobsGreenColor;
+        _runningValue.font = UIFontWeightRegularSize(15);
+        _runningValue.bgCor = JobsCyanColor;
         _runningValue.layerCornerRadius = JobsWidth(12);
         _runningValue.layerBorderWidth = 1;
         _runningValue.labelShowingType = UILabelShowingType_01;
         /// 普通文本
         _runningValue.text = Internationalization(@"    重新开始    ");
         /// 富文本相关
-        // _runningValue.titleAttributedDataMutArr =
         if (_runningValue.titleAttributedDataMutArr.count) {
             _runningValue.attributedText = [self richTextWithDataConfigMutArr:_runningValue.titleAttributedDataMutArr];
-        }else{
-            //_runningValue.titleAttributedStr =
         }
     }return _runningValue;
 }
@@ -124,11 +120,8 @@ UILocationProtocol_synthesize
         /// 普通文本
         _endValue.text = Internationalization(@"    重新开始    ");
         /// 富文本相关
-        // _endValue.titleAttributedDataMutArr =
         if (_endValue.titleAttributedDataMutArr.count) {
             _endValue.attributedText = [self richTextWithDataConfigMutArr:_endValue.titleAttributedDataMutArr];
-        }else{
-            //_endValue.titleAttributedStr =
         }
         
     }return _endValue;
@@ -138,12 +131,6 @@ UILocationProtocol_synthesize
     if (!_count) {
         _count = 60;
     }return _count;
-}
-
--(CGFloat)widthCompensationValue{
-    if (!_widthCompensationValue) {
-        _widthCompensationValue = self.jobsSize.height / 2;
-    }return _widthCompensationValue;
 }
 
 @end

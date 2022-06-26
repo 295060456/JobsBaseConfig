@@ -22,10 +22,12 @@ typedef enum : NSInteger {
     TimerProcessType_end
 } TimerProcessType;
 
-//此类虽然为工具类，但是不允许用单例，因为timer需要被释放
+/**
+ *  此类虽然为工具类，但是不允许用单例，因为timer需要被释放
 
-//NSTimer只有被加入到runloop, 才会生效, 即NSTimer才会被真正执行
-//scheduledTimerWithTimeInterval相比它的小伙伴们不仅仅是创建了NSTimer对象, 还把该对象加入到了当前的runloop中，runloop的模式为默认模式（NSDefaultRunLoopMode）!
+ *  NSTimer只有被加入到runloop, 才会生效, 即NSTimer才会被真正执行
+ *  scheduledTimerWithTimeInterval相比它的小伙伴们不仅仅是创建了NSTimer对象, 还把该对象加入到了当前的runloop中，runloop的模式为默认模式（NSDefaultRunLoopMode）!
+ */
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TimerProcessModel : NSObject
@@ -52,8 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)BOOL repeats;
 @property(nonatomic,strong,nullable)NSTimer *__block nsTimer;
 /// 定时器启动 手动添加定时器到RunLoop
-+(void)nsTimeStart:(NSTimerManager *_Nonnull)timerManager
-       withRunLoop:(NSRunLoop *_Nullable)runLoop;//currentRunLoop可调用子线程；mainrunloop主线程
+-(void)nsTimeStartWithRunLoop:(NSRunLoop *_Nullable)runLoop;//currentRunLoop可调用子线程；mainrunloop主线程
 /// 定时器启动：newTimer + 系统自动添加到RunLoop
 -(NSTimer *)nsTimeStartSysAutoInRunLoop;
 /// 定时器暂停

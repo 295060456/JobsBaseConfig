@@ -34,9 +34,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,strong)ButtonTimerConfigModel *btnTimerConfig;
 
--(void)startTimer:(NSInteger)timeCount;//开启计时【从某个时间】
--(void)startTimer;//开启计时【用初始化时间】
--(void)timerDestroy;//可以不结束直接掐死
+#pragma mark —— 时间相关方法【开启定时器】
+-(void)startTimer;/// 开启计时【用初始化时间】
+-(void)startTimer:(NSInteger)timeCount;/// 开启计时【从某个时间】
+#pragma mark —— 时间相关方法【定时器暂停】
+-(void)timerSuspend;
+#pragma mark —— 时间相关方法【定时器继续】
+-(void)timerContinue;
+#pragma mark —— 时间相关方法【定时器销毁】
+-(void)timerDestroy;/// 可以不结束直接掐死
 
 -(instancetype)initWithConfig:(nullable ButtonTimerConfigModel *)config;
 

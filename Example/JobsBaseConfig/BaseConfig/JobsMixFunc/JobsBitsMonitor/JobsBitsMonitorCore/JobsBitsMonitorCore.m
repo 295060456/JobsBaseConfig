@@ -73,8 +73,7 @@ static JobsBitsMonitorCore *static_bitsMonitorCore = nil;
 //【手动】开始监听
 -(void)start{
     //启动方式——1 定时器启动 手动添加定时器到RunLoop
-    [NSTimerManager nsTimeStart:self.nsTimerManager
-                    withRunLoop:nil];
+    [self.nsTimerManager nsTimeStartWithRunLoop:nil];
 }
 //【手动】停止监听
 -(void)stop{
