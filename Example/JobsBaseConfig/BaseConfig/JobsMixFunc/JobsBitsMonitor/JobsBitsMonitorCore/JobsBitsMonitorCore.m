@@ -83,11 +83,11 @@ static JobsBitsMonitorCore *static_bitsMonitorCore = nil;
 }
 //【手动】暂停监听
 -(void)pause{
-    [NSTimerManager nsTimePause:self.nsTimerManager];
+    [self.nsTimerManager nsTimePause];
 }
 //【手动】暂停以后继续监听
 -(void)continues{
-    [NSTimerManager nsTimecontinue:self.nsTimerManager];
+    [self.nsTimerManager nsTimecontinue];
 }
 
 -(void)bitsSpeedMonitor{
@@ -174,7 +174,7 @@ static JobsBitsMonitorCore *static_bitsMonitorCore = nil;
         _nsTimerManager.timerStyle = TimerStyle_clockwise;
         _nsTimerManager.timeInterval = 1;
         @jobs_weakify(self)
-        [_nsTimerManager actionNSTimerManagerRunningBlock:^(TimerProcessModel *data) {
+        [_nsTimerManager actionObjectBlock:^(TimerProcessModel *data) {
             @jobs_strongify(self)
             switch (data.timerProcessType) {
                 case TimerProcessType_ready:{

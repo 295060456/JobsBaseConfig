@@ -168,8 +168,12 @@
     if (!_authCodeBtn) {
         _authCodeBtn = [UIButton.alloc initWithConfig:self.btnTimerConfigModel];
         BtnClickEvent(_authCodeBtn, [x startTimer];);//选择时机、触发启动
-        [_authCodeBtn actionBlockTimerRunning:^(TimerProcessModel *data) {
-            @jobs_strongify(self)
+        [_authCodeBtn actionObjectBlock:^(id data) {
+//            @jobs_strongify(self)
+            if ([data isKindOfClass:TimerProcessModel.class]) {
+                TimerProcessModel *model = (TimerProcessModel *)data;
+                NSLog(@"❤️❤️❤️❤️❤️%f",model.data.anticlockwiseTime);
+            }
         }];
         [self addSubview:_authCodeBtn];
         [_authCodeBtn mas_makeConstraints:^(MASConstraintMaker *make) {

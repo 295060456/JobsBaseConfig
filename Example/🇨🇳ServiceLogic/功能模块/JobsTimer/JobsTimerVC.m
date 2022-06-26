@@ -62,9 +62,12 @@
             NSLog(@"🪓🪓🪓🪓🪓 = 获取验证码");
         })
         
-        [_countDownBtn actionBlockTimerRunning:^(TimerProcessModel *data) {
-            @jobs_strongify(self)
-            NSLog(@"❤️❤️❤️❤️❤️%f",data.data.anticlockwiseTime);
+        [_countDownBtn actionObjectBlock:^(id data) {
+//            @jobs_strongify(self)
+            if ([data isKindOfClass:TimerProcessModel.class]) {
+                TimerProcessModel *model = (TimerProcessModel *)data;
+                NSLog(@"❤️❤️❤️❤️❤️%f",model.data.anticlockwiseTime);
+            }
         }];
 
         [self.view addSubview:_countDownBtn];

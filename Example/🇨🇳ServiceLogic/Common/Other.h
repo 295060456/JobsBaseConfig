@@ -69,5 +69,6 @@
 #import "JobsVerticalMenuVC.h"
 #import "TestBaseLabelVC.h"
 #import "RandomTestVC.h"
+#import "NSTimerManagerTestVC.h"
 
 #endif /* Other_h */

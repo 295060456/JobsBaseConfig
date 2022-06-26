@@ -16,8 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)UIColor *countDownTextColor;
 @property(nonatomic,strong)UIColor *aphViewBackgroundColor;
 @property(nonatomic,assign)CGFloat countDownTime;
-//倒计时结束回调
--(void)actionMovieCountDownFinishBlock:(jobsByIDBlock _Nullable)movieCountDownFinishBlock;
+
 -(void)倒计时放大特效;
 
 @end

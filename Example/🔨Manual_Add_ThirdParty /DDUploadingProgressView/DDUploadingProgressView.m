@@ -8,15 +8,16 @@
 #import "DDUploadingProgressView.h"
 
 @interface DDUploadingProgressView()
-
-@property(nonatomic,strong)CAShapeLayer *shapLayer;
+/// UI
 @property(nonatomic,strong)UIBezierPath *bezier;
 @property(nonatomic,strong)UILabel *refreshLabel;
-@property(nonatomic,strong)UIImageView *imgeV;
 @property(nonatomic,strong)UILabel *subrefreshLabel;
+@property(nonatomic,strong)UIImageView *imgeV;
 @property(nonatomic,strong)UIView *backView;
 @property(nonatomic,strong)UIView *shapLayerView;
+@property(nonatomic,strong)CAShapeLayer *shapLayer;
 @property(nonatomic,strong)CAKeyframeAnimation *anim;
+/// Data
 @property(nonatomic,strong)NSTimerManager *nsTimerManager;
 
 @end
@@ -52,32 +53,30 @@ static DDUploadingProgressView *static_uploadingProgressView = nil;
         
     }return self;
 }
-/**
- *  创建动画
- */
-- (void)starAnimation{
-    self.shapLayer.hidden = NO;
-    self.imgeV.alpha = 1;
-}
-
+#pragma mark —— 一些公有方法
 - (void)updateProgressText:(NSString *)progressText {
     self.hidden = NO;
     self.backView.hidden = NO;
     self.subrefreshLabel.text = progressText;
     if (self.nsTimerManager.timerCurrentStatus == NSTimerCurrentStatusPause) {
-        [NSTimerManager nsTimecontinue:self.nsTimerManager];
+        [self.nsTimerManager nsTimecontinue];
     }else{
         [self.nsTimerManager nsTimeStartSysAutoInRunLoop];
     }
     [self starAnimation];
+}
+#pragma mark —— 一些私有方法
+/// 创建动画
+- (void)starAnimation{
+    self.shapLayer.hidden = NO;
+    self.imgeV.alpha = 1;
 }
 
 -(void)dismiss{
     self.hidden = YES;
     self.backView.hidden = YES;
     [self.shapLayer removeAnimationForKey:@"CLAnimation"];
-    
-    [NSTimerManager nsTimePause:self.nsTimerManager];
+    [self.nsTimerManager nsTimePause];
     [self.nsTimerManager nsTimeDestroy];
 
     self.anim = nil;
@@ -90,13 +89,9 @@ static DDUploadingProgressView *static_uploadingProgressView = nil;
         _nsTimerManager.timerStyle = TimerStyle_clockwise;
         _nsTimerManager.timeInterval = .5f;
         @jobs_weakify(self)
-        [_nsTimerManager actionNSTimerManagerRunningBlock:^(id data) {
+        [_nsTimerManager actionObjectBlock:^(id data) {
             @jobs_strongify(self)
-            if ([self.refreshLabel.text isEqualToString:@"正在上传..."]) {
-                self.refreshLabel.text = @"正在上传";
-            }else{
-                self.refreshLabel.text = [NSString stringWithFormat:@"%@.",self.refreshLabel.text];
-            }
+            self.refreshLabel.text = [self.refreshLabel.text isEqualToString:Internationalization(@"正在上传...")] ? Internationalization(@"正在上传") : [NSString stringWithFormat:@"%@.",self.refreshLabel.text];
         }];
     }return _nsTimerManager;
 }
@@ -106,7 +101,7 @@ static DDUploadingProgressView *static_uploadingProgressView = nil;
         _shapLayer = CAShapeLayer.layer;
     
         _shapLayer.frame = CGRectMake(0, 0, self.radius, self.radius);
-        _shapLayer.fillColor = [UIColor clearColor].CGColor;
+        _shapLayer.fillColor = JobsClearColor.CGColor;
         
         _shapLayer.lineWidth = 2.0f;
         _shapLayer.strokeColor = self.strokeColor.CGColor;//线条颜色
@@ -154,9 +149,9 @@ static DDUploadingProgressView *static_uploadingProgressView = nil;
         [self addSubview:_shapLayerView];
         [self.shapLayerView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self);
-            make.left.equalTo(self).offset(62);
-            make.height.offset(self.radius + 2);
-            make.width.offset(self.radius + 2);
+            make.left.equalTo(self).offset(JobsWidth(62));
+            make.height.offset(self.radius + JobsWidth(2));
+            make.width.offset(self.radius + JobsWidth(2));
         }];
     }return _shapLayerView;
 }
@@ -167,8 +162,8 @@ static DDUploadingProgressView *static_uploadingProgressView = nil;
         _imgeV.image = self.imge;
         [self.shapLayerView addSubview:_imgeV];
         [_imgeV mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.equalTo(self.shapLayerView).offset(-2); // 由于图片不是对称的，需要位置微调
-            make.centerX.equalTo(self.shapLayerView).offset(-8); // 位置微调
+            make.centerY.equalTo(self.shapLayerView).offset(-JobsWidth(2)); // 由于图片不是对称的，需要位置微调
+            make.centerX.equalTo(self.shapLayerView).offset(-JobsWidth(8)); // 位置微调
             make.size.mas_equalTo(CGSizeMake(JobsWidth(12), JobsWidth(20)));
         }];
     }return _imgeV;
@@ -178,10 +173,10 @@ static DDUploadingProgressView *static_uploadingProgressView = nil;
     if (!_refreshLabel) {
         _refreshLabel = UILabel.new;
         _refreshLabel.textColor = JobsWhiteColor;
-        _refreshLabel.text = @"正在上传...";
+        _refreshLabel.text = Internationalization(@"正在上传...");
         [self addSubview:_refreshLabel];
         [_refreshLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.shapLayerView.mas_right).offset(12);
+            make.left.equalTo(self.shapLayerView.mas_right).offset(JobsWidth(12));
             make.centerY.equalTo(self);
         }];
     }return _refreshLabel;
@@ -195,8 +190,8 @@ static DDUploadingProgressView *static_uploadingProgressView = nil;
         _subrefreshLabel.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular];
         [self addSubview:_subrefreshLabel];
         [_subrefreshLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(self).offset(-8);
-            make.bottom.equalTo(self).offset(-8);
+            make.right.equalTo(self).offset(-JobsWidth(8));
+            make.bottom.equalTo(self).offset(-JobsWidth(8));
         }];
     }return _subrefreshLabel;
 }

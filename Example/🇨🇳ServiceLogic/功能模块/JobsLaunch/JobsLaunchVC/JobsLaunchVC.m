@@ -130,9 +130,12 @@ static dispatch_once_t static_launchVCOnceToken;
             [self backItemClick:x];
         });
         
-        [_skipBtn actionBlockTimerRunning:^(TimerProcessModel *data) {
-            @jobs_strongify(self)
-            NSLog(@"❤️❤️❤️❤️❤️%f",data.data.anticlockwiseTime);
+        [_skipBtn actionObjectBlock:^(id data) {
+//            @jobs_strongify(self)
+            if ([data isKindOfClass:TimerProcessModel.class]) {
+                TimerProcessModel *model = (TimerProcessModel *)data;
+                NSLog(@"❤️❤️❤️❤️❤️%f",model.data.anticlockwiseTime);
+            }
         }];
         
         [self.view addSubview:_skipBtn];

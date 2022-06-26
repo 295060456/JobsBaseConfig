@@ -204,7 +204,6 @@
 		840F96B927736428004979E9 /* UITableView+Expand.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F94A727736426004979E9 /* UITableView+Expand.m */; };
 		840F96BA27736428004979E9 /* BaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F94A927736426004979E9 /* BaseTableView.m */; };
 		840F96BB27736428004979E9 /* BaseTableView.md in Resources */ = {isa = PBXBuildFile; fileRef = 840F94AA27736426004979E9 /* BaseTableView.md */; };
-		840F96BC27736428004979E9 /* UIControl+XY.md in Resources */ = {isa = PBXBuildFile; fileRef = 840F94B027736426004979E9 /* UIControl+XY.md */; };
 		840F96BD27736428004979E9 /* UIControl+XY.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F94B127736426004979E9 /* UIControl+XY.m */; };
 		840F96BE27736428004979E9 /* NSArray+Safety.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F94B827736426004979E9 /* NSArray+Safety.m */; };
 		840F96BF27736428004979E9 /* NSArray+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F94BB27736426004979E9 /* NSArray+Tools.m */; };
@@ -669,6 +668,7 @@
 		84D764B3278092C10003F0E4 /* RequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D764B2278092C00003F0E4 /* RequestTool.m */; };
 		84D764B7278093660003F0E4 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D764B6278093650003F0E4 /* DataManager.m */; };
 		ABB2A8B711CC6C1FEF7A4899 /* Pods_JobsBaseConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 013934AB50FCDA373FFA6597 /* Pods_JobsBaseConfig.framework */; };
+		C50AFF122865ED7E00BBAE65 /* NSTimerManagerTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C50AFF112865ED7E00BBAE65 /* NSTimerManagerTestVC.m */; };
 		C50ED5D3283CC64B0097DE89 /* UISwitch+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = C50ED5D2283CC64B0097DE89 /* UISwitch+UI.m */; };
 		C520550F28534CC400CCB724 /* UICollectionHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C520550E28534CC400CCB724 /* UICollectionHeaderFooterView.m */; };
 		C521807A2860B22000ACA6D9 /* RandomTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C52180792860B22000ACA6D9 /* RandomTestVC.m */; };
@@ -700,6 +700,7 @@
 		C57343EF285753690016705E /* UIProgressView+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = C57343EC285753690016705E /* UIProgressView+Extra.m */; };
 		C57343F5285753B10016705E /* JobsAnimationLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C57343F2285753B10016705E /* JobsAnimationLabel.m */; };
 		C5734404285755000016705E /* BaseLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5734403285755000016705E /* BaseLabel.m */; };
+		C57835F52868058400396B0E /* UIControl+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = C57835F42868058400396B0E /* UIControl+Extra.m */; };
 		C5786EDC285DD01F00AD9FF1 /* BaiShaETProjSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5786EDA285DD01F00AD9FF1 /* BaiShaETProjSearchView.m */; };
 		C5786EE1285DD04100AD9FF1 /* BaiShaETProjPopupView10.m in Sources */ = {isa = PBXBuildFile; fileRef = C5786EDE285DD04100AD9FF1 /* BaiShaETProjPopupView10.m */; };
 		C5786EE2285DD04100AD9FF1 /* 弹框样式_10.png in Resources */ = {isa = PBXBuildFile; fileRef = C5786EDF285DD04100AD9FF1 /* 弹框样式_10.png */; };
@@ -2283,6 +2284,8 @@
 		84ED5203278C09F5009A22C1 /* 二级标题.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "二级标题.md"; sourceTree = "<group>"; };
 		949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JobsBaseConfigUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C50708D8285CA049002983B3 /* NSObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObject.h; sourceTree = "<group>"; };
+		C50AFF102865ED7E00BBAE65 /* NSTimerManagerTestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSTimerManagerTestVC.h; sourceTree = "<group>"; };
+		C50AFF112865ED7E00BBAE65 /* NSTimerManagerTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSTimerManagerTestVC.m; sourceTree = "<group>"; };
 		C50ED323283C89B90097DE89 /* MacroDef_Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDef_Font.h; sourceTree = "<group>"; };
 		C50ED5CE283CC64B0097DE89 /* JobsSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsSwitch.h; sourceTree = "<group>"; };
 		C50ED5D1283CC64B0097DE89 /* UISwitch+UI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISwitch+UI.h"; sourceTree = "<group>"; };
@@ -2368,6 +2371,8 @@
 		C57343F2285753B10016705E /* JobsAnimationLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAnimationLabel.m; sourceTree = "<group>"; };
 		C5734402285755000016705E /* BaseLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLabel.h; sourceTree = "<group>"; };
 		C5734403285755000016705E /* BaseLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseLabel.m; sourceTree = "<group>"; };
+		C57835F32868058400396B0E /* UIControl+Extra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIControl+Extra.h"; sourceTree = "<group>"; };
+		C57835F42868058400396B0E /* UIControl+Extra.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIControl+Extra.m"; sourceTree = "<group>"; };
 		C5786EDA285DD01F00AD9FF1 /* BaiShaETProjSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiShaETProjSearchView.m; sourceTree = "<group>"; };
 		C5786EDB285DD01F00AD9FF1 /* BaiShaETProjSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiShaETProjSearchView.h; sourceTree = "<group>"; };
 		C5786EDE285DD04100AD9FF1 /* BaiShaETProjPopupView10.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiShaETProjPopupView10.m; sourceTree = "<group>"; };
@@ -4522,6 +4527,7 @@
 		840F94AD27736426004979E9 /* UIControl+Category */ = {
 			isa = PBXGroup;
 			children = (
+				C57835F62868058900396B0E /* UIControl+Extra */,
 				840F94AE27736426004979E9 /* UIControl+XY */,
 			);
 			path = "UIControl+Category";
@@ -4531,8 +4537,8 @@
 			isa = PBXGroup;
 			children = (
 				840F94AF27736426004979E9 /* UIControl+XY.h */,
-				840F94B027736426004979E9 /* UIControl+XY.md */,
 				840F94B127736426004979E9 /* UIControl+XY.m */,
+				840F94B027736426004979E9 /* UIControl+XY.md */,
 			);
 			path = "UIControl+XY";
 			sourceTree = "<group>";
@@ -8559,6 +8565,7 @@
 		84CA609D278980E700E46E71 /* 功能模块 */ = {
 			isa = PBXGroup;
 			children = (
+				C5E297852865ECFC0017466D /* NSTimerManager模块测试 */,
 				C52180772860B20800ACA6D9 /* 随机数测试模块 */,
 				C52809DE28608BC600654584 /* TestBaseLabel */,
 				C5733A782859C75400D13A43 /* 竖形菜单选择功能 */,
@@ -9511,6 +9518,15 @@
 				C5BFA15928598C7C009681C0 /* GKNavigationBarCore */,
 			);
 			path = GKNavigationBar;
+			sourceTree = "<group>";
+		};
+		C57835F62868058900396B0E /* UIControl+Extra */ = {
+			isa = PBXGroup;
+			children = (
+				C57835F32868058400396B0E /* UIControl+Extra.h */,
+				C57835F42868058400396B0E /* UIControl+Extra.m */,
+			);
+			path = "UIControl+Extra";
 			sourceTree = "<group>";
 		};
 		C5786ED8285DD01500AD9FF1 /* VerticalMenuSubView */ = {
@@ -10640,6 +10656,15 @@
 			path = "UICollectionView+Func";
 			sourceTree = "<group>";
 		};
+		C5E297852865ECFC0017466D /* NSTimerManager模块测试 */ = {
+			isa = PBXGroup;
+			children = (
+				C50AFF102865ED7E00BBAE65 /* NSTimerManagerTestVC.h */,
+				C50AFF112865ED7E00BBAE65 /* NSTimerManagerTestVC.m */,
+			);
+			path = "NSTimerManager模块测试";
+			sourceTree = "<group>";
+		};
 		C5E4ABBD2858BE7D00B782F0 /* UILabel文字旋转 */ = {
 			isa = PBXGroup;
 			children = (
@@ -10963,7 +10988,6 @@
 				C5932EC9282D26E500B3B053 /* 测试弹窗的背景图@2x.png in Resources */,
 				C5C48060284E21E5007916B3 /* NotoSansDisplay_Condensed-ExtraBold.ttf in Resources */,
 				84432C10278C45C40028A27D /* 热度.gif in Resources */,
-				840F96BC27736428004979E9 /* UIControl+XY.md in Resources */,
 				844B08742764CF4800B0513D /* ECAuthorizationTools.md in Resources */,
 				C5C48089284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-ExtraLight.ttf in Resources */,
 				84CA5FB227897AFB00E46E71 /* 高仿Uber取消叫车按钮效果(按住放大) in Resources */,
@@ -11510,6 +11534,7 @@
 				844B08512764CF4800B0513D /* ECPrivacyCheckContacts.m in Sources */,
 				C54BC43628325BA80010EF20 /* JobsTitleView01.m in Sources */,
 				84401A8727919E3B0038FF6F /* JobsSearchTableViewHeaderView.m in Sources */,
+				C57835F52868058400396B0E /* UIControl+Extra.m in Sources */,
 				840F96A327736428004979E9 /* UIViewController+BackBtn.m in Sources */,
 				C533BBBD2837D095006FB231 /* JobsUserHeaderDataViewTBVCell.m in Sources */,
 				840F964427736427004979E9 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
@@ -11680,6 +11705,7 @@
 				840F968C27736428004979E9 /* UICollectionViewCell+Default.m in Sources */,
 				842477A427C114BE00831270 /* NotifiOperation.m in Sources */,
 				840F966227736428004979E9 /* LGiOSBtn.m in Sources */,
+				C50AFF122865ED7E00BBAE65 /* NSTimerManagerTestVC.m in Sources */,
 				846DF03727806D230050468A /* JobsAppDoorModel.m in Sources */,
 				C5C47D6B284E1DF9007916B3 /* JobsPopupView03.m in Sources */,
 				840F969F27736428004979E9 /* UIViewController+XLBubbleTransition.m in Sources */,

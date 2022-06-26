@@ -51,19 +51,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)NSTimeInterval timeInterval;//时间间距
 @property(nonatomic,assign)BOOL repeats;
 @property(nonatomic,strong,nullable)NSTimer *__block nsTimer;
-///需要定时器做的事情，回调
--(void)actionNSTimerManagerRunningBlock:(jobsByIDBlock _Nullable)NSTimerManagerRunningBlock;
-///定时器启动 手动添加定时器到RunLoop
+/// 定时器启动 手动添加定时器到RunLoop
 +(void)nsTimeStart:(NSTimerManager *_Nonnull)timerManager
        withRunLoop:(NSRunLoop *_Nullable)runLoop;//currentRunLoop可调用子线程；mainrunloop主线程
-///定时器启动：newTimer + 系统自动添加到RunLoop
+/// 定时器启动：newTimer + 系统自动添加到RunLoop
 -(NSTimer *)nsTimeStartSysAutoInRunLoop;
-
-///定时器暂停
-+(void)nsTimePause:(NSTimerManager *)timerManager;
-///定时器继续
-+(void)nsTimecontinue:(NSTimerManager *)timerManager;
-///销毁定时器
+/// 定时器暂停
+-(void)nsTimePause;
+/// 定时器继续
+-(void)nsTimecontinue;
+/// 销毁定时器
 -(void)nsTimeDestroy;
 
 @end
@@ -72,6 +69,37 @@ NS_ASSUME_NONNULL_END
 
 /*  关于 - (void)fire; 方法
  *  其实他并不是真的启动一个定时器，从之前的初始化方法中我们也可以看到，建立的时候，在适当的时间，定时器就会自动启动，也即NSTimer是不准时的
- *
  *  即  fire  方法只是提前出发定时器的执行，但不影响定时器的设定时间。
+ */
+
+/**
+ 
+ 示例代码：
+ 
+ -(NSTimerManager *)nsTimerManager{
+     if (!_nsTimerManager) {
+         _nsTimerManager = NSTimerManager.new;
+         /// 以下2种模式任选一种
+         {/// 顺时针模式
+             _nsTimerManager.timerStyle = TimerStyle_clockwise;
+         }
+         
+ //        {/// 逆时针模式
+ //            _nsTimerManager.timerStyle = TimerStyle_anticlockwise;
+ //            _nsTimerManager.anticlockwiseTime = 100;
+ //        }
+         
+         _nsTimerManager.timeInterval = .5f;
+         @jobs_weakify(self)
+         [_nsTimerManager actionObjectBlock:^(id data) {
+             @jobs_strongify(self)
+             if ([data isKindOfClass:TimerProcessModel.class]) {
+                 TimerProcessModel *model = (TimerProcessModel *)data;
+                 NSLog(@"❤️❤️❤️❤️❤️%f",model.data.anticlockwiseTime);
+                 self.valueLab.text = [NSString stringWithFormat:@"%.2f",model.data.anticlockwiseTime];
+             }
+         }];
+     }return _nsTimerManager;
+ }
+
  */

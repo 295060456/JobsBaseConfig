@@ -469,6 +469,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             [_dataMutArr addObject:viewModel];
         }
         
+        {
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"NSTimerManagerTestVC"
+                                                           subTitle:Internationalization(@"NSTimerManager模块测试")];
+            viewModel.cls = NSTimerManagerTestVC.class;
+            [_dataMutArr addObject:viewModel];
+        }
+        
 //        {
 //            UIViewModel *viewModel = [self configViewModelWithTitle:@"ProtocolKitVC"
 //                                                           subTitle:Internationalization(@"Objective-C中实现协议扩展")];

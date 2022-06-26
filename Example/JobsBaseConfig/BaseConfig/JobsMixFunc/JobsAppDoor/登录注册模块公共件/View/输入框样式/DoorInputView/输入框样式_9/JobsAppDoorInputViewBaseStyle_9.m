@@ -139,8 +139,12 @@
             if (self.objectBlock) self.objectBlock(x);
         })
         
-        [_countDownBtn actionBlockTimerRunning:^(TimerProcessModel *data) {
-            @jobs_strongify(self)
+        [_countDownBtn actionObjectBlock:^(id data) {
+//            @jobs_strongify(self)
+            if ([data isKindOfClass:TimerProcessModel.class]) {
+                TimerProcessModel *model = (TimerProcessModel *)data;
+                NSLog(@"❤️❤️❤️❤️❤️%f",model.data.anticlockwiseTime);
+            }
         }];
 
         [self addSubview:_countDownBtn];

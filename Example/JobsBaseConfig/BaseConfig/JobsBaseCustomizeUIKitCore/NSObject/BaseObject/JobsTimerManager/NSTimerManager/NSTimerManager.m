@@ -9,9 +9,8 @@
 #import "NSTimerManager.h"
 
 @interface NSTimerManager ()
-
+/// Data
 @property(nonatomic,strong)NSDate *date;
-@property(nonatomic,copy)jobsByIDBlock NSTimerManagerRunningBlock;
 @property(nonatomic,assign)NSTimerCurrentStatus timerCurrentStatus;// 定时器当前状态
 
 @end
@@ -31,18 +30,14 @@
     }return self;
 }
 #pragma mark —— 一些私有化方法
--(void)actionNSTimerManagerRunningBlock:(jobsByIDBlock _Nullable)NSTimerManagerRunningBlock{
-    self.NSTimerManagerRunningBlock = NSTimerManagerRunningBlock;
-}
-
 -(void)callBackRunning{
     self.timerProcessModel.timerProcessType = TimerProcessType_running;
-    if (self.NSTimerManagerRunningBlock) self.NSTimerManagerRunningBlock(self.timerProcessModel);
+    if (self.objectBlock) self.objectBlock(self.timerProcessModel);
 }
 
 -(void)callBackEnd{
     self.timerProcessModel.timerProcessType = TimerProcessType_end;
-    if (self.NSTimerManagerRunningBlock) self.NSTimerManagerRunningBlock(self.timerProcessModel);
+    if (self.objectBlock) self.objectBlock(self.timerProcessModel);
 }
 /// 定时器启动：newTimer + 系统自动添加到RunLoop
 -(NSTimer *)nsTimeStartSysAutoInRunLoop{
@@ -118,17 +113,17 @@
     }
 }
 /// 定时器暂停
-+(void)nsTimePause:(NSTimerManager *)timerManager{
-    if (timerManager.nsTimer) {
-        [timerManager.nsTimer setFireDate:NSDate.distantFuture];
-        timerManager.timerCurrentStatus = NSTimerCurrentStatusPause;
+-(void)nsTimePause{
+    if (_nsTimer) {
+        [_nsTimer setFireDate:NSDate.distantFuture];
+        self.timerCurrentStatus = NSTimerCurrentStatusPause;
     }
 }
 /// 定时器继续
-+(void)nsTimecontinue:(NSTimerManager *)timerManager{
-    if (timerManager.nsTimer) {
-        [timerManager.nsTimer setFireDate:NSDate.distantPast];
-        timerManager.timerCurrentStatus = NSTimerCurrentStatusRun;
+-(void)nsTimecontinue{
+    if (_nsTimer) {
+        [_nsTimer setFireDate:NSDate.distantPast];
+        self.timerCurrentStatus = NSTimerCurrentStatusRun;
     }
 }
 /// 销毁定时器

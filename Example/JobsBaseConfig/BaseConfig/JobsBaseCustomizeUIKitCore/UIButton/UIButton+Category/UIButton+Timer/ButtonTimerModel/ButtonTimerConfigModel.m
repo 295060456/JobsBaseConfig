@@ -16,16 +16,10 @@ UIViewModelOthersProtocol_synthesize
 
 @interface ButtonTimerConfigModel ()
 
-@property(nonatomic,copy)jobsByIDBlock timerWorkingBlock;
-
 @end
 
 @implementation ButtonTimerConfigModel
 UILocationProtocol_synthesize
-#pragma mark —— 一些私有方法
--(void)actionBlockTimerWorking:(jobsByIDBlock)timerWorkingBlock{
-    self.timerWorkingBlock = timerWorkingBlock;
-}
 #pragma mark —— 重写set方法
 @synthesize countDownBtnType = _countDownBtnType;
 -(void)setCountDownBtnType:(TimerStyle)countDownBtnType{
@@ -45,10 +39,10 @@ UILocationProtocol_synthesize
         _timerManager.anticlockwiseTime = self.count;//【逆时针模式：到这个时间点结束】、【顺时针模式：从这个时间点开始】
         @jobs_weakify(self)
         //倒计时启动
-        [_timerManager actionNSTimerManagerRunningBlock:^(TimerProcessModel *data) {
+        [_timerManager actionObjectBlock:^(TimerProcessModel *data) {
             @jobs_strongify(self)
             NSLog(@"正在倒计时...");
-            if (self.timerWorkingBlock) self.timerWorkingBlock(data);
+            if (self.objectBlock) self.objectBlock(data);
         }];
 
     }return _timerManager;

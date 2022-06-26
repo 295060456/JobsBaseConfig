@@ -30,12 +30,16 @@ typedef enum : NSUInteger {
 
 -(void)showOnParent;// 启动色彩翻滚
 -(void)hide;
-
--(void)actionWGradientProgressBlock:(jobsByTwoIDBlock _Nullable)WGradientProgressBlock;
-
 -(void)start;
 -(void)pause;
 -(void)resume;
 -(void)reset;
+
+@end
+
+@interface WGradientProgressModel : NSObject
+
+@property(nonatomic,assign)CGFloat progress;
+@property(nonatomic,strong,nonnull)CAGradientLayer *__block gradLayer;//通过改变layer的宽度来实现进度 运动员
 
 @end

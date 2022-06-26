@@ -9,15 +9,14 @@
 #import "WGradientProgress.h"
 
 @interface WGradientProgress ()
-
+/// UI
 @property(nonatomic,strong)CALayer *roadLayer;//跑道 即将运行的轨迹
 @property(nonatomic,strong)CALayer *fenceLayer;//栅栏
 @property(nonatomic,strong)CAGradientLayer *__block gradLayer;//通过改变layer的宽度来实现进度 运动员
-
+/// Data
 @property(nonatomic,strong)NSTimerManager *nsTimerManager_color;//主管线条颜色的翻滚
 @property(nonatomic,strong)NSTimerManager *nsTimerManager_length;//主管线条长度的递增
 @property(nonatomic,strong)NSMutableArray *colors;
-@property(nonatomic,copy)jobsByTwoIDBlock WGradientProgressBlock;
 
 @end
 
@@ -57,22 +56,22 @@
         self.fenceLayer.hidden = NO;
     }
 }
-//开始
+/// 开始
 -(void)start{
     if (self.progressType == WGradientProgressType_colorRoll) {
         [self makeTimer_color];
     }
     [self makeTimer_length];
 }
-//暂停
+/// 暂停
 -(void)pause{
-    [NSTimerManager nsTimePause:self.nsTimerManager_length];
+    [self.nsTimerManager_length nsTimePause];
 }
-//重新开始
+/// 重新开始
 -(void)resume{
-    [NSTimerManager nsTimecontinue:self.nsTimerManager_length];
+    [self.nsTimerManager_length nsTimecontinue];
 }
-//归位
+/// 归位
 -(void)reset{
     //定时器归位
     [self.nsTimerManager_color nsTimeDestroy];
@@ -82,7 +81,7 @@
 }
 
 -(void)hide{
-    [NSTimerManager nsTimePause:self.nsTimerManager_color];
+    [self.nsTimerManager_color nsTimePause];
     if ([self superview]) {
         [self removeFromSuperview];
     }
@@ -112,10 +111,6 @@
                         atIndex:0];
     }
     self.gradLayer.colors = copyArray;
-}
-
--(void)actionWGradientProgressBlock:(jobsByTwoIDBlock _Nullable)WGradientProgressBlock{
-    _WGradientProgressBlock = WGradientProgressBlock;
 }
 #pragma mark —— lazyLoad
 -(CGFloat)increment{
@@ -148,7 +143,7 @@
         _nsTimerManager_color.timeInterval = self.color_timeInterval;
         _nsTimerManager_color.timerStyle = TimerStyle_clockwise;
         @jobs_weakify(self)
-        [_nsTimerManager_color actionNSTimerManagerRunningBlock:^(TimerProcessModel *data) {
+        [_nsTimerManager_color actionObjectBlock:^(TimerProcessModel *data) {
             @jobs_strongify(self)
             switch (data.timerProcessType) {
                 case TimerProcessType_ready:{
@@ -175,7 +170,7 @@
         _nsTimerManager_length.timeSecIntervalSinceDate = self.length_timeSecIntervalSinceDate;
         _nsTimerManager_length.timerStyle = TimerStyle_clockwise;
         @jobs_weakify(self)
-        [_nsTimerManager_length actionNSTimerManagerRunningBlock:^(TimerProcessModel *data) {
+        [_nsTimerManager_length actionObjectBlock:^(TimerProcessModel *data) {
             NSLog(@"你好");
             @jobs_strongify(self)
             
@@ -187,9 +182,11 @@
                     if (self.progress < 1) {
                         [self start];
                         
-                        if (self.WGradientProgressBlock) {
-                            self.WGradientProgressBlock(@(self.progress),self.gradLayer);
-                        }
+                        WGradientProgressModel *model = WGradientProgressModel.new;
+                        model.progress = self.progress;
+                        model.gradLayer = self.gradLayer;
+                        
+                        if (self.objectBlock) self.objectBlock(model);
                         
                         self.progress += self.increment;
                     }else{
@@ -261,7 +258,7 @@
 
 -(CGFloat)fenceLayer_x{
     if (_fenceLayer_x == 0) {
-        _fenceLayer_x = self.mj_w * 0.3;
+        _fenceLayer_x = self.width * 0.3;
     }return _fenceLayer_x;
 }
 
@@ -283,4 +280,8 @@
     }return _progressColor;
 }
 
+@end
+
+@implementation WGradientProgressModel
+ 
 @end

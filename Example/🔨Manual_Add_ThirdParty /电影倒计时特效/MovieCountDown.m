@@ -9,11 +9,11 @@
 #import "MovieCountDown.h"
 
 @interface MovieCountDown ()
-
+/// UI
 @property(nonatomic,strong)UILabel *countDown;
 @property(nonatomic,strong)UIView *aphView;
+/// Data
 @property(nonatomic,strong)NSTimerManager *nsTimerManager;
-@property(nonatomic,copy)jobsByIDBlock movieCountDownFinishBlock;
 
 @end
 
@@ -62,30 +62,26 @@
         self.countDown.transform = self.aphView.transform = CGAffineTransformIdentity;//回复原大小
     }];
 }
-
--(void)actionMovieCountDownFinishBlock:(jobsByIDBlock _Nullable)movieCountDownFinishBlock{
-    _movieCountDownFinishBlock = movieCountDownFinishBlock;
-}
 #pragma mark —— lazyLoad
 -(NSTimerManager *)nsTimerManager{
     if (!_nsTimerManager) {
         _nsTimerManager = NSTimerManager.new;
         _nsTimerManager.timerStyle = TimerStyle_anticlockwise;
         _nsTimerManager.anticlockwiseTime = self.countDownTime;
-        [_nsTimerManager actionNSTimerManagerRunningBlock:^(id data) {
+        @jobs_weakify(self)
+        [_nsTimerManager actionObjectBlock:^(id data) {
+            @jobs_strongify(self)
             if ([data isKindOfClass:NSTimerManager.class]) {
                 NSTimerManager *timerManager = (NSTimerManager *)data;
                 [self getCuntDown:(NSInteger)timerManager.anticlockwiseTime];
-            }
+            }else if ([data isKindOfClass:TimerProcessModel.class]){
+                TimerProcessModel *model = (TimerProcessModel *)data;
+                if (model.timerProcessType == TimerProcessType_end) {
+                    if (self.objectBlock) self.objectBlock(data);
+                }
+            }else{}
         }];
-        @jobs_weakify(self)
-        [_nsTimerManager actionNSTimerManagerRunningBlock:^(TimerProcessModel *data) {
-            @jobs_strongify(self)
-            NSLog(@"结束回调");
-            if (data.timerProcessType == TimerProcessType_end) {
-                if (self.movieCountDownFinishBlock) self.movieCountDownFinishBlock(data);
-            }
-        }];
+        
     }return _nsTimerManager;
 }
 

@@ -9,25 +9,20 @@
 
 @implementation UIButton (Timer)
 
-static char *UIButton_Timer_btnTimerConfig = "UIButton_Timer_btnTimerConfig";
-@dynamic btnTimerConfig;
-
-static char *UIButton_CountDownBtn_countDownClickEventBlock = "UIButton_CountDownBtn_countDownClickEventBlock";
-@dynamic countDownClickEventBlock;
-
-static char *UIButton_CountDownBtn_timerRunningBlock = "UIButton_CountDownBtn_timerRunningBlock";
-@dynamic timerRunningBlock;
-
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wobjc-designated-initializers"
 -(instancetype)initWithConfig:(nullable ButtonTimerConfigModel *)config{
     if (self = [super init]) {
-        self.btnTimerConfig = config;//为空则加载默认配置，self.btnTimerConfig 有容错机制
+        self.btnTimerConfig = config;// 为空则加载默认配置，self.btnTimerConfig 有容错机制
         [self setLayerConfigReadyPlay];
         [self setTitleReadyPlay];
         [self setTitleLabelConfigReadyPlay];
         // CountDownBtn 的点击事件回调
-        BtnClickEvent(self,if (self.countDownClickEventBlock) self.countDownClickEventBlock(self););
+        @jobs_weakify(self)
+        [self btnClickEventBlock:^(id data) {
+            @jobs_strongify(self)
+            if (self.objectBlock) self.objectBlock(self);
+        }];
     }return self;
 }
 #pragma clang diagnostic pop
@@ -51,8 +46,8 @@ static char *UIButton_CountDownBtn_timerRunningBlock = "UIButton_CountDownBtn_ti
 /// 1.2、【计时器未开始】设置文字
 -(void)setTitleLabelConfigReadyPlay{
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
-    [self titleFont:self.btnTimerConfig.readyPlayValue.font];
-    [self normalTitleColor:self.btnTimerConfig.readyPlayValue.textCor];
+    self.titleFont = self.btnTimerConfig.readyPlayValue.font;
+    self.normalTitleColor = self.btnTimerConfig.readyPlayValue.textCor;
     [self makeBtnLabelByShowingType:self.btnTimerConfig.labelShowingType];
     
     [self extraWidth:JobsWidth(8)];
@@ -68,8 +63,8 @@ static char *UIButton_CountDownBtn_timerRunningBlock = "UIButton_CountDownBtn_ti
 /// 2.2、【计时器进行中】设置文字
 -(void)setTitleLabelConfigRunning{
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
-    [self titleFont:self.btnTimerConfig.runningValue.font];
-    [self normalTitleColor:self.btnTimerConfig.runningValue.textCor];
+    self.titleFont = self.btnTimerConfig.runningValue.font;
+    self.normalTitleColor = self.btnTimerConfig.runningValue.textCor;
     [self makeBtnLabelByShowingType:self.btnTimerConfig.labelShowingType];
     [self extraWidth:0];
 }
@@ -85,8 +80,8 @@ static char *UIButton_CountDownBtn_timerRunningBlock = "UIButton_CountDownBtn_ti
 -(void)setTitleLabelConfigEnd{
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.titleLabel.numberOfLines = 1;//不加这一句会有UI异常
-    [self titleFont:self.btnTimerConfig.endValue.font];
-    [self normalTitleColor:self.btnTimerConfig.endValue.textCor];
+    self.titleFont = self.btnTimerConfig.endValue.font;
+    self.normalTitleColor = self.btnTimerConfig.endValue.textCor;
     [self makeBtnLabelByShowingType:self.btnTimerConfig.labelShowingType];
     [self extraWidth:JobsWidth(8)];
 }
@@ -96,9 +91,9 @@ static char *UIButton_CountDownBtn_timerRunningBlock = "UIButton_CountDownBtn_ti
     if (self.btnTimerConfig.readyPlayValue.titleAttributedDataMutArr.count ||
         self.btnTimerConfig.readyPlayValue.attributedText) {
         //富文本
-        [self normalAttributedTitle:self.btnTimerConfig.readyPlayValue.attributedText];
+        self.normalAttributedTitle = self.btnTimerConfig.readyPlayValue.attributedText;
     }else{
-        [self normalTitle:self.btnTimerConfig.readyPlayValue.text];
+        self.normalTitle = self.btnTimerConfig.readyPlayValue.text;
     }
 }
 /// 计时器进行中
@@ -106,9 +101,9 @@ static char *UIButton_CountDownBtn_timerRunningBlock = "UIButton_CountDownBtn_ti
     if (self.btnTimerConfig.runningValue.titleAttributedDataMutArr.count ||
         self.btnTimerConfig.runningValue.attributedText) {
         //富文本
-        [self normalAttributedTitle:self.btnTimerConfig.runningValue.attributedText];
+        self.normalAttributedTitle = self.btnTimerConfig.runningValue.attributedText;
     }else{
-        [self normalTitle:self.btnTimerConfig.runningValue.text];
+        self.normalTitle = self.btnTimerConfig.runningValue.text;
     }
     NSLog(@"☕️☕️☕️☕️ = %@",self.btnTimerConfig.runningValue.text);
 }
@@ -117,9 +112,9 @@ static char *UIButton_CountDownBtn_timerRunningBlock = "UIButton_CountDownBtn_ti
     if (self.btnTimerConfig.endValue.titleAttributedDataMutArr.count ||
         self.btnTimerConfig.endValue.attributedText) {
         //富文本
-        [self normalAttributedTitle:self.btnTimerConfig.endValue.attributedText];
+        self.normalAttributedTitle = self.btnTimerConfig.endValue.attributedText;
     }else{
-        [self normalTitle:self.btnTimerConfig.endValue.text];
+        self.normalTitle = self.btnTimerConfig.endValue.text;
     }
 }
 #pragma mark —— 时间方法
@@ -189,7 +184,6 @@ static char *UIButton_CountDownBtn_timerRunningBlock = "UIButton_CountDownBtn_ti
         NSMutableArray *tempDataMutArr = NSMutableArray.array;
         
         // 亟待补充 见 RichTextConfig 的使用示例
-        
         switch (self.btnTimerConfig.cequenceForShowTitleRuningStrType) {
             case CequenceForShowTitleRuningStrType_front:{
                 
@@ -217,16 +211,9 @@ static char *UIButton_CountDownBtn_timerRunningBlock = "UIButton_CountDownBtn_ti
     self.backgroundColor = self.btnTimerConfig.endValue.bgCor;
     [self.btnTimerConfig.timerManager nsTimeDestroy];
 }
-#pragma mark —— Block
-/// 点击事件回调，就不要用系统的addTarget/action/forControlEvents
--(void)actionCountDownClickEventBlock:(jobsByIDBlock _Nullable)countDownClickEventBlock{
-    self.countDownClickEventBlock = countDownClickEventBlock;
-}
-/// 定时器运行时的Block
--(void)actionBlockTimerRunning:(jobsByIDBlock _Nullable)timerRunningBlock{
-    self.timerRunningBlock = timerRunningBlock;
-}
 #pragma mark SET | GET
+static char *UIButton_Timer_btnTimerConfig = "UIButton_Timer_btnTimerConfig";
+@dynamic btnTimerConfig;
 #pragma mark —— @property(nonatomic,strong)ButtonTimerModel *btnTimerConfig;
 -(ButtonTimerConfigModel *)btnTimerConfig{
     ButtonTimerConfigModel *BtnTimerConfig = objc_getAssociatedObject(self, UIButton_Timer_btnTimerConfig);
@@ -241,7 +228,7 @@ static char *UIButton_CountDownBtn_timerRunningBlock = "UIButton_CountDownBtn_ti
     }
     // 定时器运行时的Block
     @jobs_weakify(self)
-    [BtnTimerConfig actionBlockTimerWorking:^(TimerProcessModel *data) {
+    [BtnTimerConfig actionObjectBlock:^(TimerProcessModel *data) {
         @jobs_strongify(self)
         switch (data.timerProcessType) {
             case TimerProcessType_ready:{
@@ -259,7 +246,7 @@ static char *UIButton_CountDownBtn_timerRunningBlock = "UIButton_CountDownBtn_ti
                 break;
         }
         
-        if (self.timerRunningBlock) self.timerRunningBlock(data);
+        if (self.objectBlock) self.objectBlock(data);
     }];return BtnTimerConfig;
 }
 
@@ -268,28 +255,6 @@ static char *UIButton_CountDownBtn_timerRunningBlock = "UIButton_CountDownBtn_ti
                              UIButton_Timer_btnTimerConfig,
                              btnTimerConfig,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-#pragma mark —— @property(nonatomic,copy)jobsByIDBlock countDownClickEventBlock;
--(jobsByIDBlock)countDownClickEventBlock{
-    return objc_getAssociatedObject(self, UIButton_CountDownBtn_countDownClickEventBlock);
-}
-
--(void)setCountDownClickEventBlock:(jobsByIDBlock)countDownClickEventBlock{
-    objc_setAssociatedObject(self,
-                             UIButton_CountDownBtn_countDownClickEventBlock,
-                             countDownClickEventBlock,
-                             OBJC_ASSOCIATION_COPY_NONATOMIC);
-}
-#pragma mark —— @property(nonatomic,copy)jobsByIDBlock timerRunningBlock;// 定时器运行时的Block
--(jobsByIDBlock)timerRunningBlock{
-    return objc_getAssociatedObject(self, UIButton_CountDownBtn_timerRunningBlock);
-}
-
--(void)setTimerRunningBlock:(jobsByIDBlock)timerRunningBlock{
-    objc_setAssociatedObject(self,
-                             UIButton_CountDownBtn_timerRunningBlock,
-                             timerRunningBlock,
-                             OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
 @end

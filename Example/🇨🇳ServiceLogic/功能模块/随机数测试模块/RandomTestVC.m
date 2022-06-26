@@ -13,10 +13,53 @@
 
 @implementation RandomTestVC
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)dealloc{
+    NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
+    //    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+-(void)loadView{
+    [super loadView];
+    if ([self.requestParams isKindOfClass:UIViewModel.class]) {
+        self.viewModel = (UIViewModel *)self.requestParams;
+    }
+    self.setupNavigationBarHidden = YES;
+    
+    self.viewModel.backBtnTitleModel.text = @"";
+    self.viewModel.textModel.textCor = HEXCOLOR(0x3D4A58);
+    self.viewModel.textModel.text = Internationalization(@"随机数测试模块点击屏幕进行测试");
+    self.viewModel.textModel.font = notoSansBold(16);
+
+    self.bgImage = nil;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [self setGKNav];
+    [self setGKNavBackBtn];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+}
+
+-(void)viewWillLayoutSubviews{
+    [super viewWillLayoutSubviews];
+}
+
+-(void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+}
+#pragma mark —— 复写父类方法
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     int e = baseRandomNOContainBorderValue(20);/// 获取一个随机整数范围在【0、borderValue）： 包括0、不包括borderValu
     int r = baseRandomContainBorderValue(30);/// 获取一个随机整数范围在【0、borderValue】： 包括0、包括borderValue
@@ -31,5 +74,6 @@
     
     NSLog(@"%d",f);
 }
+#pragma mark —— LazyLoad
 
 @end
