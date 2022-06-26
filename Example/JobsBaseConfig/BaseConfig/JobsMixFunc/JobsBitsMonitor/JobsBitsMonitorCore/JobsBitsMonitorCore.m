@@ -49,7 +49,6 @@ static JobsBitsMonitorCore *static_bitsMonitorCore = nil;
     if (self = [super init]) {
         static_bitsMonitorCore = self;
         _iBytes = _oBytes = _allFlow = _wifiIBytes = _wifiOBytes = _wifiFlow = _wwanIBytes = _wwanOBytes = _wwanFlow = 0;
-        
     }return self;
 }
 // 手动启动开启，可以对bitsMonitorRunMode进行赋值操作，也可以外界直接调用start方法开始
@@ -137,20 +136,20 @@ static JobsBitsMonitorCore *static_bitsMonitorCore = nil;
     freeifaddrs(ifa_list);
     if (_iBytes != 0) {
         self.downloadNetworkSpeed = [[self stringWithbytes:iBytes - _iBytes] stringByAppendingString:@"/s"];
-        [[NSNotificationCenter defaultCenter] postNotificationName:GSDownloadNetworkSpeedNotificationKey
-                                                            object:self.downloadNetworkSpeed];
+        [NSNotificationCenter.defaultCenter postNotificationName:GSDownloadNetworkSpeedNotificationKey
+                                                          object:self.downloadNetworkSpeed];
         NSLog(@"self.downloadNetworkSpeed : %@",self.downloadNetworkSpeed);
     }
     _iBytes = iBytes;
     if (_oBytes != 0) {
         self.uploadNetworkSpeed = [[self stringWithbytes:oBytes - _oBytes] stringByAppendingString:@"/s"];
-        [[NSNotificationCenter defaultCenter] postNotificationName:GSUploadNetworkSpeedNotificationKey
-                                                            object:self.uploadNetworkSpeed];
+        [NSNotificationCenter.defaultCenter postNotificationName:GSUploadNetworkSpeedNotificationKey
+                                                          object:self.uploadNetworkSpeed];
         NSLog(@"self.uploadNetworkSpeed  :%@",self.uploadNetworkSpeed);
     }
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:GSUploadAndDownloadNetworkSpeedNotificationKey
-                                                        object:[NSString stringWithFormat:@"↑%@ / ↓%@",[NSString ensureNonnullString:self.uploadNetworkSpeed replaceStr:@"0b/s"],[NSString ensureNonnullString:self.downloadNetworkSpeed replaceStr:@"0b/s"]]];
+    [NSNotificationCenter.defaultCenter postNotificationName:GSUploadAndDownloadNetworkSpeedNotificationKey
+                                                      object:[NSString stringWithFormat:@"↑%@ / ↓%@",[NSString ensureNonnullString:self.uploadNetworkSpeed replaceStr:@"0b/s"],[NSString ensureNonnullString:self.downloadNetworkSpeed replaceStr:@"0b/s"]]];
     _oBytes = oBytes;
 }
 //格式化数据输出
