@@ -70,7 +70,7 @@
     
     if (!paragraphStyle) {
         paragraphStyle = NSMutableParagraphStyle.new;
-        paragraphStyle.alignment = NSTextAlignmentLeft;//文本对齐方式 左右对齐（两边对齐）
+        paragraphStyle.alignment = NSTextAlignmentLeft;//❤️文本对齐方式 左右对齐（两边对齐）,textAlignment属性失效❤️
     }
     
     /// 设置段落样式

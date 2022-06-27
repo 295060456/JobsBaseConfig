@@ -52,78 +52,67 @@ NS_ASSUME_NONNULL_END
 
 /** 示例代码
  
- -(UIButton *)skipBtn{
-     if (!_skipBtn) {
-         _skipBtn = [UIButton.alloc initWithConfig:self.btnTimerConfigModel];
-
-         BtnClickEvent(_skipBtn, {
-             [x timerDestroy];
-             [self backItemClick:x];
-         });
-         
-         [_skipBtn actionBlockTimerRunning:^(TimerProcessModel *data) {
-             @jobs_strongify(self)
-             NSLog(@"❤️❤️❤️❤️❤️%f",data.data.anticlockwiseTime);
+ -(UIButton *)countDownBtn{
+     if (!_countDownBtn) {
+         _countDownBtn = [UIButton.alloc initWithConfig:self.btnTimerConfigModel];
+         [self.view addSubview:_countDownBtn];
+         [_countDownBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+             make.height.mas_equalTo(JobsWidth(25));
+             make.center.equalTo(self.view);
          }];
+         [_countDownBtn makeBtnLabelByShowingType:UILabelShowingType_03];
          
-         [self.view addSubview:_skipBtn];
-         [_skipBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-             make.size.mas_equalTo(CGSizeMake(JobsWidth(80), JobsWidth(25)));
-             make.top.equalTo(self.view).offset(JobsRectOfStatusbar());
-             make.right.equalTo(self.view).offset(-JobsWidth(25));
+         BtnClickEvent(_countDownBtn, {
+             [x startTimer];//选择时机、触发启动
+             NSLog(@"🪓🪓🪓🪓🪓 = 获取验证码");
+         })
+         
+         [_countDownBtn actionObjectBlock:^(id data) {
+ //            @jobs_strongify(self)
+             if ([data isKindOfClass:TimerProcessModel.class]) {
+                 TimerProcessModel *model = (TimerProcessModel *)data;
+                 NSLog(@"❤️❤️❤️❤️❤️%f",model.data.anticlockwiseTime);
+             }
          }];
-         [self.view bringSubviewToFront:_skipBtn];
-     }return _skipBtn;
+     }return _countDownBtn;
  }
 
  -(ButtonTimerConfigModel *)btnTimerConfigModel{
      if (!_btnTimerConfigModel) {
          _btnTimerConfigModel = ButtonTimerConfigModel.new;
          
-         /// 未选中状态
-         [_skipBtn sd_setImageWithURL:[NSURL URLWithString:LaunchConfig.imageURLString]
-                             forState:UIControlStateNormal
-                     placeholderImage:LaunchConfig.image];
-         [_skipBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:LaunchConfig.bgImageURLString]
-                                       forState:UIControlStateNormal
-                               placeholderImage:LaunchConfig.bgImage];
-         /// 选中状态
-         [_skipBtn sd_setImageWithURL:[NSURL URLWithString:LaunchConfig.selectedImageURLString]
-                             forState:UIControlStateSelected
-                     placeholderImage:LaunchConfig.selectedImage];
-         [_skipBtn sd_setBackgroundImageWithURL:[NSURL URLWithString:LaunchConfig.bgSelectedImageURLString]
-                                       forState:UIControlStateSelected
-                               placeholderImage:LaunchConfig.bgSelectedImage];
          /// 一些通用的设置
+         _btnTimerConfigModel.jobsSize = CGSizeMake(JobsWidth(100), JobsWidth(25));
          _btnTimerConfigModel.count = 5;
          _btnTimerConfigModel.showTimeType = ShowTimeType_SS;//时间显示风格
-         _btnTimerConfigModel.countDownBtnType = TimerStyle_anticlockwise;// 时间方向
-         _btnTimerConfigModel.cequenceForShowTitleRuningStrType = CequenceForShowTitleRuningStrType_tail;//
-         _btnTimerConfigModel.labelShowingType = LaunchConfig.labelShowingType;//【换行模式】
-         
+         _btnTimerConfigModel.countDownBtnType = TimerStyle_anticlockwise;/// 逆时针模式（倒计时模式）
+         _btnTimerConfigModel.cequenceForShowTitleRuningStrType = CequenceForShowTitleRuningStrType_tail;
+         _btnTimerConfigModel.labelShowingType = UILabelShowingType_03;/// 一行显示。不定宽、定高、定字体。宽度自适应 【单行：ByFont】
          /// 计时器未开始【静态值】
-         _btnTimerConfigModel.readyPlayValue.layerBorderWidth = LaunchConfig.layerBorderWidth;
-         _btnTimerConfigModel.readyPlayValue.layerCornerRadius = JobsWidth(25 / 2);
-         _btnTimerConfigModel.readyPlayValue.bgCor = LaunchConfig.bgCor;
-         _btnTimerConfigModel.readyPlayValue.layerBorderColour = LaunchConfig.layerBorderColour;
-         _btnTimerConfigModel.readyPlayValue.textCor = LaunchConfig.textCor;
-         _btnTimerConfigModel.readyPlayValue.text = LaunchConfig.text;
-         _btnTimerConfigModel.readyPlayValue.font = LaunchConfig.font;
-         _btnTimerConfigModel.readyPlayValue.attributedText = LaunchConfig.attributedText;
+         _btnTimerConfigModel.readyPlayValue.layerBorderWidth = 0.1;
+         _btnTimerConfigModel.readyPlayValue.layerCornerRadius = JobsWidth(8);
+         _btnTimerConfigModel.readyPlayValue.bgCor = JobsYellowColor;
+         _btnTimerConfigModel.readyPlayValue.layerBorderColour = JobsBrownColor;
+         _btnTimerConfigModel.readyPlayValue.textCor = JobsBlueColor;
+         _btnTimerConfigModel.readyPlayValue.text = Internationalization(@"      获取验证码       ");
+         _btnTimerConfigModel.readyPlayValue.font = UIFontWeightMediumSize(13);
          /// 计时器进行中【动态值】
-         _btnTimerConfigModel.runningValue.bgCor = UIColor.cyanColor;
+         _btnTimerConfigModel.runningValue.bgCor = JobsCyanColor;
          _btnTimerConfigModel.runningValue.text = Internationalization(Title12);
-         _btnTimerConfigModel.runningValue.layerBorderColour = UIColor.redColor;
-         _btnTimerConfigModel.runningValue.textCor = UIColor.blackColor;
+         _btnTimerConfigModel.runningValue.layerBorderColour = JobsRedColor;
+         _btnTimerConfigModel.runningValue.textCor = JobsBlackColor;
          /// 计时器结束【静态值】
-         _btnTimerConfigModel.endValue.bgCor = UIColor.yellowColor;;
-         _btnTimerConfigModel.endValue.text = Internationalization(@"哈哈哈哈");
-         _btnTimerConfigModel.endValue.layerBorderColour = UIColor.purpleColor;
-         _btnTimerConfigModel.endValue.textCor = UIColor.blackColor;
+         _btnTimerConfigModel.endValue.bgCor = JobsYellowColor;
+         _btnTimerConfigModel.endValue.text = Internationalization(@"    哈哈哈哈    ");
+         _btnTimerConfigModel.endValue.layerBorderColour = JobsPurpleColor;
+         _btnTimerConfigModel.endValue.textCor = JobsBlackColor;
          
      }return _btnTimerConfigModel;
  }
+ 
+ /// 开始   [self.countDownBtn startTimer];
+ /// 暂停 [self.countDownBtn timerSuspend];
+ /// 继续 [self.countDownBtn timerContinue];
+ /// 结束 [self.countDownBtn timerDestroy];
 
- 
- 
  */

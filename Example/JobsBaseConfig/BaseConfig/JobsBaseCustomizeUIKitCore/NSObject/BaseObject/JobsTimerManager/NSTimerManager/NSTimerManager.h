@@ -44,17 +44,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign,nullable)SEL selector;
 @property(nonatomic,strong,nullable)id userInfo;
 @property(nonatomic,assign)ScheduledTimerType timerType;
-@property(nonatomic,assign)TimerStyle timerStyle;//逆时针模式?顺时针模式？
-@property(nonatomic,assign)CGFloat anticlockwiseTime;//❤️【逆时针模式：到这个时间点结束】、【顺时针模式：从这个时间点开始】
+@property(nonatomic,assign)TimerStyle timerStyle;/// 逆时针模式?顺时针模式？
+@property(nonatomic,assign)CGFloat anticlockwiseTime;/// ❤️【逆时针模式：到这个时间点结束】、【顺时针模式：从这个时间点开始】
 @property(nonatomic,assign,readonly)NSTimerCurrentStatus timerCurrentStatus;// 定时器当前状态
 
 @property(nonatomic,strong)TimerProcessModel *timerProcessModel;
-@property(nonatomic,assign)NSTimeInterval timeSecIntervalSinceDate;//推移时间，秒数
-@property(nonatomic,assign)NSTimeInterval timeInterval;//时间间距
+@property(nonatomic,assign)NSTimeInterval timeSecIntervalSinceDate;/// 推移时间，秒数
+@property(nonatomic,assign)NSTimeInterval timeInterval;/// 时间间距
 @property(nonatomic,assign)BOOL repeats;
 @property(nonatomic,strong,nullable)NSTimer *__block nsTimer;
 /// 定时器启动 手动添加定时器到RunLoop
--(void)nsTimeStartWithRunLoop:(NSRunLoop *_Nullable)runLoop;//currentRunLoop可调用子线程；mainrunloop主线程
+-(void)nsTimeStartWithRunLoop:(NSRunLoop *_Nullable)runLoop;/// currentRunLoop可调用子线程；mainrunloop主线程
 /// 定时器启动：newTimer + 系统自动添加到RunLoop
 -(NSTimer *)nsTimeStartSysAutoInRunLoop;
 /// 定时器暂停

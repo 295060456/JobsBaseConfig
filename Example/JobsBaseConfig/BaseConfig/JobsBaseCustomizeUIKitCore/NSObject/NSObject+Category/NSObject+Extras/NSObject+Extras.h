@@ -66,6 +66,8 @@
 
 #import "JobsDropDownListView.h"
 
+#define JobsMutableArray(MutArrInstace) MutArrInstace ? [MutArrInstace removeAllObjects] : (MutArrInstace = NSMutableArray.array);
+
 @interface ImageModel : NSObject
 
 @property(nonatomic,strong,nullable)UIImage *image;

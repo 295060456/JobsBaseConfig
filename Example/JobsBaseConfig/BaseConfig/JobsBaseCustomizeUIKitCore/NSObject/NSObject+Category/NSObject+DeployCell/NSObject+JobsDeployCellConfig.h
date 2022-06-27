@@ -10,6 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+#define ReturnBaseCollectionViewCell BaseCollectionViewCell *cell = [BaseCollectionViewCell cellWithCollectionView:collectionView forIndexPath:indexPath];\
+[cell richElementsInCellWithModel:nil];\
+return cell;\
+
+#define ReturnBaseCollectionReusableView return [collectionView UICollectionElementKindSectionHeaderClass:BaseCollectionReusableView.class\
+                                                          forIndexPath:indexPath];\
+
 @interface NSObject (JobsDeployCellConfig)
 #pragma mark —— Cell 部署策略
 /// 4 个 Cell

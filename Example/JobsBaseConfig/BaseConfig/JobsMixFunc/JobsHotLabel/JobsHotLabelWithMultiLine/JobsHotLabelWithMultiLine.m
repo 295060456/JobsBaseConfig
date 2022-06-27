@@ -115,7 +115,7 @@ static dispatch_once_t static_hotLabelWithMultiLineOnceToken;
                                                                                                        forIndexPath:indexPath];
         [footerView richElementsInViewWithModel:self.dataModel.footerViewModel];
         return footerView;
-    }else return nil;
+    }else ReturnBaseCollectionReusableView;
 }
 #pragma mark —— UICollectionViewDelegate
 /// 允许选中时，高亮
