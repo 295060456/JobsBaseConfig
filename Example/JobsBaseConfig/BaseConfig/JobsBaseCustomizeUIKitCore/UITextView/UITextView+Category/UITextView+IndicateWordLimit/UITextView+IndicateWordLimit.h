@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <objc/runtime.h>
 
 #if __has_include(<Masonry/Masonry.h>)
 #import <Masonry/Masonry.h>
@@ -50,12 +51,11 @@ NS_ASSUME_NONNULL_END
          [self.view addSubview:_textView];
          [_textView mas_makeConstraints:^(MASConstraintMaker *make) {
              make.centerX.equalTo(self.view);
-             make.top.equalTo(self.chooseFeedbackTypeBtn.mas_bottom).offset(JobsHeight()(8));
-             make.size.mas_equalTo(CGSizeMake(JobsWidth(343), JobsHeight()(150)));
+             make.top.equalTo(self.chooseFeedbackTypeBtn.mas_bottom).offset(JobsHeight(8));
+             make.size.mas_equalTo(CGSizeMake(JobsWidth(343), JobsHeight(150)));
          }];
          [self.view layoutIfNeeded];
          _textView.indicateWordLimitLab.alpha = 1;
-         [UIView cornerCutToCircleWithCornerRadius:_textView andCornerRadius:6];
      }return _textView;
  }
  
