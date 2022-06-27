@@ -52,12 +52,18 @@
     self.objectBlock = ^(id data) {
         @jobs_strongify(self)
         if ([data isKindOfClass:JobsSuspendBtn.class]) {
-            NSInteger s = [self.tableView numberOfSections];/// 有多少组
-            if (s < 1) return;
-            NSInteger r = [self.tableView numberOfRowsInSection:s-1];/// 最后一组有多少行
-            if (r < 1) return;
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:r - 1 inSection:s - 1];/// 取最后一行数据
-            [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];/// 滚动到最后一行
+            JobsSuspendBtn *suspendBtn = (JobsSuspendBtn *)data;
+            if (suspendBtn.selected) {
+                NSInteger s = [self.tableView numberOfSections];/// 有多少组
+                if (s < 1) return;
+                NSInteger r = [self.tableView numberOfRowsInSection:s-1];/// 最后一组有多少行
+                if (r < 1) return;
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:r - 1 inSection:s - 1];/// 取最后一行数据
+                [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];/// 滚动到最后一行
+            }else{
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];/// 取第一行数据
+                [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];/// 滚动到第一行
+            }
         }
     };
 }

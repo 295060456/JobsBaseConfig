@@ -764,6 +764,7 @@
 		C5B3AEB028537D180052A4A9 /* JXCategoryViewWithHeaderViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B3AEAF28537D180052A4A9 /* JXCategoryViewWithHeaderViewVC.m */; };
 		C5B3AEB628537D590052A4A9 /* BaiShaETProjMembersSubsBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B3AEB528537D590052A4A9 /* BaiShaETProjMembersSubsBaseVC.m */; };
 		C5B3AF3728537E320052A4A9 /* BaiShaETProjCollectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5B3AF3428537E320052A4A9 /* BaiShaETProjCollectionHeaderView.m */; };
+		C5BF3F32286952DF0047F591 /* JobsCountdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BF3F31286952DF0047F591 /* JobsCountdownView.m */; };
 		C5BFA17E28598C7C009681C0 /* GKCustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BFA15828598C7C009681C0 /* GKCustomNavigationBar.m */; };
 		C5BFA17F28598C7C009681C0 /* UIViewController+GKNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BFA15B28598C7C009681C0 /* UIViewController+GKNavigationBar.m */; };
 		C5BFA18028598C7D009681C0 /* UINavigationItem+GKNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BFA15D28598C7C009681C0 /* UINavigationItem+GKNavigationBar.m */; };
@@ -2524,6 +2525,8 @@
 		C5B3AF3428537E320052A4A9 /* BaiShaETProjCollectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiShaETProjCollectionHeaderView.m; sourceTree = "<group>"; };
 		C5B3AF3528537E320052A4A9 /* BaiShaETProjCollectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiShaETProjCollectionHeaderView.h; sourceTree = "<group>"; };
 		C5B3AF3628537E320052A4A9 /* BaiShaETProjCollectionHeaderView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BaiShaETProjCollectionHeaderView.png; sourceTree = "<group>"; };
+		C5BF3F30286952DF0047F591 /* JobsCountdownView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsCountdownView.h; sourceTree = "<group>"; };
+		C5BF3F31286952DF0047F591 /* JobsCountdownView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsCountdownView.m; sourceTree = "<group>"; };
 		C5BFA15728598C7C009681C0 /* GKCustomNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKCustomNavigationBar.h; sourceTree = "<group>"; };
 		C5BFA15828598C7C009681C0 /* GKCustomNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKCustomNavigationBar.m; sourceTree = "<group>"; };
 		C5BFA15B28598C7C009681C0 /* UIViewController+GKNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+GKNavigationBar.m"; sourceTree = "<group>"; };
@@ -7339,8 +7342,8 @@
 		8475918D27997B1C0074B4BA /* JobsTimer */ = {
 			isa = PBXGroup;
 			children = (
-				8475918E27997B2F0074B4BA /* JobsTimerVC.h */,
-				8475918F27997B2F0074B4BA /* JobsTimerVC.m */,
+				C5BF3F2E286952AC0047F591 /* View */,
+				C5BF3F2D286952A40047F591 /* ViewController */,
 			);
 			path = JobsTimer;
 			sourceTree = "<group>";
@@ -10137,6 +10140,32 @@
 			path = BaiShaETProjCollectionHeaderView;
 			sourceTree = "<group>";
 		};
+		C5BF3F2D286952A40047F591 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C5BF3F2F286952B40047F591 /* JobsTimerVC */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C5BF3F2E286952AC0047F591 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C5BF3F30286952DF0047F591 /* JobsCountdownView.h */,
+				C5BF3F31286952DF0047F591 /* JobsCountdownView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C5BF3F2F286952B40047F591 /* JobsTimerVC */ = {
+			isa = PBXGroup;
+			children = (
+				8475918E27997B2F0074B4BA /* JobsTimerVC.h */,
+				8475918F27997B2F0074B4BA /* JobsTimerVC.m */,
+			);
+			path = JobsTimerVC;
+			sourceTree = "<group>";
+		};
 		C5BFA15628598C7C009681C0 /* 我修改的部分 */ = {
 			isa = PBXGroup;
 			children = (
@@ -11449,6 +11478,7 @@
 				840F971227736428004979E9 /* HQTextField.m in Sources */,
 				840F96D227736428004979E9 /* AppDelegate+Extra.m in Sources */,
 				84CA5FC127897AFB00E46E71 /* XDSDropDownMenu+DelegateProtocol.m in Sources */,
+				C5BF3F32286952DF0047F591 /* JobsCountdownView.m in Sources */,
 				84CA61972789852600E46E71 /* B_VC.m in Sources */,
 				844B084D2764CF4800B0513D /* ECPrivacyCheckSpeechRecognition.m in Sources */,
 				848AAD6D2788213400856087 /* UIScrollView+XSAnimationKit.m in Sources */,

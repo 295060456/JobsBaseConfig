@@ -74,3 +74,10 @@ systemReservedAction:(SEL)action;
 @end
 
 NS_ASSUME_NONNULL_END
+
+/**
+ * 示例代码：
+    [self addTarget:self touchUpInsideAction:[self jobsSelectorBlock:^(id  _Nullable weakSelf,id  _Nullable arg) {
+        NSLog(@"Hello Jobs");
+    }]];
+ */

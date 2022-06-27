@@ -10,6 +10,7 @@
 @interface JobsTimerVC ()
 /// UI
 @property(nonatomic,strong)UIButton *countDownBtn;
+@property(nonatomic,strong)JobsCountdownView *countdownView;
 @property(nonatomic,strong)NSMutableArray <UIButton *>*btnMutArr;
 /// Data
 @property(nonatomic,strong)ButtonTimerConfigModel *btnTimerConfigModel;
@@ -44,6 +45,7 @@
     
     [self test_masonry_horizontal_fixSpace];
     self.countDownBtn.alpha = 1;
+    self.countdownView.alpha = 1;
     
     @jobs_weakify(self)
     /// 开始
@@ -178,6 +180,18 @@
         [_btnTitleMutArr addObject:Internationalization(@"继续")];
         [_btnTitleMutArr addObject:Internationalization(@"结束")];
     }return _btnTitleMutArr;
+}
+
+-(JobsCountdownView *)countdownView{
+    if (!_countdownView) {
+        _countdownView = JobsCountdownView.new;
+        [_countdownView richElementsInViewWithModel:nil];
+        [self.view addSubview:_countdownView];
+        [_countdownView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.center.equalTo(self.view);
+            make.size.mas_equalTo([JobsCountdownView viewSizeWithModel:nil]);
+        }];
+    }return _countdownView;
 }
 
 @end
