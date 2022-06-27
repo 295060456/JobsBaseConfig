@@ -8,13 +8,6 @@
 #import "NSObject+AppTools.h"
 
 @implementation NSObject (AppTools)
-
-static char *NSObject_AppTools_customerContactModel = "NSObject_AppTools_customerContactModel";
-@dynamic customerContactModel;
-
-static char *NSObject_AppTools_hotLabelDataMutArr = "NSObject_AppTools_hotLabelDataMutArr";
-@dynamic hotLabelDataMutArr;
-
 #pragma mark —— 一些私有化方法
 /// noNeedLoginArr
 -(NSArray <Class>*_Nullable)makeDataArr{
@@ -292,6 +285,8 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
         }
     }];
 }
+static char *NSObject_AppTools_customerContactModel = "NSObject_AppTools_customerContactModel";
+@dynamic customerContactModel;
 #pragma mark —— @property(nonatomic,strong)CasinoCustomerContactModel *customerContactModel;
 -(CasinoCustomerContactModel *)customerContactModel{
     return objc_getAssociatedObject(self, NSObject_AppTools_customerContactModel);
@@ -303,6 +298,8 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
                              customerContactModel,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+static char *NSObject_AppTools_hotLabelDataMutArr = "NSObject_AppTools_hotLabelDataMutArr";
+@dynamic hotLabelDataMutArr;
 #pragma mark —— @property(nonatomic,strong)NSMutableArray<UIViewModel *> *hotLabelDataMutArr;
 -(NSMutableArray<UIViewModel *> *)hotLabelDataMutArr{
     NSMutableArray<UIViewModel *> *HotLabelDataMutArr = objc_getAssociatedObject(self, NSObject_AppTools_hotLabelDataMutArr);
@@ -320,11 +317,7 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
             vm.offsetYForEach = JobsWidth(46);
             [HotLabelDataMutArr addObject:vm];
         }
-        
-        objc_setAssociatedObject(self,
-                                 NSObject_AppTools_hotLabelDataMutArr,
-                                 HotLabelDataMutArr,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [self setHotLabelDataMutArr:HotLabelDataMutArr];
     }return HotLabelDataMutArr;
 }
 
@@ -369,11 +362,7 @@ static char *NSObject_AppTools_titleLab = "NSObject_AppTools_titleLab";
             
             [TitleLab richElementsInViewWithModel:model];
         }
-        
-        objc_setAssociatedObject(self,
-                                 NSObject_AppTools_titleLab,
-                                 TitleLab,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [self setTitleLab:TitleLab];
     }return TitleLab;
 }
 
@@ -398,10 +387,7 @@ static char *NSObject_AppTools_separateLab = "NSObject_AppTools_separateLab";
             make.centerX.equalTo(viewController.view);
             make.bottom.equalTo(viewController.view).offset(JobsWidth(-64));
         }];
-        objc_setAssociatedObject(self,
-                                 NSObject_AppTools_separateLab,
-                                 SeparateLab,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [self setSeparateLab:SeparateLab];
     }return SeparateLab;
 }
 
@@ -437,11 +423,7 @@ static char *NSObject_AppTools_立即注册 = "NSObject_AppTools_立即注册";
         });
         
         [_立即注册 makeBtnLabelByShowingType:UILabelShowingType_03];
-        
-        objc_setAssociatedObject(self,
-                                 NSObject_AppTools_立即注册,
-                                 _立即注册,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [self set立即注册:_立即注册];
     }return _立即注册;
 }
 
@@ -476,11 +458,7 @@ static char *NSObject_AppTools_联系客服 = "NSObject_AppTools_联系客服";
         });
         
         [_联系客服 makeBtnLabelByShowingType:UILabelShowingType_03];
-        
-        objc_setAssociatedObject(self,
-                                 NSObject_AppTools_联系客服,
-                                 _联系客服,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [self set联系客服:_联系客服];
     }return _联系客服;
 }
 
@@ -490,7 +468,6 @@ static char *NSObject_AppTools_联系客服 = "NSObject_AppTools_联系客服";
                              联系客服,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-
 static char *NSObject_AppTools_attributedStringData = "NSObject_AppTools_attributedStringData";
 @dynamic attributedStringData;
 #pragma mark —— @property(nonatomic,strong)NSMutableAttributedString *attributedStringData;
@@ -500,10 +477,7 @@ static char *NSObject_AppTools_attributedStringData = "NSObject_AppTools_attribu
         AttributedStringData = [self makeAttributedStringWithRichTextMutArr:self.richTextMutArr
                                                        richTextConfigMutArr:self.richTextConfigMutArr
                                                              paragraphStyle:nil];
-        objc_setAssociatedObject(self,
-                                 NSObject_AppTools_attributedStringData,
-                                 AttributedStringData,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [self setAttributedStringData:AttributedStringData];
     }return AttributedStringData;
 }
 
@@ -522,10 +496,7 @@ static char *NSObject_AppTools_richTextMutArr = "NSObject_AppTools_richTextMutAr
         RichTextMutArr = NSMutableArray.array;
         [RichTextMutArr addObject:Internationalization(@"如需帮助，请联系")];
         [RichTextMutArr addObject:Internationalization(@"专属客服")];
-        objc_setAssociatedObject(self,
-                                 NSObject_AppTools_richTextMutArr,
-                                 RichTextMutArr,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [self setRichTextMutArr:RichTextMutArr];
     }return RichTextMutArr;
 }
 
@@ -555,11 +526,7 @@ static char *NSObject_AppTools_richTextConfigMutArr = "NSObject_AppTools_richTex
         config_02.targetString = self.richTextMutArr[1];
         config_02.urlStr = @"click://";
         [RichTextMutArr addObject:config_02];
-        
-        objc_setAssociatedObject(self,
-                                 NSObject_AppTools_richTextConfigMutArr,
-                                 RichTextMutArr,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [self setRichTextConfigMutArr:RichTextMutArr];
     }return RichTextMutArr;
 }
 
@@ -596,11 +563,7 @@ static char *NSObject_AppTools_connectionTipsTV = "NSObject_AppTools_connectionT
                 make.bottom.equalTo(viewController.view).offset(JobsWidth(-65));
             }];
         }
-        
-        objc_setAssociatedObject(self,
-                                 NSObject_AppTools_connectionTipsTV,
-                                 ConnectionTipsTV,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [self setConnectionTipsTV:ConnectionTipsTV];
     }return ConnectionTipsTV;
 }
 
@@ -610,7 +573,6 @@ static char *NSObject_AppTools_connectionTipsTV = "NSObject_AppTools_connectionT
                              connectionTipsTV,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-
 
 @end
 

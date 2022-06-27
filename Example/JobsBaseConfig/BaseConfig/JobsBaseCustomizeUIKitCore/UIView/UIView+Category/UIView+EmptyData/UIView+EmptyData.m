@@ -6,59 +6,40 @@
 //
 
 #import "UIView+EmptyData.h"
-#import "JobsString.h"
-#import <objc/runtime.h>
 
 @implementation UIView (EmptyData)
-
-static char *UIView_EmptyData_tipsLab = "UIView_EmptyData_tipsLab";
-@dynamic tipsLab;
-
-static char *UIView_EmptyData_tipsTitle = "UIView_EmptyData_tipsTitle";
-@dynamic tipsTitle;
-
 -(void)ifEmptyData{
 #ifdef DEBUG
     //光板返回YES，有其他控件返回NO
+    @jobs_weakify(self)
     BOOL (^checkSubviews)(void) = ^(){
+        @jobs_strongify(self)
         if (self.subviews.count) {// 有控件
-            if ([self.subviews[0] isEqual:self.tipsLab]) {
-                return YES;//除了self.tipsLab就没有了，光板
-            }else{
-                return NO;//有其他控件
-            }
+            /// return YES;//除了self.tipsLab就没有了，光板;return NO;//有其他控件
+            return [self.subviews[0] isEqual:self.tipsLab];
         }return YES;//光板
     };
-    
-    if (checkSubviews()) {
-        self.tipsLab.alpha = 1;
-    }else{
-        self.tipsLab.alpha = 0;
-    }
+    self.tipsLab.alpha = checkSubviews();
 #endif
 }
-#pragma mark SET | GET
+static char *UIView_EmptyData_tipsLab = "UIView_EmptyData_tipsLab";
+@dynamic tipsLab;
 #pragma mark —— @property(nonatomic,strong)UILabel *tipsLab;
 -(UILabel *)tipsLab{
     UILabel *TipsLab = objc_getAssociatedObject(self, UIView_EmptyData_tipsLab);
     if (!TipsLab) {
         TipsLab = UILabel.new;
         TipsLab.text = self.tipsTitle;
-        TipsLab.numberOfLines = 0;
         TipsLab.textAlignment = NSTextAlignmentCenter;
         TipsLab.textColor = self.backgroundColor == JobsBlueColor ? JobsRedColor : JobsBlueColor;// 防止某些VC在调试阶段，设置view.backgroundColor为随机色
-        TipsLab.font = [UIFont systemFontOfSize:20 weight:UIFontWeightBold];
-        [TipsLab sizeToFit];
+        TipsLab.font = UIFontWeightBoldSize(20);
+        TipsLab.numberOfLines = 0;
+        [TipsLab makeLabelByShowingType:UILabelShowingType_03];
         [self addSubview:TipsLab];
         [TipsLab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.center.equalTo(self);
         }];
-        
-        objc_setAssociatedObject(self,
-                                 UIView_EmptyData_tipsLab,
-                                 TipsLab,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        
+        [self setTipsLab:TipsLab];
     }return TipsLab;
 }
 
@@ -68,15 +49,14 @@ static char *UIView_EmptyData_tipsTitle = "UIView_EmptyData_tipsTitle";
                              tipsLab,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+static char *UIView_EmptyData_tipsTitle = "UIView_EmptyData_tipsTitle";
+@dynamic tipsTitle;
 #pragma mark —— @property(nonatomic,strong)NSString *tipsTitle;
 -(NSString *)tipsTitle{
     NSString *TipsTitle = objc_getAssociatedObject(self, UIView_EmptyData_tipsTitle);
     if ([NSString isNullString:TipsTitle]) {
-        TipsTitle = @"快来将我填满吧";
-        objc_setAssociatedObject(self,
-                                 UIView_EmptyData_tipsTitle,
-                                 TipsTitle,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        TipsTitle = Internationalization(@"快来将我填满吧");
+        [self setTipsTitle:TipsTitle];
     }return TipsTitle;
 }
 
