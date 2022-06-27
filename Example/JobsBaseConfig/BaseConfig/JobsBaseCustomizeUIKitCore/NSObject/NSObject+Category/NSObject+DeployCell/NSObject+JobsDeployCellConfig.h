@@ -10,9 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-#define ReturnBaseCollectionViewCell BaseCollectionViewCell *cell = [BaseCollectionViewCell cellWithCollectionView:collectionView forIndexPath:indexPath];\
+#define ReturnRichBaseCollectionViewCell BaseCollectionViewCell *cell = [BaseCollectionViewCell cellWithCollectionView:collectionView forIndexPath:indexPath];\
 [cell richElementsInCellWithModel:nil];\
 return cell;\
+
+#define ReturnBaseCollectionViewCell return [BaseCollectionViewCell cellWithCollectionView:collectionView forIndexPath:indexPath];\
 
 #define ReturnBaseCollectionReusableView return [collectionView UICollectionElementKindSectionHeaderClass:BaseCollectionReusableView.class\
                                                           forIndexPath:indexPath];\

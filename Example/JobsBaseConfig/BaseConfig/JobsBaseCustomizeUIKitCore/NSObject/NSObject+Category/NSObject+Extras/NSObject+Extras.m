@@ -247,11 +247,17 @@
     }
 }
 /// 给定一个数据源（数组）和 每行需要展示的元素个数，计算行数
-/// @param elementNumberInEveryLine 每行需要展示的元素个数
-/// @param arr 数据源（数组）
--(NSInteger)lineNum:(NSInteger)elementNumberInEveryLine
-             byData:(NSArray *_Nonnull)arr{
-    return (arr.count + (elementNumberInEveryLine - 1)) / elementNumberInEveryLine;
+/// @param num 每行需要展示的元素个数
+-(NSInteger)lineNum:(NSInteger)num{
+    if ([self isKindOfClass:NSArray.class] || [self isKindOfClass:NSMutableArray.class]) {
+        NSArray *arr = (NSArray *)self;
+        return [self count:arr.count num:num];
+    }else return 0;
+}
+
+-(NSInteger)count:(NSUInteger)count
+              num:(NSInteger)num{
+    return (count + (num - 1)) / num;
 }
 /**
  ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️

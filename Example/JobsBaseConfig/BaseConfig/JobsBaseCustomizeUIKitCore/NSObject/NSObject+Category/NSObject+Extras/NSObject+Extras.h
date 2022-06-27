@@ -150,10 +150,10 @@ BaseProtocol
 -(CompareRes)versionNumber1:(NSString *_Nonnull)versionNumber1
              versionNumber2:(NSString *_Nonnull)versionNumber2;
 /// 给定一个数据源（数组）和 每行需要展示的元素个数，计算行数
-/// @param elementNumberInEveryLine 每行需要展示的元素个数
-/// @param arr 数据源（数组）
--(NSInteger)lineNum:(NSInteger)elementNumberInEveryLine
-             byData:(NSArray *_Nonnull)arr;
+/// @param num 每行需要展示的元素个数
+-(NSInteger)lineNum:(NSInteger)num;
+-(NSInteger)count:(NSUInteger)count
+              num:(NSInteger)num;
 /**
  ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️
  -(ScrollDirection)judgementScrollDirectionByPoint:(CGPoint)point;

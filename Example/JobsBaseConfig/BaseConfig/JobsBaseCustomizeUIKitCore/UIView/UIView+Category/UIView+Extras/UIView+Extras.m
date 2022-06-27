@@ -120,7 +120,7 @@
     return theImage;
 }
 #pragma mark —— 描边
-/// 指定描边
+/// 指定描边 【在使用这个方法的一个前提是被描边的view刷新后存在frame】
 /// @param color 作用颜色
 /// @param borderWidth 线宽
 /// @param borderType 作用方向
