@@ -388,8 +388,7 @@ referenceSizeForFooterInSection:(NSInteger)section{
     if (!_tableView){
         _tableView = UITableView.initWithStylePlain;
         _tableView.backgroundColor = HEXCOLOR(0xFCFBFB);
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
+        [self dataLinkByTableView:_tableView];
         _tableView.frame = CGRectMake(0,
                                       JobsTopSafeAreaHeight() + JobsStatusBarHeight(),
                                       TableViewWidth,
@@ -414,15 +413,13 @@ referenceSizeForFooterInSection:(NSInteger)section{
                                                                            JobsMainScreen_WIDTH() - self.tableView.width,
                                                                            self.tableView.height + EditBtnHeight)
                                            collectionViewLayout:self.flowLayout];
-        _collectionView.delegate = self;
-        _collectionView.dataSource = self;
+        [self dataLinkByCollectionView:_collectionView];
         _collectionView.backgroundColor = ThreeClassCellBgCor;
         _collectionView.alwaysBounceVertical = YES;
-
-        [_collectionView registerCollectionViewCellClass:ThreeClassCell.class];
-        [_collectionView registerCollectionElementKindSectionHeaderClass:UICollectionReusableView.class];
-        [_collectionView registerCollectionElementKindSectionFooterClass:UICollectionReusableView.class];
-        
+        [_collectionView registerCollectionViewClass];
+//        [_collectionView registerCollectionViewCellClass:ThreeClassCell.class];
+//        [_collectionView registerCollectionElementKindSectionHeaderClass:UICollectionReusableView.class];
+//        [_collectionView registerCollectionElementKindSectionFooterClass:UICollectionReusableView.class];
         [self.view addSubview:_collectionView];
     }return _collectionView;
 }

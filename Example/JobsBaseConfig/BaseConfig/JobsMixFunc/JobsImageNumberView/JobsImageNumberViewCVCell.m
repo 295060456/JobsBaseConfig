@@ -18,12 +18,11 @@
 #pragma mark —— UICollectionViewCellProtocol
 +(instancetype)cellWithCollectionView:(nonnull UICollectionView *)collectionView
                          forIndexPath:(nonnull NSIndexPath *)indexPath{
+    [collectionView registerCollectionViewCellClass:JobsImageNumberViewCVCell.class];
     JobsImageNumberViewCVCell *cell = (JobsImageNumberViewCVCell *)[collectionView collectionViewCellClass:JobsImageNumberViewCVCell.class forIndexPath:indexPath];
     if (!cell) {
-        [collectionView registerCollectionViewCellClass:JobsImageNumberViewCVCell.class];
         cell = (JobsImageNumberViewCVCell *)[collectionView collectionViewCellClass:JobsImageNumberViewCVCell.class forIndexPath:indexPath];
     }
-    
     cell.indexPath = indexPath;
     return cell;
 }

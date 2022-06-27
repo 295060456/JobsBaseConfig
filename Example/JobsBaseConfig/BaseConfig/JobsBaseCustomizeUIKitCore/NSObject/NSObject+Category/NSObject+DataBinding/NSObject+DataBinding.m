@@ -17,6 +17,11 @@
     tableView.dataSource = self;
 }
 
+-(void)dataLinkByCollectionView:(UICollectionView *)collectionView{
+    collectionView.delegate = self;
+    collectionView.dataSource = self;
+}
+
 static char *NSObject_DataBinding_objBindingParams = "NSObject_DataBinding_objBindingParams";
 @dynamic objBindingParams;
 #pragma mark —— @property(nonatomic,strong)id objBindingParams;

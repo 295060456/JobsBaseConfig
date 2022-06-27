@@ -27,14 +27,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong,nullable)NSMutableArray <UIViewModel *> __block *viewModelMutArr;
 @property(nonatomic,strong,nullable)RACSignal __block *reqSignal;
 @property(nonatomic,strong,nullable)NSString __block *internationalizationKEY;/// 国际化的key
-@property(nonatomic,strong,nullable)id __block data;/// 绑定的数据源
-@property(nonatomic,strong,nullable)id __block requestParams;/// 绑定的数据源
 @property(nonatomic,assign)NSUInteger __block jobsTag;
 @property(nonatomic,assign)BOOL __block selected;
 @property(nonatomic,assign)BOOL __block isMultiLineShows;/// 是否多行行显示【默认单行显示】
 @property(nonatomic,assign)BOOL __block isTranslucent;/// 是否取消tabBar的透明效果
 @property(nonatomic,assign)BOOL __block isVisible;/// ❤️只是一个标记是否可见，如果需要设置请移步@interface UIView (Extras) ：-(BOOL)jobsVisible; 和 -(void)setJobsVisible:(BOOL)jobsVisible;
 @property(nonatomic,assign)UILabelShowingType labelShowingType;
+@property(nonatomic,strong,nullable)id __block data;/// 绑定的数据源，数据类型id
+@property(nonatomic,strong,nullable)id __block requestParams;/// 绑定的数据源，数据类型id
+@property(nonatomic,strong,nullable)NSMutableSet __block *jobsDataMutSet;/// 绑定的数据源，数据类型NSMutableSet
+@property(nonatomic,strong,nullable)NSMutableArray __block *jobsDataMutArr;/// 绑定的数据源，数据类型NSMutableArray
+@property(nonatomic,strong,nullable)NSMutableDictionary __block *jobsDataMutDic;/// 绑定的数据源，数据类型NSMutableDictionary
 // Layer
 @property(nonatomic,strong,nullable)UIColor __block *layerBorderColour;
 @property(nonatomic,assign)CGFloat layerBorderWidth;
@@ -53,8 +56,6 @@ NS_ASSUME_NONNULL_END
 @synthesize viewModelMutArr = _viewModelMutArr;\
 @synthesize reqSignal = _reqSignal;\
 @synthesize internationalizationKEY = _internationalizationKEY;\
-@synthesize data = _data;\
-@synthesize requestParams = _requestParams;\
 @synthesize jobsTag = _jobsTag;\
 @synthesize selected = _selected;\
 @synthesize isMultiLineShows = _isMultiLineShows;\
@@ -64,6 +65,11 @@ NS_ASSUME_NONNULL_END
 @synthesize layerBorderColour = _layerBorderColour;\
 @synthesize layerBorderWidth = _layerBorderWidth;\
 @synthesize layerCornerRadius = _layerCornerRadius;\
+@synthesize data = _data;\
+@synthesize requestParams = _requestParams;\
+@synthesize jobsDataMutSet = _jobsDataMutSet;\
+@synthesize jobsDataMutArr = _jobsDataMutArr;\
+@synthesize jobsDataMutDic = _jobsDataMutDic;\
 
 #endif
 
@@ -76,8 +82,6 @@ NS_ASSUME_NONNULL_END
 @dynamic viewModelMutArr;\
 @dynamic reqSignal;\
 @dynamic internationalizationKEY;\
-@dynamic data;\
-@dynamic requestParams;\
 @dynamic jobsTag;\
 @dynamic selected;\
 @dynamic isMultiLineShows;\
@@ -87,6 +91,11 @@ NS_ASSUME_NONNULL_END
 @dynamic layerBorderColour;\
 @dynamic layerBorderWidth;\
 @dynamic layerCornerRadius;\
+@dynamic data;\
+@dynamic requestParams;\
+@dynamic jobsDataMutSet;\
+@dynamic jobsDataMutArr;\
+@dynamic jobsDataMutDic;\
 
 #endif
 

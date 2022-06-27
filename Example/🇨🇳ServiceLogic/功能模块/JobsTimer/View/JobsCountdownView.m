@@ -28,6 +28,7 @@
 @synthesize viewModel = _viewModel;
 
 -(void)dealloc{
+    NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
     [self.nsTimerManager nsTimeDestroy];
 }
 #pragma mark —— BaseProtocol

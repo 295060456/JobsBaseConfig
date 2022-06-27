@@ -10,11 +10,13 @@
 @implementation UICollectionView (RegisterClass)
 /// 注册的时候不开辟内存，只有当用字符串进行取值的时候才开辟内存
 -(void)registerCollectionViewClass{
-    // CollectionReusableView
+    // CollectionReusableView-Header
+    [self registerCollectionElementKindSectionHeaderClass:UICollectionReusableView.class];
     [self registerCollectionElementKindSectionHeaderClass:BaseCollectionReusableView.class];
-    /// Header
     [self registerCollectionElementKindSectionHeaderClass:JobsHotLabelWithMultiLineHeaderFooterView.class];
-    /// Footer
+    // CollectionReusableView—Footer
+    [self registerCollectionElementKindSectionFooterClass:UICollectionReusableView.class];
+    [self registerCollectionElementKindSectionFooterClass:BaseCollectionReusableView.class];
     [self registerCollectionElementKindSectionFooterClass:JobsHotLabelWithMultiLineHeaderFooterView.class];
     [self registerCollectionElementKindSectionFooterClass:BaiShaETProjVIPSubCVFooterView.class];
     // CollectionViewCell
@@ -24,11 +26,14 @@
     [self registerCollectionViewCellClass:JobsSearchDataCVCell.class];
     [self registerCollectionViewCellClass:JobsCVCell.class];
     
+    [self registerCollectionViewCellClass:BaiShaETProjOrderDetailsCVCell.class];
     [self registerCollectionViewCellClass:BaiShaETProjVIPSubCVCell_01.class];
     [self registerCollectionViewCellClass:BaiShaETProjVIPSubCVCell_02.class];
     [self registerCollectionViewCellClass:BaiShaETProjVIPSubCVCell_03.class];
     [self registerCollectionViewCellClass:BaiShaETProjVIPSubCVCell_04.class];
     [self registerCollectionViewCellClass:BaiShaETProjVIPSubCVCell_05.class];
+    
+    [self registerCollectionViewCellClass:ThreeClassCell.class];
 }
 /// 注册 UICollectionViewCell 及其子类
 -(void)registerCollectionViewCellClass:(Class)cls{
@@ -46,29 +51,28 @@
     forSupplementaryViewOfKind:UICollectionElementKindSectionFooter
     withReuseIdentifier:cls.description];
 }
-/// 依据字符串取UICollectionElementKindSectionFooter
--(__kindof UICollectionReusableView *)UICollectionElementKindSectionFooterClass:(Class)cls
-                                                                   forIndexPath:(NSIndexPath *)indexPath{
-    UICollectionReusableView *collectionReusableView = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter
-                                                                                withReuseIdentifier:cls.description
-                                                                                       forIndexPath:indexPath];
-    if (!collectionReusableView) {
-        [self registerCollectionElementKindSectionFooterClass:cls];
-        collectionReusableView = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter
-                                                          withReuseIdentifier:cls.description
-                                                                 forIndexPath:indexPath];
-    }return collectionReusableView;
-}
 /// 依据字符串取UICollectionElementKindSectionHeader
 -(__kindof UICollectionReusableView *)UICollectionElementKindSectionHeaderClass:(Class)cls
                                                                    forIndexPath:(NSIndexPath *)indexPath{
-    
+    [self registerCollectionElementKindSectionHeaderClass:cls];
     UICollectionReusableView *collectionReusableView = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
                                                                                 withReuseIdentifier:cls.description
                                                                                        forIndexPath:indexPath];
     if (!collectionReusableView) {
-        [self registerCollectionElementKindSectionHeaderClass:cls];
         collectionReusableView = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
+                                                          withReuseIdentifier:cls.description
+                                                                 forIndexPath:indexPath];
+    }return collectionReusableView;
+}
+/// 依据字符串取UICollectionElementKindSectionFooter
+-(__kindof UICollectionReusableView *)UICollectionElementKindSectionFooterClass:(Class)cls
+                                                                   forIndexPath:(NSIndexPath *)indexPath{
+    [self registerCollectionElementKindSectionFooterClass:cls];
+    UICollectionReusableView *collectionReusableView = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter
+                                                                                withReuseIdentifier:cls.description
+                                                                                       forIndexPath:indexPath];
+    if (!collectionReusableView) {
+        collectionReusableView = [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter
                                                           withReuseIdentifier:cls.description
                                                                  forIndexPath:indexPath];
     }return collectionReusableView;

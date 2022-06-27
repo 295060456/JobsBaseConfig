@@ -482,6 +482,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             [_dataMutArr addObject:viewModel];
         }
         
+        {
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"CustomTableViewCellVC"
+                                                           subTitle:Internationalization(@"自定义UITableViewCell内置控件距离并添加复制按钮")];
+            viewModel.cls = CustomTableViewCellVC.class;
+            [_dataMutArr addObject:viewModel];
+        }
+        
 //        {
 //            UIViewModel *viewModel = [self configViewModelWithTitle:@"ProtocolKitVC"
 //                                                           subTitle:Internationalization(@"Objective-C中实现协议扩展")];

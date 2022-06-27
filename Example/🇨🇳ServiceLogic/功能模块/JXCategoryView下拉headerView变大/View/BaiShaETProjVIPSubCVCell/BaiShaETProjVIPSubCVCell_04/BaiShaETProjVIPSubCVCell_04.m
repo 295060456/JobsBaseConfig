@@ -27,12 +27,11 @@
 #pragma mark —— BaseCellProtocol
 +(instancetype)cellWithCollectionView:(nonnull UICollectionView *)collectionView
                          forIndexPath:(nonnull NSIndexPath *)indexPath{
+    [collectionView registerCollectionViewCellClass:BaiShaETProjVIPSubCVCell_04.class];
     BaiShaETProjVIPSubCVCell_04 *cell = (BaiShaETProjVIPSubCVCell_04 *)[collectionView collectionViewCellClass:BaiShaETProjVIPSubCVCell_04.class forIndexPath:indexPath];
     if (!cell) {
-        [collectionView registerCollectionViewCellClass:BaiShaETProjVIPSubCVCell_04.class];
         cell = (BaiShaETProjVIPSubCVCell_04 *)[collectionView collectionViewCellClass:BaiShaETProjVIPSubCVCell_04.class forIndexPath:indexPath];
     }
-    
     cell.indexPath = indexPath;
     return cell;
 }

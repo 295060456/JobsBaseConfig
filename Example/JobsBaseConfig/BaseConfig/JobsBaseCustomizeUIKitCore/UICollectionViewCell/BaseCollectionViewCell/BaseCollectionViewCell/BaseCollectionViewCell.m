@@ -26,12 +26,11 @@
 #pragma mark —— UICollectionViewCellProtocol
 +(instancetype)cellWithCollectionView:(nonnull UICollectionView *)collectionView
                          forIndexPath:(nonnull NSIndexPath *)indexPath{
+    [collectionView registerCollectionViewCellClass:BaseCollectionViewCell.class];
     BaseCollectionViewCell *cell = (BaseCollectionViewCell *)[collectionView collectionViewCellClass:BaseCollectionViewCell.class forIndexPath:indexPath];
     if (!cell) {
-        [collectionView registerCollectionViewCellClass:BaseCollectionViewCell.class];
         cell = (JobsHotLabelWithMultiLineCVCell *)[collectionView collectionViewCellClass:BaseCollectionViewCell.class forIndexPath:indexPath];
     }
-    
     cell.indexPath = indexPath;
     return cell;
 }

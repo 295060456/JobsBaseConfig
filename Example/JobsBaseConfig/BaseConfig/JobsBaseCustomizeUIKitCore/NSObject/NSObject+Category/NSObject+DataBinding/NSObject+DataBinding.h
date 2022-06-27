@@ -16,10 +16,14 @@ NS_ASSUME_NONNULL_BEGIN
 <
 UITableViewDelegate
 ,UITableViewDataSource
+,UICollectionViewDelegate
+,UICollectionViewDataSource
 >
 
 @property(nonatomic,strong)id objBindingParams;
+
 -(void)dataLinkByTableView:(UITableView *)tableView;
+-(void)dataLinkByCollectionView:(UICollectionView *)collectionView;
 
 @end
 

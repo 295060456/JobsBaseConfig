@@ -31,12 +31,11 @@
 #pragma mark —— BaseCellProtocol
 +(instancetype)cellWithCollectionView:(nonnull UICollectionView *)collectionView
                          forIndexPath:(nonnull NSIndexPath *)indexPath{
+    [collectionView registerCollectionViewCellClass:ThreeClassCell.class];
     ThreeClassCell *cell = (ThreeClassCell *)[collectionView collectionViewCellClass:ThreeClassCell.class forIndexPath:indexPath];
     if (!cell) {
-        [collectionView registerCollectionViewCellClass:ThreeClassCell.class];
         cell = (ThreeClassCell *)[collectionView collectionViewCellClass:ThreeClassCell.class forIndexPath:indexPath];
     }
-    
     cell.indexPath = indexPath;
     return cell;
 }

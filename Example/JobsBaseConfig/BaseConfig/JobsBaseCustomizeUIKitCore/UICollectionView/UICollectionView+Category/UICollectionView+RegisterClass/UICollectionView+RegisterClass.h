@@ -14,6 +14,7 @@
 #import "JobsHotLabelWithMultiLineCVCell.h"
 #import "JobsCVCell.h"
 #import "BaiShaETProjVIPSubCVFooterView.h"
+#import "BaiShaETProjOrderDetailsCVCell.h"
 
 #import "BaiShaETProjVIPSubCVCell_01.h"
 #import "BaiShaETProjVIPSubCVCell_02.h"

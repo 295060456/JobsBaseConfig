@@ -29,9 +29,9 @@
 #pragma mark —— BaseCellProtocol
 +(instancetype)cellWithCollectionView:(nonnull UICollectionView *)collectionView
                          forIndexPath:(nonnull NSIndexPath *)indexPath{
+    [collectionView registerCollectionViewCellClass:JobsCVCell.class];
     JobsCVCell *cell = (JobsCVCell *)[collectionView collectionViewCellClass:JobsCVCell.class forIndexPath:indexPath];
     if (!cell) {
-        [collectionView registerCollectionViewCellClass:JobsCVCell.class];
         cell = (JobsCVCell *)[collectionView collectionViewCellClass:JobsCVCell.class forIndexPath:indexPath];
     }
     

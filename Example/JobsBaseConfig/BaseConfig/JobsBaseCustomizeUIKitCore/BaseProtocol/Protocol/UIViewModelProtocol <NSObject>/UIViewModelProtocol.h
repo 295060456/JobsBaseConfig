@@ -123,8 +123,6 @@ NS_ASSUME_NONNULL_END
 @synthesize viewModelMutArr = _viewModelMutArr;\
 @synthesize reqSignal = _reqSignal;\
 @synthesize internationalizationKEY = _internationalizationKEY;\
-@synthesize data = _data;\
-@synthesize requestParams = _requestParams;\
 @synthesize jobsTag = _jobsTag;\
 @synthesize selected = _selected;\
 @synthesize isMultiLineShows = _isMultiLineShows;\
@@ -134,6 +132,11 @@ NS_ASSUME_NONNULL_END
 @synthesize layerBorderColour = _layerBorderColour;\
 @synthesize layerBorderWidth = _layerBorderWidth;\
 @synthesize layerCornerRadius = _layerCornerRadius;\
+@synthesize data = _data;\
+@synthesize requestParams = _requestParams;\
+@synthesize jobsDataMutSet = _jobsDataMutSet;\
+@synthesize jobsDataMutArr = _jobsDataMutArr;\
+@synthesize jobsDataMutDic = _jobsDataMutDic;\
 
 #endif
 
@@ -201,8 +204,6 @@ NS_ASSUME_NONNULL_END
 @dynamic viewModelMutArr;\
 @dynamic reqSignal;\
 @dynamic internationalizationKEY;\
-@dynamic data;\
-@dynamic requestParams;\
 @dynamic jobsTag;\
 @dynamic selected;\
 @dynamic isMultiLineShows;\
@@ -212,6 +213,11 @@ NS_ASSUME_NONNULL_END
 @dynamic layerBorderColour;\
 @dynamic layerBorderWidth;\
 @dynamic layerCornerRadius;\
+@dynamic data;\
+@dynamic requestParams;\
+@dynamic jobsDataMutSet;\
+@dynamic jobsDdataMutArr;\
+@dynamic jobsDataMutDic;\
 
 #endif
 
