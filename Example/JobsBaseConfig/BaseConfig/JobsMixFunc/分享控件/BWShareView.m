@@ -209,8 +209,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
                                                                              90)
                                              collectionViewLayout:self.layout];
         _collectionView.backgroundColor = RGBColor(245, 245, 245);
-        _collectionView.delegate = self;
-        _collectionView.dataSource = self;
+        [self dataLinkByCollectionView:_collectionView];
         [_collectionView registerClass:[BWItemCollectionViewCell class]
             forCellWithReuseIdentifier:shareCell];
     }return _collectionView;

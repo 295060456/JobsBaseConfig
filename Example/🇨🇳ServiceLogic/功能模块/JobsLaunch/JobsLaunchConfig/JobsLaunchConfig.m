@@ -40,7 +40,7 @@ static dispatch_once_t static_launchConfigOnceToken;
 /// 关于跳过按钮的
 -(UIImage *)image{
     if (!_image) {
-        _image = KIMG(@"空白图");
+        _image = JobsIMG(@"空白图");
     }return _image;
 }
 

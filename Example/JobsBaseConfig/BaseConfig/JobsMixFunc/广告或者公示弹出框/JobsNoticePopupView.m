@@ -34,7 +34,7 @@
 -(UIImageView *)imageView{
     if (!_imageView) {
         _imageView = UIImageView.new;
-        _imageView.image = KIMG(@"登录弹窗");
+        _imageView.image = JobsIMG(@"登录弹窗");
 
         {
             _imageView.numberOfTouchesRequired = 1;

@@ -35,7 +35,7 @@ static dispatch_once_t static_testPopupViewOnceToken;
 -(instancetype)init{
     if (self = [super init]) {
         self.backgroundColor = UIColor.whiteColor;
-        self.backgroundImageView.image = KIMG(@"测试弹窗的背景图");
+        self.backgroundImageView.image = JobsIMG(@"测试弹窗的背景图");
     }return self;
 }
 
@@ -67,17 +67,15 @@ static dispatch_once_t static_testPopupViewOnceToken;
             JobsUpDownLabModel *model = JobsUpDownLabModel.new;
             model.upLabText = [NSString isNullString:self.viewModel.textModel.text] ? Internationalization(@"测试弹窗"): self.viewModel.textModel.text;
             model.upLabTextAlignment = NSTextAlignmentCenter;
-            model.upLabFont = [UIFont systemFontOfSize:JobsWidth(20)
-                                                weight:UIFontWeightBold];
-            model.upLabTextCor = UIColor.blackColor;
-            model.upLabBgCor = UIColor.clearColor;
+            model.upLabFont = UIFontWeightBoldSize(20);
+            model.upLabTextCor = JobsBlackColor;
+            model.upLabBgCor = JobsClearColor;
             
             model.downLabText = [NSString isNullString:self.viewModel.subTextModel.text] ? Internationalization(@"相关信息"): self.viewModel.textModel.text;
             model.downLabTextAlignment = NSTextAlignmentCenter;
-            model.downLabFont = [UIFont systemFontOfSize:JobsWidth(16)
-                                                  weight:UIFontWeightRegular];
+            model.downLabFont = UIFontWeightRegularSize(16);
             model.downLabTextCor = HEXCOLOR(0xB0B0B0);
-            model.downLabBgCor = UIColor.clearColor;
+            model.downLabBgCor = JobsClearColor;
             
             model.space = JobsWidth(12);
             
@@ -90,23 +88,24 @@ static dispatch_once_t static_testPopupViewOnceToken;
     if (!_testPopupViewSureBtn) {
         _testPopupViewSureBtn = UIButton.new;
         [_testPopupViewSureBtn handelAdjustsImageWhenHighlighted];
-        _testPopupViewSureBtn.normalBackgroundImage = KIMG(@"测试弹窗的确定按钮");
-        _testPopupViewSureBtn.selectedBackgroundImage = KIMG(@"测试弹窗的确定按钮");
+        _testPopupViewSureBtn.normalBackgroundImage = JobsIMG(@"测试弹窗的确定按钮");
+        _testPopupViewSureBtn.selectedBackgroundImage = JobsIMG(@"测试弹窗的确定按钮");
         _testPopupViewSureBtn.normalTitle = Internationalization(@"确定");
-        _testPopupViewSureBtn.normalTitleColor = UIColor.blackColor;
-        _testPopupViewSureBtn.titleFont = [UIFont systemFontOfSize:JobsWidth(18) weight:UIFontWeightRegular];
+        _testPopupViewSureBtn.normalTitleColor = JobsBlackColor;
+        _testPopupViewSureBtn.titleFont = UIFontWeightRegularSize(18);
         [self addSubview:_testPopupViewSureBtn];
         [_testPopupViewSureBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(self.mas_bottom).offset(JobsWidth(-15));
             make.centerX.equalTo(self);
             make.size.mas_equalTo(CGSizeMake(JobsWidth(190), JobsWidth(40)));
         }];
-        BtnClickEvent(_testPopupViewSureBtn, {
-            NSLog(@"确定");
+        @jobs_weakify(self)
+        [_testPopupViewSureBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
             x.selected = !x.selected;
             [self tf_hide];
             if(self.objectBlock) self.objectBlock(x);
-        });
+        }];
     }return _testPopupViewSureBtn;
 }
 

@@ -73,12 +73,12 @@
 -(UIButton *)btn{
     if (!_btn) {
         _btn = UIButton.new;
-        [_btn normalTitle:Internationalization(@"点击按钮弹出下拉列表")];
-        [_btn titleFont:[UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular]];
-        [_btn normalTitleColor:UIColor.whiteColor];
-        _btn.backgroundColor = UIColor.orangeColor;
-        [_btn buttonAutoWidthByFont];
-        BtnClickEvent(_btn, {
+        _btn.normalTitle = Internationalization(@"点击按钮弹出下拉列表");
+        _btn.titleFont = UIFontWeightRegularSize(12);
+        _btn.normalTitleColor = JobsWhiteColor;
+        @jobs_weakify(self)
+        [_btn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
             NSLog(@"AAA = %@",self.dropDownListView);
             x.selected = !x.selected;
             if (x.selected) {
@@ -92,7 +92,10 @@
             }else{
                 [self endDropDownListView];
             }
-        });
+        }];
+        _btn.backgroundColor = UIColor.orangeColor;
+        [_btn buttonAutoWidthByFont];
+
         [self.view addSubview:_btn];
         [_btn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.view).offset(JobsWidth(20));

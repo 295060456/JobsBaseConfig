@@ -104,7 +104,7 @@ static char *UIViewController_NavigationBar_shadowCor = "UIViewController_Naviga
     if (!LeftBarButtonItem_back) {
         if(self.navigationController.viewControllers.count > 1){
             NSString *imageName = self.gk_backStyle == GKNavigationBarBackStyleBlack ? @"btn_back_black" : @"btn_back_white";
-            UIImage *backImage = KBuddleIMG(nil,
+            UIImage *backImage = JobsBuddleIMG(nil,
                                             @"Frameworks/GKNavigationBar.framework/GKNavigationBar",
                                             nil,
                                             imageName);

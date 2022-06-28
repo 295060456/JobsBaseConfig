@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_END
          _btn1 = UIButton.new;
          [_btn1 normalTitle:[@"2388 3788 8907 8890 8888" stringByAppendingString:@"  建设银行"]];
          [_btn1 normalTitleColor:HEXCOLOR(0x524740)];
-         [_btn1 normalBackgroundImage:KIMG(@"全局输入框背景图")];
+         [_btn1 normalBackgroundImage:JobsIMG(@"全局输入框背景图")];
          [_btn1 titleFont:[UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular]];
          BtnClickEvent(_btn1, {
              NSLog(@"%@",self->dropDownListView);

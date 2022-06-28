@@ -57,7 +57,7 @@ NS_ASSUME_NONNULL_END
      if (!_filterBtn) {
          _filterBtn = UIButton.new;
          _filterBtn.normalTitle = Internationalization(@"篩選");
-         _filterBtn.normalImage = KIMG(@"筛选箭头（向下）");
+         _filterBtn.normalImage = JobsIMG(@"筛选箭头（向下）");
          _filterBtn.titleFont = fontName(@"NotoSans-Bold", 12);
          _filterBtn.normalTitleColor = HEXCOLOR(0x3D4A58);
          [self.view addSubview:_filterBtn];

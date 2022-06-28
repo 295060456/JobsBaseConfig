@@ -102,16 +102,17 @@
     if (!_securityModeBtn) {
         _securityModeBtn = UIButton.new;
         
-        [_securityModeBtn normalImage:self.doorInputViewBaseStyleModel.selectedSecurityBtnIMG ? : [UIImage imageWithColor:UIColor.redColor]];
-        [_securityModeBtn normalImage:self.doorInputViewBaseStyleModel.unSelectedSecurityBtnIMG ? : [UIImage imageWithColor:UIColor.blueColor]];
-        
-        BtnClickEvent(_securityModeBtn, {
+        _securityModeBtn.selectedImage = self.doorInputViewBaseStyleModel.selectedSecurityBtnIMG ? : [UIImage imageWithColor:JobsRedColor];
+        _securityModeBtn.normalImage = self.doorInputViewBaseStyleModel.unSelectedSecurityBtnIMG ? : [UIImage imageWithColor:JobsBlueColor];
+        @jobs_weakify(self)
+        [_securityModeBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
             x.selected = !x.selected;
             self.textField.secureTextEntry = x.selected;
             if (x.selected && !self.textField.isEditing) {
                 self.textField.placeholder = self.doorInputViewBaseStyleModel.placeHolderStr;
             }
-        });
+        }];
         
         [self addSubview:_securityModeBtn];
         [_securityModeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -167,7 +168,13 @@
 -(UIButton *)authCodeBtn{
     if (!_authCodeBtn) {
         _authCodeBtn = [UIButton.alloc initWithConfig:self.btnTimerConfigModel];
-        BtnClickEvent(_authCodeBtn, [x startTimer];);//选择时机、触发启动
+
+        @jobs_weakify(self)
+        [_authCodeBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
+            [x startTimer];
+        }];
+        
         [_authCodeBtn actionObjectBlock:^(id data) {
 //            @jobs_strongify(self)
             if ([data isKindOfClass:TimerProcessModel.class]) {

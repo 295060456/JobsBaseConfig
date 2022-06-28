@@ -248,9 +248,8 @@ insetForSectionAtIndex:(NSInteger)section {
     if (!_collectionView) {
         _collectionView = [UICollectionView.alloc initWithFrame:CGRectZero
                                            collectionViewLayout:self.layout];
-        _collectionView.backgroundColor = UIColor.whiteColor;
-        _collectionView.dataSource = self;
-        _collectionView.delegate = self;
+        _collectionView.backgroundColor = JobsWhiteColor;
+        [self dataLinkByCollectionView:_collectionView];
         _collectionView.showsVerticalScrollIndicator = NO;
         _collectionView.scrollEnabled = NO;
         
@@ -332,19 +331,21 @@ insetForSectionAtIndex:(NSInteger)section {
 -(UIButton *)closeBtn{
     if (!_closeBtn) {
         _closeBtn = UIButton.new;
-        _closeBtn.normalBackgroundImage = KIMG(@"关闭");
+        _closeBtn.normalBackgroundImage = JobsIMG(@"关闭");
         [self.titleLab addSubview:_closeBtn];
         [_closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(JobsWidth(9.75f), JobsWidth(9.75f)));
             make.centerY.equalTo(self.titleLab);
             make.right.equalTo(self.titleLab.mas_right).offset(JobsWidth(-25.12));
         }];
-        BtnClickEvent(_closeBtn, {
+        @jobs_weakify(self)
+        [_closeBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
             NSLog(@"关闭");
             x.selected = !x.selected;
             [self cancelBtnActionForPopView:x];
             [self shakeCell:NO];
-        });
+        }];
     }return _closeBtn;
 }
 
@@ -352,8 +353,8 @@ insetForSectionAtIndex:(NSInteger)section {
     if (!_cancelBtn) {
         _cancelBtn = UIButton.new;
         [_cancelBtn handelAdjustsImageWhenHighlighted];
-        _cancelBtn.normalBackgroundImage = KIMG(@"弹窗取消按钮");
-        _cancelBtn.selectedBackgroundImage = KIMG(@"弹窗取消按钮");
+        _cancelBtn.normalBackgroundImage = JobsIMG(@"弹窗取消按钮");
+        _cancelBtn.selectedBackgroundImage = JobsIMG(@"弹窗取消按钮");
         _cancelBtn.normalTitle = Internationalization(@"恢复默认");
         _cancelBtn.normalTitleColor = HEXCOLOR(0xB0B0B0);
         _cancelBtn.titleFont = notoSansRegular(18);
@@ -363,12 +364,14 @@ insetForSectionAtIndex:(NSInteger)section {
             make.left.equalTo(self).offset(JobsWidth(24));
             make.size.mas_equalTo(CGSizeMake(JobsWidth(120), JobsWidth(40)));
         }];
-        BtnClickEvent(_cancelBtn, {
+        @jobs_weakify(self)
+        [_cancelBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
             NSLog(@"恢复默认");
             x.selected = !x.selected;
             [self cancelBtnActionForPopView:x];
             [self shakeCell:NO];
-        });
+        }];
     }return _cancelBtn;
 }
 
@@ -376,31 +379,31 @@ insetForSectionAtIndex:(NSInteger)section {
     if (!_sureBtn) {
         _sureBtn = UIButton.new;
         [_sureBtn handelAdjustsImageWhenHighlighted];
-        _sureBtn.normalBackgroundImage = KIMG(@"弹窗提交按钮");
-        _sureBtn.selectedBackgroundImage = KIMG(@"弹窗提交按钮");
+        _sureBtn.normalBackgroundImage = JobsIMG(@"弹窗提交按钮");
+        _sureBtn.selectedBackgroundImage = JobsIMG(@"弹窗提交按钮");
         _sureBtn.normalTitle = Internationalization(@"完成");
-        _sureBtn.normalTitleColor = UIColor.blackColor;
-        _sureBtn.titleFont = [UIFont systemFontOfSize:JobsWidth(18) weight:UIFontWeightRegular];
+        _sureBtn.normalTitleColor = JobsBlackColor;
+        _sureBtn.titleFont = UIFontWeightRegularSize(18);
         [self.bgView addSubview:_sureBtn];
         [_sureBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(self.mas_bottom).offset(JobsWidth(-26));
             make.right.equalTo(self).offset(JobsWidth(-24));
             make.size.mas_equalTo(CGSizeMake(JobsWidth(120), JobsWidth(40)));
         }];
-        BtnClickEvent(_sureBtn, {
-            NSLog(@"确定");
+        @jobs_weakify(self)
+        [_sureBtn btnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             x.selected = !x.selected;
             [self cancelBtnActionForPopView:self.dataMutArr];
             [self shakeCell:NO];
-        });
+        }];
     }return _sureBtn;
 }
 
 -(UIView *)bgView{
     if (!_bgView) {
         _bgView = UIView.new;
-        _bgView.backgroundColor = UIColor.whiteColor;
+        _bgView.backgroundColor = JobsWhiteColor;
         [self addSubview:_bgView];
         [_bgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake([BaiShaETProjPopupView10 viewSizeWithModel:nil].width, [BaiShaETProjPopupView10 viewSizeWithModel:nil].height - JobsWidth(44)));

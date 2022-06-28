@@ -147,17 +147,17 @@
         _leftBtnMutArr = NSMutableArray.array;
         MGSwipeButtonModel *model_1 = MGSwipeButtonModel.new;
         model_1.titleStr = @"L1";
-        model_1.IconIMG = KIMG(@"Check");
+        model_1.IconIMG = JobsIMG(@"Check");
         model_1.bgCor = JobsGreenColor;
         
         MGSwipeButtonModel *model_2 = MGSwipeButtonModel.new;
         model_2.titleStr = @"L2";
-        model_2.IconIMG = KIMG(@"Fav");
+        model_2.IconIMG = JobsIMG(@"Fav");
         model_2.bgCor = RGBA_COLOR(0, 0x99, 0xcc, 1);
         
         MGSwipeButtonModel *model_3 = MGSwipeButtonModel.new;
         model_3.titleStr = @"L3";
-        model_3.IconIMG = KIMG(@"Menu");
+        model_3.IconIMG = JobsIMG(@"Menu");
         model_3.bgCor = RGBA_COLOR(0.59, 0.29, 0.08, 1);
         
         [_leftBtnMutArr addObject:model_1];
@@ -173,17 +173,17 @@
         
         MGSwipeButtonModel *model_1 = MGSwipeButtonModel.new;
         model_1.titleStr = @"R1";
-        model_1.IconIMG = KIMG(@"Class");
+        model_1.IconIMG = JobsIMG(@"Class");
         model_1.bgCor = JobsPurpleColor;
         
         MGSwipeButtonModel *model_2 = MGSwipeButtonModel.new;
         model_2.titleStr = @"R2";
-        model_2.IconIMG = KIMG(@"Drop");
+        model_2.IconIMG = JobsIMG(@"Drop");
         model_2.bgCor = JobsDarkTextColor;
         
         MGSwipeButtonModel *model_3 = MGSwipeButtonModel.new;
         model_3.titleStr = @"R3";
-        model_3.IconIMG = KIMG(@"Header");
+        model_3.IconIMG = JobsIMG(@"Header");
         model_3.bgCor = JobsCyanColor;
         
         [_rightBtnMutArr addObject:model_1];

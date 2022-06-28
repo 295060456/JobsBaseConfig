@@ -38,7 +38,7 @@ static dispatch_once_t static_showBackViewOnceToken;
 -(instancetype)init{
     if (self = [super init]) {
         self.backgroundColor = UIColor.clearColor;
-        self.backgroundImageView.image = KIMG(@"弹窗数据承接底图");
+        self.backgroundImageView.image = JobsIMG(@"弹窗数据承接底图");
     }return self;
 }
 
@@ -126,7 +126,7 @@ cellForRowAtIndexPath:(NSIndexPath *)indexPath{
         _tableView = UITableView.new;
         _tableView.backgroundColor = AppMainCor_02;
         _tableView.scrollEnabled = NO;
-        _tableView.backgroundView = [UIImageView.alloc initWithImage:KIMG(@"弹窗数据承接底图")];
+        _tableView.backgroundView = [UIImageView.alloc initWithImage:JobsIMG(@"弹窗数据承接底图")];
         _tableView.backgroundView.bounds = self.bounds;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         _tableView.showsVerticalScrollIndicator = NO;

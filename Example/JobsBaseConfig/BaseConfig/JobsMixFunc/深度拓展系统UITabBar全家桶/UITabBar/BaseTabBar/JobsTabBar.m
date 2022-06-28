@@ -37,7 +37,7 @@
         // 有设定背景图片值优先走背景图片设定，背景颜色自动忽略
         if (self.viewModel.bgImage) {
             //self.viewModel.bgImage;//用系统的backgroundImage属性失灵
-            self.backgroundImageView.image = isiPhoneX_series() ? KIMG(@"底部导航栏背景(刘海屏)") : KIMG(@"底部导航栏背景(非刘海屏)");
+            self.backgroundImageView.image = isiPhoneX_series() ? JobsIMG(@"底部导航栏背景(刘海屏)") : JobsIMG(@"底部导航栏背景(非刘海屏)");
             NSLog(@"");
             return;
         }

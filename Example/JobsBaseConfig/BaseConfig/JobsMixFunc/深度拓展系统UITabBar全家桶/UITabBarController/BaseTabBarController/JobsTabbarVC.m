@@ -408,7 +408,7 @@ shouldSelectViewController:(UIViewController *)viewController {
     if (!_viewModel) {
         _viewModel = UIViewModel.new;
         _viewModel.bgCor = JobsWhiteColor;
-        _viewModel.bgImage = isiPhoneX_series() ? KIMG(@"底部导航栏背景(刘海屏)") : KIMG(@"底部导航栏背景(非刘海屏)");
+        _viewModel.bgImage = isiPhoneX_series() ? JobsIMG(@"底部导航栏背景(刘海屏)") : JobsIMG(@"底部导航栏背景(非刘海屏)");
         _viewModel.isTranslucent = NO;
         _viewModel.offsetHeight = JobsWidth(5);
     }return _viewModel;
@@ -421,7 +421,7 @@ shouldSelectViewController:(UIViewController *)viewController {
 -(JobsTabBar *)myTabBar{
     if (!_myTabBar) {
         _myTabBar = JobsTabBar.new;
-        _myTabBar.backgroundImage = KIMG(@"底部导航栏背景(刘海屏)");
+        _myTabBar.backgroundImage = JobsIMG(@"底部导航栏背景(刘海屏)");
         _myTabBar.backgroundColor = UIColor.yellowColor;
         [_myTabBar richElementsInViewWithModel:self.viewModel];
         [self setValue:_myTabBar
@@ -453,21 +453,21 @@ shouldSelectViewController:(UIViewController *)viewController {
         
         {
             UIViewModel *viewModel = UIViewModel.new;
-            viewModel.image = KIMG(@"");
+            viewModel.image = JobsIMG(@"");
             viewModel.textModel.text = @"111";
             [_pullListAutoSizeViewMutArr addObject:viewModel];
         }
         
         {
             UIViewModel *viewModel = UIViewModel.new;
-            viewModel.image = KIMG(@"");
+            viewModel.image = JobsIMG(@"");
             viewModel.textModel.text = @"222";
             [_pullListAutoSizeViewMutArr addObject:viewModel];
         }
         
         {
             UIViewModel *viewModel = UIViewModel.new;
-            viewModel.image = KIMG(@"");
+            viewModel.image = JobsIMG(@"");
             viewModel.textModel.text = @"333";
             [_pullListAutoSizeViewMutArr addObject:viewModel];
         }

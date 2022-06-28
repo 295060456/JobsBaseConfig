@@ -53,7 +53,6 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
 }
 
 -(void)viewWillLayoutSubviews{
@@ -183,9 +182,9 @@ mainTableViewDidScroll:(UIScrollView *)scrollView{
         _ruleBtn.normalTitleColor = HEXCOLOR(0x3D4A58);
         _ruleBtn.normalTitle = Internationalization(@"VIP規則");
         _ruleBtn.titleFont = notoSansRegular(12);
-        BtnClickEvent(_ruleBtn, {
+        [_ruleBtn btnClickEventBlock:^(id data) {
             toast(Internationalization(@"VIP規則"));
-        });
+        }];
     }return _ruleBtn;
 }
 

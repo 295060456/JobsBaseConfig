@@ -27,7 +27,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        [self setImage:KBuddleIMG(@"bundle",@"Others",nil, @"加号.png")
+        [self setImage:JobsBuddleIMG(@"bundle",@"Others",nil, @"加号.png")
               forState:UIControlStateNormal];
         [self addLongPressGestureRecognizer];
         self.iconBtn.hidden = YES;
@@ -36,7 +36,7 @@
 
 - (instancetype)initWithCoder:(NSCoder *)coder{
     if (self = [super initWithCoder:coder]) {
-        [self setImage:KBuddleIMG(@"bundle",@"Others", nil, @"加号.png")
+        [self setImage:JobsBuddleIMG(@"bundle",@"Others", nil, @"加号.png")
               forState:UIControlStateNormal];
         [self addLongPressGestureRecognizer];
         self.iconBtn.hidden = YES;
@@ -45,7 +45,7 @@
 
 - (instancetype)init{
     if (self = [super init]) {
-        [self setImage:KBuddleIMG(@"bundle",@"Others",nil,@"加号.png")
+        [self setImage:JobsBuddleIMG(@"bundle",@"Others",nil,@"加号.png")
               forState:UIControlStateNormal];
         [self addLongPressGestureRecognizer];
         self.iconBtn.hidden = YES;
@@ -92,7 +92,7 @@
 }
 
 - (void)longClick {
-    if (![self.imageView.image isEqual:KBuddleIMG(nil,@"Others",nil,@"加号.png")]) {
+    if (![self.imageView.image isEqual:JobsBuddleIMG(nil,@"Others",nil,@"加号.png")]) {
         if (self.shaking) return;
         self.shaking = YES;
     }
@@ -111,7 +111,7 @@
 #pragma mark —— lazyLoad
 - (UIImageView *)iconBtn {
     if (!_iconBtn) {
-        _iconBtn = [[UIImageView alloc] initWithImage:KIMG(@"del_Photo")];
+        _iconBtn = [[UIImageView alloc] initWithImage:JobsIMG(@"del_Photo")];
         _iconBtn.userInteractionEnabled = YES;
         _iconBtn.ableRespose = YES;
         [_iconBtn addGestureRecognizer:self.iconBtnTap];

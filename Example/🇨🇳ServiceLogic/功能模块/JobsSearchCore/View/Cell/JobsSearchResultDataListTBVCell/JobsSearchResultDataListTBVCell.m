@@ -21,7 +21,7 @@
         cell = [JobsSearchResultDataListTBVCell initTableViewCellWithStyle:UITableViewCellStyleDefault];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
 //        cell.contentView.backgroundColor = RandomColor;
-        cell.imageView.image = KIMG(@"放大镜");
+        cell.imageView.image = JobsIMG(@"放大镜");
         cell.tapGR.enabled = YES;
     }return cell;
 }

@@ -43,7 +43,7 @@ static dispatch_once_t static_popupView02OnceToken;
 -(instancetype)init{
     if (self = [super init]) {
         self.backgroundColor = UIColor.clearColor;
-        self.backgroundImageView.image = KIMG(@"弹框样式_02背景图");
+        self.backgroundImageView.image = JobsIMG(@"弹框样式_02背景图");
     }return self;
 }
 
@@ -84,11 +84,11 @@ static dispatch_once_t static_popupView02OnceToken;
     if (!_noTipsBtn) {
         _noTipsBtn = UIButton.new;
         [_noTipsBtn handelAdjustsImageWhenHighlighted];
-        _noTipsBtn.normalImage = KIMG(@"按钮未选中");
-        _noTipsBtn.selectedImage = KIMG(@"按钮已选中");
+        _noTipsBtn.normalImage = JobsIMG(@"按钮未选中");
+        _noTipsBtn.selectedImage = JobsIMG(@"按钮已选中");
         _noTipsBtn.normalTitle = Internationalization(@"本次登入不再提示");
         _noTipsBtn.normalTitleColor = HEXCOLOR(0x757575);
-        _noTipsBtn.titleFont = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular];
+        _noTipsBtn.titleFont = UIFontWeightRegularSize(12);
         [self addSubview:_noTipsBtn];
         [_noTipsBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(cancelBtn.mas_top).offset(JobsWidth(-29));
@@ -98,11 +98,13 @@ static dispatch_once_t static_popupView02OnceToken;
         [_noTipsBtn makeBtnLabelByShowingType:UILabelShowingType_03];
         [_noTipsBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft
                                     imageTitleSpace:JobsWidth(5)];
-        BtnClickEvent(_noTipsBtn, {
+        @jobs_weakify(self)
+        [_noTipsBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
             NSLog(@"本次登入不再提示?");
             x.selected = !x.selected;
             if(self.objectBlock) self.objectBlock(x);
-        });
+        }];
     }return _noTipsBtn;
 }
 

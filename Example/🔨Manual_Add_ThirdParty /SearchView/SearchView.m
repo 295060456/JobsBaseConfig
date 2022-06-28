@@ -47,9 +47,9 @@ UIScrollViewDelegate
             }else if ([btnTitleMutArr[i] isKindOfClass:[NSString class]]){
                 [btn setTitle:btnTitleMutArr[i]
                      forState:UIControlStateNormal];
-//                [btn setImage:KIMG(@"TwoWayArrow_1")
+//                [btn setImage:JobsIMG(@"TwoWayArrow_1")
 //                     forState:UIControlStateNormal];
-//                [btn setImage:KIMG(@"TwoWayArrow_2")
+//                [btn setImage:JobsIMG(@"TwoWayArrow_2")
 //                     forState:UIControlStateSelected];
                 [btn setTitleColor:JobsBlackColor
                           forState:UIControlStateNormal];

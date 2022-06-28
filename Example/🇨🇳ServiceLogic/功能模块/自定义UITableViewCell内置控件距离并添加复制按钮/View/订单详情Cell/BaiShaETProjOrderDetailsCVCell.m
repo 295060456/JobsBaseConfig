@@ -92,10 +92,12 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
     [self.jobsCopyBtn makeBtnLabelByShowingType:UILabelShowingType_03];
     [self.jobsCopyBtn cornerCutToCircleWithCornerRadius:JobsWidth(18 / 2)];
-    BtnClickEvent(self.jobsCopyBtn, {
+    @jobs_weakify(self)
+    [self.jobsCopyBtn btnClickEventBlock:^(id data) {
+        @jobs_strongify(self)
         UIViewModel *viewModel = (UIViewModel *)self.viewModel.jobsDataMutArr[indexPath.row];
         [viewModel.subTextModel.text pasteboard];
-    })
+    }];
     cell.textLabel.textColor = HEXCOLOR(0x757575);
     cell.textLabel.font = notoSansRegular(12);
     cell.detailTextLabel.textColor = HEXCOLOR(0x3D4A58);

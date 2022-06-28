@@ -221,7 +221,7 @@ ratio:(CGFloat)ratio {
     if (!_filterBtn) {
         _filterBtn = UIButton.new;
         _filterBtn.normalTitle = Internationalization(@"篩選");
-        _filterBtn.normalImage = KIMG(@"筛选箭头（向下）");
+        _filterBtn.normalImage = JobsIMG(@"筛选箭头（向下）");
         _filterBtn.titleFont = fontName(@"NotoSans-Bold", 12);
         _filterBtn.normalTitleColor = HEXCOLOR(0x3D4A58);
         [self.view addSubview:_filterBtn];
@@ -231,8 +231,9 @@ ratio:(CGFloat)ratio {
         }];
         [_filterBtn makeBtnLabelByShowingType:UILabelShowingType_03];
         [_filterBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleRight imageTitleSpace:JobsWidth(6)];
-        
-        BtnClickEvent(_filterBtn, {
+        @jobs_weakify(self)
+        [_filterBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
             x.selected = !x.selected;
 //            [WHToast toastMsg:Internationalization(@"篩選")];
             [x changeAction:x.selected];
@@ -249,7 +250,7 @@ ratio:(CGFloat)ratio {
             }else{
                 [self.vc hidePopupView:self.popUpFiltrationView];
             }
-        });
+        }];
     }return _filterBtn;
 }
 
@@ -266,8 +267,9 @@ ratio:(CGFloat)ratio {
             make.top.bottom.equalTo(self.categoryView);
             make.left.equalTo(self.categoryView.mas_right);
         }];
-
-        BtnClickEvent(_customBtn, {
+        @jobs_weakify(self)
+        [_customBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
             x.selected = !x.selected;
 //            [WHToast toastMsg:Internationalization(@"自定义")];
             self.currentIndex = self.listContainerView.valueForKeyBlock(@"currentIndex");;
@@ -285,7 +287,7 @@ ratio:(CGFloat)ratio {
             }else{
                 [self.vc hidePopupView:self.popUpCustomView];
             }
-        });
+        }];
     }return _customBtn;
 }
 

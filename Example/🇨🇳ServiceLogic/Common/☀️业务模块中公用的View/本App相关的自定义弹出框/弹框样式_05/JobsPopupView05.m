@@ -40,7 +40,7 @@ static dispatch_once_t static_popupView05OnceToken;
 -(instancetype)init{
     if (self = [super init]) {
         self.backgroundColor = UIColor.clearColor;
-        self.backgroundImageView.image = KIMG(@"弹框样式_03背景图");
+        self.backgroundImageView.image = JobsIMG(@"弹框样式_03背景图");
     }return self;
 }
 
@@ -75,8 +75,8 @@ static dispatch_once_t static_popupView05OnceToken;
         make.height.mas_equalTo(JobsWidth(40));
     }];
     sureBtn.normalTitle = Internationalization(@"确定");
-    sureBtn.normalBackgroundImage = KIMG(@"弹窗按钮_我知道了");
-    sureBtn.selectedBackgroundImage = KIMG(@"弹窗按钮_我知道了");
+    sureBtn.normalBackgroundImage = JobsIMG(@"弹窗按钮_我知道了");
+    sureBtn.selectedBackgroundImage = JobsIMG(@"弹窗按钮_我知道了");
     sureBtn.normalTitleColor = UIColor.blackColor;
     sureBtn.titleFont = [UIFont systemFontOfSize:JobsWidth(18) weight:UIFontWeightRegular];
 }

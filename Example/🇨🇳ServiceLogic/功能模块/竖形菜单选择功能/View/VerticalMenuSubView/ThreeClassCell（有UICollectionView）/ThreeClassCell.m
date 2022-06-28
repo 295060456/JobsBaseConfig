@@ -101,8 +101,7 @@
                                                                            self.frame.size.height)
                                            collectionViewLayout:self.flowLayout];
         _collectionView.scrollEnabled = NO;
-        _collectionView.delegate = self;
-        _collectionView.dataSource = self;
+        [self dataLinkByCollectionView:_collectionView];
 
         _collectionView.backgroundColor = ThreeClassCellBgCor;
         _collectionView.layer.backgroundColor = ThreeClassCellBgCor.CGColor;

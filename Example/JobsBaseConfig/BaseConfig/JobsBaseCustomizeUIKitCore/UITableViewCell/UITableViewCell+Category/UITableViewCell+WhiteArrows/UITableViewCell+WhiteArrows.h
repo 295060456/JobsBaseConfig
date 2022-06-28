@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_END
 - (void)tableView:(UITableView *)tableView
   willDisplayCell:(UITableViewCell *)cell
 forRowAtIndexPath:(NSIndexPath *)indexPath {
-    cell.img = KIMG(@"删除");
+    cell.img = JobsIMG(@"删除");
     @jobs_weakify(self)
     [cell customAccessoryView:^(id data) {
         @jobs_strongify(self)

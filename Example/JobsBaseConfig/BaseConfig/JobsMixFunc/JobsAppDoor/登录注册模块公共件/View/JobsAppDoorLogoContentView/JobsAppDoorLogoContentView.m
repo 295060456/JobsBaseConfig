@@ -37,7 +37,7 @@ static dispatch_once_t JobsAppDoorLogoContentViewDispatchOnce;
 -(UIImageView *)mainImgV{
     if (!_mainImgV) {
         _mainImgV = UIImageView.new;
-        _mainImgV.image = KIMG(@"AppDoorLogo");
+        _mainImgV.image = JobsIMG(@"AppDoorLogo");
         [self addSubview:_mainImgV];
         [_mainImgV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self);

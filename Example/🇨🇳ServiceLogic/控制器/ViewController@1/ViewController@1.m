@@ -139,18 +139,18 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
 -(UIButton *)userHeadBtn{
     if (!_userHeadBtn) {
         _userHeadBtn = UIButton.new;
-        [_userHeadBtn normalImage:KIMG(@"首页_头像")];
-        [_userHeadBtn normalTitle:@""];
-        BtnClickEvent(_userHeadBtn, {
-
+        
+        _userHeadBtn.normalImage = JobsIMG(@"首页_头像");
+        _userHeadBtn.normalTitle = Internationalization(@"");
+        @jobs_weakify(self)
+        [_userHeadBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
             UIViewModel *viewModel = [self configViewModelWithTitle:@"用户信息展示(开发测试专用)" subTitle:nil];
             viewModel.cls = JobsShowObjInfoVC.class;
             viewModel.requestParams = self.readUserInfo;
-            
             [self forceComingToPushVC:viewModel.cls.new
                         requestParams:viewModel];// 测试专用
-            
-        })
+        }];
         _userHeadBtn.size = CGSizeMake(JobsWidth(32), JobsWidth(32));
         [_userHeadBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft
                                       imageTitleSpace:JobsWidth(1)];
@@ -163,8 +163,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         _tableView.backgroundColor = AppMainCor_02;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         _tableView.showsVerticalScrollIndicator = NO;
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
+        [self dataLinkByTableView:_tableView];
         _tableView.tableHeaderView = UIView.new;/// 这里接入的就是一个UIView的派生类
         _tableView.tableFooterView = self.tableFooterView;/// 这里接入的就是一个UIView的派生类
         _tableView.separatorColor = HEXCOLOR(0xEEEEEE);

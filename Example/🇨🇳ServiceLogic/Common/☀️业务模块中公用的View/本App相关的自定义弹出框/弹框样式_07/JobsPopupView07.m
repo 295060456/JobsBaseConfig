@@ -38,7 +38,7 @@ static dispatch_once_t static_popupView07OnceToken;
 -(instancetype)init{
     if (self = [super init]) {
         self.backgroundColor = UIColor.clearColor;
-        self.backgroundImageView.image = KIMG(@"弹框样式_03背景图");
+        self.backgroundImageView.image = JobsIMG(@"弹框样式_03背景图");
     }return self;
 }
 
@@ -70,7 +70,7 @@ static dispatch_once_t static_popupView07OnceToken;
         _titleLab.text = Internationalization(@"流水詳情");
         _titleLab.textAlignment = NSTextAlignmentCenter;
         _titleLab.textColor = HEXCOLOR(0x3D4A58);
-        _titleLab.font = [UIFont systemFontOfSize:JobsWidth(16) weight:UIFontWeightBold];
+        _titleLab.font = UIFontWeightBoldSize(16);
         [self addSubview:_titleLab];
         [_titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self).offset(JobsWidth(24));
@@ -98,7 +98,7 @@ static dispatch_once_t static_popupView07OnceToken;
         _subTitleLab = UILabel.new;
         _subTitleLab.text =
         Internationalization(@"1、完成流水後即可對中心錢包進行取款操作; \n2、每次充值獲得紅利,流水將單獨進行計算,不累計之前打出的額外流水;\n3、充值金額說明:計算最近一次申請取款到現在總累計充值金額;\n4、已獲紅利說明:計算最後一次申請取款到現在總累計獲得紅利金額");
-        _subTitleLab.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular];
+        _subTitleLab.font = UIFontWeightRegularSize(12);
         _subTitleLab.textColor = HEXCOLOR(0x757575);
         [self addSubview:_subTitleLab];
         [_subTitleLab mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -114,24 +114,26 @@ static dispatch_once_t static_popupView07OnceToken;
     if (!_sureBtn) {
         _sureBtn = UIButton.new;
         [_sureBtn handelAdjustsImageWhenHighlighted];
-        _sureBtn.normalBackgroundImage = KIMG(@"弹窗提交按钮");
-        _sureBtn.selectedBackgroundImage = KIMG(@"弹窗提交按钮");
+        _sureBtn.normalBackgroundImage = JobsIMG(@"弹窗提交按钮");
+        _sureBtn.selectedBackgroundImage = JobsIMG(@"弹窗提交按钮");
         _sureBtn.normalTitle = Internationalization(@"我知道了");
-        _sureBtn.normalTitleColor = UIColor.blackColor;
-        _sureBtn.titleFont = [UIFont systemFontOfSize:JobsWidth(18) weight:UIFontWeightRegular];
+        _sureBtn.normalTitleColor = JobsBlackColor;
+        _sureBtn.titleFont = UIFontWeightRegularSize(18);
         [self addSubview:_sureBtn];
         [_sureBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(self.mas_bottom).offset(JobsWidth(-26));
             make.centerX.equalTo(self);
             make.height.mas_equalTo(JobsWidth(40));
         }];
-        BtnClickEvent(_sureBtn, {
+        @jobs_weakify(self)
+        [_sureBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
             NSLog(@"确定");
             x.selected = !x.selected;
             [self tf_hide];
             [self.class destroySingleton];
             if(self.objectBlock) self.objectBlock(x);
-        });
+        }];
     }return _sureBtn;
 }
 

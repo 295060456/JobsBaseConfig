@@ -18,7 +18,7 @@
 @property(nonatomic,strong)JobsHotLabelWithSingleLine *hl;
 // Data
 //@property(nonatomic,strong)NSMutableArray <UIViewModel *>*hotLabelDataMutArr;
-//@property(nonatomic,strong)CasinoCustomerContactModel *customerContactModel;
+//@property(nonatomic,strong)BaiShaETProjCustomerContactModel *customerContactModel;
 
 @end
 
@@ -67,9 +67,8 @@
         _titleLab = UILabel.new;
         _titleLab.text = Internationalization(Title10);
         _titleLab.textColor = JobsWhiteColor;
-        _titleLab.font = [UIFont systemFontOfSize:JobsWidth(20)
-                                           weight:UIFontWeightRegular];
-        [_titleLab sizeToFit];
+        _titleLab.font = UIFontWeightRegularSize(20);
+        [_titleLab makeLabelByShowingType:UILabelShowingType_03];
         [self addSubview:_titleLab];
         _titleLab.centerX = (self.width - self.backToLoginBtn.width) / 2;
         _titleLab.top = JobsWidth(20);
@@ -81,22 +80,20 @@
         _backToLoginBtn = UIButton.new;
         _backToLoginBtn.titleLabel.numberOfLines = 0;
         _backToLoginBtn.backgroundColor = Cor1;
-        _backToLoginBtn.titleLabel.font = [UIFont systemFontOfSize:JobsWidth(13)
-                                                            weight:UIFontWeightMedium];
+        _backToLoginBtn.titleLabel.font = UIFontWeightMediumSize(13);
         _backToLoginBtn.alpha = 0.7f;
-        [_backToLoginBtn normalTitleColor:Cor3];
-        [_backToLoginBtn normalTitle:Title1];
-        [_backToLoginBtn normalImage:KIMG(@"用户名称")];
-        BtnClickEvent(_backToLoginBtn, {
+        _backToLoginBtn.normalTitleColor = Cor3;
+        _backToLoginBtn.normalTitle = Title1;
+        _backToLoginBtn.normalImage = JobsIMG(@"用户名称");
+        [_backToLoginBtn btnClickEventBlock:^(UIButton *x) {
             [self endEditing:YES];
             if (self.objectBlock) self.objectBlock(x);
-        });
+        }];
         [self addSubview:_backToLoginBtn];
         [_backToLoginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.right.bottom.equalTo(self);
             make.width.mas_equalTo(btnWidth);
         }];
-        
         [self layoutIfNeeded];
         [_backToLoginBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
                                          imageTitleSpace:JobsWidth(8)];
@@ -106,9 +103,9 @@
 -(UIButton *)contactCustomerServiceBtn{
     if (!_contactCustomerServiceBtn) {
         _contactCustomerServiceBtn = UIButton.new;
-        [_contactCustomerServiceBtn normalImage:KIMG(Internationalization(@"zaixiankefu_en"))];
-
-        BtnClickEvent(_contactCustomerServiceBtn, {
+        _contactCustomerServiceBtn.normalImage = JobsIMG(Internationalization(@"zaixiankefu_en"));
+        @jobs_weakify(self)
+        [_contactCustomerServiceBtn btnClickEventBlock:^(UIButton *x) {
             NSLog(@"返回登录");
             @jobs_strongify(self)
             if ([NSString isNullString:self.customerContactModel.onlineUrl.customerAccount]) {
@@ -118,8 +115,7 @@
             }
             [self endEditing:YES];
             if (self.objectBlock) self.objectBlock(x);
-        });
-
+        }];
         [self addSubview:_contactCustomerServiceBtn];
         [_contactCustomerServiceBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(JobsWidth(230), JobsWidth(50)));
@@ -137,9 +133,8 @@
         _subTitleLab.textAlignment = NSTextAlignmentCenter;
         _subTitleLab.numberOfLines = 0;
         _subTitleLab.textColor = JobsWhiteColor;
-        _subTitleLab.font = [UIFont systemFontOfSize:JobsWidth(12)
-                                              weight:UIFontWeightMedium];
-        [_subTitleLab sizeToFit];
+        _subTitleLab.font = UIFontWeightMediumSize(12);
+        [_subTitleLab makeLabelByShowingType:UILabelShowingType_03];
         [self addSubview:_subTitleLab];
         [_subTitleLab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(self.contactCustomerServiceBtn);
@@ -170,7 +165,7 @@
     在 @interface NSObject (AppTools)<AppToolsProtocol>里
     对下列属性进行统一管理
     @property(nonatomic,strong)NSMutableArray <UIViewModel *>*hotLabelDataMutArr;
-    @property(nonatomic,strong)CasinoCustomerContactModel *customerContactModel;
+    @property(nonatomic,strong)BaiShaETProjCustomerContactModel *customerContactModel;
  */
 //-(NSMutableArray<UIViewModel *> *)hotLabelDataMutArr{
 //    if (!_hotLabelDataMutArr) {
@@ -180,7 +175,7 @@
 //            UIViewModel *vm = UIViewModel.new;
 //
 //            vm.objBindingParams = element;
-//            vm.bgImageURLString = [NSObject.BaseUrl stringByAppendingString:element.appIconUrl];
+//            vm.bgImageURLString = [self.BaseUrl stringByAppendingString:element.appIconUrl];
 //            vm.text = @"";
 //            vm.size = CGSizeMake(JobsWidth(46), JobsWidth(46));
 //            vm.offsetXForEach = JobsWidth(46);

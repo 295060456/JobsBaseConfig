@@ -39,7 +39,7 @@ static dispatch_once_t static_popupView01OnceToken;
 -(instancetype)init{
     if (self = [super init]) {
         self.backgroundColor = UIColor.clearColor;
-        self.backgroundImageView.image = KIMG(@"弹框样式_01背景图");
+        self.backgroundImageView.image = JobsIMG(@"弹框样式_01背景图");
         [self cornerCutToCircleWithCornerRadius:JobsWidth(8)];
     }return self;
 }
@@ -79,24 +79,26 @@ static dispatch_once_t static_popupView01OnceToken;
     if (!_cancelBtn) {
         _cancelBtn = UIButton.new;
         [_cancelBtn handelAdjustsImageWhenHighlighted];
-        _cancelBtn.normalBackgroundImage = KIMG(@"弹窗取消按钮");
-        _cancelBtn.selectedBackgroundImage = KIMG(@"弹窗取消按钮");
+        _cancelBtn.normalBackgroundImage = JobsIMG(@"弹窗取消按钮");
+        _cancelBtn.selectedBackgroundImage = JobsIMG(@"弹窗取消按钮");
         _cancelBtn.normalTitle = Internationalization(@"取消");
         _cancelBtn.normalTitleColor = HEXCOLOR(0xB0B0B0);
-        _cancelBtn.titleFont = [UIFont systemFontOfSize:JobsWidth(18) weight:UIFontWeightRegular];
+        _cancelBtn.titleFont = UIFontWeightRegularSize(18);
         [self addSubview:_cancelBtn];
         [_cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(self.mas_bottom).offset(JobsWidth(-26));
             make.left.equalTo(self).offset(JobsWidth(24));
             make.size.mas_equalTo(CGSizeMake(JobsWidth(120), JobsWidth(40)));
         }];
-        BtnClickEvent(_cancelBtn, {
+        @jobs_weakify(self)
+        [_cancelBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
             NSLog(@"确定");
             x.selected = !x.selected;
             [self tf_hide];
             [self.class destroySingleton];
             if(self.objectBlock) self.objectBlock(x);
-        });
+        }];
     }return _cancelBtn;
 }
 
@@ -104,18 +106,20 @@ static dispatch_once_t static_popupView01OnceToken;
     if (!_sureBtn) {
         _sureBtn = UIButton.new;
         [_sureBtn handelAdjustsImageWhenHighlighted];
-        _sureBtn.normalBackgroundImage = KIMG(@"弹窗提交按钮");
-        _sureBtn.selectedBackgroundImage = KIMG(@"弹窗提交按钮");
+        _sureBtn.normalBackgroundImage = JobsIMG(@"弹窗提交按钮");
+        _sureBtn.selectedBackgroundImage = JobsIMG(@"弹窗提交按钮");
         _sureBtn.normalTitle = Internationalization(@"继续开启");
-        _sureBtn.normalTitleColor = UIColor.blackColor;
-        _sureBtn.titleFont = [UIFont systemFontOfSize:JobsWidth(18) weight:UIFontWeightRegular];
+        _sureBtn.normalTitleColor = JobsBlackColor;
+        _sureBtn.titleFont = UIFontWeightRegularSize(18);;
         [self addSubview:_sureBtn];
         [_sureBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(self.mas_bottom).offset(JobsWidth(-26));
             make.right.equalTo(self).offset(JobsWidth(-24));
             make.size.mas_equalTo(CGSizeMake(JobsWidth(120), JobsWidth(40)));
         }];
-        BtnClickEvent(_sureBtn, {
+        @jobs_weakify(self)
+        [_sureBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
             NSLog(@"确定");
             x.selected = !x.selected;
             [self tf_hide];
@@ -124,7 +128,7 @@ static dispatch_once_t static_popupView01OnceToken;
                 [self forceComingToPushVC:JobsSettingGestureVC.new requestParams:UIViewModel.new];
             }
             if(self.objectBlock) self.objectBlock(x);
-        });
+        }];
     }return _sureBtn;
 }
 
@@ -133,17 +137,15 @@ static dispatch_once_t static_popupView01OnceToken;
         _upDownLabModel = JobsUpDownLabModel.new;
         _upDownLabModel.upLabText = [NSString isNullString:self.viewModel.textModel.text] ? Internationalization(@"提示"): self.viewModel.textModel.text;
         _upDownLabModel.upLabTextAlignment = NSTextAlignmentLeft;
-        _upDownLabModel.upLabFont = [UIFont systemFontOfSize:JobsWidth(16)
-                                                      weight:UIFontWeightBold];
-        _upDownLabModel.upLabTextCor = UIColor.blackColor;
-        _upDownLabModel.upLabBgCor = UIColor.clearColor;
+        _upDownLabModel.upLabFont = UIFontWeightBoldSize(16);
+        _upDownLabModel.upLabTextCor = JobsBlackColor;
+        _upDownLabModel.upLabBgCor = JobsClearColor;
         
         _upDownLabModel.downLabText = [NSString isNullString:self.viewModel.subTextModel.text] ? Internationalization(@"開啟手勢密碼，系統將默認記住您的賬戶密碼\n進入免登陸狀態"): self.viewModel.textModel.text;
         _upDownLabModel.downLabTextAlignment = NSTextAlignmentLeft;
-        _upDownLabModel.downLabFont = [UIFont systemFontOfSize:JobsWidth(14)
-                                                        weight:UIFontWeightRegular];
+        _upDownLabModel.downLabFont = UIFontWeightRegularSize(14);
         _upDownLabModel.downLabTextCor = HEXCOLOR(0x757575);
-        _upDownLabModel.downLabBgCor = UIColor.clearColor;
+        _upDownLabModel.downLabBgCor = JobsClearColor;
         _upDownLabModel.isDownLabMultiLineShows = YES;
         
         _upDownLabModel.upLabVerticalAlign = JobsUpDownLabAlign_TopLeft;

@@ -18,7 +18,7 @@ static char *UIView_UIBackgroundConfig_backgroundConfig = "UIView_UIBackgroundCo
                                                                            UIView_UIBackgroundConfig_backgroundConfig);
     if (!BackgroundConfig) {
         BackgroundConfig = UIBackgroundConfiguration.listPlainHeaderFooterConfiguration;
-        BackgroundConfig.image = KIMG(@"设置_背景1");
+        BackgroundConfig.image = JobsIMG(@"设置_背景1");
         BackgroundConfig.backgroundInsets = NSDirectionalEdgeInsetsMake(JobsWidth(3),
                                                                         JobsWidth(15),
                                                                         JobsWidth(3),

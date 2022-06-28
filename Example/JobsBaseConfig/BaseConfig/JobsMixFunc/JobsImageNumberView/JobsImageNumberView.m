@@ -126,8 +126,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
                                                collectionViewLayout:self.layout];
         
         _collectionView.backgroundColor = JobsClearColor;
-        _collectionView.dataSource = self;
-        _collectionView.delegate = self;
+        [self dataLinkByCollectionView:_collectionView];
         _collectionView.showsVerticalScrollIndicator = NO;
 
         [_collectionView registerCollectionViewClass];

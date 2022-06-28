@@ -124,8 +124,8 @@ static dispatch_once_t static_msgEditBoardViewOnceToken;
 -(UIButton *)allChooseBtn{
     if (!_allChooseBtn) {
         _allChooseBtn = UIButton.new;
-        _allChooseBtn.normalImage = KIMG(@"按钮未选中");
-        _allChooseBtn.selectedImage = KIMG(@"按钮已选中");
+        _allChooseBtn.normalImage = JobsIMG(@"按钮未选中");
+        _allChooseBtn.selectedImage = JobsIMG(@"按钮已选中");
         _allChooseBtn.normalTitleColor = HEXCOLOR(0x3D4A58);
         _allChooseBtn.titleFont = notoSansBold(14);
         _allChooseBtn.normalTitle = Internationalization(@"全選");
@@ -137,10 +137,12 @@ static dispatch_once_t static_msgEditBoardViewOnceToken;
             make.top.equalTo(self).offset(JobsWidth(18));
         }];
         [_allChooseBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft imageTitleSpace:JobsWidth(12)];
-        BtnClickEvent(_allChooseBtn, {
+        @jobs_weakify(self)
+        [_allChooseBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
             x.selected = !x.selected;
             if (self.objectBlock) self.objectBlock(x);
-        });
+        }];
     }return _allChooseBtn;
 }
 
@@ -158,10 +160,12 @@ static dispatch_once_t static_msgEditBoardViewOnceToken;
             make.right.equalTo(self.deleteBtn.mas_left).offset(JobsWidth(-36));
             make.height.mas_equalTo(JobsWidth(14));
         }];
-        BtnClickEvent(_markToReadBtn, {
+        @jobs_weakify(self)
+        [_markToReadBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
             x.selected = !x.selected;
             if (self.objectBlock) self.objectBlock(x);
-        });
+        }];
     }return _markToReadBtn;
 }
 
@@ -179,10 +183,12 @@ static dispatch_once_t static_msgEditBoardViewOnceToken;
             make.height.mas_equalTo(JobsWidth(14));
         }];
         [_deleteBtn makeBtnLabelByShowingType:UILabelShowingType_03];
-        BtnClickEvent(_deleteBtn, {
+        @jobs_weakify(self)
+        [_deleteBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
             x.selected = !x.selected;
             if (self.objectBlock) self.objectBlock(x);
-        });
+        }];
     }return _deleteBtn;
 }
 

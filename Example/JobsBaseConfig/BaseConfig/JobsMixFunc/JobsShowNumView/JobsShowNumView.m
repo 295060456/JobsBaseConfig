@@ -37,7 +37,7 @@ static dispatch_once_t static_showNumViewOnceToken;
 -(instancetype)init{
     if (self = [super init]) {
         self.backgroundColor = UIColor.clearColor;
-//        self.backgroundImageView.image = KIMG(@"弹框样式_03背景图");
+//        self.backgroundImageView.image = JobsIMG(@"弹框样式_03背景图");
     }return self;
 }
 /// 初始化的时候最好传入一个size值将其子视图的大小固定死。因为只有当父视图有Size的情况下子视图才会展开，从而避免刷新约束时候的一系列麻烦事。
@@ -69,11 +69,15 @@ static dispatch_once_t static_showNumViewOnceToken;
     
     for (NSString *string in temp) {
         UIButton *btn = UIButton.new;
-        btn.normalBackgroundImage = KIMG(@"JobsShowNum");
+        btn.normalBackgroundImage = JobsIMG(@"JobsShowNum");
         btn.normalTitle = Internationalization(string);
-        btn.titleFont = [UIFont systemFontOfSize:JobsWidth(40) weight:UIFontWeightBold];
+        btn.titleFont = UIFontWeightBoldSize(40);
         btn.normalTitleColor = HEXCOLOR(0xAE8330);
-        BtnClickEvent(btn, NSLog(@"%@",btn.titleForNormalState));
+        @jobs_weakify(self)
+        [btn btnClickEventBlock:^(id data) {
+            @jobs_strongify(self)
+            NSLog(@"%@",btn.titleForNormalState)
+        }];
         [self addSubview:btn];
         [btn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(btnSize);

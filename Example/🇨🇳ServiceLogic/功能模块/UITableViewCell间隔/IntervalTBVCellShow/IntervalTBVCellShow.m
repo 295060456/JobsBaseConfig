@@ -166,7 +166,7 @@ heightForHeaderInSection:(NSInteger)section{
   willDisplayCell:(UITableViewCell *)cell
 forRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    cell.img = KIMG(@"向右的箭头（大）");
+    cell.img = JobsIMG(@"向右的箭头（大）");
     @jobs_weakify(self)
     [cell customAccessoryView:^(id data) {
         @jobs_strongify(self)
@@ -254,28 +254,28 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             {
                 UIViewModel *viewModel = UIViewModel.new;
                 viewModel.textModel.text = Internationalization(@"投注記錄");
-                viewModel.image = KIMG(@"投注记录");
+                viewModel.image = JobsIMG(@"投注记录");
                 [sectionMutArr addObject:viewModel];
             }
             
             {
                 UIViewModel *viewModel = UIViewModel.new;
                 viewModel.textModel.text = Internationalization(@"额度記錄");
-                viewModel.image = KIMG(@"額度記錄");
+                viewModel.image = JobsIMG(@"額度記錄");
                 [sectionMutArr addObject:viewModel];
             }
             
             {
                 UIViewModel *viewModel = UIViewModel.new;
                 viewModel.textModel.text = Internationalization(@"存取款記錄");
-                viewModel.image = KIMG(@"存取款记录");
+                viewModel.image = JobsIMG(@"存取款记录");
                 [sectionMutArr addObject:viewModel];
             }
             
             {
                 UIViewModel *viewModel = UIViewModel.new;
                 viewModel.textModel.text = Internationalization(@"收款账户管理");
-                viewModel.image = KIMG(@"收款账户管理");
+                viewModel.image = JobsIMG(@"收款账户管理");
                 [sectionMutArr addObject:viewModel];
             }
             
@@ -288,14 +288,14 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             {
                 UIViewModel *viewModel = UIViewModel.new;
                 viewModel.textModel.text = Internationalization(@"帮助中心");
-                viewModel.image = KIMG(@"帮助中心");
+                viewModel.image = JobsIMG(@"帮助中心");
                 [sectionMutArr addObject:viewModel];
             }
             
             {
                 UIViewModel *viewModel = UIViewModel.new;
                 viewModel.textModel.text = Internationalization(@"加入我们");
-                viewModel.image = KIMG(@"加入我们");
+                viewModel.image = JobsIMG(@"加入我们");
                 [sectionMutArr addObject:viewModel];
             }
             

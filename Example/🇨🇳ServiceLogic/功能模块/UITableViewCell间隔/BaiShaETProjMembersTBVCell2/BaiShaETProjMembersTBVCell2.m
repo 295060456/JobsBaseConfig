@@ -81,7 +81,7 @@ UITableViewCellProtocol_synthesize
         _titleLab = UILabel.new;
         _titleLab.text = Internationalization(@"我的钱包");
         _titleLab.textColor = HEXCOLOR(0x3D4A58);
-        _titleLab.font = [UIFont systemFontOfSize:JobsWidth(16) weight:UIFontWeightRegular];
+        _titleLab.font = UIFontWeightRegularSize(16);
         [self.contentView addSubview:_titleLab];
         [_titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.contentView).offset(JobsWidth(12));
@@ -94,18 +94,19 @@ UITableViewCellProtocol_synthesize
 -(UIButton *)eyeBtn{
     if (!_eyeBtn) {
         _eyeBtn = UIButton.new;
-        _eyeBtn.normalBackgroundImage = KIMG(@"闭眼");
-        _eyeBtn.selectedBackgroundImage = KIMG(@"睁眼");
+        _eyeBtn.normalBackgroundImage = JobsIMG(@"闭眼");
+        _eyeBtn.selectedBackgroundImage = JobsIMG(@"睁眼");
         [self.contentView addSubview:_eyeBtn];
         [_eyeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(JobsWidth(16), JobsWidth(12)));
             make.centerY.equalTo(self.titleLab);
             make.left.equalTo(self.titleLab.mas_right).offset(JobsWidth(16) + self.offsetXForEach);
         }];
-        BtnClickEvent(_eyeBtn, {
-            [WHToast toastMsg:Internationalization(@"开眼")];
+        
+        [_eyeBtn btnClickEventBlock:^(UIButton *x) {
+//            [WHToast toastMsg:Internationalization(@"开眼")];
             x.selected = !x.selected;
-        });
+        }];
     }return _eyeBtn;
 }
 
@@ -113,8 +114,8 @@ UITableViewCellProtocol_synthesize
     if (!_entryWalletBtn) {
         _entryWalletBtn = UIButton.new;
         _entryWalletBtn.normalTitle = Internationalization(@"进入钱包");
-        _entryWalletBtn.normalImage = KIMG(@"向右的箭头（大）");
-        _entryWalletBtn.titleFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
+        _entryWalletBtn.normalImage = JobsIMG(@"向右的箭头（大）");
+        _entryWalletBtn.titleFont = UIFontWeightRegularSize(14);
         _entryWalletBtn.normalTitleColor = HEXCOLOR(0x757575);
         [_entryWalletBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft
                                          imageTitleSpace:JobsWidth(16)];
@@ -129,9 +130,9 @@ UITableViewCellProtocol_synthesize
         [_entryWalletBtn layerBorderColour:HEXCOLOR(0xFFFFFF) andBorderWidth:JobsWidth(1)];
         [_entryWalletBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleRight imageTitleSpace:JobsWidth(9)];
         
-        BtnClickEvent(_entryWalletBtn, {
+        [_entryWalletBtn btnClickEventBlock:^(id data) {
             toast(Internationalization(@"进入钱包"));
-        });
+        }];
     }return _entryWalletBtn;
 }
 
@@ -176,9 +177,9 @@ UITableViewCellProtocol_synthesize
     if (!_取) {
         _取 = UIButton.new;
         _取.normalTitle = Internationalization(@"取款");
-        _取.normalImage = KIMG(@"首页_取款按钮");
+        _取.normalImage = JobsIMG(@"首页_取款按钮");
         _取.normalTitleColor = HEXCOLOR(0xAE8330);
-        _取.titleFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
+        _取.titleFont = UIFontWeightRegularSize(14);
         [self.contentView addSubview:_取];
         [_取 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(btnSize);
@@ -189,10 +190,10 @@ UITableViewCellProtocol_synthesize
         [_取 cornerCutToCircleWithCornerRadius:JobsWidth(8)];
         [_取 layerBorderColour:HEXCOLOR(0xFFFFFF) andBorderWidth:JobsWidth(1)];
         [_取 layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft imageTitleSpace:JobsWidth(9)];
-        BtnClickEvent(_取, {
+        [_取 btnClickEventBlock:^(UIButton *x) {
             [WHToast toastMsg:Internationalization(@"取")];
             x.selected = !x.selected;
-        });
+        }];
     }return _取;
 }
 
@@ -200,9 +201,9 @@ UITableViewCellProtocol_synthesize
     if (!_存) {
         _存 = UIButton.new;
         _存.normalTitle = Internationalization(@"充值");
-        _存.normalImage = KIMG(@"首页_充值按钮");
+        _存.normalImage = JobsIMG(@"首页_充值按钮");
         _存.normalTitleColor = HEXCOLOR(0xAE8330);
-        _存.titleFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
+        _存.titleFont = UIFontWeightRegularSize(14);
         [self.contentView addSubview:_存];
         [_存 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(btnSize);
@@ -213,10 +214,10 @@ UITableViewCellProtocol_synthesize
         [_存 cornerCutToCircleWithCornerRadius:JobsWidth(8)];
         [_存 layerBorderColour:HEXCOLOR(0xFFFFFF) andBorderWidth:JobsWidth(1)];
         [_存 layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft imageTitleSpace:JobsWidth(9)];
-        BtnClickEvent(_存, {
-            [WHToast toastMsg:Internationalization(@"存")];
+        [_存 btnClickEventBlock:^(UIButton *x) {
+//            [WHToast toastMsg:Internationalization(@"存")];
             x.selected = !x.selected;
-        });
+        }];
     }return _存;
 }
 
@@ -225,8 +226,8 @@ UITableViewCellProtocol_synthesize
         _转 = UIButton.new;
         _转.normalTitle = Internationalization(@"转账");
         _转.normalTitleColor = HEXCOLOR(0xAE8330);
-        _转.titleFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
-        _转.normalImage = KIMG(@"个人中心_转账按钮");
+        _转.titleFont = UIFontWeightRegularSize(14);
+        _转.normalImage = JobsIMG(@"个人中心_转账按钮");
         [self.contentView addSubview:_转];
         [_转 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(btnSize);
@@ -237,10 +238,11 @@ UITableViewCellProtocol_synthesize
         [_转 cornerCutToCircleWithCornerRadius:JobsWidth(8)];
         [_转 layerBorderColour:HEXCOLOR(0xFFFFFF) andBorderWidth:JobsWidth(1)];
         [_转 layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft imageTitleSpace:JobsWidth(9)];
-        BtnClickEvent(_转, {
-            [WHToast toastMsg:Internationalization(@"转")];
+        
+        [_转 btnClickEventBlock:^(UIButton *x) {
+//            [WHToast toastMsg:Internationalization(@"转")];
             x.selected = !x.selected;
-        });
+        }];
     }return _转;
 }
 
@@ -249,13 +251,13 @@ UITableViewCellProtocol_synthesize
         _balanceValueData = JobsUpDownLabModel.new;
         _balanceValueData.upLabText = Internationalization(@"總餘額");
         _balanceValueData.upLabTextAlignment = NSTextAlignmentCenter;
-        _balanceValueData.upLabFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
+        _balanceValueData.upLabFont = UIFontWeightRegularSize(14);
         _balanceValueData.upLabTextCor = HEXCOLOR(0x757575);
         _balanceValueData.upLabBgCor = UIColor.clearColor;
 
         _balanceValueData.downLabText = Internationalization(@"9999999999.00");
         _balanceValueData.downLabTextAlignment = NSTextAlignmentCenter;
-        _balanceValueData.downLabFont = [UIFont systemFontOfSize:JobsWidth(18) weight:UIFontWeightRegular];
+        _balanceValueData.downLabFont = UIFontWeightRegularSize(14);
         _balanceValueData.downLabTextCor = HEXCOLOR(0x3D4A58);
         _balanceValueData.downLabBgCor = UIColor.clearColor;
 
@@ -273,13 +275,13 @@ UITableViewCellProtocol_synthesize
         _walletValueData = JobsUpDownLabModel.new;
         _walletValueData.upLabText = Internationalization(@"中心錢包");
         _walletValueData.upLabTextAlignment = NSTextAlignmentCenter;
-        _walletValueData.upLabFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
+        _walletValueData.upLabFont = UIFontWeightRegularSize(14);
         _walletValueData.upLabTextCor = HEXCOLOR(0x757575);
         _walletValueData.upLabBgCor = UIColor.clearColor;
 
         _walletValueData.downLabText = Internationalization(@"9999999999.00");
         _walletValueData.downLabTextAlignment = NSTextAlignmentCenter;
-        _walletValueData.downLabFont = [UIFont systemFontOfSize:JobsWidth(18) weight:UIFontWeightRegular];
+        _walletValueData.downLabFont = UIFontWeightRegularSize(18);
         _walletValueData.downLabTextCor = HEXCOLOR(0x3D4A58);
         _walletValueData.downLabBgCor = UIColor.clearColor;
 

@@ -65,7 +65,7 @@ static dispatch_once_t static_collectionHeaderFooterViewOnceToken;
 -(UIImageView *)imageView{
     if (!_imageView) {
         _imageView = UIImageView.new;
-        _imageView.image = KBuddleIMG(@"bundle",
+        _imageView.image = JobsBuddleIMG(@"bundle",
                                       @"Others",
                                       nil,
                                       @"个人中心背景图");

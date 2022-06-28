@@ -61,7 +61,7 @@
         }else{
             imageName = [NSString stringWithFormat:@"启动页_%ld",i];
         }
-        [imageView sd_setImageWithURL:[NSURL URLWithString:self.dataMutArr[i]] placeholderImage:KIMG(imageName)];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:self.dataMutArr[i]] placeholderImage:JobsIMG(imageName)];
         [self.scrollView addSubview:imageView];
     }
 }

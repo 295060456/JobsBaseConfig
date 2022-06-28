@@ -10,10 +10,9 @@
 #import <UIKit/UIKit.h>
 
 #import "JobsString.h"
-
 /// 直接拖图片在项目文件夹，没用Bundle进行管理，也没有用Assets.xcassets
 /// @param imgName 文件可以不强制要求带后缀名，系统会自动识别png文件
-static inline UIImage *__nullable KIMG(NSString *__nonnull imgName){
+static inline UIImage *__nullable JobsIMG(NSString *__nonnull imgName){
     return [UIImage imageNamed:imgName];
 }
 /// 根据参数输出系统需要的文件路径
@@ -21,10 +20,10 @@ static inline UIImage *__nullable KIMG(NSString *__nonnull imgName){
 /// @param pathForResource 自定义 Bundle 的名字（不能带.bundle后缀）
 /// @param bundle_folderName 如果在此自定义Bundle下还存在文件夹，不管几级都在此写，属于中间路径，函数内部是进行字符串拼接；如果不存在可以传nil 或者@""
 /// @param ofType 文件类型（后缀名）
-static inline NSString *__nullable getPathForResource(NSString *__nullable blueFolderName,
-                                                      NSString *__nullable pathForResource,
-                                                      NSString *__nullable bundle_folderName,
-                                                      NSString *__nullable ofType){
+static inline NSString *__nullable JobsPathForResource(NSString *__nullable blueFolderName,
+                                                       NSString *__nullable pathForResource,
+                                                       NSString *__nullable bundle_folderName,
+                                                       NSString *__nullable ofType){
     NSString *filePath = nil;
     if ([NSString isNullString:blueFolderName]) {// 最外层是蓝色文件夹
         filePath = [NSBundle.mainBundle pathForResource:pathForResource
@@ -50,14 +49,14 @@ static inline NSString *__nullable getPathForResource(NSString *__nullable blueF
 /// @param pathForResource 自定义 Bundle 的名字（不能带.bundle后缀）
 /// @param bundle_folderName 如果在此自定义Bundle下还存在文件夹，不管几级都在此写，属于中间路径，函数内部是进行字符串拼接；如果不存在可以传nil 或者@""
 /// @param fileFullNameWithSuffix 目标图片的名字。如果不带后缀名，则默认@".png" 后缀；如果是其他格式资源请自带后缀名
-static inline NSString *__nullable pathForBuddleIMG(NSString *__nullable blueFolderName,
-                                                    NSString *__nullable pathForResource,
-                                                    NSString *__nullable bundle_folderName,
-                                                    NSString *__nonnull fileFullNameWithSuffix){
-    NSString *filePath = getPathForResource(blueFolderName,
-                                            pathForResource,
-                                            bundle_folderName,
-                                            @"bundle");
+static inline NSString *__nullable JobsPathForBuddleIMG(NSString *__nullable blueFolderName,
+                                                        NSString *__nullable pathForResource,
+                                                        NSString *__nullable bundle_folderName,
+                                                        NSString *__nonnull fileFullNameWithSuffix){
+    NSString *filePath = JobsPathForResource(blueFolderName,
+                                             pathForResource,
+                                             bundle_folderName,
+                                             @"bundle");
     //容错处理
     if (![fileFullNameWithSuffix containsString:@"."]) {//如果是其他格式资源请自带后缀名
         fileFullNameWithSuffix = [fileFullNameWithSuffix stringByAppendingString:@".png"];
@@ -71,12 +70,12 @@ static inline NSString *__nullable pathForBuddleIMG(NSString *__nullable blueFol
 /// @param pathForResource 自定义 Bundle 的名字（不能带.bundle后缀）
 /// @param bundle_folderName 如果在此自定义Bundle下还存在文件夹，不管几级都在此写，属于中间路径，函数内部是进行字符串拼接；如果不存在可以传nil 或者@""
 /// @param fileFullNameWithSuffix 目标图片的名字。如果不带后缀名，则默认@".png" 后缀；如果是其他格式资源请自带后缀名
-static inline UIImage *__nullable KBuddleIMG(NSString *__nullable blueFolderName,
-                                             NSString *__nullable pathForResource,
-                                             NSString *__nullable bundle_folderName,
-                                             NSString *__nonnull fileFullNameWithSuffix){
+static inline UIImage *__nullable JobsBuddleIMG(NSString *__nullable blueFolderName,
+                                                NSString *__nullable pathForResource,
+                                                NSString *__nullable bundle_folderName,
+                                                NSString *__nonnull fileFullNameWithSuffix){
     
-    NSString *filePath = pathForBuddleIMG(blueFolderName,
+    NSString *filePath = JobsPathForBuddleIMG(blueFolderName,
                                           pathForResource,
                                           bundle_folderName,
                                           fileFullNameWithSuffix);
@@ -88,14 +87,14 @@ static inline UIImage *__nullable KBuddleIMG(NSString *__nullable blueFolderName
 /// @param pathForResource 自定义 Bundle 的名字（不能带.bundle后缀）
 /// @param bundle_folderName 如果在此自定义Bundle下还存在文件夹，不管几级都在此写，属于中间路径，函数内部是进行字符串拼接；如果不存在可以传nil 或者@""
 /// @param fileFullNameWithSuffix 目标图片的名字。如果不带后缀名，则默认@".png" 后缀；如果是其他格式资源请自带后缀名
-static inline NSData *__nullable KDataByBuddleIMG(NSString *__nullable blueFolderName,
-                                                  NSString *__nonnull pathForResource,
-                                                  NSString *__nullable bundle_folderName,
-                                                  NSString *__nonnull fileFullNameWithSuffix){
-    NSString *filePath = pathForBuddleIMG(blueFolderName,
-                                          pathForResource,
-                                          bundle_folderName,
-                                          fileFullNameWithSuffix);
+static inline NSData *__nullable JobsDataByBuddleIMG(NSString *__nullable blueFolderName,
+                                                     NSString *__nonnull pathForResource,
+                                                     NSString *__nullable bundle_folderName,
+                                                     NSString *__nonnull fileFullNameWithSuffix){
+    NSString *filePath = JobsPathForBuddleIMG(blueFolderName,
+                                              pathForResource,
+                                              bundle_folderName,
+                                              fileFullNameWithSuffix);
     NSData *imgData = [NSData dataWithContentsOfFile:filePath];
     return imgData;
 }
@@ -104,14 +103,14 @@ static inline NSData *__nullable KDataByBuddleIMG(NSString *__nullable blueFolde
 /// @param pathForResource 自定义 Bundle 的名字（不能带.bundle后缀）
 /// @param bundle_folderName 如果在此自定义Bundle下还存在文件夹，不管几级都在此写，属于中间路径，函数内部是进行字符串拼接；如果不存在可以传nil 或者@""
 /// @param fileFullNameWithSuffix 目标图片的名字。如果不带后缀名，则默认@".png" 后缀；如果是其他格式资源请自带后缀名
-static inline UIImage *__nullable KIMGByDataFromBuddleIMG(NSString *__nullable blueFolderName,
-                                                          NSString *__nonnull pathForResource,
-                                                          NSString *__nullable bundle_folderName,
-                                                          NSString *__nonnull fileFullNameWithSuffix){
-    UIImage *image = [UIImage imageWithData:KDataByBuddleIMG(blueFolderName,
-                                                             pathForResource,
-                                                             bundle_folderName,
-                                                             fileFullNameWithSuffix)];
+static inline UIImage *__nullable JobsIMGByDataFromBuddleIMG(NSString *__nullable blueFolderName,
+                                                             NSString *__nonnull pathForResource,
+                                                             NSString *__nullable bundle_folderName,
+                                                             NSString *__nonnull fileFullNameWithSuffix){
+    UIImage *image = [UIImage imageWithData:JobsDataByBuddleIMG(blueFolderName,
+                                                                pathForResource,
+                                                                bundle_folderName,
+                                                                fileFullNameWithSuffix)];
     return image;
 }
 

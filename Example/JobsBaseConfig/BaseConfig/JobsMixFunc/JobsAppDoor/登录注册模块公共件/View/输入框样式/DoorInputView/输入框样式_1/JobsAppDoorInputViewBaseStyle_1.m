@@ -147,12 +147,13 @@
 -(UIButton *)countDownBtn{
     if (!_countDownBtn) {
         _countDownBtn = [UIButton.alloc initWithConfig:self.btnTimerConfigModel];
-        
-        BtnClickEvent(_countDownBtn, {
+        @jobs_weakify(self)
+        [_countDownBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
             [x startTimer];//选择时机、触发启动
 //            NSLog(@"SSSSS = 获取验证码");
             if (self.objectBlock) self.objectBlock(x);
-        })
+        }];
         
         [_countDownBtn actionObjectBlock:^(id data) {
 //            @jobs_strongify(self)
@@ -176,20 +177,20 @@
 //-(NSMutableArray<RichTextConfig *> *)richLabelDataStringsMutArr{
 //    if (!_richLabelDataStringsMutArr) {
 //        _richLabelDataStringsMutArr = NSMutableArray.array;
-//        
+//
 //        RichTextConfig *config_01 = RichTextConfig.new;
 //        config_01.font = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightMedium];
 //        config_01.cor = JobsBlueColor;
 //        config_01.targetString = self.titleStr_1;
-//        
+//
 //        RichTextConfig *config_02 = RichTextConfig.new;
 //        config_02.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightMedium];
 //        config_02.cor = JobsRedColor;
 //        config_02.targetString = self.titleStr_2;
-//        
+//
 //        [_richLabelDataStringsMutArr addObject:config_01];
 //        [_richLabelDataStringsMutArr addObject:config_02];
-//        
+//
 //    }return _richLabelDataStringsMutArr;
 //}
 

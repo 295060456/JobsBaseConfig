@@ -100,7 +100,7 @@ static const CGFloat OffsetBetweenStateLabelAndAnimationView = 5;//StateLabel �
 #pragma mark —— lazyLoad
 - (LOTAnimationView *)animationView{
     if (!_animationView) {
-        NSString *filePaths = pathForBuddleIMG(nil,
+        NSString *filePaths = JobsPathForBuddleIMG(nil,
                                                @"JsonRes",
                                                nil,
                                                @"下拉刷新.json");

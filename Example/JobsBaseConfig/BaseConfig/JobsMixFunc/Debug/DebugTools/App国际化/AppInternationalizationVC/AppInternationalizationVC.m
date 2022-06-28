@@ -178,13 +178,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
 -(UITableView *)tableView{
     if (!_tableView) {
         _tableView = UITableView.new;
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
+        [self dataLinkByTableView:_tableView];
         _tableView.backgroundColor = AppMainCor_02;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         _tableView.showsVerticalScrollIndicator = NO;
-        _tableView.tableHeaderView = UIView.new;/// 这里接入的就是一个UIView的派生类/// 这里接入的就是一个UIView的派生类
-        _tableView.tableFooterView = UIView.new;/// 这里接入的就是一个UIView的派生类/// 这里接入的就是一个UIView的派生类
+        _tableView.tableHeaderView = UIView.new;/// 这里接入的就是一个UIView的派生类
+        _tableView.tableFooterView = UIView.new;/// 这里接入的就是一个UIView的派生类
         _tableView.separatorColor = HEXCOLOR(0xEEEEEE);
         {
             MJRefreshConfigModel *refreshConfigHeader = MJRefreshConfigModel.new;

@@ -36,7 +36,7 @@ static CasinoCustomerServiceView *static_customerServiceView = nil;
 
 -(instancetype)init{
     if (self = [super init]) {
-        self.backgroundImageView.image = KIMG(@"客服_背景图");
+        self.backgroundImageView.image = JobsIMG(@"客服_背景图");
         [self customerContact];
     }return self;
 }
@@ -81,8 +81,7 @@ static CasinoCustomerServiceView *static_customerServiceView = nil;
         _titleLab = UILabel.new;
         _titleLab.text = Internationalization(Title10);
         _titleLab.textColor = HEXCOLOR(0x502600);
-        _titleLab.font = [UIFont systemFontOfSize:JobsWidth(20)
-                                           weight:UIFontWeightRegular];
+        _titleLab.font = UIFontWeightRegularSize(20);
         [_titleLab sizeToFit];
         [self.backgroundImageView addSubview:_titleLab];
         [_titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -95,10 +94,9 @@ static CasinoCustomerServiceView *static_customerServiceView = nil;
 -(UIButton *)contactCustomerServiceBtn{
     if (!_contactCustomerServiceBtn) {
         _contactCustomerServiceBtn = UIButton.new;
-        [_contactCustomerServiceBtn setImage:KIMG(Internationalization(@"zaixiankefu_en"))
-                                    forState:UIControlStateNormal];
+        _contactCustomerServiceBtn.normalImage = JobsIMG(Internationalization(@"zaixiankefu_en"));
         @jobs_weakify(self)
-        [[_contactCustomerServiceBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
+        [_contactCustomerServiceBtn btnClickEventBlock:^(UIButton *x) {
             NSLog(@"返回登录");
             @jobs_strongify(self)
             if ([NSString isNullString:self.customerContactModel.onlineUrl.customerAccount]) {
@@ -115,14 +113,13 @@ static CasinoCustomerServiceView *static_customerServiceView = nil;
             make.top.equalTo(self.titleLab.mas_bottom).offset(JobsWidth(12));
             make.centerX.equalTo(self.titleLab);
         }];
-
     }return _contactCustomerServiceBtn;
 }
 
 -(UIButton *)closeBtn{
     if (!_closeBtn) {
         _closeBtn = UIButton.new;
-        [_closeBtn normalBackgroundImage:KIMG(@"客服_关闭按钮")];
+        _closeBtn.normalBackgroundImage = JobsIMG(@"客服_关闭按钮");
         BtnClickEvent(_closeBtn, if(self.objectBlock) self.objectBlock(x););
         [self.backgroundImageView addSubview:_closeBtn];
         [_closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -140,9 +137,8 @@ static CasinoCustomerServiceView *static_customerServiceView = nil;
         _subTitleLab.textAlignment = NSTextAlignmentCenter;
         _subTitleLab.numberOfLines = 0;
         _subTitleLab.textColor = HEXCOLOR(0x502600);
-        _subTitleLab.font = [UIFont systemFontOfSize:JobsWidth(12)
-                                              weight:UIFontWeightMedium];
-        [_subTitleLab sizeToFit];
+        _subTitleLab.font = UIFontWeightMediumSize(12);
+        [_subTitleLab makeLabelByShowingType:UILabelShowingType_03];
         [self addSubview:_subTitleLab];
         [_subTitleLab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(self.contactCustomerServiceBtn);
@@ -172,7 +168,7 @@ static CasinoCustomerServiceView *static_customerServiceView = nil;
 -(UIImageView *)leftIMGV{
     if (!_leftIMGV) {
         _leftIMGV = UIImageView.new;
-        _leftIMGV.image = KIMG(@"客服_左线");
+        _leftIMGV.image = JobsIMG(@"客服_左线");
         [self addSubview:_leftIMGV];
         [_leftIMGV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(JobsWidth(51.6), JobsWidth(1)));
@@ -185,7 +181,7 @@ static CasinoCustomerServiceView *static_customerServiceView = nil;
 -(UIImageView *)rightIMGV{
     if (!_rightIMGV) {
         _rightIMGV = UIImageView.new;
-        _rightIMGV.image = KIMG(@"客服_右线");
+        _rightIMGV.image = JobsIMG(@"客服_右线");
         [self addSubview:_rightIMGV];
         [_rightIMGV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(JobsWidth(51.6), JobsWidth(1)));

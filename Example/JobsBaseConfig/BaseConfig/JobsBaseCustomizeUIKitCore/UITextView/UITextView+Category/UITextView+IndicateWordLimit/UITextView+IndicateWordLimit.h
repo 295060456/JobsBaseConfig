@@ -92,10 +92,10 @@ NS_ASSUME_NONNULL_END
      NSLog(@"SSSresString = %@",resString);
      self.textView.currentWordNum = resString.length;//关键代码
      if ([NSString isNullString:resString]) {
-         [self.submitBtn setBackgroundImage:KIMG(@"填写邀请码——不可提交") forState:UIControlStateNormal];
+         [self.submitBtn setBackgroundImage:JobsIMG(@"填写邀请码——不可提交") forState:UIControlStateNormal];
          self.submitBtn.userInteractionEnabled = NO;
      }else{
-         [self.submitBtn setBackgroundImage:KIMG(@"填写邀请码——可提交") forState:UIControlStateNormal];
+         [self.submitBtn setBackgroundImage:JobsIMG(@"填写邀请码——可提交") forState:UIControlStateNormal];
          self.submitBtn.userInteractionEnabled = YES;
      }return YES;
  }

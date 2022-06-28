@@ -103,14 +103,14 @@
 -(UIButton *)shareBtn{
     if (!_shareBtn) {
         _shareBtn = UIButton.new;
-        _shareBtn.mj_w = 23;
-        _shareBtn.mj_h = 23;
-        [_shareBtn normalImage:KBuddleIMG(@"⚽️PicResource", @"Others", nil, @"PLUS")];
-        [_shareBtn normalTitleColor:UIColor.whiteColor];
+        _shareBtn.width = JobsWidth(23);
+        _shareBtn.height = JobsWidth(23);
+        _shareBtn.normalImage = JobsBuddleIMG(@"⚽️PicResource", @"Others", nil, @"PLUS");
+        _shareBtn.normalTitleColor = JobsWhiteColor;
         [_shareBtn cornerCutToCircleWithCornerRadius:23 / 2];
-        BtnClickEvent(_shareBtn, {
-            [WHToast toastMsg:@"此功能尚在开发中..."];
-        });
+        [_shareBtn btnClickEventBlock:^(id data) {
+            toast(Internationalization(@"此功能尚在开发中..."));
+        }];
     }return _shareBtn;
 }
 

@@ -294,12 +294,12 @@ didScrollSelectedItemAtIndex:(NSInteger)index {
         _attentionBtn.adjustsImageWhenHighlighted = NO;
         _attentionBtn.titleLabel.font = [UIFont systemFontOfSize:JobsWidth(10)
                                                           weight:UIFontWeightMedium];
-        [_attentionBtn setImage:KBuddleIMG(@"bundle",
+        [_attentionBtn setImage:JobsBuddleIMG(@"bundle",
                                            @"Others",
                                            @"关注",
                                            @"+关注")
                        forState:UIControlStateNormal];
-        [_attentionBtn setImage:KBuddleIMG(@"bundle",
+        [_attentionBtn setImage:JobsBuddleIMG(@"bundle",
                                            @"Others",
                                            @"关注",
                                            @"关注")

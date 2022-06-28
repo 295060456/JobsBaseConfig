@@ -39,7 +39,7 @@
 
 - (void)dealloc{
     NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 +(void)destroyAppDoorSingleton{
@@ -75,21 +75,20 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
     
     self.setupNavigationBarHidden = YES;//禁用系统的导航栏
     self.currentPage = CurrentPage_login;//默认页面是登录
+    
+    //标的值初始化
+    self.logoContentViewY = 0;
+    self.jobsAppDoorContentViewY = 0;
+    self.customerServiceBtnY = 0;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self keyboard];
-//    self.view.backgroundColor = JobsBlueColor;
-    //标的值初始化
-    self.logoContentViewY = 0;
-    self.jobsAppDoorContentViewY = 0;
-    self.customerServiceBtnY = 0;
-    
+
     [self.jobsAppDoorContentView animationAlert];
     [self.logoContentView animationAlert];
     [self.customerServiceBtn animationAlert];
-
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -170,48 +169,90 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
                        phone:(NSString *_Nullable)phone
                    phoneCode:(NSString *_Nullable)phoneCode
                     validate:(NSString *_Nullable)validate{
-    
-    [self->toRegisterBtn sendActionsForControlEvents:UIControlEventTouchUpInside];
+//    DDNetworkingPrepare
+//
+//    RequestTool *config = RequestTool.new;
+//    config.languageType = self.currentLanguageType;
+//    [RequestTool setupPublicParameters:config];
+//
+//    NSDictionary *parameters = @{@"account":[NSString ensureNonnullString:account replaceStr:@""],// 帐号
+//                                 @"country":[NSString ensureNonnullString:country replaceStr:@"855"],// 区号，柬埔寨：855
+//                                 @"inviteCode":[NSString ensureNonnullString:inviteCode replaceStr:@"1111"],// 邀请码
+//                                 @"password":[NSString ensureNonnullString:password replaceStr:@""],// 密码
+//                                 @"phone":[NSString ensureNonnullString:phone replaceStr:@""],// 电话号码
+//                                 @"phoneCode":[NSString ensureNonnullString:phoneCode replaceStr:@""],// 手机号验证码
+//                                 @"validate":[NSString ensureNonnullString:validate replaceStr:@""]};// 网易云盾
+//    @jobs_weakify(self)
+//    [DDNetworkingAPI requestApi:NSObject.authRegisterPOST.funcName
+//                     parameters:parameters
+//                   successBlock:^(DDResponseModel *data) {
+//        @jobs_strongify(self)
+//        // 注册成功后返回登录
+//        if (data.code == HTTPResponseCodeSuccess) {
+//            [self->toRegisterBtn sendActionsForControlEvents:UIControlEventTouchUpInside];
+//        }
+//    } failureBlock:^(id data) {
+//        [DDNetworkingAPI handleError:data];
+//    }];
 }
 /// 登录网络请求
 -(void)authLoginByAccount:(NSString *_Nullable)account
                  deviceId:(NSString *_Nullable)deviceId
                  password:(NSString *_Nullable)password
                  validate:(NSString *_Nullable)validate{
-    DDUserModel *userModel = DDUserModel.new;
-    userModel.userName = account;
-    userModel.password = password;
-    userModel.deviceId = deviceId;
-    userModel.validate = validate;
-//    userModel.token = data.data;
-    [self saveUserInfo:userModel];// 保存全局唯一的一份用户档案
-
-    if (self.jobsAppDoorContentView.getStoreCodeBtn.selected) {
-        [self saveUserName:account];
-    }else{
-        [self deleteUserName:account];
-    }
-    [NSNotificationCenter.defaultCenter postNotificationName:登录成功 object:@(YES)];
-    [self backBtnClickEvent:nil];
+//    DDNetworkingPrepare
+//
+//    RequestTool *config = RequestTool.new;
+//    config.languageType = self.currentLanguageType;
+//    [RequestTool setupPublicParameters:config];
+//
+//    NSDictionary *parameters = @{@"account":[NSString ensureNonnullString:account replaceStr:@""],// 账号
+//                                 @"deviceId":[NSString ensureNonnullString:deviceId replaceStr:self.deviceIdentity],// 设备ID,移动端必传
+//                                 @"password":[NSString ensureNonnullString:password replaceStr:@""],// 密码
+//                                 @"validate":[NSString ensureNonnullString:validate replaceStr:@""]};// 网易易顿
+//    @jobs_weakify(self)
+//    [DDNetworkingAPI requestApi:NSObject.authLoginAPOST.funcName
+//                     parameters:parameters
+//                   successBlock:^(DDResponseModel *data) {
+//        @jobs_strongify(self)
+//        NSLog(@"用户Token为:%@",data.data);
+//        DDUserModel *userModel = DDUserModel.new;
+//        userModel.userName = account;
+//        userModel.password = password;
+//        userModel.deviceId = deviceId;
+//        userModel.validate = validate;
+//        userModel.token = data.data;
+//        [self saveUserInfo:userModel];// 保存全局唯一的一份用户档案
+//
+//        if (self.jobsAppDoorContentView.getStoreCodeBtn.selected) {
+//            [self saveUserName:account];
+//        }else{
+//            [self deleteUserName:account];
+//        }
+//        [NSNotificationCenter.defaultCenter postNotificationName:登录成功 object:@(YES)];
+//        [self backBtnClickEvent:nil];
+//    } failureBlock:^(id data) {
+//        [DDNetworkingAPI handleError:data];
+//    }];
 }
 /// 网易云盾验证
 -(void)NTESVerifyCodeWithBlock:(jobsByIDBlock)block{
-    [self openVerifyCodeView:self.view];
-    @jobs_weakify(self)
-    [self actionObjectBlock:^(UIViewModel *data) {
-        @jobs_strongify(self)
-        if ([data isKindOfClass:UIViewModel.class]) {
-            UIViewModel *vm = (UIViewModel *)data;
-            if (vm.ntesVerifyCodeFinishResult) {
-                // TODO
-                if (block) block(data);
-            }
-            
-            if (vm.ntesVerifyCodeManagerStyle == VerifyCodeInitFinish) {
-                self.NTESVerifyCodeCloseBtn.jobsVisible = YES;
-            }
-        }
-    }];
+//    [self openVerifyCodeView:self.view];
+//    @jobs_weakify(self)
+//    [self actionObjectBlock:^(UIViewModel *data) {
+//        @jobs_strongify(self)
+//        if ([data isKindOfClass:UIViewModel.class]) {
+//            UIViewModel *vm = (UIViewModel *)data;
+//            if (vm.ntesVerifyCodeFinishResult) {
+//                // TODO
+//                if (block) block(data);
+//            }
+//
+//            if (vm.ntesVerifyCodeManagerStyle == VerifyCodeInitFinish) {
+//                self.NTESVerifyCodeCloseBtn.jobsVisible = YES;
+//            }
+//        }
+//    }];
 }
 //键盘 弹出 和 收回 走这个方法
 -(void)keyboardWillChangeFrameNotification:(NSNotification *)notification{}
@@ -404,17 +445,16 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
         _customerServiceBtn = UIButton.new;
         
         _customerServiceBtn.hidden = YES;//本版本需要进行屏蔽
-        
-        [_customerServiceBtn setTitle:Title8
-                             forState:UIControlStateNormal];
-        [_customerServiceBtn setImage:KIMG(@"客服")
-                             forState:UIControlStateNormal];
+        _customerServiceBtn.normalTitle = Title8;
+        _customerServiceBtn.normalImage = JobsIMG(@"客服");
         [self.view addSubview:_customerServiceBtn];
         _customerServiceBtn.size = CGSizeMake(JobsMainScreen_WIDTH() / 3, JobsMainScreen_WIDTH() / 9);
         _customerServiceBtn.centerX = JobsMainScreen_WIDTH() / 2;
         _customerServiceBtn.top = self.jobsAppDoorContentView.top + self.jobsAppDoorContentView.height + 20;
         self.customerServiceBtnY = _customerServiceBtn.y;
-        BtnClickEvent(_customerServiceBtn, NSLog(@"点击客服按钮"););
+        [_customerServiceBtn btnClickEventBlock:^(id data) {
+            NSLog(@"点击客服按钮");
+        }];
         [_customerServiceBtn cornerCutToCircleWithCornerRadius:_customerServiceBtn.height / 2];
         [_customerServiceBtn layerBorderColour:JobsWhiteColor andBorderWidth:2];
     }return _customerServiceBtn;
@@ -463,7 +503,7 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
 -(UIImageView *)bgImgV{
     if (!_bgImgV) {
         _bgImgV = UIImageView.new;
-        _bgImgV.image = KIMG(@"AppDoorBgImage");
+        _bgImgV.image = JobsIMG(@"AppDoorBgImage");
         _bgImgV.userInteractionEnabled = YES;
     }return _bgImgV;
 }

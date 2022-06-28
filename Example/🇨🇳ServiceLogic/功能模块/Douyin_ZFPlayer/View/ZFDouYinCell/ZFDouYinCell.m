@@ -43,7 +43,7 @@
         self.data = (VideoModel_Core *)dic[@"res"];
         self.rotation.alpha = 1;
         [self.coverImageView setImageWithURLString:self.data.videoImg
-                                       placeholder:KBuddleIMG(@"bundle",@"Others", nil, @"loading_bgView")];
+                                       placeholder:JobsBuddleIMG(@"bundle",@"Others", nil, @"loading_bgView")];
 //        self.titleLabel.text = data.title;
         self.rbView.alpha = 1;
 //        if (self.data.video_width > self.data.video_height) { /// 横屏视频才支持旋转
@@ -89,7 +89,7 @@
 -(UIButton *)rotation{
     if (!_rotation){
         _rotation = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_rotation setImage:KIMG(@"zfplayer_rotaiton")
+        [_rotation setImage:JobsIMG(@"zfplayer_rotaiton")
                    forState:UIControlStateNormal];
         @jobs_weakify(self)
         [[_rotation rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {

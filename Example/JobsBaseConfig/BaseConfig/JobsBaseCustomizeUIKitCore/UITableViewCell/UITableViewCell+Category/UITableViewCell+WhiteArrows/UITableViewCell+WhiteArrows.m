@@ -40,7 +40,7 @@ static char *UITableViewCell_WhiteArrows_img = "UITableViewCell_WhiteArrows_img"
 -(UIImage *)img{
     UIImage *image = objc_getAssociatedObject(self, UITableViewCell_WhiteArrows_img);
     if (!image) {
-        image = KIMG(@"WhiteRightArrow");
+        image = JobsIMG(@"WhiteRightArrow");
         objc_setAssociatedObject(self,
                                  UITableViewCell_WhiteArrows_img,
                                  image,

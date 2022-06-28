@@ -128,7 +128,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
         _userHeaderBtn = UIButton.new;
         _userHeaderBtn.normalTitle = [self.readUserInfo.userName stringByAppendingString:Internationalization(@"    VIP 0")];
         NSLog(@"%@",_userHeaderBtn.titleForNormalState);
-        _userHeaderBtn.normalImage = KIMG(@"默认头像");
+        _userHeaderBtn.normalImage = JobsIMG(@"默认头像");
         _userHeaderBtn.normalTitleColor = HEXCOLOR(0xAE8330);
         _userHeaderBtn.titleFont = notoSansBold(16);
         [self addSubview:_userHeaderBtn];

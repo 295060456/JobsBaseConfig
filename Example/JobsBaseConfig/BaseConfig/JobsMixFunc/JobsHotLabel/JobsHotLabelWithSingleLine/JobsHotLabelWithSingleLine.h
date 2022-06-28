@@ -85,7 +85,7 @@ NS_ASSUME_NONNULL_END
          
          {
              UIViewModel *vm = UIViewModel.new;
-             vm.bgImage = KIMG(@"service_skype");
+             vm.bgImage = JobsIMG(@"service_skype");
              vm.text = @"";
              vm.size = CGSizeMake(JobsWidth(46), JobsWidth(46));
              vm.offsetXForEach = JobsWidth(46);
@@ -95,7 +95,7 @@ NS_ASSUME_NONNULL_END
          
          {
              UIViewModel *vm = UIViewModel.new;
-             vm.bgImage = KIMG(@"service_qq");
+             vm.bgImage = JobsIMG(@"service_qq");
              vm.text = @"";
              vm.size = CGSizeMake(JobsWidth(46), JobsWidth(46));
              vm.offsetXForEach = JobsWidth(46);
@@ -105,7 +105,7 @@ NS_ASSUME_NONNULL_END
          
          {
              UIViewModel *vm = UIViewModel.new;
-             vm.bgImage = KIMG(@"service_telegram");
+             vm.bgImage = JobsIMG(@"service_telegram");
              vm.text = @"";
              vm.size = CGSizeMake(JobsWidth(46), JobsWidth(46));
              vm.offsetXForEach = JobsWidth(46);
@@ -115,7 +115,7 @@ NS_ASSUME_NONNULL_END
          
          {
              UIViewModel *vm = UIViewModel.new;
-             vm.bgImage = KIMG(@"service_wechat");
+             vm.bgImage = JobsIMG(@"service_wechat");
              vm.text = @"";
              vm.size = CGSizeMake(JobsWidth(46), JobsWidth(46));
              vm.offsetXForEach = JobsWidth(46);
@@ -125,7 +125,7 @@ NS_ASSUME_NONNULL_END
          
          {
              UIViewModel *vm = UIViewModel.new;
-             vm.bgImage = KIMG(@"login_skype");
+             vm.bgImage = JobsIMG(@"login_skype");
              vm.text = @"";
              vm.size = CGSizeMake(JobsWidth(46), JobsWidth(46));
              vm.offsetXForEach = JobsWidth(46);
@@ -135,7 +135,7 @@ NS_ASSUME_NONNULL_END
          
          {
              UIViewModel *vm = UIViewModel.new;
-             vm.bgImage = KIMG(@"service_meiqia");
+             vm.bgImage = JobsIMG(@"service_meiqia");
              vm.text = @"";
              vm.size = CGSizeMake(JobsWidth(46), JobsWidth(46));
              vm.offsetXForEach = JobsWidth(46);

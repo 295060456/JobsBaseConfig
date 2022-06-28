@@ -340,7 +340,7 @@ heightForHeaderInSection:(NSInteger)section{
 - (void)tableView:(UITableView *)tableView
   willDisplayCell:(UITableViewCell *)cell
 forRowAtIndexPath:(NSIndexPath *)indexPath {
-    cell.img = KIMG(@"删除");
+    cell.img = JobsIMG(@"删除");
 }
 #pragma mark —— lazyLoad
 -(BaseTableView *)tableView{
@@ -447,14 +447,16 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 -(UIButton *)scanBtn{
     if (!_scanBtn) {
         _scanBtn = UIButton.new;
-        [_scanBtn normalBackgroundImage:KIMG(@"扫描")];
-        BtnClickEvent(_scanBtn, [WHToast toastMsg:Internationalization(@"此功能尚未开发")];);
+        [_scanBtn normalBackgroundImage:JobsIMG(@"扫描")];
+        [_scanBtn btnClickEventBlock:^(id data) {
+            toast(Internationalization(@"此功能尚未开发"));
+        }];
     }return _scanBtn;
 }
 
 -(UIColor *)bgColour{
     if (!_bgColour) {
-        _bgColour = [UIColor colorWithPatternImage:KBuddleIMG(nil, @"Telegram",nil, @"1")];
+        _bgColour = [UIColor colorWithPatternImage:JobsBuddleIMG(nil, @"Telegram",nil, @"1")];
     }return _bgColour;
 }
 
@@ -470,8 +472,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     
         UIViewModel *viewModel = UIViewModel.new;
         viewModel.textModel.text = Internationalization(@"热门搜索");
-        viewModel.textModel.textCor = UIColor.lightGrayColor;
-        viewModel.bgCor = UIColor.whiteColor;
+        viewModel.textModel.textCor = JobsLightGrayColor;
+        viewModel.bgCor = JobsWhiteColor;
         viewModel.textModel.font = JobsFontRegular(20);
         
         [_sectionTitleMutArr addObject:viewModel];
@@ -479,8 +481,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         if (self.listViewData.count) {
             UIViewModel *viewModel = UIViewModel.new;
             viewModel.textModel.text = Internationalization(@"搜索历史");
-            viewModel.textModel.textCor = UIColor.lightGrayColor;
-            viewModel.bgCor = UIColor.whiteColor;
+            viewModel.textModel.textCor = JobsLightGrayColor;
+            viewModel.bgCor = JobsWhiteColor;
             viewModel.textModel.font = JobsFontRegular(20);
             
             [_sectionTitleMutArr addObject:viewModel];
@@ -494,7 +496,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         
         {
             UIViewModel *viewModel = UIViewModel.new;
-            viewModel.textModel.text = @"Java";
+            viewModel.textModel.text = Internationalization(@"Java");
             viewModel.textModel.textCor = RandomColor;
             viewModel.bgCor = RandomColor;
             viewModel.textModel.font = JobsFontRegular(20);
@@ -503,7 +505,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         
         {
             UIViewModel *viewModel = UIViewModel.new;
-            viewModel.textModel.text = @"Python";
+            viewModel.textModel.text = Internationalization(@"Python");
             viewModel.textModel.textCor = RandomColor;
             viewModel.bgCor = RandomColor;
             viewModel.textModel.font = JobsFontRegular(20);
@@ -512,7 +514,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         
         {
             UIViewModel *viewModel = UIViewModel.new;
-            viewModel.textModel.text = @"Objective-C";
+            viewModel.textModel.text = Internationalization(@"Objective-C");
             viewModel.textModel.textCor = RandomColor;
             viewModel.bgCor = RandomColor;
             viewModel.textModel.font = JobsFontRegular(20);
@@ -521,7 +523,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         
         {
             UIViewModel *viewModel = UIViewModel.new;
-            viewModel.textModel.text = @"Swift";
+            viewModel.textModel.text = Internationalization(@"Swift");
             viewModel.textModel.textCor = RandomColor;
             viewModel.bgCor = RandomColor;
             viewModel.textModel.font = JobsFontRegular(20);
@@ -530,7 +532,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         
         {
             UIViewModel *viewModel = UIViewModel.new;
-            viewModel.textModel.text = @"C";
+            viewModel.textModel.text = Internationalization(@"C");
             viewModel.textModel.textCor = RandomColor;
             viewModel.bgCor = RandomColor;
             viewModel.textModel.font = JobsFontRegular(20);
@@ -538,16 +540,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         }
         {
             UIViewModel *viewModel = UIViewModel.new;
-            viewModel.textModel.text = @"C++";
-            viewModel.textModel.textCor = RandomColor;
-            viewModel.bgCor = RandomColor;
-            viewModel.textModel.font = JobsFontRegular(20);
-            [_hotSearchMutArr addObject:viewModel];
-        }
-        
-        {
-            UIViewModel *viewModel = UIViewModel.new;
-            viewModel.textModel.text = @"PHP";
+            viewModel.textModel.text = Internationalization(@"C++");
             viewModel.textModel.textCor = RandomColor;
             viewModel.bgCor = RandomColor;
             viewModel.textModel.font = JobsFontRegular(20);
@@ -556,7 +549,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         
         {
             UIViewModel *viewModel = UIViewModel.new;
-            viewModel.textModel.text = @"C#";
+            viewModel.textModel.text = Internationalization(@"PHP");
             viewModel.textModel.textCor = RandomColor;
             viewModel.bgCor = RandomColor;
             viewModel.textModel.font = JobsFontRegular(20);
@@ -565,7 +558,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         
         {
             UIViewModel *viewModel = UIViewModel.new;
-            viewModel.textModel.text = @"Perl";
+            viewModel.textModel.text = Internationalization(@"C#");
             viewModel.textModel.textCor = RandomColor;
             viewModel.bgCor = RandomColor;
             viewModel.textModel.font = JobsFontRegular(20);
@@ -574,7 +567,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         
         {
             UIViewModel *viewModel = UIViewModel.new;
-            viewModel.textModel.text = @"Go";
+            viewModel.textModel.text = Internationalization(@"Perl");
             viewModel.textModel.textCor = RandomColor;
             viewModel.bgCor = RandomColor;
             viewModel.textModel.font = JobsFontRegular(20);
@@ -583,7 +576,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         
         {
             UIViewModel *viewModel = UIViewModel.new;
-            viewModel.textModel.text = @"JavaScript";
+            viewModel.textModel.text = Internationalization(@"Go");
             viewModel.textModel.textCor = RandomColor;
             viewModel.bgCor = RandomColor;
             viewModel.textModel.font = JobsFontRegular(20);
@@ -592,7 +585,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         
         {
             UIViewModel *viewModel = UIViewModel.new;
-            viewModel.textModel.text = @"Ruby";
+            viewModel.textModel.text = Internationalization(@"JavaScript");
             viewModel.textModel.textCor = RandomColor;
             viewModel.bgCor = RandomColor;
             viewModel.textModel.font = JobsFontRegular(20);
@@ -601,7 +594,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         
         {
             UIViewModel *viewModel = UIViewModel.new;
-            viewModel.textModel.text = @"R";
+            viewModel.textModel.text = Internationalization(@"Ruby");
             viewModel.textModel.textCor = RandomColor;
             viewModel.bgCor = RandomColor;
             viewModel.textModel.font = JobsFontRegular(20);
@@ -610,7 +603,16 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         
         {
             UIViewModel *viewModel = UIViewModel.new;
-            viewModel.textModel.text = @"MATLAB";
+            viewModel.textModel.text = Internationalization(@"R");
+            viewModel.textModel.textCor = RandomColor;
+            viewModel.bgCor = RandomColor;
+            viewModel.textModel.font = JobsFontRegular(20);
+            [_hotSearchMutArr addObject:viewModel];
+        }
+        
+        {
+            UIViewModel *viewModel = UIViewModel.new;
+            viewModel.textModel.text = Internationalization(@"MATLAB");
             viewModel.textModel.textCor = RandomColor;
             viewModel.bgCor = RandomColor;
             viewModel.textModel.font = JobsFontRegular(20);

@@ -32,21 +32,23 @@
 }
 //具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 -(void)richElementsInViewWithModel:(UIViewModel *_Nullable)model{
-    self.viewModel = model ? : UIViewModel.new;
-    
-    if (self.viewModel.bgImage) {
-        self.backgroundImageView.image = self.viewModel.bgImage;
-    }else{
-        self.backgroundColor = self.viewModel.bgCor;
+    if (model) {
+        self.viewModel = model ? : UIViewModel.new;
+        
+        if (self.viewModel.bgImage) {
+            self.backgroundImageView.image = self.viewModel.bgImage;
+        }else{
+            self.backgroundColor = self.viewModel.bgCor;
+        }
+        
+        self.titleLab.text = self.viewModel.textModel.text;
+        self.subTitleLab.text = self.viewModel.subTextModel.text;
+        self.btn1.alpha = 1;
+        self.btn2.alpha = 1;
+        
+        [self.titleLab labelAutoWidthByFont];
+        [self.subTitleLab labelAutoWidthByFont];
     }
-    
-    self.titleLab.text = self.viewModel.textModel.text;
-    self.subTitleLab.text = self.viewModel.subTextModel.text;
-    self.btn1.alpha = 1;
-    self.btn2.alpha = 1;
-    
-    [self.titleLab labelAutoWidthByFont];
-    [self.subTitleLab labelAutoWidthByFont];
 }
 //具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 +(CGSize)viewSizeWithModel:(id _Nullable)model{
@@ -85,12 +87,16 @@
     if (!_btn1) {
         _btn1 = UIButton.new;
         _btn1.tag = 666;
-        [_btn1 titleFont:[UIFont systemFontOfSize:JobsWidth(14) weight:UIControlStateNormal]];
-        [_btn1 normalImage:self.viewModel.image];
-        [_btn1 normalBackgroundImage:KIMG(@"弹窗取消按钮背景图")];
-        [_btn1 normalTitleColor:HEXCOLOR(0x502600)];
-        [_btn1 normalTitle:Internationalization(@"Cancel")];
-        BtnClickEvent(_btn1, if(self.objectBlock)self.objectBlock(self->_btn1););
+        _btn1.titleFont = UIFontWeightRegularSize(14);
+        _btn1.normalImage = self.viewModel.image;
+        _btn1.normalBackgroundImage = JobsIMG(@"弹窗取消按钮背景图");
+        _btn1.normalTitleColor = HEXCOLOR(0x502600);
+        _btn1.normalTitle = Internationalization(@"Cancel");
+        @jobs_weakify(self)
+        [_btn1 btnClickEventBlock:^(id data) {
+            @jobs_strongify(self)
+            if(self.objectBlock) self.objectBlock(self->_btn1);
+        }];
         [self addSubview:_btn1];
         [_btn1 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(JobsWidth(110), JobsWidth(44)));
@@ -104,12 +110,14 @@
     if (!_btn2) {
         _btn2 = UIButton.new;
         _btn2.tag = 999;
-        [_btn2 titleFont:[UIFont systemFontOfSize:JobsWidth(14) weight:UIControlStateNormal]];
-        [_btn2 normalImage:self.viewModel.image];
-        [_btn2 normalBackgroundImage:KIMG(@"弹窗确定按钮背景图")];
-        [_btn2 normalTitleColor:HEXCOLOR(0x502600)];
-        [_btn2 normalTitle:Internationalization(@"Sure")];
-        BtnClickEvent(_btn2, if(self.objectBlock)self.objectBlock(self->_btn2););
+        _btn2.titleFont = UIFontWeightRegularSize(14);
+        _btn2.normalImage = self.viewModel.image;
+        _btn2.normalBackgroundImage = JobsIMG(@"弹窗确定按钮背景图");
+        _btn2.normalTitleColor = HEXCOLOR(0x502600);
+        _btn2.normalTitle = Internationalization(@"Sure");
+        [_btn2 btnClickEventBlock:^(id data) {
+            if(self.objectBlock) self.objectBlock(self->_btn2);
+        }];
         [self addSubview:_btn2];
         [_btn2 mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(JobsWidth(110), JobsWidth(44)));

@@ -95,8 +95,8 @@ UITableViewCellProtocol_synthesize
             for (UIView *view in control.subviews){
                 if ([view isKindOfClass:UIImageView.class]) {
                     UIImageView *img = (UIImageView *)view;
-                    if (KIMG(@"按钮已选中") && KIMG(@"按钮未选中")) {
-                        img.image = self.selected ? KIMG(@"按钮已选中") : KIMG(@"按钮未选中");
+                    if (JobsIMG(@"按钮已选中") && JobsIMG(@"按钮未选中")) {
+                        img.image = self.selected ? JobsIMG(@"按钮已选中") : JobsIMG(@"按钮未选中");
                     }
                 }
             }

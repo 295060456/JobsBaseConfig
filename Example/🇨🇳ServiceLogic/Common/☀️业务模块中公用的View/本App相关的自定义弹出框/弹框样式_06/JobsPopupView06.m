@@ -41,7 +41,7 @@ static dispatch_once_t static_popupView06OnceToken;
 -(instancetype)init{
     if (self = [super init]) {
         self.backgroundColor = UIColor.clearColor;
-        self.backgroundImageView.image = KIMG(@"弹框样式_06背景图");
+        self.backgroundImageView.image = JobsIMG(@"弹框样式_06背景图");
     }return self;
 }
 
@@ -71,8 +71,8 @@ static dispatch_once_t static_popupView06OnceToken;
     if (!_titleLab) {
         _titleLab = UILabel.new;
         _titleLab.text = Internationalization(@"代客充值暗號");
-        _titleLab.font = [UIFont systemFontOfSize:JobsWidth(16) weight:UIFontWeightBold];
-        _titleLab.textColor = UIColor.blackColor;
+        _titleLab.font = UIFontWeightBoldSize(16);
+        _titleLab.textColor = JobsBlackColor;
         [self addSubview:_titleLab];
         [_titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self).offset(JobsWidth(24));
@@ -85,19 +85,20 @@ static dispatch_once_t static_popupView06OnceToken;
 -(UIButton *)closeBtn{
     if (!_closeBtn) {
         _closeBtn = UIButton.new;
-        _closeBtn.normalImage = _closeBtn.selectedImage = KIMG(@"弹窗关闭按钮");
+        _closeBtn.normalImage = _closeBtn.selectedImage = JobsIMG(@"弹窗关闭按钮");
         [self addSubview:_closeBtn];
         [_closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(JobsWidth(12.19), JobsWidth(12.19)));
             make.top.equalTo(self).offset(JobsWidth(20.91));
             make.right.equalTo(self).offset(JobsWidth(20.91));
         }];
-        BtnClickEvent(_closeBtn,
-                      {
+        @jobs_weakify(self)
+        [_closeBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
             [self tf_hide];
             [self.class destroySingleton];
             if (self.objectBlock) self.objectBlock(x.titleForNormalState);
-        });
+        }];
     }return _closeBtn;
 }
 
@@ -131,20 +132,22 @@ static dispatch_once_t static_popupView06OnceToken;
     if (!_sureBtn) {
         _sureBtn = UIButton.new;
         _sureBtn.normalTitle = Internationalization(@"我已記住暗號，繼續充值");
-        _sureBtn.normalBackgroundImage = KIMG(@"弹窗按钮_我知道了");
-        _sureBtn.selectedBackgroundImage = KIMG(@"弹窗按钮_我知道了");
-        _sureBtn.normalTitleColor = UIColor.blackColor;
-        _sureBtn.titleFont = [UIFont systemFontOfSize:JobsWidth(18) weight:UIFontWeightRegular];
+        _sureBtn.normalBackgroundImage = JobsIMG(@"弹窗按钮_我知道了");
+        _sureBtn.selectedBackgroundImage = JobsIMG(@"弹窗按钮_我知道了");
+        _sureBtn.normalTitleColor = JobsBlackColor;
+        _sureBtn.titleFont = UIFontWeightRegularSize(18);
         [self addSubview:_sureBtn];
         [_sureBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(self.mas_bottom).offset(JobsWidth(-26));
             make.centerX.equalTo(self);
             make.height.mas_equalTo(JobsWidth(40));
         }];
-        BtnClickEvent(_sureBtn, {
+        @jobs_weakify(self)
+        [_sureBtn btnClickEventBlock:^(id data) {
+            @jobs_strongify(self)
             [self tf_hide];
             [self.class destroySingleton];
-        });
+        }];
     }return _sureBtn;
 }
 
@@ -153,17 +156,15 @@ static dispatch_once_t static_popupView06OnceToken;
         _upDownLabModel = JobsUpDownLabModel.new;
         _upDownLabModel.upLabText = [NSString isNullString:self.viewModel.textModel.text] ? Internationalization(@"*溫馨提示"): self.viewModel.textModel.text;
         _upDownLabModel.upLabTextAlignment = NSTextAlignmentLeft;
-        _upDownLabModel.upLabFont = [UIFont systemFontOfSize:JobsWidth(16)
-                                                      weight:UIFontWeightBold];
-        _upDownLabModel.upLabTextCor = UIColor.blackColor;
-        _upDownLabModel.upLabBgCor = UIColor.clearColor;
+        _upDownLabModel.upLabFont = UIFontWeightBoldSize(16);
+        _upDownLabModel.upLabTextCor = JobsBlackColor;
+        _upDownLabModel.upLabBgCor = JobsClearColor;
         
         _upDownLabModel.downLabText = [NSString isNullString:self.viewModel.subTextModel.text] ? Internationalization(@"1.財務客服將主動詢問您所收到的暗號是否為xxxx\n2.如果客服沒有主動詢問您或發給您的暗號不相符，\n請勿進行交易，否則所引發的不到賬等情況，將概不負責"): self.viewModel.textModel.text;
         _upDownLabModel.downLabTextAlignment = NSTextAlignmentLeft;
-        _upDownLabModel.downLabFont = [UIFont systemFontOfSize:JobsWidth(12)
-                                                        weight:UIFontWeightRegular];
+        _upDownLabModel.downLabFont = UIFontWeightRegularSize(12);
         _upDownLabModel.downLabTextCor = HEXCOLOR(0x757575);
-        _upDownLabModel.downLabBgCor = UIColor.clearColor;
+        _upDownLabModel.downLabBgCor = JobsClearColor;
         _upDownLabModel.isDownLabMultiLineShows = YES;
         
         _upDownLabModel.upLabVerticalAlign = JobsUpDownLabAlign_TopLeft;

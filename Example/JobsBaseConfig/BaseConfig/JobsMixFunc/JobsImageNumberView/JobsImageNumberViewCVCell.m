@@ -36,7 +36,7 @@
 //+(CGFloat)cellHeightWithModel:(id _Nullable)model;
 //具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 +(CGSize)cellSizeWithModel:(UIImage *_Nullable)model{
-    if ([model isEqual:KIMG(@"小数点")]) {
+    if ([model isEqual:JobsIMG(@"小数点")]) {
         return CGSizeMake(JobsWidth(15), JobsWidth(28));
     }return CGSizeMake(JobsWidth(19), JobsWidth(28));
 }

@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_END
   -(JobsSuspendBtn *)suspendBtn{
       if (!_suspendBtn) {
           _suspendBtn = JobsSuspendBtn.new;
-          [_suspendBtn setImage:KBuddleIMG(@"bundle",
+          [_suspendBtn setImage:JobsBuddleIMG(@"bundle",
                                            @"Others",
                                            nil,
                                            @"旋转")

@@ -101,22 +101,22 @@
 //        UIImage *bgImg = nil;
 //        switch (customerContactElementModel.customerMark) {
 //            case CustomerContactStyle_QQ:{
-//                bgImg = vm.bgImage ? : KIMG(@"service_qq");
+//                bgImg = vm.bgImage ? : JobsIMG(@"service_qq");
 //            }break;
 //            case CustomerContactStyle_Skype:{
-//                bgImg = vm.bgImage ? : KIMG(@"service_skype");
+//                bgImg = vm.bgImage ? : JobsIMG(@"service_skype");
 //            }break;
 //            case CustomerContactStyle_Telegram:{
-//                bgImg = vm.bgImage ? : KIMG(@"service_telegram");
+//                bgImg = vm.bgImage ? : JobsIMG(@"service_telegram");
 //            }break;
 //            case CustomerContactStyle_whatsApp:{
-//                bgImg = vm.bgImage ? : KIMG(@"service_meiqia");//???
+//                bgImg = vm.bgImage ? : JobsIMG(@"service_meiqia");//???
 //            }break;
 //            case CustomerContactStyle_手机号码:{
-//                bgImg = vm.bgImage ? : KIMG(@"service_meiqia");//???
+//                bgImg = vm.bgImage ? : JobsIMG(@"service_meiqia");//???
 //            }break;
 //            case CustomerContactStyle_onlineURL:{
-//                bgImg = vm.bgImage ? : KIMG(@"service_meiqia");//???
+//                bgImg = vm.bgImage ? : JobsIMG(@"service_meiqia");//???
 //            }break;
 //
 //            default:
@@ -131,25 +131,22 @@
 //        [btn selectedBackgroundImage:vm.bgSelectedImage];
 //    }
     
-    [btn normalTitle:vm.textModel.text];
-    [btn titleFont:vm.textModel.font];
-    [btn normalTitleColor:vm.textModel.textCor];
-    
-    BtnClickEvent(btn, {
+    btn.normalTitle = vm.textModel.text;
+    btn.titleFont = vm.textModel.font;
+    btn.normalTitleColor = vm.textModel.textCor;
+    @jobs_weakify(self)
+    [btn btnClickEventBlock:^(UIButton *x) {
+        @jobs_strongify(self)
         [self changeButtonState];
         x.selected = !x.selected;
         if (self.objectBlock) self.objectBlock(x);
-    });
-
+    }];
     [btn actionObjectBlock:^(id data) {
         @jobs_strongify(self)
         [self.btnHeightMutArr addObject:data];
     }];
-    
     btn.size = CGSizeMake((JobsMainScreen_WIDTH() - JobsWidth(15 * 5)) / 4, JobsWidth(30));
-    
     [btn makeBtnLabelByShowingType:self.labelShowingType];
-
     return btn;
 }
 /// 取最大的高度值使用

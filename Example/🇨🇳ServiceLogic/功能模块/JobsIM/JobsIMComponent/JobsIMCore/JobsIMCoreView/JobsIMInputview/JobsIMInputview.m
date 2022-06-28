@@ -38,11 +38,11 @@
     if (![NSString isNullString:string]) {
         self.sendBtn.userInteractionEnabled = YES;
         self.sendBtn.enabled = YES;
-        self.imgView.image = KIMG(@"输入框有值");
+        self.imgView.image = JobsIMG(@"输入框有值");
     }else{
         self.sendBtn.userInteractionEnabled = NO;
         self.sendBtn.enabled = NO;
-        self.imgView.image = KIMG(@"输入框无值");
+        self.imgView.image = JobsIMG(@"输入框无值");
     }
 }
 #pragma mark —— UITextFieldDelegate
@@ -62,13 +62,14 @@
         _sendBtn = UIButton.new;
         _sendBtn.userInteractionEnabled = NO;
         _sendBtn.enabled = NO;
-        [_sendBtn normalTitle:@"发送"];
-        [_sendBtn normalTitleColor:UIColor.blackColor];
+        _sendBtn.normalTitle = Internationalization(@"发送");
+        _sendBtn.normalTitleColor = JobsWhiteColor;
         [_sendBtn setTitleColor:JobsWhiteColor forState:UIControlStateDisabled];
-        [_sendBtn normalBackgroundImage:[UIImage imageWithColor:JobsCyanColor]];
-        [_sendBtn setBackgroundImage:[UIImage imageWithColor:JobsLightGrayColor] forState:UIControlStateDisabled];
-        
-        BtnClickEvent(_sendBtn, {
+        _sendBtn.normalBackgroundImage = [UIImage imageWithColor:JobsCyanColor];
+        _sendBtn.selectedBackgroundImage = [UIImage imageWithColor:JobsLightGrayColor];
+        @jobs_weakify(self)
+        [_sendBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
             [self endEditing:YES];
             if (![NSString isNullString:self.inputTextField.text]) {
                 [NSObject playSoundEffect:@"Sound"
@@ -77,7 +78,7 @@
             }
             self.inputTextField.text = @"";
             x.enabled = NO;
-        });
+        }];
         
         [self addSubview:_sendBtn];
         [_sendBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -98,8 +99,7 @@
         _inputTextField.delegate = self;
         _inputTextField.leftView = self.imgView;
         _inputTextField.leftViewOffsetX = 20;
-        _inputTextField.font = [UIFont systemFontOfSize:12
-                                           weight:UIFontWeightMedium];
+        _inputTextField.font = UIFontWeightMediumSize(12);
         _inputTextField.leftViewMode = UITextFieldViewModeAlways;
         _inputTextField.backgroundColor = HEXCOLOR(0xF4F4F4);
         _inputTextField.keyboardAppearance = UIKeyboardAppearanceAlert;
@@ -132,7 +132,7 @@
 -(UIImageView *)imgView{
     if (!_imgView) {
         _imgView = UIImageView.new;
-        _imgView.image = KIMG(@"输入框无值");
+        _imgView.image = JobsIMG(@"输入框无值");
     }return _imgView;
 }
 

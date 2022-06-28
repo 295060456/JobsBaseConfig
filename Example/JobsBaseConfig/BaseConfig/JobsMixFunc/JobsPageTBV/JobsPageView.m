@@ -11,13 +11,12 @@
 /// UI
 @property(nonatomic,strong)UITableView *tableView;
 /// Data
-@property(nonatomic,assign)CGFloat cellHeight;
 @property(nonatomic,strong)NSArray <UIViewModel *>*dataArr;
 
 @end
 
 @implementation JobsPageView
-
+@synthesize cellHeight = _cellHeight;
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
         
@@ -34,7 +33,7 @@
 -(void)richElementsInViewWithModel:(NSArray <UIViewModel *>*_Nullable)model{
     self.dataArr = model;
     
-//    self.backgroundImageView.image = KIMG(@"抖动钱包抖币用途");
+//    self.backgroundImageView.image = JobsIMG(@"抖动钱包抖币用途");
 //    self.imageView_1.alpha = 1;
 //    self.imageView_2.alpha = 1;
 //    self.valueLab.text = model.goldNumber;
@@ -79,9 +78,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
         _tableView.scrollEnabled = NO;
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.showsHorizontalScrollIndicator = NO;
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        _tableView.tableFooterView = UIView.new;/// 这里接入的就是一个UIView的派生类
+        [self dataLinkByTableView:_tableView];
+        _tableView.tableFooterView = UIView.new;
         _tableView.separatorColor = HEXCOLOR(0xEEEEEE);
         
         [self addSubview:_tableView];

@@ -38,7 +38,7 @@ static inline NSArray *imgs(){//静态轮播图
     NSMutableArray *temp = NSMutableArray.array;
     for (NSInteger i = 28 ; i <= 65; i++) {
         NSString *imgName = [NSString stringWithFormat:@"Tools_000%zi", i];
-        CGImageRef img = KIMG(imgName).CGImage;
+        CGImageRef img = JobsIMG(imgName).CGImage;
         [temp addObject:(__bridge id _Nonnull)(img)];
     }return temp;
 }

@@ -42,7 +42,7 @@
 #pragma mark —— lazyLoad
 -(UIColor *)cor{
     if (!_cor) {
-        _cor = [UIColor colorWithPatternImage:KIMG(@"选择场馆上拉列表背景")];// 用@2x@3x会有偏移异常
+        _cor = [UIColor colorWithPatternImage:JobsIMG(@"选择场馆上拉列表背景")];// 用@2x@3x会有偏移异常
         /// 👇🏻下面有偏移
 //        [UIColor gradientCorDataMutArr:[NSMutableArray arrayWithArray:@[HEXCOLOR(0xF2CD7A),HEXCOLOR(0xFFEABA)]]
 //                            startPoint:CGPointMake(100, 100)
@@ -216,7 +216,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     cell.textLabel.font = notoSansRegular(16);
     cell.textLabelFrameOffsetX = JobsWidth(16);
     cell.imageViewFrameOffsetX = JobsMainScreen_WIDTH() - JobsWidth(50);
-    cell.imageView.image = KIMG(@"红色的对勾");
+    cell.imageView.image = JobsIMG(@"红色的对勾");
     cell.imageView.jobsVisible = NO;
     
     cell.backgroundColor = cell.contentView.backgroundColor = HEXCOLOR(0xFFFCF7);

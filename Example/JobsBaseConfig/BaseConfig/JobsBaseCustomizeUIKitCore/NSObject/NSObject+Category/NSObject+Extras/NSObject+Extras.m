@@ -588,7 +588,7 @@
         if ([temp isEqualToString:@"."]) {
             temp = @"小数点";
         }
-        [resultIMGMutArr addObject:KIMG(temp)];
+        [resultIMGMutArr addObject:JobsIMG(temp)];
     }
     NSLog(@"resultMutArr【For Test】 = %@",resultMutArr);
     return resultIMGMutArr;
@@ -596,7 +596,7 @@
 /// 读取本地的plist文件到内存  【 plist ——> NSDictionary * 】
 /// @param fileName Plist文件名
 -(nullable NSDictionary *)readLocalPlistWithFileName:(nullable NSString *)fileName{
-    NSString *filePath = getPathForResource(nil,
+    NSString *filePath = JobsPathForResource(nil,
                                             fileName,
                                             nil,
                                             @"plist");

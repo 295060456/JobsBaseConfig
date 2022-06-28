@@ -38,7 +38,7 @@ NTESVerifyCodeManagerProtocol_synthesize
 
 -(UIImage *)backBtnIMG{
     if (!_backBtnIMG) {
-        _backBtnIMG = KIMG(@"全局返回箭头");
+        _backBtnIMG = JobsIMG(@"全局返回箭头");
     }return _backBtnIMG;
 }
 

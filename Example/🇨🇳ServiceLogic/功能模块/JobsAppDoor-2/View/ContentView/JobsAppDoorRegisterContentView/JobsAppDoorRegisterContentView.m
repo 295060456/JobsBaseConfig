@@ -113,13 +113,15 @@
         _backToLoginBtn.titleLabel.numberOfLines = 0;
         _backToLoginBtn.backgroundColor = Cor1;
         _backToLoginBtn.alpha = 0.7f;
-        [_backToLoginBtn titleFont:[UIFont systemFontOfSize:JobsWidth(13) weight:UIFontWeightMedium]];
-        [_backToLoginBtn normalTitle:Title1];
-        [_backToLoginBtn normalImage:KIMG(@"用户名称")];
-        BtnClickEvent(_backToLoginBtn, {
+        _backToLoginBtn.titleFont = UIFontWeightMediumSize(13);
+        _backToLoginBtn.normalTitle = Title1;
+        _backToLoginBtn.normalImage = JobsIMG(@"用户名称");
+        @jobs_weakify(self)
+        [_backToLoginBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
             [self endEditing:YES];
             if (self.objectBlock) self.objectBlock(x);
-        })
+        }];
         [self addSubview:_backToLoginBtn];
         [_backToLoginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.left.bottom.equalTo(self);
@@ -136,8 +138,7 @@
         _titleLab = UILabel.new;
         _titleLab.text = Title6;
         _titleLab.textColor = JobsWhiteColor;
-        _titleLab.font = [UIFont systemFontOfSize:JobsWidth(20)
-                                           weight:UIFontWeightRegular];
+        _titleLab.font = UIFontWeightRegularSize(20);
         [_titleLab sizeToFit];
         [self addSubview:_titleLab];
         _titleLab.centerX = (self.width + self.backToLoginBtn.width) / 2;
@@ -151,9 +152,11 @@
         [_sendBtn normalTitle:Title6];
         _sendBtn.backgroundColor = [JobsSystemPinkColor colorWithAlphaComponent:0.7];
         [_sendBtn normalTitleColor:UIColor.whiteColor];
-        [_sendBtn titleFont:[UIFont systemFontOfSize:JobsWidth(16) weight:UIFontWeightRegular]];
+        [_sendBtn titleFont:UIFontWeightRegularSize(16)];
         [_sendBtn buttonAutoWidthByFont];
-        BtnClickEvent(_sendBtn, [WHToast toastSuccessMsg:Title6];);
+        [_sendBtn btnClickEventBlock:^(UIButton *x) {
+            toast(x.titleForNormalState);
+        }];
         _sendBtn.x = self.backToLoginBtn.width + JobsWidth(20);
         _sendBtn.size = CGSizeMake(self.width - self.backToLoginBtn.width - JobsWidth(40), ThingsHeight);
         _sendBtn.bottom = JobsAppDoorContentViewRegisterHeight - JobsWidth(20);
@@ -167,7 +170,7 @@
         _registerDoorInputViewBaseStyleModelMutArr = NSMutableArray.array;
         
         JobsAppDoorInputViewBaseStyleModel *用户名 = JobsAppDoorInputViewBaseStyleModel.new;
-        用户名.leftViewIMG = KIMG(@"用户名称");
+        用户名.leftViewIMG = JobsIMG(@"用户名称");
         用户名.placeHolderStr = @"用户名";
         用户名.isShowDelBtn = YES;
         用户名.isShowSecurityBtn = NO;
@@ -177,31 +180,31 @@
         [_registerDoorInputViewBaseStyleModelMutArr addObject:用户名];
         
         JobsAppDoorInputViewBaseStyleModel *密码 = JobsAppDoorInputViewBaseStyleModel.new;
-        密码.leftViewIMG = KIMG(@"Lock");
+        密码.leftViewIMG = JobsIMG(@"Lock");
         密码.placeHolderStr = @"密码";
         密码.isShowDelBtn = YES;
         密码.isShowSecurityBtn = YES;
         密码.returnKeyType = UIReturnKeyDone;
         密码.keyboardAppearance = UIKeyboardAppearanceAlert;
-        密码.selectedSecurityBtnIMG = KIMG(@"codeEncode");//闭眼
-        密码.unSelectedSecurityBtnIMG = KIMG(@"codeDecode");//开眼
+        密码.selectedSecurityBtnIMG = JobsIMG(@"codeEncode");//闭眼
+        密码.unSelectedSecurityBtnIMG = JobsIMG(@"codeDecode");//开眼
         密码.leftViewMode = UITextFieldViewModeAlways;
         [_registerDoorInputViewBaseStyleModelMutArr addObject:密码];
         
         JobsAppDoorInputViewBaseStyleModel *确认密码 = JobsAppDoorInputViewBaseStyleModel.new;
-        确认密码.leftViewIMG = KIMG(@"Lock");
+        确认密码.leftViewIMG = JobsIMG(@"Lock");
         确认密码.placeHolderStr = @"确认密码";
         确认密码.isShowDelBtn = YES;
         确认密码.isShowSecurityBtn = YES;
         确认密码.returnKeyType = UIReturnKeyDone;
         确认密码.keyboardAppearance = UIKeyboardAppearanceAlert;
-        确认密码.selectedSecurityBtnIMG = KIMG(@"codeEncode");//闭眼
-        确认密码.unSelectedSecurityBtnIMG =KIMG(@"codeDecode");//开眼
+        确认密码.selectedSecurityBtnIMG = JobsIMG(@"codeEncode");//闭眼
+        确认密码.unSelectedSecurityBtnIMG =JobsIMG(@"codeDecode");//开眼
         确认密码.leftViewMode = UITextFieldViewModeAlways;
         [_registerDoorInputViewBaseStyleModelMutArr addObject:确认密码];
         
         JobsAppDoorInputViewBaseStyleModel *推广码 = JobsAppDoorInputViewBaseStyleModel.new;
-        推广码.leftViewIMG = KIMG(@"推广码");
+        推广码.leftViewIMG = JobsIMG(@"推广码");
         推广码.placeHolderStr = @"手机验证码";
         推广码.isShowDelBtn = YES;
         推广码.isShowSecurityBtn = NO;
@@ -211,7 +214,7 @@
         [_registerDoorInputViewBaseStyleModelMutArr addObject:推广码];
         
         JobsAppDoorInputViewBaseStyleModel *图形验证码 = JobsAppDoorInputViewBaseStyleModel.new;
-        图形验证码.leftViewIMG = KIMG(@"验证ICON");
+        图形验证码.leftViewIMG = JobsIMG(@"验证ICON");
         图形验证码.placeHolderStr = @"图形验证码";
         图形验证码.isShowDelBtn = YES;
         图形验证码.isShowSecurityBtn = NO;

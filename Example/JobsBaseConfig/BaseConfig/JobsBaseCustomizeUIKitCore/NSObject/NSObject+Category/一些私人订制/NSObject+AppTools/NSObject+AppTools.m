@@ -139,7 +139,7 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
 }
 
 -(UIImage *)defaultHeaderImage{
-    return self.isLogin ? KIMG(@"default_avatar_white") : KIMG(@"未登录默认头像（灰）");
+    return self.isLogin ? JobsIMG(@"default_avatar_white") : JobsIMG(@"未登录默认头像（灰）");
 }
 
 -(NSString *)currentLanguage{
@@ -408,7 +408,7 @@ static char *NSObject_AppTools_立即注册 = "NSObject_AppTools_立即注册";
         [_立即注册 handelAdjustsImageWhenHighlighted];
         _立即注册.normalTitle = Internationalization(@"立即注册");
         _立即注册.normalTitleColor = HEXCOLOR(0x757575);
-        _立即注册.titleFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
+        _立即注册.titleFont = UIFontWeightRegularSize(14);
         UIViewController *viewController = (UIViewController *)self;
         [viewController.bgImageView addSubview:_立即注册];
         [_立即注册 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -416,12 +416,12 @@ static char *NSObject_AppTools_立即注册 = "NSObject_AppTools_立即注册";
             make.bottom.equalTo(viewController.view).offset(JobsWidth(-64));
             make.left.equalTo(self.separateLab.mas_right).offset(JobsWidth(24));
         }];
-        BtnClickEvent(_立即注册,
-                      {
+        @jobs_weakify(self)
+        [_立即注册 btnClickEventBlock:^(id data) {
+            @jobs_strongify(self)
             NSLog(@"立即注册")
-            [self jobsTestPopView:nil];
-        });
-        
+            [self JobsTestPopView:@"立即注册"];
+        }];
         [_立即注册 makeBtnLabelByShowingType:UILabelShowingType_03];
         [self set立即注册:_立即注册];
     }return _立即注册;
@@ -443,8 +443,7 @@ static char *NSObject_AppTools_联系客服 = "NSObject_AppTools_联系客服";
         [_联系客服 handelAdjustsImageWhenHighlighted];
         _联系客服.normalTitle = Internationalization(@"联系客服");
         _联系客服.normalTitleColor = HEXCOLOR(0x757575);
-        _联系客服.titleFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
-        
+        _联系客服.titleFont = UIFontWeightRegularSize(14);
         UIViewController *viewController = (UIViewController *)self;
         [viewController.bgImageView addSubview:_联系客服];
         [_联系客服 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -452,11 +451,12 @@ static char *NSObject_AppTools_联系客服 = "NSObject_AppTools_联系客服";
             make.bottom.equalTo(viewController.view).offset(JobsWidth(-64));
             make.right.equalTo(viewController.separateLab.mas_left).offset(JobsWidth(-24));
         }];
-        BtnClickEvent(_联系客服, {
+        @jobs_weakify(self)
+        [_联系客服 btnClickEventBlock:^(id data) {
+            @jobs_strongify(self)
             NSLog(@"联系客服");
-            [self jobsTestPopView:nil];
-        });
-        
+            [self JobsTestPopView:@"联系客服"];
+        }];
         [_联系客服 makeBtnLabelByShowingType:UILabelShowingType_03];
         [self set联系客服:_联系客服];
     }return _联系客服;

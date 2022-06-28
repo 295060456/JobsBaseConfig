@@ -40,19 +40,19 @@
     switch (self.msgDataModel.msgStyle) {
         /// 通知
         case MsgStyle_Notify:{
-            self.imageView.image = KIMG(@"通知");
+            self.imageView.image = JobsIMG(@"通知");
         }break;
         /// 活动
         case MsgStyle_Activity:{
-            self.imageView.image = KIMG(@"活动");
+            self.imageView.image = JobsIMG(@"活动");
         }break;
         /// 公告
         case MsgStyle_Notice:{
-            self.imageView.image = KIMG(@"公告");
+            self.imageView.image = JobsIMG(@"公告");
         }break;
         /// 红利
         case MsgStyle_Bonus:{
-            self.imageView.image = KIMG(@"红利");
+            self.imageView.image = JobsIMG(@"红利");
         }break;
             
         default:
@@ -97,7 +97,7 @@
             for (UIView *view in control.subviews){
                 if ([view isKindOfClass:UIImageView.class]) {
                     UIImageView *img = (UIImageView *)view;
-                    img.image = self.selected ? KIMG(@"按钮已选中") : KIMG(@"按钮未选中");
+                    img.image = self.selected ? JobsIMG(@"按钮已选中") : JobsIMG(@"按钮未选中");
                 }
             }
         }
@@ -134,7 +134,9 @@
             make.right.equalTo(self.contentView).offset(JobsWidth(-16));
         }];
         [_getBtn makeBtnLabelByShowingType:UILabelShowingType_03];
-        BtnClickEvent(_getBtn, {
+        @jobs_weakify(self)
+        [_getBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
             if (!x.selected) {
                 JobsPopupView02 *popView = (JobsPopupView02 *)[self jobsPopView:JobsPopupView02.class viewModel:UIViewModel.new];
                 [popView actionObjectBlock:^(id data) {
@@ -158,7 +160,7 @@
                 
                 if (self.objectBlock) self.objectBlock(popView);
             }
-        });
+        }];
         [_getBtn cornerCutToCircleWithCornerRadius:JobsWidth(10)];
     }return _getBtn;
 }

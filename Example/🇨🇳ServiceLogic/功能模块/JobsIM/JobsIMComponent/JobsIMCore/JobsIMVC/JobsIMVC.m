@@ -183,7 +183,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
             }];
         }];
         //设置图片，但是设置不了原图，都是被默认为白色了，字体也是
-        UIImage *image = [KBuddleIMG(@"⚽️PicResource", @"Others", nil, @"分享") imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        UIImage *image = [JobsBuddleIMG(@"⚽️PicResource", @"Others", nil, @"分享") imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         [deleteRowAction setImage:image];
         deleteRowAction.backgroundColor = [UIColor redColor];
 
@@ -198,7 +198,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
               
             }];
         }];
-        editRowAction.image = KBuddleIMG(@"⚽️PicResource", @"Others", nil, @"删除");
+        editRowAction.image = JobsBuddleIMG(@"⚽️PicResource", @"Others", nil, @"删除");
         editRowAction.backgroundColor = [UIColor blueColor];
         UISwipeActionsConfiguration *config = [UISwipeActionsConfiguration configurationWithActions:@[deleteRowAction,editRowAction]];
         //设置全屏滑动时不自定响应事件
@@ -218,7 +218,7 @@ trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
                                                                                               __kindof UIView * _Nonnull sourceView,
                                                                                               void (^ _Nonnull completionHandler)(BOOL)) {
         }];
-        UIImage *image = [KBuddleIMG(@"⚽️PicResource", @"Others", nil, @"分享")  imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        UIImage *image = [JobsBuddleIMG(@"⚽️PicResource", @"Others", nil, @"分享")  imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         [deleteRowAction setImage:image];
         deleteRowAction.backgroundColor = [UIColor redColor];
         UIContextualAction *editRowAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleNormal
@@ -227,7 +227,7 @@ trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
                                                                                             __kindof UIView * _Nonnull sourceView,
                                                                                             void (^ _Nonnull completionHandler)(BOOL)) {
         }];
-        editRowAction.image = KBuddleIMG(@"⚽️PicResource", @"Others", nil, @"删除");
+        editRowAction.image = JobsBuddleIMG(@"⚽️PicResource", @"Others", nil, @"删除");
         editRowAction.backgroundColor = [UIColor blueColor];
 
         UISwipeActionsConfiguration *config = [UISwipeActionsConfiguration configurationWithActions:@[deleteRowAction,editRowAction]];
@@ -320,7 +320,7 @@ willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {
     UIButton *button = rowActionView.subviews.firstObject;
     button.backgroundColor = JobsRedColor;
     [button normalTitle:@"删除"];
-    [button normalImage:KBuddleIMG(@"⚽️PicResource", @"Others", nil, @"删除")];
+    [button normalImage:JobsBuddleIMG(@"⚽️PicResource", @"Others", nil, @"删除")];
 }
 #endif
 
@@ -367,7 +367,7 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
                     chatInfoModel.chatTextStr = tf.text;
                     JobsTimeModel *timeModel = self.makeSpecificTime;
                     chatInfoModel.chatTextTimeStr = [NSString stringWithFormat:@"%ld:%ld:%ld",timeModel.currentHour,timeModel.currentMin,timeModel.currentSec];
-                    chatInfoModel.userIconIMG = KBuddleIMG(@"bundle", @"头像", nil, @"头像_1");//我自己的头像
+                    chatInfoModel.userIconIMG = JobsBuddleIMG(@"bundle", @"头像", nil, @"头像_1");//我自己的头像
                     chatInfoModel.identification = @"我是我自己";
                     chatInfoModel.userNameStr = @"Jobs";
                     
@@ -402,8 +402,7 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
         _tableView.pagingEnabled = YES;//这个属性为YES会使得Tableview一格一格的翻动
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.showsVerticalScrollIndicator = NO;
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
+        [self dataLinkByTableView:_tableView];
         [self.view insertSubview:_tableView belowSubview:self.inputview];
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             if (self.gk_navBarAlpha && !self.gk_navigationBar.hidden) {//显示
@@ -441,14 +440,14 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
 -(UIButton *)shareBtn{
     if (!_shareBtn) {
         _shareBtn = UIButton.new;
-        _shareBtn.mj_w = JobsWidth(23);
-        _shareBtn.mj_h = JobsWidth(23);
-        [_shareBtn normalImage:KBuddleIMG(@"⚽️PicResource", @"Others", nil, @"分享")];
-        [_shareBtn normalTitleColor:UIColor.whiteColor];
+        _shareBtn.width = JobsWidth(23);
+        _shareBtn.height = JobsWidth(23);
+        _shareBtn.normalImage = JobsBuddleIMG(@"⚽️PicResource", @"Others", nil, @"分享");
+        _shareBtn.normalTitleColor = JobsWhiteColor;
         [_shareBtn cornerCutToCircleWithCornerRadius:23 / 2];
-        BtnClickEvent(_shareBtn, {
-            [WHToast toastMsg:@"正在研发中...敬请期待"];
-        });
+        [_shareBtn btnClickEventBlock:^(id data) {
+            toast(Internationalization(@"正在研发中...敬请期待"));
+        }];
     }return _shareBtn;
 }
 
@@ -460,7 +459,7 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
 
 -(UIColor *)bgColour{
     if (!_bgColour) {
-        _bgColour = [UIColor colorWithPatternImage:KBuddleIMG(@"⚽️PicResource", @"Telegram",nil, @"1")];
+        _bgColour = [UIColor colorWithPatternImage:JobsBuddleIMG(@"⚽️PicResource", @"Telegram",nil, @"1")];
     }return _bgColour;
 }
 

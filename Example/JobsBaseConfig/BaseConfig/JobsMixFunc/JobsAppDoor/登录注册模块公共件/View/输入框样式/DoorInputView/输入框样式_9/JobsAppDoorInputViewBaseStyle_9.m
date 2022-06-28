@@ -132,13 +132,14 @@
 -(UIButton *)countDownBtn{
     if (!_countDownBtn) {
         _countDownBtn = [UIButton.alloc initWithConfig:self.btnTimerConfigModel];
-        
-        BtnClickEvent(_countDownBtn, {
+        @jobs_weakify(self)
+        [_countDownBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
             [x startTimer];//选择时机、触发启动
 //            NSLog(@"SSSSS = 获取验证码");
             if (self.objectBlock) self.objectBlock(x);
-        })
-        
+        }];
+
         [_countDownBtn actionObjectBlock:^(id data) {
 //            @jobs_strongify(self)
             if ([data isKindOfClass:TimerProcessModel.class]) {

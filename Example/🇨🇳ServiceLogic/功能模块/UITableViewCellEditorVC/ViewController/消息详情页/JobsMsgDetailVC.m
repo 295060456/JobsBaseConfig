@@ -131,9 +131,6 @@
             make.right.equalTo(self.view).offset(JobsWidth(-16));
             make.top.equalTo(self.view).offset(JobsWidth(28));
         }];
-        BtnClickEvent(_drawBtn, {
-            
-        });
     }return _drawBtn;
 }
 
@@ -171,10 +168,12 @@
         _deleteBtn.normalTitle = Internationalization(@"删除");
         _deleteBtn.titleFont = notoSansRegular(12);
         _deleteBtn.normalTitleColor = HEXCOLOR(0x3D4A58);
-        BtnClickEvent(_deleteBtn, {
+        @jobs_weakify(self)
+        [_deleteBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
             [self backBtnClickEvent:x];
             if (self.objectBlock) self.objectBlock(self.msgDataModel);
-        });
+        }];
     }return _deleteBtn;
 }
 

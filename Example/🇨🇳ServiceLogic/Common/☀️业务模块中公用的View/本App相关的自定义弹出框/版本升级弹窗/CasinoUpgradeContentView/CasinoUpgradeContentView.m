@@ -55,12 +55,12 @@
 -(UILabel *)titleLab{
     if (!_titleLab) {
         _titleLab = UILabel.new;
-        _titleLab.font = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightMedium];
+        _titleLab.font = UIFontWeightMediumSize(14);
         _titleLab.textColor = HEXCOLOR(0x524740);
         _titleLab.text = Internationalization(@"The existing new version needs to be updated. Are you sure to download it?");
         _titleLab.numberOfLines = 0;
         _titleLab.textAlignment = NSTextAlignmentCenter;
-        [_titleLab sizeToFit];
+        [_titleLab makeLabelByShowingType:UILabelShowingType_03];
         [self addSubview:_titleLab];
         [_titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(self);
@@ -74,11 +74,15 @@
 -(UIButton *)cancelBtn{
     if (!_cancelBtn) {
         _cancelBtn = UIButton.new;
-        [_cancelBtn normalTitle:Internationalization(@"Cancel")];
-        [_cancelBtn normalTitleColor:HEXCOLOR(0x502600)];
-        [_cancelBtn titleFont:[UIFont systemFontOfSize:JobsWidth(14) weight:UIControlStateNormal]];
-        BtnClickEvent(_cancelBtn, if(self.objectBlock) self.objectBlock(x););
-        [_cancelBtn normalBackgroundImage:KIMG(@"弹窗取消按钮背景图")];
+        _cancelBtn.normalTitle = Internationalization(@"Cancel");
+        _cancelBtn.normalTitleColor = HEXCOLOR(0x502600);
+        _cancelBtn.titleFont = UIFontWeightRegularSize(14);
+        _cancelBtn.normalBackgroundImage = JobsIMG(@"弹窗取消按钮背景图");
+        @jobs_weakify(self)
+        [_cancelBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
+            if(self.objectBlock) self.objectBlock(x);
+        }];
         [self addSubview:_cancelBtn];
         [_cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(JobsWidth(110), JobsWidth(44)));
@@ -91,14 +95,17 @@
 -(UIButton *)sureBtn{
     if (!_sureBtn) {
         _sureBtn = UIButton.new;
-        [_sureBtn normalTitle:Internationalization(@"Sure")];
-        [_sureBtn normalTitleColor:HEXCOLOR(0x502600)];
-        [_sureBtn titleFont:[UIFont systemFontOfSize:JobsWidth(14) weight:UIControlStateNormal]];
-        BtnClickEvent(_sureBtn, if(self.objectBlock) self.objectBlock(x););
-        [_sureBtn normalBackgroundImage:KIMG(@"弹窗确定按钮背景图")];
+        _sureBtn.normalTitle = Internationalization(@"Sure");
+        _sureBtn.normalTitleColor = HEXCOLOR(0x502600);
+        _sureBtn.normalBackgroundImage = JobsIMG(@"弹窗确定按钮背景图");
+        _sureBtn.titleFont = UIFontWeightRegularSize(14);
+        @jobs_weakify(self)
+        [_sureBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
+            if(self.objectBlock) self.objectBlock(x);
+        }];
         [self addSubview:_sureBtn];
         [_sureBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-
             make.size.mas_equalTo(CGSizeMake(JobsWidth(110), JobsWidth(44)));
             make.bottom.equalTo(self).offset(-JobsWidth(20));
             if (self.iOSNewestVersionModel &&
@@ -107,7 +114,6 @@
             }else{
                 make.right.equalTo(self).offset(JobsWidth(-20));
             }
-            
         }];
     }return _sureBtn;
 }

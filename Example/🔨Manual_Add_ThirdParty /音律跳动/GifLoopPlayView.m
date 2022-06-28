@@ -59,7 +59,7 @@ static dispatch_once_t dispatchOnce;
 -(NSMutableArray<UIImage *> *)gifMutArr{
     if (!_gifMutArr) {
         _gifMutArr = NSMutableArray.array;
-        [_gifMutArr addObject:KBuddleIMG(nil,@"音律跳动", nil, @"1")];
+        [_gifMutArr addObject:JobsBuddleIMG(nil,@"音律跳动", nil, @"1")];
     }return _gifMutArr;
 }
 

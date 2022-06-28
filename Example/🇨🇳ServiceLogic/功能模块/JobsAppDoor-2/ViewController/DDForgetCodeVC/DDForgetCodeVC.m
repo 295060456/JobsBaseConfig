@@ -134,9 +134,9 @@
             self.nextStepBtn.userInteractionEnabled = [self checkStep1];
 //            NSLog(@"userInteractionEnabled = %d",self.nextStepBtn.userInteractionEnabled);
             if (self.nextStepBtn.userInteractionEnabled) {
-                self.nextStepBtn.backgroundColor = [UIColor colorWithPatternImage:KIMG(@"找回密码_下一步_可点击")];
+                self.nextStepBtn.backgroundColor = [UIColor colorWithPatternImage:JobsIMG(@"找回密码_下一步_可点击")];
             }else{
-                self.nextStepBtn.backgroundColor = [UIColor colorWithPatternImage:KIMG(@"找回密码_下一步_不可点击")];
+                self.nextStepBtn.backgroundColor = [UIColor colorWithPatternImage:JobsIMG(@"找回密码_下一步_不可点击")];
             }
         }];
     }
@@ -183,7 +183,7 @@
             
             self.nextStepBtn.userInteractionEnabled = [self checkStep2];
             NSLog(@"sw = %d",self.nextStepBtn.userInteractionEnabled);
-            self.nextStepBtn.backgroundColor = [UIColor colorWithPatternImage:self.nextStepBtn.userInteractionEnabled ? KIMG(@"找回密码_下一步_可点击") : KIMG(@"找回密码_下一步_不可点击")];
+            self.nextStepBtn.backgroundColor = [UIColor colorWithPatternImage:self.nextStepBtn.userInteractionEnabled ? JobsIMG(@"找回密码_下一步_可点击") : JobsIMG(@"找回密码_下一步_不可点击")];
         }];
     }
 }
@@ -204,7 +204,7 @@
         // 相关状态置空
         [self.inputTFValueMutDic removeAllObjects];
         self.nextStepBtn.userInteractionEnabled = NO;
-        self.nextStepBtn.backgroundColor = [UIColor colorWithPatternImage:KIMG(@"找回密码_下一步_不可点击")];
+        self.nextStepBtn.backgroundColor = [UIColor colorWithPatternImage:JobsIMG(@"找回密码_下一步_不可点击")];
         self.flowChartView.currentFlowSerialNum = self.currentFlowSerialNum;
         for (JobsAppDoorInputViewBaseStyle_5 *inputView in self.inputViewMutArr_step1) {
             [inputView removeFromSuperview];
@@ -239,8 +239,10 @@
         _nextStepBtn = UIButton.new;
         _nextStepBtn.userInteractionEnabled = NO;
         [_nextStepBtn normalTitle:@"下一步"];
-        _nextStepBtn.backgroundColor = [UIColor colorWithPatternImage:KIMG(@"找回密码_下一步_不可点击")];
-        BtnClickEvent(_nextStepBtn, {
+        _nextStepBtn.backgroundColor = [UIColor colorWithPatternImage:JobsIMG(@"找回密码_下一步_不可点击")];
+        @jobs_weakify(self)
+        [_nextStepBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
             if (self.currentFlowSerialNum == 0) {
                 [self step1ToStep2];//
                 self.currentFlowSerialNum ++;
@@ -253,7 +255,7 @@
                 self.currentFlowSerialNum ++;
                 self.flowChartView.currentFlowSerialNum = self.currentFlowSerialNum;
             }else{}
-        };);
+        }];
         [self.view addSubview:_nextStepBtn];
         [_nextStepBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_offset(CGSizeMake(JobsWidth(192), JobsWidth(32)));
@@ -266,11 +268,15 @@
 -(UIButton *)succeedBtn{
     if (!_succeedBtn) {
         _succeedBtn = UIButton.new;
-        [_succeedBtn normalTitle:@"密码修改成功"];
-        [_succeedBtn normalImage:KIMG(@"密码修改成功")];
-        [_succeedBtn normalTitleColor:UIColor.blackColor];
-        [_succeedBtn titleFont:[UIFont systemFontOfSize:JobsWidth(17) weight:UIFontWeightMedium]];
-        BtnClickEvent(_succeedBtn, [WHToast toastSuccessMsg:@"密码修改成功"];);
+        
+        _succeedBtn.normalTitle = Internationalization(@"密码修改成功");
+        _succeedBtn.normalImage = JobsIMG(@"密码修改成功");
+        _succeedBtn.normalTitleColor = JobsBlackColor;
+        _succeedBtn.titleFont = UIFontWeightMediumSize(17);
+
+        [_succeedBtn btnClickEventBlock:^(UIButton *x) {
+            toast(x.titleForNormalState);
+        }];
         [self.view addSubview:_succeedBtn];
         [_succeedBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.center.equalTo(self.view);
@@ -280,7 +286,6 @@
                                      imageTitleSpace:16];
     }return _succeedBtn;
 }
-
 
 -(NSMutableArray<NSString *> *)titleMutArr{
     if (!_titleMutArr) {
@@ -294,37 +299,37 @@
 -(NSMutableArray<NSString *> *)subTitleMutArr{
     if (!_subTitleMutArr) {
         _subTitleMutArr = NSMutableArray.array;
-        [_subTitleMutArr addObject:@"身份登录"];
-        [_subTitleMutArr addObject:@"修改密码"];
-        [_subTitleMutArr addObject:@"完成"];
+        [_subTitleMutArr addObject:Internationalization(@"身份登录")];
+        [_subTitleMutArr addObject:Internationalization(@"修改密码")];
+        [_subTitleMutArr addObject:Internationalization(@"完成")];
     }return _subTitleMutArr;
 }
 
 -(NSMutableArray<UIImage *> *)backImageMutArr{
     if (!_backImageMutArr) {
         _backImageMutArr = NSMutableArray.array;
-        [_backImageMutArr addObject:KIMG(@"di_1")];
-        [_backImageMutArr addObject:KIMG(@"di_2")];
-        [_backImageMutArr addObject:KIMG(@"di_3")];
-        [_backImageMutArr addObject:KIMG(@"di_4")];
+        [_backImageMutArr addObject:JobsIMG(@"di_1")];
+        [_backImageMutArr addObject:JobsIMG(@"di_2")];
+        [_backImageMutArr addObject:JobsIMG(@"di_3")];
+        [_backImageMutArr addObject:JobsIMG(@"di_4")];
     }return _backImageMutArr;
 }
 
 -(NSMutableArray<NSString *> *)textFieldTitleMutArr_step2{
     if (!_textFieldTitleMutArr_step2) {
         _textFieldTitleMutArr_step2 = NSMutableArray.array;
-        [_textFieldTitleMutArr_step2 addObject:@"验证码"];
-        [_textFieldTitleMutArr_step2 addObject:@"新密码"];
-        [_textFieldTitleMutArr_step2 addObject:@"确认新密码"];
+        [_textFieldTitleMutArr_step2 addObject:Internationalization(@"验证码")];
+        [_textFieldTitleMutArr_step2 addObject:Internationalization(@"新密码")];
+        [_textFieldTitleMutArr_step2 addObject:Internationalization(@"确认新密码")];
     }return _textFieldTitleMutArr_step2;
 }
 
 -(NSMutableArray<NSString *> *)textFieldPlaceHolderMutArr_step2{
     if (!_textFieldPlaceHolderMutArr_step2) {
         _textFieldPlaceHolderMutArr_step2 = NSMutableArray.array;
-        [_textFieldPlaceHolderMutArr_step2 addObject:@"请输入验证码"];
-        [_textFieldPlaceHolderMutArr_step2 addObject:@"确认新密码"];
-        [_textFieldPlaceHolderMutArr_step2 addObject:@"请再次输入密码"];
+        [_textFieldPlaceHolderMutArr_step2 addObject:Internationalization(@"请输入验证码")];
+        [_textFieldPlaceHolderMutArr_step2 addObject:Internationalization(@"确认新密码")];
+        [_textFieldPlaceHolderMutArr_step2 addObject:Internationalization(@"请再次输入密码")];
     }return _textFieldPlaceHolderMutArr_step2;
 }
 
@@ -343,16 +348,16 @@
 -(NSMutableArray<NSString *> *)textFieldTitleMutArr_step1{
     if (!_textFieldTitleMutArr_step1) {
         _textFieldTitleMutArr_step1 = NSMutableArray.array;
-        [_textFieldTitleMutArr_step1 addObject:@"用户名"];
-        [_textFieldTitleMutArr_step1 addObject:@"手机号"];
+        [_textFieldTitleMutArr_step1 addObject:Internationalization(@"用户名")];
+        [_textFieldTitleMutArr_step1 addObject:Internationalization(@"手机号")];
     }return _textFieldTitleMutArr_step1;
 }
 
 -(NSMutableArray<NSString *> *)textFieldPlaceHolderMutArr_step1{
     if (!_textFieldPlaceHolderMutArr_step1) {
         _textFieldPlaceHolderMutArr_step1 = NSMutableArray.array;
-        [_textFieldPlaceHolderMutArr_step1 addObject:@"请输入4-11位字母或数字的用户名"];
-        [_textFieldPlaceHolderMutArr_step1 addObject:@"请输入手机号"];
+        [_textFieldPlaceHolderMutArr_step1 addObject:Internationalization(@"请输入4-11位字母或数字的用户名")];
+        [_textFieldPlaceHolderMutArr_step1 addObject:Internationalization(@"请输入手机号")];
     }return _textFieldPlaceHolderMutArr_step1;
 }
 

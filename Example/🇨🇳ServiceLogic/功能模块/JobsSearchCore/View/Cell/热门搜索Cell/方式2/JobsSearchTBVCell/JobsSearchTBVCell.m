@@ -143,8 +143,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
     if (!_collectionView) {
         _collectionView = [UICollectionView.alloc initWithFrame:CGRectZero
                                            collectionViewLayout:self.layout];
-        _collectionView.dataSource = self;
-        _collectionView.delegate = self;
+        [self dataLinkByCollectionView:_collectionView];
         [_collectionView registerCollectionViewClass];
         [self.contentView addSubview:_collectionView];
         [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {

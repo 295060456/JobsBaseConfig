@@ -25,9 +25,9 @@
         //如果用系统的navigationBar，而并非自定义👇
 //        {
 //            self.navigationBar.translucent = NO;
-//            [self.navigationBar setBackgroundImage:KIMG(@"启动页SLOGAN")
+//            [self.navigationBar setBackgroundImage:JobsIMG(@"启动页SLOGAN")
 //                                     forBarMetrics:UIBarMetricsDefault];//仅仅是 navigationBar 背景
-//        //    [self.navigationBar setShadowImage:KIMG(@"启动页SLOGAN")];// 图片大了会全屏
+//        //    [self.navigationBar setShadowImage:JobsIMG(@"启动页SLOGAN")];// 图片大了会全屏
 //        }
 //
 //        {

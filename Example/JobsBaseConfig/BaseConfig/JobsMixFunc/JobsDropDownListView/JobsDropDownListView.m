@@ -111,8 +111,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         _tableView.backgroundColor = UIColor.clearColor;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         _tableView.showsVerticalScrollIndicator = NO;
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
+        [self dataLinkByTableView:_tableView];
         _tableView.tableHeaderView = UIView.new;/// 这里接入的就是一个UIView的派生类
         _tableView.tableFooterView = UIView.new;/// 这里接入的就是一个UIView的派生类
         _tableView.separatorColor = HEXCOLOR(0xEEEEEE);

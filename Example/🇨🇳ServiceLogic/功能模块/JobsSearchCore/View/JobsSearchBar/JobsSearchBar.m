@@ -95,10 +95,10 @@
 -(UIButton *)cancelBtn{
     if (!_cancelBtn) {
         _cancelBtn = UIButton.new;
-        _cancelBtn.backgroundColor = UIColor.lightGrayColor;
-        [_cancelBtn normalTitle:Internationalization(@"取消")];
-        [_cancelBtn titleFont:[UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular]];
-        [_cancelBtn normalTitleColor:HEXCOLOR(0x0F81FE)];
+        _cancelBtn.backgroundColor = JobsLightGrayColor;
+        _cancelBtn.normalTitle = Internationalization(@"取消");
+        _cancelBtn.titleFont = UIFontWeightRegularSize(12);
+        _cancelBtn.normalTitleColor = HEXCOLOR(0x0F81FE);
 //        [_cancelBtn buttonAutoWidthByFont]; // 无效
         [self addSubview:_cancelBtn];
         _cancelBtn.size = CGSizeMake(JobsWidth(50), JobsWidth(30));
@@ -106,15 +106,18 @@
         _cancelBtn.centerY = self.textField.centerY;
         [_cancelBtn layerBorderColour:UIColor.whiteColor andBorderWidth:1];
         [_cancelBtn cornerCutToCircleWithCornerRadius:8];
-//        BtnClickEvent(_cancelBtn, if (self.objectBlock) self.objectBlock(self.textField.text);)
-        BtnClickEvent(_cancelBtn,[self.textField resignFirstResponder];);
+        @jobs_weakify(self)
+        [_cancelBtn btnClickEventBlock:^(id data) {
+            @jobs_strongify(self)
+            [self.textField resignFirstResponder];
+        }];
     }return _cancelBtn;
 }
 
 -(UIImageView *)imgView{
     if (!_imgView) {
         _imgView = UIImageView.new;
-        _imgView.image = KIMG(@"放大镜");
+        _imgView.image = JobsIMG(@"放大镜");
     }return _imgView;
 }
 

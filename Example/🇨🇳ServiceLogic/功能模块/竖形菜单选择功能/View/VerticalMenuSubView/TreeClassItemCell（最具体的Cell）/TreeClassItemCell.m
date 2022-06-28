@@ -95,8 +95,8 @@ UILocationProtocol_synthesize
 -(UIButton *)btn{
     if (!_btn) {
         _btn = UIButton.new;
-        _btn.normalImage = KIMG(@"未点赞");
-        _btn.selectedImage = KIMG(@"已点赞");
+        _btn.normalImage = JobsIMG(@"未点赞");
+        _btn.selectedImage = JobsIMG(@"已点赞");
         _btn.titleFont = notoSansRegular(12);
         _btn.normalTitleColor = HEXCOLOR(0xC4C4C4);
         [self.contentView addSubview:_btn];

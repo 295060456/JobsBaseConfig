@@ -64,7 +64,7 @@
 -(UIImageView *)userIconIMGV{
     if (!_userIconIMGV) {
         _userIconIMGV = UIImageView.new;
-        _userIconIMGV.image = KIMG(@"默认头像");
+        _userIconIMGV.image = JobsIMG(@"默认头像");
         [self addSubview:_userIconIMGV];
         [_userIconIMGV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(JobsWidth(64), JobsWidth(64)));
@@ -81,7 +81,7 @@
         _userNameLab = UILabel.new;
         _userNameLab.text = Internationalization([NSString stringWithFormat:@"Hi~,%@",@"13711112222"]);
         _userNameLab.textColor = HEXCOLOR(0x3D4A58);
-        _userNameLab.font = [UIFont systemFontOfSize:JobsWidth(20) weight:UIFontWeightMedium];
+        _userNameLab.font = UIFontWeightMediumSize(20);
         _userNameLab.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_userNameLab];
         [_userNameLab mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -97,7 +97,7 @@
         _editBtn = UIButton.new;
         _editBtn.normalTitle = Internationalization(@"编辑");
         _editBtn.normalTitleColor = HEXCOLOR(0xC4C4C4);
-        _editBtn.titleFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
+        _editBtn.titleFont = UIFontWeightRegularSize(14);
         [self addSubview:_editBtn];
         [_editBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(JobsWidth(59), JobsWidth(20)));
@@ -106,9 +106,9 @@
         }];
         [_editBtn cornerCutToCircleWithCornerRadius:JobsWidth(JobsWidth(10))];
         [_editBtn layerBorderColour:HEXCOLOR(0xC4C4C4) andBorderWidth:JobsWidth(1)];
-        BtnClickEvent(_editBtn, {
+        [_editBtn btnClickEventBlock:^(id data) {
             toast(Internationalization(@"编辑"));
-        });
+        }];
     }return _editBtn;
 }
 
@@ -117,9 +117,9 @@
         _userRankBtn = UIButton.new;
         _userRankBtn.normalTitle = Internationalization(@" VIP 1");
         _userRankBtn.normalTitleColor = HEXCOLOR(0xAE8330);
-        _userRankBtn.normalImage = KIMG(@"用户等级_皇冠");
+        _userRankBtn.normalImage = JobsIMG(@"用户等级_皇冠");
         _userRankBtn.backgroundColor = HEXCOLOR(0xFFEABA);
-        _userRankBtn.titleFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightMedium];
+        _userRankBtn.titleFont = UIFontWeightRegularSize(14);
         [self addSubview:_userRankBtn];
         [_userRankBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(JobsWidth(64), JobsWidth(20)));
@@ -128,9 +128,11 @@
         }];
         [_userRankBtn cornerCutToCircleWithCornerRadius:JobsWidth(JobsWidth(10))];
         [_userRankBtn layerBorderColour:UIColor.whiteColor andBorderWidth:JobsWidth(1)];
-        BtnClickEvent(_userRankBtn, {
+        @jobs_weakify(self)
+        [_userRankBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
             if (self.objectBlock) self.objectBlock(x);
-        });
+        }];
     }return _userRankBtn;
 }
 
@@ -139,8 +141,8 @@
         _rankProcessValueBtn = UIButton.new;
         _rankProcessValueBtn.normalTitle = Internationalization(@"50% ");
         _rankProcessValueBtn.normalTitleColor = HEXCOLOR(0x757575);
-        _rankProcessValueBtn.normalImage = KIMG(@"向右的箭头（小）");
-        _rankProcessValueBtn.titleFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
+        _rankProcessValueBtn.normalImage = JobsIMG(@"向右的箭头（小）");
+        _rankProcessValueBtn.titleFont = UIFontWeightRegularSize(14);
         [self addSubview:_rankProcessValueBtn];
         [_rankProcessValueBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(28 + 6 + 14, JobsWidth(14)));
@@ -156,7 +158,7 @@
         _rankProcessLab = UILabel.new;
         _rankProcessLab.text = Internationalization(@"晉級程度");
         _rankProcessLab.textColor = HEXCOLOR(0xC4C4C4);
-        _rankProcessLab.font = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
+        _rankProcessLab.font = UIFontWeightRegularSize(14);
         [self addSubview:_rankProcessLab];
         [_rankProcessLab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(self.rankProcessValueBtn.mas_left).offset(JobsWidth(-8));

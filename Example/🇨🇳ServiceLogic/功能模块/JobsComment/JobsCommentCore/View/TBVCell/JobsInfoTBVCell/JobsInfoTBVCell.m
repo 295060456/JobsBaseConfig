@@ -67,15 +67,16 @@
     if (!_LikeBtn) {
         _LikeBtn = RBCLikeButton.new;
         
-        [_LikeBtn normalImage:KBuddleIMG(nil, @"RBCLikeButton", nil, @"day_like")];
-        [_LikeBtn selectedImage:KBuddleIMG(nil, @"RBCLikeButton", nil, @"day_like_red")];
+        _LikeBtn.normalImage = JobsBuddleIMG(nil, @"RBCLikeButton", nil, @"day_like");
+        _LikeBtn.selectedImage = JobsBuddleIMG(nil, @"RBCLikeButton", nil, @"day_like_red");
         
 //        _LikeBtn.layer.cornerRadius = SCALING_RATIO(55 / 4);
 //        _LikeBtn.layer.borderColor = kGrayColor.CGColor;
 //        _LikeBtn.layer.borderWidth = 1;
         _LikeBtn.thumpNum = 0;
-
-        BtnClickEvent(_LikeBtn, {
+        @jobs_weakify(self)
+        [_LikeBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
             if (self.objectBlock) self.objectBlock(x);
             if (self->_LikeBtn.selected) {
                 [self->_LikeBtn setThumbWithSelected:NO
@@ -86,7 +87,7 @@
                                             thumbNum:self->_LikeBtn.thumpNum + 1
                                      animation:YES];
             }
-        });
+        }];
         
         [self.contentView addSubview:_LikeBtn];
         [_LikeBtn mas_makeConstraints:^(MASConstraintMaker *make) {

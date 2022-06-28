@@ -21,7 +21,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 //        cell.contentView.backgroundColor = RandomColor;
-        cell.imageView.image = KIMG(@"时钟");
+        cell.imageView.image = JobsIMG(@"时钟");
     }return cell;
 }
 

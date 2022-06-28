@@ -334,14 +334,14 @@ referenceSizeForFooterInSection:(NSInteger)section{
 -(UIButton *)customerServiceBtn{
     if (!_customerServiceBtn) {
         _customerServiceBtn = UIButton.new;
-        _customerServiceBtn.normalImage = KIMG(@"人工客服");
+        _customerServiceBtn.normalImage = JobsIMG(@"人工客服");
     }return _customerServiceBtn;
 }
 
 -(UIButton *)msgBtn{
     if (!_msgBtn) {
         _msgBtn = UIButton.new;
-        _msgBtn.normalImage = KIMG(@"消息");
+        _msgBtn.normalImage = JobsIMG(@"消息");
     }return _msgBtn;
 }
 
@@ -365,16 +365,18 @@ referenceSizeForFooterInSection:(NSInteger)section{
         _editBtn.normalTitle = Internationalization(@"编辑");
         _editBtn.normalTitleColor = HEXCOLOR(0xB0B0B0);
         _editBtn.titleFont = notoSansRegular(12);
-        _editBtn.normalImage = KIMG(@"编辑");
+        _editBtn.normalImage = JobsIMG(@"编辑");
         [_editBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft imageTitleSpace:JobsWidth(5.75)];
-        BtnClickEvent(_editBtn, {
+        @jobs_weakify(self)
+        [_editBtn btnClickEventBlock:^(id data) {
+            @jobs_strongify(self)
 //            toast(Internationalization(@"编辑"));
             self.popupParameter.dragEnable = YES;
             self.popupParameter.disuseBackgroundTouchHide = NO;
             [self.popupView tf_showSlide:getMainWindow()
                                direction:PopupDirectionBottom
                               popupParam:self.popupParameter];
-        })
+        }];
         [self.view addSubview:_editBtn];
         [_editBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.view);
@@ -455,31 +457,31 @@ referenceSizeForFooterInSection:(NSInteger)section{
     /// 装载假数据
     if (self.thisIndex == 0) {
         for (int i = 1; i < 10; i++) {
-            [_imageDataMutArr addObject:KIMG([@"体育" stringByAppendingString:[NSString stringWithFormat:@"0%d",i]])];
+            [_imageDataMutArr addObject:JobsIMG([@"体育" stringByAppendingString:[NSString stringWithFormat:@"0%d",i]])];
         }
     }else if (self.thisIndex == 1){
         for (int i = 1; i < 10; i++) {
-            [_imageDataMutArr addObject:KIMG([@"真人" stringByAppendingString:[NSString stringWithFormat:@"0%d",i]])];
+            [_imageDataMutArr addObject:JobsIMG([@"真人" stringByAppendingString:[NSString stringWithFormat:@"0%d",i]])];
         }
     }else if (self.thisIndex == 2){
         for (int i = 1; i < 10; i++) {
-            [_imageDataMutArr addObject:KIMG([@"体育" stringByAppendingString:[NSString stringWithFormat:@"0%d",i]])];
+            [_imageDataMutArr addObject:JobsIMG([@"体育" stringByAppendingString:[NSString stringWithFormat:@"0%d",i]])];
         }
     }else if (self.thisIndex == 3){
         for (int i = 1; i < 10; i++) {
-            [_imageDataMutArr addObject:KIMG([@"体育" stringByAppendingString:[NSString stringWithFormat:@"0%d",i]])];
+            [_imageDataMutArr addObject:JobsIMG([@"体育" stringByAppendingString:[NSString stringWithFormat:@"0%d",i]])];
         }
     }else if (self.thisIndex == 4){
         for (int i = 1; i < 10; i++) {
-            [_imageDataMutArr addObject:KIMG([@"体育" stringByAppendingString:[NSString stringWithFormat:@"0%d",i]])];
+            [_imageDataMutArr addObject:JobsIMG([@"体育" stringByAppendingString:[NSString stringWithFormat:@"0%d",i]])];
         }
     }else if (self.thisIndex == 5){
         for (int i = 1; i < 10; i++) {
-            [_imageDataMutArr addObject:KIMG([@"体育" stringByAppendingString:[NSString stringWithFormat:@"0%d",i]])];
+            [_imageDataMutArr addObject:JobsIMG([@"体育" stringByAppendingString:[NSString stringWithFormat:@"0%d",i]])];
         }
     }else{
         for (int i = 1; i < 10; i++) {
-            [_imageDataMutArr addObject:KIMG([@"体育" stringByAppendingString:[NSString stringWithFormat:@"0%d",i]])];
+            [_imageDataMutArr addObject:JobsIMG([@"体育" stringByAppendingString:[NSString stringWithFormat:@"0%d",i]])];
         }
     }return _imageDataMutArr;
 }

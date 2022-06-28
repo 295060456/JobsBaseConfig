@@ -46,7 +46,7 @@
 -(UIImageView *)imageView{
     if (!_imageView) {
         _imageView = UIImageView.new;
-        _imageView.image = KIMG(@"弹窗升级背景图");
+        _imageView.image = JobsIMG(@"弹窗升级背景图");
         [self addSubview:_imageView];
         [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self);

@@ -108,15 +108,17 @@ static char *UIView_BaseView_NTESVerifyCodeCloseBtn = "UIView_BaseView_NTESVerif
     UIButton *btn = objc_getAssociatedObject(self, UIView_BaseView_NTESVerifyCodeCloseBtn);
     if (!btn) {
         btn = UIButton.new;
-        btn.normalImage = KBuddleIMG(nil,@"ZYTextField",@"", @"CloseCircle（大号）.png");
+        btn.normalImage = JobsBuddleIMG(nil,@"ZYTextField",@"", @"CloseCircle（大号）.png");
         btn.frame = CGRectMake(JobsMainScreen_WIDTH() - JobsWidth(50),
                                JobsMainScreen_HEIGHT() / 4,
                                JobsWidth(30),
                                JobsWidth(30));
-        BtnClickEvent(btn, {
+        @jobs_weakify(self)
+        [btn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
             [self closeVerifyCodeView];
             x.jobsVisible = NO;
-        });
+        }];
         [getMainWindow() addSubview:btn];
         [self setNTESVerifyCodeCloseBtn:btn];
     }return btn;

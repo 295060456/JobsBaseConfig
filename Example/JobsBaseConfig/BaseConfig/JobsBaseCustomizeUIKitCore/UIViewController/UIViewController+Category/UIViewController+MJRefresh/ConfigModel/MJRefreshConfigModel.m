@@ -87,7 +87,7 @@
 -(NSMutableArray<UIImage *> *)stateIdlePicsMutArr{
     if (!_stateIdlePicsMutArr) {
         _stateIdlePicsMutArr = NSMutableArray.array;
-        [_stateIdlePicsMutArr addObject:KBuddleIMG(@"bundle",
+        [_stateIdlePicsMutArr addObject:JobsBuddleIMG(@"bundle",
                                                    @"刷新",
                                                    nil,
                                                    @"header.png")];
@@ -97,7 +97,7 @@
 -(NSMutableArray<UIImage *> *)pullingPicsMutArr{
     if (!_pullingPicsMutArr) {
         _pullingPicsMutArr = NSMutableArray.array;
-        [_pullingPicsMutArr addObject:KBuddleIMG(@"bundle",
+        [_pullingPicsMutArr addObject:JobsBuddleIMG(@"bundle",
                                                  @"刷新",
                                                  nil,
                                                  @"Indeterminate Spinner - Small.png")];
@@ -111,7 +111,7 @@
         for (int i = 1; i <= 55; i++) {
             NSString *str = [NSString stringWithFormat:@"gif_header_%d",i];
             str = [str stringByAppendingString:@".png"];
-            [_refreshingPicsMutArr addObject:KBuddleIMG(@"bundle",
+            [_refreshingPicsMutArr addObject:JobsBuddleIMG(@"bundle",
                                                         @"刷新",
                                                         @"刷新图片 166 * 166 @3x 100 * 100 @2x",
                                                         str)];
@@ -127,7 +127,7 @@
         for (int i = 1; i <= 55; i++) {
             NSString *str = [NSString stringWithFormat:@"gif_header_%d",i];
             str = [str stringByAppendingString:@".png"];
-            [_willRefreshPicsMutArr addObject:KBuddleIMG(@"bundle",
+            [_willRefreshPicsMutArr addObject:JobsBuddleIMG(@"bundle",
                                                          @"刷新",
                                                          @"刷新图片 166 * 166 @3x 100 * 100 @2x",
                                                          str)];
@@ -143,7 +143,7 @@
         for (int i = 1; i <= 55; i++) {
             NSString *str = [NSString stringWithFormat:@"gif_header_%d",i];
             str = [str stringByAppendingString:@".png"];
-            [_noMoreDataPicsMutArr addObject:KBuddleIMG(@"bundle",
+            [_noMoreDataPicsMutArr addObject:JobsBuddleIMG(@"bundle",
                                                         @"刷新",
                                                         @"刷新图片 166 * 166 @3x 100 * 100 @2x",
                                                         str)];
@@ -154,7 +154,7 @@
 /// Lottie配置
 -(NSString *)jsonLottiefilePaths{
     if (!_jsonLottiefilePaths) {
-        _jsonLottiefilePaths = pathForBuddleIMG(nil,
+        _jsonLottiefilePaths = JobsPathForBuddleIMG(nil,
                                                 @"JsonRes",
                                                 nil,
                                                 @"下拉刷新.json");

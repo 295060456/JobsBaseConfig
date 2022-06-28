@@ -116,7 +116,7 @@ static dispatch_once_t static_launchVCOnceToken;
 -(UIImageView *)bgImgV{
     if (!_bgImgV) {
         _bgImgV = UIImageView.new;
-        _bgImgV.image = KIMG(@"AppDoorBgImage");
+        _bgImgV.image = JobsIMG(@"AppDoorBgImage");
         _bgImgV.userInteractionEnabled = YES;
     }return _bgImgV;
 }
@@ -124,11 +124,12 @@ static dispatch_once_t static_launchVCOnceToken;
 -(UIButton *)skipBtn{
     if (!_skipBtn) {
         _skipBtn = [UIButton.alloc initWithConfig:self.btnTimerConfigModel];
-
-        BtnClickEvent(_skipBtn, {
+        @jobs_weakify(self)
+        [_skipBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
             [x timerDestroy];
             [self backItemClick:x];
-        });
+        }];
         
         [_skipBtn actionObjectBlock:^(id data) {
 //            @jobs_strongify(self)

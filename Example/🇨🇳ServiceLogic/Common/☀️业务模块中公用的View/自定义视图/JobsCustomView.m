@@ -92,7 +92,7 @@ static dispatch_once_t static_customViewOnceToken;
 -(UIImageView *)indicatorIMGV{
     if (!_indicatorIMGV) {
         _indicatorIMGV = UIImageView.new;
-        _indicatorIMGV.image = KIMG(@"起止");
+        _indicatorIMGV.image = JobsIMG(@"起止");
         [self addSubview:_indicatorIMGV];
         [_indicatorIMGV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(JobsWidth(56), JobsWidth(196)));
@@ -181,9 +181,9 @@ static dispatch_once_t static_customViewOnceToken;
             make.left.equalTo(self).offset(JobsWidth(16));
         }];
         [_cancelBtn cornerCutToCircleWithCornerRadius:self.btnSize.height / 2];
-        BtnClickEvent(_cancelBtn, {
-            toast(@"取消");
-        });
+        [_cancelBtn btnClickEventBlock:^(UIButton *x) {
+            toast(x.titleForNormalState);
+        }];
     }return _cancelBtn;
 }
 
@@ -200,9 +200,9 @@ static dispatch_once_t static_customViewOnceToken;
             make.right.equalTo(self).offset(JobsWidth(-16));
         }];
         [_sureBtn cornerCutToCircleWithCornerRadius:self.btnSize.height / 2];
-        BtnClickEvent(_sureBtn, {
-            toast(@"确定");
-        });
+        [_sureBtn btnClickEventBlock:^(UIButton *x) {
+            toast(x.titleForNormalState);
+        }];
     }return _sureBtn;
 }
 

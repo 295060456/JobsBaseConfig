@@ -137,8 +137,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
 -(UITableView *)tableView{
     if (!_tableView) {
         _tableView = UITableView.new;
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
+        [self dataLinkByTableView:_tableView];
         _tableView.backgroundColor = UIColor.whiteColor;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         _tableView.showsVerticalScrollIndicator = NO;

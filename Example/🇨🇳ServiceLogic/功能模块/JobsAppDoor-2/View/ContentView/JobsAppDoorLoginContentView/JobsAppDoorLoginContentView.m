@@ -103,14 +103,16 @@
         _toRegisterBtn = UIButton.new;
         [_toRegisterBtn makeNewLineShows:YES];
         _toRegisterBtn.backgroundColor = JobsBlackColor;
-        [_toRegisterBtn titleFont:[UIFont systemFontOfSize:JobsWidth(13) weight:UIFontWeightMedium]];
+        _toRegisterBtn.titleFont = UIFontWeightMediumSize(13);
         _toRegisterBtn.alpha = 0.7f;
-        [_toRegisterBtn normalTitle:Title2];
-        [_toRegisterBtn normalImage:KIMG(@"用户名称")];
-        BtnClickEvent(_toRegisterBtn, {
+        _toRegisterBtn.normalTitle = Title2;
+        _toRegisterBtn.normalImage = JobsIMG(@"用户名称");
+        @jobs_weakify(self)
+        [_toRegisterBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
             [self endEditing:YES];
             if (self.objectBlock) self.objectBlock(x);
-        });
+        }];
         [self addSubview:_toRegisterBtn];
         [_toRegisterBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.right.bottom.equalTo(self);
@@ -138,9 +140,9 @@
 -(UIButton *)abandonLoginBtn{
     if (!_abandonLoginBtn) {
         _abandonLoginBtn = UIButton.new;
-        [_abandonLoginBtn normalTitle:Title4];
-        [_abandonLoginBtn normalTitleColor:UIColor.whiteColor];
-        [_abandonLoginBtn titleFont:[UIFont systemFontOfSize:JobsWidth(15) weight:UIFontWeightSemibold]];
+        _abandonLoginBtn.normalTitle = Title4;
+        _abandonLoginBtn.normalTitleColor = JobsWhiteColor;
+        _abandonLoginBtn.titleFont = UIFontWeightSemiboldSize(15);
         [_abandonLoginBtn buttonAutoWidthByFont];
         [self addSubview:_abandonLoginBtn];
         [_abandonLoginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -148,17 +150,21 @@
             make.height.mas_equalTo(JobsWidth(15));
             make.bottom.mas_equalTo(self).offset(-JobsWidth(30));
         }];
-        BtnClickEvent(_abandonLoginBtn, if (self.objectBlock) self.objectBlock(x););
+        @jobs_weakify(self)
+        [_abandonLoginBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
+            if (self.objectBlock) self.objectBlock(x);
+        }];
     }return _abandonLoginBtn;
 }
 
 -(UIButton *)sendBtn{
     if (!_sendBtn) {
         _sendBtn = UIButton.new;
-        [_sendBtn normalTitle:Title7];
+        _sendBtn.normalTitle = Title7;
+        _sendBtn.normalTitleColor = JobsWhiteColor;
+        _sendBtn.titleFont = UIFontWeightSemiboldSize(15);
         _sendBtn.backgroundColor = [JobsSystemPinkColor colorWithAlphaComponent:0.7];
-        [_sendBtn normalTitleColor:UIColor.whiteColor];
-        [_sendBtn titleFont:[UIFont systemFontOfSize:JobsWidth(15) weight:UIFontWeightSemibold]];
         [self addSubview:_sendBtn];
         [_sendBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(self.width - self.toRegisterBtn.width - JobsWidth(40), ThingsHeight));
@@ -167,18 +173,20 @@
         }];
         [self layoutIfNeeded];
         [_sendBtn cornerCutToCircleWithCornerRadius:_sendBtn.height / 2];
-        BtnClickEvent(_sendBtn, [WHToast toastSuccessMsg:Title7];);
+        [_sendBtn btnClickEventBlock:^(UIButton *x) {
+            toast(x.titleForNormalState);
+        }];
     }return _sendBtn;
 }
 /// 记住登录成功的账号和密码
 -(UIButton *)storeCodeBtn{
     if (!_storeCodeBtn) {
         _storeCodeBtn = UIButton.new;
-        [_storeCodeBtn normalTitle:Title5];
-        [_storeCodeBtn titleFont:[UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular]];
+        _storeCodeBtn.normalTitle = Title5;
+        _storeCodeBtn.titleFont = UIFontWeightRegularSize(12);
+        _storeCodeBtn.normalImage = JobsIMG(@"没有记住密码");
+        _storeCodeBtn.selectedImage = JobsIMG(@"记住密码");
         _storeCodeBtn.selected = YES;// 默认记住密码
-        [_storeCodeBtn normalImage:KIMG(@"没有记住密码")];
-        [_storeCodeBtn selectedImage:KIMG(@"记住密码")];
         _storeCodeBtn.titleLabel.textColor = JobsWhiteColor;
         [_storeCodeBtn buttonAutoWidthByFont];
         [self addSubview:_storeCodeBtn];
@@ -191,19 +199,21 @@
         [self layoutIfNeeded];
         [_storeCodeBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft
                                        imageTitleSpace:JobsWidth(3)];
-        BtnClickEvent(_storeCodeBtn, {
+        @jobs_weakify(self)
+        [_storeCodeBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
             x.selected = !x.selected;
             if (self.objectBlock) self.objectBlock(x);
-        })
+        }];
     }return _storeCodeBtn;
 }
 
 -(UIButton *)findCodeBtn{
     if (!_findCodeBtn) {
         _findCodeBtn = UIButton.new;
-        [_findCodeBtn normalTitle:Title3];
-        [_findCodeBtn titleFont:[UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular]];
-        [_findCodeBtn normalTitleColor:UIColor.whiteColor];
+        _findCodeBtn.normalTitle = Title3;
+        _findCodeBtn.titleFont = UIFontWeightRegularSize(12);
+        _findCodeBtn.normalTitleColor = JobsWhiteColor;
         [_findCodeBtn buttonAutoWidthByFont];
         [self addSubview:_findCodeBtn];
         [_findCodeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -211,7 +221,11 @@
             make.right.equalTo(inputView).offset(-JobsWidth(20));
             make.top.equalTo(inputView.mas_bottom).offset(JobsWidth(20));
         }];
-        BtnClickEvent(_findCodeBtn, if (self.objectBlock) self.objectBlock(x););
+        @jobs_weakify(self)
+        [_findCodeBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
+            if (self.objectBlock) self.objectBlock(x);
+        }];
     }return _findCodeBtn;
 }
 
@@ -220,7 +234,7 @@
         _loginDoorInputViewBaseStyleModelMutArr = NSMutableArray.array;
         
         JobsAppDoorInputViewBaseStyleModel *用户名 = JobsAppDoorInputViewBaseStyleModel.new;
-        用户名.leftViewIMG = KIMG(@"用户名称");
+        用户名.leftViewIMG = JobsIMG(@"用户名称");
         用户名.placeHolderStr = @"用户名";
         用户名.isShowDelBtn = YES;
         用户名.isShowSecurityBtn = NO;
@@ -230,12 +244,12 @@
         [_loginDoorInputViewBaseStyleModelMutArr addObject:用户名];
         
         JobsAppDoorInputViewBaseStyleModel *密码 = JobsAppDoorInputViewBaseStyleModel.new;
-        密码.leftViewIMG = KIMG(@"Lock");
+        密码.leftViewIMG = JobsIMG(@"Lock");
         密码.placeHolderStr = @"密码";
         密码.isShowDelBtn = YES;
         密码.isShowSecurityBtn = YES;
-        密码.selectedSecurityBtnIMG = KIMG(@"codeEncode");//闭眼
-        密码.unSelectedSecurityBtnIMG =KIMG(@"codeDecode");//开眼
+        密码.selectedSecurityBtnIMG = JobsIMG(@"codeEncode");//闭眼
+        密码.unSelectedSecurityBtnIMG =JobsIMG(@"codeDecode");//开眼
         密码.returnKeyType = UIReturnKeyDone;
         密码.keyboardAppearance = UIKeyboardAppearanceAlert;
         密码.leftViewMode = UITextFieldViewModeAlways;

@@ -328,10 +328,14 @@ static dispatch_once_t static_jobsAppDoor_Style2OnceToken;
 -(UIButton *)customerServiceBtn{
     if (!_customerServiceBtn) {
         _customerServiceBtn = UIButton.new;
-        [_customerServiceBtn normalTitle:Title8];
-        [_customerServiceBtn normalImage:KIMG(@"客服")];
+        _customerServiceBtn.normalTitle = Title8;
+        _customerServiceBtn.normalImage = JobsIMG(@"客服");
+        @jobs_weakify(self)
+        [_customerServiceBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
+            toast(x.titleForNormalState);
+        }];
         [_customerServiceBtn buttonAutoFontByWidth];
-        BtnClickEvent(_customerServiceBtn, [WHToast toastMsg:Title8];);
         [self.view addSubview:_customerServiceBtn];
         [_customerServiceBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(JobsMainScreen_WIDTH() / 2.5, JobsMainScreen_WIDTH() / 9));
@@ -351,11 +355,9 @@ static dispatch_once_t static_jobsAppDoor_Style2OnceToken;
         _playerManager.shouldAutoPlay = YES;
 
         if (isiPhoneX_series()) {
-            _playerManager.assetURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"iph_X"
-                                                                                             ofType:@"mp4"]];
+            _playerManager.assetURL = [NSURL fileURLWithPath:[NSBundle.mainBundle pathForResource:@"iph_X" ofType:@"mp4"]];
         }else{
-            _playerManager.assetURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"非iph_X"
-                                                                                             ofType:@"mp4"]];
+            _playerManager.assetURL = [NSURL fileURLWithPath:[NSBundle.mainBundle pathForResource:@"非iph_X" ofType:@"mp4"]];
         }
     }return _playerManager;
 }
@@ -388,7 +390,7 @@ static dispatch_once_t static_jobsAppDoor_Style2OnceToken;
 -(UIImageView *)bgImgV{
     if (!_bgImgV) {
         _bgImgV = UIImageView.new;
-        _bgImgV.image = KIMG(@"AppDoorBgImage");
+        _bgImgV.image = JobsIMG(@"AppDoorBgImage");
         _bgImgV.userInteractionEnabled = YES;
     }return _bgImgV;
 }

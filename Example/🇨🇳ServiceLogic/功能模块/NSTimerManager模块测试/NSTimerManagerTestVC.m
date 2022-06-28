@@ -163,8 +163,8 @@
             UIButton *btn = UIButton.new;
             btn.normalTitle = title;
             btn.normalTitleColor = UIColor.blackColor;
-            btn.normalBackgroundImage = KIMG(@"弹窗取消按钮背景图");
-            btn.selectedBackgroundImage = KIMG(@"弹窗取消按钮背景图");
+            btn.normalBackgroundImage = JobsIMG(@"弹窗取消按钮背景图");
+            btn.selectedBackgroundImage = JobsIMG(@"弹窗取消按钮背景图");
             [btn cornerCutToCircleWithCornerRadius:JobsWidth(8)];
             [btn layerBorderColour:HEXCOLOR(0xAE8330) andBorderWidth:0.5f];
             [self.view addSubview:btn];

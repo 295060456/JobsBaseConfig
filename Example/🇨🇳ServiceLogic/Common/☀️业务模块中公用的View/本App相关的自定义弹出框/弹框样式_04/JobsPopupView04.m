@@ -52,7 +52,7 @@ static dispatch_once_t static_popupView04OnceToken;
         self.backgroundColor = UIColor.clearColor;
         titleLabSize = CGSizeMake(JobsWidth(347), JobsWidth(47));
         inputViewSize = CGSizeMake(JobsWidth(323), JobsWidth(25));
-        self.backgroundImageView.image = KIMG(@"弹框样式_01背景图");
+        self.backgroundImageView.image = JobsIMG(@"弹框样式_01背景图");
     }return self;
 }
 
@@ -111,7 +111,7 @@ static dispatch_once_t static_popupView04OnceToken;
 -(UIImageView *)titleIMGV{
     if (!_titleIMGV) {
         _titleIMGV = UIImageView.new;
-        _titleIMGV.image = KIMG(@"箭头");
+        _titleIMGV.image = JobsIMG(@"箭头");
         [self.titleLab addSubview:_titleIMGV];
         [_titleIMGV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(JobsWidth(24), JobsWidth(22.4)));
@@ -204,7 +204,7 @@ static dispatch_once_t static_popupView04OnceToken;
 -(JobsAppDoorInputViewBaseStyleModel *)配置金额输入框{
     if (!_配置金额输入框) {
         _配置金额输入框 = JobsAppDoorInputViewBaseStyleModel.new;
-//        _配置金额输入框.leftViewIMG = KIMG(@"安全");
+//        _配置金额输入框.leftViewIMG = JobsIMG(@"安全");
         _配置金额输入框.placeHolderStr = Internationalization(@"請輸入金額");
         _配置金额输入框.placeholderFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
         _配置金额输入框.isShowDelBtn = YES;
@@ -221,24 +221,26 @@ static dispatch_once_t static_popupView04OnceToken;
     if (!_cancelBtn) {
         _cancelBtn = UIButton.new;
         [_cancelBtn handelAdjustsImageWhenHighlighted];
-        _cancelBtn.normalBackgroundImage = KIMG(@"弹窗取消按钮");
-        _cancelBtn.selectedBackgroundImage = KIMG(@"弹窗取消按钮");
+        _cancelBtn.normalBackgroundImage = JobsIMG(@"弹窗取消按钮");
+        _cancelBtn.selectedBackgroundImage = JobsIMG(@"弹窗取消按钮");
         _cancelBtn.normalTitle = Internationalization(@"取消");
         _cancelBtn.normalTitleColor = HEXCOLOR(0xB0B0B0);
-        _cancelBtn.titleFont = [UIFont systemFontOfSize:JobsWidth(18) weight:UIFontWeightRegular];
+        _cancelBtn.titleFont = UIFontWeightRegularSize(18);
         [self addSubview:_cancelBtn];
         [_cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(self.mas_bottom).offset(JobsWidth(-26));
             make.left.equalTo(self).offset(JobsWidth(24));
             make.size.mas_equalTo(CGSizeMake(JobsWidth(120), JobsWidth(40)));
         }];
-        BtnClickEvent(_cancelBtn, {
+        @jobs_weakify(self)
+        [_cancelBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
             NSLog(@"确定");
             x.selected = !x.selected;
             [self tf_hide];
             [self.class destroySingleton];
             if(self.objectBlock) self.objectBlock(x);
-        });
+        }];
     }return _cancelBtn;
 }
 
@@ -246,24 +248,26 @@ static dispatch_once_t static_popupView04OnceToken;
     if (!_sureBtn) {
         _sureBtn = UIButton.new;
         [_sureBtn handelAdjustsImageWhenHighlighted];
-        _sureBtn.normalBackgroundImage = KIMG(@"弹窗提交按钮");
-        _sureBtn.selectedBackgroundImage = KIMG(@"弹窗提交按钮");
+        _sureBtn.normalBackgroundImage = JobsIMG(@"弹窗提交按钮");
+        _sureBtn.selectedBackgroundImage = JobsIMG(@"弹窗提交按钮");
         _sureBtn.normalTitle = Internationalization(@"确定");
-        _sureBtn.normalTitleColor = UIColor.blackColor;
-        _sureBtn.titleFont = [UIFont systemFontOfSize:JobsWidth(18) weight:UIFontWeightRegular];
+        _sureBtn.normalTitleColor = JobsBlackColor;
+        _sureBtn.titleFont = UIFontWeightRegularSize(18);
         [self addSubview:_sureBtn];
         [_sureBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(self.mas_bottom).offset(JobsWidth(-26));
             make.right.equalTo(self).offset(JobsWidth(-24));
             make.size.mas_equalTo(CGSizeMake(JobsWidth(120), JobsWidth(40)));
         }];
-        BtnClickEvent(_sureBtn, {
+        @jobs_weakify(self)
+        [_sureBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
             NSLog(@"确定");
             x.selected = !x.selected;
             [self tf_hide];
             [self.class destroySingleton];
             if(self.objectBlock) self.objectBlock(x);
-        });
+        }];
     }return _sureBtn;
 }
 
@@ -273,13 +277,13 @@ static dispatch_once_t static_popupView04OnceToken;
         
         _leftRightLabModel.upLabText = Internationalization(@"中心钱包");
         _leftRightLabModel.upLabTextAlignment = NSTextAlignmentLeft;
-        _leftRightLabModel.upLabFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
+        _leftRightLabModel.upLabFont = UIFontWeightRegularSize(14);
         _leftRightLabModel.upLabTextCor = HEXCOLOR(0x757575);
         _leftRightLabModel.upLabBgCor = UIColor.clearColor;
 
         _leftRightLabModel.downLabText = Internationalization(@"3000.00");
         _leftRightLabModel.downLabTextAlignment = NSTextAlignmentLeft;
-        _leftRightLabModel.downLabFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightMedium];
+        _leftRightLabModel.downLabFont = UIFontWeightMediumSize(14);
         _leftRightLabModel.downLabTextCor = HEXCOLOR(0xAE8330);
         _leftRightLabModel.downLabBgCor = UIColor.clearColor;
         
