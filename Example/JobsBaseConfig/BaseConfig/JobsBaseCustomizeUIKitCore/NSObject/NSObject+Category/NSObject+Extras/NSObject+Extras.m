@@ -110,6 +110,16 @@
                     context:nil];
 }
 #pragma mark —— 功能性的
+/// 此功能的必要性：如果外界传入的数组是空，那么拿到的count是0，做-1操作就是-1，直接用for循环就会进入死循环
+-(void)jobsSafetyCycleFunc:(int)ceiling cycleBlock:(jobsByIntBlock _Nullable)cycleBlock{
+    if (ceiling > 0) {
+        for (int i = 0 ; i < ceiling; i++) {
+            NSLog(@"Jobs_%d",i);
+            if (cycleBlock) cycleBlock(i);
+        }
+    }
+}
+
 -(NSMutableArray <ImageModel *>*_Nonnull)changeGifToImage:(NSData *_Nonnull)gifData{
     /// 通过文件的url来将gif文件读取为图片数据引用
     CFDataRef my_cfdata = CFBridgingRetain(gifData);
