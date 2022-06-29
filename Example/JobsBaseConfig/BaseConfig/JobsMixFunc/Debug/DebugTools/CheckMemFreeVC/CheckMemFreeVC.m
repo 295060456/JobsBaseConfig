@@ -14,7 +14,7 @@
 @implementation CheckMemFreeVC
 
 -(void)dealloc{
-    NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
+    NSLog(@"%@",JobsLocalFunc);
     [WHToast toastMsg:@"检查者出栈"];
 }
 
@@ -26,36 +26,36 @@
     [super viewDidLoad];
     [WHToast toastMsg:@"检查者进栈"];
     self.view.backgroundColor = RandomColor;
-    NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
+    NSLog(@"%@",JobsLocalFunc);
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
+    NSLog(@"%@",JobsLocalFunc);
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
+    NSLog(@"%@",JobsLocalFunc);
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
+    NSLog(@"%@",JobsLocalFunc);
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
-    NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
+    NSLog(@"%@",JobsLocalFunc);
 }
 
 -(void)viewWillLayoutSubviews{
     [super viewWillLayoutSubviews];
-    NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
+    NSLog(@"%@",JobsLocalFunc);
 }
 
 -(void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
-    NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
+    NSLog(@"%@",JobsLocalFunc);
 }
 @end

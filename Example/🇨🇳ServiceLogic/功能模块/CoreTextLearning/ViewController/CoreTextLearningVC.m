@@ -14,7 +14,7 @@
 @implementation CoreTextLearningVC
 
 - (void)dealloc{
-    NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
+    NSLog(@"%@",JobsLocalFunc);
     //    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 

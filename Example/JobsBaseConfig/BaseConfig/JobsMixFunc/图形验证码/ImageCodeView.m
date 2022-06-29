@@ -23,7 +23,7 @@
 @synthesize bgColor = _bgColor;//不加这句会报错
 
 - (void)dealloc {
-    NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
+    NSLog(@"%@",JobsLocalFunc);
 }
 
 -(instancetype)init{

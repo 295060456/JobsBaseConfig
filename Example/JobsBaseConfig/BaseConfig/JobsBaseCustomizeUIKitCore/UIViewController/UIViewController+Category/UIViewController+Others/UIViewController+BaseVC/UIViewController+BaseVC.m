@@ -252,5 +252,31 @@ static char *UIViewController_BaseVC_setupNavigationBarHidden = "UIViewControlle
                              [NSNumber numberWithBool:setupNavigationBarHidden],
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+static char *UIViewController_BaseVC_jobsTag = "UIViewController_BaseVC_jobsTag";
+@dynamic jobsTag;
+#pragma mark —— @property(nonatomic,assign)NSUInteger __block jobsTag;
+-(NSUInteger)jobsTag{
+    return [objc_getAssociatedObject(self, UIViewController_BaseVC_jobsTag) unsignedIntegerValue];
+}
+
+-(void)setJobsTag:(NSUInteger)jobsTag{
+    objc_setAssociatedObject(self,
+                             UIViewController_BaseVC_jobsTag,
+                             [NSNumber numberWithBool:jobsTag],
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+static char *UIViewController_BaseVC_vcLifeCycleBlock = "UIViewController_BaseVC_vcLifeCycleBlock";
+@dynamic vcLifeCycleBlock;
+#pragma mark —— @property(nonatomic,copy)JobsViewControllerLifeCycleBlock vcLifeCycleBlock;/// 用于检测生命周期
+-(JobsViewControllerLifeCycleBlock)vcLifeCycleBlock{
+    return objc_getAssociatedObject(self, UIViewController_BaseVC_vcLifeCycleBlock);
+}
+
+-(void)setVcLifeCycleBlock:(JobsViewControllerLifeCycleBlock)vcLifeCycleBlock{
+    objc_setAssociatedObject(self,
+                             UIViewController_BaseVC_vcLifeCycleBlock,
+                             vcLifeCycleBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
 
 @end

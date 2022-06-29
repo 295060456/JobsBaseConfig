@@ -24,14 +24,14 @@ BaseViewControllerProtocol_synthesize
     [self.view endEditing:YES];
     if (JobsDebug) {
         [WHToast toastMsg:[NSString stringWithFormat:@"成功销毁了控制器:%@",NSStringFromClass(self.class)]];
-        NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
+        NSLog(@"%@",JobsLocalFunc);
         PrintRetainCount(self)
     }
 }
 
 - (instancetype)init{
     if (self = [super init]) {
-        NSLog(@"");
+        
     }return self;
 }
 
@@ -50,6 +50,7 @@ BaseViewControllerProtocol_synthesize
     self.currentPage = 1;
     self.bgImage = JobsIMG(@"") ? : [UIImage imageWithColor:UIColor.whiteColor];/// 仅在loadView中配置有效
     self.modalInPresentation = NO;/// 禁用下拉手势dismiss画面需要将此属性设置为YES
+    if (self.vcLifeCycleBlock) self.vcLifeCycleBlock(JobsLocalFunc,nil);
 }
 
 - (void)viewDidLoad {
@@ -60,7 +61,7 @@ BaseViewControllerProtocol_synthesize
     }else{
         self.view.backgroundColor = HEXCOLOR(0xFCFBFB);
     }
-    
+    self.gk_statusBarHidden = NO;
     /*
      *  #pragma mark —— 全局配置 GKNavigationBar -(void)makeGKNavigationBarConfigure
      */
@@ -76,6 +77,7 @@ BaseViewControllerProtocol_synthesize
                     @selector(languageSwitchNotification:),
                     LanguageSwitchNotification,
                     nil);
+    if (self.vcLifeCycleBlock) self.vcLifeCycleBlock(JobsLocalFunc,nil);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -83,12 +85,14 @@ BaseViewControllerProtocol_synthesize
     NSLog(@"%d",self.setupNavigationBarHidden);
     self.isHiddenNavigationBar = self.setupNavigationBarHidden;
     [self.navigationController setNavigationBarHidden:self.setupNavigationBarHidden animated:animated];
+    if (self.vcLifeCycleBlock) self.vcLifeCycleBlock(JobsLocalFunc,nil);
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     /// 只有是在Tabbar管理的，不含导航的根控制器才开启手势
     self.isRootVC ? [self tabBarOpenPan] : [self tabBarClosePan];
+    if (self.vcLifeCycleBlock) self.vcLifeCycleBlock(JobsLocalFunc,nil);
 #ifdef DEBUG
     /// 网络异步数据刷新UI会在viewDidAppear以后执行viewWillLayoutSubviews、viewDidLayoutSubviews
 //    [self ifEmptyData];
@@ -97,6 +101,7 @@ BaseViewControllerProtocol_synthesize
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    if (self.vcLifeCycleBlock) self.vcLifeCycleBlock(JobsLocalFunc,nil);
     NSLog(@"%d",self.setupNavigationBarHidden);
     self.isHiddenNavigationBar = self.setupNavigationBarHidden;
     [self.navigationController setNavigationBarHidden:self.setupNavigationBarHidden animated:animated];
@@ -104,15 +109,18 @@ BaseViewControllerProtocol_synthesize
 
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
+    if (self.vcLifeCycleBlock) self.vcLifeCycleBlock(JobsLocalFunc,nil);
 }
 
 -(void)viewWillLayoutSubviews{
     [super viewWillLayoutSubviews];
+    if (self.vcLifeCycleBlock) self.vcLifeCycleBlock(JobsLocalFunc,nil);
 }
 
 -(void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
     self.view.mjRefreshTargetView.mj_footer.y = self.view.mjRefreshTargetView.contentSize.height;
+    if (self.vcLifeCycleBlock) self.vcLifeCycleBlock(JobsLocalFunc,nil);
 }
 /**
  
@@ -130,7 +138,7 @@ BaseViewControllerProtocol_synthesize
  【局部修改】
   1、在Info.plist里面加入如下键值对：
   View controller-based status bar appearance ： YES //全局是NO、局部是YES
-  2、@interface BaseNavigationVC : UINavigationController
+  2、@ interface BaseNavigationVC : UINavigationController
      2.1、在 BaseNavigationVC.m里面写入：
      - (UIViewController *)childViewControllerForStatusBarStyle {
              return self.topViewController;

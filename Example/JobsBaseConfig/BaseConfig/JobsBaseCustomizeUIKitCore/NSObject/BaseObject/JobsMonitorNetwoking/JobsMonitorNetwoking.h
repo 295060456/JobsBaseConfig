@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_END
 
 //使用须知
 //- (void)dealloc {
-//    NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
+//    NSLog(@"%@",JobsLocalFunc);
 //    [self.mytimer invalidate];
 //    //别忘了把定时器置为nil,否则定时器依然没有释放掉的
 //    self.mytimer  = nil;

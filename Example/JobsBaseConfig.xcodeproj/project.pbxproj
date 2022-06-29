@@ -9573,13 +9573,13 @@
 		C57A2024282CB59E0032156B /* GestureLock */ = {
 			isa = PBXGroup;
 			children = (
-				C57A2025282CB59E0032156B /* ZLGestureLockView.m */,
 				C57A2026282CB59E0032156B /* resources */,
-				C57A202F282CB59E0032156B /* ZLGestureLockViewController.m */,
+				C57A2032282CB59E0032156B /* ZLGestureLockIndicator.h */,
 				C57A2030282CB59E0032156B /* ZLGestureLockIndicator.m */,
 				C57A2031282CB59E0032156B /* ZLGestureLockView.h */,
-				C57A2032282CB59E0032156B /* ZLGestureLockIndicator.h */,
+				C57A2025282CB59E0032156B /* ZLGestureLockView.m */,
 				C57A2033282CB59E0032156B /* ZLGestureLockViewController.h */,
+				C57A202F282CB59E0032156B /* ZLGestureLockViewController.m */,
 			);
 			path = GestureLock;
 			sourceTree = "<group>";

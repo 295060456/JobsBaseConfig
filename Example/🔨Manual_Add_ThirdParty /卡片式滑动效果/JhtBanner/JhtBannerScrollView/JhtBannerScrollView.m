@@ -41,7 +41,7 @@ static const NSString *subviewClassName = @"JhtBannerCardView";
 @implementation JhtBannerScrollView
 
 - (void)dealloc {
-    NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
+    NSLog(@"%@",JobsLocalFunc);
     if (_bannerTimer) {
         [_bannerTimer invalidate];
         _bannerTimer = nil;

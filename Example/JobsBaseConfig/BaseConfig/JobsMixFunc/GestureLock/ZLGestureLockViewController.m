@@ -45,7 +45,7 @@
     [self.view endEditing:YES];
     if (JobsDebug) {
         [WHToast toastMsg:[NSString stringWithFormat:@"成功销毁了控制器:%@",NSStringFromClass(self.class)]];
-        NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
+        NSLog(@"%@",JobsLocalFunc);
         PrintRetainCount(self)
     }
 }

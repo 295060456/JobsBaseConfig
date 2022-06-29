@@ -11,7 +11,7 @@
 @implementation Nanosecond_TimerManager
 
 -(void)dealloc{
-    NSLog(@"Running self.class = %@;NSStringFromSelector(_cmd) = '%@';__FUNCTION__ = %s", self.class, NSStringFromSelector(_cmd),__FUNCTION__);
+    NSLog(@"%@",JobsLocalFunc);
 }
 
 ///理论上这是iPhone上最精准的定时器，可以达到纳秒级别的精度

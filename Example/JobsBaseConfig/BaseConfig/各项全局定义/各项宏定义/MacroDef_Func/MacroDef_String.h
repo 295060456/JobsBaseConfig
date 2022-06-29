@@ -53,11 +53,15 @@ static inline UIFont *_Nonnull JobsFontBlack(NSInteger fontSize){
 }
 #pragma mark —— 本地化字符串
 #ifndef LocalString
-#define LocalString(x, ...)     NSLocalizedString(x, nil)// NSLocalizedString宏做的其实就是在当前bundle中查找资源文件名“Localizable.strings”(参数:键＋注释)
+#define LocalString(x, ...) NSLocalizedString(x, nil)// NSLocalizedString宏做的其实就是在当前bundle中查找资源文件名“Localizable.strings”(参数:键＋注释)
 #endif
 
 #ifndef StringFormat
 #define StringFormat(format,...) [NSString stringWithFormat:format, ##__VA_ARGS__]
+#endif
+
+#ifndef JobsLocalFunc
+#define JobsLocalFunc   [NSStringFromClass(self.class) stringByAppendingFormat:@"-%@",NSStringFromSelector(_cmd)]
 #endif
 
 #endif /* MacroDef_String_h */
