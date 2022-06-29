@@ -12,8 +12,6 @@
 @end
 
 @implementation BaseViewController
-
-@synthesize modalPresentationStyle = _modalPresentationStyle;
 #pragma mark —— UIViewModelProtocol
 UIViewModelProtocol_synthesize
 #pragma mark —— BaseViewControllerProtocol
@@ -23,7 +21,7 @@ BaseViewControllerProtocol_synthesize
     [NSNotificationCenter.defaultCenter removeObserver:self];
     [self.view endEditing:YES];
     if (JobsDebug) {
-        [WHToast toastMsg:[NSString stringWithFormat:@"成功销毁了控制器:%@",NSStringFromClass(self.class)]];
+        toast([NSString stringWithFormat:@"%@%@",Internationalization(@"成功销毁了控制器"),NSStringFromClass(self.class)]);
         NSLog(@"%@",JobsLocalFunc);
         PrintRetainCount(self)
     }
@@ -162,7 +160,12 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
 -(void)languageSwitchNotification:(nonnull NSNotification *)notification{
     NSLog(@"通知传递过来的 = %@",notification.object);
 }
+#pragma mark —— BaseViewControllerProtocol
+-(void)actionVCLifeCycleBlock:(JobsViewControllerLifeCycleBlock)vcLifeCycleBlock{
+    self.vcLifeCycleBlock = vcLifeCycleBlock;
+}
 #pragma mark —— Set方法
+@synthesize modalPresentationStyle = _modalPresentationStyle;
 -(void)setModalPresentationStyle:(UIModalPresentationStyle)modalPresentationStyle{
     _modalPresentationStyle = UIModalPresentationPopover;
 }
