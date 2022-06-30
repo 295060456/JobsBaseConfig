@@ -6,11 +6,11 @@
 //
 
 #import "BaseViewProtocol.h"
-#import "BaseTableViewHeaderView.h"
+#import "BaseTableViewHeaderFooterView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JobsSearchTableViewHeaderView : BaseTableViewHeaderView
+@interface JobsSearchTableViewHeaderView : BaseTableViewHeaderFooterView
 <
 BaseViewProtocol
 >

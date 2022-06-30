@@ -9,8 +9,7 @@
 #define JobsTableViewHeaderFooterView_h
 
 #pragma mark —— Base
-#import "BaseTableViewFooterView.h"
-#import "BaseTableViewHeaderView.h"
+#import "BaseTableViewHeaderFooterView.h"
 #pragma mark —— Category
 #import "UITableViewHeaderFooterView+BaseTableViewHeaderFooterViewProtocol.h"
 #import "UITableViewHeaderFooterView+Attribute.h"

@@ -108,12 +108,13 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (CGFloat)tableView:(UITableView *)tableView
 heightForFooterInSection:(NSInteger)section{
-    return [BaseTableViewFooterView heightForFooterInSection:nil];
+    return [BaseTableViewHeaderFooterView heightForFooterInSection:nil];
 }
 /// 这里涉及到复用机制，return出去的是UITableViewHeaderFooterView的派生类
 - (nullable UIView *)tableView:(UITableView *)tableView
         viewForFooterInSection:(NSInteger)section{
-    BaseTableViewFooterView *tbvFooterView = BaseTableViewFooterView.jobsInitWithReuseIdentifier;
+    BaseTableViewHeaderFooterView *tbvFooterView = BaseTableViewHeaderFooterView.jobsInitWithReuseIdentifier;
+    tbvFooterView.headerFooterViewStyle = JobsFooterViewStyle;
     tbvFooterView.section = section;// 不写这一句有悬浮
     tbvFooterView.backgroundColor = HEXCOLOR(0xFFFFFF);
     tbvFooterView.contentView.backgroundColor = HEXCOLOR(0xFFFFFF);

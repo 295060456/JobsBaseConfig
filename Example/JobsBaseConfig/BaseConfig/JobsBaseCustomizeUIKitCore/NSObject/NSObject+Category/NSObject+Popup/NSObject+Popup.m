@@ -8,12 +8,6 @@
 #import "NSObject+Popup.h"
 
 @implementation NSObject (Popup)
-
-static char *NSObject_Popup_popupView = "NSObject_Popup_popupView";
-@dynamic popupView;
-
-static char *NSObject_Popup_popupParameter = "NSObject_Popup_popupParameter";
-@dynamic popupParameter;
 /// 没有自定义 popupParam
 -(void)popupWithView:(UIView *_Nullable)view{
     if (!view) {
@@ -39,6 +33,8 @@ static char *NSObject_Popup_popupParameter = "NSObject_Popup_popupParameter";
         [self popupWithView:view];
     }
 }
+static char *NSObject_Popup_popupParameter = "NSObject_Popup_popupParameter";
+@dynamic popupParameter;
 #pragma mark —— @property(nonatomic,strong)TFPopupParam *popupParameter;
 -(TFPopupParam *)popupParameter{
     TFPopupParam *PopupParameter = objc_getAssociatedObject(self, NSObject_Popup_popupParameter);
@@ -50,10 +46,7 @@ static char *NSObject_Popup_popupParameter = "NSObject_Popup_popupParameter";
         PopupParameter.autoDissmissDuration = 0;
         PopupParameter.dragEnable = NO;
         PopupParameter.disuseBackgroundTouchHide = YES;
-        objc_setAssociatedObject(self,
-                                 NSObject_Popup_popupParameter,
-                                 PopupParameter,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [self setPopupParameter:PopupParameter];
     }return PopupParameter;
 }
 
@@ -63,6 +56,8 @@ static char *NSObject_Popup_popupParameter = "NSObject_Popup_popupParameter";
                              popupParameter,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+static char *NSObject_Popup_popupView = "NSObject_Popup_popupView";
+@dynamic popupView;
 #pragma mark —— @property(nonatomic,strong)NoticePopupView *popupView;
 -(JobsNoticePopupView *)popupView{
     JobsNoticePopupView *PopupView = objc_getAssociatedObject(self, NSObject_Popup_popupView);
@@ -71,10 +66,7 @@ static char *NSObject_Popup_popupParameter = "NSObject_Popup_popupParameter";
         PopupView.mj_h = JobsMainScreen_HEIGHT() * 2 / 3;
         PopupView.mj_w = JobsMainScreen_WIDTH() - 12 * 2;
         [PopupView richElementsInViewWithModel:UIViewModel.new];
-        objc_setAssociatedObject(self,
-                                 NSObject_Popup_popupView,
-                                 PopupView,
-                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [self setPopupView:PopupView];
     }return PopupView;
 }
 

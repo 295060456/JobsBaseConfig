@@ -150,7 +150,8 @@ heightForHeaderInSection:(NSInteger)section{
 /// 这里涉及到复用机制，return出去的是UITableViewHeaderFooterView的派生类
 - (nullable UIView *)tableView:(UITableView *)tableView
         viewForHeaderInSection:(NSInteger)section{
-    BaseTableViewHeaderView *headerView = BaseTableViewHeaderView.jobsInitWithReuseIdentifier;
+    BaseTableViewHeaderFooterView *headerView = BaseTableViewHeaderFooterView.jobsInitWithReuseIdentifier;
+    headerView.headerFooterViewStyle = JobsHeaderViewStyle;
     headerView.section = section;
     headerView.backgroundColor = HEXCOLOR(0xEAEBED);
     headerView.contentView.backgroundColor = HEXCOLOR(0xEAEBED);

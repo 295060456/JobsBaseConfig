@@ -144,14 +144,12 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
                 }
             }
         }
-    }
-    
-    return cell;
+    }return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView
 heightForHeaderInSection:(NSInteger)section{
-    return [BaseTableViewFooterView viewHeightWithModel:nil];
+    return [BaseTableViewHeaderFooterView viewHeightWithModel:nil];
 }
 
 - (void)tableView:(UITableView *)tableView
@@ -164,10 +162,11 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
 /// 这里涉及到复用机制，return出去的是UITableViewHeaderFooterView的派生类
 - (nullable UIView *)tableView:(UITableView *)tableView
         viewForHeaderInSection:(NSInteger)section{
-    BaseTableViewHeaderView *headerView = BaseTableViewHeaderView.jobsInitWithReuseIdentifier;
+    BaseTableViewHeaderFooterView *headerView = BaseTableViewHeaderFooterView.jobsInitWithReuseIdentifier;
+    headerView.headerFooterViewStyle = JobsHeaderViewStyle;
     headerView.section = section;
-    headerView.backgroundColor = UIColor.whiteColor;
-    headerView.contentView.backgroundColor = UIColor.whiteColor;
+    headerView.backgroundColor = JobsWhiteColor;
+    headerView.contentView.backgroundColor = JobsWhiteColor;
     [headerView richElementsInViewWithModel:UIViewModel.new];
 //        @jobs_weakify(self)
     [headerView actionObjectBlock:^(id data) {

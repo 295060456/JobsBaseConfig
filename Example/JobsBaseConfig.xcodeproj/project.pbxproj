@@ -209,8 +209,6 @@
 		840F96BF27736428004979E9 /* NSArray+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F94BB27736426004979E9 /* NSArray+Tools.m */; };
 		840F96C027736428004979E9 /* UITableViewHeaderFooterView+BaseTableViewHeaderFooterViewProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F94C127736426004979E9 /* UITableViewHeaderFooterView+BaseTableViewHeaderFooterViewProtocol.m */; };
 		840F96C127736428004979E9 /* UITableViewHeaderFooterView+Attribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F94C327736426004979E9 /* UITableViewHeaderFooterView+Attribute.m */; };
-		840F96C227736428004979E9 /* BaseTableViewFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F94C827736426004979E9 /* BaseTableViewFooterView.m */; };
-		840F96C327736428004979E9 /* BaseTableViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F94CA27736426004979E9 /* BaseTableViewHeaderView.m */; };
 		840F96C427736428004979E9 /* HQCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F94CF27736426004979E9 /* HQCollectionViewFlowLayout.m */; };
 		840F96C527736428004979E9 /* HQCollectionViewFlowLayout.md in Resources */ = {isa = PBXBuildFile; fileRef = 840F94D027736426004979E9 /* HQCollectionViewFlowLayout.md */; };
 		840F96C627736428004979E9 /* LMHWaterFallLayout.md in Resources */ = {isa = PBXBuildFile; fileRef = 840F94D427736426004979E9 /* LMHWaterFallLayout.md */; };
@@ -684,6 +682,7 @@
 		C533BBBC2837D095006FB231 /* JobsUserHeaderDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = C533BBB32837D095006FB231 /* JobsUserHeaderDataView.m */; };
 		C533BBBD2837D095006FB231 /* JobsUserHeaderDataViewTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C533BBB52837D095006FB231 /* JobsUserHeaderDataViewTBVCell.m */; };
 		C533BBBF2837D095006FB231 /* JobsUserHeaderDataViewForHeaderInSection.m in Sources */ = {isa = PBXBuildFile; fileRef = C533BBBB2837D095006FB231 /* JobsUserHeaderDataViewForHeaderInSection.m */; };
+		C537C6F2286DA1C3007D6539 /* BaseTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C537C6F1286DA1C3007D6539 /* BaseTableViewHeaderFooterView.m */; };
 		C54BC43628325BA80010EF20 /* JobsTitleView01.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BC43428325BA80010EF20 /* JobsTitleView01.m */; };
 		C55C895628437190005295B1 /* JXCategoryPopupVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C55C895528437190005295B1 /* JXCategoryPopupVC.m */; };
 		C55C8959284371A9005295B1 /* JXCategoryPopupSubVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C55C8958284371A9005295B1 /* JXCategoryPopupSubVC.m */; };
@@ -1297,10 +1296,6 @@
 		840F94C127736426004979E9 /* UITableViewHeaderFooterView+BaseTableViewHeaderFooterViewProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewHeaderFooterView+BaseTableViewHeaderFooterViewProtocol.m"; sourceTree = "<group>"; };
 		840F94C327736426004979E9 /* UITableViewHeaderFooterView+Attribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewHeaderFooterView+Attribute.m"; sourceTree = "<group>"; };
 		840F94C427736426004979E9 /* UITableViewHeaderFooterView+Attribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewHeaderFooterView+Attribute.h"; sourceTree = "<group>"; };
-		840F94C727736426004979E9 /* BaseTableViewFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewFooterView.h; sourceTree = "<group>"; };
-		840F94C827736426004979E9 /* BaseTableViewFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewFooterView.m; sourceTree = "<group>"; };
-		840F94CA27736426004979E9 /* BaseTableViewHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewHeaderView.m; sourceTree = "<group>"; };
-		840F94CB27736426004979E9 /* BaseTableViewHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewHeaderView.h; sourceTree = "<group>"; };
 		840F94CF27736426004979E9 /* HQCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HQCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		840F94D027736426004979E9 /* HQCollectionViewFlowLayout.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = HQCollectionViewFlowLayout.md; sourceTree = "<group>"; };
 		840F94D127736426004979E9 /* HQCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HQCollectionViewFlowLayout.h; sourceTree = "<group>"; };
@@ -2328,6 +2323,8 @@
 		C533BBB82837D095006FB231 /* JobsUserHeaderDataChoice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobsUserHeaderDataChoice.png; sourceTree = "<group>"; };
 		C533BBBA2837D095006FB231 /* JobsUserHeaderDataViewForHeaderInSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsUserHeaderDataViewForHeaderInSection.h; sourceTree = "<group>"; };
 		C533BBBB2837D095006FB231 /* JobsUserHeaderDataViewForHeaderInSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsUserHeaderDataViewForHeaderInSection.m; sourceTree = "<group>"; };
+		C537C6F0286DA1C2007D6539 /* BaseTableViewHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewHeaderFooterView.h; sourceTree = "<group>"; };
+		C537C6F1286DA1C3007D6539 /* BaseTableViewHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewHeaderFooterView.m; sourceTree = "<group>"; };
 		C54BC43228325BA80010EF20 /* JobsTitleView01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsTitleView01.h; sourceTree = "<group>"; };
 		C54BC43328325BA80010EF20 /* JobsTitleView01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobsTitleView01.png; sourceTree = "<group>"; };
 		C54BC43428325BA80010EF20 /* JobsTitleView01.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsTitleView01.m; sourceTree = "<group>"; };
@@ -4630,28 +4627,10 @@
 		840F94C527736426004979E9 /* BaseTableViewHeaderFooterView */ = {
 			isa = PBXGroup;
 			children = (
-				840F94C627736426004979E9 /* BaseTableViewFooterView */,
-				840F94C927736426004979E9 /* BaseTableViewHeaderView */,
+				C537C6F0286DA1C2007D6539 /* BaseTableViewHeaderFooterView.h */,
+				C537C6F1286DA1C3007D6539 /* BaseTableViewHeaderFooterView.m */,
 			);
 			path = BaseTableViewHeaderFooterView;
-			sourceTree = "<group>";
-		};
-		840F94C627736426004979E9 /* BaseTableViewFooterView */ = {
-			isa = PBXGroup;
-			children = (
-				840F94C727736426004979E9 /* BaseTableViewFooterView.h */,
-				840F94C827736426004979E9 /* BaseTableViewFooterView.m */,
-			);
-			path = BaseTableViewFooterView;
-			sourceTree = "<group>";
-		};
-		840F94C927736426004979E9 /* BaseTableViewHeaderView */ = {
-			isa = PBXGroup;
-			children = (
-				840F94CB27736426004979E9 /* BaseTableViewHeaderView.h */,
-				840F94CA27736426004979E9 /* BaseTableViewHeaderView.m */,
-			);
-			path = BaseTableViewHeaderView;
 			sourceTree = "<group>";
 		};
 		840F94CC27736426004979E9 /* UICollectionViewFlowLayout */ = {
@@ -11443,7 +11422,6 @@
 				840F970E27736428004979E9 /* UITextField+Animation.m in Sources */,
 				844B08782764CF4800B0513D /* XHLaunchAdView.m in Sources */,
 				C5C47D56284E1DF9007916B3 /* JobsPopupView04.m in Sources */,
-				840F96C327736428004979E9 /* BaseTableViewHeaderView.m in Sources */,
 				C530CC29282E2DA800D5ECCF /* JobsUpDownLabModel.m in Sources */,
 				840F96E827736428004979E9 /* NSObject+Measure.m in Sources */,
 				C5BFA17F28598C7C009681C0 /* UIViewController+GKNavigationBar.m in Sources */,
@@ -11582,6 +11560,7 @@
 				840F96DE27736428004979E9 /* DeleteSystemUITabBarButton.m in Sources */,
 				840F96D827736428004979E9 /* Nanosecond_TimerManager.m in Sources */,
 				C57A8ED62851A8E600DD089E /* OCDynamicRegisterVC.m in Sources */,
+				C537C6F2286DA1C3007D6539 /* BaseTableViewHeaderFooterView.m in Sources */,
 				C52BFE06285C7948002B5D0F /* JobsSEL_IMP.m in Sources */,
 				840F96EF27736428004979E9 /* NSObject+Shake.m in Sources */,
 				840F95E327736427004979E9 /* JobsBitsMonitorSuspendLab.m in Sources */,
@@ -11882,7 +11861,6 @@
 				8459CC322775D3E900125782 /* AppDelegate+Func.m in Sources */,
 				846DF03827806D230050468A /* JobsAppDoorVC.m in Sources */,
 				8459CE112776DB6600125782 /* UIView+UIBackgroundConfig.m in Sources */,
-				840F96C227736428004979E9 /* BaseTableViewFooterView.m in Sources */,
 				84CA5FC927897AFB00E46E71 /* XDTextBtnView.m in Sources */,
 				840F970227736428004979E9 /* NSObject+Extras.m in Sources */,
 				84CA61A22789859900E46E71 /* PushAnimation.m in Sources */,

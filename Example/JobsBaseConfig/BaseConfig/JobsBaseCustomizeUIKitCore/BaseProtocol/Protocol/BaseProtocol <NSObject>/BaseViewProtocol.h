@@ -9,14 +9,20 @@
 #import "BaseProtocol.h"
 @class UIViewModel;
 
+typedef enum : NSInteger {
+    JobsHeaderViewStyle = 0,
+    JobsFooterViewStyle
+} JobsHeaderFooterViewStyle;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol BaseViewProtocol <BaseProtocol>
 
 @optional
-
-#pragma mark —— 视图长、宽、高的定义
+/// 视图长、宽、高的定义
 @property(nonatomic,assign)CGSize thisViewSize;
+/// 标记是HeaderView 还是 FooterView
+@property(nonatomic,assign)JobsHeaderFooterViewStyle headerFooterViewStyle;
 /// 具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 -(void)richElementsInViewWithModel:(id _Nullable)model;
 /// 具体由子类进行复写【数据定宽】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
@@ -47,13 +53,32 @@ NS_ASSUME_NONNULL_BEGIN
 /// 数据（字符串）定高
 +(CGFloat)heightByData:(UIViewModel *_Nonnull)data;
 #pragma mark —— 一些功能性的
+/// 初始化的时候最好传入一个size值将其子视图的大小固定死。因为只有当父视图有Size的情况下子视图才会展开，从而避免刷新约束时候的一系列麻烦事。
+-(instancetype)initWithSize:(CGSize)thisViewSize;
 /// 下拉刷新 （子类要进行覆写）
 -(void)pullToRefresh;
 /// 上拉加载更多 （子类要进行覆写）
 -(void)loadMoreRefresh;
-/// 初始化的时候最好传入一个size值将其子视图的大小固定死。因为只有当父视图有Size的情况下子视图才会展开，从而避免刷新约束时候的一系列麻烦事。
--(instancetype)initWithSize:(CGSize)thisViewSize;
 
 @end
 
 NS_ASSUME_NONNULL_END
+
+#pragma mark —— @synthesize BaseViewProtocol
+#ifndef BaseViewProtocol_synthesize
+#define BaseViewProtocol_synthesize \
+\
+@synthesize thisViewSize = _thisViewSize;\
+@synthesize headerFooterViewStyle = _headerFooterViewStyle;\
+
+#endif
+
+#pragma mark —— @dynamic BaseViewProtocol
+#ifndef BaseViewProtocol_dynamic
+#define BaseViewProtocol_dynamic \
+\
+@dynamic thisViewSize;\
+@dynamic headerFooterViewStyle;\
+
+#endif
+
