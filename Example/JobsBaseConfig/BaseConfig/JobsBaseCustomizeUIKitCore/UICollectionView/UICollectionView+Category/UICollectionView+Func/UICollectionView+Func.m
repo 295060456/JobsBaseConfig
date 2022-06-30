@@ -9,8 +9,8 @@
 
 @implementation UICollectionView (Func)
 
--(void)didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-        collectionViewCellClass:(Class _Nullable)collectionViewCellClass{
+-(UICollectionViewCell *)didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+                          collectionViewCellClass:(Class _Nullable)collectionViewCellClass{
     NSLog(@"%s", __FUNCTION__);
     if (collectionViewCellClass) {
         for (UICollectionViewCell *cell in self.visibleCells) {
@@ -21,13 +21,15 @@
     }
     UICollectionViewCell *cell = (UICollectionViewCell *)[self cellForItemAtIndexPath:indexPath];
     cell.selected = YES;
+    return cell;
 }
 
--(void)didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
-          collectionViewCellClass:(Class _Nullable)collectionViewCellClass{
+-(UICollectionViewCell *)didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+                            collectionViewCellClass:(Class _Nullable)collectionViewCellClass{
     NSLog(@"%s", __FUNCTION__);
     UICollectionViewCell *cell = (UICollectionViewCell *)[self cellForItemAtIndexPath:indexPath];
     cell.selected = YES;
+    return cell;
 }
 
 @end

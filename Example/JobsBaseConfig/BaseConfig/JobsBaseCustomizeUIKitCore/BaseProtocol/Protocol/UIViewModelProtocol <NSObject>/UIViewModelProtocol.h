@@ -124,7 +124,7 @@ NS_ASSUME_NONNULL_END
 @synthesize reqSignal = _reqSignal;\
 @synthesize internationalizationKEY = _internationalizationKEY;\
 @synthesize jobsTag = _jobsTag;\
-@synthesize selected = _selected;\
+@synthesize jobsSelected = _jobsSelected;\
 @synthesize isMultiLineShows = _isMultiLineShows;\
 @synthesize isTranslucent = _isTranslucent;\
 @synthesize isVisible = _isVisible;\
@@ -205,7 +205,7 @@ NS_ASSUME_NONNULL_END
 @dynamic reqSignal;\
 @dynamic internationalizationKEY;\
 @dynamic jobsTag;\
-@dynamic selected;\
+@dynamic jobsSelected;\
 @dynamic isMultiLineShows;\
 @dynamic isTranslucent;\
 @dynamic isVisible;\

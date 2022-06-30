@@ -23,6 +23,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 -(void)hideSeparatorLineAtLast:(NSIndexPath *)indexPath
                           cell:(UITableViewCell *)cell;
+-(UITableViewCell *)didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+                         tableViewCellClass:(Class _Nullable)tableViewCellClass;
+-(UITableViewCell *)didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+                           tableViewCellClass:(Class _Nullable)tableViewCellClass;
 
 +(instancetype)initWithStylePlain;
 +(instancetype)initWithStyleGrouped;

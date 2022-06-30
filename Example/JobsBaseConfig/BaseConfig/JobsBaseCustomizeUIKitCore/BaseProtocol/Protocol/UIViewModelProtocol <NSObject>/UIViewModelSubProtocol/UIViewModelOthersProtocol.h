@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong,nullable)RACSignal __block *reqSignal;
 @property(nonatomic,strong,nullable)NSString __block *internationalizationKEY;/// 国际化的key
 @property(nonatomic,assign)NSUInteger __block jobsTag;
-@property(nonatomic,assign)BOOL __block selected;
+@property(nonatomic,assign)BOOL __block jobsSelected;
 @property(nonatomic,assign)BOOL __block isMultiLineShows;/// 是否多行行显示【默认单行显示】
 @property(nonatomic,assign)BOOL __block isTranslucent;/// 是否取消tabBar的透明效果
 @property(nonatomic,assign)BOOL __block isVisible;/// ❤️只是一个标记是否可见，如果需要设置请移步@interface UIView (Extras) ：-(BOOL)jobsVisible; 和 -(void)setJobsVisible:(BOOL)jobsVisible;
@@ -57,7 +57,7 @@ NS_ASSUME_NONNULL_END
 @synthesize reqSignal = _reqSignal;\
 @synthesize internationalizationKEY = _internationalizationKEY;\
 @synthesize jobsTag = _jobsTag;\
-@synthesize selected = _selected;\
+@synthesize jobsSelected = _jobsSelected;\
 @synthesize isMultiLineShows = _isMultiLineShows;\
 @synthesize isTranslucent = _isTranslucent;\
 @synthesize isVisible = _isVisible;\
@@ -83,7 +83,7 @@ NS_ASSUME_NONNULL_END
 @dynamic reqSignal;\
 @dynamic internationalizationKEY;\
 @dynamic jobsTag;\
-@dynamic selected;\
+@dynamic jobsSelected;\
 @dynamic isMultiLineShows;\
 @dynamic isTranslucent;\
 @dynamic isVisible;\

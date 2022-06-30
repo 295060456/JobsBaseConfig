@@ -26,6 +26,29 @@
     }
 }
 
+-(UITableViewCell *)didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+                         tableViewCellClass:(Class _Nullable)tableViewCellClass{
+    NSLog(@"%s", __FUNCTION__);
+    if (tableViewCellClass) {
+        for (UITableViewCell *cell in self.visibleCells) {
+            if ([cell isKindOfClass:tableViewCellClass]) {
+                cell.selected = NO;
+            }
+        }
+    }
+    UITableViewCell *cell = (UITableViewCell *)[self cellForRowAtIndexPath:indexPath];
+    cell.selected = YES;
+    return cell;
+}
+
+-(UITableViewCell *)didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+                           tableViewCellClass:(Class _Nullable)tableViewCellClass{
+    NSLog(@"%s", __FUNCTION__);
+    UITableViewCell *cell = (UITableViewCell *)[self cellForRowAtIndexPath:indexPath];
+    cell.selected = YES;
+    return cell;
+}
+
 +(instancetype)initWithStylePlain{
     return [UITableView.alloc initWithFrame:CGRectZero style:UITableViewStylePlain];
 }

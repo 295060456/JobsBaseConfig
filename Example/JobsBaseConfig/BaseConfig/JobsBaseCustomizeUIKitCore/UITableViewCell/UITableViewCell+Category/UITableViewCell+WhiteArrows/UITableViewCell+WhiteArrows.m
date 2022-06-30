@@ -11,19 +11,17 @@
 @implementation UITableViewCell (WhiteArrows)
 /// 必须 self.accessoryType = UITableViewCellAccessoryDisclosureIndicator; 打开后才可以启用
 -(void)customAccessoryView:(jobsByIDBlock)customAccessoryViewBlock{
-    // 不用系统自带的箭头
+    /// 不用系统自带的箭头
     if (self.accessoryType == UITableViewCellAccessoryDisclosureIndicator) {
         UIButton *btn = UIButton.new;
-        //特比注意:如果这个地方是纯view（UIView、UIIMageView...）就可以不用加size，UIButton是因为受到了UIControl，需要接收一个size，否则显示不出来
+        /// 特比注意:如果这个地方是纯view（UIView、UIIMageView...）就可以不用加size，UIButton是因为受到了UIControl，需要接收一个size，否则显示不出来
         btn.size = self.size;
-        [btn setBackgroundImage:self.img
-                       forState:UIControlStateNormal];
+        btn.normalBackgroundImage = self.img;
         @jobs_weakify(self)
-        [[btn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        [btn btnClickEventBlock:^(id data) {
             @jobs_strongify(self)
             if (customAccessoryViewBlock) customAccessoryViewBlock(self);
         }];
-        
         self.accessoryView = btn;
     }
 }

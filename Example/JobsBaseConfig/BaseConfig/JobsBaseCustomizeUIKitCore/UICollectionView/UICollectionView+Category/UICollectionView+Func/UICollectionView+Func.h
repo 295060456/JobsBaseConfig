@@ -11,10 +11,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UICollectionView (Func)
 
--(void)didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-        collectionViewCellClass:(Class _Nullable)collectionViewCellClass;
--(void)didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
-          collectionViewCellClass:(Class _Nullable)collectionViewCellClass;
+-(UICollectionViewCell *)didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+                          collectionViewCellClass:(Class _Nullable)collectionViewCellClass;
+-(UICollectionViewCell *)didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
+                            collectionViewCellClass:(Class _Nullable)collectionViewCellClass;
 
 @end
 
