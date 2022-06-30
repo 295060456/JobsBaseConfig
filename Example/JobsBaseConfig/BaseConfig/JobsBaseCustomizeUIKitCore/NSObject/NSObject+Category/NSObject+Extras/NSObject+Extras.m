@@ -799,6 +799,34 @@
     }else return YES;
 }
 #pragma mark —— 键盘⌨️
+/**
+ 使用方法：
+ IQKeyboardManager.sharedManager.enable = NO;
+ [self keyboard];
+ [self actionNotificationBlock:^id(NSNotificationKeyboardModel *data) {
+     @jobs_strongify(self)
+     NSLog(@"userInfo = %@",data.userInfo);
+     NSLog(@"beginFrame = %@",NSStringFromCGRect(data.beginFrame));
+     NSLog(@"endFrame = %@",NSStringFromCGRect(data.endFrame));
+     NSLog(@"keyboardOffsetY = %f",data.keyboardOffsetY);
+     NSLog(@"notificationName = %@",data.notificationName);
+     if (data.notificationName.isEqualToString(@"UIKeyboardWillChangeFrameNotification")) {
+
+         if (data.keyboardOffsetY >= 0) {
+             [self.collectionView setContentOffset:CGPointMake(0,self.collectionView.contentOffset.y + data.keyboardOffsetY)
+                                          animated:YES];
+         }else if(data.keyboardOffsetY < 0){
+             [self.collectionView setContentOffset:CGPointMake(0,0)
+                                          animated:YES];
+         }
+         
+     }else if (data.notificationName.isEqualToString(@"UIKeyboardDidChangeFrameNotification")){
+         NSLog(@"");
+     }else{}
+     
+     return nil;
+ }];
+ */
 /// 加入键盘通知的监听者
 -(void)keyboard{
     [NSNotificationCenter.defaultCenter addObserver:self
@@ -813,22 +841,39 @@
 }
 /// 键盘 弹出 和 收回 走这个方法
 -(void)keyboardWillChangeFrameNotification:(NSNotification *_Nullable)notification{
-    NSDictionary *userInfo = notification.userInfo;
-    CGRect beginFrame = [userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue];
-    CGRect endFrame = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    CGFloat KeyboardOffsetY = beginFrame.origin.y - endFrame.origin.y;// 正则抬起 ，负值下降
-    NSLog(@"KeyboardOffsetY = %f",KeyboardOffsetY);
+    NSLog(@"%@",JobsLocalFunc);
+    NSNotificationKeyboardModel *notificationKeyboardModel = NSNotificationKeyboardModel.new;
+    notificationKeyboardModel.userInfo = notificationKeyboardModel.userInfo;
+    notificationKeyboardModel.beginFrame = [notificationKeyboardModel.userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+    notificationKeyboardModel.endFrame = [notificationKeyboardModel.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    notificationKeyboardModel.keyboardOffsetY = notificationKeyboardModel.beginFrame.origin.y - notificationKeyboardModel.endFrame.origin.y;// 正则抬起 ，负值下降
+    notificationKeyboardModel.notificationName = UIKeyboardWillChangeFrameNotification;
+    NSLog(@"KeyboardOffsetY = %f", notificationKeyboardModel.keyboardOffsetY);
  
-    if (KeyboardOffsetY > 0) {
+    if (notificationKeyboardModel.keyboardOffsetY > 0) {
         NSLog(@"键盘抬起");
-    }else if(KeyboardOffsetY < 0){
+    }else if(notificationKeyboardModel.keyboardOffsetY < 0){
         NSLog(@"键盘收回");
     }else{
         NSLog(@"键盘");
     }
+    if (self.notificationBlock) self.notificationBlock(notificationKeyboardModel);
 }
 
--(void)keyboardDidChangeFrameNotification:(NSNotification *_Nullable)notification{}
+-(void)keyboardDidChangeFrameNotification:(NSNotification *_Nullable)notification{
+    NSLog(@"%@",JobsLocalFunc);
+//    NSNotificationKeyboardModel *notificationKeyboardModel = NSNotificationKeyboardModel.new;
+//    notificationKeyboardModel.userInfo = notificationKeyboardModel.userInfo;
+//    notificationKeyboardModel.beginFrame = [notificationKeyboardModel.userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+//    notificationKeyboardModel.endFrame = [notificationKeyboardModel.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+//    notificationKeyboardModel.keyboardOffsetY = notificationKeyboardModel.beginFrame.origin.y - notificationKeyboardModel.endFrame.origin.y;// 正则抬起 ，负值下降
+//    notificationKeyboardModel.notificationName = UIKeyboardDidChangeFrameNotification;
+//    if (self.notificationBlock) self.notificationBlock(notificationKeyboardModel);
+}
+
+-(void)actionNotificationBlock:(JobsReturnIDByIDBlock _Nullable)notificationBlock{
+    self.notificationBlock = notificationBlock;
+}
 #pragma mark —— 刷新
 /// 停止刷新【可能还有数据的情况，状态为：MJRefreshStateIdle】
 -(void)endRefreshing:(UIScrollView *_Nonnull)targetScrollView{
@@ -999,6 +1044,19 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
                              internationalizationKEY,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+static char *NSObject_Extras_notificationBlock = "NSObject_Extras_notificationBlock";
+@dynamic notificationBlock;
+#pragma mark —— @property(nonatomic,copy)JobsReturnIDByIDBlock notificationBlock;
+-(JobsReturnIDByIDBlock)notificationBlock{
+    return objc_getAssociatedObject(self, NSObject_Extras_notificationBlock);;
+}
+
+-(void)setNotificationBlock:(JobsReturnIDByIDBlock)notificationBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_Extras_notificationBlock,
+                             notificationBlock,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 
 @end
 
@@ -1006,3 +1064,14 @@ static char *NSObject_Extras_internationalizationKEY = "NSObject_Extras_internat
 
 @end
 
+@implementation NSNotificationKeyboardModel
+
+/**
+ 关于键盘弹起：
+ 1、建议用RAC进行键盘管理，因为过滤字符比如emoji字符会很难处理
+    1.1、关注：@implementation UITextField (Extend) -(void)textFieldEventFilterBlock:(JobsReturnBOOLByIDBlock)filterBlock subscribeNextBlock:(jobsByIDBlock)subscribeNextBlock；
+    1.2、RAC 键盘管理当“注册键盘事件”的时候会执行一次RAC键盘监听方法
+ 2、键盘弹起会执行-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField；
+ */
+
+@end

@@ -76,6 +76,16 @@
 
 @end
 
+@interface NSNotificationKeyboardModel : NSObject
+
+@property(nonatomic,strong,nullable)NSDictionary *userInfo;
+@property(nonatomic,assign)CGRect beginFrame;
+@property(nonatomic,assign)CGRect endFrame;
+@property(nonatomic,assign)CGFloat keyboardOffsetY;
+@property(nonatomic,strong,nonnull)NSString *notificationName;
+
+@end
+
 @interface NSObject (Extras)
 <
 BaseProtocol
@@ -283,12 +293,40 @@ BaseProtocol
 -(BOOL)judgementExactDivisionByNum1:(NSNumber *_Nonnull)num1
                                num2:(NSNumber *_Nonnull)num2;
 #pragma mark —— 键盘⌨️
+/**
+ ❤️使用方法❤️
+ IQKeyboardManager.sharedManager.enable = NO;
+ [self keyboard];
+ [self actionNotificationBlock:^id(NSNotificationKeyboardModel *data) {
+     @jobs_strongify(self)
+     NSLog(@"userInfo = %@",data.userInfo);
+     NSLog(@"beginFrame = %@",NSStringFromCGRect(data.beginFrame));
+     NSLog(@"endFrame = %@",NSStringFromCGRect(data.endFrame));
+     NSLog(@"keyboardOffsetY = %f",data.keyboardOffsetY);
+     NSLog(@"notificationName = %@",data.notificationName);
+     if (data.notificationName.isEqualToString(@"UIKeyboardWillChangeFrameNotification")) {
+
+         if (data.keyboardOffsetY >= 0) {
+             [self.collectionView setContentOffset:CGPointMake(0,self.collectionView.contentOffset.y + data.keyboardOffsetY)
+                                          animated:YES];
+         }else if(data.keyboardOffsetY < 0){
+             [self.collectionView setContentOffset:CGPointMake(0,0)
+                                          animated:YES];
+         }
+         
+     }else if (data.notificationName.isEqualToString(@"UIKeyboardDidChangeFrameNotification")){
+         NSLog(@"");
+     }else{}
+     
+     return nil;
+ }];
+ */
 /// 加入键盘通知的监听者
 -(void)keyboard;
 /// 键盘 弹出 和 收回 走这个方法
 -(void)keyboardWillChangeFrameNotification:(NSNotification *_Nullable)notification;
-
 -(void)keyboardDidChangeFrameNotification:(NSNotification *_Nullable)notification;
+-(void)actionNotificationBlock:(JobsReturnIDByIDBlock _Nullable)notificationBlock;
 #pragma mark —— 刷新
 /// 停止刷新【可能还有数据的情况，状态为：MJRefreshStateIdle】
 -(void)endRefreshing:(UIScrollView *_Nonnull)targetScrollView;

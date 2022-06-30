@@ -13,6 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol BaseProtocol <NSObject>
 
 @optional
+
+@property(nonatomic,copy)JobsReturnIDByIDBlock notificationBlock;
+
 -(void)languageSwitchNotificationWithSelector:(SEL)aSelector;//在View上,target = self（view）,省略
 /// 更改UITabBarItem的标题
 -(void)changeTabBarItemTitle:(NSIndexPath *)indexPath;//NSObject (AppTools)
