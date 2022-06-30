@@ -30,9 +30,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UITextField (Extend)
 
 @property(nonatomic,strong)UIButton *customSysClearBtn;
-
--(void)textFieldEvent:(JobsReturnBOOLByIDBlock)filterBlock
-   subscribeNextBlock:(jobsByIDBlock)subscribeNextBlock;
+/// RAC 回调封装
+-(void)textFieldEventFilterBlock:(JobsReturnBOOLByIDBlock)filterBlock
+              subscribeNextBlock:(jobsByIDBlock)subscribeNextBlock;
 /// 自定义系统的清除按钮
 -(void)modifyClearButtonWithImage:(UIImage *)image;
 /// 过滤删除最科学的做法,获得当前TextField当前时刻的具体文本值

@@ -13,12 +13,16 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol BaseProtocol <NSObject>
 
 @optional
-/// KVC-Block
--(JobsReturnIDByIDBlock _Nonnull)valueForKeyBlock;
-
 -(void)languageSwitchNotificationWithSelector:(SEL)aSelector;//在View上,target = self（view）,省略
 /// 更改UITabBarItem的标题
 -(void)changeTabBarItemTitle:(NSIndexPath *)indexPath;//NSObject (AppTools)
+#pragma mark —— 只能辐射 NSObject，未能涉及ID类型
+/// KVC-Block
+-(JobsReturnIDByIDBlock _Nonnull)valueForKeyBlock;
+/// isKindOfClass-Block
+-(JobsReturnBOOLByIDBlock _Nonnull)isKindOfClassBlock;
+/// isMemberOfClass-Block
+-(JobsReturnBOOLByIDBlock _Nonnull)isMemberOfClassBlock;
 #pragma mark —— iOS 通知
 ///【监听所有通知】
 -(void)monitorNotification:(nonnull NSString *)notificationName

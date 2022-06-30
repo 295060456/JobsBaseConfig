@@ -9,7 +9,6 @@
 #import "NSObject+Extras.h"
 
 @implementation NSObject (Extras)
-
 #pragma mark —— 宏
 /// App 国际化相关系统宏二次封装 + 设置缺省值
 +(NSString *_Nullable)localStringWithKey:(nonnull NSString *)key{
@@ -144,6 +143,18 @@
 -(JobsReturnIDByIDBlock _Nonnull)valueForKeyBlock{
     return ^(NSString *data) {
         return [data isKindOfClass:NSString.class] ? [self valueForKey:data] : nil;
+    };
+}
+
+-(JobsReturnBOOLByIDBlock _Nonnull)isKindOfClassBlock{
+    return ^(Class cls) {
+        return [self isKindOfClass:cls];
+    };
+}
+
+-(JobsReturnBOOLByIDBlock _Nonnull)isMemberOfClassBlock{
+    return ^(Class cls) {
+        return [self isKindOfClass:cls];
     };
 }
 

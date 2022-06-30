@@ -10,8 +10,9 @@
 
 @implementation UITextField (Extend)
 #pragma mark —— 一些功能方法
--(void)textFieldEvent:(JobsReturnBOOLByIDBlock)filterBlock
-   subscribeNextBlock:(jobsByIDBlock)subscribeNextBlock{
+/// RAC 回调封装
+-(void)textFieldEventFilterBlock:(JobsReturnBOOLByIDBlock)filterBlock
+              subscribeNextBlock:(jobsByIDBlock)subscribeNextBlock{
     [[self.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
         return filterBlock ? filterBlock(value) : YES;
     }] subscribeNext:^(NSString * _Nullable x) {

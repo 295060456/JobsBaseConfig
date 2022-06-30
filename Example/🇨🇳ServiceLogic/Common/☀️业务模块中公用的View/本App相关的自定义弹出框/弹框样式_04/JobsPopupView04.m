@@ -29,7 +29,6 @@
 @end
 
 @implementation JobsPopupView04
-
 @synthesize viewModel = _viewModel;
 
 #pragma mark —— BaseProtocol
@@ -126,7 +125,7 @@ static dispatch_once_t static_popupView04OnceToken;
         _nameFromLab = UILabel.new;
         _nameFromLab.text = Internationalization(@"中心钱包");
         _nameFromLab.textColor = HEXCOLOR(0x3D4A58);
-        _nameFromLab.font = [UIFont systemFontOfSize:JobsWidth(16) weight:UIFontWeightMedium];
+        _nameFromLab.font = UIFontWeightMediumSize(16);
         [self.titleLab addSubview:_nameFromLab];
         [_nameFromLab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(self.titleIMGV.mas_left).offset(JobsWidth(-36));
@@ -141,7 +140,7 @@ static dispatch_once_t static_popupView04OnceToken;
         _nameToLab = UILabel.new;
         _nameToLab.text = Internationalization(@"AG體育錢包");
         _nameToLab.textColor = HEXCOLOR(0x3D4A58);
-        _nameToLab.font = [UIFont systemFontOfSize:JobsWidth(16) weight:UIFontWeightMedium];
+        _nameToLab.font = UIFontWeightMediumSize(16);
         [self.titleLab addSubview:_nameToLab];
         [_nameToLab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.titleIMGV.mas_right).offset(JobsWidth(36));
@@ -156,7 +155,7 @@ static dispatch_once_t static_popupView04OnceToken;
         _subTitleLab = UILabel.new;
         _subTitleLab.text = Internationalization(@"*場館內錢包不支持互轉");
         _subTitleLab.textColor = HEXCOLOR(0x757575);
-        _subTitleLab.font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightMedium];
+        _subTitleLab.font = UIFontWeightMediumSize(12);
         [self addSubview:_subTitleLab];
         [_subTitleLab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self).offset(JobsWidth(24));
@@ -183,12 +182,16 @@ static dispatch_once_t static_popupView04OnceToken;
     if (!_inputView) {
         _inputView = [JobsAppDoorInputViewBaseStyle_10.alloc initWithSize:inputViewSize];
         @jobs_weakify(self)
-        [_inputView actionObjectBlock:^(JobsAppDoorInputViewTFModel *data) {
+        [_inputView actionObjectBlock:^(id data) {
             @jobs_strongify(self)
-//            if ([data isKindOfClass:JobsAppDoorInputViewTFModel.class]) {
-//                JobsAppDoorInputViewTFModel *model = (JobsAppDoorInputViewTFModel *)data;
-//                self.newsWithdrawPassword = model.resString;
-//            }
+            NSLog(@"%@",data);
+            if ([data isKindOfClass:UITextField.class]) {
+                UITextField *textField = (UITextField *)data;
+            }else if ([data isKindOfClass:JobsAppDoorInputViewTFModel.class]){
+                JobsAppDoorInputViewTFModel *inputViewTFModel = (JobsAppDoorInputViewTFModel *)data;
+            }else{
+                
+            }
         }];
         
         [self addSubview:_inputView];
@@ -206,7 +209,7 @@ static dispatch_once_t static_popupView04OnceToken;
         _配置金额输入框 = JobsAppDoorInputViewBaseStyleModel.new;
 //        _配置金额输入框.leftViewIMG = JobsIMG(@"安全");
         _配置金额输入框.placeHolderStr = Internationalization(@"請輸入金額");
-        _配置金额输入框.placeholderFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
+        _配置金额输入框.placeholderFont = UIFontWeightRegularSize(14);
         _配置金额输入框.isShowDelBtn = YES;
         _配置金额输入框.isShowSecurityBtn = NO;
         _配置金额输入框.returnKeyType = UIReturnKeyDone;
@@ -225,7 +228,7 @@ static dispatch_once_t static_popupView04OnceToken;
         _cancelBtn.selectedBackgroundImage = JobsIMG(@"弹窗取消按钮");
         _cancelBtn.normalTitle = Internationalization(@"取消");
         _cancelBtn.normalTitleColor = HEXCOLOR(0xB0B0B0);
-        _cancelBtn.titleFont = UIFontWeightRegularSize(18);
+        _cancelBtn.titleFont = notoSansRegular(18);
         [self addSubview:_cancelBtn];
         [_cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(self.mas_bottom).offset(JobsWidth(-26));
@@ -237,9 +240,7 @@ static dispatch_once_t static_popupView04OnceToken;
             @jobs_strongify(self)
             NSLog(@"确定");
             x.selected = !x.selected;
-            [self tf_hide];
-            [self.class destroySingleton];
-            if(self.objectBlock) self.objectBlock(x);
+            [self cancelBtnActionForPopView:x];
         }];
     }return _cancelBtn;
 }
@@ -262,11 +263,8 @@ static dispatch_once_t static_popupView04OnceToken;
         @jobs_weakify(self)
         [_sureBtn btnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
-            NSLog(@"确定");
             x.selected = !x.selected;
-            [self tf_hide];
-            [self.class destroySingleton];
-            if(self.objectBlock) self.objectBlock(x);
+            [self cancelBtnActionForPopView:x];
         }];
     }return _sureBtn;
 }

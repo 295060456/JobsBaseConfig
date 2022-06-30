@@ -15,8 +15,8 @@
 @property(nonatomic,strong)NSString *titleStr_1;
 @property(nonatomic,strong)NSString *titleStr_2;
 @property(nonatomic,strong)JobsAppDoorInputViewBaseStyleModel *doorInputViewBaseStyleModel;
-//@property(nonatomic,strong)NSMutableArray <RichTextConfig *>*richLabelDataStringsMutArr;
 @property(nonatomic,strong)ButtonTimerConfigModel *btnTimerConfigModel;
+//@property(nonatomic,strong)NSMutableArray <RichTextConfig *>*richLabelDataStringsMutArr;
 
 @end
 
@@ -30,7 +30,7 @@
         self.thisViewSize = thisViewSize;
         self.titleStr_1 = Internationalization(@"請輸入金額");
         self.titleStr_2 = Internationalization(@"全部金額");
-        [self layerBorderColour:JobsWhiteColor andBorderWidth:1];
+//        [self layerBorderColour:JobsWhiteColor andBorderWidth:1];
         
     }return self;
 }
@@ -54,7 +54,7 @@
 -(void)configTextField{
     _textField.leftView = [UIImageView.alloc initWithImage:self.doorInputViewBaseStyleModel.leftViewIMG];
     _textField.leftViewMode = self.doorInputViewBaseStyleModel.leftViewMode;
-    _textField.placeholder = [NSString isNullString:self.doorInputViewBaseStyleModel.placeHolderStr] ? Internationalization(@"請輸入金額") : self.doorInputViewBaseStyleModel.placeHolderStr;
+    _textField.placeholder = [NSString isNullString:self.doorInputViewBaseStyleModel.placeHolderStr] ? self.titleStr_1 : self.doorInputViewBaseStyleModel.placeHolderStr;
     _textField.keyboardType = self.doorInputViewBaseStyleModel.keyboardType;
     _textField.returnKeyType = self.doorInputViewBaseStyleModel.returnKeyType;
     _textField.keyboardAppearance = self.doorInputViewBaseStyleModel.keyboardAppearance;
@@ -91,6 +91,8 @@
     self.titleLab.alpha = 1;
     self.textField.alpha = 1;
     [self configTextField];
+    self.userInteractionEnabled = YES;
+    
 }
 #pragma mark —— JobsDoorInputViewProtocol
 -(ZYTextField *_Nullable)getTextField{
@@ -105,10 +107,15 @@
     if (!_textField) {
         _textField = ZYTextField.new;
         _textField.delegate = self;
-        ARC_TextField(_textField, {
+        _textField.backgroundColor = JobsRedColor;
+        @jobs_weakify(self)
+        [_textField textFieldEventFilterBlock:^BOOL(id data) {
+            return YES;
+        } subscribeNextBlock:^(id x) {
+            @jobs_strongify(self)
             [self block:self->_textField
                   value:x];
-        });
+        }];
         
         [self addSubview:_textField];
         [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -122,7 +129,7 @@
 -(UILabel *)titleLab{
     if (!_titleLab) {
         _titleLab = UILabel.new;
-        _titleLab.text = [NSString isNullString:self.viewModel.textModel.text] ? Internationalization(@"全部金额") : self.viewModel.textModel.text;
+        _titleLab.text = [NSString isNullString:self.viewModel.textModel.text] ? self.titleStr_2 : self.viewModel.textModel.text;
         _titleLab.textColor = self.viewModel.textModel.textCor ? : HEXCOLOR(0xAE8330);
         _titleLab.font = self.viewModel.textModel.font ? : [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightMedium];
         [self addSubview:_titleLab];
