@@ -97,4 +97,22 @@ NTESVerifyCodeManagerProtocol_synthesize
     }return _indexPath;
 }
 
+-(NSMutableArray *)jobsDataMutArr{
+    if (!_jobsDataMutArr) {
+        _jobsDataMutArr = NSMutableArray.array;
+    }return _jobsDataMutArr;
+}
+
+-(NSMutableSet *)jobsDataMutSet{
+    if (!_jobsDataMutSet) {
+        _jobsDataMutSet = NSMutableSet.set;
+    }return _jobsDataMutSet;
+}
+
+-(NSMutableDictionary *)jobsDataMutDic{
+    if (!_jobsDataMutDic) {
+        _jobsDataMutDic = NSMutableDictionary.dictionary;
+    }return _jobsDataMutDic;
+}
+
 @end

@@ -34,7 +34,6 @@
     if (!cell) {
         cell = (JobsCVCell *)[collectionView collectionViewCellClass:JobsCVCell.class forIndexPath:indexPath];
     }
-    
     cell.indexPath = indexPath;
     return cell;
 }
@@ -47,6 +46,11 @@
 +(CGSize)cellSizeWithModel:(UIViewModel *_Nullable)model{
     return CGSizeMake(JobsWidth(106), JobsWidth(30));
 }
+
+//-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+//    NSLog(@"");
+//}
+
 #pragma mark —— 一些公有方法
 -(UIButton *)getBtn{
     return _btn;
@@ -55,17 +59,20 @@
 -(UIButton *)btn{
     if (!_btn) {
         _btn = UIButton.new;
+        _btn.enabled = NO;
         [self.contentView addSubview:_btn];
         [_btn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.contentView);
         }];
     }
     _btn.normalImage = self.viewModel.image;
+    _btn.normalTitleColor = self.viewModel.textModel.textCor ? : JobsBlueColor;
     _btn.backgroundColor = self.viewModel.bgCor ? : HEXCOLOR(0xF3F3F3);
     _btn.normalTitle = self.viewModel.textModel.text;
     _btn.titleFont = self.viewModel.textModel.font ? : notoSansRegular(12);
     [_btn layoutButtonWithEdgeInsetsStyle:self.viewModel.buttonEdgeInsetsStyle
                           imageTitleSpace:self.viewModel.imageTitleSpace];
+    [_btn cornerCutToCircleWithCornerRadius:self.viewModel.layerCornerRadius ? : JobsWidth(8)];
     
     return _btn;
 }
