@@ -9,6 +9,10 @@
 
 @implementation NSString (Others)
 #pragma mark —— 其他
+/// 该文字是否是Debug定义的文字
+-(BOOL)isDebugText{
+    return self.isEqualToString(Internationalization(TextModelDataString));
+}
 /// 复制到系统剪切板
 -(NSString *)pasteboard{
     UIPasteboard *pasteboard = UIPasteboard.generalPasteboard;

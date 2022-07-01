@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSString (Others)
 #pragma mark —— 其他
+/// 该文字是否是Debug定义的文字
+-(BOOL)isDebugText;
 /// 复制到系统剪切板
 -(NSString *)pasteboard;
 /// 根据字符串生成二维码图像
