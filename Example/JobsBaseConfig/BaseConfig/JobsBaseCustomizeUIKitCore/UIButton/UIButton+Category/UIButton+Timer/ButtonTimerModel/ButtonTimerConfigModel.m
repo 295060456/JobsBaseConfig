@@ -133,4 +133,10 @@ UILocationProtocol_synthesize
     }return _count;
 }
 
+-(NSString *)secondStr{
+    if (!_secondStr) {
+        _secondStr = Internationalization(@"Sec");
+    }return _secondStr;
+}
+
 @end

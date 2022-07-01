@@ -30,7 +30,7 @@
 -(void)extraWidth:(CGFloat)offsetWidth{
     if (self.layer.cornerRadius) {
         [self mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.width.mas_equalTo(self.btnTimerConfig.jobsSize.width + offsetWidth ? : self.btnTimerConfig.widthCompensationValue);
+            make.width.mas_equalTo(self.btnTimerConfig.jobsSize.width + (offsetWidth ? : self.btnTimerConfig.widthCompensationValue));
         }];
     }
 }
@@ -130,6 +130,11 @@
 //    [self.nsTimerManager nsTimeStartWithRunLoop:nil];
     //启动方式——2
     [self.btnTimerConfig.timerManager nsTimeStartSysAutoInRunLoop];
+    [self preData];
+}
+/// 因为计时器要走过一个周期才开始报值
+-(void)preData{
+    [self timerRuning:self.btnTimerConfig.timerManager.timerProcessModel.data.anticlockwiseTime];
 }
 #pragma mark —— 时间相关方法【定时器运行中】❤️核心方法❤️
 -(void)timerRuning:(long)currentTime{
@@ -148,7 +153,7 @@
         // 显示的时间格式
         switch (self.btnTimerConfig.showTimeType) {
             case ShowTimeType_SS:{
-                self.btnTimerConfig.formatTimeStr = [NSString stringWithFormat:@"%ld %@",(long)currentTime,Internationalization(@"Sec")];
+                self.btnTimerConfig.formatTimeStr = [NSString stringWithFormat:@"%ld %@",(long)currentTime,self.btnTimerConfig.secondStr];
             }break;
             case ShowTimeType_MMSS:{
                 self.btnTimerConfig.formatTimeStr = [self getMMSSFromStr:[NSString stringWithFormat:@"%ld",(long)currentTime] formatTime:nil];

@@ -139,26 +139,32 @@
 -(ButtonTimerConfigModel *)btnTimerConfigModel{
     if (!_btnTimerConfigModel) {
         _btnTimerConfigModel = ButtonTimerConfigModel.new;
-        
         /// 一些通用的设置
-        _btnTimerConfigModel.count = 5;
+        _btnTimerConfigModel.jobsSize = CGSizeMake(JobsWidth(120), JobsWidth(25));
+        _btnTimerConfigModel.count = 3;
         _btnTimerConfigModel.showTimeType = ShowTimeType_SS;//时间显示风格
         _btnTimerConfigModel.countDownBtnType = TimerStyle_anticlockwise;// 时间方向
         _btnTimerConfigModel.cequenceForShowTitleRuningStrType = CequenceForShowTitleRuningStrType_tail;// 文本显示类型
-        _btnTimerConfigModel.labelShowingType = UILabelShowingType_05;//【换行模式】
-        
+        _btnTimerConfigModel.labelShowingType = UILabelShowingType_03;
+        _btnTimerConfigModel.secondStr = Internationalization(@"S");
         /// 计时器未开始【静态值】
         _btnTimerConfigModel.readyPlayValue.layerBorderWidth = 1;
-        _btnTimerConfigModel.readyPlayValue.layerCornerRadius = JobsWidth(18);
-        _btnTimerConfigModel.readyPlayValue.bgCor = JobsYellowColor;
+        _btnTimerConfigModel.readyPlayValue.layerCornerRadius = 0;
+        _btnTimerConfigModel.readyPlayValue.bgCor = JobsClearColor;
         _btnTimerConfigModel.readyPlayValue.layerBorderColour = JobsClearColor;
-        _btnTimerConfigModel.readyPlayValue.textCor = JobsBlackColor;
-        _btnTimerConfigModel.readyPlayValue.text = Title9;
-        _btnTimerConfigModel.readyPlayValue.font = UIFontWeightMediumSize(13);
+        _btnTimerConfigModel.readyPlayValue.textCor = HEXCOLOR(0xAE8330);
+        _btnTimerConfigModel.readyPlayValue.text = Internationalization(@"獲取驗證碼");
+        _btnTimerConfigModel.readyPlayValue.font = notoSansBold(14);
         /// 计时器进行中【动态值】
-        _btnTimerConfigModel.runningValue.bgCor = JobsCyanColor;
+        _btnTimerConfigModel.runningValue.bgCor = JobsClearColor;
+        _btnTimerConfigModel.runningValue.layerBorderColour = JobsClearColor;
+        _btnTimerConfigModel.runningValue.textCor = HEXCOLOR(0xAE8330);
+        _btnTimerConfigModel.runningValue.text = Internationalization(@"");
         /// 计时器结束【静态值】
-        _btnTimerConfigModel.endValue.bgCor = JobsRedColor;
+        _btnTimerConfigModel.endValue.bgCor = JobsClearColor;
+        _btnTimerConfigModel.endValue.layerBorderColour = JobsClearColor;
+        _btnTimerConfigModel.endValue.textCor = HEXCOLOR(0xAE8330);
+        _btnTimerConfigModel.endValue.text = Internationalization(@"重新获取验证码");
         
     }return _btnTimerConfigModel;
 }
@@ -166,6 +172,7 @@
 -(UIButton *)authCodeBtn{
     if (!_authCodeBtn) {
         _authCodeBtn = [UIButton.alloc initWithConfig:self.btnTimerConfigModel];
+        _authCodeBtn.normalTitle = Internationalization(@"獲取驗證碼");
         @jobs_weakify(self)
         [_authCodeBtn btnClickEventBlock:^(UIButton *x) {
 //            @jobs_strongify(self)
@@ -180,9 +187,9 @@
         }];
         [self addSubview:_authCodeBtn];
         [_authCodeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(self).offset(-JobsWidth(50));
+            make.right.equalTo(self).offset(-JobsWidth(16));
             make.bottom.equalTo(self.textField);
-            make.size.mas_equalTo(CGSizeMake(JobsWidth(78), JobsWidth(25)));
+            make.size.mas_equalTo(self.btnTimerConfigModel.jobsSize);
         }];
         [self layoutIfNeeded];
         [_authCodeBtn cornerCutToCircleWithCornerRadius:25 / 2];
@@ -195,7 +202,6 @@
 -(ZYTextField *)textField{
     if (!_textField) {
         _textField = ZYTextField.new;
-        _textField.text = self.doorInputViewBaseStyleModel.textModel.text;
         _textField.delegate = self;
         @jobs_weakify(self)
         [_textField textFieldEventFilterBlock:^BOOL(id data) {
@@ -225,7 +231,11 @@
                     break;
             }
         }];
-    }return _textField;
+    }
+    if (self.doorInputViewBaseStyleModel.textModel.text.isDebugText) {
+        _textField.text = @"";
+    }
+    return _textField;
 }
 
 @end
