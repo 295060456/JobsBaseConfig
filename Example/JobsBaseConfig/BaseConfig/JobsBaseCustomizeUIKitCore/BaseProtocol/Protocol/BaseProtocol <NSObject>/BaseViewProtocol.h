@@ -59,6 +59,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)pullToRefresh;
 /// 上拉加载更多 （子类要进行覆写）
 -(void)loadMoreRefresh;
+/// 获取绑定的数据源
+-(UIViewModel *_Nullable)getViewModel;
 
 @end
 

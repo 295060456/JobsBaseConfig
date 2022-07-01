@@ -80,6 +80,15 @@ UITableViewCellProtocol_synthesize
            animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 }
+/// 程肖斌所言 全局只有在cellForRowAtIndexPath里面才能设置真正的selected值。而didSelectRowAtIndexPath不行
+-(void)setSelected:(BOOL)selected{
+    [super setSelected:selected];
+    NSLog(@"%d",self.selected);
+}
+//@synthesize selected = _selected;
+//-(void)setSelected:(BOOL)selected{
+//    selected = _selected;
+//}
 
 -(void)setEditing:(BOOL)editing
          animated:(BOOL)animated{
@@ -264,6 +273,10 @@ UITableViewCellProtocol_synthesize
 +(CGFloat)heightForHeaderInSection:(id _Nullable)model{
     return JobsWidth(10);
 }
+/// 获取绑定的数据源
+-(UIViewModel *)getViewModel{
+    return _viewModel;
+}
 #pragma mark —— BaseCellProtocol
 -(void)richElementsInCellWithModel:(UIViewModel *_Nullable)model{
     if (model) {
@@ -293,6 +306,8 @@ UITableViewCellProtocol_synthesize
             self.detailTextLabel.font = self.viewModel.subTextModel.font;
             [self.detailTextLabel makeLabelByShowingType:UILabelShowingType_05];
         }
+        
+        self.imageView.image = self.viewModel.image;
     }
 }
 
