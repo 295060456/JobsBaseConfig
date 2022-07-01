@@ -65,9 +65,10 @@
             make.edges.equalTo(self.contentView);
         }];
     }
+    _btn.selected = self.viewModel.jobsSelected;
     _btn.normalImage = self.viewModel.image;
     _btn.normalTitleColor = self.viewModel.textModel.textCor ? : JobsBlueColor;
-    _btn.backgroundColor = self.viewModel.bgCor ? : HEXCOLOR(0xF3F3F3);
+    _btn.backgroundColor = _btn.selected ? (self.viewModel.bgSelectedCor ? : JobsYellowColor) : (self.viewModel.bgCor ? : JobsCyanColor);
     _btn.normalTitle = self.viewModel.textModel.text;
     _btn.titleFont = self.viewModel.textModel.font ? : notoSansRegular(12);
     [_btn layoutButtonWithEdgeInsetsStyle:self.viewModel.buttonEdgeInsetsStyle
