@@ -65,8 +65,9 @@
     @jobs_weakify(self)
     [self getMainQueue:^{
         @jobs_strongify(self)
-        [UIScrollViewAnimationKit showWithAnimationType:XSScrollViewAnimationTypeAlpha
-                                             scrollView:self.tableView];
+        [self.tableView alphaAnimWithSortingType:(SortingType)SortingType_Positive
+                                  animationBlock:nil
+                                 completionBlock:nil];
     }];
 }
 /// 上拉加载更多 （子类要进行覆写）

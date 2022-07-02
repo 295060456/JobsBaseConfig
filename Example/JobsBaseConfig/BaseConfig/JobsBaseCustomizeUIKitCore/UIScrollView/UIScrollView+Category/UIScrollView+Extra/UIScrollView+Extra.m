@@ -13,29 +13,28 @@
     return [self judgementScrollDirectionByPoint:self.contentOffset];
 }
 #pragma mark —— 一些公共方法
-+(NSArray <UIView *> * _Nullable)cellsWithScrollView:(nonnull UIScrollView *)scrollView{
+/// 得到visibleCells
+-(NSArray <UIView *> * _Nullable)scrollViewCells{
     NSArray <UIView *>*cells = nil;
-    if ([scrollView isKindOfClass:UICollectionView.class]) {
-        UICollectionView *collectionView = (UICollectionView *)scrollView;
+    if ([self isKindOfClass:UICollectionView.class]) {
+        UICollectionView *collectionView = (UICollectionView *)self;
         cells = collectionView.visibleCells;
-    }else if ([scrollView isKindOfClass:UITableView.class]){
-        UITableView *tableView = (UITableView *)scrollView;
+    }else if ([self isKindOfClass:UITableView.class]){
+        UITableView *tableView = (UITableView *)self;
         cells = tableView.visibleCells;
     }else{}
     return cells;
 }
-
-+(UIView * _Nullable)cellWithScrollView:(nonnull UIScrollView *)scrollView
-                                atIndex:(int)index{
+/// 依据index得到cell
+-(UIView * _Nullable)scrollViewCellsAtIndex:(NSUInteger)index{
     UIView *cell = nil;
-    if ([scrollView isKindOfClass:UICollectionView.class]) {
-        UICollectionView *collectionView = (UICollectionView *)scrollView;
+    if ([self isKindOfClass:UICollectionView.class]) {
+        UICollectionView *collectionView = (UICollectionView *)self;
         cell = [collectionView.visibleCells objectAtIndex:index];
-    }else if ([scrollView isKindOfClass:UITableView.class]){
-        UITableView *tableView = (UITableView *)scrollView;
+    }else if ([self isKindOfClass:UITableView.class]){
+        UITableView *tableView = (UITableView *)self;
         cell = [tableView.visibleCells objectAtIndex:index];
-    }else{}
-    return cell;
+    }else{}return cell;
 }
 
 @end

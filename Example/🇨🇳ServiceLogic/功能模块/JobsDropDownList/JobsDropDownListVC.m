@@ -11,9 +11,11 @@
 /// UI
 @property(nonatomic,strong)JobsDropDownListView *dropDownListView;
 @property(nonatomic,strong)UIButton *btn;
-@property(nonatomic,strong)UITextField *textField;
+@property(nonatomic,strong)UISwitch *switcher;
 /// Data
 @property(nonatomic,strong)NSMutableArray <UIViewModel *>*listViewData;
+@property(nonatomic,strong)UIColor *cor;
+@property(nonatomic,assign)JobsDropDownListViewDirection dropDownListViewDirection;
 
 @end
 
@@ -42,6 +44,7 @@
     [self setGKNavBackBtn];
     
     self.btn.alpha = 1;
+    self.switcher.alpha = 1;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -84,6 +87,7 @@
             if (x.selected) {
                 /// ❤️只能让它执行一次❤️
                 self.dropDownListView = [self motivateFromView:x
+                                 jobsDropDownListViewDirection:self.dropDownListViewDirection
                                                           data:self.listViewData
                                             motivateViewOffset:JobsWidth(5)
                                                    finishBlock:^(UIViewModel *data) {
@@ -98,12 +102,51 @@
 
         [self.view addSubview:_btn];
         [_btn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.view).offset(JobsWidth(20));
-            make.top.equalTo(self.gk_navigationBar.mas_bottom).offset(JobsWidth(30));
+            make.center.equalTo(self.view);
         }];
         [_btn layoutIfNeeded];
         [_btn cornerCutToCircleWithCornerRadius:JobsWidth(8)];
     }return _btn;
+}
+
+-(UISwitch *)switcher{
+    if (!_switcher) {
+        _switcher = UISwitch.new;
+        [self.view addSubview:_switcher];
+        _switcher.selected = NO;
+        _switcher.thumbTintColor = _switcher.selected ? self.cor : HEXCOLOR(0xB0B0B0);
+        _switcher.tintColor = UIColor.whiteColor;
+        _switcher.onTintColor = HEXCOLOR(0xFFFCF7);
+        _switcher.backgroundColor = UIColor.whiteColor;
+        [_switcher cornerCutToCircleWithCornerRadius:31 / 2];
+        [_switcher mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.gk_navigationBar.mas_bottom);
+            make.left.equalTo(self.view).offset(JobsWidth(16));
+        }];
+        [_switcher layerBorderColour:_switcher.selected ? self.cor : HEXCOLOR(0xB0B0B0) andBorderWidth:JobsWidth(1)];
+        @jobs_weakify(self)
+        [_switcher switchClickEventBlock:^(UISwitch *x) {
+            @jobs_strongify(self)
+            x.selected = !x.selected;
+            self.btn.selected = !self.btn.selected;
+            [self endDropDownListView];
+            x.thumbTintColor = x.selected ? self.cor : HEXCOLOR(0xB0B0B0);
+            [x layerBorderColour:x.selected ? self.cor : HEXCOLOR(0xB0B0B0) andBorderWidth:JobsWidth(1)];
+//            toast(x.selected ? Internationalization(@"打开解锁"):Internationalization(@"关闭解锁"));
+            self.dropDownListViewDirection = x.selected;
+            self->_btn.normalTitle = x.selected ? Internationalization(@"点击按钮弹出上拉列表") : Internationalization(@"点击按钮弹出下拉列表");
+        }];
+    }return _switcher;
+}
+
+-(UIColor *)cor{
+    if (!_cor) {
+        _cor = [UIColor gradientCorDataMutArr:[NSMutableArray arrayWithArray:@[HEXCOLOR(0xE9C65D),HEXCOLOR(0xDDAA3A)]]
+                                   startPoint:CGPointZero
+                                     endPoint:CGPointZero
+                                       opaque:NO
+                               targetViewRect:CGRectMake(0, 0, 51, 31)];
+    }return _cor;
 }
 
 -(NSMutableArray<UIViewModel *> *)listViewData{

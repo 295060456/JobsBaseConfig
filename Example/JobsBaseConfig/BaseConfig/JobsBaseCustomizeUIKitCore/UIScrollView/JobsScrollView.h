@@ -9,6 +9,6 @@
 #define JobsScrollView_h
 
 #import "UIScrollView+Extra.h"
-#import "UIScrollViewAnimationKitHeader.h"
+#import "UIScrollView+AnimationKit.h"
 
 #endif /* JobsScrollView_h */

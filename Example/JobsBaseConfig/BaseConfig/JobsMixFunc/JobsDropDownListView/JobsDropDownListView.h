@@ -9,6 +9,11 @@
 #import "JobsDropDownListTBVCell.h"
 #import "UITableViewCellProtocol.h"
 
+typedef enum : NSInteger {
+    JobsDropDownListViewDirection_Down = 0,
+    JobsDropDownListViewDirection_UP
+} JobsDropDownListViewDirection;// JobsDropDownListView的方向
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JobsDropDownListView : BaseView
@@ -17,9 +22,10 @@ UITableViewDelegate
 ,UITableViewDataSource
 >
 
--(instancetype)initWithTableViewClass:(Class <UITableViewCellProtocol>_Nonnull)tableViewClass;// 要链接自定义的cell用这个初始化方法
+@property(nonatomic,assign)JobsDropDownListViewDirection direction;
 
 -(void)dropDownListViewDisappear;
+-(instancetype)initWithTableViewClass:(Class <UITableViewCellProtocol>_Nonnull)tableViewClass;// 要链接自定义的cell用这个初始化方法
 
 @end
 

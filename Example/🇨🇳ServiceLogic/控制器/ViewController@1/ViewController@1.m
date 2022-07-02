@@ -371,7 +371,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         
         {
             UIViewModel *viewModel = [self configViewModelWithTitle:@"JobsDropDownListVC"
-                                                           subTitle:Internationalization(@"下拉列表")];
+                                                           subTitle:Internationalization(@"👇🏻下拉列表")];
             viewModel.cls = JobsDropDownListVC.class;
             [_dataMutArr addObject:viewModel];
         }

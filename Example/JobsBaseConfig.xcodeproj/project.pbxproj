@@ -483,8 +483,6 @@
 		848691E0277B03410098BE7A /* NSObject+DynamicInvoke.m in Sources */ = {isa = PBXBuildFile; fileRef = 848691DE277B03410098BE7A /* NSObject+DynamicInvoke.m */; };
 		84869260277B33570098BE7A /* NSNumber+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 8486925F277B33570098BE7A /* NSNumber+Extra.m */; };
 		84869679277C68470098BE7A /* NSString+Check.m in Sources */ = {isa = PBXBuildFile; fileRef = 84869677277C68470098BE7A /* NSString+Check.m */; };
-		848AAD6D2788213400856087 /* UIScrollView+XSAnimationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 848AAD682788213300856087 /* UIScrollView+XSAnimationKit.m */; };
-		848AAD6E2788213400856087 /* UIScrollViewAnimationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 848AAD692788213300856087 /* UIScrollViewAnimationKit.m */; };
 		848AAD712788214B00856087 /* UIScrollView+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 848AAD702788214B00856087 /* UIScrollView+Extra.m */; };
 		84A160F12789567D00DACA3C /* ViewController@1.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A160F02789567D00DACA3C /* ViewController@1.m */; };
 		84A160F7278956A500DACA3C /* ViewController@2.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A160F6278956A500DACA3C /* ViewController@2.m */; };
@@ -683,6 +681,7 @@
 		C533BBBD2837D095006FB231 /* JobsUserHeaderDataViewTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C533BBB52837D095006FB231 /* JobsUserHeaderDataViewTBVCell.m */; };
 		C533BBBF2837D095006FB231 /* JobsUserHeaderDataViewForHeaderInSection.m in Sources */ = {isa = PBXBuildFile; fileRef = C533BBBB2837D095006FB231 /* JobsUserHeaderDataViewForHeaderInSection.m */; };
 		C537C6F2286DA1C3007D6539 /* BaseTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C537C6F1286DA1C3007D6539 /* BaseTableViewHeaderFooterView.m */; };
+		C548C7EE28700AED00F5ED90 /* UIScrollView+AnimationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C548C7ED28700AED00F5ED90 /* UIScrollView+AnimationKit.m */; };
 		C54BC43628325BA80010EF20 /* JobsTitleView01.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BC43428325BA80010EF20 /* JobsTitleView01.m */; };
 		C55C895628437190005295B1 /* JXCategoryPopupVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C55C895528437190005295B1 /* JXCategoryPopupVC.m */; };
 		C55C8959284371A9005295B1 /* JXCategoryPopupSubVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C55C8958284371A9005295B1 /* JXCategoryPopupSubVC.m */; };
@@ -1941,12 +1940,6 @@
 		84869677277C68470098BE7A /* NSString+Check.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Check.m"; sourceTree = "<group>"; };
 		84869678277C68470098BE7A /* NSString+Check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Check.h"; sourceTree = "<group>"; };
 		848AAC7027881C8200856087 /* JobsScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsScrollView.h; sourceTree = "<group>"; };
-		848AAD672788213300856087 /* UIScrollView+XSAnimationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+XSAnimationKit.h"; sourceTree = "<group>"; };
-		848AAD682788213300856087 /* UIScrollView+XSAnimationKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+XSAnimationKit.m"; sourceTree = "<group>"; };
-		848AAD692788213300856087 /* UIScrollViewAnimationKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIScrollViewAnimationKit.m; sourceTree = "<group>"; };
-		848AAD6A2788213300856087 /* UIScrollViewAnimationKitHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScrollViewAnimationKitHeader.h; sourceTree = "<group>"; };
-		848AAD6B2788213400856087 /* UIScrollViewAnimationKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScrollViewAnimationKit.h; sourceTree = "<group>"; };
-		848AAD6C2788213400856087 /* UIScrollViewAnimationKitConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScrollViewAnimationKitConfig.h; sourceTree = "<group>"; };
 		848AAD6F2788214B00856087 /* UIScrollView+Extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Extra.h"; sourceTree = "<group>"; };
 		848AAD702788214B00856087 /* UIScrollView+Extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Extra.m"; sourceTree = "<group>"; };
 		84A160ED2789561A00DACA3C /* 🇨🇳ServiceLogic.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "🇨🇳ServiceLogic.md"; sourceTree = "<group>"; };
@@ -2325,6 +2318,8 @@
 		C533BBBB2837D095006FB231 /* JobsUserHeaderDataViewForHeaderInSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsUserHeaderDataViewForHeaderInSection.m; sourceTree = "<group>"; };
 		C537C6F0286DA1C2007D6539 /* BaseTableViewHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewHeaderFooterView.h; sourceTree = "<group>"; };
 		C537C6F1286DA1C3007D6539 /* BaseTableViewHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewHeaderFooterView.m; sourceTree = "<group>"; };
+		C548C7EC28700AED00F5ED90 /* UIScrollView+AnimationKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+AnimationKit.h"; sourceTree = "<group>"; };
+		C548C7ED28700AED00F5ED90 /* UIScrollView+AnimationKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+AnimationKit.m"; sourceTree = "<group>"; };
 		C54BC43228325BA80010EF20 /* JobsTitleView01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsTitleView01.h; sourceTree = "<group>"; };
 		C54BC43328325BA80010EF20 /* JobsTitleView01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobsTitleView01.png; sourceTree = "<group>"; };
 		C54BC43428325BA80010EF20 /* JobsTitleView01.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsTitleView01.m; sourceTree = "<group>"; };
@@ -7434,23 +7429,10 @@
 		848AAC7127881C8200856087 /* UIScrollView+Category */ = {
 			isa = PBXGroup;
 			children = (
-				848AAC7227881C8200856087 /* UIScrollViewXSAnimationKit */,
+				C548C7EF28700AF400F5ED90 /* UIScrollView+AnimationKit */,
 				848AAC7927881C8200856087 /* UIScrollView+Extra */,
 			);
 			path = "UIScrollView+Category";
-			sourceTree = "<group>";
-		};
-		848AAC7227881C8200856087 /* UIScrollViewXSAnimationKit */ = {
-			isa = PBXGroup;
-			children = (
-				848AAD672788213300856087 /* UIScrollView+XSAnimationKit.h */,
-				848AAD682788213300856087 /* UIScrollView+XSAnimationKit.m */,
-				848AAD6B2788213400856087 /* UIScrollViewAnimationKit.h */,
-				848AAD692788213300856087 /* UIScrollViewAnimationKit.m */,
-				848AAD6C2788213400856087 /* UIScrollViewAnimationKitConfig.h */,
-				848AAD6A2788213300856087 /* UIScrollViewAnimationKitHeader.h */,
-			);
-			path = UIScrollViewXSAnimationKit;
 			sourceTree = "<group>";
 		};
 		848AAC7927881C8200856087 /* UIScrollView+Extra */ = {
@@ -9240,6 +9222,15 @@
 				C533BBBB2837D095006FB231 /* JobsUserHeaderDataViewForHeaderInSection.m */,
 			);
 			path = JobsUserHeaderDataViewForHeaderInSection;
+			sourceTree = "<group>";
+		};
+		C548C7EF28700AF400F5ED90 /* UIScrollView+AnimationKit */ = {
+			isa = PBXGroup;
+			children = (
+				C548C7EC28700AED00F5ED90 /* UIScrollView+AnimationKit.h */,
+				C548C7ED28700AED00F5ED90 /* UIScrollView+AnimationKit.m */,
+			);
+			path = "UIScrollView+AnimationKit";
 			sourceTree = "<group>";
 		};
 		C54BC43128325BA80010EF20 /* JobsTitleView01 */ = {
@@ -11513,7 +11504,6 @@
 				C5BF3F32286952DF0047F591 /* JobsCountdownView.m in Sources */,
 				84CA61972789852600E46E71 /* B_VC.m in Sources */,
 				844B084D2764CF4800B0513D /* ECPrivacyCheckSpeechRecognition.m in Sources */,
-				848AAD6D2788213400856087 /* UIScrollView+XSAnimationKit.m in Sources */,
 				840F9C6A277367E8004979E9 /* NSObject+UserInfo.m in Sources */,
 				840F96A727736428004979E9 /* UIViewController+GifImageView.m in Sources */,
 				84CA5FAB27897AFB00E46E71 /* HWTFCodeBView.m in Sources */,
@@ -11696,6 +11686,7 @@
 				842475AD27C0D67000831270 /* YTKAnimatingRequestAccessory.m in Sources */,
 				84562598278BF2780067ABB9 /* JobsPopUpVC.m in Sources */,
 				C52809E128608BE100654584 /* TestBaseLabelVC.m in Sources */,
+				C548C7EE28700AED00F5ED90 /* UIScrollView+AnimationKit.m in Sources */,
 				C59D78D028646420004C97A1 /* JobsHotLabelWithMultiLineHeaderFooterView.m in Sources */,
 				84868F19277ADF690098BE7A /* JobsDropDownListView.m in Sources */,
 				840F969827736428004979E9 /* NSString+Judgment.m in Sources */,
@@ -11870,7 +11861,6 @@
 				840F96B727736428004979E9 /* UITableView+WWFoldableTableView.m in Sources */,
 				842475B527C0DE6100831270 /* YTKRequest+Custom.m in Sources */,
 				84CA5CD02789587900E46E71 /* AppDelegate+UIApplicationDelegate.m in Sources */,
-				848AAD6E2788213400856087 /* UIScrollViewAnimationKit.m in Sources */,
 				C5BFA2F9285992BB009681C0 /* JXCategoryViewVerticalShowSubBaseVC.m in Sources */,
 				C5786EE1285DD04100AD9FF1 /* BaiShaETProjPopupView10.m in Sources */,
 				840F96F327736428004979E9 /* NSObject+CurrentDevice.m in Sources */,

@@ -352,17 +352,20 @@
         return [NSIndexPath indexPathForRow:indexPath.rowOrItem inSection:indexPath.section];
     }
 }
-/// 点击任意一个view，下拉弹出与此View等宽，且与下底有一个motivateViewOffset距离的列表
+/// 点击任意一个view，下拉弹出与此View等宽，且与下底有一个motivateViewOffset距离的列表【如果应用于可滑动模块，当触发控件滑动的时候，建议对此进行关闭处理】
 /// @param motivateFromView 点击的锚点View
+/// @param jobsDropDownListViewDirection JobsDropDownListView的方向
 /// @param data 列表数据源
 /// @param motivateViewOffset 下拉列表和motivateFromView保持一个motivateViewOffset的距离
 /// @param finishBlock 点击列表以后的回调数据是UIViewModel类型
 -(JobsDropDownListView *_Nullable)motivateFromView:(UIView * _Nonnull)motivateFromView
+                     jobsDropDownListViewDirection:(JobsDropDownListViewDirection)jobsDropDownListViewDirection
                                               data:(NSMutableArray <UIViewModel *>* _Nullable)data
                                 motivateViewOffset:(CGFloat)motivateViewOffset
                                        finishBlock:(jobsByIDBlock _Nullable)finishBlock{
     
     JobsDropDownListView *dropDownListView = JobsDropDownListView.new;
+    dropDownListView.direction = jobsDropDownListViewDirection;
     [dropDownListView actionObjectBlock:^(id data) {
         if ([motivateFromView isKindOfClass:UIButton.class]) {
             UIButton *btn = (UIButton *)motivateFromView;
@@ -401,10 +404,19 @@
     }
     [dropDownListView richElementsInViewWithModel:data];
     CGRect f = [self getWindowFrameByView:motivateFromView];
-    dropDownListView.frame = CGRectMake(f.origin.x,
-                                        f.origin.y + f.size.height + motivateViewOffset,
-                                        f.size.width,
-                                        data.count * [JobsDropDownListTBVCell cellHeightWithModel:Nil]);
+    
+    if (jobsDropDownListViewDirection) {
+        dropDownListView.frame = CGRectMake(f.origin.x,
+                                            f.origin.y - motivateViewOffset - data.count * [JobsDropDownListTBVCell cellHeightWithModel:Nil],
+                                            f.size.width,
+                                            data.count * [JobsDropDownListTBVCell cellHeightWithModel:Nil]);
+    }else{
+        dropDownListView.frame = CGRectMake(f.origin.x,
+                                            f.origin.y + f.size.height + motivateViewOffset,
+                                            f.size.width,
+                                            data.count * [JobsDropDownListTBVCell cellHeightWithModel:Nil]);
+    }
+    
     [getMainWindow() addSubview:dropDownListView];
     return dropDownListView;
 }
