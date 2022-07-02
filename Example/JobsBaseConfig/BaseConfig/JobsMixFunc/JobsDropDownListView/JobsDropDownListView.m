@@ -59,7 +59,8 @@
                              completionBlock:nil];
 }
 
--(void)dropDownListViewDisappear{
+-(void)dropDownListViewDisappear:(UIControl *_Nullable)x{
+    x.selected = NO;
     [self removeFromSuperview];
 }
 

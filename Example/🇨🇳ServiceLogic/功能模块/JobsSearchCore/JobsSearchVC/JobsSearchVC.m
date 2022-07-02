@@ -89,7 +89,7 @@
 /// 移除掉这个下拉列表
 -(void)endDropDownListView{
 //    [self.view endEditing:YES];
-    [_dropDownListView dropDownListViewDisappear];
+    [_dropDownListView dropDownListViewDisappear:nil];
     _dropDownListView = nil;
 }
 ///下拉刷新 （子类要进行覆写）

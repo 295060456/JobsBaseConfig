@@ -24,7 +24,7 @@ UITableViewDelegate
 
 @property(nonatomic,assign)JobsDropDownListViewDirection direction;
 
--(void)dropDownListViewDisappear;
+-(void)dropDownListViewDisappear:(UIControl *_Nullable)x;
 -(instancetype)initWithTableViewClass:(Class <UITableViewCellProtocol>_Nonnull)tableViewClass;// 要链接自定义的cell用这个初始化方法
 
 @end

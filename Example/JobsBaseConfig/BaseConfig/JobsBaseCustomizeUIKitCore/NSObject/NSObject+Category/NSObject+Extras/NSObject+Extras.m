@@ -374,7 +374,7 @@
         
         if (finishBlock) finishBlock(data);
         
-        [dropDownListView dropDownListViewDisappear];
+        [dropDownListView dropDownListViewDisappear:nil];
     }];
     
 //    dropDownListView.backgroundColor = JobsRedColor;

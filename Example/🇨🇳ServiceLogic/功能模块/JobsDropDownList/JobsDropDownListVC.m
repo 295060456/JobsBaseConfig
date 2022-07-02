@@ -69,7 +69,7 @@
 #pragma mark —— 一些私有化方法
 /// 移除掉这个下拉列表
 -(void)endDropDownListView{
-    [_dropDownListView dropDownListViewDisappear];
+    [_dropDownListView dropDownListViewDisappear:nil];
     _dropDownListView = nil;
 }
 #pragma mark —— lazyLoad
