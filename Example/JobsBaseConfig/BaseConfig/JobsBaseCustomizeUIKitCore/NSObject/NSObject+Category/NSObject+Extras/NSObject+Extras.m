@@ -378,32 +378,40 @@
     }];
     
 //    dropDownListView.backgroundColor = JobsRedColor;
-
+    CGRect f = [self getWindowFrameByView:motivateFromView];
     if (!data) {
         data = NSMutableArray.array;
         {
             UIViewModel *viewModel = UIViewModel.new;
+            viewModel.textModel.font = UIFontWeightRegularSize(14);
+            viewModel.jobsWidth = f.size.width;
             viewModel.textModel.text = @"111111111";
-            viewModel.subTextModel.text = @"QQQQQQ";
+            viewModel.subTextModel.text = @"eeeeeeeee";
+            viewModel.textModel.textLineSpacing = 0;
             [data addObject:viewModel];
         }
         
         {
             UIViewModel *viewModel = UIViewModel.new;
-            viewModel.textModel.text = @"2222222222";
+            viewModel.textModel.font = UIFontWeightRegularSize(14);
+            viewModel.jobsWidth = f.size.width;
+            viewModel.textModel.text = @"222222222";
             viewModel.subTextModel.text = @"wwwwwwwww";
+            viewModel.textModel.textLineSpacing = 0;
             [data addObject:viewModel];
         }
         
         {
             UIViewModel *viewModel = UIViewModel.new;
-            viewModel.textModel.text = @"3333333333";
-            viewModel.subTextModel.text = @"sssssss";
+            viewModel.textModel.font = UIFontWeightRegularSize(14);
+            viewModel.jobsWidth = f.size.width;
+            viewModel.textModel.text = @"333333333";
+            viewModel.subTextModel.text = @"sssssssss";
+            viewModel.textModel.textLineSpacing = 0;
             [data addObject:viewModel];
         }
     }
     [dropDownListView richElementsInViewWithModel:data];
-    CGRect f = [self getWindowFrameByView:motivateFromView];
     
     if (jobsDropDownListViewDirection) {
         dropDownListView.frame = CGRectMake(f.origin.x,

@@ -45,12 +45,12 @@ UITableViewCellProtocol_synthesize
 +(CGFloat)cellHeightWithModel:(UIViewModel *_Nullable)model{
     
     UIViewModel *vm = UIViewModel.new;
-    vm.textModel.font = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
+    vm.textModel.font = UIFontWeightRegularSize(14);
     vm.jobsWidth = JobsMainScreen_WIDTH() - JobsWidth(200);
-    vm.textModel.text = model.subTextModel.text;
+    vm.textModel.text = vm.subTextModel.text;
     vm.textModel.textLineSpacing = 0;
     
-    return [UIView heightByData:vm] + JobsWidth(20);
+    return [UIView heightByData:model ? : vm] + JobsWidth(20);
 }
 
 @end
