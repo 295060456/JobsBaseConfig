@@ -14,7 +14,7 @@
 
 // 定义一个枚举（包含了四种类型的button）
 typedef NS_ENUM(NSUInteger, GLButtonEdgeInsetsStyle) {
-    /// image在左，label在右
+    /// image在左，label在右【系统默认状态】
     GLButtonEdgeInsetsStyleLeft,
     /// image在右，label在左
     GLButtonEdgeInsetsStyleRight,
@@ -35,8 +35,8 @@ typedef NS_ENUM(NSUInteger, GLButtonEdgeInsetsStyle) {
  *  @param style titleLabel和imageView的布局样式
  *  @param imageTitleSpace titleLabel和imageView的间距
  */
-- (void)layoutButtonWithEdgeInsetsStyle:(GLButtonEdgeInsetsStyle)style
-                        imageTitleSpace:(CGFloat)imageTitleSpace;
+- (CGFloat)layoutButtonWithEdgeInsetsStyle:(GLButtonEdgeInsetsStyle)style
+                           imageTitleSpace:(CGFloat)imageTitleSpace;
 
 @end
 

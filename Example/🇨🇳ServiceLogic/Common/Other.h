@@ -71,5 +71,6 @@
 #import "RandomTestVC.h"
 #import "NSTimerManagerTestVC.h"
 #import "CustomTableViewCellVC.h"
+#import "CustomBtnVC.h"
 
 #endif /* Other_h */

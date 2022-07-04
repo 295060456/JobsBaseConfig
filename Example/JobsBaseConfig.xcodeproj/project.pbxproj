@@ -735,6 +735,7 @@
 		C596B7A5283F6F7900C13619 /* JobsHotLabelWithMultiLine.m in Sources */ = {isa = PBXBuildFile; fileRef = C596B79F283F6F7800C13619 /* JobsHotLabelWithMultiLine.m */; };
 		C59D78CC2864631B004C97A1 /* NSObject+JobsDeployCellConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C59D78C92864631B004C97A1 /* NSObject+JobsDeployCellConfig.m */; };
 		C59D78D028646420004C97A1 /* JobsHotLabelWithMultiLineHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C59D78CF28646420004C97A1 /* JobsHotLabelWithMultiLineHeaderFooterView.m */; };
+		C5A21B9B2872D94A00CD6ED3 /* CustomBtnVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A21B9A2872D94A00CD6ED3 /* CustomBtnVC.m */; };
 		C5A7C2DC285B290F00F0F2BB /* 临时的占位图.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5A7C2DB285B290400F0F2BB /* 临时的占位图.xcassets */; };
 		C5A7C2E6285B5E8700F0F2BB /* ThreeClassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A7C2DE285B5E8600F0F2BB /* ThreeClassCell.m */; };
 		C5A7C2E7285B5E8700F0F2BB /* LeftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A7C2E1285B5E8700F0F2BB /* LeftCell.m */; };
@@ -2439,6 +2440,8 @@
 		C59D78CB2864631B004C97A1 /* NSObject+JobsDeployCellConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JobsDeployCellConfig.h"; sourceTree = "<group>"; };
 		C59D78CE28646420004C97A1 /* JobsHotLabelWithMultiLineHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsHotLabelWithMultiLineHeaderFooterView.h; sourceTree = "<group>"; };
 		C59D78CF28646420004C97A1 /* JobsHotLabelWithMultiLineHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsHotLabelWithMultiLineHeaderFooterView.m; sourceTree = "<group>"; };
+		C5A21B992872D94A00CD6ED3 /* CustomBtnVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomBtnVC.h; sourceTree = "<group>"; };
+		C5A21B9A2872D94A00CD6ED3 /* CustomBtnVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomBtnVC.m; sourceTree = "<group>"; };
 		C5A7C2DB285B290400F0F2BB /* 临时的占位图.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "临时的占位图.xcassets"; sourceTree = "<group>"; };
 		C5A7C2DE285B5E8600F0F2BB /* ThreeClassCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreeClassCell.m; sourceTree = "<group>"; };
 		C5A7C2DF285B5E8600F0F2BB /* ThreeClassCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreeClassCell.h; sourceTree = "<group>"; };
@@ -8537,6 +8540,7 @@
 		84CA609D278980E700E46E71 /* 功能模块 */ = {
 			isa = PBXGroup;
 			children = (
+				C5A21B982872D90D00CD6ED3 /* UIButton子控件的排布 */,
 				C5E8A7552869843200FAB31D /* 自定义UITableViewCell内置控件距离并添加复制按钮 */,
 				C5E297852865ECFC0017466D /* NSTimerManager模块测试 */,
 				C52180772860B20800ACA6D9 /* 随机数测试模块 */,
@@ -9801,6 +9805,15 @@
 				C59D78CF28646420004C97A1 /* JobsHotLabelWithMultiLineHeaderFooterView.m */,
 			);
 			path = JobsHotLabelWithMultiLineHeaderView;
+			sourceTree = "<group>";
+		};
+		C5A21B982872D90D00CD6ED3 /* UIButton子控件的排布 */ = {
+			isa = PBXGroup;
+			children = (
+				C5A21B992872D94A00CD6ED3 /* CustomBtnVC.h */,
+				C5A21B9A2872D94A00CD6ED3 /* CustomBtnVC.m */,
+			);
+			path = "UIButton子控件的排布";
 			sourceTree = "<group>";
 		};
 		C5A7C2DD285B5E8600F0F2BB /* ThreeClassCell（有UICollectionView） */ = {
@@ -11863,6 +11876,7 @@
 				84CA5CD02789587900E46E71 /* AppDelegate+UIApplicationDelegate.m in Sources */,
 				C5BFA2F9285992BB009681C0 /* JXCategoryViewVerticalShowSubBaseVC.m in Sources */,
 				C5786EE1285DD04100AD9FF1 /* BaiShaETProjPopupView10.m in Sources */,
+				C5A21B9B2872D94A00CD6ED3 /* CustomBtnVC.m in Sources */,
 				840F96F327736428004979E9 /* NSObject+CurrentDevice.m in Sources */,
 				844B08822764CF4800B0513D /* XHLaunchAdCache.m in Sources */,
 				846DEFD927806BC50050468A /* NSObject+PopViewToLogOut.m in Sources */,

@@ -39,5 +39,9 @@ BaseViewProtocol_synthesize
 +(CGFloat)heightForHeaderInSection:(id _Nullable)model{
     return 0.0f;
 }
+/// 具体由子类进行复写【数据定高】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
++(CGFloat)heightForFooterInSection:(id _Nullable)model{
+    return 0.0f;
+}
 
 @end

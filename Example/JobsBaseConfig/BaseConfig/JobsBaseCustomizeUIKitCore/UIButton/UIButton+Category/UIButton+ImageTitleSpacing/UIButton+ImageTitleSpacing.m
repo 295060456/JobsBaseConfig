@@ -10,8 +10,8 @@
 
 @implementation UIButton (ImageTitleSpacing)
 
--(void)layoutButtonWithEdgeInsetsStyle:(GLButtonEdgeInsetsStyle)style
-                       imageTitleSpace:(CGFloat)imageTitleSpace{
+-(CGFloat)layoutButtonWithEdgeInsetsStyle:(GLButtonEdgeInsetsStyle)style
+                          imageTitleSpace:(CGFloat)imageTitleSpace{
 
     if (HDDeviceSystemVersion.floatValue >= 15.0) {
 #warning UIButtonConfiguration 怎么适配使用？
@@ -35,57 +35,80 @@
                                            labelHeight = HDDeviceSystemVersion.floatValue >= 8.0 ? self.titleLabel.intrinsicContentSize.height : self.titleLabel.height;
              
                                            // 2、 声明全局的imageEdgeInsets和labelEdgeInsets
-                                           UIEdgeInsets imageEdgeInsets = UIEdgeInsetsZero;
-                                           UIEdgeInsets labelEdgeInsets = UIEdgeInsetsZero;
+                                           UIEdgeInsets imageEdgeInsets = self.imageEdgeInsets;
+                                           UIEdgeInsets labelEdgeInsets = self.titleEdgeInsets;
                                            // 3.、根据style和space得到imageEdgeInsets和labelEdgeInsets的值
                                            switch (style) {
-                                               case GLButtonEdgeInsetsStyleTop:{
-                                                   imageEdgeInsets = UIEdgeInsetsMake(-labelHeight-imageTitleSpace / 2.0,
-                                                                                      0,
-                                                                                      0,
-                                                                                      -labelWidth);
-                                                   labelEdgeInsets = UIEdgeInsetsMake(0,
-                                                                                      -imageWith,
-                                                                                      -imageHeight-imageTitleSpace / 2.0,
-                                                                                      0);
-                                               }break;
+                                               /// image在左，label在右 【系统默认状态】
                                                case GLButtonEdgeInsetsStyleLeft:{
+                                                   labelEdgeInsets.left += imageTitleSpace;
+                                                   
+                                               }break;
+                                               /// image在右，label在左
+                                               case GLButtonEdgeInsetsStyleRight:{
                                                    imageEdgeInsets = UIEdgeInsetsMake(0,
-                                                                                      -imageTitleSpace / 2.0,
+                                                                                      labelWidth ,
                                                                                       0,
                                                                                       imageTitleSpace / 2.0);
                                                    labelEdgeInsets = UIEdgeInsetsMake(0,
-                                                                                      imageTitleSpace / 2.0,
+                                                                                      -imageWith+imageTitleSpace / 2.0,
                                                                                       0,
-                                                                                      -imageTitleSpace / 2.0);
+                                                                                      imageWith + imageTitleSpace / 2.0);
                                                }break;
-                                               case GLButtonEdgeInsetsStyleBottom:{
+                                               /// image在上，label在下
+                                               case GLButtonEdgeInsetsStyleTop:{
                                                    imageEdgeInsets = UIEdgeInsetsMake(0,
+                                                                                      (imageTitleSpace + labelWidth) / 2.0,
+                                                                                      labelHeight + imageTitleSpace,
+                                                                                      0);
+                                                   labelEdgeInsets = UIEdgeInsetsMake(labelHeight + imageTitleSpace,
+                                                                                      -imageWith-imageTitleSpace,
                                                                                       0,
-                                                                                      -labelHeight-imageTitleSpace / 2.0,
-                                                                                      -labelWidth);
-                                                   labelEdgeInsets = UIEdgeInsetsMake(-imageHeight-imageTitleSpace / 2.0,
-                                                                                      -imageWith,
+                                                                                      -imageTitleSpace);
+                                               }break;
+                                               /// image在下，label在上
+                                               case GLButtonEdgeInsetsStyleBottom:{
+                                                   labelEdgeInsets = UIEdgeInsetsMake(0,
+                                                                                      -imageWith-imageTitleSpace,
+                                                                                      imageHeight + imageTitleSpace,
+                                                                                      -imageTitleSpace);
+                                                   imageEdgeInsets = UIEdgeInsetsMake(labelHeight + imageTitleSpace,
+                                                                                      (imageTitleSpace + labelWidth) / 2.0,
                                                                                       0,
                                                                                       0);
                                                }break;
-                                               case GLButtonEdgeInsetsStyleRight:{
-                                                   imageEdgeInsets = UIEdgeInsetsMake(0,
-                                                                                      labelWidth+imageTitleSpace / 2.0,
-                                                                                      0,
-                                                                                      -labelWidth-imageTitleSpace / 2.0);
-                                                   labelEdgeInsets = UIEdgeInsetsMake(0,
-                                                                                      -imageWith-imageTitleSpace / 2.0,
-                                                                                      0,
-                                                                                      imageWith+imageTitleSpace / 2.0);
-                                               }break;
+
                                                default:
                                                    break;
                                            }
                                            // 4、 赋值
                                            self.titleEdgeInsets = labelEdgeInsets;
                                            self.imageEdgeInsets = imageEdgeInsets;
-                                           );
+                                           
+//                                           self.titleLabel.backgroundColor = JobsRedColor;
+//                                           self.imageView.backgroundColor = JobsBlueColor;
+                                           
+                                           switch (style) {
+                                               /// image在上，label在下
+                                               case GLButtonEdgeInsetsStyleTop:{
+                                                   return self.titleLabel.top - self.imageView.bottom;
+                                               }break;
+                                               /// image在左，label在右
+                                               case GLButtonEdgeInsetsStyleLeft:{
+                                                   return self.titleLabel.left - self.imageView.right;
+                                               }break;
+                                               /// image在下，label在上
+                                               case GLButtonEdgeInsetsStyleBottom:{
+                                                   return self.imageView.top - self.titleLabel.bottom;
+                                               }break;
+                                               /// image在右，label在左
+                                               case GLButtonEdgeInsetsStyleRight:{
+                                                   return self.imageView.left - self.titleLabel.right;
+                                               }break;
+                                               default:
+                                                   return 0;
+                                                   break;
+                                           });
 }
 
 @end

@@ -488,6 +488,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             [_dataMutArr addObject:viewModel];
         }
         
+        {
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"CustomBtnVC"
+                                                           subTitle:Internationalization(@"自定义UIButton子控件的排布")];
+            viewModel.cls = CustomBtnVC.class;
+            [_dataMutArr addObject:viewModel];
+        }
+        
 //        {
 //            UIViewModel *viewModel = [self configViewModelWithTitle:@"ProtocolKitVC"
 //                                                           subTitle:Internationalization(@"Objective-C中实现协议扩展")];
