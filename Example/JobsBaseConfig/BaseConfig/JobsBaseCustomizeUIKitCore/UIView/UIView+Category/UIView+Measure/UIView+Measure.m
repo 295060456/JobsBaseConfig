@@ -301,7 +301,7 @@ static char *UIView_Measure_x = "UIView_Measure_x";
 #pragma mark —— @property(nonatomic,assign)CGFloat x
 -(CGFloat)x{
     if (objc_getAssociatedObject(self, UIView_Measure_x)) {
-        return [objc_getAssociatedObject(self, UIView_Measure_x) CGfloatValue];;
+        return [objc_getAssociatedObject(self, UIView_Measure_x) floatValue];;
     }else{
         CGFloat X = self.frame.origin.x;
         [self setX:X];
@@ -322,7 +322,7 @@ static char *UIView_Measure_y = "UIView_Measure_y";
 #pragma mark —— @property(nonatomic,assign)CGFloat y
 -(CGFloat)y{
     if (objc_getAssociatedObject(self, UIView_Measure_y)) {
-        return [objc_getAssociatedObject(self, UIView_Measure_y) CGfloatValue];;
+        return [objc_getAssociatedObject(self, UIView_Measure_y) floatValue];;
     }else{
         CGFloat Y = self.frame.origin.y;
         [self setY:Y];
@@ -343,7 +343,7 @@ static char *UIView_Measure_width = "UIView_Measure_width";
 #pragma mark —— @property(nonatomic,assign)CGFloat width
 -(CGFloat)width{
     if (objc_getAssociatedObject(self, UIView_Measure_width)) {
-        return [objc_getAssociatedObject(self, UIView_Measure_width) CGfloatValue];;
+        return [objc_getAssociatedObject(self, UIView_Measure_width) floatValue];;
     }else{
         CGFloat Width = self.frame.size.width;
         [self setWidth:Width];
@@ -364,7 +364,7 @@ static char *UIView_Measure_height = "UIView_Measure_height";
 #pragma mark —— @property(nonatomic,assign)CGFloat height
 -(CGFloat)height{
     if (objc_getAssociatedObject(self, UIView_Measure_height)) {
-        return [objc_getAssociatedObject(self, UIView_Measure_height) CGfloatValue];;
+        return [objc_getAssociatedObject(self, UIView_Measure_height) floatValue];
     }else{
         CGFloat Height = self.frame.size.height;
         [self setHeight:Height];
@@ -385,7 +385,7 @@ static char *UIView_Measure_centerX = "UIView_Measure_centerX";
 #pragma mark —— @property(nonatomic,assign)CGFloat centerX
 -(CGFloat)centerX{
     if (objc_getAssociatedObject(self, UIView_Measure_centerX)) {
-        return [objc_getAssociatedObject(self, UIView_Measure_centerX) CGfloatValue];;
+        return [objc_getAssociatedObject(self, UIView_Measure_centerX) floatValue];;
     }else{
         CGFloat CenterX = self.center.x;
         [self setCenterX:CenterX];
@@ -406,7 +406,7 @@ static char *UIView_Measure_centerY = "UIView_Measure_centerY";
 #pragma mark —— @property(nonatomic,assign)CGFloat centerY
 -(CGFloat)centerY{
     if (objc_getAssociatedObject(self, UIView_Measure_centerY)) {
-        return [objc_getAssociatedObject(self, UIView_Measure_centerY) CGfloatValue];;
+        return [objc_getAssociatedObject(self, UIView_Measure_centerY) floatValue];;
     }else{
         CGFloat CenterY = self.center.y;
         [self setCenterY:CenterY];
@@ -427,7 +427,7 @@ static char *UIView_Measure_left = "UIView_Measure_left";
 #pragma mark —— @property(nonatomic,assign)CGFloat left
 -(CGFloat)left{
     if (objc_getAssociatedObject(self, UIView_Measure_left)) {
-        return [objc_getAssociatedObject(self, UIView_Measure_left) CGfloatValue];;
+        return [objc_getAssociatedObject(self, UIView_Measure_left) floatValue];;
     }else{
         CGFloat Left = self.frame.origin.x;
         [self setLeft:Left];
@@ -448,7 +448,7 @@ static char *UIView_Measure_right = "UIView_Measure_right";
 #pragma mark —— @property(nonatomic,assign)CGFloat right
 -(CGFloat)right{
     if (objc_getAssociatedObject(self, UIView_Measure_right)) {
-        return [objc_getAssociatedObject(self, UIView_Measure_right) CGfloatValue];;
+        return [objc_getAssociatedObject(self, UIView_Measure_right) floatValue];;
     }else{
         CGFloat Right = self.frame.origin.x + self.frame.size.width;
         [self setRight:Right];
@@ -469,7 +469,7 @@ static char *UIView_Measure_top = "UIView_Measure_top";
 #pragma mark —— @property(nonatomic,assign)CGFloat top
 -(CGFloat)top{
     if (objc_getAssociatedObject(self, UIView_Measure_top)) {
-        return [objc_getAssociatedObject(self, UIView_Measure_top) CGfloatValue];;
+        return [objc_getAssociatedObject(self, UIView_Measure_top) floatValue];;
     }else{
         CGFloat Top = CGRectGetMinY(self.frame);
         [self setTop:Top];
@@ -490,7 +490,7 @@ static char *UIView_Measure_bottom = "UIView_Measure_bottom";
 #pragma mark —— @property(nonatomic,assign)CGFloat bottom
 -(CGFloat)bottom{
     if (objc_getAssociatedObject(self, UIView_Measure_bottom)) {
-        return [objc_getAssociatedObject(self, UIView_Measure_bottom) CGfloatValue];;
+        return [objc_getAssociatedObject(self, UIView_Measure_bottom) floatValue];;
     }else{
         CGFloat Bottom = self.frame.origin.y + self.frame.size.height;
         [self setBottom:Bottom];
