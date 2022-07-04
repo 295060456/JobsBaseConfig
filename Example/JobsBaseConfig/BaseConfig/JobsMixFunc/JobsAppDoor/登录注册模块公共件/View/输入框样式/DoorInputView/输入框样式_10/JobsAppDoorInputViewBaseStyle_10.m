@@ -107,7 +107,6 @@
     if (!_textField) {
         _textField = ZYTextField.new;
         _textField.delegate = self;
-        _textField.backgroundColor = JobsRedColor;
         @jobs_weakify(self)
         [_textField textFieldEventFilterBlock:^BOOL(id data) {
             return YES;
@@ -129,7 +128,7 @@
 -(UILabel *)titleLab{
     if (!_titleLab) {
         _titleLab = UILabel.new;
-        _titleLab.text = [NSString isNullString:self.viewModel.textModel.text] ? self.titleStr_2 : self.viewModel.textModel.text;
+        _titleLab.text = [NSString isNullString:self.doorInputViewBaseStyleModel.textModel.text] ? self.titleStr_2 : self.doorInputViewBaseStyleModel.textModel.text;
         _titleLab.textColor = self.viewModel.textModel.textCor ? : HEXCOLOR(0xAE8330);
         _titleLab.font = self.viewModel.textModel.font ? : [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightMedium];
         [self addSubview:_titleLab];

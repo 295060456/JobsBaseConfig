@@ -2290,6 +2290,7 @@
 		C52809BC2860770500654584 /* JobsBaseLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsBaseLabel.m; sourceTree = "<group>"; };
 		C52809DF28608BE100654584 /* TestBaseLabelVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestBaseLabelVC.h; sourceTree = "<group>"; };
 		C52809E028608BE100654584 /* TestBaseLabelVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestBaseLabelVC.m; sourceTree = "<group>"; };
+		C52B9B7D287322D00072A12F /* Xnip2022-07-04_20-29-42.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Xnip2022-07-04_20-29-42.png"; sourceTree = "<group>"; };
 		C52BFE04285C7948002B5D0F /* JobsSEL_IMP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsSEL_IMP.m; sourceTree = "<group>"; };
 		C52BFE05285C7948002B5D0F /* JobsSEL_IMP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsSEL_IMP.h; sourceTree = "<group>"; };
 		C530CC10282E2DA700D5ECCF /* JobsUpDownLab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobsUpDownLab.png; sourceTree = "<group>"; };
@@ -8540,6 +8541,7 @@
 		84CA609D278980E700E46E71 /* 功能模块 */ = {
 			isa = PBXGroup;
 			children = (
+				C52B9B7C287322B20072A12F /* Masonry动画 */,
 				C5A21B982872D90D00CD6ED3 /* UIButton子控件的排布 */,
 				C5E8A7552869843200FAB31D /* 自定义UITableViewCell内置控件距离并添加复制按钮 */,
 				C5E297852865ECFC0017466D /* NSTimerManager模块测试 */,
@@ -9093,6 +9095,14 @@
 				C52809E028608BE100654584 /* TestBaseLabelVC.m */,
 			);
 			path = TestBaseLabelVC;
+			sourceTree = "<group>";
+		};
+		C52B9B7C287322B20072A12F /* Masonry动画 */ = {
+			isa = PBXGroup;
+			children = (
+				C52B9B7D287322D00072A12F /* Xnip2022-07-04_20-29-42.png */,
+			);
+			path = "Masonry动画";
 			sourceTree = "<group>";
 		};
 		C52BFE03285C7948002B5D0F /* JobsSEL_IMP */ = {

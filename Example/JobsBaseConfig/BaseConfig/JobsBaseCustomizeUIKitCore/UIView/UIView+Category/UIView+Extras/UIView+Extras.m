@@ -127,6 +127,7 @@
 -(void)setBorderWithColor:(UIColor *__nonnull)color
               borderWidth:(CGFloat)borderWidth
                borderType:(UIBorderSideType)borderType{
+    [self.superview layoutIfNeeded];
     /// 左
     if (borderType & UIBorderSideTypeLeft) {
         CALayer *layer = CALayer.layer;
