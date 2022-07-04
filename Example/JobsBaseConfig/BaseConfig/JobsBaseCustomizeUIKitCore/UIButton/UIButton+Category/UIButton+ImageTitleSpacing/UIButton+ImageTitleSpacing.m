@@ -16,7 +16,7 @@
     if (HDDeviceSystemVersion.floatValue >= 15.0) {
 #warning UIButtonConfiguration 怎么适配使用？
     }
-//    SuppressWdeprecatedDeclarationsWarning(
+    SuppressWdeprecatedDeclarationsWarning(
                                            /**
                                             *  知识点：titleEdgeInsets是title相对于其上下左右的inset，跟tableView的contentInset是类似的，
                                             *  如果只有title，那它上下左右都是相对于button的，image也是一样；
@@ -125,7 +125,7 @@
                                                    return 0;
                                                    break;
                                            }
-//    );
+    );
 }
 
 @end
