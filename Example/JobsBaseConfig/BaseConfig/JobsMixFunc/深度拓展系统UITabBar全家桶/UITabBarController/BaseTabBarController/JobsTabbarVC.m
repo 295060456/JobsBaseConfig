@@ -23,9 +23,11 @@
 
 @implementation JobsTabbarVC
 
+static dispatch_once_t onceToken;
 - (void)dealloc{
     NSLog(@"%@",JobsLocalFunc);
     [NSNotificationCenter.defaultCenter removeObserver:self];
+    onceToken = 0;
 }
 #pragma mark —— 初始化方法
 static JobsTabbarVC *static_tabbarVC = nil;
@@ -83,15 +85,17 @@ static JobsTabbarVC *static_tabbarVC = nil;
     dispatch_once(&JobsTabbarVC_viewWillAppear_onceToken, ^{
         @jobs_strongify(self)
         [self UISetting];//最高只能在viewWillAppear，在viewDidLoad不出效果 self.tabBar.subviews为空
-        [self 添加长按手势];
+//        [self 添加长按手势];
     });
 }
 
 -(void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
 
-    self.myTabBar.height += self.myTabBar.customTabBarOffsetHeight;
-    self.myTabBar.y = self.view.height - self.myTabBar.height;
+    dispatch_once(&onceToken, ^{
+        self.myTabBar.height += self.myTabBar.customTabBarOffsetHeight;
+        self.myTabBar.y = self.view.height - self.myTabBar.height;
+    });
 
 //    [self ppBadge:YES];
 }
@@ -272,6 +276,12 @@ static JobsTabbarVC *static_tabbarVC = nil;
 }
 
 -(void)添加长按手势{
+    
+    self.objectBlock;
+//    if (self.JobsByGestureRecognizerBlock) {
+//        <#statements#>
+//    }
+    
     for (UIView *subView in self.UITabBarButtonMutArr) {
         subView.tag = [self.UITabBarButtonMutArr indexOfObject:subView];
         

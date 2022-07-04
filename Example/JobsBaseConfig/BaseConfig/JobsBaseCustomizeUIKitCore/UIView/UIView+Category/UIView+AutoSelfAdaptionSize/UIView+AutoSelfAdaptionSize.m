@@ -24,17 +24,13 @@
     }
 }
 #pragma mark —— UIButton
-/*
- 特别说明：
- 【优先级】 @implementation UIView (Measure) > Masonry,因为Masonry刷新后才有frame
- -(void)buttonAutoWidthByFont 和 -(void)buttonAutoFontByWidth 也会刷新UI ❤️请结合Masonry进行使用❤️ layoutIfNeeded出最终结果
- 如果使用  @implementation UIView (Measure)，则有可能会刷新异常。比如，buttonAutoWidthByFont 会得出0宽度
- */
 /// 确定Button的字体大小，使其宽度自适应
 -(void)buttonAutoWidthByFont{
     if ([self isKindOfClass:UIButton.class]) {
         UIButton *btn = (UIButton *)self;
-        [btn.titleLabel sizeToFit];// 必须有text，然后根据text来进行约束计算和布局
+        /// 必须有text，然后根据text来进行约束计算和布局
+        [btn.titleLabel sizeToFit];
+        [btn sizeToFit];
     }
 }
 /// 确定Button的宽度，使字体大小自适应
