@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewProtocol.h"
+#import "JobsBlock.h"
 
 @class UIViewModel;
 
@@ -20,33 +21,32 @@ typedef void(^EqualToView)(UIView *view);
 
 @property(nonatomic,assign)CGFloat x;
 @property(nonatomic,assign)CGFloat y;
-@property(nonatomic,assign)CGFloat maxX;
-@property(nonatomic,assign)CGFloat maxY;
 @property(nonatomic,assign)CGFloat width;
 @property(nonatomic,assign)CGFloat height;
 @property(nonatomic,assign)CGFloat centerX;
 @property(nonatomic,assign)CGFloat centerY;
-@property(nonatomic,assign)CGSize size;
-@property(nonatomic,assign)CGPoint origin;
 @property(nonatomic,assign)CGFloat left;
 @property(nonatomic,assign)CGFloat right;
 @property(nonatomic,assign)CGFloat top;
 @property(nonatomic,assign)CGFloat bottom;
-
+@property(nonatomic,assign)CGSize size;
+@property(nonatomic,assign)CGPoint origin;
 #pragma mark —— 一些工具方法
 /// 重设Frame
--(JobsReturnCGRectByCGFloatBlock _Nonnull)resetPointX;
--(JobsReturnCGRectByCGFloatBlock _Nonnull)resetPointY;
+-(JobsReturnCGRectByCGFloatBlock _Nonnull)resetOriginX;
+-(JobsReturnCGRectByCGFloatBlock _Nonnull)resetOriginY;
 -(JobsReturnCGRectByCGFloatBlock _Nonnull)resetWidth;
 -(JobsReturnCGRectByCGFloatBlock _Nonnull)resetHeight;
--(JobsReturnCGRectByCGPointBlock _Nonnull)resetPoint;
+-(JobsReturnCGRectByCGPointBlock _Nonnull)resetOrigin;
 -(JobsReturnCGRectByCGSizeBlock _Nonnull)resetSize;
 /// 依据偏移量重设Frame
--(JobsReturnCGRectByCGFloatBlock _Nonnull)resetByOffsetPointX;
--(JobsReturnCGRectByCGFloatBlock _Nonnull)resetByOffsetPointY;
+-(JobsReturnCGRectByCGFloatBlock _Nonnull)resetByOffsetOriginX;
+-(JobsReturnCGRectByCGFloatBlock _Nonnull)resetByOffsetOriginY;
+-(JobsReturnCGRectByCGFloatBlock _Nonnull)resetCenterX;
+-(JobsReturnCGRectByCGFloatBlock _Nonnull)resetCenterY;
 -(JobsReturnCGRectByCGFloatBlock _Nonnull)resetByOffsetWidth;
 -(JobsReturnCGRectByCGFloatBlock _Nonnull)resetByOffsetHeight;
--(JobsReturnCGRectByCGPointBlock _Nonnull)resetByOffsetPoint;
+-(JobsReturnCGRectByCGPointBlock _Nonnull)resetByOffsetOrigin;
 -(JobsReturnCGRectByCGSizeBlock _Nonnull)resetByOffsetSize;
 /// 依据偏移量重塑Frame
 -(void)offsetForView:(UIViewModel *)viewModel;
