@@ -16,8 +16,8 @@ return cell;\
 
 #define ReturnBaseCollectionViewCell return [BaseCollectionViewCell cellWithCollectionView:collectionView forIndexPath:indexPath];\
 
-#define ReturnBaseCollectionReusableView return [collectionView UICollectionElementKindSectionHeaderClass:BaseCollectionReusableView.class\
-                                                          forIndexPath:indexPath];\
+#define ReturnBaseCollectionReusableViewSectionHeader return [collectionView UICollectionElementKindSectionHeaderClass:BaseCollectionReusableView.class forIndexPath:indexPath];
+#define ReturnBaseCollectionReusableViewSectionFooter return [collectionView UICollectionElementKindSectionFooterClass:BaseCollectionReusableView.class forIndexPath:indexPath];
 
 @interface NSObject (JobsDeployCellConfig)
 #pragma mark —— Cell 部署策略
@@ -36,6 +36,13 @@ return cell;\
                       block3:(JobsReturnCGSizeByVoidBlock)block3
                       block4:(JobsReturnCGSizeByVoidBlock)block4
                       block5:(JobsReturnCGSizeByVoidBlock)block5;
+
+-(CGSize)planSizeForSectionAtIndexPath:(NSInteger)section
+                                block1:(JobsReturnCGSizeByVoidBlock)block1
+                                block2:(JobsReturnCGSizeByVoidBlock)block2
+                                block3:(JobsReturnCGSizeByVoidBlock)block3
+                                block4:(JobsReturnCGSizeByVoidBlock)block4
+                                block5:(JobsReturnCGSizeByVoidBlock)block5;
 /// minimumInteritemSpacingForSectionAtIndex & minimumLineSpacingForSectionAtIndex
 -(CGFloat)planSpacingForSectionAtIndex:(NSInteger)section
                                 block1:(JobsReturnCGFloatByVoidBlock)block1

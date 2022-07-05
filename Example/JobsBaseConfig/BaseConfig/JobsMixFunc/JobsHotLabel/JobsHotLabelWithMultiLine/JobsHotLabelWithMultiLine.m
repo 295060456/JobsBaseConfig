@@ -115,7 +115,7 @@ static dispatch_once_t static_hotLabelWithMultiLineOnceToken;
                                                                                                        forIndexPath:indexPath];
         [footerView richElementsInViewWithModel:self.dataModel.footerViewModel];
         return footerView;
-    }else ReturnBaseCollectionReusableView;
+    }else ReturnBaseCollectionReusableViewSectionFooter;
 }
 #pragma mark —— UICollectionViewDelegate
 /// 允许选中时，高亮
@@ -223,7 +223,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
     if (!_collectionView) {
         _collectionView = [UICollectionView.alloc initWithFrame:CGRectZero
                                            collectionViewLayout:self.layout];
-        _collectionView.backgroundColor = UIColor.clearColor;
+        _collectionView.backgroundColor = JobsClearColor;
         [self dataLinkByCollectionView:_collectionView];
         _collectionView.showsVerticalScrollIndicator = NO;
         _collectionView.scrollEnabled = NO;

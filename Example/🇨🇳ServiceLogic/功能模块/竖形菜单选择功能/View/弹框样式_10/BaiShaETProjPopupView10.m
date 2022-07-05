@@ -119,7 +119,7 @@ atIndexPath:(NSIndexPath *)indexPath {
             make.top.equalTo(self.titleLab.mas_bottom);
             make.height.mas_equalTo(JobsWidth(20));
         }];return headerView;
-    }else return nil;
+    }else ReturnBaseCollectionReusableViewSectionFooter;
 }
 #pragma mark —— UICollectionViewDelegate
 /// 允许选中时，高亮
@@ -299,7 +299,6 @@ insetForSectionAtIndex:(NSInteger)section {
                 }
             }];
             _collectionView.longPressGR.enabled = YES;/// 必须在设置完Target和selector以后方可开启执行
-            
             _collectionView.tapGR_SelImp.selector = [self jobsSelectorBlock:^(id  _Nullable weakSelf, id  _Nullable arg) {
                 NSLog(@"");
                 [self shakeCell:NO];
@@ -340,8 +339,8 @@ insetForSectionAtIndex:(NSInteger)section {
         }];
         @jobs_weakify(self)
         [_closeBtn btnClickEventBlock:^(UIButton *x) {
-            @jobs_strongify(self)
             NSLog(@"关闭");
+            @jobs_strongify(self)
             x.selected = !x.selected;
             [self cancelBtnActionForPopView:x];
             [self shakeCell:NO];
@@ -403,7 +402,7 @@ insetForSectionAtIndex:(NSInteger)section {
 -(UIView *)bgView{
     if (!_bgView) {
         _bgView = UIView.new;
-        _bgView.backgroundColor = JobsWhiteColor;
+        _bgView.backgroundColor = UIColor.whiteColor;
         [self addSubview:_bgView];
         [_bgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake([BaiShaETProjPopupView10 viewSizeWithModel:nil].width, [BaiShaETProjPopupView10 viewSizeWithModel:nil].height - JobsWidth(44)));

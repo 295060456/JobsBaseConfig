@@ -25,7 +25,7 @@
 }
 #pragma mark —— BaseViewProtocol
 /// 由具体的子类进行覆写
-+(CGSize)viewSizeWithModel:(UIViewModel *_Nullable)model{
++(CGSize)collectionReusableViewSizeWithModel:(UIViewModel *_Nullable)model{
     return CGSizeZero;
 }
 /// 由具体的子类进行覆写
