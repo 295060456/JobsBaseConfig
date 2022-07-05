@@ -14,7 +14,7 @@
 
 @implementation JobsSearchShowHistoryDataTBVCell
 #pragma mark —— BaseCellProtocol
-+(instancetype)cellWithTableView:(UITableView *)tableView{
++(instancetype)cellStyleValue1WithTableView:(UITableView *)tableView{
     JobsSearchShowHistoryDataTBVCell *cell = (JobsSearchShowHistoryDataTBVCell *)[tableView tableViewCellClass:JobsSearchShowHistoryDataTBVCell.class];
     if (!cell) {
         cell = [JobsSearchShowHistoryDataTBVCell initTableViewCellWithStyle:UITableViewCellStyleDefault];

@@ -19,7 +19,7 @@
 
 #pragma mark —— UITableViewCellProtocol
 /// UITableViewCell
-+(instancetype)cellWithTableView:(UITableView *)tableView{
++(instancetype)cellStyleValue1WithTableView:(UITableView *)tableView{
     JobsUserHeaderDataViewTBVCell *cell = (JobsUserHeaderDataViewTBVCell *)[tableView tableViewCellClass:JobsUserHeaderDataViewTBVCell.class];
     if (!cell) {
         cell = [JobsUserHeaderDataViewTBVCell initTableViewCellWithStyle:UITableViewCellStyleDefault];

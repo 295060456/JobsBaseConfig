@@ -44,11 +44,27 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)CGFloat imageViewFrameOffsetY;
 @property(nonatomic,assign)CGFloat imageViewFrameOffsetWidth;
 @property(nonatomic,assign)CGFloat imageViewFrameOffsetHeight;
-
+#pragma mark —— 初始化方法
+/// @implementation UITableViewCell (BaseCellProtocol)
 +(instancetype)initTableViewCellWithStyle:(UITableViewCellStyle)style;
-+(instancetype)cellWithTableView:(UITableView *)tableView;
-+(instancetype)cellWithTableView:(UITableView *)tableView
-           cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+/// 具体子类实现
+/// 左边：imageView＋textLabel
++(instancetype)cellStyleDefaultWithTableView:(UITableView *)tableView;
+/// 左边：imageView＋textLabel；右边：detailTextLabel
++(instancetype)cellStyleValue1WithTableView:(UITableView *)tableView;
+/// 左边：textLabel字体偏小；右边：detailTextLabel。imageView可选（显示在最左边）
++(instancetype)cellStyleValue2WithTableView:(UITableView *)tableView;
+/// 左边：imageView；左上：textLabel；左下：detailTextLabel。主标题字体大且加黑，副标题字体小在主标题下边
++(instancetype)cellStyleSubtitleWithTableView:(UITableView *)tableView;
+/// 带indexPath的初始化方法
++(instancetype)cellStyleDefaultWithTableView:(UITableView *)tableView
+                       cellForRowAtIndexPath:(NSIndexPath *)indexPath;
++(instancetype)cellStyleValue1WithTableView:(UITableView *)tableView
+                      cellForRowAtIndexPath:(NSIndexPath *)indexPath;
++(instancetype)cellStyleValue2WithTableView:(UITableView *)tableView
+                      cellForRowAtIndexPath:(NSIndexPath *)indexPath;
++(instancetype)cellStyleSubtitleWithTableView:(UITableView *)tableView
+                        cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 

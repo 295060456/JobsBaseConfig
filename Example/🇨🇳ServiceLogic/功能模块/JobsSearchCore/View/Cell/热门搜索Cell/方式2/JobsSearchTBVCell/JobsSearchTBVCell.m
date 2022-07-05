@@ -20,7 +20,7 @@
 UIViewModelProtocol_synthesize
 
 #pragma mark —— BaseCellProtocol
-+(instancetype)cellWithTableView:(UITableView *)tableView{
++(instancetype)cellStyleValue1WithTableView:(UITableView *)tableView{
     JobsSearchTBVCell *cell = (JobsSearchTBVCell *)[tableView tableViewCellClass:JobsSearchTBVCell.class];
     if (!cell) {
         cell = [JobsSearchTBVCell initTableViewCellWithStyle:UITableViewCellStyleDefault];

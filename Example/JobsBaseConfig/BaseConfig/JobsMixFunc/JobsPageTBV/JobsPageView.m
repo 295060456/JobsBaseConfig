@@ -32,7 +32,7 @@
 //具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 -(void)richElementsInViewWithModel:(NSArray <UIViewModel *>*_Nullable)model{
     self.dataArr = model;
-    
+    self.tableView.alpha = 1;
 //    self.backgroundImageView.image = JobsIMG(@"抖动钱包抖币用途");
 //    self.imageView_1.alpha = 1;
 //    self.imageView_2.alpha = 1;
@@ -61,7 +61,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    JobsPageTBVCell *cell = [JobsPageTBVCell cellWithTableView:tableView];
+    JobsPageTBVCell *cell = [JobsPageTBVCell cellStyleSubtitleWithTableView:tableView];
     [cell richElementsInCellWithModel:self.dataArr[indexPath.row]];
     UIViewModel *viewModel = self.dataArr[indexPath.row];
     viewModel.jobsWidth = [JobsPageTBVCell cellHeightWithModel:Nil] ? : self.cellHeight;

@@ -20,7 +20,7 @@
 @synthesize viewModel = _viewModel;
 #pragma mark —— BaseCellProtocol
 /// UITableViewCell
-+(instancetype)cellWithTableView:(UITableView *)tableView{
++(instancetype)cellStyleDefaultWithTableView:(UITableView *)tableView{
     LeftCell *cell = (LeftCell *)[tableView tableViewCellClass:LeftCell.class];
     if (!cell) {
         cell = [LeftCell initTableViewCellWithStyle:UITableViewCellStyleDefault];

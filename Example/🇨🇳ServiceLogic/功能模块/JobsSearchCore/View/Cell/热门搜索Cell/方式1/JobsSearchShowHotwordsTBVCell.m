@@ -16,7 +16,7 @@
 @implementation JobsSearchShowHotwordsTBVCell
 
 #pragma mark —— BaseCellProtocol
-+(instancetype)cellWithTableView:(UITableView *)tableView{
++(instancetype)cellStyleValue1WithTableView:(UITableView *)tableView{
     JobsSearchShowHotwordsTBVCell *cell = (JobsSearchShowHotwordsTBVCell *)[tableView tableViewCellClass:JobsSearchShowHotwordsTBVCell.class];
     if (!cell) {
         cell = [JobsSearchShowHotwordsTBVCell initTableViewCellWithStyle:UITableViewCellStyleDefault];

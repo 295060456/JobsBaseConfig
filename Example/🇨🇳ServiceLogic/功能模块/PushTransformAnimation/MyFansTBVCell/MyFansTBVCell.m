@@ -14,7 +14,7 @@
 
 @implementation MyFansTBVCell
 
-+(instancetype)cellWithTableView:(UITableView *)tableView{
++(instancetype)cellStyleValue1WithTableView:(UITableView *)tableView{
     MyFansTBVCell *cell = (MyFansTBVCell *)[tableView tableViewCellClass:MyFansTBVCell.class];
     if (!cell) {
         cell = [MyFansTBVCell initTableViewCellWithStyle:UITableViewCellStyleDefault];

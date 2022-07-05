@@ -17,7 +17,7 @@
 @implementation JobsLoadMoreTBVCell
 
 #pragma mark —— BaseCellProtocol
-+(instancetype)cellWithTableView:(UITableView *)tableView{
++(instancetype)cellStyleValue1WithTableView:(UITableView *)tableView{
     JobsLoadMoreTBVCell *cell = (JobsLoadMoreTBVCell *)[tableView tableViewCellClass:JobsLoadMoreTBVCell.class];
     if (!cell) {
         cell = [JobsLoadMoreTBVCell initTableViewCellWithStyle:UITableViewCellStyleDefault];

@@ -6,8 +6,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseView.h"
 #import "UIViewModel.h"
+#import "BaseView.h"
+#import "JobsPullListTBVCell.h"
+#import "UIView+Extras.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

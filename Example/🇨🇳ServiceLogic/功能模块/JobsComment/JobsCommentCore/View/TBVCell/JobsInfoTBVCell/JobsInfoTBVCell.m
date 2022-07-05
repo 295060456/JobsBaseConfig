@@ -19,7 +19,7 @@
 @implementation JobsInfoTBVCell
 
 #pragma mark —— BaseCellProtocol
-+(instancetype)cellWithTableView:(UITableView *)tableView{
++(instancetype)cellStyleValue1WithTableView:(UITableView *)tableView{
     JobsInfoTBVCell *cell = (JobsInfoTBVCell *)[tableView tableViewCellClass:JobsInfoTBVCell.class];
     if (!cell) {
         cell = [JobsInfoTBVCell initTableViewCellWithStyle:UITableViewCellStyleSubtitle];;

@@ -6,14 +6,12 @@
 //
 
 #import "JobsPullListAutoSizeView.h"
-#import "JobsPullListTBVCell.h"
-#import "UIView+Extras.h"
 
 @interface JobsPullListAutoSizeView ()
-// UI
+/// UI
 @property(nonatomic,strong)UITableView *tableview;//content
 @property(nonatomic,strong)UIView *targetView;
-// Data
+/// Data
 @property(nonatomic,strong)NSMutableArray <UIViewModel *>*dataMutArr;
 
 @end
@@ -87,7 +85,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 -(UITableViewCell *)tableView:(UITableView *)tableView
         cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    JobsPullListTBVCell *cell = [JobsPullListTBVCell cellWithTableView:tableView];
+    JobsPullListTBVCell *cell = [JobsPullListTBVCell cellStyleDefaultWithTableView:tableView];
     cell.contentView.backgroundColor = self.bgColorListTBV;
     cell.indexPath = indexPath;
     [cell richElementsInCellWithModel:self.dataMutArr[indexPath.row]];

@@ -275,7 +275,7 @@ numberOfRowsInSection:(NSInteger)section {
 -(UITableViewCell *)tableView:(UITableView *)tableView
         cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     self.indexPath = indexPath;
-    ZFDouYinCell *cell = [ZFDouYinCell cellWithTableView:tableView];
+    ZFDouYinCell *cell = [ZFDouYinCell cellStyleValue1WithTableView:tableView];
     cell.delegate = self;
     cell.index = indexPath.row;
     [cell richElementsInCellWithModel:@{

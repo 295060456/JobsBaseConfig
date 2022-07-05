@@ -13,7 +13,7 @@
 
 @implementation JobsPullListTBVCell
 
-+(instancetype)cellWithTableView:(UITableView *)tableView{
++(instancetype)cellStyleValue1WithTableView:(UITableView *)tableView{
     JobsPullListTBVCell *cell = (JobsPullListTBVCell *)[tableView tableViewCellClass:JobsPullListTBVCell.class];
     if (!cell) {
         cell = [JobsPullListTBVCell initTableViewCellWithStyle:UITableViewCellStyleDefault];

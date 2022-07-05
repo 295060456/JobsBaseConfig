@@ -15,7 +15,7 @@
 #pragma mark —— @synthesize UITableViewCellProtocol
 UITableViewCellProtocol_synthesize
 #pragma mark —— UITableViewCellProtocol
-+(instancetype)cellWithTableView:(UITableView *)tableView{
++(instancetype)cellStyleValue1WithTableView:(UITableView *)tableView{
     JobsDropDownListTBVCell *cell = (JobsDropDownListTBVCell *)[tableView tableViewCellClass:JobsDropDownListTBVCell.class];
     if (!cell) {
         cell = [JobsDropDownListTBVCell initTableViewCellWithStyle:UITableViewCellStyleValue1];
@@ -27,7 +27,7 @@ UITableViewCellProtocol_synthesize
     if (self = [super initWithStyle:style
                     reuseIdentifier:reuseIdentifier]) {
         [self richElementsInCellWithModel:nil];
-        self.selectionStyle = UITableViewCellSelectionStyleNone;// 取消点击效果 【不能在cellWithTableView里面写】
+        self.selectionStyle = UITableViewCellSelectionStyleNone;// 取消点击效果 【不能在cellStyleValue1WithTableView里面写】
         self.backgroundColor = self.contentView.backgroundColor = HEXCOLOR(0xFBF7E3);
         self.selectedBackgroundView = [UIView.alloc initWithFrame:self.frame];// 这句不可省略
         self.selectedBackgroundView.backgroundColor = HEXCOLOR(0xE4B94B);

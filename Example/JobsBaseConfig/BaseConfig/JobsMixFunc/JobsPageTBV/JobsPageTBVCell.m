@@ -15,8 +15,8 @@
 @end
 
 @implementation JobsPageTBVCell
-
-+(instancetype)cellWithTableView:(UITableView *)tableView{
+#pragma mark —— UITableViewCellProtocol
++(instancetype)cellStyleSubtitleWithTableView:(UITableView *)tableView{
     JobsPageTBVCell *cell = (JobsPageTBVCell *)[tableView tableViewCellClass:JobsPageTBVCell.class];
     if (!cell) {
         cell = [JobsPageTBVCell initTableViewCellWithStyle:UITableViewCellStyleSubtitle];
@@ -25,7 +25,7 @@
         cell.backgroundColor = cell.contentView.backgroundColor = JobsClearColor;
     }return cell;
 }
-
+#pragma mark —— BaseCellProtocol
 -(void)richElementsInCellWithModel:(UIViewModel *_Nullable)model{
     if (model) {
         self.textLab.textColor = model.textModel.textCor;
@@ -39,7 +39,7 @@
 +(CGFloat)cellHeightWithModel:(id _Nullable)model{
     return 0.f;
 }
-
+#pragma mark —— lazyLoad
 -(UILabel *)textLab{
     if (!_textLab) {
         _textLab = UILabel.new;

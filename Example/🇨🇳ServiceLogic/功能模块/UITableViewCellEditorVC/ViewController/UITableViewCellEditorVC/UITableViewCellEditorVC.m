@@ -210,7 +210,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    JobsMsgTBVCell *cell = (JobsMsgTBVCell *)[JobsMsgTBVCell cellWithTableView:tableView];
+    JobsMsgTBVCell *cell = (JobsMsgTBVCell *)[JobsMsgTBVCell cellStyleValue1WithTableView:tableView];
     [cell richElementsInCellWithModel:self.dataMutArr[indexPath.row]];
     @jobs_weakify(self)
     [cell actionObjectBlock:^(JobsPopupView02 *data) {

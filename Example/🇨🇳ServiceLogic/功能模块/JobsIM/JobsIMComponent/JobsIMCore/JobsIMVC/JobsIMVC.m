@@ -158,7 +158,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 -(UITableViewCell *)tableView:(UITableView *)tableView
         cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    JobsIMChatInfoTBVCell *cell = [JobsIMChatInfoTBVCell cellWithTableView:tableView];
+    JobsIMChatInfoTBVCell *cell = [JobsIMChatInfoTBVCell cellStyleValue1WithTableView:tableView];
     cell.isShowChatUserName = YES;
     cell.indexPath = indexPath;
     cell.delegate = self;

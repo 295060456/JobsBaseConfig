@@ -21,7 +21,7 @@
 
 #pragma mark —— BaseCellProtocol
 /// UITableViewCell
-+(instancetype)cellWithTableView:(UITableView *)tableView{
++(instancetype)cellStyleValue1WithTableView:(UITableView *)tableView{
     JobsMsgTBVCell *cell = (JobsMsgTBVCell *)[tableView tableViewCellClass:JobsMsgTBVCell.class];
     if (!cell) {
         cell = [JobsMsgTBVCell initTableViewCellWithStyle:UITableViewCellStyleSubtitle];

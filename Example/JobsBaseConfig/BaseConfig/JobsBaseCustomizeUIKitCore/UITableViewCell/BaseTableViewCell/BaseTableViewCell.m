@@ -16,16 +16,59 @@
 #pragma mark —— @synthesize UITableViewCellProtocol
 UITableViewCellProtocol_synthesize
 #pragma mark —— UITableViewCellProtocol
-+(instancetype)cellWithTableView:(UITableView *)tableView{
+/// 左边：imageView＋textLabel
++(instancetype)cellStyleDefaultWithTableView:(UITableView *)tableView{
+    BaseTableViewCell *cell = (BaseTableViewCell *)[tableView tableViewCellClass:BaseTableViewCell.class];
+    if (!cell) {
+        cell = [BaseTableViewCell initTableViewCellWithStyle:UITableViewCellStyleDefault];
+    }return cell;
+}
+/// 左边：imageView＋textLabel；右边：detailTextLabel
++(instancetype)cellStyleValue1WithTableView:(UITableView *)tableView{
     BaseTableViewCell *cell = (BaseTableViewCell *)[tableView tableViewCellClass:BaseTableViewCell.class];
     if (!cell) {
         cell = [BaseTableViewCell initTableViewCellWithStyle:UITableViewCellStyleValue1];
     }return cell;
 }
+/// 左边：textLabel字体偏小；右边：detailTextLabel。imageView可选（显示在最左边）
++(instancetype)cellStyleValue2WithTableView:(UITableView *)tableView{
+    BaseTableViewCell *cell = (BaseTableViewCell *)[tableView tableViewCellClass:BaseTableViewCell.class];
+    if (!cell) {
+        cell = [BaseTableViewCell initTableViewCellWithStyle:UITableViewCellStyleValue2];
+    }return cell;
+}
+/// 左边：imageView；左上：textLabel；左下：detailTextLabel。主标题字体大且加黑，副标题字体小在主标题下边
++(instancetype)cellStyleSubtitleWithTableView:(UITableView *)tableView{
+    BaseTableViewCell *cell = (BaseTableViewCell *)[tableView tableViewCellClass:BaseTableViewCell.class];
+    if (!cell) {
+        cell = [BaseTableViewCell initTableViewCellWithStyle:UITableViewCellStyleSubtitle];
+    }return cell;
+}
 
-+(instancetype)cellWithTableView:(UITableView *)tableView
-           cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    BaseTableViewCell *cell = [BaseTableViewCell cellWithTableView:tableView];
++(instancetype)cellStyleDefaultWithTableView:(UITableView *)tableView
+                       cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    BaseTableViewCell *cell = [BaseTableViewCell cellStyleDefaultWithTableView:tableView];
+    cell.indexPath = indexPath;
+    return cell;
+}
+
++(instancetype)cellStyleValue1WithTableView:(UITableView *)tableView
+                      cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    BaseTableViewCell *cell = [BaseTableViewCell cellStyleValue1WithTableView:tableView];
+    cell.indexPath = indexPath;
+    return cell;
+}
+
++(instancetype)cellStyleValue2WithTableView:(UITableView *)tableView
+                      cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    BaseTableViewCell *cell = [BaseTableViewCell cellStyleValue2WithTableView:tableView];
+    cell.indexPath = indexPath;
+    return cell;
+}
+
++(instancetype)cellStyleSubtitleWithTableView:(UITableView *)tableView
+                        cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    BaseTableViewCell *cell = [BaseTableViewCell cellStyleSubtitleWithTableView:tableView];
     cell.indexPath = indexPath;
     return cell;
 }
@@ -35,12 +78,11 @@ UITableViewCellProtocol_synthesize
     if (self = [super initWithStyle:style
                     reuseIdentifier:reuseIdentifier]) {
 //        [self richElementsInCellWithModel:nil];
-        self.selectionStyle = UITableViewCellSelectionStyleNone;// 取消点击效果 【不能在cellWithTableView里面写】
+        self.selectionStyle = UITableViewCellSelectionStyleNone;// 取消点击效果 【不能在cellStyleValue1WithTableView里面写】
         /// 适配iOS 13夜间模式/深色外观(Dark Mode)
-        self.backgroundColor = [UIColor xy_createWithLightColor:UIColor.whiteColor darkColor:UIColor.whiteColor];
-        JobsRedColor;
-        self.detailTextLabel.textColor = UIColor.brownColor;
-        self.textLabel.textColor = UIColor.blackColor;
+        self.backgroundColor = JobsWhiteColor;
+        self.detailTextLabel.textColor = JobsBrownColor;
+        self.textLabel.textColor = JobsBlackColor;
     }return self;
 }
 #pragma mark —— 一些私有方法

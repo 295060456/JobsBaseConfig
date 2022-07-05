@@ -53,7 +53,7 @@
     }return self;
 }
 #pragma mark —— BaseCellProtocol
-+(instancetype)cellWithTableView:(UITableView *)tableView{
++(instancetype)cellStyleValue1WithTableView:(UITableView *)tableView{
     JobsIMChatInfoTBVCell *cell = (JobsIMChatInfoTBVCell *)[tableView tableViewCellClass:JobsIMChatInfoTBVCell.class];
     if (!cell) {
         cell = [JobsIMChatInfoTBVCell initTableViewCellWithStyle:UITableViewCellStyleDefault];

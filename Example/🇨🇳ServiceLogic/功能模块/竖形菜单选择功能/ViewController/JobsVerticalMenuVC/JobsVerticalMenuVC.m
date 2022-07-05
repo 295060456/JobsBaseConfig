@@ -231,7 +231,7 @@ numberOfRowsInSection:(NSInteger)section{
 
 -(UITableViewCell *)tableView:(UITableView *)tableView
         cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    LeftCell *cell = [LeftCell cellWithTableView:tableView];
+    LeftCell *cell = [LeftCell cellStyleValue1WithTableView:tableView];
 
     UIViewModel *viewModel = UIViewModel.new;
     viewModel.textModel.text = self.titleMutArr[indexPath.row].textModel.text;

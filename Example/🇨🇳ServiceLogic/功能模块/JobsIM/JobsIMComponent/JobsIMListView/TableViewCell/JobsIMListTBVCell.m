@@ -23,7 +23,7 @@
 
 @implementation JobsIMListTBVCell
 
-+(instancetype)cellWithTableView:(UITableView *)tableView{
++(instancetype)cellStyleValue1WithTableView:(UITableView *)tableView{
     JobsIMListTBVCell *cell = (JobsIMListTBVCell *)[tableView tableViewCellClass:JobsIMListTBVCell.class];
     if (!cell) {
         cell = [JobsIMListTBVCell initTableViewCellWithStyle:UITableViewCellStyleSubtitle];;

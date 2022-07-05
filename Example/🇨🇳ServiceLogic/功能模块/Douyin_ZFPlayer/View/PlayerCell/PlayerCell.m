@@ -27,7 +27,7 @@
     NSLog(@"%@",JobsLocalFunc);
 }
 
-+(instancetype)cellWithTableView:(UITableView *)tableView{
++(instancetype)cellStyleValue1WithTableView:(UITableView *)tableView{
     PlayerCell *cell = (PlayerCell *)[tableView tableViewCellClass:PlayerCell.class];
     if (!cell) {
         cell = [PlayerCell initTableViewCellWithStyle:UITableViewCellStyleSubtitle];

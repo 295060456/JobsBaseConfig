@@ -31,7 +31,7 @@
 #pragma mark —— @synthesize UITableViewCellProtocol
 UITableViewCellProtocol_synthesize
 #pragma mark —— UITableViewCellProtocol
-+(instancetype)cellWithTableView:(UITableView *)tableView{
++(instancetype)cellStyleValue1WithTableView:(UITableView *)tableView{
     BaiShaETProjMembersTBVCell2 *cell = (BaiShaETProjMembersTBVCell2 *)[tableView tableViewCellClass:BaiShaETProjMembersTBVCell2.class];
     if (!cell) {
         cell = [BaiShaETProjMembersTBVCell2 initTableViewCellWithStyle:UITableViewCellStyleDefault];

@@ -161,7 +161,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     customCofigModel.childDataArr = firstCommentModel.childDataArr;
 
     if (customCofigModel.isFullShow) {
-        JobsInfoTBVCell *cell = [JobsInfoTBVCell cellWithTableView:tableView];
+        JobsInfoTBVCell *cell = [JobsInfoTBVCell cellStyleValue1WithTableView:tableView];
         [cell richElementsInCellWithModel:childCommentModel];
 //        @jobs_weakify(self)
         [cell actionObjectBlock:^(id data) {
@@ -170,7 +170,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     }else{
         if (indexPath.row <= customCofigModel.firstShowNum) {
             // 二级评论展示...
-            JobsInfoTBVCell *cell = [JobsInfoTBVCell cellWithTableView:tableView];
+            JobsInfoTBVCell *cell = [JobsInfoTBVCell cellStyleValue1WithTableView:tableView];
             [cell richElementsInCellWithModel:childCommentModel];
 //            @jobs_weakify(self)
             [cell actionObjectBlock:^(id data) {
@@ -178,7 +178,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
             }];return cell;
         }else{
             // 加载更多...
-            JobsLoadMoreTBVCell *cell = [JobsLoadMoreTBVCell cellWithTableView:tableView];
+            JobsLoadMoreTBVCell *cell = [JobsLoadMoreTBVCell cellStyleValue1WithTableView:tableView];
             [cell richElementsInCellWithModel:nil];
             return cell;
         }
