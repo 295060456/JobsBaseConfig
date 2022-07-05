@@ -14,10 +14,15 @@
 
 @implementation JobsAppDoorInputViewBaseStyleModel
 
+- (instancetype)init{
+    if (self = [super init]) {
+        self.keyboardEnable = YES;
+    }return self;
+}
+
 -(UIFont *)titleStrFont{
     if (!_titleStrFont) {
-        _titleStrFont = [UIFont systemFontOfSize:JobsWidth(9)
-                                          weight:UIFontWeightRegular];
+        _titleStrFont = UIFontWeightRegularSize(9);
     }return _titleStrFont;
 }
 
@@ -29,7 +34,7 @@
 
 -(UIFont *)placeholderFont{
     if (!_placeholderFont) {
-        _placeholderFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
+        _placeholderFont = UIFontWeightRegularSize(14);
     }return _placeholderFont;
 }
 

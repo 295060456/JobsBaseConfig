@@ -38,6 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)UIKeyboardAppearance keyboardAppearance;
 @property(nonatomic,assign)UITextFieldViewMode leftViewMode;
 @property(nonatomic,assign)UIKeyboardType keyboardType;
+@property(nonatomic,assign)BOOL keyboardEnable;
 /// 关于TextField
 @property(nullable,nonatomic,strong)UIColor *backgroundColor UI_APPEARANCE_SELECTOR;
 @property(nullable,nonatomic,strong)UIImage *disabledBackground;
