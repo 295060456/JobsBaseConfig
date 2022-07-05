@@ -43,6 +43,8 @@ AppToolsProtocol
 @property(nonatomic,strong)NSMutableAttributedString *attributedStringData;
 @property(nonatomic,strong)NSMutableArray <NSString *>*richTextMutArr;
 @property(nonatomic,strong)NSMutableArray <RichTextConfig *>*richTextConfigMutArr;
+#pragma mark —— 一些公有化方法
+-(UITextView *)createConnectionTipsTV;
 #pragma mark —— 弹出框。为了防止业务层的变化，弹出框定义在NSObject层
 /// Debug模式下的弹出框 及其相关的数据封装。在外层进行调用，[ 需要被展现的视图 popupWithView:popupView];
 -(JobsBaseConfigTestPopupView *)JobsTestPopView:(NSString *)string;

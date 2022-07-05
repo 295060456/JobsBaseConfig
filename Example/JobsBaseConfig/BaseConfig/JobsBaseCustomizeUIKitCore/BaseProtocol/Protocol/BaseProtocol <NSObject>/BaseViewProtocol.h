@@ -7,6 +7,13 @@
 
 #import <Foundation/Foundation.h>
 #import "BaseProtocol.h"
+
+#if __has_include(<Masonry/Masonry.h>)
+#import <Masonry/Masonry.h>
+#else
+#import "Masonry.h"
+#endif
+
 @class UIViewModel;
 
 typedef enum : NSInteger {
@@ -19,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol BaseViewProtocol <BaseProtocol>
 
 @optional
+/// 记录该View的Masonry约束情况
+@property(nonatomic,strong)NSMutableArray <MASConstraint *>*constraintMutArr;
 /// 视图长、宽、高的定义
 @property(nonatomic,assign)CGSize thisViewSize;
 /// 标记是HeaderView 还是 FooterView

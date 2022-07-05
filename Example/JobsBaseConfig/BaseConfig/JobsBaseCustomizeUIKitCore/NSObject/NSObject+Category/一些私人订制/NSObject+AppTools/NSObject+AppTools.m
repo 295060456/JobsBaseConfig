@@ -25,6 +25,21 @@
     [tempDataArr addObject:appDelegate.tabBarVC.class];
     return (NSArray *)tempDataArr;
 }
+#pragma mark —— 一些公有化方法
+-(UITextView *)createConnectionTipsTV{
+    UITextView *connectionTipsTV = UITextView.new;
+    connectionTipsTV.userInteractionEnabled = YES;
+    connectionTipsTV.linkTextAttributes = @{NSForegroundColorAttributeName: self.richTextConfigMutArr[1].textCor,/// 链接文字颜色
+                                             NSUnderlineColorAttributeName: JobsLightGrayColor,
+                                             NSUnderlineStyleAttributeName: @(NSUnderlinePatternSolid)};
+    
+    connectionTipsTV.attributedText = self.attributedStringData;//
+    [connectionTipsTV sizeToFit];
+    connectionTipsTV.backgroundColor = JobsClearColor;
+    connectionTipsTV.editable = NO;/// 必须禁止输入，否则点击将会弹出输入键盘
+    connectionTipsTV.scrollEnabled = NO;/// 可选的，视具体情况而定
+    return connectionTipsTV;
+}
 #pragma mark —— BaseProtocol
 /// 【通知监听】国际化语言修改UI
 /// @param targetView 需要铆定的UI
@@ -542,23 +557,12 @@ static char *NSObject_AppTools_connectionTipsTV = "NSObject_AppTools_connectionT
 -(UITextView *)connectionTipsTV{
     UITextView *ConnectionTipsTV = objc_getAssociatedObject(self, NSObject_AppTools_connectionTipsTV);
     if (!ConnectionTipsTV) {
-        ConnectionTipsTV = UITextView.new;
-        ConnectionTipsTV.userInteractionEnabled = YES;
-        ConnectionTipsTV.linkTextAttributes = @{NSForegroundColorAttributeName: self.richTextConfigMutArr[1].textCor,
-                                                 NSUnderlineColorAttributeName: [UIColor lightGrayColor],
-                                                 NSUnderlineStyleAttributeName: @(NSUnderlinePatternSolid)};
-        
-        ConnectionTipsTV.attributedText = self.attributedStringData;//
-        [ConnectionTipsTV sizeToFit];
-        ConnectionTipsTV.backgroundColor = UIColor.clearColor;
-        ConnectionTipsTV.editable = NO;/// 必须禁止输入，否则点击将会弹出输入键盘
-        ConnectionTipsTV.scrollEnabled = NO;/// 可选的，视具体情况而定
-
+        ConnectionTipsTV = self.createConnectionTipsTV;
         if ([self isKindOfClass:UIViewController.class]) {
             ConnectionTipsTV.delegate = self;
             UIViewController *viewController = (UIViewController *)self;
             [viewController.view addSubview:ConnectionTipsTV];
-            [ConnectionTipsTV mas_makeConstraints:^(MASConstraintMaker *make) {
+            ConnectionTipsTV.constraintMutArr = (NSMutableArray *)[ConnectionTipsTV mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.centerX.equalTo(viewController.view);
                 make.bottom.equalTo(viewController.view).offset(JobsWidth(-65));
             }];
