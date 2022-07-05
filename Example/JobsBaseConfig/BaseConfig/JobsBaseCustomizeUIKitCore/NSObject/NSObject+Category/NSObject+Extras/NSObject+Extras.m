@@ -139,7 +139,15 @@
         [imageModelArr addObject:imageModel];
     }return imageModelArr;
 }
-
+/**
+ 
+ NSMutableArray <UIViewModel *>*dataMutArr = popupView.valueForKeyBlock(@"dataMutArr");
+ [dataMutArr removeAllObjects];
+ [dataMutArr addObjectsFromArray:self.createDataMutArr2];
+ 
+ // dataMutArr = self.createDataMutArr2; 这一段无效
+ 
+ */
 -(JobsReturnIDByIDBlock _Nonnull)valueForKeyBlock{
     return ^(NSString *data) {
         return [data isKindOfClass:NSString.class] ? [self valueForKey:data] : nil;
