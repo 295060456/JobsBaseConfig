@@ -23,6 +23,7 @@
  所以可以通过文字内容的高度（也就是ContentSize）的高度和textView的高度之间的差值，设置内边距，就相当于把内容居中了。
  */
 - (void)contentSizeToFitByFont:(UIFont *_Nullable)font{
+    [self.superview layoutIfNeeded];
     /// 先判断一下有没有文字（没文字就没必要设置居中了）
     if(self.text.length){
         /// textView的contentSize属性
