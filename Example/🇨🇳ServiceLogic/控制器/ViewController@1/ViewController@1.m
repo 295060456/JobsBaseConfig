@@ -495,6 +495,21 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             [_dataMutArr addObject:viewModel];
         }
         
+        {
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"GXCardViewDemoVC"
+                                                           subTitle:Internationalization(@"卡片式布局(探探附近/QQ配对)，可以设置卡片堆叠效果，可以设置循环效果")];
+            viewModel.cls = GXCardViewDemoVC.class;
+            [_dataMutArr addObject:viewModel];
+        }
+        
+        {
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"JobsWalletVC"
+                                                           subTitle:Internationalization(@"UICollectionView实现重叠的卡包效果")];
+            viewModel.cls = JobsWalletVC.class;
+            [_dataMutArr addObject:viewModel];
+        }
+        
+        
 //        {
 //            UIViewModel *viewModel = [self configViewModelWithTitle:@"ProtocolKitVC"
 //                                                           subTitle:Internationalization(@"Objective-C中实现协议扩展")];

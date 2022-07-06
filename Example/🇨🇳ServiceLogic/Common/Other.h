@@ -72,5 +72,7 @@
 #import "NSTimerManagerTestVC.h"
 #import "CustomTableViewCellVC.h"
 #import "CustomBtnVC.h"
+#import "GXCardViewDemoVC.h"
+#import "JobsWalletVC.h"
 
 #endif /* Other_h */
