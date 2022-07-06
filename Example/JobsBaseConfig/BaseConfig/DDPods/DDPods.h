@@ -45,6 +45,13 @@
 #import "YTKNetwork.h"
 #endif
 
+#if __has_include(<WMZCode/WMZCodeView.h>)
+#import <WMZCode/WMZCodeView.h>
+#else
+#import "WMZCodeView.h"
+#endif
+
+
 #if __has_include(<ZMJGanttChart/ZMJGanttChart.h>)
 #import <ZMJGanttChart/ZMJGanttChart.h>
 #else

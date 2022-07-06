@@ -23,6 +23,12 @@
 #import "UIViewModel.h"
 #import "CasinoCustomerContactModel.h"
 
+#if __has_include(<WMZCode/WMZCodeView.h>)
+#import <WMZCode/WMZCodeView.h>
+#else
+#import "WMZCodeView.h"
+#endif
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (AppTools)
@@ -36,6 +42,7 @@ AppToolsProtocol
 @property(nonatomic,strong)UIButton *立即注册;
 @property(nonatomic,strong)UILabel *separateLab;/// 分割线
 @property(nonatomic,strong)UITextView *connectionTipsTV;/// 承接富文本:如需幫助，請聯繫專屬客服
+@property(nonatomic,strong)UITextView *agreementTipsTV;/// 承接富文本:我已閱讀並同意 相關條款 和 隱私政策
 // Data
 @property(nonatomic,strong)CasinoCustomerContactModel *customerContactModel;
 @property(nonatomic,strong)NSMutableArray<UIViewModel *> *hotLabelDataMutArr;
@@ -43,6 +50,10 @@ AppToolsProtocol
 @property(nonatomic,strong)NSMutableAttributedString *attributedStringData;
 @property(nonatomic,strong)NSMutableArray <NSString *>*richTextMutArr;
 @property(nonatomic,strong)NSMutableArray <RichTextConfig *>*richTextConfigMutArr;
+// 关于富文本: 相關條款 和 隱私政策
+@property(nonatomic,strong)NSMutableAttributedString *attributedStringData2;
+@property(nonatomic,strong)NSMutableArray <NSString *>*richTextMutArr2;
+@property(nonatomic,strong)NSMutableArray <RichTextConfig *>*richTextConfigMutArr2;
 #pragma mark —— 一些公有化方法
 -(UITextView *)createConnectionTipsTV;
 #pragma mark —— 弹出框。为了防止业务层的变化，弹出框定义在NSObject层

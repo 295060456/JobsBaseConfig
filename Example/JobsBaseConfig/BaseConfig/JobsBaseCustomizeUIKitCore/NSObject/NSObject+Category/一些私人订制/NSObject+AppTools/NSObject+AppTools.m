@@ -40,6 +40,22 @@
     connectionTipsTV.scrollEnabled = NO;/// 可选的，视具体情况而定
     return connectionTipsTV;
 }
+
+-(UITextView *)createAgreementTipsTV{
+    UITextView *agreementTipsTV = UITextView.new;
+    agreementTipsTV.userInteractionEnabled = YES;
+    agreementTipsTV.linkTextAttributes = @{NSForegroundColorAttributeName: self.richTextConfigMutArr2[1].textCor,/// 链接文字颜色
+                                             NSUnderlineColorAttributeName: JobsLightGrayColor,
+                                             NSUnderlineStyleAttributeName: @(NSUnderlinePatternSolid)};
+    
+    agreementTipsTV.attributedText = self.attributedStringData;//
+    [agreementTipsTV sizeToFit];
+    agreementTipsTV.backgroundColor = JobsClearColor;
+    agreementTipsTV.editable = NO;/// 必须禁止输入，否则点击将会弹出输入键盘
+    agreementTipsTV.scrollEnabled = NO;/// 可选的，视具体情况而定
+    [agreementTipsTV contentSizeToFitByFont:self.richTextConfigMutArr2[1].font];
+    return agreementTipsTV;
+}
 #pragma mark —— BaseProtocol
 /// 【通知监听】国际化语言修改UI
 /// @param targetView 需要铆定的UI
@@ -483,6 +499,7 @@ static char *NSObject_AppTools_联系客服 = "NSObject_AppTools_联系客服";
                              联系客服,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+// 关于富文本:如需幫助，請聯繫專屬客服
 static char *NSObject_AppTools_attributedStringData = "NSObject_AppTools_attributedStringData";
 @dynamic attributedStringData;
 #pragma mark —— @property(nonatomic,strong)NSMutableAttributedString *attributedStringData;
@@ -549,6 +566,83 @@ static char *NSObject_AppTools_richTextConfigMutArr = "NSObject_AppTools_richTex
     objc_setAssociatedObject(self,
                              NSObject_AppTools_richTextConfigMutArr,
                              richTextConfigMutArr,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+// 关于富文本:我已閱讀並同意 相關條款 和 隱私政策
+static char *NSObject_AppTools_attributedStringData2 = "NSObject_AppTools_attributedStringData2";
+@dynamic attributedStringData2;
+#pragma mark —— @property(nonatomic,strong)NSMutableAttributedString *attributedStringData2;
+-(NSMutableAttributedString *)attributedStringData2{
+    NSMutableAttributedString *AttributedStringData2 = objc_getAssociatedObject(self, NSObject_AppTools_attributedStringData2);
+    if (!AttributedStringData2) {
+        AttributedStringData2 = [self makeAttributedStringWithRichTextMutArr:self.richTextMutArr2
+                                                       richTextConfigMutArr:self.richTextConfigMutArr2
+                                                             paragraphStyle:nil];
+        [self setAttributedStringData2:AttributedStringData2];
+    }return AttributedStringData2;
+}
+
+-(void)setAttributedStringData2:(NSMutableAttributedString *)attributedStringData2{
+    objc_setAssociatedObject(self,
+                             NSObject_AppTools_attributedStringData2,
+                             attributedStringData2,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+static char *NSObject_AppTools_richTextMutArr2 = "NSObject_AppTools_richTextMutArr2";
+@dynamic richTextMutArr2;
+#pragma mark —— @property(nonatomic,strong)NSMutableArray <NSString *>*richTextMutArr2;
+-(NSMutableArray<NSString *> *)richTextMutArr2{
+    NSMutableArray <NSString *>*RichTextMutArr2 = objc_getAssociatedObject(self, NSObject_AppTools_richTextMutArr2);
+    if (!RichTextMutArr2) {
+        RichTextMutArr2 = NSMutableArray.array;
+        [RichTextMutArr2 addObject:Internationalization(@"相關條款 ")];
+        [RichTextMutArr2 addObject:Internationalization(@"和 ")];
+        [RichTextMutArr2 addObject:Internationalization(@"隱私政策")];
+        [self setRichTextMutArr2:RichTextMutArr2];
+    }return RichTextMutArr2;
+}
+
+-(void)setRichTextMutArr2:(NSMutableArray<NSString *> *)richTextMutArr2{
+    objc_setAssociatedObject(self,
+                             NSObject_AppTools_richTextMutArr2,
+                             richTextMutArr2,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+static char *NSObject_AppTools_richTextConfigMutArr2 = "NSObject_AppTools_richTextConfigMutArr2";
+@dynamic richTextConfigMutArr2;
+#pragma mark —— @property(nonatomic,strong)NSMutableArray <RichTextConfig *>*richTextConfigMutArr2;
+-(NSMutableArray<RichTextConfig *> *)richTextConfigMutArr2{
+    NSMutableArray <RichTextConfig *>*RichTextMutArr2 = objc_getAssociatedObject(self, NSObject_AppTools_richTextConfigMutArr2);
+    if (!RichTextMutArr2) {
+        RichTextMutArr2 = NSMutableArray.array;
+
+        RichTextConfig *config_01 = RichTextConfig.new;
+        config_01.font = notoSansRegular(14);;
+        config_01.textCor = HEXCOLOR(0xAE8330);
+        config_01.targetString = self.richTextMutArr2[0];
+        config_01.urlStr = @"click://";
+        [RichTextMutArr2 addObject:config_01];
+        
+        RichTextConfig *config_02 = RichTextConfig.new;
+        config_02.font = notoSansRegular(14);
+        config_02.textCor = HEXCOLOR(0xAE8330);
+        config_02.targetString = self.richTextMutArr2[1];
+        [RichTextMutArr2 addObject:config_02];
+        
+        RichTextConfig *config_03 = RichTextConfig.new;
+        config_03.font = notoSansRegular(14);
+        config_03.textCor = HEXCOLOR(0xAE8330);
+        config_03.targetString = self.richTextMutArr2[2];
+        config_03.urlStr = @"click://";
+        [RichTextMutArr2 addObject:config_03];
+        [self setRichTextConfigMutArr:RichTextMutArr2];
+    }return RichTextMutArr2;
+}
+
+-(void)setRichTextConfigMutArr2:(NSMutableArray<RichTextConfig *> *)richTextConfigMutArr2{
+    objc_setAssociatedObject(self,
+                             NSObject_AppTools_richTextConfigMutArr2,
+                             richTextConfigMutArr2,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 static char *NSObject_AppTools_connectionTipsTV = "NSObject_AppTools_connectionTipsTV";

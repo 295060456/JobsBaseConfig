@@ -31,3 +31,54 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+/**
+ 
+ -(JobsAppDoorInputViewBaseStyle_3 *)用户名输入框{
+     if (!_用户名输入框) {
+         _用户名输入框 = JobsAppDoorInputViewBaseStyle_3.new;
+         @jobs_weakify(self)
+         [_用户名输入框 actionObjectBlock:^(JobsAppDoorInputViewTFModel *data) {
+             @jobs_strongify(self)
+ //            if ([data isKindOfClass:JobsAppDoorInputViewTFModel.class]) {
+ //                JobsAppDoorInputViewTFModel *model = (JobsAppDoorInputViewTFModel *)data;
+ //                self.confirmWithdrawPassword = model.resString;
+ //            }
+         }];
+         
+         [self.view addSubview:_用户名输入框];
+         [_用户名输入框 mas_makeConstraints:^(MASConstraintMaker *make) {
+             make.centerX.equalTo(self.view);
+             make.size.mas_equalTo(inputSize());
+             make.top.equalTo(self.titleLab.mas_bottom).offset(JobsWidth(85));
+         }];
+         
+         _用户名输入框.layer.cornerRadius = inputSize().height / 2;
+         _用户名输入框.layer.borderWidth = 1.f;
+         _用户名输入框.layer.borderColor = HEXCOLOR(0xEEE2C8).CGColor;
+         
+         [_用户名输入框 richElementsInViewWithModel:self.配置用户名输入框];
+     }return _用户名输入框;
+ }
+
+ -(JobsAppDoorInputViewBaseStyleModel *)配置用户名输入框{
+     if (!_配置用户名输入框) {
+         _配置用户名输入框 = JobsAppDoorInputViewBaseStyleModel.new;
+         _配置用户名输入框.leftViewIMG = JobsIMG(@"用户名");
+         _配置用户名输入框.placeHolderStr = Internationalization(@"请输入您的用户名");
+         _配置用户名输入框.placeholderFont = [UIFont systemFontOfSize:JobsWidth(16) weight:UIFontWeightRegular];
+         _配置用户名输入框.placeholderColor = HEXCOLOR(0xC4C4C4);
+         _配置用户名输入框.placeHolderOffset = JobsWidth(35);
+         _配置用户名输入框.leftViewOffsetX = JobsWidth(10);
+         _配置用户名输入框.isShowDelBtn = YES;
+         _配置用户名输入框.isShowSecurityBtn = NO;
+         _配置用户名输入框.returnKeyType = UIReturnKeyDone;
+         _配置用户名输入框.keyboardAppearance = UIKeyboardAppearanceAlert;
+         _配置用户名输入框.leftViewMode = UITextFieldViewModeAlways;
+         _配置用户名输入框.moveDistance = JobsWidth(40);
+         _配置用户名输入框.titleStrCor = self.配置用户名输入框.placeholderColor = HEXCOLOR(0x524740);
+         _配置用户名输入框.background = JobsIMG(@"设置弹出框输入框背景图");
+         _配置用户名输入框.animationColor = HEXCOLOR(0xF2CC78);
+     }return _配置用户名输入框;
+ }
+ 
+ */
