@@ -153,7 +153,7 @@
         return [data isKindOfClass:NSString.class] ? [self valueForKey:data] : nil;
     };
 }
-
+// if (idToObject(data).isKindOfClassBlock(UIViewModel.class))
 -(JobsReturnBOOLByIDBlock _Nonnull)isKindOfClassBlock{
     return ^(Class cls) {
         return [self isKindOfClass:cls];

@@ -68,6 +68,13 @@
 
 #define JobsMutableArray(MutArrInstace) MutArrInstace ? [MutArrInstace removeAllObjects] : (MutArrInstace = NSMutableArray.array);
 
+static inline NSObject *_Nullable idToObject(id _Nullable data){
+    if ([data isKindOfClass:NSObject.class]) {
+        NSObject *object = (NSObject *)data;
+        return object;
+    }else return nil;
+}
+
 @interface ImageModel : NSObject
 
 @property(nonatomic,strong,nullable)UIImage *image;

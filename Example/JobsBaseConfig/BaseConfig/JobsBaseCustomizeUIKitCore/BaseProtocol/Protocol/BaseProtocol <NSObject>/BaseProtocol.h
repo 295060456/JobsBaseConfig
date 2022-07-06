@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// KVC-Block
 -(JobsReturnIDByIDBlock _Nonnull)valueForKeyBlock;
 /// isKindOfClass-Block
--(JobsReturnBOOLByIDBlock _Nonnull)isKindOfClassBlock;
+-(JobsReturnBOOLByIDBlock _Nonnull)isKindOfClassBlock;// if (idToObject(data).isKindOfClassBlock(UIViewModel.class))
 /// isMemberOfClass-Block
 -(JobsReturnBOOLByIDBlock _Nonnull)isMemberOfClassBlock;
 #pragma mark —— iOS 通知

@@ -52,7 +52,7 @@ static inline TLFrameAnimation *frameAnimation(){
 #pragma mark —— 给UITabBarItem绑定动画
 /// 给UITabBarItem绑定动画
 static inline void setAnimation(UITabBarItem *item,
-                  NSInteger index) {
+                                NSInteger index) {
      item.animation = @[
                        bounceAnimation(),
                        rotationAnimation(),
