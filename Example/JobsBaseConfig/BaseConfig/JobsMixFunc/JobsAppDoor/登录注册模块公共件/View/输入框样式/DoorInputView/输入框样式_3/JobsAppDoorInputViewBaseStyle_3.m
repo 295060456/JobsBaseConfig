@@ -145,32 +145,13 @@
     if (!_textField) {
         _textField = JobsMagicTextField.new;
         _textField.delegate = self;
-        
         self.textField.secureTextEntry = self.doorInputViewBaseStyleModel.isShowSecurityBtn;
-        
         @jobs_weakify(self)
-        [[_textField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
+        [_textField textFieldEventFilterBlock:^BOOL(id _Nullable data) {
             NSLog(@"SSS = %@",self.textFieldInputModel.PlaceHolder);
             @jobs_strongify(self)
-            if ([self.textFieldInputModel.PlaceHolder isEqualToString:Internationalization(@"User")]) {
-                if ([self checkUserName:value]) {
-                    return YES;
-                }else{
-                    if (![self userAndPasswordNotUpTo:value]) {
-                        self.textField.text = [value substringWithRange:NSMakeRange(0, value.length - 1)];
-                    }return NO;
-                }
-            }else if ([self.textFieldInputModel.PlaceHolder isEqualToString:Internationalization(@"Code")] ||
-                      [self.textFieldInputModel.PlaceHolder isEqualToString:Internationalization(@"Confirm")]){
-                if ([self checkUserPassword:value]) {
-                    return YES;
-                }else{
-                    if (![self userAndPasswordNotUpTo:value]) {
-                        self.textField.text = [value substringWithRange:NSMakeRange(0, value.length - 1)];
-                    }return NO;
-                }
-            }else{}return NO;
-        }] subscribeNext:^(NSString * _Nullable x) {
+            return self.returnBOOLByIDBlock ? self.returnBOOLByIDBlock(data) : YES;
+        } subscribeNextBlock:^(id _Nullable x) {
             @jobs_strongify(self)
             NSLog(@"输入的字符为 = %@",x);
             self.securityModeBtn.jobsVisible = ![NSString isNullString:x] && self.doorInputViewBaseStyleModel.isShowSecurityBtn;/// 👁
@@ -181,7 +162,6 @@
                       value:x];
             }
         }];
-        
         [self addSubview:_textField];
         [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.left.bottom.equalTo(self);

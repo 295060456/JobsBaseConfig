@@ -106,6 +106,66 @@
 -(void)actionReturnIDByStringBlock:(JobsReturnIDByStringBlock)returnObjectByStringBlock{
     self.returnObjectByStringBlock = returnObjectByStringBlock;
 }
+
+-(void)actionReturnNSIntegerByIDBlock:(JobsReturnNSIntegerByIDBlock)returnNSIntegerByIDBlock{
+    self.returnNSIntegerByIDBlock = returnNSIntegerByIDBlock;
+}
+
+-(void)actionReturnNSUIntegerByIDBlock:(JobsReturnNSUIntegerByIDBlock)returnNSUIntegerByIDBlock{
+    self.returnNSUIntegerByIDBlock = returnNSUIntegerByIDBlock;
+}
+
+-(void)actionReturnCGFloatByIDBlock:(JobsReturnCGFloatByIDBlock)returnCGFloatByIDBlock{
+    self.returnCGFloatByIDBlock = returnCGFloatByIDBlock;
+}
+
+-(void)actionReturnBOOLByIDBlock:(JobsReturnBOOLByIDBlock)returnBOOLByIDBlock{
+    self.returnBOOLByIDBlock = returnBOOLByIDBlock;
+}
+
+-(void)actionReturnIntByIDBlock:(JobsReturnIntByIDBlock)returnIntByIDBlock{
+    self.returnIntByIDBlock = returnIntByIDBlock;
+}
+
+-(void)actionReturnUnsignedIntByIDBlock:(JobsReturnUnsignedIntByIDBlock)returnUnsignedIntByIDBlock{
+    self.returnUnsignedIntByIDBlock = returnUnsignedIntByIDBlock;
+}
+
+-(void)actionReturnFloatByIDBlock:(JobsReturnFloatByIDBlock)returnFloatByIDBlock{
+    self.returnFloatByIDBlock = returnFloatByIDBlock;
+}
+
+-(void)actionReturnDoubleByIDBlock:(JobsReturnDoubleByIDBlock)returnDoubleByIDBlock{
+    self.returnDoubleByIDBlock = returnDoubleByIDBlock;
+}
+
+-(void)actionReturnCharByIDBlock:(JobsReturnCharByIDBlock)returnCharByIDBlock{
+    self.returnCharByIDBlock = returnCharByIDBlock;
+}
+
+-(void)actionReturnUnsignedCharByIDBlock:(JobsReturnUnsignedCharByIDBlock)returnUnsignedCharByIDBlock{
+    self.returnUnsignedCharByIDBlock = returnUnsignedCharByIDBlock;
+}
+
+-(void)actionReturnShortByIDBlock:(JobsReturnShortByIDBlock)returnShortByIDBlock{
+    self.returnShortByIDBlock = returnShortByIDBlock;
+}
+
+-(void)actionReturnUnsignedShortByIDBlock:(JobsReturnUnsignedShortByIDBlock)returnUnsignedShortByIDBlock{
+    self.returnUnsignedShortByIDBlock = returnUnsignedShortByIDBlock;
+}
+
+-(void)actionReturnLongByIDBlock:(JobsReturnLongByIDBlock)returnLongByIDBlock{
+    self.returnLongByIDBlock = returnLongByIDBlock;
+}
+
+-(void)actionReturnUnsignedLongByIDBlock:(JobsReturnUnsignedLongByIDBlock)returnUnsignedLongByIDBlock{
+    self.returnUnsignedLongByIDBlock = returnUnsignedLongByIDBlock;
+}
+
+-(void)actionReturnUnsignedLongLongByIDBlock:(JobsReturnUnsignedLongLongByIDBlock)returnUnsignedLongLongByIDBlock{
+    self.returnUnsignedLongLongByIDBlock = returnUnsignedLongLongByIDBlock;
+}
 /// 6、有（单一）入参、有返回值的回调【返回入参类型】
 -(void)actionReturnObjectBlock:(JobsReturnIDByIDBlock)returnObjectBlock{
     self.returnObjectBlock = returnObjectBlock;
@@ -485,6 +545,201 @@ static char *NSObject_CallBackInfoByBlock_returnObjectByStringBlock = "NSObject_
     objc_setAssociatedObject(self,
                              NSObject_CallBackInfoByBlock_returnObjectByStringBlock,
                              returnObjectByStringBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnNSIntegerByIDBlock returnNSIntegerByIDBlock;
+static char *NSObject_CallBackInfoByBlock_returnNSIntegerByIDBlock = "NSObject_CallBackInfoByBlock_returnNSIntegerByIDBlock";
+@dynamic returnNSIntegerByIDBlock;
+-(JobsReturnNSIntegerByIDBlock)returnNSIntegerByIDBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnNSIntegerByIDBlock);
+}
+
+-(void)setReturnNSIntegerByIDBlock:(JobsReturnNSIntegerByIDBlock)returnNSIntegerByIDBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnNSIntegerByIDBlock,
+                             returnNSIntegerByIDBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnNSUIntegerByIDBlock returnNSUIntegerByIDBlock;
+static char *NSObject_CallBackInfoByBlock_returnNSUIntegerByIDBlock = "NSObject_CallBackInfoByBlock_returnNSUIntegerByIDBlock";
+@dynamic returnNSUIntegerByIDBlock;
+-(JobsReturnNSUIntegerByIDBlock)returnNSUIntegerByIDBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnNSUIntegerByIDBlock);
+}
+
+-(void)setReturnNSUIntegerByIDBlock:(JobsReturnNSUIntegerByIDBlock)returnNSUIntegerByIDBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnNSUIntegerByIDBlock,
+                             returnNSUIntegerByIDBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnCGFloatByIDBlock returnCGFloatByIDBlock;
+static char *NSObject_CallBackInfoByBlock_returnCGFloatByIDBlock = "NSObject_CallBackInfoByBlock_returnCGFloatByIDBlock";
+@dynamic returnCGFloatByIDBlock;
+-(JobsReturnCGFloatByIDBlock)returnCGFloatByIDBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnCGFloatByIDBlock);
+}
+
+-(void)setReturnCGFloatByIDBlock:(JobsReturnCGFloatByIDBlock)returnCGFloatByIDBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnCGFloatByIDBlock,
+                             returnCGFloatByIDBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnBOOLByIDBlock returnBOOLByIDBlock;
+static char *NSObject_CallBackInfoByBlock_returnBOOLByIDBlock = "NSObject_CallBackInfoByBlock_returnBOOLByIDBlock";
+@dynamic returnBOOLByIDBlock;
+-(JobsReturnBOOLByIDBlock)returnBOOLByIDBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnBOOLByIDBlock);
+}
+
+-(void)setReturnBOOLByIDBlock:(JobsReturnBOOLByIDBlock)returnBOOLByIDBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnBOOLByIDBlock,
+                             returnBOOLByIDBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnIntByIDBlock returnIntByIDBlock;
+static char *NSObject_CallBackInfoByBlock_returnIntByIDBlock = "NSObject_CallBackInfoByBlock_returnIntByIDBlock";
+@dynamic returnIntByIDBlock;
+-(JobsReturnIntByIDBlock)returnIntByIDBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnIntByIDBlock);
+}
+
+-(void)setReturnIntByIDBlock:(JobsReturnIntByIDBlock)returnIntByIDBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnIntByIDBlock,
+                             returnIntByIDBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnUnsignedIntByIDBlock returnUnsignedIntByIDBlock;
+static char *NSObject_CallBackInfoByBlock_returnUnsignedIntByIDBlock = "NSObject_CallBackInfoByBlock_returnUnsignedIntByIDBlock";
+@dynamic returnUnsignedIntByIDBlock;
+-(JobsReturnUnsignedIntByIDBlock)returnUnsignedIntByIDBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnUnsignedIntByIDBlock);
+}
+
+-(void)setReturnUnsignedIntByIDBlock:(JobsReturnUnsignedIntByIDBlock)returnUnsignedIntByIDBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnUnsignedIntByIDBlock,
+                             returnUnsignedIntByIDBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnFloatByIDBlock returnFloatByIDBlock;
+static char *NSObject_CallBackInfoByBlock_returnFloatByIDBlock = "NSObject_CallBackInfoByBlock_returnFloatByIDBlock";
+@dynamic returnFloatByIDBlock;
+-(JobsReturnFloatByIDBlock)returnFloatByIDBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnFloatByIDBlock);
+}
+
+-(void)setReturnFloatByIDBlock:(JobsReturnFloatByIDBlock)returnFloatByIDBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnFloatByIDBlock,
+                             returnFloatByIDBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnDoubleByIDBlock returnDoubleByIDBlock;
+static char *NSObject_CallBackInfoByBlock_returnDoubleByIDBlock = "NSObject_CallBackInfoByBlock_returnDoubleByIDBlock";
+@dynamic returnDoubleByIDBlock;
+-(JobsReturnDoubleByIDBlock)returnDoubleByIDBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnDoubleByIDBlock);
+}
+
+-(void)setReturnDoubleByIDBlock:(JobsReturnDoubleByIDBlock)returnDoubleByIDBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnDoubleByIDBlock,
+                             returnDoubleByIDBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnCharByIDBlock returnCharByIDBlock;
+static char *NSObject_CallBackInfoByBlock_returnCharByIDBlock = "NSObject_CallBackInfoByBlock_returnCharByIDBlock";
+@dynamic returnCharByIDBlock;
+-(JobsReturnCharByIDBlock)returnCharByIDBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnCharByIDBlock);
+}
+
+-(void)setReturnCharByIDBlock:(JobsReturnCharByIDBlock)returnCharByIDBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnCharByIDBlock,
+                             returnCharByIDBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnUnsignedCharByIDBlock returnUnsignedCharByIDBlock;
+static char *NSObject_CallBackInfoByBlock_returnUnsignedCharByIDBlock = "NSObject_CallBackInfoByBlock_returnUnsignedCharByIDBlock";
+@dynamic returnUnsignedCharByIDBlock;
+-(JobsReturnUnsignedCharByIDBlock)returnUnsignedCharByIDBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnUnsignedCharByIDBlock);
+}
+
+-(void)setReturnUnsignedCharByIDBlock:(JobsReturnUnsignedCharByIDBlock)returnUnsignedCharByIDBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnUnsignedCharByIDBlock,
+                             returnUnsignedCharByIDBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnShortByIDBlock returnShortByIDBlock;
+static char *NSObject_CallBackInfoByBlock_returnShortByIDBlock = "NSObject_CallBackInfoByBlock_returnShortByIDBlock";
+@dynamic returnShortByIDBlock;
+-(JobsReturnShortByIDBlock)returnShortByIDBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnShortByIDBlock);
+}
+
+-(void)setReturnShortByIDBlock:(JobsReturnShortByIDBlock)returnShortByIDBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnShortByIDBlock,
+                             returnShortByIDBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnUnsignedShortByIDBlock returnUnsignedShortByIDBlock;
+static char *NSObject_CallBackInfoByBlock_returnUnsignedShortByIDBlock = "NSObject_CallBackInfoByBlock_returnUnsignedShortByIDBlock";
+@dynamic returnUnsignedShortByIDBlock;
+-(JobsReturnUnsignedShortByIDBlock)returnUnsignedShortByIDBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnUnsignedShortByIDBlock);
+}
+
+-(void)setReturnUnsignedShortByIDBlock:(JobsReturnUnsignedShortByIDBlock)returnUnsignedShortByIDBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnUnsignedShortByIDBlock,
+                             returnUnsignedShortByIDBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnLongByIDBlock returnLongByIDBlock;
+static char *NSObject_CallBackInfoByBlock_returnLongByIDBlock = "NSObject_CallBackInfoByBlock_returnLongByIDBlock";
+@dynamic returnLongByIDBlock;
+-(JobsReturnLongByIDBlock)returnLongByIDBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnLongByIDBlock);
+}
+
+-(void)setReturnLongByIDBlock:(JobsReturnLongByIDBlock)returnLongByIDBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnLongByIDBlock,
+                             returnLongByIDBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnUnsignedLongByIDBlock returnUnsignedLongByIDBlock;
+static char *NSObject_CallBackInfoByBlock_returnUnsignedLongByIDBlock = "NSObject_CallBackInfoByBlock_returnUnsignedLongByIDBlock";
+@dynamic returnUnsignedLongByIDBlock;
+-(JobsReturnUnsignedLongByIDBlock)returnUnsignedLongByIDBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnUnsignedLongByIDBlock);
+}
+
+-(void)setReturnUnsignedLongByIDBlock:(JobsReturnUnsignedLongByIDBlock)returnUnsignedLongByIDBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnUnsignedLongByIDBlock,
+                             returnUnsignedLongByIDBlock,
+                             OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnUnsignedLongLongByIDBlock returnUnsignedLongLongByIDBlock;
+static char *NSObject_CallBackInfoByBlock_returnUnsignedLongLongByIDBlock = "NSObject_CallBackInfoByBlock_returnUnsignedLongLongByIDBlock";
+@dynamic returnUnsignedLongLongByIDBlock;
+-(JobsReturnUnsignedLongLongByIDBlock)returnUnsignedLongLongByIDBlock{
+    return objc_getAssociatedObject(self, NSObject_CallBackInfoByBlock_returnUnsignedLongLongByIDBlock);
+}
+
+-(void)setReturnUnsignedLongLongByIDBlock:(JobsReturnUnsignedLongLongByIDBlock)returnUnsignedLongLongByIDBlock{
+    objc_setAssociatedObject(self,
+                             NSObject_CallBackInfoByBlock_returnUnsignedLongLongByIDBlock,
+                             returnUnsignedLongLongByIDBlock,
                              OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 /// 6、有（单一）入参、有返回值的回调【返回入参类型】

@@ -135,10 +135,10 @@
         _textField = ZYTextField.new;
         _textField.delegate = self;
         @jobs_weakify(self)
-        [[_textField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
-//            @jobs_strongify(self)
-            return YES;
-        }] subscribeNext:^(NSString * _Nullable x) {
+        [_textField textFieldEventFilterBlock:^BOOL(id _Nullable data) {
+            @jobs_strongify(self)
+            return self.returnBOOLByIDBlock ? self.returnBOOLByIDBlock(data) : YES;
+        } subscribeNextBlock:^(id _Nullable x) {
             @jobs_strongify(self)
             NSLog(@"输入的字符为 = %@",x);
             self.securityModeBtn.jobsVisible = ![NSString isNullString:x] && self.doorInputViewBaseStyleModel.isShowSecurityBtn;/// 👁
@@ -150,7 +150,6 @@
                       value:x];
             }
         }];
-        
         [self addSubview:_textField];
         [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.left.right.equalTo(self);

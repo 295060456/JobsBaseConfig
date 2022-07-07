@@ -384,33 +384,10 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
                     self.customerServiceBtnY =  self.customerServiceBtn.y;
                 }
                 else if ([btn.titleLabel.text isEqualToString:Title6]){// Title6 Internationalization(@"Register")
-                    if ([self checkRegisterData:self.appDoorModel]) {
-                        @jobs_weakify(self)
-                        [self NTESVerifyCodeWithBlock:^(UIViewModel *data) {
-                            @jobs_strongify(self)
-                            NSLog(@"网易云盾验证注册成功");
-                            [self authRegisterByAccount:self.appDoorModel.userName
-                                                country:nil
-                                             inviteCode:nil
-                                               password:self.appDoorModel.password
-                                                  phone:self.appDoorModel.tel
-                                              phoneCode:self.appDoorModel.verificationCode
-                                               validate:data.ntesVerifyCodeValidate];
-                        }];
-                    }
+
                 }
                 else if ([btn.titleLabel.text isEqualToString:Title7]){// Internationalization(@"Login")
-                    if ([self checkLoginData:self.appDoorModel]) {
-                        @jobs_weakify(self)
-                        [self NTESVerifyCodeWithBlock:^(UIViewModel *data) {
-                            @jobs_strongify(self)
-                            NSLog(@"网易云盾验证登陆成功");
-                            [self authLoginByAccount:self.appDoorModel.userName
-                                            deviceId:nil
-                                            password:self.appDoorModel.password
-                                            validate:data.ntesVerifyCodeValidate];
-                        }];
-                    }
+
                 }
                 else if ([btn.titleLabel.text isEqualToString:Title4]){// Title4 Internationalization(@"Back to HomePage")
                     UIButton *abandonLoginBtn = (UIButton *)data;

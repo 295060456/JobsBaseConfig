@@ -112,14 +112,14 @@
         _textField = ZYTextField.new;
         _textField.delegate = self;
         @jobs_weakify(self)
-        [_textField textFieldEventFilterBlock:^BOOL(id data) {
-            return YES;
-        } subscribeNextBlock:^(id x) {
+        [_textField textFieldEventFilterBlock:^BOOL(id _Nullable data) {
+            @jobs_strongify(self)
+            return self.returnBOOLByIDBlock ? self.returnBOOLByIDBlock(data) : YES;
+        } subscribeNextBlock:^(id _Nullable x) {
             @jobs_strongify(self)
             [self block:self->_textField
                   value:x];
         }];
-        
         [self addSubview:_textField];
         [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self);

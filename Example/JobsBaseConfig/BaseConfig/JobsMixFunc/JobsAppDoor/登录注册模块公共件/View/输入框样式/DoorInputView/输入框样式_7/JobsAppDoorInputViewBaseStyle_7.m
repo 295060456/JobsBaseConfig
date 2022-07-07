@@ -8,11 +8,11 @@
 #import "JobsAppDoorInputViewBaseStyle_7.h"
 
 @interface JobsAppDoorInputViewBaseStyle_7 ()
-//UI
+/// UI
 @property(nonatomic,strong)JobsMagicTextField *textField;
 @property(nonatomic,strong)UIImageView *leftIMGV;
 @property(nonatomic,strong)JobsPageView *jobsPageView;
-//Data
+/// Data
 @property(nonatomic,strong)JobsAppDoorInputViewBaseStyleModel *doorInputViewBaseStyleModel;
 @property(nonatomic,strong)NSMutableArray <UIViewModel *>*jobsPageViewDataMutArr;
 
@@ -123,7 +123,7 @@
             jobsPageViewModel.textModel.text = Internationalization(@"請選擇區號");
             jobsPageViewModel.textModel.textCor = HEXCOLOR(0xC4C4C4);
             jobsPageViewModel.bgCor = JobsClearColor;
-            jobsPageViewModel.textModel.font = [UIFont systemFontOfSize:JobsWidth(16) weight:UIFontWeightRegular];
+            jobsPageViewModel.textModel.font = UIFontWeightRegularSize(16);
             [_jobsPageViewDataMutArr addObject:jobsPageViewModel];
         }
         
@@ -132,7 +132,7 @@
             jobsPageViewModel.textModel.text = @"+87";
             jobsPageViewModel.textModel.textCor = HEXCOLOR(0xC4C4C4);
             jobsPageViewModel.bgCor = JobsClearColor;
-            jobsPageViewModel.textModel.font = [UIFont systemFontOfSize:JobsWidth(16) weight:UIFontWeightRegular];
+            jobsPageViewModel.textModel.font = UIFontWeightRegularSize(16);;
             [_jobsPageViewDataMutArr addObject:jobsPageViewModel];
         }
         
@@ -141,7 +141,7 @@
             jobsPageViewModel.textModel.text = @"+88";
             jobsPageViewModel.textModel.textCor = HEXCOLOR(0xC4C4C4);
             jobsPageViewModel.bgCor = JobsClearColor;
-            jobsPageViewModel.textModel.font = [UIFont systemFontOfSize:JobsWidth(16) weight:UIFontWeightRegular];
+            jobsPageViewModel.textModel.font = UIFontWeightRegularSize(16);;
             [_jobsPageViewDataMutArr addObject:jobsPageViewModel];
         }
         
@@ -168,25 +168,15 @@
         _textField = JobsMagicTextField.new;
         _textField.delegate = self;
         @jobs_weakify(self)
-        [[_textField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
+        [_textField textFieldEventFilterBlock:^BOOL(NSString * _Nullable data) {
             @jobs_strongify(self)
-            JobsAppDoorInputViewTFModel *textFieldInputModel = (JobsAppDoorInputViewTFModel *)self.textField.objBindingParams;
-            if ([textFieldInputModel.PlaceHolder isEqualToString:Internationalization(@"Telephone")]) {// 手机号码
-                if ([self checkTelNum:value]) {
-                    return YES;
-                }else{
-                    if (![self telNotUpTo:value]) {
-                        self.textField.text = [value substringWithRange:NSMakeRange(0, value.length - 1)];
-                    }return NO;
-                }
-            }return NO;
-        }] subscribeNext:^(NSString * _Nullable x) {
+            return self.returnBOOLByIDBlock ? self.returnBOOLByIDBlock(data) : YES;
+        } subscribeNextBlock:^(NSString * _Nullable x) {
             @jobs_strongify(self)
             NSLog(@"输入的字符为 = %@",x);
             [self block:self->_textField
                   value:x];
         }];
-        
         [self addSubview:_textField];
         [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.bottom.equalTo(self);
