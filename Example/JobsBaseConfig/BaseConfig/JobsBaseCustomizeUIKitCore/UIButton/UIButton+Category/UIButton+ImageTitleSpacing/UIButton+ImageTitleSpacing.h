@@ -35,7 +35,7 @@ typedef NS_ENUM(NSUInteger, GLButtonEdgeInsetsStyle) {
  *  @param style titleLabel和imageView的布局样式
  *  @param imageTitleSpace titleLabel和imageView的间距
  */
-- (CGFloat)layoutButtonWithEdgeInsetsStyle:(GLButtonEdgeInsetsStyle)style
+- (CGFloat)layoutButtonWithEdgeInsetsStyle:(GLButtonEdgeInsetsStyle)edgeInsetsStyle
                            imageTitleSpace:(CGFloat)imageTitleSpace;
 
 @end

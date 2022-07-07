@@ -14,7 +14,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,assign)CGFloat imageTitleSpace;
 
--(id)makeBtnLabelByShowingType:(UILabelShowingType)labelShowingType;
+/// 灵活配置UIButton
+/// @param edgeInsetsStyle UIButton 图文的相对位置关系
+/// @param labelShowingType UIButton 文本显示标准
+/// @param imageTitleSpace UIButton 图文相对位置
+-(UIButton *)configButtonWithEdgeInsetsStyle:(GLButtonEdgeInsetsStyle)edgeInsetsStyle
+                      labelShowingType:(UILabelShowingType)labelShowingType
+                             imageTitleSpace:(CGFloat)imageTitleSpace;
+-(UIButton *)makeBtnLabelByShowingType:(UILabelShowingType)labelShowingType;
 
 @end
 

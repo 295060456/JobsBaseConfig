@@ -9,8 +9,16 @@
 #import "UIButton+ImageTitleSpacing.h"
 
 @implementation UIButton (ImageTitleSpacing)
-
--(CGFloat)layoutButtonWithEdgeInsetsStyle:(GLButtonEdgeInsetsStyle)style
+/**
+ *  每次设置完新值都需要再重新走一遍，进行刷新
+ *  设置button的titleLabel和imageView的布局样式，及间距
+ *  这一句一定要放在有frame以后执行，否则界面错乱
+ *  在设置完title以后写
+ *  在title竖排模式情况下，frame一定要装得下整行字
+ *  @param style titleLabel和imageView的布局样式
+ *  @param imageTitleSpace titleLabel和imageView的间距
+ */
+-(CGFloat)layoutButtonWithEdgeInsetsStyle:(GLButtonEdgeInsetsStyle)edgeInsetsStyle
                           imageTitleSpace:(CGFloat)imageTitleSpace{
 
     if (HDDeviceSystemVersion.floatValue >= 15.0) {
@@ -38,7 +46,7 @@
                                            UIEdgeInsets imageEdgeInsets = self.imageEdgeInsets;
                                            UIEdgeInsets labelEdgeInsets = self.titleEdgeInsets;
                                            // 3.、根据style和space得到imageEdgeInsets和labelEdgeInsets的值
-                                           switch (style) {
+                                           switch (edgeInsetsStyle) {
                                                /// image在左，label在右 【系统默认状态】
                                                case GLButtonEdgeInsetsStyleLeft:{
                                                    labelEdgeInsets.left += imageTitleSpace;
@@ -104,7 +112,7 @@
 //                                           self.titleLabel.backgroundColor = JobsRedColor;
 //                                           self.imageView.backgroundColor = JobsBlueColor;
                                            
-                                           switch (style) {
+                                           switch (edgeInsetsStyle) {
                                                /// image在上，label在下
                                                case GLButtonEdgeInsetsStyleTop:{
                                                    return self.titleLabel.top - self.imageView.bottom;

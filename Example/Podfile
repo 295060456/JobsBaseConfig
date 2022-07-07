@@ -83,6 +83,7 @@ def ui
   pod 'PPBadgeView' # https://github.com/jkpang/PPBadgeView iOS自定义Badge组件, 支持UIView, UITabBarItem, UIBarButtonItem以及子类 NO_SMP
   pod 'WHToast' # https://github.com/remember17/WHToast 一个轻量级的提示控件，没有任何依赖 NO_SMP
   pod 'BEMCheckBox' # https://github.com/Boris-Em/BEMCheckBox 复选框 更炫 Tasteful Checkbox for iOS
+  pod 'WMZCode' # https://github.com/wwmz/WMZCode
 #  pod 'KJBannerView' # https://github.com/yangKJ/KJBannerViewDemo 轮播图 【有点问题，暂时手动管理】
 #  pod 'YYKit'
   pod 'YYImage'

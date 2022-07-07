@@ -8,8 +8,26 @@
 #import "UIButton+Extra.h"
 
 @implementation UIButton (Extra)
+/// 灵活配置UIButton
+/// @param edgeInsetsStyle UIButton 图文的相对位置关系
+/// @param labelShowingType UIButton 文本显示标准
+/// @param imageTitleSpace UIButton 图文相对位置
+-(UIButton *)configButtonWithEdgeInsetsStyle:(GLButtonEdgeInsetsStyle)edgeInsetsStyle
+                      labelShowingType:(UILabelShowingType)labelShowingType
+                       imageTitleSpace:(CGFloat)imageTitleSpace{
+    /// 1、一定要先刷新UI得出Masonry约束的值
+    [self.superview layoutIfNeeded];
+    /// 2、在（1）的大前提下，对按钮图文的相对位置进行重排（包括设置图文之间的间距）
+    [self layoutButtonWithEdgeInsetsStyle:edgeInsetsStyle
+                          imageTitleSpace:imageTitleSpace];
+    /// 3、再一次刷新页面拿到一个最新的约束值，再根据参数UILabelShowingType，系统自动适配调整UIButton的约束值到最新
+    [self makeBtnLabelByShowingType:labelShowingType];
+    /// 4 、补偿（2）产生的图文间距
+    self.width += imageTitleSpace;
+    return self;
+}
 
--(id)makeBtnLabelByShowingType:(UILabelShowingType)labelShowingType{
+-(UIButton *)makeBtnLabelByShowingType:(UILabelShowingType)labelShowingType{
     [self.superview layoutIfNeeded];
     self.titleLabel.labelShowingType = labelShowingType;
     switch (labelShowingType) {

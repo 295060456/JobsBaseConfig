@@ -17,10 +17,11 @@
     UIButton *backBtnCategory = UIButton.new;
     backBtnCategory.titleFont = viewModel.backBtnTitleModel.font;
     backBtnCategory.normalTitle = viewModel.backBtnTitleModel.text;
-    backBtnCategory.normalTitleColor = viewModel.backBtnTitleModel.textCor ? : UIColor.blackColor;
-    [backBtnCategory layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft
+    backBtnCategory.normalTitleColor = viewModel.backBtnTitleModel.textCor ? : JobsBlackColor;
+    backBtnCategory.normalImage = self.makeBackBtnImage;
+    [backBtnCategory configButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft
+                                    labelShowingType:UILabelShowingType_03
                                      imageTitleSpace:JobsWidth(8)];
-    [backBtnCategory makeBtnLabelByShowingType:UILabelShowingType_03];
     return backBtnCategory;
 }
 /// 配置返回键图片
@@ -53,7 +54,6 @@ static char *BaseVC_BackBtn_backBtnCategory = "BaseVC_BackBtn_backBtnCategory";
             @jobs_strongify(self)
             [self backBtnClickEvent:x];
         }];
-        BackBtnCategory.normalImage = self.makeBackBtnImage;
         [self setBackBtnCategory:BackBtnCategory];
     }return BackBtnCategory;
 }

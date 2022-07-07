@@ -10,7 +10,7 @@
 @interface TransparentRegionVC ()
 
 @property(nonatomic,strong)UIScrollView *scrollView;
-@property(nonatomic,strong)UILabel *lab;
+@property(nonatomic,strong)UILabel *label;
 
 @end
 
@@ -36,9 +36,9 @@
     self.view.backgroundColor = JobsYellowColor;
     [self setGKNav];
     [self setGKNavBackBtn];
-    
+
     self.scrollView.alpha = 1;
-    self.lab.alpha = 1;
+    self.label.alpha = 1;
     [self addArc];
 }
 
@@ -85,15 +85,21 @@
     }return _scrollView;
 }
 
--(UILabel *)lab{
-    if (!_lab) {
-        _lab = UILabel.new;
-        _lab.backgroundColor = [UIColor blueColor];
-        _lab.frame = CGRectMake(100, 300, 100, 100);
-        [self.scrollView addSubview:_lab];
-    }return _lab;;
+-(UILabel *)label{
+    if (!_label) {
+        _label = UILabel.new;
+        _label.text = Internationalization(@"iOS-UIView设置阴影效果");
+        _label.frame = CGRectMake(100, 400, 200, 200);
+        _label.backgroundColor = JobsYellowColor;
+        _label.layer.shadowColor = JobsBlueColor.CGColor;//阴影颜色
+        _label.layer.shadowOpacity = 0.8;//阴影透明度，默认为0，如果不设置的话看不到阴影，切记，这是个大坑
+        _label.layer.shadowOffset = CGSizeMake(0, 0);//设置偏移量
+        _label.layer.cornerRadius = 9.0;
+        _label.layer.shadowRadius = 9.0;
+        //参数依次为大小，设置四个角圆角状态，圆角曲度
+        _label.layer.shadowPath = [UIBezierPath bezierPathWithRoundedRect:_label.bounds byRoundingCorners:5 cornerRadii:CGSizeMake(0, 0)].CGPath;
+        [self.scrollView addSubview:_label];
+    }return _label;
 }
-
-
 
 @end
