@@ -203,7 +203,7 @@ mainTableViewDidScroll:(UIScrollView *)scrollView{
         for (NSString *str in self.titleMutArr) {
             JXCategoryViewWithHeaderViewSubVC *vipSubVC = JXCategoryViewWithHeaderViewSubVC.new;
             vipSubVC.jobsTag = [self.titleMutArr indexOfObject:str];
-            [self.childVCMutArr addObject:vipSubVC];
+            [_childVCMutArr addObject:vipSubVC];
         }
     }return _childVCMutArr;
 }

@@ -35,3 +35,51 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
+/**
+ 示例代码：
+ -(JobsAppDoorInputViewBaseStyle_9 *)获取并输入手机验证码{
+     if (!_获取并输入手机验证码) {
+         _获取并输入手机验证码 = [JobsAppDoorInputViewBaseStyle_9.alloc initWithSize:inputSize()];
+         _获取并输入手机验证码.countDownBtnWidth = JobsWidth(80);
+         _获取并输入手机验证码.textFieldWidth = JobsWidth(220);
+         @jobs_weakify(self)
+         [_获取并输入手机验证码 actionObjectBlock:^(JobsAppDoorInputViewTFModel *data) {
+             @jobs_strongify(self)
+ //            if ([data isKindOfClass:JobsAppDoorInputViewTFModel.class]) {
+ //                JobsAppDoorInputViewTFModel *model = (JobsAppDoorInputViewTFModel *)data;
+ //                self.newsWithdrawPassword = model.resString;
+ //            }
+         }];
+         
+         [self.view addSubview:_获取并输入手机验证码];
+         [_获取并输入手机验证码 mas_makeConstraints:^(MASConstraintMaker *make) {
+             make.centerX.equalTo(self.view);
+             make.size.mas_equalTo(_获取并输入手机验证码.thisViewSize);
+             make.top.equalTo(self.选择区号并输入手机号.mas_bottom).offset(JobsWidth(32));
+         }];
+         
+         _获取并输入手机验证码.layer.cornerRadius = JobsWidth(52 / 2);
+         _获取并输入手机验证码.layer.borderColor = HEXCOLOR(0xEEE2C8).CGColor;
+         [_获取并输入手机验证码 richElementsInViewWithModel:self.配置验证码输入];
+     }return _获取并输入手机验证码;
+ }
+ 
+ -(JobsAppDoorInputViewBaseStyleModel *)配置验证码输入{
+     if (!_配置验证码输入) {
+         _配置验证码输入 = JobsAppDoorInputViewBaseStyleModel.new;
+         _配置验证码输入.leftViewIMG = JobsIMG(@"安全");
+         _配置验证码输入.placeHolderStr = Internationalization(@"請輸入驗證碼");
+         _配置验证码输入.placeholderFont = notoSansRegular(JobsWidth(16));
+         _配置验证码输入.isShowDelBtn = YES;
+         _配置验证码输入.isShowSecurityBtn = NO;
+         _配置验证码输入.returnKeyType = UIReturnKeyDone;
+         _配置验证码输入.keyboardAppearance = UIKeyboardAppearanceAlert;
+         _配置验证码输入.leftViewMode = UITextFieldViewModeAlways;
+         _配置验证码输入.titleStrCor = _配置验证码输入.placeholderColor = HEXCOLOR_ALPHA(0xC4C4C4,1.f);
+ //        配置_配置验证码输入码输入.fieldEditorOffset = JobsWidth(80);
+     }return _配置验证码输入;
+ }
+
+ 
+ */

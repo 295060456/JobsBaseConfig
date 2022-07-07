@@ -226,7 +226,7 @@ ratio:(CGFloat)ratio {
     if (!_childVCMutArr) {
         _childVCMutArr = NSMutableArray.array;
         for (NSString *str in self.titleMutArr) {
-            [self.childVCMutArr addObject:JXCategoryViewVerticalShowSubBaseVC.new];
+            [_childVCMutArr addObject:JXCategoryViewVerticalShowSubBaseVC.new];
         }
     }return _childVCMutArr;
 }
