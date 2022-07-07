@@ -11,12 +11,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TMSWalletModel : NSObject
-
-@property(nonatomic,assign)BOOL isSelected;
-
-@end
-
 @interface TMSWalletCollectionViewCell : UICollectionViewCell<BaseViewProtocol>
 
 @end

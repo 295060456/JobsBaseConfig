@@ -12,7 +12,7 @@
 @property(nonatomic,strong)UICollectionView *collectionView;
 /// Data
 @property(nonatomic,strong)TMSCollectionViewLayout *tms_layout;
-@property(nonatomic,strong)NSMutableArray <NSMutableArray <TMSWalletModel *>*>*dataSource;
+@property(nonatomic,strong)NSMutableArray <NSMutableArray <UIViewModel *>*>*dataSource;
 
 @end
 
@@ -80,7 +80,7 @@
         NSMutableArray *tempDataSource = NSMutableArray.array;
         NSInteger maxCount = i == 0 ? 20 : 6;
         for (NSInteger j = 0 ; j < maxCount; j++) {
-            TMSWalletModel *model = TMSWalletModel.new;
+            UIViewModel *model = UIViewModel.new;
             [tempDataSource addObject:model];
         }
         [self.dataSource addObject:tempDataSource.copy];
@@ -120,15 +120,15 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [self.dataSource enumerateObjectsUsingBlock:^(NSArray *sectionArray,
                                                   NSUInteger idx,
                                                   BOOL * _Nonnull stop) {
-        [sectionArray enumerateObjectsUsingBlock:^(TMSWalletModel *model,
+        [sectionArray enumerateObjectsUsingBlock:^(UIViewModel *model,
                                                    NSUInteger idx,
                                                    BOOL * _Nonnull stop) {
             if (indexPath.item != idx) {
-                model.isSelected = NO;
+                model.jobsSelected = NO;
             } else {
-                model.isSelected = !model.isSelected;
+                model.jobsSelected = !model.jobsSelected;
                 if (indexPath.item != sectionArray.count - 1) {
-                    [self.tms_layout didClickWithIndexPath:indexPath isExpand:model.isSelected];
+                    [self.tms_layout didClickWithIndexPath:indexPath isExpand:model.jobsSelected];
                 } else {
                     [self.tms_layout didClickWithIndexPath:indexPath isExpand:NO];
                 }
@@ -151,7 +151,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         [reusableView setReusableViewTitle:[NSString stringWithFormat:@"Section Footer:%zd-%zd", indexPath.section, indexPath.item]];
     }return reusableView;
 }
-
+#pragma mark —— lazyLoad
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
         _collectionView = [UICollectionView.alloc initWithFrame:CGRectZero collectionViewLayout:self.tms_layout];
@@ -161,10 +161,10 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 //        [_collectionView registerCollectionElementKindSectionHeaderClass:TMSWalletCollectionReusableView.class];
 //        [_collectionView registerCollectionElementKindSectionFooterClass:TMSWalletCollectionReusableView.class];
         [_collectionView registerCollectionViewCellClass:TMSWalletCollectionViewCell.class];
-        [_collectionView registerClass:[TMSWalletCollectionReusableView class]
+        [_collectionView registerClass:TMSWalletCollectionReusableView.class
             forSupplementaryViewOfKind:TMSCollectionViewSectionHeader
                    withReuseIdentifier:NSStringFromClass(TMSWalletCollectionReusableView.class)];
-        [_collectionView registerClass:[TMSWalletCollectionReusableView class]
+        [_collectionView registerClass:TMSWalletCollectionReusableView.class
             forSupplementaryViewOfKind:TMSCollectionViewSectionFooter
                    withReuseIdentifier:NSStringFromClass(TMSWalletCollectionReusableView.class)];
 
@@ -185,7 +185,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     }return _tms_layout;
 }
 
--(NSMutableArray<NSMutableArray<TMSWalletModel *> *> *)dataSource{
+-(NSMutableArray<NSMutableArray<UIViewModel *> *> *)dataSource{
     if (!_dataSource) {
         _dataSource = NSMutableArray.array;
     }return _dataSource;

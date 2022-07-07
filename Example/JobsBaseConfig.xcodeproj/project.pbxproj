@@ -9186,7 +9186,6 @@
 		C53683452875715F00DD7AA7 /* WalletLayout */ = {
 			isa = PBXGroup;
 			children = (
-				C5368358287584F500DD7AA7 /* WalletLayout.  old */,
 				C53683502875719500DD7AA7 /* TMSCollectionViewLayout */,
 				C53683512875719C00DD7AA7 /* TMSWalletCollectionReusableView */,
 				C5368352287571A300DD7AA7 /* TMSWalletCollectionViewCell */,
@@ -9221,13 +9220,6 @@
 				C536834B2875715F00DD7AA7 /* TMSWalletCollectionViewCell.m */,
 			);
 			path = TMSWalletCollectionViewCell;
-			sourceTree = "<group>";
-		};
-		C5368358287584F500DD7AA7 /* WalletLayout.  old */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "WalletLayout.  old";
 			sourceTree = "<group>";
 		};
 		C548C7EF28700AF400F5ED90 /* UIScrollView+AnimationKit */ = {
