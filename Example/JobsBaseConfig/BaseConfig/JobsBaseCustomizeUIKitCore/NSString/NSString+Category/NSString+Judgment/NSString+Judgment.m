@@ -40,7 +40,7 @@
         return YES;
     }return NO;
 }
-/// 判断是否是空格(space和\t)
+/// 判断是否是空格(space和\t) 返回NO【不是空格】
 -(BOOL)isBlank{
     unichar c;
     for (int i = 0; i < self.length; i++) {
@@ -50,7 +50,7 @@
         }
     }return YES;
 }
-/// 判断是否是空格(space、\t、\r、\n)
+/// 判断是否是空格(space、\t、\r、\n) 返回NO【不是空格】
 -(BOOL)isSpace{
     unichar c;
     for (int i = 0; i < self.length; i++) {

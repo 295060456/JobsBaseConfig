@@ -9,6 +9,7 @@
 #import "MacroDef_Func.h"
 #import "NSString+Judgment.h"
 #import <_ctype.h>
+#import "JobsBlock.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -21,9 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
 *  不为空返回 NO
 */
 +(BOOL)isNullString:(NSString *)string;
-/// 判断是否是空格(space和\t)
+/// 判断是否是空格(space和\t) 返回NO【不是空格】
 -(BOOL)isBlank;
-/// 判断是否是空格(space、\t、\r、\n)
+/// 判断是否是空格(space、\t、\r、\n) 返回NO【不是空格】
 -(BOOL)isSpace;
 /// 判断字符串是否包含空格：返回YES【没有空格】
 -(BOOL)isContainBlank;

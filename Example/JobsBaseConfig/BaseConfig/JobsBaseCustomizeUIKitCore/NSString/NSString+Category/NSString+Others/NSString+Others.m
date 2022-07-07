@@ -9,6 +9,26 @@
 
 @implementation NSString (Others)
 #pragma mark —— 其他
+/// 以unichar为标准遍历目标NSString
+-(NSMutableArray <NSString *>*)scanByUnichar{
+    unichar c;
+    NSMutableArray <NSString *>*dataMutArr = NSMutableArray.array;
+    for (int i = 0; i < self.length; i++) {
+        c = [self characterAtIndex:i];
+        [dataMutArr addObject:[NSString stringWithFormat:@"%C",c]];
+    }return dataMutArr;
+}
+/// 以NSString为标准遍历目标NSString【可打印emoji】
+-(NSMutableArray <NSString *>*)scanByNSString{
+    NSRange range = {0,0};
+    NSMutableArray *dataMutArr = NSMutableArray.array;
+    for(int i = 0; i < self.length; i += range.length){
+        range = [self rangeOfComposedCharacterSequenceAtIndex:i];
+        NSString *s = [self substringWithRange:range];
+        NSLog(@"s--->%@",s);
+        [dataMutArr addObject:s];
+    }return dataMutArr;
+}
 /// 该文字是否是Debug定义的文字
 -(BOOL)isDebugText{
     return self.isEqualToString(Internationalization(TextModelDataString));
