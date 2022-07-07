@@ -94,7 +94,7 @@
 }
 ///下拉刷新 （子类要进行覆写）
 -(void)pullToRefresh{
-    [NSObject feedbackGenerator];//震动反馈
+    [self feedbackGenerator];//震动反馈
     [self endRefreshing:self.tableView];
 //    [self endRefreshingWithNoMoreData:self.tableView];
 }

@@ -378,7 +378,7 @@ static char *NSObject_AppTools_titleLab = "NSObject_AppTools_titleLab";
             model.upLabText = Internationalization(@"登入獲得更多精彩");
             model.upLabFont = [UIFont systemFontOfSize:JobsWidth(24)
                                                 weight:UIFontWeightBold];
-            model.upLabTextCor = UIColor.blackColor;
+            model.upLabTextCor = JobsBlackColor;
             model.upLabBgCor = UIColor.clearColor;
             model.upLabTextAlignment = NSTextAlignmentLeft;
             

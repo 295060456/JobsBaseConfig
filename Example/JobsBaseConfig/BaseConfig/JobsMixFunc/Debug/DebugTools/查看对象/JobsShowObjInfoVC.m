@@ -74,7 +74,7 @@
 #pragma mark —— BaseViewProtocol
 ///下拉刷新 （子类要进行覆写）
 -(void)pullToRefresh{
-    [NSObject feedbackGenerator];//震动反馈
+    [self feedbackGenerator];//震动反馈
     if (self.dataMutArr.count) {
         [self.dataMutArr removeAllObjects];
     }
@@ -124,7 +124,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     BaseTableViewCell *cell = [BaseTableViewCell cellStyleValue1WithTableView:tableView];
     cell.detailTextLabel.numberOfLines = 0;
     cell.detailTextLabel.textColor = UIColor.brownColor;
-    cell.textLabel.textColor = UIColor.blackColor;
+    cell.textLabel.textColor = JobsBlackColor;
     [cell richElementsInCellWithModel:self.dataMutArr[indexPath.row]];
     return cell;
 }

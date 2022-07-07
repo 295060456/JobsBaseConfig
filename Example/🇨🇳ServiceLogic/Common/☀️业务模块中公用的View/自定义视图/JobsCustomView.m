@@ -191,7 +191,7 @@ static dispatch_once_t static_customViewOnceToken;
     if (!_sureBtn) {
         _sureBtn = UIButton.new;
         _sureBtn.normalTitle = Internationalization(@"确定");
-        _sureBtn.normalTitleColor = UIColor.blackColor;
+        _sureBtn.normalTitleColor = JobsBlackColor;
         _sureBtn.backgroundColor = self.sureBtnBgCor;
         [self addSubview:_sureBtn];
         [_sureBtn mas_makeConstraints:^(MASConstraintMaker *make) {

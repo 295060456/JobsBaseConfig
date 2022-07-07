@@ -93,7 +93,7 @@
     Cell.gridlines.right = [GridStyle borderStyleNone];
     
     Cell.backgroundColor = indexPath.row ? HEXCOLOR(0xFBF7E3) : HEXCOLOR(0xB6843B);
-    [Cell.btn normalTitleColor:indexPath.row ? HEXCOLOR(0x524740) : UIColor.blackColor];
+    [Cell.btn normalTitleColor:indexPath.row ? HEXCOLOR(0x524740) : JobsBlackColor];
     
     return Cell;
 }

@@ -46,7 +46,7 @@ static NSString *const itemCell = @"itemCell";
                    shareTitle:(NSString *)shareTitle
                    shareArray:(NSArray *)shareArray{
     if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = [UIColor.blackColor colorWithAlphaComponent:.2];
+        self.backgroundColor = [JobsBlackColor colorWithAlphaComponent:.2];
         self.shareTitle = shareTitle;
         self.shareArray = shareArray;
     }return self;
@@ -57,7 +57,7 @@ static NSString *const itemCell = @"itemCell";
                    firstArray:(NSArray *)firstArray
                   secondArray:(NSArray *)secondArray{
     if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = [UIColor.blackColor colorWithAlphaComponent:.2];
+        self.backgroundColor = [JobsBlackColor colorWithAlphaComponent:.2];
         self.shareTitle = shareTitle;
         self.shareArray = firstArray;
         self.otherArray = secondArray;
@@ -256,7 +256,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
         _cancleButton.backgroundColor = UIColor.whiteColor;
         [_cancleButton setTitle:@"取消"
                        forState:UIControlStateNormal];
-        [_cancleButton setTitleColor:UIColor.blackColor
+        [_cancleButton setTitleColor:JobsBlackColor
                             forState:UIControlStateNormal];
         _cancleButton.titleLabel.font = [UIFont systemFontOfSize:16 weight:UIFontWeightRegular];
         [_cancleButton addTarget:self

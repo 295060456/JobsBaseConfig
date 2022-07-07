@@ -268,7 +268,7 @@ static JobsTabbarVC *static_tabbarVC = nil;
 #pragma mark —— TabBarItem的相关手势
 -(void)长按手势做什么:(UILongPressGestureRecognizer *)longPressGR{
     if (self.isFeedbackGenerator) {
-        [NSObject feedbackGenerator];//震动反馈
+        [self feedbackGenerator];//震动反馈
     }
 
     [JobsPullListAutoSizeView initWithTargetView:self.UITabBarButtonMutArr[longPressGR.view.tag]

@@ -96,14 +96,14 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
                        context:(void *)context {
     if ([object isEqual:self.mjRefreshGifHeader] &&
         self.mjRefreshGifHeader.state == MJRefreshStatePulling) {
-        [NSObject feedbackGenerator];
+        [self feedbackGenerator];
     }else if (([object isEqual:self.mjRefreshAutoGifFooter] ||
                [object isEqual:self.mjRefreshBackNormalFooter] ||
                [object isEqual:self.mjRefreshAutoNormalFooter]) && (self.mjRefreshAutoGifFooter.state == MJRefreshStatePulling ||
                                                                     self.mjRefreshBackNormalFooter.state == MJRefreshStatePulling ||
                                                                     self.mjRefreshAutoNormalFooter.state == MJRefreshStatePulling)
              ) {
-        [NSObject feedbackGenerator];
+        [self feedbackGenerator];
     }else{}
 }
 #pragma mark —— SET | GET

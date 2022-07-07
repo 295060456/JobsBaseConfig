@@ -168,7 +168,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 -(JobsAnimationLabel *)animationLab{
     if (!_animationLab) {
         _animationLab = JobsAnimationLabel.new;
-        _animationLab.textColor = UIColor.blackColor;
+        _animationLab.textColor = JobsBlackColor;
 
         _animationLab.value = 12;
         _animationLab.lastValue = 19.93;

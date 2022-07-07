@@ -40,8 +40,8 @@ typedef NS_ENUM(NSInteger, JobsAppDoorBgType){
 #define JobsAppDoorContentViewFindPasswordWidth JobsMainScreen_WIDTH() - JobsAppDoorContentViewFindPasswordX * 2
 #define JobsAppDoorContentViewFindPasswordHeight JobsMainScreen_HEIGHT() / (isiPhoneX_series() ? 1.6 : 1.3)
 
-#define Cor1 [UIColor.blackColor colorWithAlphaComponent:0.9007f]
-#define Cor2 [UIColor.blackColor colorWithAlphaComponent:0.5984f]
+#define Cor1 [JobsBlackColor colorWithAlphaComponent:0.9007f]
+#define Cor2 [JobsBlackColor colorWithAlphaComponent:0.5984f]
 #define Cor3 HEXCOLOR(0xE1CD62)
 #define Cor4 [UIColor.whiteColor colorWithAlphaComponent:0.9007f]
 #define Cor5 HEXCOLOR(0x502600)

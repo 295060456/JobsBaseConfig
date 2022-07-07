@@ -160,7 +160,7 @@
         for (NSString *title in self.btnTitleMutArr) {
             UIButton *btn = UIButton.new;
             btn.normalTitle = title;
-            btn.normalTitleColor = UIColor.blackColor;
+            btn.normalTitleColor = JobsBlackColor;
             btn.normalBackgroundImage = JobsIMG(@"弹窗取消按钮背景图");
             btn.selectedBackgroundImage = JobsIMG(@"弹窗取消按钮背景图");
             [btn cornerCutToCircleWithCornerRadius:JobsWidth(8)];

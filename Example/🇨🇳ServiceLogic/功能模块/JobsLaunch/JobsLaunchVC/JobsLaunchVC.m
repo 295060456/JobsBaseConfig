@@ -187,12 +187,12 @@ static dispatch_once_t static_launchVCOnceToken;
         _btnTimerConfigModel.runningValue.bgCor = UIColor.cyanColor;
         _btnTimerConfigModel.runningValue.text = Internationalization(Title12);
         _btnTimerConfigModel.runningValue.layerBorderColour = UIColor.redColor;
-        _btnTimerConfigModel.runningValue.textCor = UIColor.blackColor;
+        _btnTimerConfigModel.runningValue.textCor = JobsBlackColor;
         /// 计时器结束【静态值】
         _btnTimerConfigModel.endValue.bgCor = UIColor.yellowColor;;
         _btnTimerConfigModel.endValue.text = Internationalization(@"点击跳过");
         _btnTimerConfigModel.endValue.layerBorderColour = UIColor.purpleColor;
-        _btnTimerConfigModel.endValue.textCor = UIColor.blackColor;
+        _btnTimerConfigModel.endValue.textCor = JobsBlackColor;
         
     }return _btnTimerConfigModel;
 }

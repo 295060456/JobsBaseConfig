@@ -55,7 +55,7 @@
                                                                 self.contentView.frame.size.width,
                                                                 15)];
         _titleLabel.text = @"";
-        _titleLabel.textColor = UIColor.blackColor;
+        _titleLabel.textColor = JobsBlackColor;
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleLabel.font = [UIFont systemFontOfSize:14 weight:UIFontWeightRegular];
     }return _titleLabel;

@@ -80,7 +80,7 @@ UILocationProtocol_synthesize
         _nameLabel = UILabel.new;
         _nameLabel.textAlignment= NSTextAlignmentCenter;
         _nameLabel.font = notoSansRegular(12);
-        _nameLabel.textColor = UIColor.blackColor;
+        _nameLabel.textColor = JobsBlackColor;
         [self.contentView addSubview:_nameLabel];
         [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(self.contentView);

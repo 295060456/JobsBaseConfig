@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_END
     upDownLabModel.upLabText = @"2.2";
     upDownLabModel.upLabTextAlignment = NSTextAlignmentCenter;
     upDownLabModel.upLabFont = [UIFont systemFontOfSize:JobsWidth(14) weight:UIFontWeightRegular];
-    upDownLabModel.upLabTextCor = UIColor.blackColor;
+    upDownLabModel.upLabTextCor = JobsBlackColor;
     upDownLabModel.upLabBgCor = UIColor.clearColor;
 
     upDownLabModel.downLabText = Internationalization(@"Estimated yesterday");

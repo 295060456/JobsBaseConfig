@@ -87,7 +87,7 @@ static char *NSObject_NTESVerifyCode_ntesVerifyCodeManager = "NSObject_NTESVerif
         ntesVerifyCodeManager.mode = NTESVerifyCodeNormal;
         ntesVerifyCodeManager.delegate = self;
         ntesVerifyCodeManager.shouldCloseByTouchBackground = NO;
-        ntesVerifyCodeManager.color = UIColor.blackColor;
+        ntesVerifyCodeManager.color = JobsBlackColor;
         [ntesVerifyCodeManager configureVerifyCode:NTESVerifyCodeKEY timeout:30.0];
         ntesVerifyCodeManager.closeButtonHidden = NO;
         [self setNtesVerifyCodeManager:ntesVerifyCodeManager];

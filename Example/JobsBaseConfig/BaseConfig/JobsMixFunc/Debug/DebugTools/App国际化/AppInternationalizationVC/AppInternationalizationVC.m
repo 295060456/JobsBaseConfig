@@ -120,7 +120,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     /// 适配iOS 13夜间模式/深色外观(Dark Mode)
     cell.backgroundColor = [UIColor xy_createWithLightColor:UIColor.whiteColor darkColor:UIColor.whiteColor];
     cell.detailTextLabel.textColor = UIColor.brownColor;
-    cell.textLabel.textColor = UIColor.blackColor;
+    cell.textLabel.textColor = JobsBlackColor;
     
     UIViewModel *viewModel = UIViewModel.new;
     viewModel.textModel.text = self.dataMutArr[indexPath.row];

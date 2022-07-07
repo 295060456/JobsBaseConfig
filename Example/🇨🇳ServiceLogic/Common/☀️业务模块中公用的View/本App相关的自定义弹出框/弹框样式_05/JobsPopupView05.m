@@ -77,7 +77,7 @@ static dispatch_once_t static_popupView05OnceToken;
     sureBtn.normalTitle = Internationalization(@"确定");
     sureBtn.normalBackgroundImage = JobsIMG(@"弹窗按钮_我知道了");
     sureBtn.selectedBackgroundImage = JobsIMG(@"弹窗按钮_我知道了");
-    sureBtn.normalTitleColor = UIColor.blackColor;
+    sureBtn.normalTitleColor = JobsBlackColor;
     sureBtn.titleFont = [UIFont systemFontOfSize:JobsWidth(18) weight:UIFontWeightRegular];
 }
 /// 具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
