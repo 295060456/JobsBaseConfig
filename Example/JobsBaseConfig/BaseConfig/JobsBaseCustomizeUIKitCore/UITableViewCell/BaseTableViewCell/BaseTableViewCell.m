@@ -299,10 +299,16 @@ UITableViewCellProtocol_synthesize
     if (self.class == BaseTableViewCell.class) {
         NSLog(@"self.offsetXForEach = %f",self.offsetXForEach);
         NSLog(@"self.offsetYForEach = %f",self.offsetYForEach);
-        frame.origin.x += self.offsetXForEach;
-        frame.origin.y += self.offsetYForEach;
-        frame.size.height -= self.offsetYForEach * 2;
-        frame.size.width -= self.offsetXForEach * 2;
+
+        if (!frame.origin.x) {
+            frame.origin.x += self.offsetXForEach;
+            frame.size.width -= self.offsetXForEach * 2;
+        }
+        
+        if (!frame.origin.y) {
+            frame.origin.y += self.offsetYForEach;
+            frame.size.height -= self.offsetYForEach * 2;
+        }
     }
     [super setFrame:frame];
 }

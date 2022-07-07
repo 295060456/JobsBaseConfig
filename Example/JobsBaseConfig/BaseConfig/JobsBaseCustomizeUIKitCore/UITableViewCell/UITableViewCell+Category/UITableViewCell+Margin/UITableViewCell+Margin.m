@@ -16,13 +16,19 @@
 //-(void)setFrame:(CGRect)frame{
 //    NSLog(@"self.offsetXForEach = %f",self.offsetXForEach);
 //    NSLog(@"self.offsetYForEach = %f",self.offsetYForEach);
-//    frame.origin.x += self.offsetXForEach;
-//    frame.origin.y += self.offsetYForEach;
-//    frame.size.height -= self.offsetYForEach * 2;
-//    frame.size.width -= self.offsetXForEach * 2;
+//
+//    if (!frame.origin.x) {
+//        frame.origin.x += self.offsetXForEach;
+//        frame.size.width -= self.offsetXForEach * 2;
+//    }
+//
+//    if (!frame.origin.y) {
+//        frame.origin.y += self.offsetYForEach;
+//        frame.size.height -= self.offsetYForEach * 2;
+//    }
+//
 //    [super setFrame:frame];
 //}
-
 #pragma mark —— 一些公有的功能方法
 /// 以section为单位，UITableViewCell 第一行和最后一行圆角设置【cell之间有分割线】
 /// @param tableView 作用对象tableView

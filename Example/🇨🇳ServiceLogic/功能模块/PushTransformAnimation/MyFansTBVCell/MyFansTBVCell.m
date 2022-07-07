@@ -39,11 +39,19 @@
 }
 
 -(void)setFrame:(CGRect)frame{
-    frame.origin.x += self.offsetXForEach;
-    frame.origin.y += self.offsetYForEach;
-    frame.size.width -= self.offsetXForEach * 2;
-    frame.size.height -= self.offsetYForEach;
-//    NSLog(@"---- x= %.f, y = %.f, w = %.f, h = %.f ----", frame.origin.x, frame.origin.y, frame.size.width, frame.size.height);
+    NSLog(@"self.offsetXForEach = %f",self.offsetXForEach);
+    NSLog(@"self.offsetYForEach = %f",self.offsetYForEach);
+
+    if (!frame.origin.x) {
+        frame.origin.x += self.offsetXForEach;
+        frame.size.width -= self.offsetXForEach * 2;
+    }
+    
+    if (!frame.origin.y) {
+        frame.origin.y += self.offsetYForEach;
+        frame.size.height -= self.offsetYForEach * 2;
+    }
+    
     [super setFrame:frame];
 }
 #pragma mark —— BaseCellProtocol
