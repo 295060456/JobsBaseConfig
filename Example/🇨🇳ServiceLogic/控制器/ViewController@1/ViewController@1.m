@@ -509,6 +509,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             [_dataMutArr addObject:viewModel];
         }
         
+        {
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"BaiShaETProjTelFindPwdVC"
+                                                           subTitle:Internationalization(@"Masonry动画")];
+            viewModel.cls = BaiShaETProjTelFindPwdVC.class;
+            [_dataMutArr addObject:viewModel];
+        }
         
 //        {
 //            UIViewModel *viewModel = [self configViewModelWithTitle:@"ProtocolKitVC"

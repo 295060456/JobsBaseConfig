@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol JobsLabProtocol <NSObject>
 
+@optional
 -(UIButton *)getUpBtn;
 -(UIButton *)getDownBtn;
 

@@ -731,6 +731,7 @@
 		C596B7A5283F6F7900C13619 /* JobsHotLabelWithMultiLine.m in Sources */ = {isa = PBXBuildFile; fileRef = C596B79F283F6F7800C13619 /* JobsHotLabelWithMultiLine.m */; };
 		C59D78CC2864631B004C97A1 /* NSObject+JobsDeployCellConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C59D78C92864631B004C97A1 /* NSObject+JobsDeployCellConfig.m */; };
 		C59D78D028646420004C97A1 /* JobsHotLabelWithMultiLineHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C59D78CF28646420004C97A1 /* JobsHotLabelWithMultiLineHeaderFooterView.m */; };
+		C59EF6CF28788C600089B97C /* BaiShaETProjTelFindPwdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C59EF6CD28788C600089B97C /* BaiShaETProjTelFindPwdVC.m */; };
 		C5A21B9B2872D94A00CD6ED3 /* CustomBtnVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A21B9A2872D94A00CD6ED3 /* CustomBtnVC.m */; };
 		C5A7C2DC285B290F00F0F2BB /* 临时的占位图.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5A7C2DB285B290400F0F2BB /* 临时的占位图.xcassets */; };
 		C5A7C2E6285B5E8700F0F2BB /* ThreeClassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A7C2DE285B5E8600F0F2BB /* ThreeClassCell.m */; };
@@ -2435,6 +2436,8 @@
 		C59D78CB2864631B004C97A1 /* NSObject+JobsDeployCellConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JobsDeployCellConfig.h"; sourceTree = "<group>"; };
 		C59D78CE28646420004C97A1 /* JobsHotLabelWithMultiLineHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsHotLabelWithMultiLineHeaderFooterView.h; sourceTree = "<group>"; };
 		C59D78CF28646420004C97A1 /* JobsHotLabelWithMultiLineHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsHotLabelWithMultiLineHeaderFooterView.m; sourceTree = "<group>"; };
+		C59EF6CD28788C600089B97C /* BaiShaETProjTelFindPwdVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiShaETProjTelFindPwdVC.m; sourceTree = "<group>"; };
+		C59EF6CE28788C600089B97C /* BaiShaETProjTelFindPwdVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiShaETProjTelFindPwdVC.h; sourceTree = "<group>"; };
 		C5A21B992872D94A00CD6ED3 /* CustomBtnVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomBtnVC.h; sourceTree = "<group>"; };
 		C5A21B9A2872D94A00CD6ED3 /* CustomBtnVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomBtnVC.m; sourceTree = "<group>"; };
 		C5A7C2DB285B290400F0F2BB /* 临时的占位图.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "临时的占位图.xcassets"; sourceTree = "<group>"; };
@@ -9041,6 +9044,7 @@
 		C52B9B7C287322B20072A12F /* Masonry动画 */ = {
 			isa = PBXGroup;
 			children = (
+				C59EF6CC28788C600089B97C /* BaiShaETProjTelFindPwdVC */,
 				C52B9B7D287322D00072A12F /* Xnip2022-07-04_20-29-42.png */,
 			);
 			path = "Masonry动画";
@@ -9855,6 +9859,15 @@
 				C59D78CF28646420004C97A1 /* JobsHotLabelWithMultiLineHeaderFooterView.m */,
 			);
 			path = JobsHotLabelWithMultiLineHeaderView;
+			sourceTree = "<group>";
+		};
+		C59EF6CC28788C600089B97C /* BaiShaETProjTelFindPwdVC */ = {
+			isa = PBXGroup;
+			children = (
+				C59EF6CE28788C600089B97C /* BaiShaETProjTelFindPwdVC.h */,
+				C59EF6CD28788C600089B97C /* BaiShaETProjTelFindPwdVC.m */,
+			);
+			path = BaiShaETProjTelFindPwdVC;
 			sourceTree = "<group>";
 		};
 		C5A21B982872D90D00CD6ED3 /* UIButton子控件的排布 */ = {
@@ -11540,6 +11553,7 @@
 				84A491F127904A970002A837 /* JobsIMChatInfoModel.m in Sources */,
 				840F969127736428004979E9 /* NSString+Conversion.m in Sources */,
 				844B083B2764CF4800B0513D /* JXCategoryTitleBackgroundCell.m in Sources */,
+				C59EF6CF28788C600089B97C /* BaiShaETProjTelFindPwdVC.m in Sources */,
 				844B08502764CF4800B0513D /* ECPrivacyCheckPhotos.m in Sources */,
 				840F960B27736427004979E9 /* BWShareView.m in Sources */,
 				8424779227C1141900831270 /* CoreTextLearningVC.m in Sources */,
