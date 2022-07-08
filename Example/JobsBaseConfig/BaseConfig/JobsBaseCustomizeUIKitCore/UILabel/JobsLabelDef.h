@@ -17,7 +17,7 @@ typedef enum : NSInteger {
     UILabelShowingType_03,
     /// 一行显示。定宽、定高。缩小字体方式全展示 【单行：ByWidth】
     UILabelShowingType_04,
-    /// 多行显示。定宽、不定高、定字体 【多行：ByFont】
+    /// 多行显示。必须定宽、可以不定高、定字体 【多行：ByFont】宽度不够或者\n都会导致提行
     UILabelShowingType_05,
 } UILabelShowingType;// UILabel的显示样式
 
