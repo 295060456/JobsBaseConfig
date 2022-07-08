@@ -1,5 +1,5 @@
 //
-//  BaiShaETProjMgmtCVCell.h
+//  BaiShaETProjBankAccMgmtCVCell.h
 //  BaiShaEntertainmentProj
 //
 //  Created by Jobs on 2022/7/7.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BaiShaETProjMgmtCVCell : TMSWalletCollectionViewCell
+@interface BaiShaETProjBankAccMgmtCVCell : TMSWalletCollectionViewCell
 
 @end
 

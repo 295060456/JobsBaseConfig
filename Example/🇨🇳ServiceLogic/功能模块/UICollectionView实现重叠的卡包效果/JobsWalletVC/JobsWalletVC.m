@@ -107,7 +107,7 @@ resuableFooterViewHeightForIndexPath:(NSIndexPath *)indexPath {
         [cell richElementsInCellWithModel:self.dataSource[indexPath.section][indexPath.item]];
         return cell;
     }else{
-        BaiShaETProjMgmtCVCell *cell = [collectionView collectionViewCellClass:BaiShaETProjMgmtCVCell.class forIndexPath:indexPath];
+        BaiShaETProjBankAccMgmtCVCell *cell = [collectionView collectionViewCellClass:BaiShaETProjBankAccMgmtCVCell.class forIndexPath:indexPath];
         [cell richElementsInCellWithModel:self.dataSource[indexPath.section][indexPath.item]];
         return cell;
     }
@@ -168,7 +168,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 //            [_collectionView registerCollectionViewCellClass:TMSWalletCollectionViewCell.class];
             
             [_collectionView registerCollectionViewClass];
-            [_collectionView registerCollectionViewCellClass:BaiShaETProjMgmtCVCell.class];
+            [_collectionView registerCollectionViewCellClass:BaiShaETProjBankAccMgmtCVCell.class];
           
             [_collectionView registerClass:TMSWalletCollectionReusableView.class
                 forSupplementaryViewOfKind:TMSCollectionViewSectionHeader

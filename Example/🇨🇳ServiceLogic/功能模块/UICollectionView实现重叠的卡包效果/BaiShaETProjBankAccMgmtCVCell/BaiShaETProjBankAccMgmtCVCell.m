@@ -1,13 +1,13 @@
 //
-//  BaiShaETProjMgmtCVCell.m
+//  BaiShaETProjBankAccMgmtCVCell.m
 //  BaiShaEntertainmentProj
 //
 //  Created by Jobs on 2022/7/7.
 //
 
-#import "BaiShaETProjMgmtCVCell.h"
+#import "BaiShaETProjBankAccMgmtCVCell.h"
 
-@interface BaiShaETProjMgmtCVCell ()
+@interface BaiShaETProjBankAccMgmtCVCell ()
 /// UI
 @property(nonatomic,strong)BaseButton *titleBtn;
 @property(nonatomic,strong)UILabel *detailLab;
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation BaiShaETProjMgmtCVCell
+@implementation BaiShaETProjBankAccMgmtCVCell
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self == [super initWithFrame:frame]) {
@@ -30,10 +30,10 @@
 #pragma mark —— BaseCellProtocol
 +(instancetype)cellWithCollectionView:(nonnull UICollectionView *)collectionView
                          forIndexPath:(nonnull NSIndexPath *)indexPath{
-    [collectionView registerCollectionViewCellClass:BaiShaETProjMgmtCVCell.class];
-    BaiShaETProjMgmtCVCell *cell = (BaiShaETProjMgmtCVCell *)[collectionView collectionViewCellClass:BaiShaETProjMgmtCVCell.class forIndexPath:indexPath];
+    [collectionView registerCollectionViewCellClass:BaiShaETProjBankAccMgmtCVCell.class];
+    BaiShaETProjBankAccMgmtCVCell *cell = (BaiShaETProjBankAccMgmtCVCell *)[collectionView collectionViewCellClass:BaiShaETProjBankAccMgmtCVCell.class forIndexPath:indexPath];
     if (!cell) {
-        cell = (BaiShaETProjMgmtCVCell *)[collectionView collectionViewCellClass:BaiShaETProjMgmtCVCell.class forIndexPath:indexPath];
+        cell = (BaiShaETProjBankAccMgmtCVCell *)[collectionView collectionViewCellClass:BaiShaETProjBankAccMgmtCVCell.class forIndexPath:indexPath];
     }
     cell.indexPath = indexPath;
     return cell;

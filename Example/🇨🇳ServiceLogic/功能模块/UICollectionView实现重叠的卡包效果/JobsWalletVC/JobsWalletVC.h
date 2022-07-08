@@ -6,7 +6,7 @@
 //
 
 #import "BaseViewController.h"
-#import "BaiShaETProjMgmtCVCell.h"
+#import "BaiShaETProjBankAccMgmtCVCell.h"
 #import "WalletLayout.h"
 
 NS_ASSUME_NONNULL_BEGIN

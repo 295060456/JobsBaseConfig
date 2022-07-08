@@ -32,7 +32,7 @@
     [self registerCollectionViewCellClass:BaiShaETProjVIPSubCVCell_03.class];
     [self registerCollectionViewCellClass:BaiShaETProjVIPSubCVCell_04.class];
     [self registerCollectionViewCellClass:BaiShaETProjVIPSubCVCell_05.class];
-    [self registerCollectionViewCellClass:BaiShaETProjMgmtCVCell.class];
+    [self registerCollectionViewCellClass:BaiShaETProjBankAccMgmtCVCell.class];
     
     [self registerCollectionViewCellClass:ThreeClassCell.class];
 }
