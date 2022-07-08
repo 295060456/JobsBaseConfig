@@ -28,6 +28,12 @@ NTESVerifyCodeManagerProtocol_synthesize
     }return _subTextModel;
 }
 
+-(UIViewModel *)viewModel{
+    if (!_viewModel) {
+        _viewModel = UIViewModel.new;
+    }return _viewModel;
+}
+
 -(UITextModel *)backBtnTitleModel{
     if (!_backBtnTitleModel) {
         _backBtnTitleModel = UITextModel.new;

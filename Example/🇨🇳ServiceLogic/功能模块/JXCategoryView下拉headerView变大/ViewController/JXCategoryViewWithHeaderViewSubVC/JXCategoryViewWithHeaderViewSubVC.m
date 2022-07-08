@@ -177,7 +177,7 @@
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
            viewForSupplementaryElementOfKind:(NSString *)kind
                                  atIndexPath:(NSIndexPath *)indexPath {
-    if (kind == UICollectionElementKindSectionFooter) {
+    if (kind.isEqualToString(UICollectionElementKindSectionFooter)) {
         if (indexPath.section == self.cvcellMutArr.count - 1) {
             BaiShaETProjVIPSubCVFooterView *footerView = [collectionView UICollectionElementKindSectionFooterClass:BaiShaETProjVIPSubCVFooterView.class
                                                                                                       forIndexPath:indexPath];

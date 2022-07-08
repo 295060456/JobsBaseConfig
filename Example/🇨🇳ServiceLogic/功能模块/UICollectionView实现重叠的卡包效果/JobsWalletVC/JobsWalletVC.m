@@ -12,7 +12,7 @@
 @property(nonatomic,strong)UICollectionView *collectionView;
 /// Data
 @property(nonatomic,strong)TMSCollectionViewLayout *tms_layout;
-@property(nonatomic,strong)NSMutableArray <NSMutableArray <UIViewModel *>*>*dataSource;/// Cell的数据源
+@property(nonatomic,strong)NSMutableArray <NSMutableArray <UIViewModel *>*>*dataSourceMutArr;/// Cell的数据源
 @property(nonatomic,strong)NSMutableArray <UIViewModel *>*sectionHeaderDataSource;/// sectionHeader的数据源
 @property(nonatomic,strong)NSMutableArray <UIViewModel *>*sectionFooterDataSource;/// sectionFooter的数据源
 
@@ -79,7 +79,7 @@
 -(CGFloat)collectionView:(UICollectionView *)collectionView
 resuableHeaderViewHeightForIndexPath:(NSIndexPath *)indexPath {
 //    return indexPath.section == 0 ? 30 : 0;
-    if (indexPath.section == self.dataSource.count - 1) {
+    if (indexPath.section == self.dataSourceMutArr.count - 1) {
         JobsWidth(45);
     }return JobsWidth(30);
 }
@@ -91,33 +91,33 @@ resuableFooterViewHeightForIndexPath:(NSIndexPath *)indexPath {
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return self.dataSource.count;
+    return self.dataSourceMutArr.count;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section{
-    NSArray *sectionArray = self.dataSource[section];
+    NSArray *sectionArray = self.dataSourceMutArr[section];
     return sectionArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == self.dataSource.count - 1) {
+    if (indexPath.section == self.dataSourceMutArr.count - 1) {
         JobsCVCell *cell = [collectionView collectionViewCellClass:JobsCVCell.class forIndexPath:indexPath];
-        [cell richElementsInCellWithModel:self.dataSource[indexPath.section][indexPath.item]];
+        [cell richElementsInCellWithModel:self.dataSourceMutArr[indexPath.section][indexPath.item]];
         return cell;
     }else{
         BaiShaETProjBankAccMgmtCVCell *cell = [collectionView collectionViewCellClass:BaiShaETProjBankAccMgmtCVCell.class forIndexPath:indexPath];
-        [cell richElementsInCellWithModel:self.dataSource[indexPath.section][indexPath.item]];
+        [cell richElementsInCellWithModel:self.dataSourceMutArr[indexPath.section][indexPath.item]];
         return cell;
     }
 }
 
 - (void)collectionView:(UICollectionView *)collectionView
 didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    [self.dataSource enumerateObjectsUsingBlock:^(NSArray *sectionArray,
-                                                  NSUInteger idx,
-                                                  BOOL * _Nonnull stop) {
+    [self.dataSourceMutArr enumerateObjectsUsingBlock:^(NSArray *sectionArray,
+                                                        NSUInteger idx,
+                                                        BOOL * _Nonnull stop) {
         [sectionArray enumerateObjectsUsingBlock:^(UIViewModel *model,
                                                    NSUInteger idx,
                                                    BOOL * _Nonnull stop) {
@@ -195,9 +195,9 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     }return _tms_layout;
 }
 
--(NSMutableArray<NSMutableArray<UIViewModel *> *> *)dataSource{
-    if (!_dataSource) {
-        _dataSource = NSMutableArray.array;
+-(NSMutableArray<NSMutableArray<UIViewModel *> *> *)dataSourceMutArr{
+    if (!_dataSourceMutArr) {
+        _dataSourceMutArr = NSMutableArray.array;
         {
             NSMutableArray *dataMutArr = NSMutableArray.array;
             {
@@ -223,7 +223,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
                 viewModel.image = JobsIMG(@"台湾银行");
                 [dataMutArr addObject:viewModel];
             }
-            [_dataSource addObject:dataMutArr];
+            [_dataSourceMutArr addObject:dataMutArr];
         }
         
         {
@@ -235,15 +235,15 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
                 viewModel.textModel.textCor = HEXCOLOR(0x757575);
                 [dataMutArr addObject:viewModel];
             }
-            [_dataSource addObject:dataMutArr];
+            [_dataSourceMutArr addObject:dataMutArr];
         }
-    }return _dataSource;
+    }return _dataSourceMutArr;
 }
 
 -(NSMutableArray<UIViewModel *> *)sectionHeaderDataSource{
     if (!_sectionHeaderDataSource) {
         _sectionHeaderDataSource = NSMutableArray.array;
-        for (id data in self.dataSource) {
+        for (id data in self.dataSourceMutArr) {
             UIViewModel *viewModel = UIViewModel.new;
             viewModel.textModel.text = Internationalization(@"我是头部");
             [_sectionHeaderDataSource addObject:viewModel];
@@ -254,7 +254,7 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 -(NSMutableArray<UIViewModel *> *)sectionFooterDataSource{
     if (!_sectionFooterDataSource) {
         _sectionFooterDataSource = NSMutableArray.array;
-        for (id data in self.dataSource) {
+        for (id data in self.dataSourceMutArr) {
             UIViewModel *viewModel = UIViewModel.new;
             viewModel.textModel.text = Internationalization(@"我是尾部");
             [_sectionFooterDataSource addObject:viewModel];

@@ -103,7 +103,7 @@ numberOfItemsInSection:(NSInteger)section {
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
 viewForSupplementaryElementOfKind:(NSString *)kind
 atIndexPath:(NSIndexPath *)indexPath {
-    if (kind == UICollectionElementKindSectionHeader) {
+    if (kind.isEqualToString(UICollectionElementKindSectionHeader)) {
         JobsHotLabelWithMultiLineHeaderFooterView *headerView = [collectionView UICollectionElementKindSectionHeaderClass:JobsHotLabelWithMultiLineHeaderFooterView.class
                                                                                                        forIndexPath:indexPath];
         

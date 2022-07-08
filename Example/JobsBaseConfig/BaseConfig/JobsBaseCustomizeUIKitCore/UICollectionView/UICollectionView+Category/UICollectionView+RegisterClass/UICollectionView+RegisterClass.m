@@ -17,6 +17,7 @@
     // CollectionReusableView—Footer
     [self registerCollectionElementKindSectionFooterClass:UICollectionReusableView.class];
     [self registerCollectionElementKindSectionFooterClass:BaseCollectionReusableView.class];
+    [self registerCollectionElementKindSectionFooterClass:BaseCollectionReusableView.class];
     [self registerCollectionElementKindSectionFooterClass:JobsHotLabelWithMultiLineHeaderFooterView.class];
     [self registerCollectionElementKindSectionFooterClass:BaiShaETProjVIPSubCVFooterView.class];
     // CollectionViewCell

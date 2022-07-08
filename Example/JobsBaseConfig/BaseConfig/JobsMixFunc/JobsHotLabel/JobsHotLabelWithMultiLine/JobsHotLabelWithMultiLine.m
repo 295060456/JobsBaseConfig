@@ -105,12 +105,12 @@ static dispatch_once_t static_hotLabelWithMultiLineOnceToken;
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
            viewForSupplementaryElementOfKind:(NSString *)kind
                                  atIndexPath:(NSIndexPath *)indexPath {
-    if (kind == UICollectionElementKindSectionHeader) {
+    if (kind.isEqualToString(UICollectionElementKindSectionHeader)) {
         JobsHotLabelWithMultiLineHeaderFooterView *headerView = [collectionView UICollectionElementKindSectionHeaderClass:JobsHotLabelWithMultiLineHeaderFooterView.class
                                                                                                        forIndexPath:indexPath];
         [headerView richElementsInViewWithModel:self.dataModel.headerViewModel];
         return headerView;
-    }else if (kind == UICollectionElementKindSectionFooter) {
+    }else if (kind.isEqualToString(UICollectionElementKindSectionFooter)) {
         JobsHotLabelWithMultiLineHeaderFooterView *footerView = [collectionView UICollectionElementKindSectionFooterClass:JobsHotLabelWithMultiLineHeaderFooterView.class
                                                                                                        forIndexPath:indexPath];
         [footerView richElementsInViewWithModel:self.dataModel.footerViewModel];

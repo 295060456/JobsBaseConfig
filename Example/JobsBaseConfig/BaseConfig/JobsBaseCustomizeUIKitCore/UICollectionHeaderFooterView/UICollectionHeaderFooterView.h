@@ -45,8 +45,8 @@ NS_ASSUME_NONNULL_BEGIN
             viewForSupplementaryElementOfKind:(NSString *)kind
                                   atIndexPath:(NSIndexPath *)indexPath;
  
-     kind == UICollectionElementKindSectionHeader
-     kind == UICollectionElementKindSectionFooter
+     kind.isEqualToString(UICollectionElementKindSectionHeader)
+     kind.isEqualToString(UICollectionElementKindSectionFooter)
  4、设置视图高度
     4.1、设置头部视图高度
  - (CGSize)collectionView:(UICollectionView *)collectionView

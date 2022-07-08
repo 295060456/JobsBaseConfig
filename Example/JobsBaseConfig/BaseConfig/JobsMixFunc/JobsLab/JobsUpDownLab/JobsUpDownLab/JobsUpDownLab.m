@@ -78,8 +78,8 @@
                                                                                                        font:self.upDownLabModel.downLabFont
                                                                                boundingRectWithHeight_Width:[JobsUpDownLab viewSizeWithModel:nil].width];
     
-    leftTextHeight = self.upDownLabModel.rate == 0.5 ? leftTextHeight : [JobsUpDownLab viewSizeWithModel:nil].height * self.upDownLabModel.rate;
-    rightTextHeight = self.upDownLabModel.rate == 0.5 ? rightTextHeight : [JobsUpDownLab viewSizeWithModel:nil].height * (1 - self.upDownLabModel.rate);
+    leftTextHeight = self.upDownLabModel.rate == 0.5 ? (leftTextHeight ? : self.height / 2) : [JobsUpDownLab viewSizeWithModel:nil].height * self.upDownLabModel.rate;
+    rightTextHeight = self.upDownLabModel.rate == 0.5 ? (rightTextHeight ? : self.height / 2) : [JobsUpDownLab viewSizeWithModel:nil].height * (1 - self.upDownLabModel.rate);
     NSLog(@"");
 }
 #pragma mark —— 一些公有方法
