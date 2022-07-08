@@ -12,7 +12,9 @@
 @property(nonatomic,strong)UICollectionView *collectionView;
 /// Data
 @property(nonatomic,strong)TMSCollectionViewLayout *tms_layout;
-@property(nonatomic,strong)NSMutableArray <NSMutableArray <UIViewModel *>*>*dataSource;
+@property(nonatomic,strong)NSMutableArray <NSMutableArray <UIViewModel *>*>*dataSource;/// Cell的数据源
+@property(nonatomic,strong)NSMutableArray <UIViewModel *>*sectionHeaderDataSource;/// sectionHeader的数据源
+@property(nonatomic,strong)NSMutableArray <UIViewModel *>*sectionFooterDataSource;/// sectionFooter的数据源
 
 @end
 
@@ -140,11 +142,18 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     TMSWalletCollectionReusableView *reusableView = nil;
     reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:NSStringFromClass(TMSWalletCollectionReusableView.class) forIndexPath:indexPath];
     if (kind == TMSCollectionViewSectionHeader) {
-        [reusableView setReusableViewTitle:[NSString stringWithFormat:@"Section Header:%zd-%zd", indexPath.section, indexPath.item]];
+
+        UIViewModel *viewModel = self.sectionHeaderDataSource[indexPath.section];
+        viewModel.textModel.text = [NSString stringWithFormat:@"Section Header:%zd-%zd", indexPath.section, indexPath.item];
+        [reusableView richElementsInViewWithModel:viewModel];
     }
 
     if (kind == TMSCollectionViewSectionFooter) {
-        [reusableView setReusableViewTitle:[NSString stringWithFormat:@"Section Footer:%zd-%zd", indexPath.section, indexPath.item]];
+        
+        UIViewModel *viewModel = self.sectionFooterDataSource[indexPath.section];
+        viewModel.textModel.text = [NSString stringWithFormat:@"Section Header:%zd-%zd", indexPath.section, indexPath.item];
+        [reusableView richElementsInViewWithModel:viewModel];
+        
     }return reusableView;
 }
 #pragma mark —— lazyLoad
@@ -229,6 +238,28 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
             [_dataSource addObject:dataMutArr];
         }
     }return _dataSource;
+}
+
+-(NSMutableArray<UIViewModel *> *)sectionHeaderDataSource{
+    if (!_sectionHeaderDataSource) {
+        _sectionHeaderDataSource = NSMutableArray.array;
+        for (id data in self.dataSource) {
+            UIViewModel *viewModel = UIViewModel.new;
+            viewModel.textModel.text = Internationalization(@"我是头部");
+            [_sectionHeaderDataSource addObject:viewModel];
+        }
+    }return _sectionHeaderDataSource;
+}
+
+-(NSMutableArray<UIViewModel *> *)sectionFooterDataSource{
+    if (!_sectionFooterDataSource) {
+        _sectionFooterDataSource = NSMutableArray.array;
+        for (id data in self.dataSource) {
+            UIViewModel *viewModel = UIViewModel.new;
+            viewModel.textModel.text = Internationalization(@"我是尾部");
+            [_sectionFooterDataSource addObject:viewModel];
+        }
+    }return _sectionFooterDataSource;
 }
 
 @end
