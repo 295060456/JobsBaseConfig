@@ -32,11 +32,13 @@ typedef NS_ENUM(NSUInteger, GLButtonEdgeInsetsStyle) {
  *  这一句一定要放在有frame以后执行，否则界面错乱
  *  在设置完title以后写
  *  在title竖排模式情况下，frame一定要装得下整行字
- *  @param style titleLabel和imageView的布局样式
+ *  @param edgeInsetsStyle titleLabel和imageView的布局样式
  *  @param imageTitleSpace titleLabel和imageView的间距
  */
-- (CGFloat)layoutButtonWithEdgeInsetsStyle:(GLButtonEdgeInsetsStyle)edgeInsetsStyle
-                           imageTitleSpace:(CGFloat)imageTitleSpace;
+- (void)layoutButtonWithEdgeInsetsStyle:(GLButtonEdgeInsetsStyle)edgeInsetsStyle
+                        imageTitleSpace:(CGFloat)imageTitleSpace;
+//- (CGFloat)layoutButtonWithEdgeInsetsStyle:(GLButtonEdgeInsetsStyle)edgeInsetsStyle
+//                           imageTitleSpace:(CGFloat)imageTitleSpace;
 
 @end
 

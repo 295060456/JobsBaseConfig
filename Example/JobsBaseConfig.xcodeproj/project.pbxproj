@@ -717,6 +717,7 @@
 		C57FAEDF287562C600E72F91 /* GXCardItemDemoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C57FAEDC287562C600E72F91 /* GXCardItemDemoCell.m */; };
 		C57FAEE0287562C600E72F91 /* GXCardItemDemoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C57FAEDD287562C600E72F91 /* GXCardItemDemoCell.xib */; };
 		C57FAEE52875630400E72F91 /* GXCardViewDemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C57FAEE42875630400E72F91 /* GXCardViewDemoVC.m */; };
+		C58D84712877DCF3007020B6 /* BaiShaETProjMgmtCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C58D846F2877DCF3007020B6 /* BaiShaETProjMgmtCVCell.m */; };
 		C5932EC7282D26E500B3B053 /* JobsBaseConfigTestPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5932EC0282D26E500B3B053 /* JobsBaseConfigTestPopupView.m */; };
 		C5932EC8282D26E500B3B053 /* 测试弹窗的背景图@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5932EC2282D26E500B3B053 /* 测试弹窗的背景图@3x.png */; };
 		C5932EC9282D26E500B3B053 /* 测试弹窗的背景图@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5932EC3282D26E500B3B053 /* 测试弹窗的背景图@2x.png */; };
@@ -2400,6 +2401,9 @@
 		C57FAEDE287562C600E72F91 /* GXCardItemDemoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GXCardItemDemoCell.h; sourceTree = "<group>"; };
 		C57FAEE32875630400E72F91 /* GXCardViewDemoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GXCardViewDemoVC.h; sourceTree = "<group>"; };
 		C57FAEE42875630400E72F91 /* GXCardViewDemoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GXCardViewDemoVC.m; sourceTree = "<group>"; };
+		C58D846E2877DCF3007020B6 /* BaiShaETProjMgmtCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiShaETProjMgmtCVCell.h; sourceTree = "<group>"; };
+		C58D846F2877DCF3007020B6 /* BaiShaETProjMgmtCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiShaETProjMgmtCVCell.m; sourceTree = "<group>"; };
+		C58D84702877DCF3007020B6 /* BaiShaETProjMgmtCVCell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BaiShaETProjMgmtCVCell.png; sourceTree = "<group>"; };
 		C5932EC0282D26E500B3B053 /* JobsBaseConfigTestPopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsBaseConfigTestPopupView.m; sourceTree = "<group>"; };
 		C5932EC2282D26E500B3B053 /* 测试弹窗的背景图@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "测试弹窗的背景图@3x.png"; sourceTree = "<group>"; };
 		C5932EC3282D26E500B3B053 /* 测试弹窗的背景图@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "测试弹窗的背景图@2x.png"; sourceTree = "<group>"; };
@@ -9177,8 +9181,8 @@
 		C53683442875713B00DD7AA7 /* UICollectionView实现重叠的卡包效果 */ = {
 			isa = PBXGroup;
 			children = (
-				C53683552875722300DD7AA7 /* JobsWalletVC.h */,
-				C53683562875722300DD7AA7 /* JobsWalletVC.m */,
+				C58D84732877DCFC007020B6 /* BaiShaETProjMgmtCVCell */,
+				C58D846D2877DCE1007020B6 /* JobsWalletVC */,
 			);
 			path = "UICollectionView实现重叠的卡包效果";
 			sourceTree = "<group>";
@@ -9689,6 +9693,25 @@
 				C53683432875712500DD7AA7 /* 有问题.md */,
 			);
 			path = GXCardViewDemo;
+			sourceTree = "<group>";
+		};
+		C58D846D2877DCE1007020B6 /* JobsWalletVC */ = {
+			isa = PBXGroup;
+			children = (
+				C53683552875722300DD7AA7 /* JobsWalletVC.h */,
+				C53683562875722300DD7AA7 /* JobsWalletVC.m */,
+			);
+			path = JobsWalletVC;
+			sourceTree = "<group>";
+		};
+		C58D84732877DCFC007020B6 /* BaiShaETProjMgmtCVCell */ = {
+			isa = PBXGroup;
+			children = (
+				C58D846E2877DCF3007020B6 /* BaiShaETProjMgmtCVCell.h */,
+				C58D846F2877DCF3007020B6 /* BaiShaETProjMgmtCVCell.m */,
+				C58D84702877DCF3007020B6 /* BaiShaETProjMgmtCVCell.png */,
+			);
+			path = BaiShaETProjMgmtCVCell;
 			sourceTree = "<group>";
 		};
 		C5932EBD282D26CD00B3B053 /* ☀️业务模块中公用的View */ = {
@@ -11634,6 +11657,7 @@
 				840F969927736428004979E9 /* NSString+FilteringSpecialCharacters.m in Sources */,
 				840F960827736427004979E9 /* UITabBar+Ex.m in Sources */,
 				84401A8527919E3B0038FF6F /* JobsSearchResultDataListTBVCell.m in Sources */,
+				C58D84712877DCF3007020B6 /* BaiShaETProjMgmtCVCell.m in Sources */,
 				840F960927736427004979E9 /* JobsTabBar.m in Sources */,
 				840F963E27736427004979E9 /* JobsSuspendBtn.m in Sources */,
 				C5C47D62284E1DF9007916B3 /* CasinoUpgradeContentView.m in Sources */,

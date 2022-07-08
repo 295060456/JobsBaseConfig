@@ -11,8 +11,8 @@
 NSString * const TMSCollectionViewSectionHeader = @"NTCollectionViewSectionHeader";
 NSString * const TMSCollectionViewSectionFooter = @"NTCollectionViewSectionFooter";
 
-static CGFloat const itemH = 150; // cell高度
-static CGFloat const itemInnerInset = 65; // 被遮盖的cell头部留出的距离
+static CGFloat const itemH = 76; // cell高度
+static CGFloat const itemInnerInset = 10; // 被遮盖的cell头部留出的距离
 
 @interface TMSCollectionViewLayout ()
 
@@ -39,7 +39,7 @@ static CGFloat const itemInnerInset = 65; // 被遮盖的cell头部留出的距�
             [self.attrubutesArray addObject:headerAttributes];
         }
         for (NSInteger j = 0; j < itemsCount; j++) {
-            NSIndexPath * indexPath = [NSIndexPath indexPathForItem:j inSection:i];
+            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:j inSection:i];
             UICollectionViewLayoutAttributes * attributes = [self layoutAttributesForItemAtIndexPath:indexPath];
             [self.attrubutesArray addObject:attributes];
         }
@@ -111,9 +111,9 @@ static CGFloat const itemInnerInset = 65; // 被遮盖的cell头部留出的距�
     } completion:nil];
 
     // 使用该方法，最底部的item会闪动
-//        [UIView animateWithDuration:2 animations:^{
-//            [self invalidateLayout];
-//        }];
+//    [UIView animateWithDuration:2 animations:^{
+//        [self invalidateLayout];
+//    }];
 }
 
 //- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {

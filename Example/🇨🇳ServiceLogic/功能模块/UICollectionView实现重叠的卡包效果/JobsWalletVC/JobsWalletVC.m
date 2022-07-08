@@ -43,10 +43,7 @@
     [self setGKNav];
     [self setGKNavBackBtn];
     self.view.backgroundColor = JobsOrangeColor;
-
     self.collectionView.alpha = 1;
-
-    [self handleDatas];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -75,27 +72,20 @@
     [super viewDidDisappear:animated];
 }
 #pragma mark —— 一些私有方法
--(void)handleDatas{
-    for (NSInteger i = 0; i < 2; i ++) {
-        NSMutableArray *tempDataSource = NSMutableArray.array;
-        NSInteger maxCount = i == 0 ? 20 : 6;
-        for (NSInteger j = 0 ; j < maxCount; j++) {
-            UIViewModel *model = UIViewModel.new;
-            [tempDataSource addObject:model];
-        }
-        [self.dataSource addObject:tempDataSource.copy];
-    }
-    [self.collectionView reloadData];
-}
+
 #pragma mark —— UICollectionViewDelegate,UICollectionViewDataSource
 -(CGFloat)collectionView:(UICollectionView *)collectionView
 resuableHeaderViewHeightForIndexPath:(NSIndexPath *)indexPath {
-    return indexPath.section == 0 ? 30 : 0;
+//    return indexPath.section == 0 ? 30 : 0;
+    if (indexPath.section == self.dataSource.count - 1) {
+        JobsWidth(45);
+    }return JobsWidth(30);
 }
 
 -(CGFloat)collectionView:(UICollectionView *)collectionView
 resuableFooterViewHeightForIndexPath:(NSIndexPath *)indexPath {
-    return 30;
+//    return 30;
+    return 0;
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -110,9 +100,15 @@ resuableFooterViewHeightForIndexPath:(NSIndexPath *)indexPath {
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    TMSWalletCollectionViewCell *cell = [collectionView collectionViewCellClass:TMSWalletCollectionViewCell.class forIndexPath:indexPath];
-    [cell richElementsInViewWithModel:self.dataSource[indexPath.section][indexPath.item]];
-    return cell;
+    if (indexPath.section == self.dataSource.count - 1) {
+        JobsCVCell *cell = [collectionView collectionViewCellClass:JobsCVCell.class forIndexPath:indexPath];
+        [cell richElementsInCellWithModel:self.dataSource[indexPath.section][indexPath.item]];
+        return cell;
+    }else{
+        BaiShaETProjMgmtCVCell *cell = [collectionView collectionViewCellClass:BaiShaETProjMgmtCVCell.class forIndexPath:indexPath];
+        [cell richElementsInCellWithModel:self.dataSource[indexPath.section][indexPath.item]];
+        return cell;
+    }
 }
 
 - (void)collectionView:(UICollectionView *)collectionView
@@ -157,16 +153,21 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
         _collectionView = [UICollectionView.alloc initWithFrame:CGRectZero collectionViewLayout:self.tms_layout];
         _collectionView.backgroundColor = JobsClearColor;
         
-//        [_collectionView registerCollectionViewClass];
-//        [_collectionView registerCollectionElementKindSectionHeaderClass:TMSWalletCollectionReusableView.class];
-//        [_collectionView registerCollectionElementKindSectionFooterClass:TMSWalletCollectionReusableView.class];
-        [_collectionView registerCollectionViewCellClass:TMSWalletCollectionViewCell.class];
-        [_collectionView registerClass:TMSWalletCollectionReusableView.class
-            forSupplementaryViewOfKind:TMSCollectionViewSectionHeader
-                   withReuseIdentifier:NSStringFromClass(TMSWalletCollectionReusableView.class)];
-        [_collectionView registerClass:TMSWalletCollectionReusableView.class
-            forSupplementaryViewOfKind:TMSCollectionViewSectionFooter
-                   withReuseIdentifier:NSStringFromClass(TMSWalletCollectionReusableView.class)];
+        {
+//            [_collectionView registerCollectionElementKindSectionHeaderClass:TMSWalletCollectionReusableView.class];
+//            [_collectionView registerCollectionElementKindSectionFooterClass:TMSWalletCollectionReusableView.class];
+//            [_collectionView registerCollectionViewCellClass:TMSWalletCollectionViewCell.class];
+            
+            [_collectionView registerCollectionViewClass];
+            [_collectionView registerCollectionViewCellClass:BaiShaETProjMgmtCVCell.class];
+          
+            [_collectionView registerClass:TMSWalletCollectionReusableView.class
+                forSupplementaryViewOfKind:TMSCollectionViewSectionHeader
+                       withReuseIdentifier:NSStringFromClass(TMSWalletCollectionReusableView.class)];
+            [_collectionView registerClass:TMSWalletCollectionReusableView.class
+                forSupplementaryViewOfKind:TMSCollectionViewSectionFooter
+                       withReuseIdentifier:NSStringFromClass(TMSWalletCollectionReusableView.class)];
+        }
 
         [self dataLinkByCollectionView:_collectionView];
         if (@available(iOS 11.0, *)) {
@@ -211,6 +212,18 @@ didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
                 viewModel.textModel.text = Internationalization(@"台湾银行");
                 viewModel.subTextModel.text = Internationalization(@"**** 7654");
                 viewModel.image = JobsIMG(@"台湾银行");
+                [dataMutArr addObject:viewModel];
+            }
+            [_dataSource addObject:dataMutArr];
+        }
+        
+        {
+            NSMutableArray *dataMutArr = NSMutableArray.array;
+            {
+                UIViewModel *viewModel = UIViewModel.new;
+                viewModel.textModel.text = Internationalization(@"＋添加新的銀行卡");
+                viewModel.textModel.font = notoSansRegular(16);
+                viewModel.textModel.textCor = HEXCOLOR(0x757575);
                 [dataMutArr addObject:viewModel];
             }
             [_dataSource addObject:dataMutArr];

@@ -22,6 +22,8 @@
 #import "BaiShaETProjVIPSubCVCell_04.h"
 #import "BaiShaETProjVIPSubCVCell_05.h"
 
+#import "BaiShaETProjMgmtCVCell.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UICollectionView (RegisterClass)
