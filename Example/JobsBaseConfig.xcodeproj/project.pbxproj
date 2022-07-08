@@ -2404,6 +2404,7 @@
 		C58D846E2877DCF3007020B6 /* BaiShaETProjBankAccMgmtCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiShaETProjBankAccMgmtCVCell.h; sourceTree = "<group>"; };
 		C58D846F2877DCF3007020B6 /* BaiShaETProjBankAccMgmtCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiShaETProjBankAccMgmtCVCell.m; sourceTree = "<group>"; };
 		C58D84702877DCF3007020B6 /* BaiShaETProjBankAccMgmtCVCell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BaiShaETProjBankAccMgmtCVCell.png; sourceTree = "<group>"; };
+		C58D8C5E287885E8007020B6 /* JobsLabProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsLabProtocol.h; sourceTree = "<group>"; };
 		C5932EC0282D26E500B3B053 /* JobsBaseConfigTestPopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsBaseConfigTestPopupView.m; sourceTree = "<group>"; };
 		C5932EC2282D26E500B3B053 /* 测试弹窗的背景图@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "测试弹窗的背景图@3x.png"; sourceTree = "<group>"; };
 		C5932EC3282D26E500B3B053 /* 测试弹窗的背景图@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "测试弹窗的背景图@2x.png"; sourceTree = "<group>"; };
@@ -9086,6 +9087,7 @@
 		C530CC18282E2DA700D5ECCF /* JobsLabCommon */ = {
 			isa = PBXGroup;
 			children = (
+				C58D8C5E287885E8007020B6 /* JobsLabProtocol.h */,
 				C530CC19282E2DA700D5ECCF /* JobsLab.h */,
 				C530CC1A282E2DA700D5ECCF /* JobsLabBaseModel */,
 			);

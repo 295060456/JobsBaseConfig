@@ -9,10 +9,10 @@
 #import "JobsAppDoorInputViewBaseStyle_3.h"
 
 @interface JobsAppDoorInputViewBaseStyle_3 ()
-//UI
+/// UI
 @property(nonatomic,strong)UIButton *securityModeBtn;
 @property(nonatomic,strong)JobsMagicTextField *textField;
-//Data
+/// Data
 @property(nonatomic,strong)JobsAppDoorInputViewBaseStyleModel *doorInputViewBaseStyleModel;
 
 @end

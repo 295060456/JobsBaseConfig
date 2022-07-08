@@ -28,6 +28,7 @@
 }
 //具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 -(void)richElementsInViewWithModel:(JobsLeftRightLabModel *_Nullable)model{
+    [self.superview layoutIfNeeded];
     self.leftRightLabModel = model ? : JobsLeftRightLabModel.new;
     [self textWidth];
     if (self.leftRightLabModel.labelShowingType == UILabelShowingType_04) {//【单行：ByWidth】
@@ -63,24 +64,18 @@
     leftTextWidth = self.leftRightLabModel.rate == 0.5 ? leftTextWidth : [JobsLeftRightLab viewSizeWithModel:nil].width * self.leftRightLabModel.rate;
     rightTextWidth = self.leftRightLabModel.rate == 0.5 ? rightTextWidth : [JobsLeftRightLab viewSizeWithModel:nil].width * (1 - self.leftRightLabModel.rate);
 }
+#pragma mark —— JobsLabProtocol
+-(UIButton *)getLeftBtn{
+    return _leftBtn;
+}
+
+-(UIButton *)getRightBtn{
+    return _rightBtn;
+}
 #pragma mark —— lazyLoad
 -(UIButton *)leftBtn{
     if (!_leftBtn) {
         _leftBtn = UIButton.new;
-        
-        if (self.leftRightLabModel.upLabAttributedText) {
-            _leftBtn.normalAttributedTitle = self.leftRightLabModel.upLabAttributedText;
-        }else{
-            _leftBtn.titleLabel.textAlignment = self.leftRightLabModel.upLabTextAlignment;
-            _leftBtn.normalTitle = self.leftRightLabModel.upLabText;
-            _leftBtn.normalTitleColor = self.leftRightLabModel.upLabTextCor;
-            _leftBtn.titleFont = self.leftRightLabModel.upLabFont;
-        }
-        
-        _leftBtn.normalImage = self.leftRightLabModel.upLabImage;
-        _leftBtn.normalBackgroundImage = self.leftRightLabModel.upLabBgImage;
-        _leftBtn.backgroundColor = self.leftRightLabModel.upLabBgCor;
-        
         [self addSubview:_leftBtn];
         [_leftBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.bottom.left.equalTo(self);
@@ -91,26 +86,25 @@
 #warning UIButtonConfiguration 怎么适配使用？
         }
         SuppressWdeprecatedDeclarationsWarning(_leftBtn.contentEdgeInsets = self.leftRightLabModel.upLabContentEdgeInsets;);
-    }return _leftBtn;
+    }
+    if (self.leftRightLabModel.upLabAttributedText) {
+        _leftBtn.normalAttributedTitle = self.leftRightLabModel.upLabAttributedText;
+    }else{
+        _leftBtn.titleLabel.textAlignment = self.leftRightLabModel.upLabTextAlignment;
+        _leftBtn.normalTitle = self.leftRightLabModel.upLabText;
+        _leftBtn.normalTitleColor = self.leftRightLabModel.upLabTextCor;
+        _leftBtn.titleFont = self.leftRightLabModel.upLabFont;
+    }
+    
+    _leftBtn.normalImage = self.leftRightLabModel.upLabImage;
+    _leftBtn.normalBackgroundImage = self.leftRightLabModel.upLabBgImage;
+    _leftBtn.backgroundColor = self.leftRightLabModel.upLabBgCor;
+    return _leftBtn;
 }
 
 -(UIButton *)rightBtn{
     if (!_rightBtn) {
         _rightBtn = UIButton.new;
-        
-        if (self.leftRightLabModel.downLabAttributedText) {
-            _rightBtn.normalAttributedTitle = self.leftRightLabModel.downLabAttributedText;
-        }else{
-            _rightBtn.titleLabel.textAlignment = self.leftRightLabModel.downLabTextAlignment;
-            _rightBtn.normalTitle = self.leftRightLabModel.downLabText;
-            _rightBtn.normalTitleColor = self.leftRightLabModel.downLabTextCor;
-            _rightBtn.titleFont = self.leftRightLabModel.downLabFont;;
-        }
-
-        _rightBtn.normalImage = self.leftRightLabModel.downLabImage;
-        _rightBtn.normalBackgroundImage = self.leftRightLabModel.downLabBgImage;
-        _rightBtn.backgroundColor = self.leftRightLabModel.downLabBgCor;
-        
         [self addSubview:_rightBtn];
         [_rightBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.bottom.right.equalTo(self);
@@ -121,7 +115,20 @@
 #warning UIButtonConfiguration 怎么适配使用？
         }
         SuppressWdeprecatedDeclarationsWarning(_rightBtn.contentEdgeInsets = self.leftRightLabModel.downLabContentEdgeInsets;);
-    }return _rightBtn;
+    }
+    if (self.leftRightLabModel.downLabAttributedText) {
+        _rightBtn.normalAttributedTitle = self.leftRightLabModel.downLabAttributedText;
+    }else{
+        _rightBtn.titleLabel.textAlignment = self.leftRightLabModel.downLabTextAlignment;
+        _rightBtn.normalTitle = self.leftRightLabModel.downLabText;
+        _rightBtn.normalTitleColor = self.leftRightLabModel.downLabTextCor;
+        _rightBtn.titleFont = self.leftRightLabModel.downLabFont;;
+    }
+
+    _rightBtn.normalImage = self.leftRightLabModel.downLabImage;
+    _rightBtn.normalBackgroundImage = self.leftRightLabModel.downLabBgImage;
+    _rightBtn.backgroundColor = self.leftRightLabModel.downLabBgCor;
+    return _rightBtn;
 }
 
 @end

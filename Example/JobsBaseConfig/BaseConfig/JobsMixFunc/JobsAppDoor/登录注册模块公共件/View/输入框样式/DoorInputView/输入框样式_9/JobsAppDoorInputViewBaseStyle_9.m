@@ -8,15 +8,15 @@
 #import "JobsAppDoorInputViewBaseStyle_9.h"
 
 @interface JobsAppDoorInputViewBaseStyle_9 ()
-//UI
+/// UI
 @property(nonatomic,strong)UIButton *countDownBtn;
 @property(nonatomic,strong)ZYTextField *textField;
-//Data
+/// Data
 @property(nonatomic,strong)NSString *titleStr_1;
 @property(nonatomic,strong)NSString *titleStr_2;
 @property(nonatomic,strong)JobsAppDoorInputViewBaseStyleModel *doorInputViewBaseStyleModel;
-//@property(nonatomic,strong)NSMutableArray <RichTextConfig *>*richLabelDataStringsMutArr;
 @property(nonatomic,strong)ButtonTimerConfigModel *btnTimerConfigModel;
+//@property(nonatomic,strong)NSMutableArray <RichTextConfig *>*richLabelDataStringsMutArr;
 
 @end
 

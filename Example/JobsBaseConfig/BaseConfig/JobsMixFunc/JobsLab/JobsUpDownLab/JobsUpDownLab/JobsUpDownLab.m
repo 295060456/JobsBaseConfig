@@ -82,7 +82,7 @@
     rightTextHeight = self.upDownLabModel.rate == 0.5 ? (rightTextHeight ? : self.height / 2) : [JobsUpDownLab viewSizeWithModel:nil].height * (1 - self.upDownLabModel.rate);
     NSLog(@"");
 }
-#pragma mark —— 一些公有方法
+#pragma mark —— JobsLabProtocol
 -(UIButton *)getUpBtn{
     return _upBtn;
 }

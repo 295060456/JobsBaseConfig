@@ -53,8 +53,7 @@ NS_ASSUME_NONNULL_END
          }];
          
          _用户名输入框.layer.cornerRadius = inputSize().height / 2;
-         _用户名输入框.layer.borderWidth = 1.f;
-         _用户名输入框.layer.borderColor = HEXCOLOR(0xEEE2C8).CGColor;
+         [_用户名输入框 layerBorderColour:HEXCOLOR(0xEEE2C8) andBorderWidth:1.f];
          
          [_用户名输入框 richElementsInViewWithModel:self.配置用户名输入框];
      }return _用户名输入框;
@@ -75,7 +74,7 @@ NS_ASSUME_NONNULL_END
          _配置用户名输入框.keyboardAppearance = UIKeyboardAppearanceAlert;
          _配置用户名输入框.leftViewMode = UITextFieldViewModeAlways;
          _配置用户名输入框.moveDistance = JobsWidth(40);
-         _配置用户名输入框.titleStrCor = self.配置用户名输入框.placeholderColor = HEXCOLOR(0x524740);
+         _配置用户名输入框.titleStrCor = _配置用户名输入框.placeholderColor = HEXCOLOR(0x524740);
          _配置用户名输入框.background = JobsIMG(@"设置弹出框输入框背景图");
          _配置用户名输入框.animationColor = HEXCOLOR(0xF2CC78);
      }return _配置用户名输入框;

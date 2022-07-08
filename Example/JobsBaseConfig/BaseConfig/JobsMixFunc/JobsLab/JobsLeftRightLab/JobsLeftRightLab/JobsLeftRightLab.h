@@ -7,10 +7,11 @@
 
 #import "BaseView.h"
 #import "JobsLeftRightLabModel.h"
+#import "JobsLabProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 /// 接受外界的数据模型对象要求是：JobsLeftRightLabModel 类型
-@interface JobsLeftRightLab : BaseView
+@interface JobsLeftRightLab : BaseView<JobsLabProtocol>
 
 @end
 
@@ -42,7 +43,6 @@ NS_ASSUME_NONNULL_END
          [_amountValueLab richElementsInViewWithModel:self.amountValueModel];
      }return _amountValueLab;
  }
- 
  
  -(JobsLeftRightLabModel *)amountValueModel{
      if (!_amountValueModel) {

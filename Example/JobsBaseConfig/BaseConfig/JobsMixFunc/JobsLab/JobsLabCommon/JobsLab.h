@@ -10,5 +10,6 @@
 
 #import "JobsLeftRightLab.h"
 #import "JobsUpDownLab.h"
+#import "JobsLabProtocol.h"
 
 #endif /* JobsLab_h */
