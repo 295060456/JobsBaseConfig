@@ -10,7 +10,6 @@
 #import "JobsAppDoorInputViewBaseStyleModel.h"
 #import "JobsAppDoorInputViewBaseStyle.h"
 #import "JobsMagicTextField.h"
-#import "JobsPageView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

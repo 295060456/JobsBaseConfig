@@ -31,3 +31,46 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+/**
+ 示例代码：
+ -(JobsAppDoorInputViewBaseStyle_8 *)inputView{
+     if (!_inputView) {
+         _inputView = [JobsAppDoorInputViewBaseStyle_8.alloc initWithSize:self.inputViewSize];
+         _inputView.backgroundColor = HEXCOLOR(0xFFFCF7);
+         @jobs_weakify(self)
+         [_inputView actionObjectBlock:^(UITextField *data) {
+ //            JobsAppDoorInputViewTFModel *textFieldInputModel = (JobsAppDoorInputViewTFModel *)data.objBindingParams;
+             @jobs_strongify(self)
+         }];
+         
+         [_inputView richElementsInViewWithModel:self.inputViewDataModel];
+         [self addSubview:_inputView];
+         [_inputView mas_makeConstraints:^(MASConstraintMaker *make) {
+             make.size.mas_equalTo(self.inputViewSize);
+             make.left.equalTo(self);
+             make.bottom.equalTo(self.mas_bottom);
+         }];
+         [self layoutIfNeeded];
+         [_inputView cornerCutToCircleWithCornerRadius:JobsWidth(self.inputViewSize.height / 2)];
+     }return _inputView;
+ }
+
+ -(JobsAppDoorInputViewBaseStyleModel *)inputViewDataModel{
+     if (!_inputViewDataModel) {
+         _inputViewDataModel = JobsAppDoorInputViewBaseStyleModel.new;
+         _inputViewDataModel.leftViewIMG = JobsIMG(@"搜索");
+         _inputViewDataModel.textModel.text = Internationalization(@"");
+         _inputViewDataModel.placeHolderStr = Internationalization(@"搜索");
+         _inputViewDataModel.isShowDelBtn = YES;
+         _inputViewDataModel.isShowSecurityBtn = NO;
+         _inputViewDataModel.returnKeyType = UIReturnKeyDone;
+         _inputViewDataModel.keyboardAppearance = UIKeyboardAppearanceAlert;
+         _inputViewDataModel.leftViewMode = UITextFieldViewModeAlways;
+         _inputViewDataModel.placeholderColor = HEXCOLOR(0x6D655D);
+         _inputViewDataModel.titleStrCor = HEXCOLOR(0x6D655D);
+         _inputViewDataModel.placeHolderOffset = JobsWidth(35);
+         _inputViewDataModel.textModel.textCor = HEXCOLOR(0xFFE8D1);
+     }return _inputViewDataModel;
+ }
+ 
+ */

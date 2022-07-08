@@ -152,9 +152,7 @@
         }];
         [self addSubview:_textField];
         [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.left.right.equalTo(self);
-            make.height.mas_equalTo(JobsWidth(30));
-            make.right.equalTo(self);
+            make.edges.equalTo(self);
         }];
     }return _textField;
 }

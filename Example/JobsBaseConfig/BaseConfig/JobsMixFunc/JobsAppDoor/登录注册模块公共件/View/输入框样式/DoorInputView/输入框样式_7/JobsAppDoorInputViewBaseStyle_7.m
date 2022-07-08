@@ -7,14 +7,18 @@
 
 #import "JobsAppDoorInputViewBaseStyle_7.h"
 
-@interface JobsAppDoorInputViewBaseStyle_7 ()
+@interface JobsAppDoorInputViewBaseStyle_7 (){
+    JobsDropDownListView *dropDownListView;
+}
 /// UI
 @property(nonatomic,strong)JobsMagicTextField *textField;
 @property(nonatomic,strong)UIImageView *leftIMGV;
-@property(nonatomic,strong)JobsPageView *jobsPageView;
+@property(nonatomic,strong)UIButton *chooseBtn;
 /// Data
 @property(nonatomic,strong)JobsAppDoorInputViewBaseStyleModel *doorInputViewBaseStyleModel;
 @property(nonatomic,strong)NSMutableArray <UIViewModel *>*jobsPageViewDataMutArr;
+@property(nonatomic,strong)UIViewModel *chooseBtnViewModel;
+@property(nonatomic,assign)CGSize chooseBtnSize;
 
 @end
 
@@ -84,7 +88,7 @@
 -(void)richElementsInViewWithModel:(JobsAppDoorInputViewBaseStyleModel *_Nullable)doorInputViewBaseStyleModel{
     self.doorInputViewBaseStyleModel = doorInputViewBaseStyleModel ? : JobsAppDoorInputViewBaseStyleModel.new;
     self.leftIMGV.alpha = 1;
-    self.jobsPageView.alpha = 1;
+    self.chooseBtn.alpha = 1;
     self.textField.alpha = 1;
     [self configTextField];
 }
@@ -148,19 +152,61 @@
     }return _jobsPageViewDataMutArr;
 }
 
--(JobsPageView *)jobsPageView{
-    if (!_jobsPageView) {
-        _jobsPageView = JobsPageView.new;
-        _jobsPageView.backgroundColor = JobsClearColor;
-        [_jobsPageView richElementsInViewWithModel:self.jobsPageViewDataMutArr];
-        [self addSubview:_jobsPageView];
-        [_jobsPageView mas_makeConstraints:^(MASConstraintMaker *make) {
+-(UIButton *)chooseBtn{
+    if (!_chooseBtn) {
+        _chooseBtn = UIButton.new;
+        _chooseBtn.normalImage = self.chooseBtnViewModel.image;
+        _chooseBtn.normalTitleColor = self.chooseBtnViewModel.textModel.textCor;
+        _chooseBtn.normalTitle = self.chooseBtnViewModel.textModel.text;
+        _chooseBtn.titleFont = self.chooseBtnViewModel.textModel.font;
+        [self addSubview:_chooseBtn];
+        [_chooseBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.bottom.equalTo(self).offset(-JobsWidth(8));
+//            make.size.mas_equalTo(self.chooseBtnSize);
+//            make.left.equalTo(self).offset(JobsWidth(0));
+            
             make.left.equalTo(self.leftIMGV.mas_right).offset(JobsWidth(20));
             make.centerY.equalTo(self);
             make.height.mas_equalTo(JobsWidth(16));
             make.width.mas_equalTo([UIView widthByData:self.jobsPageViewDataMutArr[0]]);
+            
         }];
-    }return _jobsPageView;
+        @jobs_weakify(self)
+        [_chooseBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
+            x.selected = !x.selected;
+            if (x.selected) {
+                @jobs_weakify(self)
+                self->dropDownListView = [self motivateFromView:x
+                                  jobsDropDownListViewDirection:JobsDropDownListViewDirection_UP
+                                                           data:self.jobsPageViewDataMutArr
+                                             motivateViewOffset:0
+                                                    finishBlock:^(UIViewModel *data) {
+                    @jobs_strongify(self)
+                    NSLog(@"data = %@",data);
+                    NSLog(@"data = %@",data.data);
+                    x.normalTitle = [data.textModel.text stringByAppendingString:data.subTextModel.text];
+                }];
+            }else{
+                [self->dropDownListView dropDownListViewDisappear:x];
+            }
+        }];
+        [_chooseBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleRight imageTitleSpace:JobsWidth(8)];
+    }return _chooseBtn;
+}
+
+-(UIViewModel *)chooseBtnViewModel{
+    if (!_chooseBtnViewModel) {
+        _chooseBtnViewModel = UIViewModel.new;
+        _chooseBtnViewModel.textModel.text = Internationalization(@"請選擇區號");
+        _chooseBtnViewModel.textModel.textCor = HEXCOLOR(0xC4C4C4);
+        _chooseBtnViewModel.textModel.textLineSpacing = 0;
+        _chooseBtnViewModel.textModel.font = notoSansRegular(14);
+        _chooseBtnViewModel.bgCor = JobsClearColor;
+        _chooseBtnViewModel.jobsWidth = self.chooseBtnSize.width;
+        _chooseBtnViewModel.subTextModel.text = @"";
+        _chooseBtnViewModel.image = JobsIMG(@"向下的箭头");
+    }return _chooseBtnViewModel;
 }
 
 -(JobsMagicTextField *)textField{
@@ -181,7 +227,7 @@
         [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.bottom.equalTo(self);
             make.right.equalTo(self).offset(-JobsWidth(17));
-            make.left.equalTo(self.jobsPageView.mas_right).offset(JobsWidth(2));
+            make.left.equalTo(self.chooseBtn.mas_right).offset(JobsWidth(2));
         }];
     }return _textField;
 }
