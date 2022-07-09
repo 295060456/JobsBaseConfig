@@ -11,6 +11,7 @@
 #pragma mark —— 一些功能性
 /// 如果使用继承，父类的UIButton用RAC监听了点击事件，用RACDisposable.dispose进行取消监听，再根据实际需求重新注册监听
 -(RACDisposable *)btnClickEventBlock:(jobsByIDBlock)subscribeNextBlock{
+    /// UIControlEvents枚举值目前一共有21种,理论上对应21种RAC监听方法。而UIButton最常用的只有这一种，所以只对其进行封装
     self.racDisposable = [[self rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
         if(subscribeNextBlock) subscribeNextBlock(x);
     }];return self.racDisposable;

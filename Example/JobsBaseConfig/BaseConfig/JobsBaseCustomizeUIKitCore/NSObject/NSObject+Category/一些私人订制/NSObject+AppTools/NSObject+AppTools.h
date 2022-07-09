@@ -36,14 +36,14 @@ NS_ASSUME_NONNULL_BEGIN
 AppToolsProtocol
 ,UITextViewDelegate
 >
-// UI
+/// UI
 @property(nonatomic,strong)JobsUpDownLab *titleLab;
 @property(nonatomic,strong)UIButton *联系客服;
 @property(nonatomic,strong)UIButton *立即注册;
 @property(nonatomic,strong)UILabel *separateLab;/// 分割线
 @property(nonatomic,strong)UITextView *connectionTipsTV;/// 承接富文本:如需幫助，請聯繫專屬客服
 @property(nonatomic,strong)UITextView *agreementTipsTV;/// 承接富文本:我已閱讀並同意 相關條款 和 隱私政策
-// Data
+/// Data
 @property(nonatomic,strong)CasinoCustomerContactModel *customerContactModel;
 @property(nonatomic,strong)NSMutableArray<UIViewModel *> *hotLabelDataMutArr;
 // 关于富文本:如需幫助，請聯繫專屬客服
@@ -55,7 +55,18 @@ AppToolsProtocol
 @property(nonatomic,strong)NSMutableArray <NSString *>*richTextMutArr2;
 @property(nonatomic,strong)NSMutableArray <RichTextConfig *>*richTextConfigMutArr2;
 #pragma mark —— 一些公有化方法
+/// 通过指定的图片，创建滑动验证模块UI
+/// @param imageName 指定的图片名
+/// @param successBlock 验证成功回调【如果验证成功，回传遮罩】
+-(WMZCodeView *)createCodeViewWithImageName:(NSString *)imageName
+                               successBlock:(jobsByIDBlock)successBlock;
+/// 制造一个覆盖在keyWindow上的遮罩（已适配iPhoneX系列）
+-(UIView *)maskViewWithColor:(UIColor *)color
+                    coverNav:(BOOL)coverNav;
+/// 制造承接富文本:如需幫助，請聯繫專屬客服
 -(UITextView *)createConnectionTipsTV;
+/// 制造承接富文本:我已閱讀並同意 相關條款 和 隱私政策
+-(UITextView *)createAgreementTipsTV;
 #pragma mark —— 弹出框。为了防止业务层的变化，弹出框定义在NSObject层
 /// Debug模式下的弹出框 及其相关的数据封装。在外层进行调用，[ 需要被展现的视图 popupWithView:popupView];
 -(JobsBaseConfigTestPopupView *)JobsTestPopView:(NSString *)string;

@@ -26,6 +26,49 @@
     return (NSArray *)tempDataArr;
 }
 #pragma mark —— 一些公有化方法
+/**
+ * 通过指定的图片，创建滑动验证模块UI
+ * @param imageName 指定的图片名
+ * @param successBlock 验证成功回调【如果验证成功，回传遮罩】
+ 
+【使用方法】
+ // @property(nonatomic,strong)WMZCodeView *codeView;
+ self->_codeView = [self createCodeViewWithImageName:@"A"
+                                        successBlock:^(UIView *data) {
+     if (data) {
+         [self->_codeView removeFromSuperview];
+         self->_codeView = nil;
+         [WMZCodeView destroySingleton];
+         [data removeFromSuperview];
+     }
+ }];
+ 
+ */
+-(WMZCodeView *)createCodeViewWithImageName:(NSString *)imageName
+                               successBlock:(jobsByIDBlock)successBlock{
+    UIView *__block maskView = nil;
+    WMZCodeView *codeView = [WMZCodeView.sharedInstance addCodeViewWithType:CodeTypeImage
+                                                             withImageName:imageName
+                                                                 witgFrame:CGRectMake((JobsMainScreen_WIDTH() - JobsWidth(327)) / 2,(JobsMainScreen_HEIGHT() - JobsWidth(310)) / 2,JobsWidth(327),JobsWidth(310))];
+    [codeView actionBOOLBlock:^(BOOL success) {
+        if (success) if (successBlock) successBlock(maskView);
+    }];
+    codeView.backgroundColor = HEXCOLOR(0xFFFCF7);
+    [maskView = [self maskViewWithColor:HEXCOLOR_ALPHA(0x000000, .5f) coverNav:YES] addSubview:codeView];
+    return codeView;
+}
+/// 制造一个覆盖在keyWindow上的遮罩（已适配iPhoneX系列）
+-(UIView *)maskViewWithColor:(UIColor *)color
+                    coverNav:(BOOL)coverNav{
+    UIView *maskView = UIView.new;
+    CGFloat topHeight = isiPhoneX_series() ? 88 : 64;
+    CGFloat y = coverNav ? 0 : topHeight;
+    maskView.frame = CGRectMake(0, y, JobsMainScreen_WIDTH(), JobsMainScreen_HEIGHT() - y);
+    maskView.backgroundColor = color;
+    [getMainWindow() addSubview:maskView];
+    return maskView;
+}
+
 -(UITextView *)createConnectionTipsTV{
     UITextView *connectionTipsTV = UITextView.new;
     connectionTipsTV.userInteractionEnabled = YES;

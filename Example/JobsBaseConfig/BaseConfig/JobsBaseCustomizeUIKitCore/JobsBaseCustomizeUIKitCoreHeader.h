@@ -82,6 +82,8 @@
 #import "JobsButton.h"
 #pragma mark —— UISwitch
 #import "JobsSwitch.h"
+#pragma mark —— JobsSlider
+#import "JobsSlider.h"
 #pragma mark —— UIViewController
 #import "JobsViewController.h"
 
