@@ -9,10 +9,11 @@
 
 @implementation UIButton (UI)
 #pragma mark —— 一些功能性
--(void)btnClickEventBlock:(jobsByIDBlock)subscribeNextBlock{
-    [[self rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
+/// 如果使用继承，父类的UIButton用RAC监听了点击事件，用RACDisposable.dispose进行取消监听，再根据实际需求重新注册监听
+-(RACDisposable *)btnClickEventBlock:(jobsByIDBlock)subscribeNextBlock{
+    self.racDisposable = [[self rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
         if(subscribeNextBlock) subscribeNextBlock(x);
-    }];
+    }];return self.racDisposable;
 }
 /// 方法名字符串（带参数、参数之间用"："隔开）、作用对象、参数
 -(jobsByThreeIDBlock)btnClickActionWithParamarrays{
@@ -392,6 +393,20 @@ static char *UIButton_UI_endableNormalTitleColor = "UIButton_UI_endableNormalTit
     objc_setAssociatedObject(self,
                              UIButton_UI_endableNormalTitleColor,
                              endableNormalTitleColor,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+static char *UIButton_UI_racDisposable = "UIButton_UI_racDisposable";
+@dynamic racDisposable;
+#pragma mark —— @property(nonatomic,strong)RACDisposable *racDisposable;
+-(RACDisposable *)racDisposable{
+    return objc_getAssociatedObject(self, UIButton_UI_racDisposable);
+}
+
+-(void)setRacDisposable:(RACDisposable *)racDisposable{
+    objc_setAssociatedObject(self,
+                             UIButton_UI_racDisposable,
+                             racDisposable,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 

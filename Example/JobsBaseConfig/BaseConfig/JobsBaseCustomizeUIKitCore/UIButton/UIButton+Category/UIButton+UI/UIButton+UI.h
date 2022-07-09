@@ -9,6 +9,7 @@
 #import "MacroDef_Strong@Weak.h"
 #import "JobsBlock.h"
 #import "MacroDef_Cor.h"
+#import "BaseProtocol.h"
 /// For RAC
 /// @jobs_weakify(self) 在内层定义
 #define BtnClickEvent(button,action)\
@@ -31,7 +32,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 /// ⚠️当font描绘的文字,或者文字大于UIButton的frame,UIButton的Title将不会显现⚠️
-@interface UIButton (UI)
+@interface UIButton (UI)<BaseProtocol>
 /// 为了迎合点语法而故意把下列方法属性化
 /// Common
 @property(nonatomic,strong)UIFont *titleFont;
@@ -53,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)UIColor *endableNormalTitleColor;
 
 #pragma mark —— 一些功能性
--(void)btnClickEventBlock:(jobsByIDBlock)subscribeNextBlock;
+-(RACDisposable *)btnClickEventBlock:(jobsByIDBlock)subscribeNextBlock;
 /// 方法名字符串（带参数、参数之间用"："隔开）、作用对象、参数
 -(jobsByThreeIDBlock)btnClickActionWithParamarrays;
 /// 方法名字符串（不带参数）、作用对象
