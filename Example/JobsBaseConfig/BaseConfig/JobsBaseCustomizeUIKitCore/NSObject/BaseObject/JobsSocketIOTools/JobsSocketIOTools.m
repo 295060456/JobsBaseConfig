@@ -33,7 +33,7 @@ static JobsSocketIOTools *static_socketTools = nil;
 /// 链接后台
 -(void)linkServerWithInfo:(id)info
               serverBlock:(jobsByIDBlock)serverBlock{
-    if ([NSString isNullString:self.urlStr]) {
+    if (self.urlStr.nullString) {
         NSLog(@"链接的URL为空,请检查");
     }else{
         NSURL *url = [[NSURL alloc] initWithString:self.urlStr];

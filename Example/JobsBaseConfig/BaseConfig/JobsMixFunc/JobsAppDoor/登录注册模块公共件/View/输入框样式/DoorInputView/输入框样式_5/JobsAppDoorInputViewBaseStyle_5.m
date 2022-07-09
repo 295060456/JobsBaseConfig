@@ -251,7 +251,7 @@
             return self.returnBOOLByIDBlock ? self.returnBOOLByIDBlock(data) : YES;
         } subscribeNextBlock:^(NSString * _Nullable x) {
             @jobs_strongify(self)
-            self.securityModeBtn.jobsVisible = ![NSString isNullString:x] && self.doorInputViewBaseStyleModel.isShowSecurityBtn;/// 👁
+            self.securityModeBtn.jobsVisible = !x.nullString && self.doorInputViewBaseStyleModel.isShowSecurityBtn;/// 👁
             if ([x isContainsSpecialSymbolsString:nil]) {
                 toast(Internationalization(@"Do not enter special characters"));
             }else{

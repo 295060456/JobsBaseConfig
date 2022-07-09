@@ -19,26 +19,22 @@
     }return NO;
 }
 /**
-*  判断对象 / 数组是否为空
-*  为空返回 YES
-*  不为空返回 NO
+ *  判断对象 / 数组是否为空
+ *  为空返回 YES
+ *  不为空返回 NO
 */
-+(BOOL)isNullString:(NSString *)string{
-    if (string == nil ||
-        string == NULL ||
-        (NSNull *)string == NSNull.null ||
-        [string isKindOfClass:NSNull.class] ||
-        [string isEqualToString:@"(null)"]||
-        [string isEqualToString:@"null"]||
-        [string isEqualToString:@"<null>"]) {
+-(BOOL)isNullString{
+    if (self == nil ||
+        self == NULL ||
+        (NSNull *)self == NSNull.null ||
+        self.isKindOfClassBlock(NSNull.class) ||
+        self.isEqualToString(@"(null)") ||
+        self.isEqualToString(@"null")||
+        self.isEqualToString(@"<null>")) {
         return YES;
     }
-
-    string = StringFormat(@"%@",string);
-    string = [string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];//去掉两端的空格
-    if (string.length == 0) {
-        return YES;
-    }return NO;
+    NSString *string = [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];//去掉两端的空格
+    return !string.length;
 }
 /// 判断是否是空格(space和\t) 返回NO【不是空格】
 -(BOOL)isBlank{
@@ -106,7 +102,7 @@
 /// 如果字符串为null 那么不走isEqualToString，无法比较都是空的情况
 +(BOOL)isEqualStrA:(NSString *)stringA
               strB:(NSString *)stringB{
-    if ([NSString isNullString:stringA] && [NSString isNullString:stringB]) {//双方都是null
+    if (stringA.nullString && stringB.nullString) {//双方都是null
         return YES;
     }else{
         return [stringA isEqualToString:stringB];

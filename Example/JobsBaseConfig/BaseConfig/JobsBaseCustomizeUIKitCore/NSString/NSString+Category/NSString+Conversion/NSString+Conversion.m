@@ -29,7 +29,7 @@
 }
 /// JSON 转 NSDictionary
 -(NSDictionary *)dictionaryWithJsonString{
-    if ([NSString isNullString:self]) {
+    if (self.nullString) {
         return nil;
     }
 //  https://www.wynter.wang/2019/02/15/ios%20%20%E5%A4%84%E7%90%86%E5%AF%BC%E8%87%B4json%E8%A7%A3%E6%9E%90%E5%A4%B1%E8%B4%A5%E7%9A%84%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6/

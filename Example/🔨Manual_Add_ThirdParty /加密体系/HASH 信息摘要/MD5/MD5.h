@@ -25,7 +25,7 @@ static inline NSString *MD5_32bits(NSString *salt,
         bit == 32 ||
         bit == CC_MD5_BLOCK_BYTES) {
         
-        if (![NSString isNullString:salt]) {
+        if (!salt.nullString) {
             string = [string stringByAppendingString:salt];
         }
         

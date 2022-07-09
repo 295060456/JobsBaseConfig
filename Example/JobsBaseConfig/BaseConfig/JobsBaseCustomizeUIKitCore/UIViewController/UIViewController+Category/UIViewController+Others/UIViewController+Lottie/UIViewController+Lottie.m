@@ -11,7 +11,7 @@
 /// 加盖一个Lottie播放器在本控制器view之上
 /// @param lottieImage LottieName
 -(void)addLottieImage:(NSString *)lottieImage{
-    if (![NSString isNullString:lottieImage]) {
+    if (!lottieImage.nullString) {
 //        self.view.backgroundColor = UIColor.lightGrayColor;
         LOTAnimationView *lottieView = [LOTAnimationView animationNamed:lottieImage];
         lottieView.frame = UIScreen.mainScreen.bounds;

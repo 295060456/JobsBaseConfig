@@ -36,7 +36,7 @@
 
                 // 核心方法:截取最后2个字符，如果是“：”则进行参数拼接
                 NSString *methodName = config.alertBtnActionArr[i];
-                if ([NSString isNullString:methodName]) {
+                if (methodName.nullString) {
                     if (alertVCBlock) {
                         alertVCBlock(alertController);
                     }return;
@@ -89,7 +89,7 @@
 
                 // 核心方法:截取最后2个字符，如果是“：”则进行参数拼接
                 NSString *methodName = config.alertBtnActionArr[i];
-                if ([NSString isNullString:methodName]) {
+                if (methodName.nullString) {
                     if (alertVCBlock) {
                         alertVCBlock(alertController);
                     }return;

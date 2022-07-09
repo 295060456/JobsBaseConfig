@@ -54,7 +54,7 @@ static char *UIView_EmptyData_tipsTitle = "UIView_EmptyData_tipsTitle";
 #pragma mark —— @property(nonatomic,strong)NSString *tipsTitle;
 -(NSString *)tipsTitle{
     NSString *TipsTitle = objc_getAssociatedObject(self, UIView_EmptyData_tipsTitle);
-    if ([NSString isNullString:TipsTitle]) {
+    if (TipsTitle.nullString) {
         TipsTitle = Internationalization(@"快来将我填满吧");
         [self setTipsTitle:TipsTitle];
     }return TipsTitle;

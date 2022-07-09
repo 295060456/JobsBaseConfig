@@ -49,7 +49,7 @@ static char *BaseVC_GifImageView_image = "BaseVC_GifImageView_image";
 #pragma mark —— @property(nonatomic,strong)NSString *path;
 -(NSString *)path{
     NSString *Path = objc_getAssociatedObject(self, BaseVC_GifImageView_path);
-    if (![NSString isNullString:Path]) {
+    if (!Path.nullString) {
         Path = [[NSBundle mainBundle] pathForResource:@"GIF大图"
                                                ofType:@"gif"];
         objc_setAssociatedObject(self,

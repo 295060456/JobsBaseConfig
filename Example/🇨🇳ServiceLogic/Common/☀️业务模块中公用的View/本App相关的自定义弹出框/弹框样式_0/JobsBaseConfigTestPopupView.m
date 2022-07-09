@@ -65,13 +65,13 @@ static dispatch_once_t static_testPopupViewOnceToken;
         
         {
             JobsUpDownLabModel *model = JobsUpDownLabModel.new;
-            model.upLabText = [NSString isNullString:self.viewModel.textModel.text] ? Internationalization(@"测试弹窗"): self.viewModel.textModel.text;
+            model.upLabText = self.viewModel.textModel.text.nullString ? Internationalization(@"测试弹窗"): self.viewModel.textModel.text;
             model.upLabTextAlignment = NSTextAlignmentCenter;
             model.upLabFont = UIFontWeightBoldSize(20);
             model.upLabTextCor = JobsBlackColor;
             model.upLabBgCor = JobsClearColor;
             
-            model.downLabText = [NSString isNullString:self.viewModel.subTextModel.text] ? Internationalization(@"相关信息"): self.viewModel.textModel.text;
+            model.downLabText = self.viewModel.subTextModel.text.nullString ? Internationalization(@"相关信息"): self.viewModel.textModel.text;
             model.downLabTextAlignment = NSTextAlignmentCenter;
             model.downLabFont = UIFontWeightRegularSize(16);
             model.downLabTextCor = HEXCOLOR(0xB0B0B0);

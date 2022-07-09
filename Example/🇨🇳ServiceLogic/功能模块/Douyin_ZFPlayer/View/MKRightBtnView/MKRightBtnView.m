@@ -59,7 +59,7 @@
 
 -(void)setCommentNumStr:(NSString *)CommentNumStr{
     _CommentNumStr = CommentNumStr;
-    if (![NSString isNullString:_CommentNumStr]) {
+    if (!_CommentNumStr.nullString) {
         [self.mkCommentView setTitle:_CommentNumStr forState:UIControlStateNormal];
         [self.mkCommentView layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
                                         imageTitleSpace:5];

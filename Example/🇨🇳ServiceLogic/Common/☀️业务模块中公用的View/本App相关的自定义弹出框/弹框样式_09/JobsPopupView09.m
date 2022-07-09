@@ -56,8 +56,8 @@ static dispatch_once_t static_popupView09OnceToken;
     MakeDataNull
     
     upDownLabModel = self.valueForKeyBlock(@"upDownLabModel");
-    upDownLabModel.upLabText = [NSString isNullString:self.viewModel.textModel.text] ? Internationalization(@"提示"): self.viewModel.textModel.text;
-    upDownLabModel.downLabText = [NSString isNullString:self.viewModel.subTextModel.text] ? Internationalization(@"由於此平台的活動正在進行中，您若要轉入\n金額，還需完成1518.54元的流水，您確定要\n繼續轉入嗎？"): self.viewModel.textModel.text;
+    upDownLabModel.upLabText = self.viewModel.textModel.text.nullString ? Internationalization(@"提示"): self.viewModel.textModel.text;
+    upDownLabModel.downLabText = self.viewModel.subTextModel.text.nullString ? Internationalization(@"由於此平台的活動正在進行中，您若要轉入\n金額，還需完成1518.54元的流水，您確定要\n繼續轉入嗎？"): self.viewModel.textModel.text;
     upDownLabModel.upLabVerticalAlign = JobsUpDownLabAlign_TopLeft;
     upDownLabModel.upLabLevelAlign = JobsUpDownLabAlign_TopLeft;
     upDownLabModel.downLabVerticalAlign = JobsUpDownLabAlign_TopLeft;

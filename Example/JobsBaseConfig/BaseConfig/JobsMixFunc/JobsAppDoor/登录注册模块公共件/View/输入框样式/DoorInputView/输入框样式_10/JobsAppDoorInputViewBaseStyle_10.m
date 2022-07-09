@@ -54,7 +54,7 @@
 -(void)configTextField{
     _textField.leftView = [UIImageView.alloc initWithImage:self.doorInputViewBaseStyleModel.leftViewIMG];
     _textField.leftViewMode = self.doorInputViewBaseStyleModel.leftViewMode;
-    _textField.placeholder = [NSString isNullString:self.doorInputViewBaseStyleModel.placeHolderStr] ? self.titleStr_1 : self.doorInputViewBaseStyleModel.placeHolderStr;
+    _textField.placeholder = self.doorInputViewBaseStyleModel.placeHolderStr.nullString ? self.titleStr_1 : self.doorInputViewBaseStyleModel.placeHolderStr;
     _textField.keyboardType = self.doorInputViewBaseStyleModel.keyboardType;
     _textField.returnKeyType = self.doorInputViewBaseStyleModel.returnKeyType;
     _textField.keyboardAppearance = self.doorInputViewBaseStyleModel.keyboardAppearance;
@@ -132,7 +132,7 @@
 -(UILabel *)titleLab{
     if (!_titleLab) {
         _titleLab = UILabel.new;
-        _titleLab.text = [NSString isNullString:self.doorInputViewBaseStyleModel.textModel.text] ? self.titleStr_2 : self.doorInputViewBaseStyleModel.textModel.text;
+        _titleLab.text = self.doorInputViewBaseStyleModel.textModel.text.nullString ? self.titleStr_2 : self.doorInputViewBaseStyleModel.textModel.text;
         _titleLab.textColor = self.viewModel.textModel.textCor ? : HEXCOLOR(0xAE8330);
         _titleLab.font = self.viewModel.textModel.font ? : [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightMedium];
         [self addSubview:_titleLab];

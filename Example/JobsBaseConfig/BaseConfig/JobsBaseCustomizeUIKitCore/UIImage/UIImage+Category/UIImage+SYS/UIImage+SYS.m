@@ -28,7 +28,7 @@
         }return image;
     };
     
-    if ([NSString isNullString:name]) {
+    if (name.nullString) {
         if (UIImageBlock_2) {
             return UIImageBlock_2();
         }return nil;

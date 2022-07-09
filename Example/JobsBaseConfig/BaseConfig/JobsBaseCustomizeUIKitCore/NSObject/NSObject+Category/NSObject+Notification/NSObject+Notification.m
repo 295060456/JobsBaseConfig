@@ -11,7 +11,7 @@
 ///【监听所有通知】
 -(void)monitorNotification:(nonnull NSString *)notificationName
               withSelector:(nonnull SEL)selector{
-    if ([NSString isNullString:notificationName]) {
+    if (notificationName.nullString) {
         return;
     }
     NotificationAdd(self,

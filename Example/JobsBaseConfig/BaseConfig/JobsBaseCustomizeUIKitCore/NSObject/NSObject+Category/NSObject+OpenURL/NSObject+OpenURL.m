@@ -129,7 +129,7 @@ completionOpenFailHandler:(jobsByVoidBlock _Nullable)openFailBlock{
         [WHToast toastMsg:@"URL类型不匹配，请检查"];
         return NO;
     }
-    if ([NSString isNullString:URLStr]) {
+    if (URLStr.nullString) {
         [WHToast toastMsg:@"URL为空，请检查！"];
         return NO;
     }

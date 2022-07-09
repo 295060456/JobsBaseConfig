@@ -203,7 +203,7 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
         viewModel.textModel = textModel;
         
         UITextModel *subTextModel = UITextModel.new;
-        subTextModel.text = Internationalization([NSString isNullString:subTitle] ? @"点击查看" : subTitle);
+        subTextModel.text = Internationalization(subTitle.nullString ? @"点击查看" : subTitle);
         viewModel.subTextModel = subTextModel;
         
         UITextModel *backBtnTitleModel = UITextModel.new;
@@ -259,7 +259,7 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
 -(JobsBaseConfigTestPopupView *)JobsTestPopView:(NSString *)string{
     UIViewModel *viewModel = UIViewModel.new;
     UITextModel *textModel = UITextModel.new;
-    textModel.text = [NSString isNullString:string] ? Internationalization(@"登入按钮") : string;
+    textModel.text = string.nullString ? Internationalization(@"登入按钮") : string;
     viewModel.textModel = textModel;
     return [self jobsTestPopView:viewModel];
 }

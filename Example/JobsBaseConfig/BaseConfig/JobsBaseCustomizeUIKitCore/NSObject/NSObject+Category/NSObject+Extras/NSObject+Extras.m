@@ -109,6 +109,16 @@
                     context:nil];
 }
 #pragma mark —— 功能性的
+/// 判空【是空返回YES】
+-(BOOL)nullString{
+    if (self.isKindOfClassBlock(NSString.class)) {
+        NSString *string = (NSString *)self;
+        return string.isNullString;
+    }else{
+        NSCAssert(self.isKindOfClassBlock(NSString.class), Internationalization(@"目标对象不是字符串类型"));
+        return YES;
+    }
+}
 /// 此功能的必要性：如果外界传入的数组是空，那么拿到的count是0，做-1操作就是-1，直接用for循环就会进入死循环
 -(void)jobsSafetyCycleFunc:(int)ceiling cycleBlock:(jobsByIntBlock _Nullable)cycleBlock{
     if (ceiling > 0) {
@@ -466,7 +476,7 @@
     
     if (v) {
         for (UIView *view in v.subviews) {
-            if (![NSString isNullString:view.internationalizationKEY]) {
+            if (!view.internationalizationKEY.nullString) {
                 if ([view isKindOfClass:UILabel.class]) {
                     UILabel *lab = (UILabel *)view;
                     lab.text = Internationalization(view.internationalizationKEY);

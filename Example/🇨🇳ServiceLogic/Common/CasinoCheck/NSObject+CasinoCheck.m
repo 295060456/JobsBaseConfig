@@ -32,14 +32,14 @@
         [self checkUserPassword:model.password]) {
         return YES;
     }else{
-        if ([NSString isNullString:model.userName] &&
-            [NSString isNullString:model.password]) {
+        if (model.userName.nullString &&
+            model.password.nullString) {
             [WHToast toastErrMsg:Internationalization(@"Please complete the login information")];
-        }else if (![NSString isNullString:model.userName] &&
-                  [NSString isNullString:model.password]){
+        }else if (!model.userName.nullString &&
+                  model.password.nullString){
             [WHToast toastErrMsg:Internationalization(@"Please enter your password")];
-        }else if ([NSString isNullString:model.userName] &&
-                  ![NSString isNullString:model.password]){
+        }else if (model.userName.nullString &&
+                  !model.password.nullString){
             [WHToast toastErrMsg:Internationalization(@"Please enter a user name")];
         }else{
             [WHToast toastErrMsg:Internationalization(@"The password consists of 6 to 15 characters and can only be letters and numbers")];
@@ -51,39 +51,39 @@
     if ([self checkUserName:model.userName] &&
         [self checkUserPassword:model.password] &&
         [self checkUserPassword:model.confirmPassword] &&
-        ![NSString isNullString:model.verificationCode] &&
-        ![NSString isNullString:model.tel]) {
+        !model.verificationCode.nullString &&
+        !model.tel.nullString) {
         return YES;
     }else{
-        if ([NSString isNullString:model.userName] &&
-                  ![NSString isNullString:model.password] &&
-                  ![NSString isNullString:model.confirmPassword] &&
-                  ![NSString isNullString:model.tel] &&
-                  ![NSString isNullString:model.verificationCode]){
+        if (model.userName.nullString &&
+                  !model.password.nullString &&
+                  !model.confirmPassword.nullString &&
+                  !model.tel.nullString &&
+                  !model.verificationCode.nullString){
             [WHToast toastErrMsg:Internationalization(@"Please enter a user name")];
-        }else if (![NSString isNullString:model.userName] &&
-                  [NSString isNullString:model.password] &&
-                  ![NSString isNullString:model.confirmPassword] &&
-                  ![NSString isNullString:model.tel] &&
-                  ![NSString isNullString:model.verificationCode]){
+        }else if (!model.userName.nullString &&
+                  model.password.nullString &&
+                  !model.confirmPassword.nullString &&
+                  !model.tel.nullString &&
+                  !model.verificationCode.nullString){
             [WHToast toastErrMsg:Internationalization(@"Please enter your password")];
-        }else if (![NSString isNullString:model.userName] &&
-                  ![NSString isNullString:model.password] &&
-                  [NSString isNullString:model.confirmPassword] &&
-                  ![NSString isNullString:model.tel] &&
-                  ![NSString isNullString:model.verificationCode]){
+        }else if (!model.userName.nullString &&
+                  !model.password.nullString &&
+                  model.confirmPassword.nullString &&
+                  !model.tel.nullString &&
+                  !model.verificationCode.nullString){
             [WHToast toastErrMsg:Internationalization(@"Please confirm your password")];
-        }else if (![NSString isNullString:model.userName] &&
-                  ![NSString isNullString:model.password] &&
-                  ![NSString isNullString:model.confirmPassword] &&
-                  [NSString isNullString:model.tel] &&
-                  ![NSString isNullString:model.verificationCode]){
+        }else if (!model.userName.nullString &&
+                  !model.password.nullString &&
+                  !model.confirmPassword.nullString &&
+                  model.tel.nullString &&
+                  !model.verificationCode.nullString){
             [WHToast toastErrMsg:Internationalization(@"Please enter your mobile phone number")];
-        }else if (![NSString isNullString:model.userName] &&
-                  ![NSString isNullString:model.password] &&
-                  ![NSString isNullString:model.confirmPassword] &&
-                  ![NSString isNullString:model.tel] &&
-                  [NSString isNullString:model.verificationCode]){
+        }else if (!model.userName.nullString &&
+                  !model.password.nullString &&
+                  !model.confirmPassword.nullString &&
+                  !model.tel.nullString &&
+                  model.verificationCode.nullString){
             [WHToast toastErrMsg:Internationalization(@"Please enter the verification code")];
         }else if ([self checkUserName:model.userName] ||
                   [self checkUserPassword:model.password] ||

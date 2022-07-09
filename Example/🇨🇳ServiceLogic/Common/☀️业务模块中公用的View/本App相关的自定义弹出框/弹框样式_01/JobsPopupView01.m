@@ -135,13 +135,13 @@ static dispatch_once_t static_popupView01OnceToken;
 -(JobsUpDownLabModel *)upDownLabModel{
     if (!_upDownLabModel) {
         _upDownLabModel = JobsUpDownLabModel.new;
-        _upDownLabModel.upLabText = [NSString isNullString:self.viewModel.textModel.text] ? Internationalization(@"提示"): self.viewModel.textModel.text;
+        _upDownLabModel.upLabText = self.viewModel.textModel.text.nullString ? Internationalization(@"提示"): self.viewModel.textModel.text;
         _upDownLabModel.upLabTextAlignment = NSTextAlignmentLeft;
         _upDownLabModel.upLabFont = UIFontWeightBoldSize(16);
         _upDownLabModel.upLabTextCor = JobsBlackColor;
         _upDownLabModel.upLabBgCor = JobsClearColor;
         
-        _upDownLabModel.downLabText = [NSString isNullString:self.viewModel.subTextModel.text] ? Internationalization(@"開啟手勢密碼，系統將默認記住您的賬戶密碼\n進入免登陸狀態"): self.viewModel.textModel.text;
+        _upDownLabModel.downLabText = self.viewModel.subTextModel.text.nullString ? Internationalization(@"開啟手勢密碼，系統將默認記住您的賬戶密碼\n進入免登陸狀態"): self.viewModel.textModel.text;
         _upDownLabModel.downLabTextAlignment = NSTextAlignmentLeft;
         _upDownLabModel.downLabFont = UIFontWeightRegularSize(14);
         _upDownLabModel.downLabTextCor = HEXCOLOR(0x757575);

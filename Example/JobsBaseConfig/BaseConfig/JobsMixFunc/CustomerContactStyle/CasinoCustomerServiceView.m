@@ -99,7 +99,7 @@ static CasinoCustomerServiceView *static_customerServiceView = nil;
         [_contactCustomerServiceBtn btnClickEventBlock:^(UIButton *x) {
             NSLog(@"返回登录");
             @jobs_strongify(self)
-            if ([NSString isNullString:self.customerContactModel.onlineUrl.customerAccount]) {
+            if (self.customerContactModel.onlineUrl.customerAccount.nullString) {
                 [self customerContact];/// 获取客服联系方式
             }else{
                 [NSObject openURL:self.customerContactModel.onlineUrl.customerAccount];

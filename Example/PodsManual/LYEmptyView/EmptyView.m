@@ -11,7 +11,7 @@
 @implementation EmptyView
 
 + (instancetype)diyEmptyViewWithTitle:(NSString *_Nullable)title{
-    if ([NSString isNullString:title]) {
+    if (title.nullString) {
         title = Internationalization(@"No Data");
     }
     return [EmptyView emptyViewWithImageStr:@"暂无数据"

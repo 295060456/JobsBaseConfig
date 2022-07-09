@@ -14,7 +14,7 @@ static NSString *CLUserLanguageKey = @"CLUserLanguageKey";
 
 +(void)setUserLanguage:(nullable NSString *)userLanguage{
     //跟随手机系统
-    if ([NSString isNullString:userLanguage]) {
+    if (userLanguage.nullString) {
         [self resetSystemLanguage];
         return;
     }

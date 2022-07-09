@@ -218,14 +218,6 @@ static dispatch_once_t static_jobsAppDoor_Style2OnceToken;
                     [self backBtnClickEvent:btn];
                 }else if([btn.titleLabel.text isEqualToString:Title3]){
                     // 忘记密码
-                    [UIViewController comingFromVC:self
-                                              toVC:DDForgetCodeVC.new
-                                       comingStyle:ComingStyle_PUSH
-                                 presentationStyle:UIModalPresentationFullScreen//UIDevice.currentDevice.systemVersion.doubleValue >= 13.0 ? UIModalPresentationAutomatic : UIModalPresentationFullScreen
-                                     requestParams:nil
-                          hidesBottomBarWhenPushed:YES
-                                          animated:YES
-                                           success:nil];
                 }else{}
             }else if ([data isKindOfClass:JobsMagicTextField.class]){
                 

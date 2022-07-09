@@ -642,7 +642,6 @@
 		84CA65FC2789D3B500E46E71 /* JobsAppDoorVC_Style2.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA65F32789D3B500E46E71 /* JobsAppDoorVC_Style2.m */; };
 		84CA65FD2789D3B500E46E71 /* JobsAppDoorRegisterContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA65F72789D3B500E46E71 /* JobsAppDoorRegisterContentView.m */; };
 		84CA65FE2789D3B500E46E71 /* JobsAppDoorLoginContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA65FB2789D3B500E46E71 /* JobsAppDoorLoginContentView.m */; };
-		84CA66022789D4B100E46E71 /* DDForgetCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA66002789D4B100E46E71 /* DDForgetCodeVC.m */; };
 		84CA660E2789D4CD00E46E71 /* ForgetCodeStep_02View.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA66062789D4CD00E46E71 /* ForgetCodeStep_02View.m */; };
 		84CA660F2789D4CD00E46E71 /* FindCodeFlowChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA660A2789D4CD00E46E71 /* FindCodeFlowChartView.m */; };
 		84CA66102789D4CD00E46E71 /* ForgetCodeStep_01View.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA660C2789D4CD00E46E71 /* ForgetCodeStep_01View.m */; };
@@ -2233,8 +2232,6 @@
 		84CA65F82789D3B500E46E71 /* JobsAppDoorRegisterContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorRegisterContentView.h; sourceTree = "<group>"; };
 		84CA65FA2789D3B500E46E71 /* JobsAppDoorLoginContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorLoginContentView.h; sourceTree = "<group>"; };
 		84CA65FB2789D3B500E46E71 /* JobsAppDoorLoginContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsAppDoorLoginContentView.m; sourceTree = "<group>"; };
-		84CA66002789D4B100E46E71 /* DDForgetCodeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDForgetCodeVC.m; sourceTree = "<group>"; };
-		84CA66012789D4B100E46E71 /* DDForgetCodeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDForgetCodeVC.h; sourceTree = "<group>"; };
 		84CA66062789D4CD00E46E71 /* ForgetCodeStep_02View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetCodeStep_02View.m; sourceTree = "<group>"; };
 		84CA66072789D4CD00E46E71 /* ForgetCodeStep_02View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetCodeStep_02View.h; sourceTree = "<group>"; };
 		84CA66092789D4CD00E46E71 /* FindCodeFlowChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindCodeFlowChartView.h; sourceTree = "<group>"; };
@@ -8826,7 +8823,6 @@
 		84CA65F12789D3B500E46E71 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				84CA66032789D4B500E46E71 /* DDForgetCodeVC */,
 				84CA65FF2789D49400E46E71 /* JobsAppDoorVC_Style2 */,
 			);
 			path = ViewController;
@@ -8875,15 +8871,6 @@
 				84CA65F32789D3B500E46E71 /* JobsAppDoorVC_Style2.m */,
 			);
 			path = JobsAppDoorVC_Style2;
-			sourceTree = "<group>";
-		};
-		84CA66032789D4B500E46E71 /* DDForgetCodeVC */ = {
-			isa = PBXGroup;
-			children = (
-				84CA66012789D4B100E46E71 /* DDForgetCodeVC.h */,
-				84CA66002789D4B100E46E71 /* DDForgetCodeVC.m */,
-			);
-			path = DDForgetCodeVC;
 			sourceTree = "<group>";
 		};
 		84CA66042789D4CD00E46E71 /* 找回密码相关页面 */ = {
@@ -11532,7 +11519,6 @@
 				840F95E427736427004979E9 /* JobsBitsMonitorCore.m in Sources */,
 				840F96C727736428004979E9 /* LMHWaterFallLayout.m in Sources */,
 				840F971427736428004979E9 /* ZYTextField.m in Sources */,
-				84CA66022789D4B100E46E71 /* DDForgetCodeVC.m in Sources */,
 				C5B3AEB628537D590052A4A9 /* BaiShaETProjMembersSubsBaseVC.m in Sources */,
 				840F96A227736428004979E9 /* UIViewController+Lottie.m in Sources */,
 				840F966E27736428004979E9 /* UIView+ZFPlayer.m in Sources */,

@@ -20,7 +20,7 @@ NSString *const 用户名数组 = @"用户名数组";
     UserDefaultModel *obj = (UserDefaultModel *)[NSUserDefaults readWithKey:用户信息];
     if (obj) {
         DDUserModel *userModel = [DDUserModel mj_objectWithKeyValues:obj];
-        return ![NSString isNullString:userModel.token];
+        return !userModel.token.nullString;
     }return obj;
 }
 #pragma mark —— 全局的用户数据(存、取、清)[全局唯一一份用户档案]
@@ -59,7 +59,7 @@ NSString *const 用户名数组 = @"用户名数组";
 /// 全局保存已经登录成功 且 并未删除的用户名组
 -(void)saveUserName:(NSString *_Nullable)userName{
     
-    if ([NSString isNullString:userName]) return;
+    if (userName.nullString) return;
 
     NSMutableArray *userNameMutArr = [NSMutableArray arrayWithArray:[NSUserDefaults.standardUserDefaults valueForKey:用户名数组]];//取出来的实际上是个不可变数组，所以需要向可变数组进行转化
     if (!userNameMutArr) {
@@ -79,7 +79,7 @@ NSString *const 用户名数组 = @"用户名数组";
 /// 全局删除已经登录成功的用户名
 -(void)deleteUserName:(NSString *_Nullable)userName{
     NSMutableArray *userNameMutArr = [NSMutableArray arrayWithArray:[NSUserDefaults.standardUserDefaults valueForKey:用户名数组]];
-    if (userNameMutArr && ![NSString isNullString:userName]) {
+    if (userNameMutArr && !userName.nullString) {
         [userNameMutArr removeObject:userName];
         [NSUserDefaults.standardUserDefaults setObject:userNameMutArr forKey:用户名数组];
         [NSUserDefaults.standardUserDefaults synchronize];

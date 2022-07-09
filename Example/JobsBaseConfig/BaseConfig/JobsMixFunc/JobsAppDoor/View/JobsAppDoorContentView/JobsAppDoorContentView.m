@@ -113,7 +113,7 @@
 /// 手机验证码验证
 -(BOOL)checkTelePhoneNum:(NSString *)phone{
     /// 不为空且全为整数
-    if (![NSString isNullString:phone] &&
+    if (!phone.nullString &&
         [phone isPureInt]) {
         return YES;
     }return NO;

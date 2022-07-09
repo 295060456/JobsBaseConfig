@@ -154,13 +154,13 @@ static dispatch_once_t static_popupView06OnceToken;
 -(JobsUpDownLabModel *)upDownLabModel{
     if (!_upDownLabModel) {
         _upDownLabModel = JobsUpDownLabModel.new;
-        _upDownLabModel.upLabText = [NSString isNullString:self.viewModel.textModel.text] ? Internationalization(@"*溫馨提示"): self.viewModel.textModel.text;
+        _upDownLabModel.upLabText = self.viewModel.textModel.text.nullString ? Internationalization(@"*溫馨提示"): self.viewModel.textModel.text;
         _upDownLabModel.upLabTextAlignment = NSTextAlignmentLeft;
         _upDownLabModel.upLabFont = UIFontWeightBoldSize(16);
         _upDownLabModel.upLabTextCor = JobsBlackColor;
         _upDownLabModel.upLabBgCor = JobsClearColor;
         
-        _upDownLabModel.downLabText = [NSString isNullString:self.viewModel.subTextModel.text] ? Internationalization(@"1.財務客服將主動詢問您所收到的暗號是否為xxxx\n2.如果客服沒有主動詢問您或發給您的暗號不相符，\n請勿進行交易，否則所引發的不到賬等情況，將概不負責"): self.viewModel.textModel.text;
+        _upDownLabModel.downLabText = self.viewModel.subTextModel.text.nullString ? Internationalization(@"1.財務客服將主動詢問您所收到的暗號是否為xxxx\n2.如果客服沒有主動詢問您或發給您的暗號不相符，\n請勿進行交易，否則所引發的不到賬等情況，將概不負責"): self.viewModel.textModel.text;
         _upDownLabModel.downLabTextAlignment = NSTextAlignmentLeft;
         _upDownLabModel.downLabFont = UIFontWeightRegularSize(12);
         _upDownLabModel.downLabTextCor = HEXCOLOR(0x757575);

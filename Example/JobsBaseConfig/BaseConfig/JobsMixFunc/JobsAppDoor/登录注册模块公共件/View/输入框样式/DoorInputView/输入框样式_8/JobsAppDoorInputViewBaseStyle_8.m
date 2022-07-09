@@ -38,7 +38,7 @@
 }
 #pragma mark —— 一些私有方法
 -(void)configTextField{
-    if (![NSString isNullString:self.doorInputViewBaseStyleModel.inputStr]) {
+    if (!self.doorInputViewBaseStyleModel.inputStr.nullString) {
         _textField.text = self.doorInputViewBaseStyleModel.inputStr;
     }
     _textField.keyboardType = self.doorInputViewBaseStyleModel.keyboardType;
@@ -138,10 +138,10 @@
         [_textField textFieldEventFilterBlock:^BOOL(id _Nullable data) {
             @jobs_strongify(self)
             return self.returnBOOLByIDBlock ? self.returnBOOLByIDBlock(data) : YES;
-        } subscribeNextBlock:^(id _Nullable x) {
+        } subscribeNextBlock:^(NSString *_Nullable x) {
             @jobs_strongify(self)
             NSLog(@"输入的字符为 = %@",x);
-            self.securityModeBtn.jobsVisible = ![NSString isNullString:x] && self.doorInputViewBaseStyleModel.isShowSecurityBtn;/// 👁
+            self.securityModeBtn.jobsVisible = !x.nullString && self.doorInputViewBaseStyleModel.isShowSecurityBtn;/// 👁
             if ([x isContainsSpecialSymbolsString:nil]) {
                 [WHToast toastMsg:Internationalization(@"Do not enter special characters")];
             }else{

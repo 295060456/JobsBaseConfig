@@ -20,7 +20,7 @@
 -(NSString *)deviceID{
     //0.读取keychain的缓存
     NSString *deviceID = [KeychainHelper load:UUIDSTRING];
-    if ([NSString isNullString:deviceID]) {
+    if (deviceID.nullString) {
         deviceID = UIDevice.currentDevice.identifierForVendor.UUIDString;
         [KeychainHelper save:UUIDSTRING
                         data:deviceID];

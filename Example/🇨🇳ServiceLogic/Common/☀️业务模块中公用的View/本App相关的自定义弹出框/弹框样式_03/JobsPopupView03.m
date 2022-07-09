@@ -56,8 +56,8 @@ static dispatch_once_t static_popupView03OnceToken;
     MakeDataNull
     
     upDownLabModel = self.valueForKeyBlock(@"upDownLabModel");
-    upDownLabModel.upLabText = [NSString isNullString:self.viewModel.textModel.text] ? Internationalization(@"温馨提示"): self.viewModel.textModel.text;
-    upDownLabModel.downLabText = [NSString isNullString:self.viewModel.subTextModel.text] ? Internationalization(@"會員可在VIP特權頁面進行申請，申請晉級\n優惠後開始計算活動有效流水。此優惠不與\n平台其它優惠共享，僅與返水優惠共享。\n有任何疑問請諮詢7x24小時在線客服。\n\n備註：達到流水額度或餘額低於5元\n時轉入任意金額即可解鎖場館"): self.viewModel.textModel.text;
+    upDownLabModel.upLabText = self.viewModel.textModel.text.nullString ? Internationalization(@"温馨提示"): self.viewModel.textModel.text;
+    upDownLabModel.downLabText = self.viewModel.subTextModel.text.nullString ? Internationalization(@"會員可在VIP特權頁面進行申請，申請晉級\n優惠後開始計算活動有效流水。此優惠不與\n平台其它優惠共享，僅與返水優惠共享。\n有任何疑問請諮詢7x24小時在線客服。\n\n備註：達到流水額度或餘額低於5元\n時轉入任意金額即可解鎖場館"): self.viewModel.textModel.text;
     upDownLabModel.upLabVerticalAlign = JobsUpDownLabAlign_TopLeft;
     upDownLabModel.upLabLevelAlign = JobsUpDownLabAlign_TopLeft;
     upDownLabModel.downLabVerticalAlign = JobsUpDownLabAlign_TopLeft;

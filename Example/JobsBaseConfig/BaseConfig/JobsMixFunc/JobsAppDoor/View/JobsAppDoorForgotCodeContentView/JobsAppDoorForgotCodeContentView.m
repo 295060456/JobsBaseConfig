@@ -108,7 +108,7 @@
         [_contactCustomerServiceBtn btnClickEventBlock:^(UIButton *x) {
             NSLog(@"返回登录");
             @jobs_strongify(self)
-            if ([NSString isNullString:self.customerContactModel.onlineUrl.customerAccount]) {
+            if (self.customerContactModel.onlineUrl.customerAccount.nullString) {
                 [self customerContact:nil];
             }else{
                 [NSObject openURL:self.customerContactModel.onlineUrl.customerAccount];

@@ -19,7 +19,7 @@
                   fileFullname:(NSString *_Nonnull)fileFullname
                          error:(NSError *__autoreleasing *)error{
     // 文件夹路径
-    if ([NSString isNullString:documentsChildDir]) {
+    if (documentsChildDir.nullString) {
         documentsChildDir = @"";
     }
     NSString *folderPath = [NSString stringWithFormat:@"%@/%@",NSString.documentsDir,documentsChildDir];

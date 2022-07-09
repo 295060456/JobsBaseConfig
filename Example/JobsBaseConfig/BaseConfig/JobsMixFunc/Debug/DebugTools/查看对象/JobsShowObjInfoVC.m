@@ -27,7 +27,7 @@
     self.setupNavigationBarHidden = YES;
     if ([self.requestParams isKindOfClass:UIViewModel.class]) {
         self.viewModel = (UIViewModel *)self.requestParams;
-        if ([NSString isNullString:self.viewModel.textModel.text]) {
+        if (self.viewModel.textModel.text.nullString) {
             self.viewModel.textModel.text = Internationalization(@"用户信息展示(开发测试专用)");
         }
     }

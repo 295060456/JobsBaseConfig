@@ -135,7 +135,7 @@
                         limit:(NSInteger)limit{
     
     if (!replaceStrLenth) replaceStrLenth = 3;
-    if ([NSString isNullString:replaceStr]) replaceStr = @".";
+    if (replaceStr.nullString) replaceStr = @".";
     
     /// limit 是不包括省略号的实际的限制字数
     NSString *resultStr = self;

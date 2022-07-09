@@ -63,7 +63,7 @@
                 self.placeholderAnimationLbl.textColor = self.animationColor;
                 self.placeholderAnimationLbl.font = self.animationFont;
                 
-                if (![NSString isNullString:self.placeholder]) {
+                if (!self.placeholder.nullString) {
                     self.placeholderAnimationLbl.text = self.placeholder;
                 }
                 

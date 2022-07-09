@@ -135,7 +135,7 @@
 }
 
 -(void)cancelBtnEvent{
-    if (![NSString isNullString:self.titleStr]) {
+    if (!self.titleStr.nullString) {
         if (self.tableView.mj_y == self.gk_navigationBar.mj_y) {
             [self goUpAndDown:NO];
         }
@@ -165,7 +165,7 @@
                      animations:^{
         @jobs_strongify(self)
         if (isUpAndDown) {//顶上去
-            if (![NSString isNullString:self.titleStr]) {
+            if (!self.titleStr.nullString) {
                 self.gk_navigationBar.mj_h = 0;
                 self.gk_navBarAlpha = 0;
                 
@@ -174,7 +174,7 @@
                 self.tableView.mj_y = 0;
             }
         }else{//正常状态
-            if (![NSString isNullString:self.titleStr]) {
+            if (!self.titleStr.nullString) {
                 self.gk_navigationBar.alpha = 1;
                 self.gk_navigationBar.mj_h = self.gk_navigationBarHeight;
             }
@@ -397,7 +397,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
             make.left.right.equalTo(self.view);
             if (self.gk_navBarAlpha &&
                 !self.gk_navigationBar.hidden &&
-                [NSString isNullString:self.titleStr]) {//显示
+                self.titleStr.nullString) {//显示
                 make.top.equalTo(self.gk_navigationBar.mas_bottom);
             }else{
                 make.top.equalTo(self.view);

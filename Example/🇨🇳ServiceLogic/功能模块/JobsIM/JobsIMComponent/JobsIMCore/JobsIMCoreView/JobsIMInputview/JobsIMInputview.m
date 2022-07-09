@@ -35,7 +35,7 @@
 }
 /// 一些变化的UI
 -(void)someChangeUI:(NSString *)string{
-    if (![NSString isNullString:string]) {
+    if (!string.nullString) {
         self.sendBtn.userInteractionEnabled = YES;
         self.sendBtn.enabled = YES;
         self.imgView.image = JobsIMG(@"输入框有值");
@@ -71,7 +71,7 @@
         [_sendBtn btnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             [self endEditing:YES];
-            if (![NSString isNullString:self.inputTextField.text]) {
+            if (!self.inputTextField.text.nullString) {
                 [NSObject playSoundEffect:@"Sound"
                                      type:@"wav"];
                 if (self.objectBlock) self.objectBlock(self.inputTextField);

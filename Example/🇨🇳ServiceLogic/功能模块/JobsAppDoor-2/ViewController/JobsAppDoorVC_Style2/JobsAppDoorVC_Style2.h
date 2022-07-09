@@ -11,7 +11,6 @@
 #import "JobsAppDoorLoginContentView.h"//登录
 #import "JobsAppDoorRegisterContentView.h"//注册
 #import "JobsAppDoorForgotCodeContentView.h"//忘记密码
-#import "DDForgetCodeVC.h"//忘记密码
 
 #pragma mark —— ZFPlayer 播放器相关
 //Core

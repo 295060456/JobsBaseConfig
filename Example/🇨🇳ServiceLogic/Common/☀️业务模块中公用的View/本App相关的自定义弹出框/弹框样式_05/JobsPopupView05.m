@@ -56,8 +56,8 @@ static dispatch_once_t static_popupView05OnceToken;
     MakeDataNull
     
     upDownLabModel = self.valueForKeyBlock(@"upDownLabModel");
-    upDownLabModel.upLabText = [NSString isNullString:self.viewModel.textModel.text] ? Internationalization(@"轉帳請核對以下信息"): self.viewModel.textModel.text;
-    upDownLabModel.downLabText = [NSString isNullString:self.viewModel.subTextModel.text] ? Internationalization(@"公司銀行卡不定期更換，每次充值請根據提\n交訂單生成的銀行卡轉賬，切勿直接轉賬至\n之前轉入的銀行卡，並且不要使用微信進行\n轉賬存款，否則無法到賬，概不負責！"): self.viewModel.textModel.text;
+    upDownLabModel.upLabText = self.viewModel.textModel.text.nullString ? Internationalization(@"轉帳請核對以下信息"): self.viewModel.textModel.text;
+    upDownLabModel.downLabText = self.viewModel.subTextModel.text.nullString ? Internationalization(@"公司銀行卡不定期更換，每次充值請根據提\n交訂單生成的銀行卡轉賬，切勿直接轉賬至\n之前轉入的銀行卡，並且不要使用微信進行\n轉賬存款，否則無法到賬，概不負責！"): self.viewModel.textModel.text;
     upDownLabModel.upLabVerticalAlign = JobsUpDownLabAlign_TopLeft;
     upDownLabModel.upLabLevelAlign = JobsUpDownLabAlign_TopLeft;
     upDownLabModel.downLabVerticalAlign = JobsUpDownLabAlign_TopLeft;

@@ -32,7 +32,7 @@ NSString *const App当日首次进入 = @"App当日首次进入";
     JobsTimeFormatterModel *timeModel = JobsTimeFormatterModel.new;
     NSDateFormatter *dateFormatter = NSDateFormatter.new;
     //设定时间格式,这里可以设置成自己需要的格式
-    if([NSString isNullString:timeFormatStr]){
+    if(timeFormatStr.nullString){
         dateFormatter.dateFormat = @"MMM dd,yyyy HH:mm tt";
     }else{
         dateFormatter.dateFormat = timeFormatStr;
@@ -58,7 +58,7 @@ NSString *const App当日首次进入 = @"App当日首次进入";
     NSDateFormatter *dateFormatter = NSDateFormatter.new;
     
     //设定时间格式,这里可以设置成自己需要的格式
-    if([NSString isNullString:timeFormatStr]){
+    if(timeFormatStr.nullString){
         dateFormatter.dateFormat = @"MMM dd,yyyy HH:mm tt";
     }else{
         dateFormatter.dateFormat = timeFormatStr;
@@ -147,7 +147,7 @@ NSString *const App当日首次进入 = @"App当日首次进入";
     }
     NSDateFormatter *formatter = NSDateFormatter.new;
     
-    if ([NSString isNullString:timeFormatter]) {
+    if (timeFormatter.nullString) {
         formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
     }else{
         formatter.dateFormat = timeFormatter;
@@ -214,7 +214,7 @@ NSString *const App当日首次进入 = @"App当日首次进入";
     }
     
     NSDateFormatter *dateFormatter = nil;
-    if ([NSString isNullString:dateFormatStr]) {
+    if (dateFormatStr.nullString) {
         dateFormatter = JobsTimeModel.new.dateFormatter;
     }else{
         dateFormatter = NSDateFormatter.new;
@@ -268,7 +268,7 @@ NSString *const App当日首次进入 = @"App当日首次进入";
        timeFormatter:(NSString *_Nullable)timeFormatter{
     NSDateFormatter *dateFormatter = NSDateFormatter.new;
     
-    if ([NSString isNullString:timeFormatter]) {
+    if (timeFormatter.nullString) {
         dateFormatter.dateFormat = @"YYYY-MM-dd HH:mm:ss";
     }else{
         dateFormatter.dateFormat = timeFormatter;
@@ -362,7 +362,7 @@ NSString *const App当日首次进入 = @"App当日首次进入";
     
     NSDateFormatter *formatter = NSDateFormatter.new;
     
-    if ([NSString isNullString:dateFormat]) {
+    if (dateFormat.nullString) {
         formatter.dateFormat = @"yyyy-MM-dd";
     }else{
         formatter.dateFormat = dateFormat;
@@ -389,7 +389,7 @@ NSString *const App当日首次进入 = @"App当日首次进入";
 -(JobsTimeFormatterModel *)timeIntervalstartDate:(NSString *_Nonnull)startTime
                                          endDate:(NSString *_Nullable)endTime
                                    timeFormatter:(NSString *_Nullable)timeFormatter{
-    if ([NSString isNullString:timeFormatter]) {
+    if (timeFormatter.nullString) {
         timeFormatter = @"yyyy-MM-dd HH:mm:ss";
     }
     
@@ -397,7 +397,7 @@ NSString *const App当日首次进入 = @"App当日首次进入";
     dateFormatter.dateFormat = timeFormatter;
     NSDate *startDate = [dateFormatter dateFromString:startTime];
     NSDate *endDate = nil;
-    if ([NSString isNullString:endTime]) {
+    if (endTime.nullString) {
         NSString *now = [dateFormatter stringFromDate:NSDate.date];
         endDate = [dateFormatter dateFromString:now];
     }else{
@@ -516,7 +516,7 @@ NSString *const App当日首次进入 = @"App当日首次进入";
     formatter.dateStyle = NSDateFormatterMediumStyle;
     formatter.timeStyle = NSDateFormatterShortStyle;
     
-    if ([NSString isNullString:timeFormatter]) {
+    if (timeFormatter.nullString) {
         formatter.dateFormat = @"YYYY-MM-dd HH";
     }else{
         formatter.dateFormat = timeFormatter;

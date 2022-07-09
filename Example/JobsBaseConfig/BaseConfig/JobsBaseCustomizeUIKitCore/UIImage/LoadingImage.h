@@ -25,12 +25,12 @@ static inline NSString *__nullable JobsPathForResource(NSString *__nullable blue
                                                        NSString *__nullable bundle_folderName,
                                                        NSString *__nullable ofType){
     NSString *filePath = nil;
-    if ([NSString isNullString:blueFolderName]) {// 最外层是蓝色文件夹
+    if (blueFolderName.nullString) {// 最外层是蓝色文件夹
         filePath = [NSBundle.mainBundle pathForResource:pathForResource
                                                  ofType:ofType
                                             inDirectory:blueFolderName];//蓝色文件夹下是bundle
         
-        if ([NSString isNullString:filePath]) {//蓝色文件夹下是蓝色文件夹
+        if (filePath.nullString) {//蓝色文件夹下是蓝色文件夹
             filePath = blueFolderName;
         }
     }else{// 最外层是黄色文件夹
@@ -38,7 +38,7 @@ static inline NSString *__nullable JobsPathForResource(NSString *__nullable blue
                                                  ofType:ofType];
     }
     
-    if (![NSString isNullString:bundle_folderName]) {
+    if (!bundle_folderName.nullString) {
         filePath = [filePath stringByAppendingPathComponent:bundle_folderName];
     }
     

@@ -49,7 +49,7 @@
     }
 #pragma mark —— Token
     
-    if (![NSString isNullString:@""]) {
+    if (!@"".nullString) {
         [AFHTTPSessionManager.manager.requestSerializer setValue:f.token
                                               forHTTPHeaderField:@"authorization"];
     }

@@ -26,11 +26,11 @@
                             fileEx:(NSString * __nullable)fileNameEx{
     NSString *folderName = JobsTimeModel.new.currentTimestampStr;
     NSString *cachePath;
-    if ([NSString isNullString:folderNameEx]){
+    if (folderNameEx.nullString){
         // Library/Caches/时间戳
         cachePath = [NSString.cachesDir stringByAppendingPathComponent:folderName];
     }else{
-        if ([NSString isNullString:fileNameEx]){
+        if (fileNameEx.nullString){
             // Library/Caches/folderNameEx/时间戳
             cachePath = [NSString.cachesDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@/%@",folderNameEx,folderName]];
         }else{
@@ -146,11 +146,11 @@
 bundleFileSuffix:(NSString *__nonnull)bundleFileSuffix
        fileType:(FileType)fileType{
     NSString *bundlePath = NSString.bundlePath;//获取bundle路径
-    if (![NSString isNullString:bundleFileName]){
+    if (!bundleFileName.nullString){
         bundlePath = [bundlePath stringByAppendingString:[NSString stringWithFormat:@"/%@%@",bundleFileName,@".bundle"]];
     }
     
-    if (![NSString isNullString:bundleFileSuffix]){
+    if (!bundleFileSuffix.nullString){
         bundlePath = [bundlePath stringByAppendingString:bundleFileSuffix];
     }
     return [FileFolderHandleTool filePath:bundlePath
@@ -161,7 +161,7 @@ bundleFileSuffix:(NSString *__nonnull)bundleFileSuffix
 /// @param fileType 获取的文件类型 因为要以不同的方式解析出数据
 +(id)filePath:(NSString *__nonnull)filePath
      fileType:(FileType)fileType{
-    if ([NSString isNullString:filePath]){
+    if (filePath.nullString){
         NSLog(@"文件路径不存在");
         return nil;
     }else{

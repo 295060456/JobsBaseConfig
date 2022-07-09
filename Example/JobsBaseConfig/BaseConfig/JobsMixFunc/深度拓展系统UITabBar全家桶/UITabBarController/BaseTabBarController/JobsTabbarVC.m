@@ -148,7 +148,7 @@ static JobsTabbarVC *static_tabbarVC = nil;
 /// @param index index
 -(BOOL)judgeLottieWithIndex:(NSInteger)index{
     JobsTabBarControllerConfig *config = (JobsTabBarControllerConfig *)self.tabBarControllerConfigMutArr[index];
-    return ![NSString isNullString:config.lottieName];
+    return !config.lottieName.nullString;
 }
 
 -(void)UISetting{

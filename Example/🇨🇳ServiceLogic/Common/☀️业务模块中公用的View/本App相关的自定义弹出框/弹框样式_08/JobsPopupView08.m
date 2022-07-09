@@ -56,8 +56,8 @@ static dispatch_once_t static_popupView08OnceToken;
     MakeDataNull
     
     upDownLabModel = self.valueForKeyBlock(@"upDownLabModel");
-    upDownLabModel.upLabText = [NSString isNullString:self.viewModel.textModel.text] ? Internationalization(@"提示"): self.viewModel.textModel.text;
-    upDownLabModel.downLabText = [NSString isNullString:self.viewModel.subTextModel.text] ? Internationalization(@"當前實時匯率 1USDT=6.95RMB\n預計實際到賬 24USDT"): self.viewModel.textModel.text;
+    upDownLabModel.upLabText = self.viewModel.textModel.text.nullString ? Internationalization(@"提示"): self.viewModel.textModel.text;
+    upDownLabModel.downLabText = self.viewModel.subTextModel.text.nullString ? Internationalization(@"當前實時匯率 1USDT=6.95RMB\n預計實際到賬 24USDT"): self.viewModel.textModel.text;
     upDownLabModel.upLabVerticalAlign = JobsUpDownLabAlign_TopLeft;
     upDownLabModel.upLabLevelAlign = JobsUpDownLabAlign_TopLeft;
     upDownLabModel.downLabVerticalAlign = JobsUpDownLabAlign_TopLeft;

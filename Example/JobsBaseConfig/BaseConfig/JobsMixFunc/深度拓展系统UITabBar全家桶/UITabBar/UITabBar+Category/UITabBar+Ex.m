@@ -17,7 +17,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         @jobs_strongify(self)
         // lottieName 存在才对LOTAnimationView及其相关控件进行创建
-        if (![NSString isNullString:lottieName]) {
+        if (!lottieName.nullString) {
             LOTAnimationView *lottieView = [LOTAnimationView animationNamed:lottieName];
             
             CGFloat totalW = UIScreen.mainScreen.bounds.size.width;
