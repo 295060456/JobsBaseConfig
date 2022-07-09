@@ -48,7 +48,7 @@
                                              NSUnderlineColorAttributeName: JobsLightGrayColor,
                                              NSUnderlineStyleAttributeName: @(NSUnderlinePatternSolid)};
     
-    agreementTipsTV.attributedText = self.attributedStringData;//
+    agreementTipsTV.attributedText = self.attributedStringData2;//
     [agreementTipsTV sizeToFit];
     agreementTipsTV.backgroundColor = JobsClearColor;
     agreementTipsTV.editable = NO;/// 必须禁止输入，否则点击将会弹出输入键盘
