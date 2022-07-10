@@ -9,6 +9,10 @@
 
 @implementation NSString (Conversion)
 #pragma mark —— 转化
+/// 字符串转NSURL *
+-(NSURL *)url{
+    return [NSURL URLWithString:self];
+}
 /// 字符串中取数字
 -(long long)getDigits{
     NSCharacterSet *nonDigits = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
@@ -22,10 +26,9 @@
     // 将文件数据化
     NSData *data = [NSData.alloc initWithContentsOfFile:path];
     // 对数据进行JSON格式化并返回字典形式
-    NSError *err = nil;
     return [NSJSONSerialization JSONObjectWithData:data
                                            options:kNilOptions
-                                             error:&err];
+                                             error:nil];
 }
 /// JSON 转 NSDictionary
 -(NSDictionary *)dictionaryWithJsonString{

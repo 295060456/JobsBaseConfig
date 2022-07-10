@@ -145,7 +145,7 @@
     if (!_textField) {
         _textField = JobsMagicTextField.new;
         _textField.delegate = self;
-        self.textField.secureTextEntry = self.doorInputViewBaseStyleModel.isShowSecurityBtn;
+        _textField.secureTextEntry = self.doorInputViewBaseStyleModel.isShowSecurityBtn;
         @jobs_weakify(self)
         [_textField textFieldEventFilterBlock:^BOOL(id _Nullable data) {
             NSLog(@"SSS = %@",self.textFieldInputModel.PlaceHolder);

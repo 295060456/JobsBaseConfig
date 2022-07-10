@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSString (Conversion)
 #pragma mark —— 转化
+/// 字符串转NSURL *
+-(NSURL *)url;
 /// 字符串中取数字
 -(long long)getDigits;
 /// 读取本地JSON文件

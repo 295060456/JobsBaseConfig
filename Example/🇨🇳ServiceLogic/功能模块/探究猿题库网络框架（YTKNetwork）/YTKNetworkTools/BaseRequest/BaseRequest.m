@@ -7,19 +7,13 @@
 
 #import "BaseRequest.h"
 
-@implementation BaseRequest{
-    NSDictionary *_Nullable _parameters;
-}
+@implementation BaseRequest
 
 -(instancetype _Nullable)initWithParameters:(NSDictionary *_Nullable)parameters{
     if (self = [super init]) {
-        _parameters = parameters;
+        self.parameters = parameters;
     }return self;
 }
-/// 请求Api
-//-(NSString *)requestUrl{
-//    return self.customerContactGET.url;
-//}
 /// Body 参数
 -(id _Nullable)requestArgument{
     return _parameters;
@@ -36,5 +30,23 @@
 -(NSInteger)cacheTimeInSeconds{
     return 60 * 3;
 }
+#pragma mark —— 具体子类实现
+/// 请求Api
+//-(NSString *)requestUrl{
+//    return self.customerContactGET.url;
+//}
+//- (NSURLRequest *)buildCustomUrlRequest {
+//    NSError *parseError = nil;
+//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self.parameters
+//                                                       options:NSJSONWritingPrettyPrinted
+//                                                         error:&parseError];
+//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.requestUrl]
+//                                                           cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+//                                                       timeoutInterval:30];
+//    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+//    [request setHTTPMethod:@"POST"];//POST请求
+//    [request setHTTPBody:jsonData];//body 数据
+//    return request;
+//}
 
 @end

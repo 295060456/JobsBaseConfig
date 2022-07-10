@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseRequest : YTKRequest
 
+@property(nonatomic,strong,nullable)NSDictionary *parameters;
+
 -(instancetype _Nullable)initWithParameters:(NSDictionary *_Nullable)parameters;
 
 @end
