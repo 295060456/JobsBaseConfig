@@ -23,7 +23,7 @@
 }
 
 -(NSString *)requestUrl {
-    return @"/iphone/image/upload";
+    return [self.BaseUrl stringByAppendingString:@"/iphone/image/upload"];
 }
 
 -(AFConstructingBlock)constructingBodyBlock {

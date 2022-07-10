@@ -18,7 +18,7 @@
 }
 /// 请求Api
 -(NSString *)requestUrl{
-    return self.customerContactGET.url;
+    return [self.BaseUrl stringByAppendingString:self.customerContactGET.url];
 }
 /// Body 参数
 -(id _Nullable)requestArgument{
@@ -35,6 +35,20 @@
 
 -(NSInteger)cacheTimeInSeconds{
     return 60 * 3;
+}
+
+- (NSURLRequest *)buildCustomUrlRequest{
+    NSError *parseError = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self.parameters
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:&parseError];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:self.requestUrl.url
+                                                           cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+                                                       timeoutInterval:30];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPMethod:@"POST"];//POST请求
+    [request setHTTPBody:jsonData];//body 数据
+    return request;
 }
 
 @end

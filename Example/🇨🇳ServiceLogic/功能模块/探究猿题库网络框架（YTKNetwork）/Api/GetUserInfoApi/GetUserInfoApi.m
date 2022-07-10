@@ -19,7 +19,7 @@
 }
 
 -(NSString *)requestUrl{
-    return self.userInfoGET.url;
+    return [self.BaseUrl stringByAppendingString:self.userInfoGET.url];
 }
 /// 请求方式
 -(YTKRequestMethod)requestMethod {

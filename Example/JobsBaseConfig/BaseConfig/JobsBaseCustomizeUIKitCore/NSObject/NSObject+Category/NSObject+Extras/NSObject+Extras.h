@@ -64,6 +64,12 @@
 #import "YYImage.h"
 #endif
 
+#if __has_include(<YTKNetwork/YTKNetwork.h>)
+#import <YTKNetwork/YTKNetwork.h>
+#else
+#import "YTKNetwork.h"
+#endif
+
 #import "JobsDropDownListView.h"
 
 #define JobsMutableArray(MutArrInstace) MutArrInstace ? [MutArrInstace removeAllObjects] : (MutArrInstace = NSMutableArray.array);
@@ -144,6 +150,8 @@ BaseProtocol
 /// 添加监听【针对UIScrollView 的 ContentOffset 属性】
 -(void)monitorContentOffsetScrollView:(UIScrollView *_Nonnull)scrollView;
 #pragma mark —— 功能性的
+/// 打印YTKBaseRequest
+-(void)checkRequest:(YTKBaseRequest *_Nonnull)request;
 /// 判空【是空返回YES】
 -(BOOL)nullString;
 /// 此功能的必要性：如果外界传入的数组是空，那么拿到的count是0，做-1操作就是-1，直接用for循环就会进入死循环

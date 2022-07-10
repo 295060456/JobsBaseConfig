@@ -25,19 +25,19 @@
 #pragma mark —— 默认值设置
 -(NSString *)userName{
     if (!_userName) {
-//        _userName = @"暂时没有值";
+//        _userName = Internationalization(@"暂时没有值");
     }return _userName;
 }
 
 -(NSString *)token{
     if (!_token) {
-        _token = @"暂时没有值";
+        _token = Internationalization(@"暂时没有值");
     }return _token;
 }
 
 -(NSString *)uid{
     if (!_uid) {
-        _uid = @"暂时没有值";
+        _uid = Internationalization(@"暂时没有值");
     }return _uid;
 }
 

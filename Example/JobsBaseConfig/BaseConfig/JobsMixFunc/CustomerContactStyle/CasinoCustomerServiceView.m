@@ -8,7 +8,6 @@
 #import "CasinoCustomerServiceView.h"
 
 @interface CasinoCustomerServiceView ()
-
 /// UI
 @property(nonatomic,strong)UILabel *titleLab;// 标题
 @property(nonatomic,strong)UIButton *closeBtn;
@@ -19,7 +18,7 @@
 @property(nonatomic,strong)JobsHotLabelWithSingleLine *hl;
 /// Data
 @property(nonatomic,strong)NSMutableArray <UIViewModel *>*hotLabelDataMutArr;
-@property(nonatomic,strong)CasinoCustomerContactModel *customerContactModel;
+@property(nonatomic,strong)BaiShaETProjCustomerContactModel *customerContactModel;
 
 @end
 
@@ -50,7 +49,7 @@ static CasinoCustomerServiceView *static_customerServiceView = nil;
 -(void)drawRect:(CGRect)rect{
     [super drawRect:rect];
 }
-
+// BaseViewProtocol
 -(void)richElementsInViewWithModel:(NSMutableArray <UIViewModel *>*_Nullable)model{
     
     self.titleLab.alpha = 1;
@@ -81,7 +80,8 @@ static CasinoCustomerServiceView *static_customerServiceView = nil;
         _titleLab = UILabel.new;
         _titleLab.text = Internationalization(Title10);
         _titleLab.textColor = HEXCOLOR(0x502600);
-        _titleLab.font = UIFontWeightRegularSize(20);
+        _titleLab.font = [UIFont systemFontOfSize:JobsWidth(20)
+                                           weight:UIFontWeightRegular];
         [_titleLab sizeToFit];
         [self.backgroundImageView addSubview:_titleLab];
         [_titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -113,14 +113,19 @@ static CasinoCustomerServiceView *static_customerServiceView = nil;
             make.top.equalTo(self.titleLab.mas_bottom).offset(JobsWidth(12));
             make.centerX.equalTo(self.titleLab);
         }];
+
     }return _contactCustomerServiceBtn;
 }
 
 -(UIButton *)closeBtn{
     if (!_closeBtn) {
         _closeBtn = UIButton.new;
-        _closeBtn.normalBackgroundImage = JobsIMG(@"客服_关闭按钮");
-        BtnClickEvent(_closeBtn, if(self.objectBlock) self.objectBlock(x););
+        [_closeBtn normalBackgroundImage:JobsIMG(@"客服_关闭按钮")];
+        @jobs_weakify(self)
+        [_closeBtn btnClickEventBlock:^(UIButton *x) {
+            @jobs_strongify(self)
+            if(self.objectBlock) self.objectBlock(x);
+        }];
         [self.backgroundImageView addSubview:_closeBtn];
         [_closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(CGSizeMake(JobsWidth(24), JobsWidth(24)));
@@ -138,7 +143,7 @@ static CasinoCustomerServiceView *static_customerServiceView = nil;
         _subTitleLab.numberOfLines = 0;
         _subTitleLab.textColor = HEXCOLOR(0x502600);
         _subTitleLab.font = UIFontWeightMediumSize(12);
-        [_subTitleLab makeLabelByShowingType:UILabelShowingType_03];
+        [_subTitleLab sizeToFit];
         [self addSubview:_subTitleLab];
         [_subTitleLab mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(self.contactCustomerServiceBtn);
@@ -153,11 +158,13 @@ static CasinoCustomerServiceView *static_customerServiceView = nil;
     if (!_hl) {
         _hl = JobsHotLabelWithSingleLine.new;
         _hl.backgroundColor = JobsClearColor;
+        _hl.labelShowingType = UILabelShowingType_02;
+        _hl.elementDefaultSize = CGSizeMake(JobsWidth(43), JobsWidth(43));
         [self actionForHotLabel:_hl];
         [self addSubview:_hl];
         [_hl mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(self);
-            make.top.equalTo(self.subTitleLab.mas_bottom).offset(JobsWidth(18));
+            make.top.equalTo(self.subTitleLab.mas_bottom).offset(JobsWidth(13));
             make.size.mas_equalTo([JobsHotLabelWithSingleLine viewSizeWithModel:self.hotLabelDataMutArr]);
         }];
         [self layoutIfNeeded];

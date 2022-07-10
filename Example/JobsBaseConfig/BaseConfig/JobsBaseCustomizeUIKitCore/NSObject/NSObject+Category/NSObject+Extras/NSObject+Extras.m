@@ -109,6 +109,13 @@
                     context:nil];
 }
 #pragma mark —— 功能性的
+/// 打印YTKBaseRequest
+-(void)checkRequest:(YTKBaseRequest *_Nonnull)request{
+    NSLog(@"request.error = %@\n",request.error);
+    NSLog(@"request.requestArgument = %@\n",request.requestArgument);
+    NSLog(@"request.requestUrl = %@\n",request.requestUrl);
+    NSLog(@"request.baseUrl = %@\n",request.baseUrl);
+}
 /// 判空【是空返回YES】
 -(BOOL)nullString{
     if (self.isKindOfClassBlock(NSString.class)) {

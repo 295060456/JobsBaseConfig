@@ -33,14 +33,14 @@
 #pragma mark —— 具体子类实现
 /// 请求Api
 //-(NSString *)requestUrl{
-//    return self.customerContactGET.url;
+//    return [self.BaseUrl stringByAppendingString:self.membersLoginPOST.url];
 //}
 //- (NSURLRequest *)buildCustomUrlRequest {
 //    NSError *parseError = nil;
 //    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self.parameters
 //                                                       options:NSJSONWritingPrettyPrinted
 //                                                         error:&parseError];
-//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:self.requestUrl]
+//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:self.requestUrl.url
 //                                                           cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
 //                                                       timeoutInterval:30];
 //    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
