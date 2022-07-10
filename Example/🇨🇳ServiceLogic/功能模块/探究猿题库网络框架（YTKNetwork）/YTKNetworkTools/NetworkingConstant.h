@@ -8,7 +8,7 @@
 #ifndef NetworkingConstant_h
 #define NetworkingConstant_h
 
-/********如果需要存储，相应的的 key 宏定义********/
+#define server_URL NSObject.BaseUrl
 /// 服务器相关
 #define HTTPRequestTokenKey @"token"
 /// 签名key
@@ -23,7 +23,6 @@
 #define HTTPServiceResponseMsgKey @"msg"
 /// 数据data
 #define HTTPServiceResponseDataKey  @"data"
-
 /**
  后台定义：
  
@@ -53,13 +52,20 @@ typedef NS_ENUM(NSUInteger, HTTPResponseCode) {//KKK
     ///其他代号，展示msg内容即可
 };
 
+typedef NS_ENUM(NSUInteger, HTTPRequestHeaderLanguageType) {
+    /// 英文
+    HTTPRequestHeaderLanguageEn,
+    /// 中文
+    HTTPRequestHeaderLanguageCN,
+    /// 其他语言
+    HTTPRequestHeaderLanguageOther
+};
+
 static NSString *const HTTPServiceErrorDomain = @"HTTPServiceErrorDomain";/// The Http request error domain
 static NSString *const HTTPServiceErrorResponseCodeKey = @"HTTPServiceErrorResponseCodeKey";/// 请求成功，但statusCode != 0
 static NSString *const HTTPServiceErrorRequestURLKey = @"HTTPServiceErrorRequestURLKey";//请求地址错误
 static NSString *const HTTPServiceErrorHTTPStatusCodeKey = @"HTTPServiceErrorHTTPStatusCodeKey";//请求错误的code码key: 请求成功了，但code码是错误提示的code,比如参数错误
 static NSString *const HTTPServiceErrorDescriptionKey = @"HTTPServiceErrorDescriptionKey";//请求错误，详细描述key
 static NSString *const HTTPServiceErrorMessagesKey = @"HTTPServiceErrorMessagesKey";//服务端错误提示，信息key
-
-#define server_URL NSObject.BaseUrl
 
 #endif /* NetworkingConstant_h */

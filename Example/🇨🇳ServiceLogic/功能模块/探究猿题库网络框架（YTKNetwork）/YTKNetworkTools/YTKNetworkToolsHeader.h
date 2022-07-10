@@ -8,6 +8,8 @@
 #ifndef YTKNetworkToolsHeader_h
 #define YTKNetworkToolsHeader_h
 
+#pragma mark —— 一些基础定义
+#import "NetworkingConstant.h"
 #pragma mark —— BaseRequest
 #import "BaseRequest.h"
 #pragma mark —— YTKNetworkAccessory

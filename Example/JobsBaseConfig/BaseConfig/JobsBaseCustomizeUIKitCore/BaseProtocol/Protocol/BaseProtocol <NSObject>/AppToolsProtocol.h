@@ -10,6 +10,7 @@
 #import "JobsAppDoorConfig.h"
 #import "RequestTool.h"
 #import "CasinoGetiOSNewestVersionModel.h"
+#import "NetworkingConstant.h"
 
 @class JobsHotLabelWithSingleLine;
 

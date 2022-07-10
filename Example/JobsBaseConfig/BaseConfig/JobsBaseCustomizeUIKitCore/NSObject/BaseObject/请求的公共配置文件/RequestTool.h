@@ -11,15 +11,7 @@
 #import "ZBNetworking.h"
 #import "DataManager.h"
 #import "NetworkingConstant.h"
-
-typedef NS_ENUM(NSUInteger, HTTPRequestHeaderLanguageType) {
-    /// 英文
-    HTTPRequestHeaderLanguageEn,
-    /// 中文
-    HTTPRequestHeaderLanguageCN,
-    /// 其他语言
-    HTTPRequestHeaderLanguageOther
-};
+#import "YTKNetworkToolsHeader.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

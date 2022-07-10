@@ -1004,7 +1004,6 @@
 		840F92C527736425004979E9 /* JobsMixFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsMixFunc.h; sourceTree = "<group>"; };
 		840F92CB27736425004979E9 /* ZBRequestConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBRequestConst.h; sourceTree = "<group>"; };
 		840F92CC27736425004979E9 /* ZBURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBURLRequest.m; sourceTree = "<group>"; };
-		840F92CD27736425004979E9 /* NetworkingConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingConstant.h; sourceTree = "<group>"; };
 		840F92CE27736425004979E9 /* ZBRequestEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBRequestEngine.m; sourceTree = "<group>"; };
 		840F92CF27736425004979E9 /* ZBRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBRequestManager.m; sourceTree = "<group>"; };
 		840F92D027736425004979E9 /* NSString+ZBUTF8Encoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ZBUTF8Encoding.h"; sourceTree = "<group>"; };
@@ -2307,6 +2306,7 @@
 		C53684D228758C6B00DD7AA7 /* TMSCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMSCollectionViewLayout.h; sourceTree = "<group>"; };
 		C537C6F0286DA1C2007D6539 /* BaseTableViewHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewHeaderFooterView.h; sourceTree = "<group>"; };
 		C537C6F1286DA1C3007D6539 /* BaseTableViewHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewHeaderFooterView.m; sourceTree = "<group>"; };
+		C546E1EC287ACD6200074386 /* NetworkingConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingConstant.h; sourceTree = "<group>"; };
 		C548C7EC28700AED00F5ED90 /* UIScrollView+AnimationKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+AnimationKit.h"; sourceTree = "<group>"; };
 		C548C7ED28700AED00F5ED90 /* UIScrollView+AnimationKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+AnimationKit.m"; sourceTree = "<group>"; };
 		C54BC43228325BA80010EF20 /* JobsTitleView01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsTitleView01.h; sourceTree = "<group>"; };
@@ -3089,7 +3089,6 @@
 			children = (
 				84869678277C68470098BE7A /* NSString+Check.h */,
 				84869677277C68470098BE7A /* NSString+Check.m */,
-				840F92CD27736425004979E9 /* NetworkingConstant.h */,
 				840F92D027736425004979E9 /* NSString+ZBUTF8Encoding.h */,
 				840F92D327736425004979E9 /* NSString+ZBUTF8Encoding.m */,
 				840F92D727736425004979E9 /* ZBCacheManager.h */,
@@ -5697,6 +5696,7 @@
 		8424743627C0CAD900831270 /* YTKNetworkTools */ = {
 			isa = PBXGroup;
 			children = (
+				C546E1EC287ACD6200074386 /* NetworkingConstant.h */,
 				C5948B33287A872300EC655B /* YTKNetworkToolsHeader.h */,
 				C5948B2F287A867000EC655B /* BaseRequest */,
 				842475A127C0D65800831270 /* YTKNetworkAccessory */,
