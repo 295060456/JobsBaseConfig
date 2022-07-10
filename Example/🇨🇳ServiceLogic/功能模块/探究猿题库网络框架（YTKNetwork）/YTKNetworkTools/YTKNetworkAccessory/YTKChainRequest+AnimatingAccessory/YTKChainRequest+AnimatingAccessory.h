@@ -6,10 +6,15 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#import "YTKBaseRequest.h"
 #import "YTKAnimatingRequestAccessory.h"
 
-@interface YTKBaseRequest (AnimatingAccessory)
+#if __has_include(<YTKNetwork/YTKChainRequest.h>)
+#import <YTKNetwork/YTKChainRequest.h>
+#else
+#import "YTKChainRequest.h"
+#endif
+
+@interface YTKChainRequest (AnimatingAccessory)
 
 @property(weak,nonatomic)UIView *animatingView;
 @property(strong,nonatomic)NSString *animatingText;

@@ -18,7 +18,7 @@
     }return self;
 }
 
--(NSString *)requestUrl {
+-(NSString *_Nonnull)requestUrl {
     return self.goldenFMaintenanceGameListGET.url;
 }
 
@@ -34,7 +34,7 @@
     return nil;
 }
 /// 在链式请求中，下一个请求的参数来源于上一个请求的结果
--(NSString *)userId{
+-(NSString *_Nonnull)userId{
     return [[self.responseJSONObject objectForKey:@"userId"] stringValue] ? : @"";
 }
 

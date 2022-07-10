@@ -729,6 +729,7 @@
 		C59483342879846400EC655B /* B.png in Resources */ = {isa = PBXBuildFile; fileRef = C594832D2879846400EC655B /* B.png */; };
 		C59483352879846400EC655B /* A.png in Resources */ = {isa = PBXBuildFile; fileRef = C594832E2879846400EC655B /* A.png */; };
 		C59483362879846400EC655B /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = C594832F2879846400EC655B /* refresh.png */; };
+		C5948B32287A867000EC655B /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C5948B31287A867000EC655B /* BaseRequest.m */; };
 		C596B78F283F6DA600C13619 /* UIViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C596B78A283F6DA600C13619 /* UIViewModel.m */; };
 		C596B790283F6DA600C13619 /* JobsHeaderFooterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C596B78D283F6DA600C13619 /* JobsHeaderFooterViewModel.m */; };
 		C596B7A3283F6F7900C13619 /* JobsHotLabelWithSingleLine.m in Sources */ = {isa = PBXBuildFile; fileRef = C596B799283F6F7800C13619 /* JobsHotLabelWithSingleLine.m */; };
@@ -2432,6 +2433,9 @@
 		C594832E2879846400EC655B /* A.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = A.png; sourceTree = "<group>"; };
 		C594832F2879846400EC655B /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
 		C59483302879846400EC655B /* WMZCodeViewDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMZCodeViewDefine.h; sourceTree = "<group>"; };
+		C5948B30287A867000EC655B /* BaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequest.h; sourceTree = "<group>"; };
+		C5948B31287A867000EC655B /* BaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequest.m; sourceTree = "<group>"; };
+		C5948B33287A872300EC655B /* YTKNetworkToolsHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTKNetworkToolsHeader.h; sourceTree = "<group>"; };
 		C596B78A283F6DA600C13619 /* UIViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewModel.m; sourceTree = "<group>"; };
 		C596B78B283F6DA600C13619 /* UIViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewModel.h; sourceTree = "<group>"; };
 		C596B78D283F6DA600C13619 /* JobsHeaderFooterViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsHeaderFooterViewModel.m; sourceTree = "<group>"; };
@@ -5684,6 +5688,7 @@
 			children = (
 				8424743327C0C32B00831270 /* YTKNetworkStudyVC.h */,
 				8424743427C0C32B00831270 /* YTKNetworkStudyVC.m */,
+				842475A227C0D65C00831270 /* Api */,
 				8424743627C0CAD900831270 /* YTKNetworkTools */,
 			);
 			path = "探究猿题库网络框架（YTKNetwork）";
@@ -5692,8 +5697,9 @@
 		8424743627C0CAD900831270 /* YTKNetworkTools */ = {
 			isa = PBXGroup;
 			children = (
-				842475A127C0D65800831270 /* Accessory */,
-				842475A227C0D65C00831270 /* Api */,
+				C5948B33287A872300EC655B /* YTKNetworkToolsHeader.h */,
+				C5948B2F287A867000EC655B /* BaseRequest */,
+				842475A127C0D65800831270 /* YTKNetworkAccessory */,
 				842475B627C0DE6F00831270 /* YTKRequest+Custom */,
 				8424744627C0CB0800831270 /* YTKUrlArgumentsFilter */,
 			);
@@ -5745,7 +5751,7 @@
 			path = UploadImageApi;
 			sourceTree = "<group>";
 		};
-		842475A127C0D65800831270 /* Accessory */ = {
+		842475A127C0D65800831270 /* YTKNetworkAccessory */ = {
 			isa = PBXGroup;
 			children = (
 				842475B227C0D69300831270 /* YTKChainRequest+AnimatingAccessory */,
@@ -5753,7 +5759,7 @@
 				842475B027C0D67E00831270 /* YTKBaseRequest+AnimatingAccessory */,
 				842475AF27C0D67700831270 /* YTKAnimatingRequestAccessory */,
 			);
-			path = Accessory;
+			path = YTKNetworkAccessory;
 			sourceTree = "<group>";
 		};
 		842475A227C0D65C00831270 /* Api */ = {
@@ -9843,6 +9849,15 @@
 			path = resource;
 			sourceTree = "<group>";
 		};
+		C5948B2F287A867000EC655B /* BaseRequest */ = {
+			isa = PBXGroup;
+			children = (
+				C5948B30287A867000EC655B /* BaseRequest.h */,
+				C5948B31287A867000EC655B /* BaseRequest.m */,
+			);
+			path = BaseRequest;
+			sourceTree = "<group>";
+		};
 		C596B788283F6DA600C13619 /* UIViewModelFamily */ = {
 			isa = PBXGroup;
 			children = (
@@ -11973,6 +11988,7 @@
 				840F96EE27736428004979E9 /* NSObject+DataSave.m in Sources */,
 				840F961327736427004979E9 /* NSString+ZBUTF8Encoding.m in Sources */,
 				8424771527C0FDCA00831270 /* GetCustomerContactApi.m in Sources */,
+				C5948B32287A867000EC655B /* BaseRequest.m in Sources */,
 				C53683632875856100DD7AA7 /* TMSWalletCollectionReusableView.m in Sources */,
 				C5C47D63284E1DF9007916B3 /* JobsPopupView07.m in Sources */,
 				840F963F27736427004979E9 /* JobsSuspendLab.m in Sources */,

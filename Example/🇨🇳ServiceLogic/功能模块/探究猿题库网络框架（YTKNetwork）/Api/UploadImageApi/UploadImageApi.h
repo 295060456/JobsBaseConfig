@@ -7,10 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "YTKRequest.h"
-#import <AFNetworking/AFURLRequestSerialization.h>
+#import "YTKNetworkToolsHeader.h"
 
-@interface UploadImageApi : YTKRequest
+#if __has_include(<YTKNetwork/YTKRequest.h>)
+#import <YTKNetwork/YTKRequest.h>
+#else
+#import "YTKRequest.h"
+#endif
+
+#if __has_include(<AFNetworking/AFURLRequestSerialization.h>)
+#import <AFNetworking/AFURLRequestSerialization.h>
+#else
+#import "AFURLRequestSerialization.h"
+#endif
+
+@interface UploadImageApi : BaseRequest
 
 -(id)initWithImage:(UIImage *)image;
 -(NSString *)responseImageId;

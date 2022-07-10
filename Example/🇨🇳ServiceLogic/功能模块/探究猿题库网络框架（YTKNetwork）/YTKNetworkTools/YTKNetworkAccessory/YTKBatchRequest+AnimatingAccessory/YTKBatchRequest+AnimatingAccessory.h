@@ -6,8 +6,13 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#import "YTKBatchRequest.h"
 #import "YTKAnimatingRequestAccessory.h"
+
+#if __has_include(<YTKNetwork/YTKChainRequest.h>)
+#import <YTKNetwork/YTKBatchRequest.h>
+#else
+#import "YTKBatchRequest.h"
+#endif
 
 @interface YTKBatchRequest (AnimatingAccessory)
 

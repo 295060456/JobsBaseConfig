@@ -73,7 +73,7 @@
         // show cached data
     }
 
-    api.animatingText = @"正在加载";
+    api.animatingText = Internationalization(@"正在加载");
     api.animatingView = self.view;
 
     [api startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {

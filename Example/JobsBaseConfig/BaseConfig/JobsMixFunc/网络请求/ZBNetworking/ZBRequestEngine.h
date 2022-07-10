@@ -6,8 +6,14 @@
 //  Copyright © 2017年 Suzhibin. All rights reserved.
 //
 
-#import <AFNetworking/AFNetworking.h>
 #import "ZBRequestConst.h"
+
+#if __has_include(<AFNetworking/AFNetworking.h>)
+#import <AFNetworking/AFNetworking.h>
+#else
+#import "AFNetworking.h"
+#endif
+
 @class ZBConfig;
 
 @interface ZBRequestEngine : AFHTTPSessionManager
