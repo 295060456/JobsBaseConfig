@@ -18,7 +18,7 @@
 @property(nonatomic,strong)JobsHotLabelWithSingleLine *hl;
 /// Data
 @property(nonatomic,strong)NSMutableArray <UIViewModel *>*hotLabelDataMutArr;
-@property(nonatomic,strong)BaiShaETProjCustomerContactModel *customerContactModel;
+@property(nonatomic,strong)CasinoCustomerContactModel *customerContactModel;
 
 @end
 
