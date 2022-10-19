@@ -1840,16 +1840,6 @@
 		845D3681279FE80700F40A9E /* JXCategoryView */ = {isa = PBXFileReference; lastKnownFileType = text; path = JXCategoryView; sourceTree = "<group>"; };
 		845D3683279FE80700F40A9E /* File */ = {isa = PBXFileReference; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
 		845D3684279FE80700F40A9E /* iOS 状态栏颜色的修改.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "iOS 状态栏颜色的修改.md"; sourceTree = "<group>"; };
-		845D3686279FE80700F40A9E /* Flutter_Config.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Flutter_Config.md; sourceTree = "<group>"; };
-		845D3687279FE80700F40A9E /* MacPorts_Config.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = MacPorts_Config.md; sourceTree = "<group>"; };
-		845D3688279FE80700F40A9E /* React-native_Config.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "React-native_Config.md"; sourceTree = "<group>"; };
-		845D3689279FE80700F40A9E /* Tomcat_Config.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Tomcat_Config.md; sourceTree = "<group>"; };
-		845D368A279FE80700F40A9E /* Weex_Config.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Weex_Config.md; sourceTree = "<group>"; };
-		845D368B279FE80700F40A9E /* Computer_Config.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Computer_Config.md; sourceTree = "<group>"; };
-		845D368C279FE80700F40A9E /* Homebrew_Config.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Homebrew_Config.md; sourceTree = "<group>"; };
-		845D368E279FE80700F40A9E /* cocoapods_gem_ruby.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = cocoapods_gem_ruby.md; sourceTree = "<group>"; };
-		845D368F279FE80700F40A9E /* Oh-my-zsh_Config.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Oh-my-zsh_Config.md"; sourceTree = "<group>"; };
-		845D3690279FE80700F40A9E /* Cocoapods_Config.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Cocoapods_Config.md; sourceTree = "<group>"; };
 		845D3692279FE80700F40A9E /* File */ = {isa = PBXFileReference; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
 		845D3694279FE80700F40A9E /* 优秀的关于音视频处理的文献资料 */ = {isa = PBXFileReference; lastKnownFileType = text; path = "优秀的关于音视频处理的文献资料"; sourceTree = "<group>"; };
 		845D3696279FE80700F40A9E /* 网络返回值 ==> Json文件.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "网络返回值 ==> Json文件.md"; sourceTree = "<group>"; };
@@ -6924,7 +6914,6 @@
 				845D3670279FE80700F40A9E /* JXCategoryView */,
 				845D3682279FE80700F40A9E /* GKNavigationBar */,
 				845D3684279FE80700F40A9E /* iOS 状态栏颜色的修改.md */,
-				845D3685279FE80700F40A9E /* Computer_Config */,
 				845D3691279FE80700F40A9E /* Lock */,
 				845D3693279FE80700F40A9E /* 优秀的关于音视频处理的文献资料 */,
 				845D3695279FE80700F40A9E /* 模型解析 */,
@@ -7054,31 +7043,6 @@
 				845D3683279FE80700F40A9E /* File */,
 			);
 			path = GKNavigationBar;
-			sourceTree = "<group>";
-		};
-		845D3685279FE80700F40A9E /* Computer_Config */ = {
-			isa = PBXGroup;
-			children = (
-				845D3686279FE80700F40A9E /* Flutter_Config.md */,
-				845D3687279FE80700F40A9E /* MacPorts_Config.md */,
-				845D3688279FE80700F40A9E /* React-native_Config.md */,
-				845D3689279FE80700F40A9E /* Tomcat_Config.md */,
-				845D368A279FE80700F40A9E /* Weex_Config.md */,
-				845D368B279FE80700F40A9E /* Computer_Config.md */,
-				845D368C279FE80700F40A9E /* Homebrew_Config.md */,
-				845D368D279FE80700F40A9E /* Cocoapods */,
-			);
-			path = Computer_Config;
-			sourceTree = "<group>";
-		};
-		845D368D279FE80700F40A9E /* Cocoapods */ = {
-			isa = PBXGroup;
-			children = (
-				845D368E279FE80700F40A9E /* cocoapods_gem_ruby.md */,
-				845D368F279FE80700F40A9E /* Oh-my-zsh_Config.md */,
-				845D3690279FE80700F40A9E /* Cocoapods_Config.md */,
-			);
-			path = Cocoapods;
 			sourceTree = "<group>";
 		};
 		845D3691279FE80700F40A9E /* Lock */ = {

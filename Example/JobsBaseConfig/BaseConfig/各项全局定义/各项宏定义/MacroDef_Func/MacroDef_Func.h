@@ -9,6 +9,7 @@
 #define MacroDef_Func_h
 
 #import <UIKit/UIKit.h>
+#import "MacroDef_Size.h"
 #import "MacroDef_SysWarning.h"
 #import "MacroDef_Print.h"
 #import "MacroDef_Notification.h"
@@ -26,47 +27,6 @@
 #import "WHToast.h"
 #endif
 
-static inline UIWindow *getMainWindow(){
-    UIWindow *window = nil;
-    //以下方法有时候会拿不到window
-    if (@available(iOS 13.0, *)) {
-        for (UIWindowScene* windowScene in UIApplication.sharedApplication.connectedScenes){
-            if (windowScene.activationState == UISceneActivationStateForegroundActive){
-                window = windowScene.windows.firstObject;
-                return window;
-            }
-        }
-    }
-
-    if (UIApplication.sharedApplication.delegate.window) {
-        window = UIApplication.sharedApplication.delegate.window;
-        return window;
-    }
-    
-    SuppressWdeprecatedDeclarationsWarning(
-        if (UIApplication.sharedApplication.keyWindow) {
-        window = UIApplication.sharedApplication.keyWindow;
-        return window;
-    });
-    
-    return window;
-}
-/**
- 是否是iPhone刘海屏系列：   X系列（X/XS/XR/XS Max)、11系列（11、pro、pro max）
- @return YES 是该系列 NO 不是该系列
- */
-static inline BOOL isiPhoneX_series() {
-    BOOL iPhoneXSeries = NO;
-    if (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPhone) {
-        return iPhoneXSeries;
-    }
-    if (@available(iOS 11.0, *)) {
-        UIWindow *mainWindow = getMainWindow();
-        if (mainWindow.safeAreaInsets.bottom > 0.0) {
-            iPhoneXSeries = YES;
-        }
-    }return iPhoneXSeries;
-}
 /**
     1、该方法只能获取系统默认的AppDelegate；
     2、如果要获取自定义的appDelegate，则需要：
