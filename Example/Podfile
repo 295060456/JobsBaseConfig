@@ -54,7 +54,7 @@ def appCommon
   end
 ## GK一族
 def gk
-#  pod 'GKNavigationBar' # https://github.com/QuintGao/GKNavigationBar NO_SMP
+    pod 'GKNavigationBar' # https://github.com/QuintGao/GKNavigationBar NO_SMP
   pod 'GKPhotoBrowser' # https://github.com/QuintGao/GKPhotoBrowser iOS仿微信、今日头条等图片浏览器
   end
 ## JX一族
@@ -72,18 +72,18 @@ def ui
   pod 'ZMJGanttChart' # https://github.com/keshiim/ZMJGanttChart excel
   pod 'LMJDropdownMenu' # https://github.com/JerryLMJ/LMJDropdownMenu 下拉菜单
   pod 'WMZBanner' # https://github.com/wwmz/WMZBanner 轻量级轮播图+卡片样式+自定义样式
-  #pod 'MGSwipeTableCell' # https://github.com/MortimerGoro/MGSwipeTableCell 滑动tableViewCell
+  pod 'MGSwipeTableCell' # https://github.com/MortimerGoro/MGSwipeTableCell 滑动tableViewCell
   pod 'Shimmer' # Facebook 推出的一款具有闪烁效果的第三方控件
   pod 'RQShineLabel'  # https://github.com/zipme/RQShineLabel 一个类似Secret文字渐变效果的开源库
   pod 'SZTextView' # https://github.com/glaszig/SZTextView SZTextView 用于替代内置的 UITextView，实现了 placeholder
   pod 'BRPickerView'  # https://github.com/91renb/BRPickerView 该组件封装的是iOS中常用的选择器组件，主要包括：日期选择器、时间选择器（DatePickerView）、地址选择器（AddressPickerView）、自定义字符串选择器（StringPickerView）。支持自定义主题样式，适配深色模式，支持将选择器组件添加到指定容器视图。
-  #pod 'LYEmptyView' # https://github.com/dev-liyang/LYEmptyView iOS一行代码集成空白页面占位图(无数据、无网络占位图)
+  pod 'LYEmptyView' # https://github.com/dev-liyang/LYEmptyView iOS一行代码集成空白页面占位图(无数据、无网络占位图)
 #  pod 'ZZCircleProgress' # https://github.com/zhouxing5311/ZZCircleProgress 可以高度自定义的环形进度条 我用手动pods管理
   #pod 'FLAnimatedImageView+RGWrapper' #
   pod 'PPBadgeView' # https://github.com/jkpang/PPBadgeView iOS自定义Badge组件, 支持UIView, UITabBarItem, UIBarButtonItem以及子类 NO_SMP
   pod 'WHToast' # https://github.com/remember17/WHToast 一个轻量级的提示控件，没有任何依赖 NO_SMP
   #pod 'BEMCheckBox' # https://github.com/Boris-Em/BEMCheckBox 复选框 更炫 Tasteful Checkbox for iOS
-#  pod 'WMZCode' # https://github.com/wwmz/WMZCode
+  pod 'WMZCode' # https://github.com/wwmz/WMZCode
 #  pod 'KJBannerView' # https://github.com/yangKJ/KJBannerViewDemo 轮播图 【有点问题，暂时手动管理】
 #  pod 'YYKit'
   pod 'YYImage'
@@ -99,7 +99,7 @@ def videoFunc
   pod 'ZFPlayer'
   pod 'ZFPlayer/ControlView'
   pod 'ZFPlayer/AVPlayer'
-  #pod 'ZFPlayer/ijkplayer'
+  pod 'ZFPlayer/ijkplayer'
 #  pod 'KTVHTTPCache' # 边下边播
 #  pod 'VIMediaCache' # https://github.com/vitoziv/VIMediaCache 边下边播
   end

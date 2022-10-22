@@ -10876,6 +10876,7 @@
 				844B020B2764C8EE00B0513D /* Resources */,
 				154903B630AC7D7392A68641 /* [CP] Embed Pods Frameworks */,
 				A4669842D6660368CD6E038D /* [CP] Copy Pods Resources */,
+				C5A06E3629003208002392AB /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -11436,6 +11437,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JobsBaseConfig/Pods-JobsBaseConfig-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		C5A06E3629003208002392AB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n# 如果是Debug环境并且目录存在开始打包\nif [ \"${CONFIGURATION}\" = \"Debug\" ] && [ -d \"${BUILD_ROOT}/${CONFIGURATION}-iphoneos\" ]\nthen\n\n# 打开app目录\ncd ${BUILD_ROOT}/${CONFIGURATION}-iphoneos\n\n# 如果Payload存在, 删除Payload避免新建文件夹失败\nif [ -d \"Payload\" ]\nthen\nrm -rf Payload\necho \"Payload已存在并移除完毕!\"\nfi\n\n# 创建Payload文件夹\nmkdir Payload\n# 拷贝app到Payload\ncp -rf ${PROJECT_NAME}.app Payload\n# 打包成ipa\nzip -r ${PROJECT_NAME}.ipa Payload\n# 打开当前目录\nopen .\n\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
