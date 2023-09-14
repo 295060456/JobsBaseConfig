@@ -8,7 +8,7 @@
 #import "SceneDelegate+UISceneDelegate.h"
 
 @implementation SceneDelegate (UISceneDelegate)
-
+#pragma mark —— UIWindowSceneDelegate
 - (void)scene:(UIScene *)scene
 willConnectToSession:(UISceneSession *)session
       options:(UISceneConnectionOptions *)connectionOptions {

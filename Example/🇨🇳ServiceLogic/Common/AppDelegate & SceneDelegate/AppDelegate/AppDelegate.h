@@ -14,7 +14,7 @@
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunguarded-availability-new"
 
-@interface AppDelegate : UIResponder
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 // UI
 @property(nonatomic,strong)UIWindow *window;//仅仅为了iOS 13 版本向下兼容而存在
 // Data

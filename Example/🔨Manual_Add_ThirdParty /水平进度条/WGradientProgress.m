@@ -267,7 +267,7 @@
 
 -(UIColor *)fenceLayerColor{
     if (!_fenceLayerColor) {
-        _fenceLayerColor = RandomColor;
+        _fenceLayerColor = JobsRandomColor;
     }return _fenceLayerColor;
 }
 

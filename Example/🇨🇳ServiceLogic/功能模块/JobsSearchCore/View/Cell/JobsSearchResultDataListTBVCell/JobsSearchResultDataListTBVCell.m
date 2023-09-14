@@ -20,7 +20,7 @@
     if (!cell) {
         cell = [JobsSearchResultDataListTBVCell initTableViewCellWithStyle:UITableViewCellStyleDefault];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//        cell.contentView.backgroundColor = RandomColor;
+//        cell.contentView.backgroundColor = JobsRandomColor;
         cell.imageView.image = JobsIMG(@"放大镜");
         cell.tapGR.enabled = YES;
     }return cell;

@@ -15,7 +15,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = RandomColor;
+    self.view.backgroundColor = JobsRandomColor;
 }
 
 @end

@@ -23,16 +23,16 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self == [super initWithFrame:frame]) {
 //        self.backgroundColor = JobsWhiteColor;
-//        self.contentView.backgroundColor = RandomColor;
+//        self.contentView.backgroundColor = JobsRandomColor;
         [self cornerCutToCircleWithCornerRadius:JobsWidth(8)];
     }return self;
 }
 #pragma mark —— BaseCellProtocol
 +(instancetype)cellWithCollectionView:(nonnull UICollectionView *)collectionView
                          forIndexPath:(nonnull NSIndexPath *)indexPath{
-    [collectionView registerCollectionViewCellClass:BaiShaETProjBankAccMgmtCVCell.class];
     BaiShaETProjBankAccMgmtCVCell *cell = (BaiShaETProjBankAccMgmtCVCell *)[collectionView collectionViewCellClass:BaiShaETProjBankAccMgmtCVCell.class forIndexPath:indexPath];
     if (!cell) {
+        [collectionView registerCollectionViewCellClass:BaiShaETProjBankAccMgmtCVCell.class];
         cell = (BaiShaETProjBankAccMgmtCVCell *)[collectionView collectionViewCellClass:BaiShaETProjBankAccMgmtCVCell.class forIndexPath:indexPath];
     }
     cell.indexPath = indexPath;

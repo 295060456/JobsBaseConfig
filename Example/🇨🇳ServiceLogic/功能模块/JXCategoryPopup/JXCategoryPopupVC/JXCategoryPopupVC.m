@@ -144,8 +144,8 @@ ratio:(CGFloat)ratio {
     if (!_categoryView) {
         _categoryView = JXCategoryTitleView.new;
         _categoryView.backgroundColor = UIColor.clearColor;
-        _categoryView.titleSelectedColor = RandomColor;
-        _categoryView.titleColor = RandomColor;
+        _categoryView.titleSelectedColor = JobsRandomColor;
+        _categoryView.titleColor = JobsRandomColor;
         _categoryView.titleFont = [UIFont systemFontOfSize:18 weight:UIFontWeightRegular];
         _categoryView.titleSelectedFont = [UIFont systemFontOfSize:28 weight:UIFontWeightRegular];
         _categoryView.delegate = self;

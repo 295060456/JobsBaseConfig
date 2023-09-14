@@ -23,6 +23,12 @@
 //#import "FBRetainCycleDetector.h"
 //#endif
 
+#if __has_include(<FSCalendar/FSCalendar.h>)
+#import <FSCalendar/FSCalendar.h>
+#else
+#import "FSCalendar.h"
+#endif
+
 #if __has_include(<DoraemonManager/DoraemonManager.h>)
 #import <DoraemonKit/DoraemonManager.h>
 #else

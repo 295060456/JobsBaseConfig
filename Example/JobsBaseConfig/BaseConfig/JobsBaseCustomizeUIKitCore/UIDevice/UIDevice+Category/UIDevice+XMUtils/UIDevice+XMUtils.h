@@ -8,83 +8,66 @@
 
 #import <UIKit/UIKit.h>
 #import <sys/sysctl.h>
-
-typedef enum : NSUInteger {
-    /// iPhone Simulator 或者 新出的机型
-    iPhoneScreen_default = 0,
-    iPhoneScreen_3GS = 1,
-    iPhoneScreen_4_4S = 2,
-    iPhoneScreen_5_5S_5C_SE = 3,
-    iPhoneScreen_6_6S_7_8 = 4,
-    iPhoneScreen_6_6S_7_8_Plus = 5,
-    iPhoneScreen_X_XS = 6,
-    iPhoneScreen_XR = 7,
-    iPhoneScreen_XSMAX = 8
-} iPhoneScreen;
-
-//https://kangzubin.com/ios-device-model/
-//https://gist.github.com/kangzubin/5b4f989d6b1113bfbe43c5772f3ba1fd
+/**
+ https://kangzubin.com/ios-device-model/
+ https://gist.github.com/kangzubin/5b4f989d6b1113bfbe43c5772f3ba1fd
+ */
 @interface UIDevice (XMUtils)
 /**
  获取硬件平台名称，叫 device model 或者 machine name
-
  @return 硬件平台名称，如 iPhone3,1、iPad7,4 等
  */
-+(NSString *)platform;
++(NSString * _Nullable)platform;
 /**
- 获取设备型号名称
-
- @return 设备型号名称，如 iPhone 7、iPhone X、iPad Pro 10.5-inch 等
+ 根据传入的定位标识符 Identifier，判定是什么机型
+ @param string 定位标识符 Identifier
+ 
+ 最近一次更新日期：2023.09.10
+ 数据来源：https://www.theiphonewiki.com/wiki/Models 定位标识符 Identifier
+ ⚠️标识处：在数据来源处并未罗列
  */
-+(NSString *)platformString;
++(NSString * _Nullable)platform:(NSString * _Nullable)string;
+///  获取设备型号名称（可以区分iOS模拟器）
++(NSString * _Nullable)platformNameStr;
+/// 获取当前设备标识符Identifier（不区分iOS模拟器：把IOS模拟器当真机对待）
++(NSString * _Nullable)platformIDStr;
+/// 判断当前机型是否是iphone6 及其以上机型,过滤掉对ipad的判断
++(BOOL)judgementUpperIphone6;
+/// 判断当前机型是否为非刘海屏：是刘海屏return YES，不是刘海屏return NO
++(BOOL)isFullScreen;
+/// 判断当前是否是iOS模拟器
++(BOOL)isSimulator;
+/// 判断当前iOS机型
++(NSString * _Nullable)machineName;
+/// 判定当前设备是否为iPhone
++(BOOL)isiPhone;
+/// 判断当前iOS模拟器所模拟的机型
++(NSString * _Nullable)simulatorModel;
 /**
  获取设备型号名称
-
  @return 设备型号名称，与 platformString 一致，只查询一次然后缓存
  */
-+(NSString *)deviceName;
-
-+(BOOL)judgementUpperIphone6;//判断当前机型是否是iphone6 及其以上机型,过滤掉对ipad的判断
-
-+(BOOL)isSimulator;
++(NSString * _Nullable)deviceName;
 
 @end
-
-static inline iPhoneScreen iPhone_seriesScreen(){
-    NSString *str = [UIDevice platformString];
-    if ([str isEqualToString:@"iPhone 3GS"]) {
-        return iPhoneScreen_3GS;
-    }else if ([str isEqualToString:@"iPhone 4S"] ||
-              [str isEqualToString:@"iPhone 4 (CDMA)"] ||
-              [str isEqualToString:@"iPhone 4 (GSM Rev A)"] ||
-              [str isEqualToString:@"iPhone 4 (GSM)"]){
-        return iPhoneScreen_4_4S;
-    }else if ([str isEqualToString:@"iPhone 5s"] ||
-              [str isEqualToString:@"iPhone 5c"] ||
-              [str isEqualToString:@"iPhone 5 (CDMA)"] ||
-              [str isEqualToString:@"iPhone 5 (GSM)"] ||
-              [str isEqualToString:@"iPhone SE"]){
-        return iPhoneScreen_5_5S_5C_SE;
-    }else if (
-              [str isEqualToString:@"iPhone 6s"] ||
-              [str isEqualToString:@"iPhone 6"] ||
-              [str isEqualToString:@"iPhone 8"] ||
-              [str isEqualToString:@"iPhone 7"]){
-        return iPhoneScreen_6_6S_7_8;
-    }else if ([str isEqualToString:@"iPhone 6s Plus"] ||
-              [str isEqualToString:@"iPhone 6 Plus"] ||
-              [str isEqualToString:@"iPhone 8 Plus"] ||
-              [str isEqualToString:@"iPhone 7 Plus"]){
-        return iPhoneScreen_6_6S_7_8_Plus;
-    }else if ([str isEqualToString:@"iPhone X"] || [str isEqualToString:@"iPhone XS"]){
-        return iPhoneScreen_X_XS;
-    }else if ([str isEqualToString:@"iPhone XR"]){
-        return iPhoneScreen_XR;
-    }else if ([str isEqualToString:@"iPhone XS Max"]){
-        return iPhoneScreen_XSMAX;
-    }else{
-        //    if ([platform isEqualToString:@"iPhone1,2"])    return @"iPhone 3G";
-        //    if ([platform isEqualToString:@"iPhone1,1"])    return @"iPhone 1G";
-        return iPhoneScreen_default;
-    }
-}
+/**
+ 第一代iPhone - 2007年6月29日
+ iPhone 3G - 2008年7月11日
+ iPhone 3GS - 2009年6月19日
+ iPhone 4 - 2010年6月24日
+ iPhone 4s - 2011年10月14日
+ iPhone 5 - 2012年9月21日
+ iPhone 5s 和 iPhone 5c - 2013年9月20日
+ iPhone 6 和 iPhone 6 Plus - 2014年9月19日
+ iPhone 6s 和 iPhone 6s Plus - 2015年9月25日
+ iPhone SE (第一代) - 2016年3月31日
+ iPhone 7 和 iPhone 7 Plus - 2016年9月16日
+ iPhone 8 和 iPhone 8 Plus - 2017年9月22日
+ iPhone X - 2017年11月3日
+ iPhone XS 和 iPhone XS Max - 2018年9月21日
+ iPhone XR - 2018年10月26日
+ iPhone 11, iPhone 11 Pro 和 iPhone 11 Pro Max - 2019年9月20日
+ iPhone SE (第二代) - 2020年4月24日
+ iPhone 12 和 iPhone 12 Pro - 2020年10月23日
+ iPhone 12 mini 和 iPhone 12 Pro Max - 2020年11月13日
+ */

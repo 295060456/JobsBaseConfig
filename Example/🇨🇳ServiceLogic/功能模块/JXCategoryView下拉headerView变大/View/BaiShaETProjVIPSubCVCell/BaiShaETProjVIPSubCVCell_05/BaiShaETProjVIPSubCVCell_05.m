@@ -17,7 +17,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        self.contentView.backgroundColor = RandomColor;
+        self.contentView.backgroundColor = JobsRandomColor;
     }return self;
 }
 #pragma mark —— JobsDoorInputViewProtocol
@@ -27,9 +27,9 @@
 #pragma mark —— BaseCellProtocol
 +(instancetype)cellWithCollectionView:(nonnull UICollectionView *)collectionView
                          forIndexPath:(nonnull NSIndexPath *)indexPath{
-    [collectionView registerCollectionViewCellClass:BaiShaETProjVIPSubCVCell_05.class];
     BaiShaETProjVIPSubCVCell_05 *cell = (BaiShaETProjVIPSubCVCell_05 *)[collectionView collectionViewCellClass:BaiShaETProjVIPSubCVCell_05.class forIndexPath:indexPath];
     if (!cell) {
+        [collectionView registerCollectionViewCellClass:BaiShaETProjVIPSubCVCell_05.class];
         cell = (BaiShaETProjVIPSubCVCell_05 *)[collectionView collectionViewCellClass:BaiShaETProjVIPSubCVCell_05.class forIndexPath:indexPath];
     }
     cell.indexPath = indexPath;

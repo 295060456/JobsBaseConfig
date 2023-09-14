@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [WHToast toastMsg:@"检查者进栈"];
-    self.view.backgroundColor = RandomColor;
+    self.view.backgroundColor = JobsRandomColor;
     NSLog(@"%@",JobsLocalFunc);
 }
 

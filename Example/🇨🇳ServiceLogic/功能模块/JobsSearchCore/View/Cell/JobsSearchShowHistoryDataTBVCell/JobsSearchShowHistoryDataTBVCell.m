@@ -20,7 +20,7 @@
         cell = [JobsSearchShowHistoryDataTBVCell initTableViewCellWithStyle:UITableViewCellStyleDefault];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-//        cell.contentView.backgroundColor = RandomColor;
+//        cell.contentView.backgroundColor = JobsRandomColor;
         cell.imageView.image = JobsIMG(@"时钟");
     }return cell;
 }

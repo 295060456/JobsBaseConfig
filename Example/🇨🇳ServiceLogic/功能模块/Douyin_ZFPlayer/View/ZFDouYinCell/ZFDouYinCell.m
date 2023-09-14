@@ -24,7 +24,7 @@
     if (!cell) {
         cell = [ZFDouYinCell initTableViewCellWithStyle:UITableViewCellStyleSubtitle];;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.contentView.backgroundColor = RandomColor;
+        cell.contentView.backgroundColor = JobsRandomColor;
     }return cell;
 }
 

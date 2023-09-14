@@ -40,7 +40,7 @@ def appCommon
   pod 'XYColorOC' # https://github.com/RayJiang16/XYColor 适配iOS 13夜间模式/深色外观(Dark Mode)
   pod 'IQKeyboardManager' # https://github.com/hackiftekhar/IQKeyboardManager Codeless drop-in universal library allows to prevent issues of keyboard sliding up and cover UITextField/UITextView. Neither need to write any code nor any setup required and much more.
   pod 'Masonry' # https://github.com/SnapKit/Masonry NO_SMP
-  pod 'AFNetworking' # https://github.com/AFNetworking/AFNetworking YES_SMP
+#  pod 'AFNetworking' # https://github.com/AFNetworking/AFNetworking YES_SMP ⚠️作者停止维护
   pod 'Reachability'  # https://github.com/tonymillion/Reachability 检查联网情况 NO_SMP
   pod 'ReactiveObjC' # https://github.com/ReactiveCocoa/ReactiveObjC NO_SMP
   pod 'MJRefresh' # https://github.com/CoderMJLee/MJRefresh NO_SMP
@@ -54,7 +54,7 @@ def appCommon
   end
 ## GK一族
 def gk
-    pod 'GKNavigationBar' # https://github.com/QuintGao/GKNavigationBar NO_SMP
+  pod 'GKNavigationBar' # https://github.com/QuintGao/GKNavigationBar NO_SMP
   pod 'GKPhotoBrowser' # https://github.com/QuintGao/GKPhotoBrowser iOS仿微信、今日头条等图片浏览器
   end
 ## JX一族
@@ -71,7 +71,7 @@ def alert
 def ui
   pod 'ZMJGanttChart' # https://github.com/keshiim/ZMJGanttChart excel
   pod 'LMJDropdownMenu' # https://github.com/JerryLMJ/LMJDropdownMenu 下拉菜单
-  pod 'WMZBanner' # https://github.com/wwmz/WMZBanner 轻量级轮播图+卡片样式+自定义样式
+#  pod 'WMZBanner' # https://github.com/wwmz/WMZBanner 轻量级轮播图+卡片样式+自定义样式 ⚠️作者停止维护
   pod 'MGSwipeTableCell' # https://github.com/MortimerGoro/MGSwipeTableCell 滑动tableViewCell
   pod 'Shimmer' # Facebook 推出的一款具有闪烁效果的第三方控件
   pod 'RQShineLabel'  # https://github.com/zipme/RQShineLabel 一个类似Secret文字渐变效果的开源库
@@ -113,6 +113,7 @@ def func
   pod 'lottie-ios', '~> 2.5.3' # 这是OC终极版本
   pod 'WCDB'
   pod 'AYCheckVersion'  # https://github.com/AYJk/AYCheckVersion 提示更新 Check version from AppStore / 从AppStore检查更新
+  pod 'FSCalendar' # https://github.com/WenchaoD/FSCalendar 日历签到
   #pod 'LCAuthManager' # https://github.com/LennonChin/LCAuthManager 简单易用的权限验证库，提供了手势密码、生物特性验证（包括Touch ID和Face ID）的集成
   videoFunc # 视频相关
   end

@@ -18,7 +18,7 @@
 
 -(instancetype)init{
     if (self = [super init]) {
-//        self.backgroundColor = RandomColor;
+//        self.backgroundColor = JobsRandomColor;
         
         self.uxy_acceptEventInterval = 0.5f;
     }return self;

@@ -32,7 +32,7 @@
     if (!cell) {
         cell = [PlayerCell initTableViewCellWithStyle:UITableViewCellStyleSubtitle];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.contentView.backgroundColor = RandomColor;
+        cell.contentView.backgroundColor = JobsRandomColor;
         [NSNotificationCenter.defaultCenter addObserver:self
                                                selector:@selector(noti1)
                                                    name:@"noti1"

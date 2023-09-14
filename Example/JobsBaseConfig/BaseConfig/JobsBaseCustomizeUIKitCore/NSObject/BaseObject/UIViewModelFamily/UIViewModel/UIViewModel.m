@@ -50,19 +50,19 @@ NTESVerifyCodeManagerProtocol_synthesize
 
 -(UIColor *)bgCor{
     if (!_bgCor) {
-        _bgCor = RandomColor;
+        _bgCor = JobsRandomColor;
     }return _bgCor;
 }
 
 -(UIImage *)image{
     if (!_image) {
-//        _image = [UIImage imageWithColor:RandomColor];
+//        _image = [UIImage imageWithColor:JobsRandomColor];
     }return _image;
 }
 
 -(UIImage *)bgImage{
     if (!_bgImage) {
-//        _bgImage = [UIImage imageWithColor:RandomColor];
+//        _bgImage = [UIImage imageWithColor:JobsRandomColor];
     }return _bgImage;
 }
 

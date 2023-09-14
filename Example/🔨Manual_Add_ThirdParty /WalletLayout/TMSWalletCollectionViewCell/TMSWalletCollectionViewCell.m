@@ -20,7 +20,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self == [super initWithFrame:frame]) {
         self.backgroundColor = JobsWhiteColor;
-        self.contentView.backgroundColor = RandomColor;
+        self.contentView.backgroundColor = JobsRandomColor;
         self.layer.cornerRadius = 20;
         self.layer.masksToBounds = YES;
     }return self;
@@ -28,9 +28,9 @@
 #pragma mark —— BaseCellProtocol
 +(instancetype)cellWithCollectionView:(nonnull UICollectionView *)collectionView
                          forIndexPath:(nonnull NSIndexPath *)indexPath{
-    [collectionView registerCollectionViewCellClass:TMSWalletCollectionViewCell.class];
     TMSWalletCollectionViewCell *cell = (TMSWalletCollectionViewCell *)[collectionView collectionViewCellClass:TMSWalletCollectionViewCell.class forIndexPath:indexPath];
     if (!cell) {
+        [collectionView registerCollectionViewCellClass:TMSWalletCollectionViewCell.class];
         cell = (TMSWalletCollectionViewCell *)[collectionView collectionViewCellClass:TMSWalletCollectionViewCell.class forIndexPath:indexPath];
     }
     cell.indexPath = indexPath;

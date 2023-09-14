@@ -66,7 +66,7 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetLineWidth(context, 1.0);
     for(int cout = 0; cout < 10; cout++){
-        CGContextSetStrokeColorWithColor(context, RandomColor.CGColor);
+        CGContextSetStrokeColorWithColor(context, JobsRandomColor.CGColor);
         pX = arc4random() % (int)rect.size.width;
         pY = arc4random() % (int)rect.size.height;
         CGContextMoveToPoint(context, pX, pY);
@@ -149,7 +149,7 @@
 }
 
 -(UIColor *)bgColor{
-    return _bgColor ? : RandomColor;
+    return _bgColor ? : JobsRandomColor;
 }
 
 @end

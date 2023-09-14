@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <EventKit/EventKit.h>
 
-
 /** 授权状态
  *  ECCalendarsAuthorizationStatusUnable：不支持或不可用
  *  ECCalendarsAuthorizationStatusNotDetermined：用户从未进行过授权等处理，首次访问相应内容会提示用户进行授权
@@ -24,7 +23,6 @@ typedef NS_ENUM(NSInteger, ECCalendarsAuthorizationStatus) {
     ECCalendarsAuthorizationStatusDenied,
     ECCalendarsAuthorizationStatusAuthorized
 };
-
 
 NS_ASSUME_NONNULL_BEGIN
 

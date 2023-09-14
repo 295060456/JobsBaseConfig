@@ -26,8 +26,7 @@
         return ECLocationAuthorizationStatusUnable;
     }
     
-    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
-    switch (status) {
+    switch (CLLocationManager.authorizationStatus) {
         case kCLAuthorizationStatusNotDetermined: {
             return ECLocationAuthorizationStatusNotDetermined;
         }

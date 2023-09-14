@@ -118,7 +118,7 @@ static dispatch_once_t static_customViewOnceToken;
 -(BaseView *)containFromView{
     if (!_containFromView) {
         _containFromView = BaseView.new;
-        _containFromView.backgroundColor = RandomColor;
+        _containFromView.backgroundColor = JobsRandomColor;
         _containFromView.frame = CGRectMake(JobsWidth(100),
                                             JobsWidth(44),
                                             JobsWidth(263),
@@ -131,7 +131,7 @@ static dispatch_once_t static_customViewOnceToken;
 -(BaseView *)containToView{
     if (!_containToView) {
         _containToView = BaseView.new;
-        _containToView.backgroundColor = RandomColor;
+        _containToView.backgroundColor = JobsRandomColor;
         _containToView.frame = CGRectMake(JobsWidth(100),
                                           JobsWidth(44 + 196 / 2),
                                           JobsWidth(263),
