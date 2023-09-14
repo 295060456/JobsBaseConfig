@@ -1,10 +1,16 @@
+# JXCategoryView框架的使用02（结合使用 JXPagerView）
 
-<
-JXCategoryTitleViewDataSource
+*一些共同的准备工作*
+
+```objective-c
+<JXCategoryTitleViewDataSource
 ,JXCategoryViewDelegate
-,JXPagerViewDelegate
->
+,JXPagerViewDelegate>
+```
 
+*Demo =  JXPagerView + JXCategoryView*
+
+```objective-c
 // @interface BaiShaETProjCollectionHeaderView : UICollectionHeaderFooterView
 
 /// UI
@@ -18,54 +24,55 @@ JXCategoryTitleViewDataSource
 @property(nonatomic,strong)NSMutableArray <UIViewController *>*childVCMutArr;
 
 #pragma mark - JXPagingViewDelegate
+
 - (UIView *)tableHeaderViewInPagerView:(JXPagerView *)pagerView {
-    return self.collectionHeaderView;
-}
-/**
-    页面朝上走 crollView.contentOffset.y 为正值
-    页面朝下走 crollView.contentOffset.y 为负值
-    初始态是0
- */
+  return self.collectionHeaderView;
+  }
+  /**
+  页面朝上走 crollView.contentOffset.y 为正值
+  页面朝下走 crollView.contentOffset.y 为负值
+  初始态是0
+   */
 - (void)pagerView:(JXPagerView *)pagerView
-mainTableViewDidScroll:(UIScrollView *)scrollView{
+  mainTableViewDidScroll:(UIScrollView *)scrollView{
     [self.collectionHeaderView scrollViewDidScroll:scrollView.contentOffset.y];
-}
-/// 
+  }
+  /// 
 - (NSUInteger)tableHeaderViewHeightInPagerView:(JXPagerView *)pagerView {
-    return JobsStatusBarHeight()
-//    + self.gk_navigationBar.height
-    + JobsNavigationBarAndStatusBarHeight(nil)
-    + [BaiShaETProjCollectionHeaderView viewSizeWithModel:nil].height;
-}
-/// JXCategoryTitleView *categoryView 的高度
+  return JobsStatusBarHeight()
+  //    + self.gk_navigationBar.height
+  + JobsNavigationBarAndStatusBarHeight(nil)
+  + [BaiShaETProjCollectionHeaderView viewSizeWithModel:nil].height;
+    }
+    /// JXCategoryTitleView *categoryView 的高度
 - (NSUInteger)heightForPinSectionHeaderInPagerView:(JXPagerView *)pagerView {
-    return listContainerViewDefaultOffset;
-}
+  return listContainerViewDefaultOffset;
+  }
 
 - (UIView *)viewForPinSectionHeaderInPagerView:(JXPagerView *)pagerView {
-    return self.categoryView;
-}
+  return self.categoryView;
+  }
 
 - (NSInteger)numberOfListsInPagerView:(JXPagerView *)pagerView {
-    return self.titleMutArr.count;
-}
+  return self.titleMutArr.count;
+  }
 
 - (id<JXPagerViewListViewDelegate>)pagerView:(JXPagerView *)pagerView
-                             initListAtIndex:(NSInteger)index {
-    return self.childVCMutArr[index];
-}
-#pragma mark —— lazyLoad
--(JXPagerView *)pagerView{
-    if (!_pagerView) {
-        _pagerView = [JXPagerView.alloc initWithDelegate:self];
-        [self.view addSubview:_pagerView];
-        _pagerView.frame = CGRectMake(0,
-                                      JobsNavigationBarAndStatusBarHeight(nil) + self.getTopLineLabSize.height,
-                                      JobsMainScreen_WIDTH(),
-                                      JobsMainScreen_HEIGHT());
-        _pagerView.pinSectionHeaderVerticalOffset = JobsWidth(0);/// 额外的偏移量
-    }return _pagerView;
-}
+      initListAtIndex:(NSInteger)index {
+  return self.childVCMutArr[index];
+  }
+  #pragma mark —— lazyLoad
+  -(JXPagerView *)pagerView{
+  if (!_pagerView) {
+      _pagerView = [JXPagerView.alloc initWithDelegate:self];
+      [self.view addSubview:_pagerView];
+      _pagerView.frame = CGRectMake(0,
+                                    JobsNavigationBarAndStatusBarHeight(nil) + self.getTopLineLabSize.height,
+                                    JobsMainScreen_WIDTH(),
+                                    JobsMainScreen_HEIGHT());
+      _pagerView.pinSectionHeaderVerticalOffset = JobsWidth(0);/// 额外的偏移量
+  }return _pagerView;
+  }
 
 -(BaiShaETProjCollectionHeaderView *)collectionHeaderView{
     if (!_collectionHeaderView) {
@@ -140,11 +147,11 @@ mainTableViewDidScroll:(UIScrollView *)scrollView{
         }
     }return _childVCMutArr;
 }
+```
 
-/**
- 
- 用JXPagerView管理的区别：
- 
+*用JXPagerView管理的区别：*
+
+```objective-c
  1、注册协议JXPagerViewDelegate、舍弃协议JXCategoryListContainerViewDelegate
     1.1、舍弃 : - (NSInteger)numberOfListsInlistContainerView:(JXCategoryListContainerView *)listContainerView;
     1.2、舍弃： - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index;
@@ -158,29 +165,30 @@ mainTableViewDidScroll:(UIScrollView *)scrollView{
  2、舍弃属性类 JXCategoryListContainerView
     2.1、舍弃 @property(nonatomic,strong)JXCategoryListContainerView *listContainerView;/// 此属性决定依附于此的viewController@property(nonatomic,strong)
     2.1 、舍弃
-         -(JXCategoryListContainerView *)listContainerView{
-             if (!_listContainerView) {
-                 _listContainerView = [JXCategoryListContainerView.alloc initWithType:JXCategoryListContainerType_CollectionView
-                                                                             delegate:self];
-                 _listContainerView.defaultSelectedIndex = 1;// 默认从第二个开始显示
-                 [self.view addSubview:_listContainerView];
-                 [_listContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
-         //            make.edges.equalTo(self.view);
-                     make.top.equalTo(self.topLineLab.mas_bottom).offset(listContainerViewDefaultOffset);
-                     make.left.right.bottom.equalTo(self.view);
+ -(JXCategoryListContainerView *)listContainerView{
+     if (!_listContainerView) {
+         _listContainerView = [JXCategoryListContainerView.alloc initWithType:JXCategoryListContainerType_CollectionView
+                                                                     delegate:self];
+         _listContainerView.defaultSelectedIndex = 1;// 默认从第二个开始显示
+         [self.view addSubview:_listContainerView];
+         [_listContainerView mas_makeConstraints:^(MASConstraintMaker *make) {
+ //            make.edges.equalTo(self.view);
+             make.top.equalTo(self.topLineLab.mas_bottom).offset(listContainerViewDefaultOffset);
+             make.left.right.bottom.equalTo(self.view);
 
-                 }];
-                 [self.view layoutIfNeeded];
-         //        /// ❤️在需要的地方写❤️
-         //        NSNumber *currentIndex = [self.listContainerView valueForKey:@"currentIndex"];
-         //        NSLog(@"滑动或者点击以后，改变控制器，得到的目前最新的index = %d",currentIndex.intValue);
+         }];
+         [self.view layoutIfNeeded];
+ //        /// ❤️在需要的地方写❤️
+ //        NSNumber *currentIndex = [self.listContainerView valueForKey:@"currentIndex"];
+ //        NSLog(@"滑动或者点击以后，改变控制器，得到的目前最新的index = %d",currentIndex.intValue);
 
-             }return _listContainerView;
-         }
+     }return _listContainerView;
+ }
+
  3、JXCategoryTitleView 舍弃部分属性：
     3.1、舍弃：_categoryView.contentScrollView = self.listContainerView.scrollView;/// 关联cotentScrollView，关联之后才可以互相联动！！！
     3.2、在 JXPagerView 模式下 ,不用设置JXCategoryTitleView的height、size、frame。而是在JXPagingViewDelegate代理方法里面设置
- 
+
  4、_categoryView新增属性：_categoryView.listContainer = (id<JXCategoryViewListContainer>)self.pagerView.listContainerView;
  5、全局新增属性：@property(nonatomic,strong)JXPagerView *pagerView;
  6、新增JXPagingViewDelegate代理协议的实现
@@ -198,5 +206,5 @@ mainTableViewDidScroll:(UIScrollView *)scrollView{
     7.2、 - (UIScrollView *)listScrollView;
     7.3、 - (void)listViewDidScrollCallback:(void (^)(UIScrollView *scrollView))callback;
     7.4、或者直接导入类：#import "UIViewController+JXPagerViewListViewDelegate.h"
- 
- */
+```
+

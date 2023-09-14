@@ -1,25 +1,29 @@
-#  JXCategoryView框架的使用
+#  JXCategoryView框架的使用01
 
-## 其他
-```
+## 其他功能
+
+```objective-c
 /// 手动跳转到某个指定的页面
 [self.categoryTitleView selectItemAtIndex:3];
 ```
-## 准备工作
-```
+## 一些共同的准备工作
+
+```objective-c
 #if __has_include(<JXCategoryView/JXCategoryView.h>)
 #import <JXCategoryView/JXCategoryView.h>
 #else
 #import "JXCategoryView.h"
 #endif
+
+<JXCategoryTitleViewDataSource
+,JXCategoryListContainerViewDelegate
+,JXCategoryViewDelegate>
 ```
 ## 图文结合
-```
-<
-JXCategoryTitleViewDataSource
-,JXCategoryListContainerViewDelegate
-,JXCategoryViewDelegate
->
+
+*方式一*
+
+```objective-c
 ============================== 方式一 ============================== 
 -(JXCategoryTitleView *)categoryView{
     if (!_categoryView) {
@@ -46,6 +50,11 @@ JXCategoryTitleViewDataSource
         [self.view layoutIfNeeded];
     }return _categoryView;
 }
+```
+
+*方式二*
+
+```objective-c
 ============================== 方式二 ============================== 
 -(JXCategoryImageView *)categoryView{
     if (!_categoryView) {
@@ -79,6 +88,11 @@ JXCategoryTitleViewDataSource
         [self.view layoutIfNeeded];
     }return _categoryView;
 }
+```
+
+*方式三*
+
+```objective-c
 ============================== 方式三 ==============================
 @property(nonatomic,strong)NSMutableArray <NSNumber *>*dotStatesMutArr;
 
@@ -132,6 +146,11 @@ didSelectedItemAtIndex:(NSInteger)index {
         [categoryView reloadCellAtIndex:index];
     }
 }
+```
+
+*方式四*
+
+```objective-c
 ============================== 方式四 ==============================
 -(JXCategoryNumberView *)categoryTitleView{
     if (!_categoryTitleView) {
@@ -168,6 +187,11 @@ didSelectedItemAtIndex:(NSInteger)index {
         }];
     }return _categoryTitleView;
 }
+```
+
+*公共部分*
+
+```objective-c
 ==================================== 公共部分 ====================================
 #ifndef listContainerViewDefaultOffset
 #define listContainerViewDefaultOffset JobsWidth(50)
@@ -299,3 +323,5 @@ scrollingFromLeftIndex:(NSInteger)leftIndex
 //                                             ratio:ratio
 //                                     selectedIndex:categoryView.selectedIndex];
 }
+```
+

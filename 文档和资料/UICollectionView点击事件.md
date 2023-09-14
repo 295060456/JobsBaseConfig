@@ -1,5 +1,6 @@
 #  UICollectionView点击事件
 
+```objective-c
 UICollectionView 似乎不能直接响应touchBegan
 只能用手势
 
@@ -17,11 +18,13 @@ UICollectionView 似乎不能直接响应touchBegan
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
-       shouldReceiveTouch:(UITouch *)touch{
-    // 判断如果点击的View是UICollectionView就可以执行手势方法，否则不执行
-    if ([touch.view isKindOfClass:UICollectionView.class]) {
-        return YES;
-    }return NO;
-}
+      shouldReceiveTouch:(UITouch *)touch{
+   // 判断如果点击的View是UICollectionView就可以执行手势方法，否则不执行
+   if ([touch.view isKindOfClass:UICollectionView.class]) {
+       return YES;
+   }return NO;
+  }
 
 <UIGestureRecognizerDelegate>
+```
+
