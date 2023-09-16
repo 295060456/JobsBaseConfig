@@ -147,7 +147,7 @@ BaseViewControllerProtocol_synthesize
     /// 底图没有 + 底色没有
     if(!self.viewModel.bgImage && !self.viewModel.bgCor){
         self.view.backgroundColor = HEXCOLOR(0xFCFBFB);
-        NSString *corStr = self.view.backgroundColor.rgbCorStr;
+//        NSString *corStr = self.view.backgroundColor.rgbCorStr;
         return;
     }
     /// 底图有 + 底色没有
@@ -158,7 +158,7 @@ BaseViewControllerProtocol_synthesize
     /// 底图没有 + 底色有
     if(!self.viewModel.bgImage && self.viewModel.bgCor){
         self.view.backgroundColor = self.viewModel.bgCor;
-        NSString *corStr = self.view.backgroundColor.rgbCorStr;
+//        NSString *corStr = self.view.backgroundColor.rgbCorStr;
         return;
     }
     /// 底图有 + 底色有 = 优先使用底图数据

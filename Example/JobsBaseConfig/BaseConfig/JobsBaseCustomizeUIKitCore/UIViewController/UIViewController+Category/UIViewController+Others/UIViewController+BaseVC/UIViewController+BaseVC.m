@@ -25,7 +25,7 @@
     self.gk_navTitle = self.viewModel.textModel.text;
     self.gk_navTitleColor = self.viewModel.textModel.textCor ? : HEXCOLOR(0xD3B698);
     self.gk_navTitleFont = self.viewModel.textModel.font ? : UIFontWeightRegularSize(JobsWidth(18));
-    self.gk_navBackgroundColor = JobsWhiteColor;
+    self.gk_navBackgroundColor = self.viewModel.bgCor;
     self.gk_navBackgroundImage = self.viewModel.bgImage;
     self.gk_navLineHidden = YES;
     self.gk_navItemLeftSpace = 20;
