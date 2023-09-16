@@ -46,19 +46,13 @@ BaseViewControllerProtocol_synthesize
     self.isHiddenNavigationBar = YES;
     self.setupNavigationBarHidden = YES;
     self.currentPage = 1;
-    self.bgImage = JobsIMG(@"") ? : [UIImage imageWithColor:UIColor.whiteColor];/// 仅在loadView中配置有效
     self.modalInPresentation = NO;/// 禁用下拉手势dismiss画面需要将此属性设置为YES
     if (self.vcLifeCycleBlock) self.vcLifeCycleBlock(JobsLocalFunc,nil);
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    if (self.bgImage) {
-        self.bgImageView.alpha = 1;
-    }else{
-        self.view.backgroundColor = HEXCOLOR(0xFCFBFB);
-    }
+    [self setBackGround];
     self.gk_statusBarHidden = NO;
     /*
      *  #pragma mark —— 全局配置 GKNavigationBar -(void)makeGKNavigationBarConfigure
@@ -121,9 +115,7 @@ BaseViewControllerProtocol_synthesize
     if (self.vcLifeCycleBlock) self.vcLifeCycleBlock(JobsLocalFunc,nil);
 }
 /**
- 
  #  iOS 状态栏颜色的修改
-
  【全局修改】
   1、在Info.plist里面加入如下键值对：
      1.1、View controller-based status bar appearance : NO
@@ -145,10 +137,35 @@ BaseViewControllerProtocol_synthesize
      -(UIStatusBarStyle)preferredStatusBarStyle{
          return UIStatusBarStyleLightContent;
      }
- 
  */
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
+}
+#pragma mark —— 一些私有方法
+/// 在loadView或者之前的生命周期中定义背景图片或者底色
+-(void)setBackGround{
+    /// 底图没有 + 底色没有
+    if(!self.viewModel.bgImage && !self.viewModel.bgCor){
+        self.view.backgroundColor = HEXCOLOR(0xFCFBFB);
+        NSString *corStr = self.view.backgroundColor.rgbCorStr;
+        return;
+    }
+    /// 底图有 + 底色没有
+    if(self.viewModel.bgImage && !self.viewModel.bgCor){
+        self.bgImageView.alpha = 1;
+        return;
+    }
+    /// 底图没有 + 底色有
+    if(!self.viewModel.bgImage && self.viewModel.bgCor){
+        self.view.backgroundColor = self.viewModel.bgCor;
+        NSString *corStr = self.view.backgroundColor.rgbCorStr;
+        return;
+    }
+    /// 底图有 + 底色有 = 优先使用底图数据
+    if(self.viewModel.bgImage && self.viewModel.bgCor){
+        self.bgImageView.alpha = 1;
+        return;
+    }
 }
 #pragma mark —— UIGestureRecognizerDelegate
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
@@ -185,7 +202,7 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
     if (!_viewModel) {
         _viewModel = UIViewModel.new;
         _viewModel.textModel.textCor = HEXCOLOR(0x3D4A58);
-        _viewModel.textModel.font = [UIFont systemFontOfSize:JobsWidth(16) weight:UIFontWeightMedium];
+        _viewModel.textModel.font = UIFontWeightRegularSize(JobsWidth(16));
     }return _viewModel;
 }
 

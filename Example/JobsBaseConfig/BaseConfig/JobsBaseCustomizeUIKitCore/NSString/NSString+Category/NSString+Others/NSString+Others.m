@@ -14,14 +14,14 @@
     return self.isEqualToString(Internationalization(TextModelDataString));
 }
 /// 复制到系统剪切板
--(NSString *)pasteboard{
+-(NSString *_Nonnull)pasteboard{
     UIPasteboard *pasteboard = UIPasteboard.generalPasteboard;
     pasteboard.string = self;
     [WHToast toastSuccessMsg:Internationalization(@"Copy success")];
     return pasteboard.string;
 }
 /// 根据字符串生成二维码图像
--(UIImage *)createQRcode{
+-(UIImage *_Nonnull)createQRcode{
     //1.实例化一个滤镜
     CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
     //1.1>设置filter的默认值
@@ -39,7 +39,7 @@
     return qrImage;
 }
 
-+(NSString *)test:(NSArray <NSString *>*)arr{
++(NSString *_Nonnull)test:(NSArray <NSString *>*_Nonnull)arr{
     NSString *resultStr;
     for (int i = 0; i < arr.count; i++) {
         NSString *tempStr = arr[i];
@@ -48,7 +48,7 @@
     }return resultStr;
 }
 
--(NSString *)getAnonymousString{
+-(NSString *_Nonnull)getAnonymousString{
     if (self.length < 2) {
         return self;
     }
@@ -65,33 +65,33 @@
     return anonymousString;
 }
 /// 系统的stringByAppendingString方法在参数为nil的时候会崩溃
--(NSString *)jobsStringByAppendingString:(NSString *_Nullable)str{
+-(NSString *_Nonnull)jobsStringByAppendingString:(NSString *_Nullable)str{
     if (!str) {
         str = @"";
     }return [self stringByAppendingString:str];
 }
 /// 获取到最后一个字符
--(NSString *)getLastChars{
+-(NSString *_Nonnull)getLastChars{
     return [self substringFromIndex:self.length - 1];
 }
 /// 获取到最后一个非空格字符
--(NSString *)getLastValuedChars{
+-(NSString *_Nonnull)getLastValuedChars{
     NSString *valuedStr = [self stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];
     return [valuedStr substringFromIndex:valuedStr.length - 1];
 }
 /// 去除最后一个字符
--(NSString *)removeLastChars{
+-(NSString *_Nonnull)removeLastChars{
     return [self substringToIndex:self.length - 1];
 }
 /// 返回NSURL *
--(NSURL *)jobsUrl{
+-(NSURL *_Nonnull)jobsUrl{
     return [NSURL URLWithString:self];
 }
 /**
  问题：直接其他地方复制过来的中文字进行网页搜索、或者中文字识别排序等情况的，会出现搜索不到的情况。
  解决方法：可能存在复制源里面的文字带了空白url编码%E2%80%8B，空白编码没有宽度，虽然看不到但是会影响结果无法正确匹配对应的中文字。可以把文字重新url编码即可。
  */
--(NSString *)urlProtect{
+-(NSString *_Nonnull)urlProtect{
     if ([self containsString:@"\u200B"]) {
         return [self stringByReplacingOccurrencesOfString:@"\u200B" withString:@""];
     }else return self;
@@ -101,10 +101,10 @@
 /// @param replaceStrLenth 替代字符串的字符长度
 /// @param lineBreakMode 省略的字符串位于整个原始字符串的位置
 /// @param limit 限制的字符数
--(NSString *)omitByReplaceStr:(NSString *_Nullable)replaceStr
-              replaceStrLenth:(NSInteger)replaceStrLenth
-                lineBreakMode:(NSLineBreakMode)lineBreakMode
-                        limit:(NSInteger)limit{
+-(NSString *_Nonnull)omitByReplaceStr:(NSString *_Nullable)replaceStr
+                      replaceStrLenth:(NSInteger)replaceStrLenth
+                        lineBreakMode:(NSLineBreakMode)lineBreakMode
+                                limit:(NSInteger)limit{
     
     if (!replaceStrLenth) replaceStrLenth = 3;
     if ([NSString isNullString:replaceStr]) replaceStr = @".";
@@ -139,11 +139,11 @@
 /// @param aFont 文字的字号
 /// @param aColor 文字的颜色
 /// @param directionStr  文字显示的方向
-- (CAShapeLayer *)animateOnView:(UIView *)aView
-                         atRect:(CGRect)aRect
-                        forFont:(UIFont *)aFont
-                      withColor:(UIColor *)aColor
-                   andDirection:(TransformLayerDirectionType)directionStr{
+- (CAShapeLayer *_Nonnull)animateOnView:(UIView *_Nonnull)aView
+                                 atRect:(CGRect)aRect
+                                forFont:(UIFont *)aFont
+                              withColor:(UIColor *_Nonnull)aColor
+                           andDirection:(TransformLayerDirectionType)directionStr{
     // 创建文字路径
     UIBezierPath *path;
     path = [UIBezierPath bezierPathWithText:self
