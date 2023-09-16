@@ -146,7 +146,7 @@ ratio:(CGFloat)ratio {
         _categoryView.titleSelectedColor = UIColor.redColor;
         _categoryView.titleColor = UIColor.redColor;
         _categoryView.titleFont = notoSansRegular(16);
-        _categoryView.titleSelectedFont = notoSansBold(16);;
+        _categoryView.titleSelectedFont = notoSansBold(16);
         _categoryView.delegate = self;
         _categoryView.titles = self.titleMutArr;
         _categoryView.titleColorGradientEnabled = YES;

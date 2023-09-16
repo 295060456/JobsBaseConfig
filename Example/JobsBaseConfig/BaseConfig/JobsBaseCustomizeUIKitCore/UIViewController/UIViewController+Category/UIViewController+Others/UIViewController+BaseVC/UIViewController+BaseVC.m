@@ -182,7 +182,7 @@ static char *UIViewController_BaseVC_fromVC = "UIViewController_BaseVC_fromVC";
 @dynamic fromVC;
 #pragma mark —— <BaseViewControllerProtocol> @property(nonatomic,weak)UIViewController *fromVC;
 -(UIViewController *)fromVC{
-    return objc_getAssociatedObject(self, UIViewController_BaseVC_fromVC);;
+    return objc_getAssociatedObject(self, UIViewController_BaseVC_fromVC);
 }
 
 -(void)setFromVC:(UIViewController *)fromVC{

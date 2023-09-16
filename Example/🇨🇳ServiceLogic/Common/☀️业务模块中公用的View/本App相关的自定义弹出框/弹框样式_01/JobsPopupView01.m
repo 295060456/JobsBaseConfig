@@ -110,7 +110,7 @@ static dispatch_once_t static_popupView01OnceToken;
         _sureBtn.selectedBackgroundImage = JobsIMG(@"弹窗提交按钮");
         _sureBtn.normalTitle = Internationalization(@"继续开启");
         _sureBtn.normalTitleColor = JobsBlackColor;
-        _sureBtn.titleFont = UIFontWeightRegularSize(18);;
+        _sureBtn.titleFont = UIFontWeightRegularSize(18);
         [self addSubview:_sureBtn];
         [_sureBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(self.mas_bottom).offset(JobsWidth(-26));

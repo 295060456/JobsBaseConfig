@@ -122,7 +122,7 @@
         _rightBtn.titleLabel.textAlignment = self.leftRightLabModel.downLabTextAlignment;
         _rightBtn.normalTitle = self.leftRightLabModel.downLabText;
         _rightBtn.normalTitleColor = self.leftRightLabModel.downLabTextCor;
-        _rightBtn.titleFont = self.leftRightLabModel.downLabFont;;
+        _rightBtn.titleFont = self.leftRightLabModel.downLabFont;
     }
 
     _rightBtn.normalImage = self.leftRightLabModel.downLabImage;

@@ -51,19 +51,19 @@ static inline int randomXY(int x,int y){
     }else return y + rand() % (x - y + 1);
 }
 /// 示例：获取一个随机整数范围在【0、100）： 包括0、不包括100
-static inline int random0_100(){
+static inline int random0_100(void){
     return baseRandomNOContainBorderValue(100);
 }
 /// 示例：获取一个随机整数范围在【0、100】： 包括0、包括100
-static inline int random0__100(){
+static inline int random0__100(void){
     return baseRandomContainBorderValue(100);
 }
 /// 示例：获取一个随机数范围在：【100、200），包括100，不包括200
-static inline int random100_200(){
+static inline int random100_200(void){
     return baseRandomOffsetValueWithNoContainborderValue(100, 200);
 }
 /// 示例：获取一个随机数范围在：【100、200】，包括100，包括200
-static inline int random100__200(){
+static inline int random100__200(void){
     return baseRandomOffsetValueWithContainborderValue(100, 200);
 }
 

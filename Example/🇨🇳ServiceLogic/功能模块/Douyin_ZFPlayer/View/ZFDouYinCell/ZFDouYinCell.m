@@ -22,7 +22,7 @@
 +(instancetype)cellStyleValue1WithTableView:(UITableView *)tableView{
     ZFDouYinCell *cell = (ZFDouYinCell *)[tableView tableViewCellClass:ZFDouYinCell.class];
     if (!cell) {
-        cell = [ZFDouYinCell initTableViewCellWithStyle:UITableViewCellStyleSubtitle];;
+        cell = [ZFDouYinCell initTableViewCellWithStyle:UITableViewCellStyleSubtitle];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.contentView.backgroundColor = JobsRandomColor;
     }return cell;

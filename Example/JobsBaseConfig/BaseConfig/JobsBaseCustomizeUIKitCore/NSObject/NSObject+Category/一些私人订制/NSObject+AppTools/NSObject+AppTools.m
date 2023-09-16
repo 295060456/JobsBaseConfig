@@ -660,7 +660,7 @@ static char *NSObject_AppTools_richTextConfigMutArr2 = "NSObject_AppTools_richTe
         RichTextMutArr2 = NSMutableArray.array;
 
         RichTextConfig *config_01 = RichTextConfig.new;
-        config_01.font = notoSansRegular(14);;
+        config_01.font = notoSansRegular(14);
         config_01.textCor = HEXCOLOR(0xAE8330);
         config_01.targetString = self.richTextMutArr2[0];
         config_01.urlStr = @"click://";

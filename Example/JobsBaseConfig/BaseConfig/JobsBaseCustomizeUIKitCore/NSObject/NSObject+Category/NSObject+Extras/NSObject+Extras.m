@@ -1093,7 +1093,7 @@ static char *NSObject_Extras_notificationBlock = "NSObject_Extras_notificationBl
 @dynamic notificationBlock;
 #pragma mark —— @property(nonatomic,copy)JobsReturnIDByIDBlock notificationBlock;
 -(JobsReturnIDByIDBlock)notificationBlock{
-    return objc_getAssociatedObject(self, NSObject_Extras_notificationBlock);;
+    return objc_getAssociatedObject(self, NSObject_Extras_notificationBlock);
 }
 
 -(void)setNotificationBlock:(JobsReturnIDByIDBlock)notificationBlock{

@@ -22,7 +22,7 @@
 +(instancetype)cellStyleValue1WithTableView:(UITableView *)tableView{
     JobsInfoTBVCell *cell = (JobsInfoTBVCell *)[tableView tableViewCellClass:JobsInfoTBVCell.class];
     if (!cell) {
-        cell = [JobsInfoTBVCell initTableViewCellWithStyle:UITableViewCellStyleSubtitle];;
+        cell = [JobsInfoTBVCell initTableViewCellWithStyle:UITableViewCellStyleSubtitle];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.contentView.backgroundColor = JobsCommentConfig.sharedInstance.bgCor;
     }return cell;

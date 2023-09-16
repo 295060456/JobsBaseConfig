@@ -189,7 +189,7 @@ static dispatch_once_t static_launchVCOnceToken;
         _btnTimerConfigModel.runningValue.layerBorderColour = UIColor.redColor;
         _btnTimerConfigModel.runningValue.textCor = JobsBlackColor;
         /// 计时器结束【静态值】
-        _btnTimerConfigModel.endValue.bgCor = UIColor.yellowColor;;
+        _btnTimerConfigModel.endValue.bgCor = UIColor.yellowColor;
         _btnTimerConfigModel.endValue.text = Internationalization(@"点击跳过");
         _btnTimerConfigModel.endValue.layerBorderColour = UIColor.purpleColor;
         _btnTimerConfigModel.endValue.textCor = JobsBlackColor;

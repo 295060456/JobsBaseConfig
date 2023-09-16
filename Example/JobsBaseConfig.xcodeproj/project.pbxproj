@@ -130,8 +130,6 @@
 		840F966627736428004979E9 /* Sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 840F939827736426004979E9 /* Sound.wav */; };
 		840F966727736428004979E9 /* SoundBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F939927736426004979E9 /* SoundBtn.m */; };
 		840F966827736428004979E9 /* SoundBtn.md in Resources */ = {isa = PBXBuildFile; fileRef = 840F939A27736426004979E9 /* SoundBtn.md */; };
-		840F966927736428004979E9 /* UIColor+Gradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F939F27736426004979E9 /* UIColor+Gradient.m */; };
-		840F966A27736428004979E9 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F93A227736426004979E9 /* UIColor+Hex.m */; };
 		840F966B27736428004979E9 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F93A727736426004979E9 /* BaseView.m */; };
 		840F966D27736428004979E9 /* UIView+SuspendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F93AE27736426004979E9 /* UIView+SuspendView.m */; };
 		840F966E27736428004979E9 /* UIView+ZFPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F93B227736426004979E9 /* UIView+ZFPlayer.m */; };
@@ -719,6 +717,7 @@
 		C56C4CDD285B7E2700999913 /* JobsCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C56C4CDB285B7E2700999913 /* JobsCVCell.m */; };
 		C5703FA7283FA5110048382E /* UIView+BRPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5703FA5283FA5110048382E /* UIView+BRPickerView.m */; };
 		C572088E2852F68A004BF695 /* ProtocolKitVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C57208892852F28C004BF695 /* ProtocolKitVC.m */; };
+		C5729C962AB5B63F0084EAFC /* UIColor+Other.m in Sources */ = {isa = PBXBuildFile; fileRef = C5729C942AB5B63F0084EAFC /* UIColor+Other.m */; };
 		C572DA9328572A06002C7110 /* UIImage+Measure.m in Sources */ = {isa = PBXBuildFile; fileRef = C572DA9228572A05002C7110 /* UIImage+Measure.m */; };
 		C5733A7B2859C7C200D13A43 /* JobsVerticalMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5733A7A2859C7C200D13A43 /* JobsVerticalMenuVC.m */; };
 		C5733A8E2859C8A100D13A43 /* GoodsClassModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5733A8D2859C8A100D13A43 /* GoodsClassModel.m */; };
@@ -1149,11 +1148,6 @@
 		840F939927736426004979E9 /* SoundBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundBtn.m; sourceTree = "<group>"; };
 		840F939A27736426004979E9 /* SoundBtn.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = SoundBtn.md; sourceTree = "<group>"; };
 		840F939B27736426004979E9 /* SoundBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundBtn.h; sourceTree = "<group>"; };
-		840F939F27736426004979E9 /* UIColor+Gradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Gradient.m"; sourceTree = "<group>"; };
-		840F93A027736426004979E9 /* UIColor+Gradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Gradient.h"; sourceTree = "<group>"; };
-		840F93A227736426004979E9 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
-		840F93A327736426004979E9 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
-		840F93A427736426004979E9 /* JobsColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsColor.h; sourceTree = "<group>"; };
 		840F93A727736426004979E9 /* BaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseView.m; sourceTree = "<group>"; };
 		840F93A827736426004979E9 /* BaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseView.h; sourceTree = "<group>"; };
 		840F93AE27736426004979E9 /* UIView+SuspendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SuspendView.m"; sourceTree = "<group>"; };
@@ -2336,6 +2330,9 @@
 		C572091628530FA0004BF695 /* PKProtocolExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PKProtocolExtension.h; sourceTree = "<group>"; };
 		C572091728530FA0004BF695 /* PKProtocolExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PKProtocolExtension.m; sourceTree = "<group>"; };
 		C572091928530FD2004BF695 /* ProtocolKit.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ProtocolKit.md; sourceTree = "<group>"; };
+		C5729C922AB5B63F0084EAFC /* JobsColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsColor.h; sourceTree = "<group>"; };
+		C5729C942AB5B63F0084EAFC /* UIColor+Other.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Other.m"; sourceTree = "<group>"; };
+		C5729C952AB5B63F0084EAFC /* UIColor+Other.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Other.h"; sourceTree = "<group>"; };
 		C572DA9128572A05002C7110 /* UIImage+Measure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Measure.h"; sourceTree = "<group>"; };
 		C572DA9228572A05002C7110 /* UIImage+Measure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Measure.m"; sourceTree = "<group>"; };
 		C5733A792859C7C200D13A43 /* JobsVerticalMenuVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsVerticalMenuVC.h; sourceTree = "<group>"; };
@@ -3626,7 +3623,6 @@
 			isa = PBXGroup;
 			children = (
 				840F939D27736426004979E9 /* UIColor+Category */,
-				840F93A427736426004979E9 /* JobsColor.h */,
 			);
 			path = UIColor;
 			sourceTree = "<group>";
@@ -3634,28 +3630,10 @@
 		840F939D27736426004979E9 /* UIColor+Category */ = {
 			isa = PBXGroup;
 			children = (
-				840F939E27736426004979E9 /* UIColor+Gradient */,
-				840F93A127736426004979E9 /* UIColor+Hex */,
+				C5729C922AB5B63F0084EAFC /* JobsColor.h */,
+				C5729C932AB5B63F0084EAFC /* UIColor+Other */,
 			);
 			path = "UIColor+Category";
-			sourceTree = "<group>";
-		};
-		840F939E27736426004979E9 /* UIColor+Gradient */ = {
-			isa = PBXGroup;
-			children = (
-				840F939F27736426004979E9 /* UIColor+Gradient.m */,
-				840F93A027736426004979E9 /* UIColor+Gradient.h */,
-			);
-			path = "UIColor+Gradient";
-			sourceTree = "<group>";
-		};
-		840F93A127736426004979E9 /* UIColor+Hex */ = {
-			isa = PBXGroup;
-			children = (
-				840F93A227736426004979E9 /* UIColor+Hex.m */,
-				840F93A327736426004979E9 /* UIColor+Hex.h */,
-			);
-			path = "UIColor+Hex";
 			sourceTree = "<group>";
 		};
 		840F93A527736426004979E9 /* UIView */ = {
@@ -9227,6 +9205,15 @@
 			path = PKProtocolExtension;
 			sourceTree = "<group>";
 		};
+		C5729C932AB5B63F0084EAFC /* UIColor+Other */ = {
+			isa = PBXGroup;
+			children = (
+				C5729C942AB5B63F0084EAFC /* UIColor+Other.m */,
+				C5729C952AB5B63F0084EAFC /* UIColor+Other.h */,
+			);
+			path = "UIColor+Other";
+			sourceTree = "<group>";
+		};
 		C572DA9028572A05002C7110 /* UIImage+Measure */ = {
 			isa = PBXGroup;
 			children = (
@@ -11365,7 +11352,6 @@
 				840F96FD27736428004979E9 /* NSObject+IDFA.m in Sources */,
 				840F967927736428004979E9 /* UIView+AutoSelfAdaptionSize.m in Sources */,
 				840F961827736427004979E9 /* JobsImageNumberViewCVCell.m in Sources */,
-				840F966927736428004979E9 /* UIColor+Gradient.m in Sources */,
 				84CA634E2789ADB200E46E71 /* TransparentRegionVC.m in Sources */,
 				840F96AA27736428004979E9 /* UIViewController+SuspendBtn.m in Sources */,
 				840F96FA27736428004979E9 /* KeychainHelper.m in Sources */,
@@ -11490,6 +11476,7 @@
 				C52BFE06285C7948002B5D0F /* JobsSEL_IMP.m in Sources */,
 				840F96EF27736428004979E9 /* NSObject+Shake.m in Sources */,
 				840F95E327736427004979E9 /* JobsBitsMonitorSuspendLab.m in Sources */,
+				C5729C962AB5B63F0084EAFC /* UIColor+Other.m in Sources */,
 				846DF02227806D230050468A /* JobsAppDoorLogoContentView.m in Sources */,
 				84A491F227904A970002A837 /* JobsIMListDataModel.m in Sources */,
 				C5733A8E2859C8A100D13A43 /* GoodsClassModel.m in Sources */,
@@ -11751,7 +11738,6 @@
 				C5B3AEA1285378FA0052A4A9 /* BaiShaETProjVIPSubCVCell_02.m in Sources */,
 				840F964027736427004979E9 /* JobsSuspendView.m in Sources */,
 				84A491F327904A970002A837 /* JobsIMInputview.m in Sources */,
-				840F966A27736428004979E9 /* UIColor+Hex.m in Sources */,
 				84432B96278C284E0028A27D /* UIWindow+Extra.m in Sources */,
 				C5B3AE81285378A70052A4A9 /* JXCategoryViewWithHeaderViewSubVC.m in Sources */,
 				840F963D27736427004979E9 /* JobsPageView.m in Sources */,

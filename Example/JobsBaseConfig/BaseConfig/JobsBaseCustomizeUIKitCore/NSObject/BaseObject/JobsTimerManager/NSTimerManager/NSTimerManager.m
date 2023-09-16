@@ -168,7 +168,7 @@
     }
     @jobs_weakify(self)
     _timerProcessModel.data = weak_self;
-    return _timerProcessModel;;
+    return _timerProcessModel;
 }
 
 -(NSDate *)date{

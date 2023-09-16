@@ -40,7 +40,7 @@
 //    cell.contentView.layer.cornerRadius = cell.layer.cornerRadius = JobsWidth(8);
 //    cell.contentView.layer.borderWidth = cell.layer.borderWidth = JobsWidth(1);
 //    cell.contentView.layer.borderColor = cell.layer.borderColor = RGBA_COLOR(255, 225, 144, 1).CGColor;
-//    cell.contentView.layer.masksToBounds = cell.layer.masksToBounds = YES;;
+//    cell.contentView.layer.masksToBounds = cell.layer.masksToBounds = YES;
 
     cell.indexPath = indexPath;
     

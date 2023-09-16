@@ -31,7 +31,7 @@ typedef NS_ENUM(NSUInteger, HotSearchStyle) {
     HotSearchStyle_3,//暂时未定义
 };
 /// 取数据
-static inline NSArray *_Nullable JobsSearchReadData(){
+static inline NSArray *_Nullable JobsSearchReadData(void){
     return (NSArray *)[NSUserDefaults readWithKey:StorageID];
 }
 /// 存数据

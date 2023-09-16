@@ -74,7 +74,7 @@
             NSTimeInterval time = [end timeIntervalSinceDate:begin];
             NSLog(@"事务耗时 = %f",time);
             
-            return rollBack = NO;;
+            return rollBack = NO;
         }
     }else{
         NSLog(@"打开数据库失败");

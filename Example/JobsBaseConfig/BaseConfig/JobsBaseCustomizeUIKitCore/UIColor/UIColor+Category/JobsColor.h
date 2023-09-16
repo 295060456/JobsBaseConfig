@@ -11,7 +11,6 @@
 #pragma mark —— Base
 /// TODO
 #pragma mark —— Category
-#import "UIColor+Hex.h"
-#import "UIColor+Gradient.h"
+#import "UIColor+Other.h"
 
 #endif /* JobsColor_h */

@@ -45,7 +45,7 @@ static dispatch_once_t static_membersSection1ViewOnceToken;
 #pragma mark —— BaseViewProtocol
 - (instancetype)initWithSize:(CGSize)thisViewSize{
     if (self = [super init]) {
-        self.backgroundColor = UIColor.whiteColor;;
+        self.backgroundColor = UIColor.whiteColor;
     }return self;
 }
 

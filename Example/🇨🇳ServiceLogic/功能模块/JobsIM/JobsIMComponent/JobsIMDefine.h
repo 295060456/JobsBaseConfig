@@ -10,23 +10,23 @@
 
 #define isAllowSysEdit NO// 编译期就要优先进去，所以不能用属性
 
-static inline CGFloat JobsIMInputviewHeight(){
+static inline CGFloat JobsIMInputviewHeight(void){
     return 60;
 }
 
-static inline CGFloat JobsIMChatInfoTimeLabWidth(){
+static inline CGFloat JobsIMChatInfoTimeLabWidth(void){
     return 55;
 }
 
-static inline CGFloat JobsIMChatInfoTBVDefaultCellHeight(){
+static inline CGFloat JobsIMChatInfoTBVDefaultCellHeight(void){
     return 50;
 }
 
-static inline CGFloat JobsIMChatInfoTBVChatContentLabWidth(){
+static inline CGFloat JobsIMChatInfoTBVChatContentLabWidth(void){
     return JobsMainScreen_WIDTH() - JobsIMChatInfoTimeLabWidth() - (JobsIMChatInfoTBVDefaultCellHeight() - 5) - 20;
 }
 
-static inline CGFloat JobsIMChatInfoTBVChatContentLabDefaultWidth(){
+static inline CGFloat JobsIMChatInfoTBVChatContentLabDefaultWidth(void){
     return 30;
 }
 /// 消息显示位置
@@ -48,6 +48,5 @@ typedef NS_ENUM(NSInteger,JobsIMChatMessageType) {
     JobsIMChatMessageType_Gift,/// 礼物
     JobsIMChatMessageType_expression,/// 表情
 };
-
 
 #endif /* JobsIMDefine_h */

@@ -11,30 +11,30 @@
 #import "AppDelegate.h"
 
 #pragma mark —— 创建动画函数
-static inline TLBounceAnimation *bounceAnimation(){
+static inline TLBounceAnimation *bounceAnimation(void){
     TLBounceAnimation *anm = TLBounceAnimation.new;
     anm.isPlayFireworksAnimation = YES;
     return anm;
 }
 
-static inline TLRotationAnimation *rotationAnimation(){
+static inline TLRotationAnimation *rotationAnimation(void){
     TLRotationAnimation *anm = TLRotationAnimation.new;
     return anm;
 }
 
-static inline TLTransitionAniamtion *transitionAniamtion(){
+static inline TLTransitionAniamtion *transitionAniamtion(void){
     TLTransitionAniamtion *anm = TLTransitionAniamtion.new;
     anm.direction = 1; // 1~6
     anm.disableDeselectAnimation = NO;
     return anm;
 }
 
-static inline TLFumeAnimation *fumeAnimation(){
+static inline TLFumeAnimation *fumeAnimation(void){
     TLFumeAnimation *anm = TLFumeAnimation.new;
     return anm;
 }
 
-static inline NSArray *imgs(){//静态轮播图
+static inline NSArray *imgs(void){//静态轮播图
     NSMutableArray *temp = NSMutableArray.array;
     for (NSInteger i = 28 ; i <= 65; i++) {
         NSString *imgName = [NSString stringWithFormat:@"Tools_000%zi", i];
@@ -43,7 +43,7 @@ static inline NSArray *imgs(){//静态轮播图
     }return temp;
 }
 
-static inline TLFrameAnimation *frameAnimation(){
+static inline TLFrameAnimation *frameAnimation(void){
     TLFrameAnimation *anm = TLFrameAnimation.new;
     anm.images = imgs();
     anm.isPlayFireworksAnimation = YES;

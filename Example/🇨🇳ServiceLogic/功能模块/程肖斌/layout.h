@@ -9,7 +9,7 @@
 #define layout_h
 #import <UIKit/UIKit.h>
 //375*667，iphone6位基准。
-static inline BOOL isX() {
+static inline BOOL isX(void) {
     static BOOL v = NO;
     static dispatch_once_t once_t = 0;
     dispatch_once(&once_t, ^{
@@ -40,7 +40,7 @@ static inline CGFloat vs(CGFloat v) {
     return vv * v;
 }
 
-static inline CGFloat naviH() {
+static inline CGFloat naviH(void) {
     static CGFloat v = 0;
     static dispatch_once_t once_t = 0;
     dispatch_once(&once_t, ^{
