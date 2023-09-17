@@ -79,11 +79,11 @@ def ui
   pod 'BRPickerView'  # https://github.com/91renb/BRPickerView 该组件封装的是iOS中常用的选择器组件，主要包括：日期选择器、时间选择器（DatePickerView）、地址选择器（AddressPickerView）、自定义字符串选择器（StringPickerView）。支持自定义主题样式，适配深色模式，支持将选择器组件添加到指定容器视图。
   pod 'LYEmptyView' # https://github.com/dev-liyang/LYEmptyView iOS一行代码集成空白页面占位图(无数据、无网络占位图)
 #  pod 'ZZCircleProgress' # https://github.com/zhouxing5311/ZZCircleProgress 可以高度自定义的环形进度条 我用手动pods管理
-  #pod 'FLAnimatedImageView+RGWrapper' #
+  pod 'FLAnimatedImageView+RGWrapper' #
   pod 'PPBadgeView' # https://github.com/jkpang/PPBadgeView iOS自定义Badge组件, 支持UIView, UITabBarItem, UIBarButtonItem以及子类 NO_SMP
   pod 'WHToast' # https://github.com/remember17/WHToast 一个轻量级的提示控件，没有任何依赖 NO_SMP
-  #pod 'BEMCheckBox' # https://github.com/Boris-Em/BEMCheckBox 复选框 更炫 Tasteful Checkbox for iOS
-  pod 'WMZCode' # https://github.com/wwmz/WMZCode
+  pod 'BEMCheckBox' # https://github.com/Boris-Em/BEMCheckBox 复选框 更炫 Tasteful Checkbox for iOS
+#  pod 'WMZCode' # https://github.com/wwmz/WMZCode
 #  pod 'KJBannerView' # https://github.com/yangKJ/KJBannerViewDemo 轮播图 【有点问题，暂时手动管理】
 #  pod 'YYKit'
   pod 'YYImage'
@@ -105,13 +105,13 @@ def videoFunc
   end
 # 一些功能性
 def func
-  pod 'NTESVerifyCode' # 网易验证码 https://github.com/yidun/NTESVerifyCode https://support.dun.163.com/documents/15588062143475712?docId=150442931089756160
+#  pod 'NTESVerifyCode' # 网易验证码 https://github.com/yidun/NTESVerifyCode https://support.dun.163.com/documents/15588062143475712?docId=150442931089756160
   pod 'TXFileOperation' # 文件夹操作 https://github.com/xtzPioneer/TXFileOperation
   pod 'HXPhotoPicker' # 相册选择 https://github.com/SilenceLove/HXPhotoPicker
   pod 'BMLongPressDragCellCollectionView' # https://github.com/liangdahong/BMLongPressDragCellCollectionView
   pod 'JPImageresizerView' # https://github.com/Rogue24/JPImageresizerView 一个专门裁剪图片、GIF、视频的轮子，简单易用，功能丰富（高自由度的参数设定、支持旋转和镜像翻转、蒙版、压缩等），能满足绝大部分裁剪的需求。
   pod 'lottie-ios', '~> 2.5.3' # 这是OC终极版本
-  pod 'WCDB'
+#  pod 'WCDB'
   pod 'AYCheckVersion'  # https://github.com/AYJk/AYCheckVersion 提示更新 Check version from AppStore / 从AppStore检查更新
   pod 'FSCalendar' # https://github.com/WenchaoD/FSCalendar 日历签到
   #pod 'LCAuthManager' # https://github.com/LennonChin/LCAuthManager 简单易用的权限验证库，提供了手势密码、生物特性验证（包括Touch ID和Face ID）的集成
@@ -145,6 +145,14 @@ def cocoPodsConfig
   
   # 这个是cocoapods的一些配置,官网并没有太详细的说明,一般采取默认就好了,也就是不写.
   post_install do |installer|
+    
+    installer.generated_projects.each do |project|
+      project.targets.each do |target|
+        target.build_configurations.each do |config|
+          config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
+        end
+      end
+    end
     
     installer.pods_project.targets.each do |target|
       # 当我们安装完成，但是生成的工程还没有写入磁盘之时，我们可以指定要执行的操作。 比如，我们可以在写入磁盘之前，修改一些工程的配置：

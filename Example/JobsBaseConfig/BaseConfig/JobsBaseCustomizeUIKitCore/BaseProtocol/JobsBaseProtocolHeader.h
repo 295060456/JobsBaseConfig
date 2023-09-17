@@ -11,7 +11,7 @@
 #import "AppToolsProtocol.h"
 #import "UIViewModelProtocol.h"
 #import "UITextModelProtocol.h"
-#import "NTESVerifyCodeManagerProtocol.h"
+//#import "NTESVerifyCodeManagerProtocol.h"
 
 #import "BaseProtocol.h"
 #import "UITableViewCellProtocol.h"

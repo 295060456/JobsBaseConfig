@@ -61,7 +61,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    JobsPageTBVCell *cell = [JobsPageTBVCell cellStyleSubtitleWithTableView:tableView];
+    JobsPageTBVCell *cell = [JobsPageTBVCell tableViewCellClass:JobsPageTBVCell.class
+                                 cellStyleSubtitleWithTableView:tableView];
     [cell richElementsInCellWithModel:self.dataArr[indexPath.row]];
     UIViewModel *viewModel = self.dataArr[indexPath.row];
     viewModel.jobsWidth = [JobsPageTBVCell cellHeightWithModel:Nil] ? : self.cellHeight;

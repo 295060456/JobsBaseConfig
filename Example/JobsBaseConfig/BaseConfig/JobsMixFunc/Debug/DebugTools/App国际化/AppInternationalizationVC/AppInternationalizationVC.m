@@ -116,22 +116,18 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [UITableViewCell cellStyleValue1WithTableView:tableView];
-    /// 适配iOS 13夜间模式/深色外观(Dark Mode)
-    cell.backgroundColor = [UIColor xy_createWithLightColor:UIColor.whiteColor darkColor:UIColor.whiteColor];
-    cell.detailTextLabel.textColor = UIColor.brownColor;
-    cell.textLabel.textColor = JobsBlackColor;
-    
+    UITableViewCell *cell = [UITableViewCell tableViewCellClass:UITableViewCell.class
+                                       styleValue1WithTableView:tableView];
     UIViewModel *viewModel = UIViewModel.new;
     viewModel.textModel.text = self.dataMutArr[indexPath.row];
     [cell richElementsInCellWithModel:viewModel];
     
     {
         //    用户没有自己设置的语言，则跟随手机系统
-        if (![CLLanguageManager userLanguage].length) {
+        if (!CLLanguageManager.userLanguage.length) {
             cell.accessoryType = indexPath.row == 0 ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
         } else {
-            if ([NSBundle isChineseLanguage]) {
+            if (NSBundle.isChineseLanguage) {
                 if (indexPath.row == 1) {
                     cell.accessoryType = UITableViewCellAccessoryCheckmark;
                 } else {

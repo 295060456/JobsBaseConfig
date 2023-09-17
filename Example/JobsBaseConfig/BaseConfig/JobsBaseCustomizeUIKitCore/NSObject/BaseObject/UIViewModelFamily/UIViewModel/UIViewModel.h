@@ -10,7 +10,7 @@
 
 #import "UITextModel.h"
 
-#import "NTESVerifyCodeManagerProtocol.h"
+//#import "NTESVerifyCodeManagerProtocol.h"
 #import "UIViewModelProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIViewModel : NSObject
 <
 UIViewModelProtocol
-,NTESVerifyCodeManagerProtocol
+//,NTESVerifyCodeManagerProtocol
 >
 
 @end

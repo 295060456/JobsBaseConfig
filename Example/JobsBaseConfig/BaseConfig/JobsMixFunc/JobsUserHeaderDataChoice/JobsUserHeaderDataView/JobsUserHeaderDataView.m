@@ -114,7 +114,7 @@ static dispatch_once_t static_choiceUserHeaderDataViewOnceToken;
 }
 /// 下拉刷新 （子类要进行覆写）
 -(void)pullToRefresh{
-    [self feedbackGenerator];//震动反馈
+    [NSObject feedbackGenerator];//震动反馈
 
 }
 /// 上拉加载更多 （子类要进行覆写）
@@ -143,7 +143,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    JobsUserHeaderDataViewTBVCell *cell = [JobsUserHeaderDataViewTBVCell cellStyleValue1WithTableView:self.tableView];
+    JobsUserHeaderDataViewTBVCell *cell = [JobsUserHeaderDataViewTBVCell tableViewCellClass:JobsUserHeaderDataViewTBVCell.class styleValue2WithTableView:tableView];
     [cell richElementsInCellWithModel:self.dataMutArr[indexPath.row]];
     return cell;
 }

@@ -76,11 +76,11 @@
 #import "WMZBannerView.h"
 #endif
 
-#if __has_include(<VerifyCode/NTESVerifyCodeManager.h>)
-#import <VerifyCode/NTESVerifyCodeManager.h>
-#else
-#import "NTESVerifyCodeManager.h"
-#endif
+//#if __has_include(<VerifyCode/NTESVerifyCodeManager.h>)
+//#import <VerifyCode/NTESVerifyCodeManager.h>
+//#else
+//#import "NTESVerifyCodeManager.h"
+//#endif
 
 #if __has_include(<FMDB/FMDB.h>)
 #import <FMDB/FMDB.h>

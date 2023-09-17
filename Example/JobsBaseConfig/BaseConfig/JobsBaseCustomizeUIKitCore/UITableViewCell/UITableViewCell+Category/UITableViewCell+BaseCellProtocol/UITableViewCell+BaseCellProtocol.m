@@ -12,71 +12,55 @@
 UITableViewCellProtocol_dynamic
 #pragma mark —— UITableViewCellProtocol
 +(instancetype)initTableViewCellWithStyle:(UITableViewCellStyle)style{
-    return [self.alloc initWithStyle:style reuseIdentifier:self.class.description];
-}
-/// 左边：imageView＋textLabel
-+(instancetype)cellStyleDefaultWithTableView:(UITableView *)tableView{
-    BaseTableViewCell *cell = (BaseTableViewCell *)[tableView tableViewCellClass:BaseTableViewCell.class];
-    if (!cell) {
-        cell = [BaseTableViewCell initTableViewCellWithStyle:UITableViewCellStyleDefault];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }return cell;
-}
-/// 左边：imageView＋textLabel；右边：detailTextLabel。
-+(instancetype)cellStyleValue1WithTableView:(UITableView *)tableView{
-    BaseTableViewCell *cell = (BaseTableViewCell *)[tableView tableViewCellClass:BaseTableViewCell.class];
-    if (!cell) {
-        cell = [BaseTableViewCell initTableViewCellWithStyle:UITableViewCellStyleValue1];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }return cell;
-}
-/// 左边：textLabel字体偏小；右边：detailTextLabel。imageView可选（显示在最左边）
-+(instancetype)cellStyleValue2WithTableView:(UITableView *)tableView{
-    BaseTableViewCell *cell = (BaseTableViewCell *)[tableView tableViewCellClass:BaseTableViewCell.class];
-    if (!cell) {
-        cell = [BaseTableViewCell initTableViewCellWithStyle:UITableViewCellStyleValue2];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }return cell;
-}
-/// 左边：imageView；左上：textLabel；左下：detailTextLabel。主标题字体大且加黑，副标题字体小在主标题下边。
-+(instancetype)cellStyleSubtitleWithTableView:(UITableView *)tableView{
-    BaseTableViewCell *cell = (BaseTableViewCell *)[tableView tableViewCellClass:BaseTableViewCell.class];
-    if (!cell) {
-        cell = [BaseTableViewCell initTableViewCellWithStyle:UITableViewCellStyleSubtitle];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }return cell;
+    return [self.alloc initWithStyle:style
+                     reuseIdentifier:self.class.description];
 }
 
-+(instancetype)cellStyleDefaultWithTableView:(UITableView *)tableView
-                       cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    BaseTableViewCell *cell = [BaseTableViewCell cellStyleDefaultWithTableView:tableView];
-    cell.indexPath = indexPath;
-    return cell;
++(instancetype)initTableViewCell:(Class)tableViewCellClass
+                       withStyle:(UITableViewCellStyle)style{
+    return [tableViewCellClass.alloc initWithStyle:style
+                                   reuseIdentifier:tableViewCellClass.class.description];
 }
-
-+(instancetype)cellStyleValue1WithTableView:(UITableView *)tableView
-                      cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    BaseTableViewCell *cell = [BaseTableViewCell cellStyleValue1WithTableView:tableView];
-    cell.indexPath = indexPath;
-    return cell;
+/// 4种UITableViewCell系统样式类型
+/// UITableViewCellStyleDefault = 左边：imageView＋textLabel
++(instancetype)tableViewCellClass:(Class)tableViewCellClass
+        styleDefaultWithTableView:(UITableView *)tableView{
+    UITableViewCell *cell = (UITableViewCell *)[tableView tableViewCellClass:tableViewCellClass.class];
+    if (!cell) {
+        cell = [self initTableViewCell:tableViewCellClass
+                             withStyle:UITableViewCellStyleDefault];
+        [self settingForTableViewCell:cell];
+    }return cell;
 }
-
-+(instancetype)cellStyleValue2WithTableView:(UITableView *)tableView
-                      cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    BaseTableViewCell *cell = [BaseTableViewCell cellStyleValue2WithTableView:tableView];
-    cell.indexPath = indexPath;
-    return cell;
+/// UITableViewCellStyleValue1 = 左边：imageView＋textLabel；右边：detailTextLabel
++(instancetype)tableViewCellClass:(Class)tableViewCellClass
+         styleValue1WithTableView:(UITableView *)tableView{
+    UITableViewCell *cell = (UITableViewCell *)[tableView tableViewCellClass:tableViewCellClass.class];
+    if (!cell) {
+        cell = [self initTableViewCell:tableViewCellClass
+                             withStyle:UITableViewCellStyleValue1];
+        [self settingForTableViewCell:cell];
+    }return cell;
 }
-
-+(instancetype)cellStyleSubtitleWithTableView:(UITableView *)tableView
-                        cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    BaseTableViewCell *cell = [BaseTableViewCell cellStyleSubtitleWithTableView:tableView];
-    cell.indexPath = indexPath;
-    return cell;
+/// UITableViewCellStyleValue2 = 左边：textLabel字体偏小；右边：detailTextLabel。imageView可选（显示在最左边）
++(instancetype)tableViewCellClass:(Class)tableViewCellClass
+         styleValue2WithTableView:(UITableView *)tableView{
+    UITableViewCell *cell = (UITableViewCell *)[tableView tableViewCellClass:tableViewCellClass.class];
+    if (!cell) {
+        cell = [self initTableViewCell:tableViewCellClass
+                             withStyle:UITableViewCellStyleValue2];
+        [self settingForTableViewCell:cell];
+    }return cell;
+}
+/// UITableViewCellStyleSubtitle = 左边：textLabel字体偏小；右边：detailTextLabel。imageView可选（显示在最左边）
++(instancetype)tableViewCellClass:(Class)tableViewCellClass
+   cellStyleSubtitleWithTableView:(UITableView *)tableView{
+    UITableViewCell *cell = (UITableViewCell *)[tableView tableViewCellClass:tableViewCellClass.class];
+    if (!cell) {
+        cell = [self initTableViewCell:tableViewCellClass
+                             withStyle:UITableViewCellStyleSubtitle];
+        [self settingForTableViewCell:cell];
+    }return cell;
 }
 #pragma mark —— BaseCellProtocol
 -(void)richElementsInCellWithModel:(UIViewModel *_Nullable)model{
@@ -95,6 +79,15 @@ UITableViewCellProtocol_dynamic
 
 +(CGFloat)cellHeightWithModel:(id _Nullable)model{
     return JobsWidth(44);
+}
+#pragma mark —— 一些私有方法
++(void)settingForTableViewCell:(UITableViewCell *)tableViewCell{
+    tableViewCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    tableViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
+    /// 适配iOS 13夜间模式/深色外观(Dark Mode)
+    tableViewCell.backgroundColor = [UIColor xy_createWithLightColor:UIColor.whiteColor darkColor:UIColor.whiteColor];
+    tableViewCell.detailTextLabel.textColor = UIColor.brownColor;
+    tableViewCell.textLabel.textColor = UIColor.blackColor;
 }
 
 @end

@@ -16,61 +16,38 @@
 #pragma mark —— @synthesize UITableViewCellProtocol
 UITableViewCellProtocol_synthesize
 #pragma mark —— UITableViewCellProtocol
-/// 左边：imageView＋textLabel
+/// 4种UITableViewCell系统样式类型
+/// UITableViewCellStyleDefault ：左边有一个显示图片的imageView和一个标题textLabel。
 +(instancetype)cellStyleDefaultWithTableView:(UITableView *)tableView{
     BaseTableViewCell *cell = (BaseTableViewCell *)[tableView tableViewCellClass:BaseTableViewCell.class];
     if (!cell) {
-        cell = [BaseTableViewCell initTableViewCellWithStyle:UITableViewCellStyleDefault];
+        cell = [self tableViewCellClass:BaseTableViewCell.class
+              styleDefaultWithTableView:tableView];
     }return cell;
 }
-/// 左边：imageView＋textLabel；右边：detailTextLabel
+/// UITableViewCellStyleValue1 ：左边显示图片的imageView和一个主标题textLabel，右边一个副标题detailTextLabel。
 +(instancetype)cellStyleValue1WithTableView:(UITableView *)tableView{
     BaseTableViewCell *cell = (BaseTableViewCell *)[tableView tableViewCellClass:BaseTableViewCell.class];
     if (!cell) {
-        cell = [BaseTableViewCell initTableViewCellWithStyle:UITableViewCellStyleValue1];
+        cell = [self tableViewCellClass:BaseTableViewCell.class
+               styleValue1WithTableView:tableView];
     }return cell;
 }
-/// 左边：textLabel字体偏小；右边：detailTextLabel。imageView可选（显示在最左边）
+/// UITableViewCellStyleValue2 ：左边一个主标题textLabel字体偏小，右边一个副标题detailTextLabel。
 +(instancetype)cellStyleValue2WithTableView:(UITableView *)tableView{
     BaseTableViewCell *cell = (BaseTableViewCell *)[tableView tableViewCellClass:BaseTableViewCell.class];
     if (!cell) {
-        cell = [BaseTableViewCell initTableViewCellWithStyle:UITableViewCellStyleValue2];
+        cell = [self tableViewCellClass:BaseTableViewCell.class
+               styleValue2WithTableView:tableView];
     }return cell;
 }
-/// 左边：imageView；左上：textLabel；左下：detailTextLabel。主标题字体大且加黑，副标题字体小在主标题下边
+/// UITableViewCellStyleSubtitle ：左边还是一个显示图片的imageView，不同的是上边有一个主标题textLabel和一个副标题detailTextLabel。主标题字体大且加黑，副标题字体小在主标题下边。
 +(instancetype)cellStyleSubtitleWithTableView:(UITableView *)tableView{
     BaseTableViewCell *cell = (BaseTableViewCell *)[tableView tableViewCellClass:BaseTableViewCell.class];
     if (!cell) {
-        cell = [BaseTableViewCell initTableViewCellWithStyle:UITableViewCellStyleSubtitle];
+        cell = [self tableViewCellClass:BaseTableViewCell.class
+         cellStyleSubtitleWithTableView:tableView];
     }return cell;
-}
-
-+(instancetype)cellStyleDefaultWithTableView:(UITableView *)tableView
-                       cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    BaseTableViewCell *cell = [BaseTableViewCell cellStyleDefaultWithTableView:tableView];
-    cell.indexPath = indexPath;
-    return cell;
-}
-
-+(instancetype)cellStyleValue1WithTableView:(UITableView *)tableView
-                      cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    BaseTableViewCell *cell = [BaseTableViewCell cellStyleValue1WithTableView:tableView];
-    cell.indexPath = indexPath;
-    return cell;
-}
-
-+(instancetype)cellStyleValue2WithTableView:(UITableView *)tableView
-                      cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    BaseTableViewCell *cell = [BaseTableViewCell cellStyleValue2WithTableView:tableView];
-    cell.indexPath = indexPath;
-    return cell;
-}
-
-+(instancetype)cellStyleSubtitleWithTableView:(UITableView *)tableView
-                        cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    BaseTableViewCell *cell = [BaseTableViewCell cellStyleSubtitleWithTableView:tableView];
-    cell.indexPath = indexPath;
-    return cell;
 }
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style
@@ -299,16 +276,10 @@ UITableViewCellProtocol_synthesize
     if (self.class == BaseTableViewCell.class) {
         NSLog(@"self.offsetXForEach = %f",self.offsetXForEach);
         NSLog(@"self.offsetYForEach = %f",self.offsetYForEach);
-
-        if (!frame.origin.x) {
-            frame.origin.x += self.offsetXForEach;
-            frame.size.width -= self.offsetXForEach * 2;
-        }
-        
-        if (!frame.origin.y) {
-            frame.origin.y += self.offsetYForEach;
-            frame.size.height -= self.offsetYForEach * 2;
-        }
+        frame.origin.x += self.offsetXForEach;
+        frame.origin.y += self.offsetYForEach;
+        frame.size.height -= self.offsetYForEach * 2;
+        frame.size.width -= self.offsetXForEach * 2;
     }
     [super setFrame:frame];
 }

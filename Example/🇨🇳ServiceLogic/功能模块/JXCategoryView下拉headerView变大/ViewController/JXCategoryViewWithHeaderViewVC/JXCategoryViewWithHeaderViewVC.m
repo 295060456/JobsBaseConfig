@@ -90,8 +90,8 @@ mainTableViewDidScroll:(UIScrollView *)scrollView{
     NSLog(@"contentOffsetY = %f",scrollView.contentOffset.y);
     
     self.gk_navigationBar.alpha = scrollView.contentOffset.y / 200;
-    self.gk_navigationBar.lab.hidden = NO;
-    self.gk_navigationBar.lab.alpha = scrollView.contentOffset.y / 200;
+    self.gk_navigationBar.hidden = NO;
+    self.gk_navigationBar.alpha = scrollView.contentOffset.y / 200;
     
     self.topLineLab.alpha = scrollView.contentOffset.y / 200;
     

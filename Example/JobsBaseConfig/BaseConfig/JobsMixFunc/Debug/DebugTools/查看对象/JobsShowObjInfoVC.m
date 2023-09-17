@@ -27,7 +27,7 @@
     self.setupNavigationBarHidden = YES;
     if ([self.requestParams isKindOfClass:UIViewModel.class]) {
         self.viewModel = (UIViewModel *)self.requestParams;
-        if (self.viewModel.textModel.text.nullString) {
+        if ([NSString isNullString:self.viewModel.textModel.text]) {
             self.viewModel.textModel.text = Internationalization(@"用户信息展示(开发测试专用)");
         }
     }
@@ -74,7 +74,7 @@
 #pragma mark —— BaseViewProtocol
 ///下拉刷新 （子类要进行覆写）
 -(void)pullToRefresh{
-    [self feedbackGenerator];//震动反馈
+    [NSObject feedbackGenerator];//震动反馈
     if (self.dataMutArr.count) {
         [self.dataMutArr removeAllObjects];
     }
@@ -121,10 +121,11 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    BaseTableViewCell *cell = [BaseTableViewCell cellStyleValue1WithTableView:tableView];
+    BaseTableViewCell *cell = [BaseTableViewCell tableViewCellClass:BaseTableViewCell.class
+                                           styleValue1WithTableView:tableView];
     cell.detailTextLabel.numberOfLines = 0;
     cell.detailTextLabel.textColor = UIColor.brownColor;
-    cell.textLabel.textColor = JobsBlackColor;
+    cell.textLabel.textColor = UIColor.blackColor;
     [cell richElementsInCellWithModel:self.dataMutArr[indexPath.row]];
     return cell;
 }

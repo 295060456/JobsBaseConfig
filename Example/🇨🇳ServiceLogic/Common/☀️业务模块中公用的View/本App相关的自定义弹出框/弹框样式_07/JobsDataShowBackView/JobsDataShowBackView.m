@@ -74,14 +74,13 @@ numberOfRowsInSection:(NSInteger)section{
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
 cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    BaseTableViewCell *cell = [BaseTableViewCell cellStyleValue1WithTableView:self.tableView];
+    BaseTableViewCell *cell = [BaseTableViewCell tableViewCellClass:BaseTableViewCell.class styleValue1WithTableView:tableView];
     [cell richElementsInCellWithModel:self.dataMutArr[indexPath.row]];
     return cell;
 }
 #pragma mark —— 一些私有的方法
 /// 构造富文本
 -(NSMutableAttributedString *)makeRichText:(NSArray <NSString *>*)arr{
-    
     UIColor *color = [UIColor gradientCorDataMutArr:[NSMutableArray arrayWithArray:@[RGB_COLOR(247, 131, 97),RGB_COLOR(245, 75, 100)]]
                                          startPoint:CGPointZero
                                            endPoint:CGPointZero

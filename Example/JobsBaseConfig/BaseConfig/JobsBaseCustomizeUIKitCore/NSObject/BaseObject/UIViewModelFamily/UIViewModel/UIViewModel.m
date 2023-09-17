@@ -13,7 +13,7 @@
 UIViewModelProtocol_synthesize
 #pragma mark —— NTESVerifyCodeManagerProtocol
 /// 【功能性】网易云盾回调数据
-NTESVerifyCodeManagerProtocol_synthesize
+//NTESVerifyCodeManagerProtocol_synthesize
 
 #pragma mark —— lazyLoad
 -(UITextModel *)textModel{

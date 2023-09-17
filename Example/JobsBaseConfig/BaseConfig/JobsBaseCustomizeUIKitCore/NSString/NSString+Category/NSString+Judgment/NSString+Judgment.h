@@ -17,14 +17,14 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark —— 判空
 - (BOOL)isNotBlank;
 /**
- *  判断对象 / 数组是否为空
- *  为空返回 YES
- *  不为空返回 NO
+*  判断对象 / 数组是否为空
+*  为空返回 YES
+*  不为空返回 NO
 */
--(BOOL)isNullString;
-/// 判断是否是空格(space和\t) 返回NO【不是空格】
++(BOOL)isNullString:(NSString *)string;
+/// 判断是否是空格(space和\t)
 -(BOOL)isBlank;
-/// 判断是否是空格(space、\t、\r、\n) 返回NO【不是空格】
+/// 判断是否是空格(space、\t、\r、\n)
 -(BOOL)isSpace;
 /// 判断字符串是否包含空格：返回YES【没有空格】
 -(BOOL)isContainBlank;

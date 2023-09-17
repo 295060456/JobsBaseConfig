@@ -238,7 +238,6 @@
 		840F96E627736428004979E9 /* NSObject+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F953727736427004979E9 /* NSObject+Swizzling.m */; };
 		840F96E727736428004979E9 /* NSObject+OpenURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F953927736427004979E9 /* NSObject+OpenURL.m */; };
 		840F96E827736428004979E9 /* NSObject+Measure.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F953C27736427004979E9 /* NSObject+Measure.m */; };
-		840F96E927736428004979E9 /* NSObject+NTESVerifyCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F954027736427004979E9 /* NSObject+NTESVerifyCode.m */; };
 		840F96EA27736428004979E9 /* NSObject+SPAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F954327736427004979E9 /* NSObject+SPAlertController.m */; };
 		840F96EB27736428004979E9 /* NSObject+SYSAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F954627736427004979E9 /* NSObject+SYSAlertController.m */; };
 		840F96EC27736428004979E9 /* NSObject+UIScrollViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F954927736427004979E9 /* NSObject+UIScrollViewDelegate.m */; };
@@ -11273,7 +11272,6 @@
 				C520550F28534CC400CCB724 /* UICollectionHeaderFooterView.m in Sources */,
 				C5E28FB92865AD8F0017466D /* UICollectionView+Func.m in Sources */,
 				840F969027736428004979E9 /* BaseNavigationBar.m in Sources */,
-				840F96E927736428004979E9 /* NSObject+NTESVerifyCode.m in Sources */,
 				840F970327736428004979E9 /* NSObject+DeviceIP.m in Sources */,
 				84CA5FCA27897AFB00E46E71 /* TBCityIconFont.m in Sources */,
 				840F96A627736428004979E9 /* UIViewController+BaseVC.m in Sources */,

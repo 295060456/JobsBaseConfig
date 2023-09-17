@@ -120,7 +120,7 @@
 -(BOOL)nullString{
     if (self.isKindOfClassBlock(NSString.class)) {
         NSString *string = (NSString *)self;
-        return string.isNullString;
+        return [NSString isNullString:string];
     }else{
         NSCAssert(self.isKindOfClassBlock(NSString.class), Internationalization(@"目标对象不是字符串类型"));
         return YES;
@@ -483,7 +483,7 @@
     
     if (v) {
         for (UIView *view in v.subviews) {
-            if (!view.internationalizationKEY.nullString) {
+            if (![NSString isNullString:view.internationalizationKEY]) {
                 if ([view isKindOfClass:UILabel.class]) {
                     UILabel *lab = (UILabel *)view;
                     lab.text = Internationalization(view.internationalizationKEY);

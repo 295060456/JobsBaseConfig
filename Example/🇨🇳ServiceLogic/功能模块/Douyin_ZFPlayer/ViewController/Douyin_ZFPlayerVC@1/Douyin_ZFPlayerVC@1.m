@@ -209,7 +209,7 @@ numberOfRowsInSection:(NSInteger)section{
 
 -(UITableViewCell *)tableView:(UITableView *)tableView
         cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    PlayerCell *cell = [PlayerCell cellStyleValue1WithTableView:tableView];
+    PlayerCell *cell = [PlayerCell tableViewCellClass:PlayerCell.class styleValue1WithTableView:tableView];
     cell.index = indexPath.row;
     
     UIViewModel *viewModel = UIViewModel.new;

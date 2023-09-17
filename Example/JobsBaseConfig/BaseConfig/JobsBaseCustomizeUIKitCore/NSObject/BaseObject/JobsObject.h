@@ -87,7 +87,7 @@
 /// 时间相关方法
 #import "NSObject+Time.h"
 /// 网易云盾
-#import "NSObject+NTESVerifyCode.h"
+//#import "NSObject+NTESVerifyCode.h"
 /// 提示
 #import "NSObject+WHToast.h"
 /// NSObject+Alert
