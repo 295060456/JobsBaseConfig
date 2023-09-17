@@ -238,8 +238,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
     if (!_tbvCellMutArr) {
         _tbvCellMutArr = NSMutableArray.array;
         for (UIViewModel *viewModel in self.dataMutArr) {
-            BaseTableViewCell *cell = [BaseTableViewCell tableViewCellClass:BaseTableViewCell.class
-                                                   styleValue1WithTableView:self.tableView];
+            BaseTableViewCell *cell = [BaseTableViewCell cellStyleValue1WithTableView:self.tableView];
         }
     }return _tbvCellMutArr;
 }

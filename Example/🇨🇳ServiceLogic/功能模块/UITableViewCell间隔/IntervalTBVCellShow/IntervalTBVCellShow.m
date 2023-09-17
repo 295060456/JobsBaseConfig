@@ -310,13 +310,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         _tableViewCellMutArr = NSMutableArray.array;
         
         NSMutableArray *sectionMutArr = NSMutableArray.array;
-        [sectionMutArr addObject:[BaiShaETProjMembersTBVCell2 tableViewCellClass:BaiShaETProjMembersTBVCell2.class styleValue1WithTableView:self.tableView]];
+        [sectionMutArr addObject:[BaiShaETProjMembersTBVCell2 cellStyleValue1WithTableView:self.tableView]];
         [_tableViewCellMutArr addObject:sectionMutArr];
         
         {
             NSMutableArray *sectionMutArr = NSMutableArray.array;
             for (id arr in self.dataMutArr[0]) {
-                [BaiShaETProjMembersTBVCell1 tableViewCellClass:BaiShaETProjMembersTBVCell1.class styleValue1WithTableView:self.tableView];
+                [BaiShaETProjMembersTBVCell1 cellStyleValue1WithTableView:self.tableView];
             }
             [_tableViewCellMutArr addObject:sectionMutArr];
         }
@@ -324,7 +324,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         {
             NSMutableArray *sectionMutArr = NSMutableArray.array;
             for (id arr in self.dataMutArr[1]) {
-                [sectionMutArr addObject:[BaiShaETProjMembersTBVCell1 tableViewCellClass:BaiShaETProjMembersTBVCell1.class styleValue1WithTableView:self.tableView]];
+                [sectionMutArr addObject:[BaiShaETProjMembersTBVCell1 cellStyleValue1WithTableView:self.tableView]];
             }
             [_tableViewCellMutArr addObject:sectionMutArr];
         }

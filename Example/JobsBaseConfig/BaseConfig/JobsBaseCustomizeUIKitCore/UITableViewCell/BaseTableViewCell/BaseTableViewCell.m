@@ -21,32 +21,28 @@ UITableViewCellProtocol_synthesize
 +(instancetype)cellStyleDefaultWithTableView:(UITableView *)tableView{
     BaseTableViewCell *cell = (BaseTableViewCell *)[tableView tableViewCellClass:BaseTableViewCell.class];
     if (!cell) {
-        cell = [self tableViewCellClass:BaseTableViewCell.class
-              styleDefaultWithTableView:tableView];
+        cell = [self cellStyleDefaultWithTableView:tableView];
     }return cell;
 }
 /// UITableViewCellStyleValue1 ：左边显示图片的imageView和一个主标题textLabel，右边一个副标题detailTextLabel。
 +(instancetype)cellStyleValue1WithTableView:(UITableView *)tableView{
     BaseTableViewCell *cell = (BaseTableViewCell *)[tableView tableViewCellClass:BaseTableViewCell.class];
     if (!cell) {
-        cell = [self tableViewCellClass:BaseTableViewCell.class
-               styleValue1WithTableView:tableView];
+        cell = [self cellStyleValue1WithTableView:tableView];
     }return cell;
 }
 /// UITableViewCellStyleValue2 ：左边一个主标题textLabel字体偏小，右边一个副标题detailTextLabel。
 +(instancetype)cellStyleValue2WithTableView:(UITableView *)tableView{
     BaseTableViewCell *cell = (BaseTableViewCell *)[tableView tableViewCellClass:BaseTableViewCell.class];
     if (!cell) {
-        cell = [self tableViewCellClass:BaseTableViewCell.class
-               styleValue2WithTableView:tableView];
+        cell = [self cellStyleValue2WithTableView:tableView];
     }return cell;
 }
 /// UITableViewCellStyleSubtitle ：左边还是一个显示图片的imageView，不同的是上边有一个主标题textLabel和一个副标题detailTextLabel。主标题字体大且加黑，副标题字体小在主标题下边。
 +(instancetype)cellStyleSubtitleWithTableView:(UITableView *)tableView{
     BaseTableViewCell *cell = (BaseTableViewCell *)[tableView tableViewCellClass:BaseTableViewCell.class];
     if (!cell) {
-        cell = [self tableViewCellClass:BaseTableViewCell.class
-         cellStyleSubtitleWithTableView:tableView];
+        cell = [self cellStyleSubtitleWithTableView:tableView];
     }return cell;
 }
 

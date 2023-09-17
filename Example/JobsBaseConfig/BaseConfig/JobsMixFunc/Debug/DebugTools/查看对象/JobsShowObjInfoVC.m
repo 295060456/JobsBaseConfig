@@ -121,8 +121,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    BaseTableViewCell *cell = [BaseTableViewCell tableViewCellClass:BaseTableViewCell.class
-                                           styleValue1WithTableView:tableView];
+    BaseTableViewCell *cell = [BaseTableViewCell cellStyleValue1WithTableView:tableView];
     cell.detailTextLabel.numberOfLines = 0;
     cell.detailTextLabel.textColor = UIColor.brownColor;
     cell.textLabel.textColor = UIColor.blackColor;

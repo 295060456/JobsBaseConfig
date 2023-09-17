@@ -73,7 +73,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    BaseTableViewCell *cell = [BaseTableViewCell tableViewCellClass:BaseTableViewCell.class styleValue1WithTableView:tableView];
+    BaseTableViewCell *cell = [BaseTableViewCell cellStyleValue1WithTableView:tableView];
     
     cell.textLabelFrameOffsetY = JobsWidth(-2);/// 这里需要设置一个偏移量去抵消有一个莫名出现的偏移量
     cell.detailTextLabelOffsetY = JobsWidth(-2);/// 这里需要设置一个偏移量去抵消有一个莫名出现的偏移量

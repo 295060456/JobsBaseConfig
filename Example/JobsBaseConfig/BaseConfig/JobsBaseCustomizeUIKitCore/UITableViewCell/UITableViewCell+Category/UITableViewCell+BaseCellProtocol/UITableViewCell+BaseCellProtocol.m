@@ -23,41 +23,37 @@ UITableViewCellProtocol_dynamic
 }
 /// 4种UITableViewCell系统样式类型
 /// UITableViewCellStyleDefault = 左边：imageView＋textLabel
-+(instancetype)tableViewCellClass:(Class)tableViewCellClass
-        styleDefaultWithTableView:(UITableView *)tableView{
-    UITableViewCell *cell = (UITableViewCell *)[tableView tableViewCellClass:tableViewCellClass.class];
++(instancetype)cellStyleDefaultWithTableView:(UITableView *)tableView{
+    UITableViewCell *cell = (UITableViewCell *)[tableView tableViewCellClass:self.class];
     if (!cell) {
-        cell = [self initTableViewCell:tableViewCellClass
+        cell = [self initTableViewCell:self
                              withStyle:UITableViewCellStyleDefault];
         [self settingForTableViewCell:cell];
     }return cell;
 }
 /// UITableViewCellStyleValue1 = 左边：imageView＋textLabel；右边：detailTextLabel
-+(instancetype)tableViewCellClass:(Class)tableViewCellClass
-         styleValue1WithTableView:(UITableView *)tableView{
-    UITableViewCell *cell = (UITableViewCell *)[tableView tableViewCellClass:tableViewCellClass.class];
++(instancetype)cellStyleValue1WithTableView:(UITableView *)tableView{
+    UITableViewCell *cell = (UITableViewCell *)[tableView tableViewCellClass:self.class];
     if (!cell) {
-        cell = [self initTableViewCell:tableViewCellClass
+        cell = [self initTableViewCell:self
                              withStyle:UITableViewCellStyleValue1];
         [self settingForTableViewCell:cell];
     }return cell;
 }
 /// UITableViewCellStyleValue2 = 左边：textLabel字体偏小；右边：detailTextLabel。imageView可选（显示在最左边）
-+(instancetype)tableViewCellClass:(Class)tableViewCellClass
-         styleValue2WithTableView:(UITableView *)tableView{
-    UITableViewCell *cell = (UITableViewCell *)[tableView tableViewCellClass:tableViewCellClass.class];
++(instancetype)cellStyleValue2WithTableView:(UITableView *)tableView{
+    UITableViewCell *cell = (UITableViewCell *)[tableView tableViewCellClass:self.class];
     if (!cell) {
-        cell = [self initTableViewCell:tableViewCellClass
+        cell = [self initTableViewCell:self
                              withStyle:UITableViewCellStyleValue2];
         [self settingForTableViewCell:cell];
     }return cell;
 }
 /// UITableViewCellStyleSubtitle = 左边：textLabel字体偏小；右边：detailTextLabel。imageView可选（显示在最左边）
-+(instancetype)tableViewCellClass:(Class)tableViewCellClass
-   cellStyleSubtitleWithTableView:(UITableView *)tableView{
-    UITableViewCell *cell = (UITableViewCell *)[tableView tableViewCellClass:tableViewCellClass.class];
++(instancetype)cellStyleSubtitleWithTableView:(UITableView *)tableView{
+    UITableViewCell *cell = (UITableViewCell *)[tableView tableViewCellClass:self.class];
     if (!cell) {
-        cell = [self initTableViewCell:tableViewCellClass
+        cell = [self initTableViewCell:self
                              withStyle:UITableViewCellStyleSubtitle];
         [self settingForTableViewCell:cell];
     }return cell;

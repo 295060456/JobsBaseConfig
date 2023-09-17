@@ -100,7 +100,7 @@ didHighlightRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    MyFansTBVCell *cell = [MyFansTBVCell tableViewCellClass:MyFansTBVCell.class styleValue1WithTableView:tableView];
+    MyFansTBVCell *cell = [MyFansTBVCell cellStyleValue1WithTableView:tableView];
     [cell richElementsInCellWithModel:@(indexPath.row % 4)];
     return cell;
 }

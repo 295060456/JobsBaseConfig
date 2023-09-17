@@ -116,8 +116,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [UITableViewCell tableViewCellClass:UITableViewCell.class
-                                       styleValue1WithTableView:tableView];
+    UITableViewCell *cell = [UITableViewCell cellStyleValue1WithTableView:tableView];
     UIViewModel *viewModel = UIViewModel.new;
     viewModel.textModel.text = self.dataMutArr[indexPath.row];
     [cell richElementsInCellWithModel:viewModel];

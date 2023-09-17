@@ -53,17 +53,13 @@ NS_ASSUME_NONNULL_BEGIN
 /// 资料来源：https://www.jianshu.com/p/62ac18f8cf69
 /// 具体子类实现
 /// UITableViewCellStyleDefault ：左边有一个显示图片的imageView和一个标题textLabel。
-+(instancetype)tableViewCellClass:(Class)tableViewCellClass
-        styleDefaultWithTableView:(UITableView *)tableView;
-/// UITableViewCellStyleValue1 ：左边显示图片的imageView和一个主标题textLabel，右边一个副标题detailTextLabel。
-+(instancetype)tableViewCellClass:(Class)tableViewCellClass
-         styleValue1WithTableView:(UITableView *)tableView;
-/// UITableViewCellStyleValue2 ：左边一个主标题textLabel字体偏小，右边一个副标题detailTextLabel。
-+(instancetype)tableViewCellClass:(Class)tableViewCellClass
-         styleValue2WithTableView:(UITableView *)tableView;
-/// UITableViewCellStyleSubtitle ：左边还是一个显示图片的imageView，不同的是上边有一个主标题textLabel和一个副标题detailTextLabel。主标题字体大且加黑，副标题字体小在主标题下边。
-+(instancetype)tableViewCellClass:(Class)tableViewCellClass
-   cellStyleSubtitleWithTableView:(UITableView *)tableView;
++(instancetype)cellStyleDefaultWithTableView:(UITableView *)tableView;
+/// UITableViewCellStyleValue1 = 左边：imageView＋textLabel；右边：detailTextLabel
++(instancetype)cellStyleValue1WithTableView:(UITableView *)tableView;
+/// UITableViewCellStyleValue2 = 左边：textLabel字体偏小；右边：detailTextLabel。imageView可选（显示在最左边）
++(instancetype)cellStyleValue2WithTableView:(UITableView *)tableView;
+/// UITableViewCellStyleSubtitle = 左边：textLabel字体偏小；右边：detailTextLabel。imageView可选（显示在最左边）
++(instancetype)cellStyleSubtitleWithTableView:(UITableView *)tableView;
 
 @end
 
