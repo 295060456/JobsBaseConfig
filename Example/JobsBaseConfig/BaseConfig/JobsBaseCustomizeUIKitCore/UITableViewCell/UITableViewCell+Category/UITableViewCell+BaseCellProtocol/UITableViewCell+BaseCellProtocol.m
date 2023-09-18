@@ -58,6 +58,15 @@ UITableViewCellProtocol_dynamic
         [self settingForTableViewCell:cell];
     }return cell;
 }
+/// UITableViewCell的一些默认样式设置
++(void)settingForTableViewCell:(UITableViewCell *)tableViewCell{
+    tableViewCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    tableViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
+    /// 适配iOS 13夜间模式/深色外观(Dark Mode)
+    tableViewCell.backgroundColor = [UIColor xy_createWithLightColor:UIColor.whiteColor darkColor:UIColor.whiteColor];
+    tableViewCell.detailTextLabel.textColor = UIColor.brownColor;
+    tableViewCell.textLabel.textColor = UIColor.blackColor;
+}
 #pragma mark —— BaseCellProtocol
 -(void)richElementsInCellWithModel:(UIViewModel *_Nullable)model{
     if ([model isKindOfClass:UIViewModel.class]) {
@@ -75,15 +84,6 @@ UITableViewCellProtocol_dynamic
 
 +(CGFloat)cellHeightWithModel:(id _Nullable)model{
     return JobsWidth(44);
-}
-#pragma mark —— 一些私有方法
-+(void)settingForTableViewCell:(UITableViewCell *)tableViewCell{
-    tableViewCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    tableViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
-    /// 适配iOS 13夜间模式/深色外观(Dark Mode)
-    tableViewCell.backgroundColor = [UIColor xy_createWithLightColor:UIColor.whiteColor darkColor:UIColor.whiteColor];
-    tableViewCell.detailTextLabel.textColor = UIColor.brownColor;
-    tableViewCell.textLabel.textColor = UIColor.blackColor;
 }
 
 @end

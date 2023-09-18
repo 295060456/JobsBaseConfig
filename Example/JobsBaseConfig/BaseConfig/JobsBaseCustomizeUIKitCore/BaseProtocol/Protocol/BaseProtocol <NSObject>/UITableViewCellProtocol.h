@@ -60,6 +60,8 @@ NS_ASSUME_NONNULL_BEGIN
 +(instancetype)cellStyleValue2WithTableView:(UITableView *)tableView;
 /// UITableViewCellStyleSubtitle = 左边：textLabel字体偏小；右边：detailTextLabel。imageView可选（显示在最左边）
 +(instancetype)cellStyleSubtitleWithTableView:(UITableView *)tableView;
+/// UITableViewCell的一些默认样式设置
++(void)settingForTableViewCell:(UITableViewCell *)tableViewCell;
 
 @end
 
