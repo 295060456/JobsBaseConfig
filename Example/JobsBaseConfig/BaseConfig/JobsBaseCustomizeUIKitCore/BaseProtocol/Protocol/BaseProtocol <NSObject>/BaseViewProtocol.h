@@ -26,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol BaseViewProtocol <BaseProtocol>
 
 @optional
+/// 记录该View的Masonry约束情况
+@property(nonatomic,strong)NSMutableArray <MASConstraint *>*constraintMutArr;
 /// 视图长、宽、高的定义
 @property(nonatomic,assign)CGSize thisViewSize;
 /// 标记是HeaderView 还是 FooterView

@@ -285,7 +285,6 @@
 		840F971827736428004979E9 /* JobsShowObjInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F95D827736427004979E9 /* JobsShowObjInfoVC.m */; };
 		840F971927736428004979E9 /* App国际化.md in Resources */ = {isa = PBXBuildFile; fileRef = 840F95DA27736427004979E9 /* App国际化.md */; };
 		840F971A27736428004979E9 /* AppInternationalizationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F95DC27736427004979E9 /* AppInternationalizationVC.m */; };
-		840F971B27736428004979E9 /* DebugLogDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F95E127736427004979E9 /* DebugLogDescription.m */; };
 		840F9C5A27736583004979E9 /* 安全区域.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F9C4427736583004979E9 /* 安全区域.png */; };
 		840F9C5B27736583004979E9 /* iPhone尺寸.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F9C4627736583004979E9 /* iPhone尺寸.png */; };
 		840F9C5C27736583004979E9 /* iPad尺寸.png in Resources */ = {isa = PBXBuildFile; fileRef = 840F9C4727736583004979E9 /* iPad尺寸.png */; };
@@ -926,6 +925,7 @@
 		C5E8A7582869848600FAB31D /* CustomTableViewCellVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E8A7572869848600FAB31D /* CustomTableViewCellVC.m */; };
 		C5E8A761286984C300FAB31D /* BaiShaETProjOrderDetailsCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E8A75D286984C300FAB31D /* BaiShaETProjOrderDetailsCVCell.m */; };
 		C5EE3EB32ABA23C90020BDB8 /* BaseScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EE3EB22ABA23C90020BDB8 /* BaseScrollView.m */; };
+		C5EE41022ABA3B270020BDB8 /* NSObject+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F958A27736427004979E9 /* NSObject+Extras.m */; };
 		F65541EC060397D8F6D09547 /* Pods_JobsBaseConfigUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -11497,7 +11497,6 @@
 				840F965227736428004979E9 /* UITableViewCell+WhiteArrows.m in Sources */,
 				840F96D027736428004979E9 /* CALayer+Transition.m in Sources */,
 				840F970F27736428004979E9 /* UITextField+ReRect.m in Sources */,
-				840F971B27736428004979E9 /* DebugLogDescription.m in Sources */,
 				C533BABB2837C9CF006FB231 /* NSObject+HXPhotoPicker.m in Sources */,
 				84CA5FE027897AFB00E46E71 /* GDFadeView.m in Sources */,
 				840F971827736428004979E9 /* JobsShowObjInfoVC.m in Sources */,
@@ -11746,6 +11745,7 @@
 				84401A8327919E3B0038FF6F /* JobsSearchDataCVCell.m in Sources */,
 				C5AA8B83282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_3.m in Sources */,
 				84CA5F9627897AFB00E46E71 /* NSData+Base64.m in Sources */,
+				C5EE41022ABA3B270020BDB8 /* NSObject+Extras.m in Sources */,
 				C5B3AEA1285378FA0052A4A9 /* BaiShaETProjVIPSubCVCell_02.m in Sources */,
 				840F964027736427004979E9 /* JobsSuspendView.m in Sources */,
 				84A491F327904A970002A837 /* JobsIMInputview.m in Sources */,
