@@ -58,8 +58,8 @@
                     self->_scrollYView.y = 初始位置;
                 }
                 /// 滑动向下 + y在上下限之间  = 回到原点（最低点）
-                if(self->_scrollYView.y <= 初始位置 &&
-                    self->_scrollYView.y >= 终点位置){
+                if(self->_scrollYView.y <= 初始位置){// 如果异常可以对这个if进行替换,多一个标准 == 多一层风险
+//                if(self->_scrollYView.y <= 初始位置 && self->_scrollYView.y >= 终点位置){
                     [UIView animateWithDuration:0.3
                                      animations:^{
                         self->_scrollYView.y = 初始位置;
@@ -69,7 +69,8 @@
             /// 向上滑动为负
             if(data.jobsPoint.y < 0){
                 /// 滑动向上 + y在上下限之间 = 抵达顶点（最高点）
-                if(self->_scrollYView.y <= 初始位置 && self->_scrollYView.y >= 终点位置){
+                if(self->_scrollYView.y >= 终点位置){// 如果异常可以对这个if进行替换,多一个标准 == 多一层风险
+//                if(self->_scrollYView.y <= 初始位置 && self->_scrollYView.y >= 终点位置){
                     [UIView animateWithDuration:0.3
                                      animations:^{
                         self->_scrollYView.y = 终点位置;// 锚点2（最高点）
