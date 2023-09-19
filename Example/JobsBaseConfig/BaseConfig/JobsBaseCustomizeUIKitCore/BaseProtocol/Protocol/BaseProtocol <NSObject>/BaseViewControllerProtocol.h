@@ -39,6 +39,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)UIView *statusBar;
 /// 更新状态栏颜色
 - (void)updateStatusBarCor:(UIColor *)cor;
+/// 恢复状态栏颜色
+-(void)restoreStatusBarCor;
 /// 查看用户数据
 -(void)showUserInfo;
 /// 配置GKNavigationBar

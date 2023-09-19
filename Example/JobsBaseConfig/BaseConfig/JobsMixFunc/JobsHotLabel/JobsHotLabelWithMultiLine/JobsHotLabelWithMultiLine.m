@@ -87,7 +87,7 @@ static dispatch_once_t static_hotLabelWithMultiLineOnceToken;
                                    cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     JobsHotLabelWithMultiLineCVCell *cell = (JobsHotLabelWithMultiLineCVCell *)self.cvcellMutArr[indexPath.item];
     [cell richElementsInCellWithModel:self.dataModel.viewModelMutArr[indexPath.item]];
-    CGSize itemSize = jobsZeroPointValue(self.dataModel.cellSize) ? [JobsHotLabelWithMultiLineCVCell cellSizeWithModel:self.dataModel.viewModelMutArr[indexPath.item]] : self.dataModel.cellSize;
+    CGSize itemSize = jobsZeroSizeValue(self.dataModel.cellSize) ? [JobsHotLabelWithMultiLineCVCell cellSizeWithModel:self.dataModel.viewModelMutArr[indexPath.item]] : self.dataModel.cellSize;
     [cell cornerCutToCircleWithCornerRadius:itemSize.height / 2];
     [cell.contentView cornerCutToCircleWithCornerRadius:itemSize.height / 2];
     
@@ -105,17 +105,17 @@ static dispatch_once_t static_hotLabelWithMultiLineOnceToken;
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
            viewForSupplementaryElementOfKind:(NSString *)kind
                                  atIndexPath:(NSIndexPath *)indexPath {
-    if (kind.isEqualToString(UICollectionElementKindSectionHeader)) {
+    if (kind == UICollectionElementKindSectionHeader) {
         JobsHotLabelWithMultiLineHeaderFooterView *headerView = [collectionView UICollectionElementKindSectionHeaderClass:JobsHotLabelWithMultiLineHeaderFooterView.class
                                                                                                        forIndexPath:indexPath];
         [headerView richElementsInViewWithModel:self.dataModel.headerViewModel];
         return headerView;
-    }else if (kind.isEqualToString(UICollectionElementKindSectionFooter)) {
+    }else if (kind == UICollectionElementKindSectionFooter) {
         JobsHotLabelWithMultiLineHeaderFooterView *footerView = [collectionView UICollectionElementKindSectionFooterClass:JobsHotLabelWithMultiLineHeaderFooterView.class
                                                                                                        forIndexPath:indexPath];
         [footerView richElementsInViewWithModel:self.dataModel.footerViewModel];
         return footerView;
-    }else ReturnBaseCollectionReusableViewSectionFooter;
+    }else ReturnBaseCollectionReusableView;
 }
 #pragma mark —— UICollectionViewDelegate
 /// 允许选中时，高亮
@@ -174,7 +174,7 @@ didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
 referenceSizeForHeaderInSection:(NSInteger)section {
     /// ❤️外部传入配置优先❤️
     if (self.dataModel.headerViewModel.useHeaderView) {
-        return jobsZeroPointValue(self.dataModel.headerViewModel.jobsSize) ? [JobsHotLabelWithMultiLineHeaderFooterView collectionReusableViewSizeWithModel:nil] : self.dataModel.headerViewModel.jobsSize;
+        return jobsZeroSizeValue(self.dataModel.headerViewModel.jobsSize) ? [JobsHotLabelWithMultiLineHeaderFooterView collectionReusableViewSizeWithModel:nil] : self.dataModel.headerViewModel.jobsSize;
     }return CGSizeZero;
 }
 /// footer 大小
@@ -183,7 +183,7 @@ referenceSizeForHeaderInSection:(NSInteger)section {
 referenceSizeForFooterInSection:(NSInteger)section {
     /// ❤️外部传入配置优先❤️
     if (self.dataModel.footerViewModel.useFooterView) {
-        return jobsZeroPointValue(self.dataModel.footerViewModel.jobsSize) ? [JobsHotLabelWithMultiLineHeaderFooterView collectionReusableViewSizeWithModel:nil] : self.dataModel.headerViewModel.jobsSize;
+        return jobsZeroSizeValue(self.dataModel.footerViewModel.jobsSize) ? [JobsHotLabelWithMultiLineHeaderFooterView collectionReusableViewSizeWithModel:nil] : self.dataModel.headerViewModel.jobsSize;
     }return CGSizeZero;
 }
 /// item/cell 的大小
@@ -191,7 +191,7 @@ referenceSizeForFooterInSection:(NSInteger)section {
                  layout:(UICollectionViewLayout *)collectionViewLayout
  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     /// ❤️外部传入配置优先❤️
-    return jobsZeroPointValue(self.dataModel.cellSize) ? [JobsHotLabelWithMultiLineCVCell cellSizeWithModel:self.dataModel.viewModelMutArr[indexPath.item]] : self.dataModel.cellSize;
+    return jobsZeroSizeValue(self.dataModel.cellSize) ? [JobsHotLabelWithMultiLineCVCell cellSizeWithModel:self.dataModel.viewModelMutArr[indexPath.item]] : self.dataModel.cellSize;
 }
 /// 定义的是元素垂直之间的间距
 -(CGFloat)collectionView:(UICollectionView *)collectionView

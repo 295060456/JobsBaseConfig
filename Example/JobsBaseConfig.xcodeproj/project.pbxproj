@@ -262,7 +262,6 @@
 		840F96FF27736428004979E9 /* 获取iOS设备唯一标示.md in Resources */ = {isa = PBXBuildFile; fileRef = 840F958127736427004979E9 /* 获取iOS设备唯一标示.md */; };
 		840F970027736428004979E9 /* NSObject+IDFV.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F958327736427004979E9 /* NSObject+IDFV.m */; };
 		840F970127736428004979E9 /* NSObject+RichText.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F958727736427004979E9 /* NSObject+RichText.m */; };
-		840F970227736428004979E9 /* NSObject+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F958A27736427004979E9 /* NSObject+Extras.m */; };
 		840F970327736428004979E9 /* NSObject+DeviceIP.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F958C27736427004979E9 /* NSObject+DeviceIP.m */; };
 		840F970427736428004979E9 /* NSObject+ChangeAppicon.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F959127736427004979E9 /* NSObject+ChangeAppicon.m */; };
 		840F970627736428004979E9 /* 如何理解iOS的Runtime？ - 掘金.mht in Resources */ = {isa = PBXBuildFile; fileRef = 840F959427736427004979E9 /* 如何理解iOS的Runtime？ - 掘金.mht */; };
@@ -11774,7 +11773,6 @@
 				846DF03827806D230050468A /* JobsAppDoorVC.m in Sources */,
 				8459CE112776DB6600125782 /* UIView+UIBackgroundConfig.m in Sources */,
 				84CA5FC927897AFB00E46E71 /* XDTextBtnView.m in Sources */,
-				840F970227736428004979E9 /* NSObject+Extras.m in Sources */,
 				84CA61A22789859900E46E71 /* PushAnimation.m in Sources */,
 				C563415A2849DFE90047CA49 /* JobsTestVC.m in Sources */,
 				840F96C027736428004979E9 /* UITableViewHeaderFooterView+BaseTableViewHeaderFooterViewProtocol.m in Sources */,

@@ -54,7 +54,7 @@ BaseButtonProtocol_synthesize
     }
     
     {/// 【组 2】UIButton 单独自定义设置系统自带控件的Size ❤️与组1、3属性互斥❤️
-        if (!jobsZeroPointValue(self.textLabelSize)) {
+        if (!jobsZeroSizeValue(self.textLabelSize)) {
             CGRect titleLabelFrame = self.titleLabel.frame;
             titleLabelFrame.size = self.textLabelSize;
             titleLabelFrame.origin.x += self.textLabelFrameOffsetX;
@@ -62,14 +62,14 @@ BaseButtonProtocol_synthesize
             self.titleLabel.frame = titleLabelFrame;
         }
         
-        if (!jobsZeroPointValue(self.imageViewSize)) {
+        if (!jobsZeroSizeValue(self.imageViewSize)) {
             CGRect imageViewFrame = self.imageView.frame;
             imageViewFrame.size = self.imageViewSize;
             imageViewFrame.origin.x += self.imageViewFrameOffsetX;
             imageViewFrame.origin.y += self.imageViewFrameOffsetY;
             self.imageView.frame = imageViewFrame;
         }
-        if (!jobsZeroPointValue(self.textLabelSize) || !jobsZeroPointValue(self.imageViewSize)) return;
+        if (!jobsZeroSizeValue(self.textLabelSize) || !jobsZeroSizeValue(self.imageViewSize)) return;
     }
     
     {/// 【组 3】UIButton 单独自定义设置系统自带控件的长宽 ❤️与组1、2属性互斥❤️

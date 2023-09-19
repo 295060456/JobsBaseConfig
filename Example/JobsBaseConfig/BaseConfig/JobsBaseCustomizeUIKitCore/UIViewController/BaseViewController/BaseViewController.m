@@ -74,7 +74,7 @@ BaseViewControllerProtocol_synthesize
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self updateStatusBarCor:JobsOrangeColor];
+//    [self updateStatusBarCor:JobsOrangeColor];/// 在具体子类实现，不要写在父类
     NSLog(@"%d",self.setupNavigationBarHidden);
     self.isHiddenNavigationBar = self.setupNavigationBarHidden;
     [self.navigationController setNavigationBarHidden:self.setupNavigationBarHidden animated:animated];

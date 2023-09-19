@@ -16,8 +16,8 @@ return cell;\
 
 #define ReturnBaseCollectionViewCell return [BaseCollectionViewCell cellWithCollectionView:collectionView forIndexPath:indexPath];\
 
-#define ReturnBaseCollectionReusableViewSectionHeader return [collectionView UICollectionElementKindSectionHeaderClass:BaseCollectionReusableView.class forIndexPath:indexPath];
-#define ReturnBaseCollectionReusableViewSectionFooter return [collectionView UICollectionElementKindSectionFooterClass:BaseCollectionReusableView.class forIndexPath:indexPath];
+#define ReturnBaseCollectionReusableView return [collectionView UICollectionElementKindSectionHeaderClass:BaseCollectionReusableView.class\
+                                                          forIndexPath:indexPath];\
 
 @interface NSObject (JobsDeployCellConfig)
 #pragma mark —— Cell 部署策略

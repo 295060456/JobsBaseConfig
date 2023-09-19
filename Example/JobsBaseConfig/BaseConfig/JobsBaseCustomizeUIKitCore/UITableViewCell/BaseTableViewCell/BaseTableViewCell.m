@@ -154,7 +154,7 @@ UITableViewCellProtocol_synthesize
     }
     
     {///【组 2】UITableViewCell单独自定义设置系统自带控件的Size【形成Frame后直接return，避免被其他中间过程修改】❤️与组1、3属性互斥❤️
-        if (!jobsZeroPointValue(self.textLabelSize)) {
+        if (!jobsZeroSizeValue(self.textLabelSize)) {
             CGRect textLabelFrame = self.textLabel.frame;
             textLabelFrame.size = self.textLabelSize;
             textLabelFrame.origin.x += self.textLabelFrameOffsetX;
@@ -162,7 +162,7 @@ UITableViewCellProtocol_synthesize
             self.textLabel.frame = textLabelFrame;
         }
         
-        if (!jobsZeroPointValue(self.detailTextLabelSize)) {
+        if (!jobsZeroSizeValue(self.detailTextLabelSize)) {
             CGRect detailTextLabelFrame = self.detailTextLabel.frame;
             detailTextLabelFrame.size = self.detailTextLabelSize;
             detailTextLabelFrame.origin.x += self.detailTextLabelOffsetX;
@@ -170,7 +170,7 @@ UITableViewCellProtocol_synthesize
             self.detailTextLabel.frame = detailTextLabelFrame;
         }
         
-        if (!jobsZeroPointValue(self.imageViewSize)) {
+        if (!jobsZeroSizeValue(self.imageViewSize)) {
             CGRect imageViewFrame = self.imageView.frame;
             imageViewFrame.size = self.imageViewSize;
             imageViewFrame.origin.x += self.imageViewFrameOffsetX;
@@ -178,9 +178,9 @@ UITableViewCellProtocol_synthesize
             self.imageView.frame = imageViewFrame;
         }
         
-        if (!jobsZeroPointValue(self.textLabelSize) ||
-            !jobsZeroPointValue(self.detailTextLabelSize) ||
-            !jobsZeroPointValue(self.imageViewSize)) return;
+        if (!jobsZeroSizeValue(self.textLabelSize) ||
+            !jobsZeroSizeValue(self.detailTextLabelSize) ||
+            !jobsZeroSizeValue(self.imageViewSize)) return;
     }
     
     {///【组 3】UITableViewCell单独自定义设置系统自带控件的宽高【形成Frame后直接return，避免被其他中间过程修改】❤️与组1、2属性互斥❤️
