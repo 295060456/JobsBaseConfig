@@ -44,6 +44,7 @@ typedef NS_ENUM(NSUInteger, iPhScrPxType) {
     iPhScrPxType_5_5C_5S_SE,// 屏幕分辨率(px) = 640 * 1136
     iPhScrPxType_6_6S_7_8_SE2,// 屏幕分辨率(px) = 750 * 1334
     iPhScrPxType_6_6S_7_8Plus,// 屏幕分辨率(px) = 1242 * 2208
+    /// 从这里开始刘海屏
     iPhScrPxType_X_XS_11Pro,// 屏幕分辨率(px) = 1125 * 2436
     iPhScrPxType_Xr_11,// 屏幕分辨率(px) = 828 * 1792
     iPhScrPxType_XSMax_11ProMax,// 屏幕分辨率(px) = 1242 * 2688
@@ -154,6 +155,16 @@ static inline iPhScrPxType iPhScrPx(void){
     if ([UIDevice.platformIDStr isEqualToString:@"iPhone15,3"]){// iPhone 14 Pro Max
         return iPhScrPxType_14ProMax;
     }return iPhScrPxType_None;
+}
+/// 判断当前设备是否是全面屏
+static inline BOOL isFullScreen(void){
+    if(iPhScrPx() == iPhScrPxType_None ||
+       iPhScrPx() == iPhScrPxType_4_4S ||
+       iPhScrPx() == iPhScrPxType_5_5C_5S_SE ||
+       iPhScrPx() == iPhScrPxType_6_6S_7_8_SE2 ||
+       iPhScrPx() == iPhScrPxType_6_6S_7_8Plus) {
+        return NO;
+    }return YES;
 }
 #pragma mark —— APP桌面Logo图片尺寸
 /**
