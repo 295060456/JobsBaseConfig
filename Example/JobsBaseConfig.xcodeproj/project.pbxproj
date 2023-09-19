@@ -925,6 +925,7 @@
 		C5E4ABC62858C06500B782F0 /* UIBezierPath+TextPath.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E4ABC32858C06400B782F0 /* UIBezierPath+TextPath.m */; };
 		C5E8A7582869848600FAB31D /* CustomTableViewCellVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E8A7572869848600FAB31D /* CustomTableViewCellVC.m */; };
 		C5E8A761286984C300FAB31D /* BaiShaETProjOrderDetailsCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5E8A75D286984C300FAB31D /* BaiShaETProjOrderDetailsCVCell.m */; };
+		C5EE3EB32ABA23C90020BDB8 /* BaseScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EE3EB22ABA23C90020BDB8 /* BaseScrollView.m */; };
 		F65541EC060397D8F6D09547 /* Pods_JobsBaseConfigUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -2700,6 +2701,8 @@
 		C5E8A75E286984C300FAB31D /* 订单详情Cell01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "订单详情Cell01.png"; sourceTree = "<group>"; };
 		C5E8A75F286984C300FAB31D /* 订单详情Cell02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "订单详情Cell02.png"; sourceTree = "<group>"; };
 		C5E8A760286984C300FAB31D /* BaiShaETProjOrderDetailsCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiShaETProjOrderDetailsCVCell.h; sourceTree = "<group>"; };
+		C5EE3EB12ABA23C90020BDB8 /* BaseScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseScrollView.h; sourceTree = "<group>"; };
+		C5EE3EB22ABA23C90020BDB8 /* BaseScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseScrollView.m; sourceTree = "<group>"; };
 		FEDDD2E7A82BF58DE2012E29 /* Pods-JobsBaseConfigUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobsBaseConfigUITests.debug.xcconfig"; path = "Target Support Files/Pods-JobsBaseConfigUITests/Pods-JobsBaseConfigUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -3359,6 +3362,7 @@
 		840F934C27736426004979E9 /* UIScrollView */ = {
 			isa = PBXGroup;
 			children = (
+				C5EE3EB02ABA23C90020BDB8 /* BaseScrollView */,
 				848AAC7027881C8200856087 /* JobsScrollView.h */,
 				848AAC7127881C8200856087 /* UIScrollView+Category */,
 			);
@@ -10633,6 +10637,15 @@
 			path = "订单详情Cell";
 			sourceTree = "<group>";
 		};
+		C5EE3EB02ABA23C90020BDB8 /* BaseScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				C5EE3EB12ABA23C90020BDB8 /* BaseScrollView.h */,
+				C5EE3EB22ABA23C90020BDB8 /* BaseScrollView.m */,
+			);
+			path = BaseScrollView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -11695,6 +11708,7 @@
 				C57A8ED12851A7DE00DD089E /* CXBVC.m in Sources */,
 				840F967727736428004979E9 /* UIView+JHGestureBlock.m in Sources */,
 				840F967E27736428004979E9 /* NSMutableDictionary+Ordered.m in Sources */,
+				C5EE3EB32ABA23C90020BDB8 /* BaseScrollView.m in Sources */,
 				84CA619C2789856C00E46E71 /* MyFansTBVCell.m in Sources */,
 				844B083F2764CF4800B0513D /* JXCategoryTimelineCell.m in Sources */,
 				842475AE27C0D67000831270 /* YTKBaseRequest+AnimatingAccessory.m in Sources */,

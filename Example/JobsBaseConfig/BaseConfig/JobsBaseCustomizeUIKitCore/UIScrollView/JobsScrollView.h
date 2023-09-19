@@ -8,6 +8,9 @@
 #ifndef JobsScrollView_h
 #define JobsScrollView_h
 
+#pragma mark —— Base
+#import "BaseScrollView.h"
+#pragma mark —— Category
 #import "UIScrollView+Extra.h"
 #import "UIScrollView+AnimationKit.h"
 

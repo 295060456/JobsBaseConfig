@@ -38,7 +38,6 @@
     }
     UIPanGestureRecognizer *PanGR = objc_getAssociatedObject(self, UIView_Gesture_panGR);
     if (PanGR) {
-        
         if (self.panGR_SelImp.selector) {
             [PanGR removeTarget:self.target
                          action:self.panGR_SelImp.selector];
@@ -85,7 +84,7 @@ static char *UIView_Gesture_target = "UIView_Gesture_target";
 }
 static char *UIView_Gesture_numberOfTapsRequired = "UIView_Gesture_numberOfTapsRequired";
 @dynamic numberOfTapsRequired;
-#pragma mark —— @property(nonatomic,assign)NSUInteger numberOfTapsRequired;//设置轻拍次数【UILongPressGestureRecognizer】【UITapGestureRecognizer】
+#pragma mark —— @property(nonatomic,assign)NSUInteger numberOfTapsRequired;// 设置轻拍次数【UILongPressGestureRecognizer】【UITapGestureRecognizer】
 -(NSUInteger)numberOfTapsRequired{
     return [objc_getAssociatedObject(self, UIView_Gesture_numberOfTapsRequired) unsignedIntegerValue];
 }
@@ -98,7 +97,7 @@ static char *UIView_Gesture_numberOfTapsRequired = "UIView_Gesture_numberOfTapsR
 }
 static char *UIView_Gesture_numberOfTouchesRequired = "UIView_Gesture_numberOfTouchesRequired";
 @dynamic numberOfTouchesRequired;
-#pragma mark —— @property(nonatomic,assign)NSUInteger numberOfTouchesRequired;//设置手指字数【UILongPressGestureRecognizer】【UITapGestureRecognizer】
+#pragma mark —— @property(nonatomic,assign)NSUInteger numberOfTouchesRequired;// 设置手指字数【UILongPressGestureRecognizer】【UITapGestureRecognizer】
 -(NSUInteger)numberOfTouchesRequired{
     return [objc_getAssociatedObject(self, UIView_Gesture_numberOfTouchesRequired) unsignedIntegerValue];
 }
@@ -111,7 +110,7 @@ static char *UIView_Gesture_numberOfTouchesRequired = "UIView_Gesture_numberOfTo
 }
 static char *UIView_Gesture_minimumPressDuration = "UIView_Gesture_minimumPressDuration";
 @dynamic minimumPressDuration;
-#pragma mark —— @property(nonatomic,assign)NSTimeInterval minimumPressDuration;//longPressGR最小长按时间【UILongPressGestureRecognizer】
+#pragma mark —— @property(nonatomic,assign)NSTimeInterval minimumPressDuration;// longPressGR最小长按时间【UILongPressGestureRecognizer】
 -(NSTimeInterval)minimumPressDuration{
     return [objc_getAssociatedObject(self, UIView_Gesture_minimumPressDuration) doubleValue];
 }
@@ -137,7 +136,7 @@ static char *UIView_Gesture_allowableMovement = "UIView_Gesture_allowableMovemen
 }
 static char *UIView_Gesture_swipeGRDirection = "UIView_Gesture_swipeGRDirection";
 @dynamic swipeGRDirection;
-#pragma mark —— @property(nonatomic,assign)UISwipeGestureRecognizerDirection swipeGRDirection;//swipe手势清扫方向
+#pragma mark —— @property(nonatomic,assign)UISwipeGestureRecognizerDirection swipeGRDirection;// swipe手势清扫方向
 -(UISwipeGestureRecognizerDirection)swipeGRDirection{
     return [objc_getAssociatedObject(self, UIView_Gesture_swipeGRDirection) unsignedIntegerValue];
 }
@@ -189,7 +188,7 @@ static char *UIView_Gesture_rotate = "UIView_Gesture_rotate";
 }
 static char *UIView_Gesture_longPressGR = "UIView_Gesture_longPressGR";
 @dynamic longPressGR;
-#pragma mark —— @property(nonatomic,strong)UILongPressGestureRecognizer *longPressGR;//长按手势
+#pragma mark —— @property(nonatomic,strong)UILongPressGestureRecognizer *longPressGR;// 长按手势
 -(UILongPressGestureRecognizer *)longPressGR{
     UILongPressGestureRecognizer *LongPressGR = objc_getAssociatedObject(self, UIView_Gesture_longPressGR);
     if (!LongPressGR) {
@@ -221,7 +220,7 @@ static char *UIView_Gesture_longPressGR = "UIView_Gesture_longPressGR";
 }
 static char *UIView_Gesture_tapGR = "UIView_Gesture_tapGR";
 @dynamic tapGR;
-#pragma mark —— @property(nonatomic,strong)UITapGestureRecognizer *tapGR;//点击手势
+#pragma mark —— @property(nonatomic,strong)UITapGestureRecognizer *tapGR;// 点击手势
 -(UITapGestureRecognizer *)tapGR{
     UITapGestureRecognizer *TapGR = objc_getAssociatedObject(self, UIView_Gesture_tapGR);
     if (!TapGR) {
@@ -250,7 +249,7 @@ static char *UIView_Gesture_tapGR = "UIView_Gesture_tapGR";
 }
 static char *UIView_Gesture_swipeGR = "UIView_Gesture_swipeGR";
 @dynamic swipeGR;
-#pragma mark —— @property(nonatomic,strong)UISwipeGestureRecognizer *swipeGR;//轻扫手势
+#pragma mark —— @property(nonatomic,strong)UISwipeGestureRecognizer *swipeGR;// 轻扫手势
 -(UISwipeGestureRecognizer *)swipeGR{
     UISwipeGestureRecognizer *SwipeGR = objc_getAssociatedObject(self, UIView_Gesture_swipeGR);
     if (!SwipeGR) {
@@ -275,7 +274,7 @@ static char *UIView_Gesture_swipeGR = "UIView_Gesture_swipeGR";
 }
 static char *UIView_Gesture_panGR = "UIView_Gesture_panGR";
 @dynamic panGR;
-#pragma mark —— @property(nonatomic,strong)UIPanGestureRecognizer *panGR;//平移手势
+#pragma mark —— @property(nonatomic,strong)UIPanGestureRecognizer *panGR;// 平移手势
 -(UIPanGestureRecognizer *)panGR{
     UIPanGestureRecognizer *PanGR = objc_getAssociatedObject(self, UIView_Gesture_panGR);
     if (!PanGR) {
@@ -286,7 +285,8 @@ static char *UIView_Gesture_panGR = "UIView_Gesture_panGR";
             PanGR.allowedScrollTypesMask = self.allowedScrollTypesMask;
         }
         if (self.panGR_SelImp.selector) {
-            [PanGR addTarget:self.target action:self.panGR_SelImp.selector];
+            [PanGR addTarget:self.target
+                      action:self.panGR_SelImp.selector];
         }
         [self addGestureRecognizer:PanGR];
         [self setPanGR:PanGR];
@@ -301,7 +301,7 @@ static char *UIView_Gesture_panGR = "UIView_Gesture_panGR";
 }
 static char *UIView_Gesture_pinchGR = "UIView_Gesture_pinchGR";
 @dynamic pinchGR;
-#pragma mark —— @property(nonatomic,strong)UIPinchGestureRecognizer *pinchGR;//捏合（缩放）手势
+#pragma mark —— @property(nonatomic,strong)UIPinchGestureRecognizer *pinchGR;// 捏合（缩放）手势
 -(UIPinchGestureRecognizer *)pinchGR{
     UIPinchGestureRecognizer *PinchGR = objc_getAssociatedObject(self, UIView_Gesture_pinchGR);
     if (!PinchGR) {
@@ -310,7 +310,8 @@ static char *UIView_Gesture_pinchGR = "UIView_Gesture_pinchGR";
         PinchGR.delegate = self.target;
         PinchGR.scale = self.scale;
         if (self.pinchGR_SelImp.selector) {
-            [PinchGR addTarget:self.target action:self.pinchGR_SelImp.selector];
+            [PinchGR addTarget:self.target
+                        action:self.pinchGR_SelImp.selector];
         }
         [self addGestureRecognizer:PinchGR];
         [self setPinchGR:PinchGR];
@@ -325,7 +326,7 @@ static char *UIView_Gesture_pinchGR = "UIView_Gesture_pinchGR";
 }
 static char *UIView_Gesture_rotationGR = "UIView_Gesture_rotationGR";
 @dynamic rotationGR;
-#pragma mark —— @property(nonatomic,strong)UIRotationGestureRecognizer *rotationGR;//旋转手势
+#pragma mark —— @property(nonatomic,strong)UIRotationGestureRecognizer *rotationGR;// 旋转手势
 -(UIRotationGestureRecognizer *)rotationGR{
     UIRotationGestureRecognizer *RotationGR = objc_getAssociatedObject(self, UIView_Gesture_rotationGR);
     if (!RotationGR) {
@@ -334,7 +335,8 @@ static char *UIView_Gesture_rotationGR = "UIView_Gesture_rotationGR";
         RotationGR.delegate = self.target;
         RotationGR.rotation = self.rotate;
         if (self.rotationGR_SelImp.selector) {
-            [RotationGR addTarget:self.target action:self.rotationGR_SelImp.selector];
+            [RotationGR addTarget:self.target
+                           action:self.rotationGR_SelImp.selector];
         }
         [self addGestureRecognizer:RotationGR];
         [self setRotationGR:RotationGR];
@@ -349,7 +351,7 @@ static char *UIView_Gesture_rotationGR = "UIView_Gesture_rotationGR";
 }
 static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
 @dynamic screenEdgePanGR;
-#pragma mark —— @property(nonatomic,strong)UIScreenEdgePanGestureRecognizer *screenEdgePanGR;//屏幕边缘平移
+#pragma mark —— @property(nonatomic,strong)UIScreenEdgePanGestureRecognizer *screenEdgePanGR;// 屏幕边缘平移
 -(UIScreenEdgePanGestureRecognizer *)screenEdgePanGR{
     UIScreenEdgePanGestureRecognizer *ScreenEdgePanGR = objc_getAssociatedObject(self, UIView_Gesture_screenEdgePanGR);
     if (!ScreenEdgePanGR) {
@@ -357,7 +359,8 @@ static char *UIView_Gesture_screenEdgePanGR = "UIView_Gesture_screenEdgePanGR";
         NSLog(@"self.target = %@",self.target);
         ScreenEdgePanGR.delegate = self.target;
         if (self.screenEdgePanGR_SelImp.selector) {
-            [ScreenEdgePanGR addTarget:self.target action:self.screenEdgePanGR_SelImp.selector];
+            [ScreenEdgePanGR addTarget:self.target
+                                action:self.screenEdgePanGR_SelImp.selector];
         }
         [self addGestureRecognizer:ScreenEdgePanGR];
         [self setScreenEdgePanGR:ScreenEdgePanGR];
