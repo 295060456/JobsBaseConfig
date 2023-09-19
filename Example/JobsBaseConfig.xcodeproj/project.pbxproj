@@ -698,6 +698,8 @@
 		C533BBBC2837D095006FB231 /* JobsUserHeaderDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = C533BBB32837D095006FB231 /* JobsUserHeaderDataView.m */; };
 		C533BBBD2837D095006FB231 /* JobsUserHeaderDataViewTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C533BBB52837D095006FB231 /* JobsUserHeaderDataViewTBVCell.m */; };
 		C533BBBF2837D095006FB231 /* JobsUserHeaderDataViewForHeaderInSection.m in Sources */ = {isa = PBXBuildFile; fileRef = C533BBBB2837D095006FB231 /* JobsUserHeaderDataViewForHeaderInSection.m */; };
+		C5366D712ABA406700BA9C3C /* JobsScrollViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5366D702ABA406700BA9C3C /* JobsScrollViewVC.m */; };
+		C5366D752ABA40B200BA9C3C /* JobsScrollYView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5366D742ABA40B200BA9C3C /* JobsScrollYView.m */; };
 		C53683572875722300DD7AA7 /* JobsWalletVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C53683562875722300DD7AA7 /* JobsWalletVC.m */; };
 		C53683622875855E00DD7AA7 /* TMSWalletCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C536834B2875715F00DD7AA7 /* TMSWalletCollectionViewCell.m */; };
 		C53683632875856100DD7AA7 /* TMSWalletCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C53683472875715F00DD7AA7 /* TMSWalletCollectionReusableView.m */; };
@@ -2281,6 +2283,10 @@
 		C533BBB82837D095006FB231 /* JobsUserHeaderDataChoice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobsUserHeaderDataChoice.png; sourceTree = "<group>"; };
 		C533BBBA2837D095006FB231 /* JobsUserHeaderDataViewForHeaderInSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsUserHeaderDataViewForHeaderInSection.h; sourceTree = "<group>"; };
 		C533BBBB2837D095006FB231 /* JobsUserHeaderDataViewForHeaderInSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsUserHeaderDataViewForHeaderInSection.m; sourceTree = "<group>"; };
+		C5366D6F2ABA406700BA9C3C /* JobsScrollViewVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsScrollViewVC.h; sourceTree = "<group>"; };
+		C5366D702ABA406700BA9C3C /* JobsScrollViewVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsScrollViewVC.m; sourceTree = "<group>"; };
+		C5366D732ABA40B200BA9C3C /* JobsScrollYView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsScrollYView.h; sourceTree = "<group>"; };
+		C5366D742ABA40B200BA9C3C /* JobsScrollYView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsScrollYView.m; sourceTree = "<group>"; };
 		C53683432875712500DD7AA7 /* 有问题.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "有问题.md"; sourceTree = "<group>"; };
 		C53683472875715F00DD7AA7 /* TMSWalletCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMSWalletCollectionReusableView.m; sourceTree = "<group>"; };
 		C53683482875715F00DD7AA7 /* TMSWalletCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMSWalletCollectionViewCell.h; sourceTree = "<group>"; };
@@ -2748,6 +2754,7 @@
 			isa = PBXGroup;
 			children = (
 				840F92C527736425004979E9 /* JobsMixFunc.h */,
+				C5366D6B2ABA3F4E00BA9C3C /* 在指定的y区间内滑动视图 */,
 				C5C4808D284E22C4007916B3 /* JobsShowNumView */,
 				840F92D827736425004979E9 /* 播放器控制层 */,
 				840F92BD27736425004979E9 /* 分享控件 */,
@@ -3362,8 +3369,8 @@
 		840F934C27736426004979E9 /* UIScrollView */ = {
 			isa = PBXGroup;
 			children = (
-				C5EE3EB02ABA23C90020BDB8 /* BaseScrollView */,
 				848AAC7027881C8200856087 /* JobsScrollView.h */,
+				C5EE3EB02ABA23C90020BDB8 /* BaseScrollView */,
 				848AAC7127881C8200856087 /* UIScrollView+Category */,
 			);
 			path = UIScrollView;
@@ -8998,6 +9005,33 @@
 			path = JobsUserHeaderDataViewForHeaderInSection;
 			sourceTree = "<group>";
 		};
+		C5366D6B2ABA3F4E00BA9C3C /* 在指定的y区间内滑动视图 */ = {
+			isa = PBXGroup;
+			children = (
+				C5366D762ABA40B800BA9C3C /* JobsScrollYView */,
+				C5366D722ABA40A600BA9C3C /* JobsScrollViewVC */,
+			);
+			path = "在指定的y区间内滑动视图";
+			sourceTree = "<group>";
+		};
+		C5366D722ABA40A600BA9C3C /* JobsScrollViewVC */ = {
+			isa = PBXGroup;
+			children = (
+				C5366D6F2ABA406700BA9C3C /* JobsScrollViewVC.h */,
+				C5366D702ABA406700BA9C3C /* JobsScrollViewVC.m */,
+			);
+			path = JobsScrollViewVC;
+			sourceTree = "<group>";
+		};
+		C5366D762ABA40B800BA9C3C /* JobsScrollYView */ = {
+			isa = PBXGroup;
+			children = (
+				C5366D732ABA40B200BA9C3C /* JobsScrollYView.h */,
+				C5366D742ABA40B200BA9C3C /* JobsScrollYView.m */,
+			);
+			path = JobsScrollYView;
+			sourceTree = "<group>";
+		};
 		C53683442875713B00DD7AA7 /* UICollectionView实现重叠的卡包效果 */ = {
 			isa = PBXGroup;
 			children = (
@@ -11733,6 +11767,7 @@
 				840F967427736428004979E9 /* UIView+EmptyData.m in Sources */,
 				840F96CE27736428004979E9 /* NSCache+Extra.m in Sources */,
 				84758D0B279855710074B4BA /* JobsLaunchVC.m in Sources */,
+				C5366D712ABA406700BA9C3C /* JobsScrollViewVC.m in Sources */,
 				8424743527C0C32B00831270 /* YTKNetworkStudyVC.m in Sources */,
 				84869679277C68470098BE7A /* NSString+Check.m in Sources */,
 				C55E6B5C2843701D00ABA84A /* UIViewController+TFPopupView.m in Sources */,
@@ -11771,6 +11806,7 @@
 				C533BBBC2837D095006FB231 /* JobsUserHeaderDataView.m in Sources */,
 				840F96EE27736428004979E9 /* NSObject+DataSave.m in Sources */,
 				840F961327736427004979E9 /* NSString+ZBUTF8Encoding.m in Sources */,
+				C5366D752ABA40B200BA9C3C /* JobsScrollYView.m in Sources */,
 				8424771527C0FDCA00831270 /* GetCustomerContactApi.m in Sources */,
 				C5948B32287A867000EC655B /* BaseRequest.m in Sources */,
 				C53683632875856100DD7AA7 /* TMSWalletCollectionReusableView.m in Sources */,

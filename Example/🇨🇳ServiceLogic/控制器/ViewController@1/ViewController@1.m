@@ -238,7 +238,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
     if (!_tbvCellMutArr) {
         _tbvCellMutArr = NSMutableArray.array;
         for (UIViewModel *viewModel in self.dataMutArr) {
-            BaseTableViewCell *cell = [BaseTableViewCell cellStyleValue1WithTableView:self.tableView];
+            [_tbvCellMutArr addObject:[BaseTableViewCell cellStyleValue1WithTableView:self.tableView]];
         }
     }return _tbvCellMutArr;
 }
@@ -513,6 +513,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             UIViewModel *viewModel = [self configViewModelWithTitle:@"BaiShaETProjTelFindPwdVC"
                                                            subTitle:Internationalization(@"Masonry动画")];
             viewModel.cls = BaiShaETProjTelFindPwdVC.class;
+            [_dataMutArr addObject:viewModel];
+        }
+        
+        {
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"JobsScrollViewVC"
+                                                           subTitle:Internationalization(@"在指定的y区间内滑动视图(带吸边效果)")];
+            viewModel.cls = JobsScrollViewVC.class;
             [_dataMutArr addObject:viewModel];
         }
         

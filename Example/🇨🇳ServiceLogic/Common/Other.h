@@ -75,5 +75,6 @@
 #import "GXCardViewDemoVC.h"
 #import "JobsWalletVC.h"
 #import "BaiShaETProjTelFindPwdVC.h"
+#import "JobsScrollViewVC.h"
 
 #endif /* Other_h */
