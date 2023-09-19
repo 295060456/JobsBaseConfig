@@ -43,7 +43,7 @@
 }
 #pragma mark —— ViewController
 -(UIViewController *_Nullable)getCurrentViewController{
-    return [self getCurrentViewControllerFromRootVC:getMainWindow().rootViewController];
+    return [self getCurrentViewControllerFromRootVC:jobsGetMainWindow().rootViewController];
 }
 
 -(UIViewController *_Nullable)getCurrentViewControllerFromRootVC:(UIViewController *_Nullable)rootVC{
@@ -450,13 +450,13 @@
                                             data.count * [JobsDropDownListTBVCell cellHeightWithModel:Nil]);
     }
     
-    [getMainWindow() addSubview:dropDownListView];
+    [jobsGetMainWindow() addSubview:dropDownListView];
     return dropDownListView;
 }
 /// iOS 获取任意控件在屏幕中的坐标
 -(CGRect)getWindowFrameByView:(UIView *_Nonnull)view{
     // 将rect由rect所在视图转换到目标视图view中，返回在目标视图view中的rect
-    CGRect rect = [view convertRect:view.bounds toView:getMainWindow()];
+    CGRect rect = [view convertRect:view.bounds toView:jobsGetMainWindow()];
     return rect;
     /**
       类似的：

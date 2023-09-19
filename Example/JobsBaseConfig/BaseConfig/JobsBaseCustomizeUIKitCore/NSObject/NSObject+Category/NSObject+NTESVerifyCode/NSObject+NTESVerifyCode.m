@@ -119,7 +119,7 @@ static char *UIView_BaseView_NTESVerifyCodeCloseBtn = "UIView_BaseView_NTESVerif
             [self closeVerifyCodeView];
             x.jobsVisible = NO;
         }];
-        [getMainWindow() addSubview:btn];
+        [jobsGetMainWindow() addSubview:btn];
         [self setNTESVerifyCodeCloseBtn:btn];
     }return btn;
 }

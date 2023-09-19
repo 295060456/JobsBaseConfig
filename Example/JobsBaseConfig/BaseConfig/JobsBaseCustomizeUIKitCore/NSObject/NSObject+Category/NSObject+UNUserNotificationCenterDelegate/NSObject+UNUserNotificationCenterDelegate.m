@@ -71,7 +71,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
                                                            style:UIAlertActionStyleDefault
                                                          handler:nil];
         [alertController addAction:okAction];
-        UIViewController *vc = getMainWindow().rootViewController;
+        UIViewController *vc = jobsGetMainWindow().rootViewController;
         [vc presentViewController:alertController animated:YES completion:nil];
     }
 }

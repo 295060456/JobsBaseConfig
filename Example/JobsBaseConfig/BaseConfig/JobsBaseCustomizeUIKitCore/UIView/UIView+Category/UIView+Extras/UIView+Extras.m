@@ -39,7 +39,7 @@
     UIGraphicsBeginImageContextWithOptions(size,
                                            YES,
                                            scale);
-    [getMainWindow().layer renderInContext:UIGraphicsGetCurrentContext()];
+    [jobsGetMainWindow().layer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;

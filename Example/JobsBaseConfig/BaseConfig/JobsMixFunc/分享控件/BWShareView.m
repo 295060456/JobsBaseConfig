@@ -75,7 +75,7 @@ static NSString *const itemCell = @"itemCell";
 }
 // 显示
 - (void)show{
-    UIWindow *window = getMainWindow();
+    UIWindow *window = jobsGetMainWindow();
     [window addSubview:self];
     [self addSubview:self.bgView];
     @jobs_weakify(self)

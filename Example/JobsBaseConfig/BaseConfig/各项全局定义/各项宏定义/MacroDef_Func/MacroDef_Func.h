@@ -26,9 +26,10 @@
 #import "WHToast.h"
 #endif
 
-static inline UIWindow *getMainWindow(void){
+static inline UIWindow *jobsGetMainWindow(void){
     UIWindow *window = nil;
-    //以下方法有时候会拿不到window
+    /// 使用UIWindowScene（需要iOS 13及更高版本）来获取主窗口
+    /// iOS 13及更高版本中才会被执行
     if (@available(iOS 13.0, *)) {
         for (UIWindowScene* windowScene in UIApplication.sharedApplication.connectedScenes){
             if (windowScene.activationState == UISceneActivationStateForegroundActive){
@@ -36,20 +37,20 @@ static inline UIWindow *getMainWindow(void){
                 return window;
             }
         }
-    }
-
-    if (UIApplication.sharedApplication.delegate.window) {
-        window = UIApplication.sharedApplication.delegate.window;
-        return window;
-    }
-    
-    SuppressWdeprecatedDeclarationsWarning(
-        if (UIApplication.sharedApplication.keyWindow) {
-        window = UIApplication.sharedApplication.keyWindow;
-        return window;
-    });
-    
-    return window;
+    }else{
+        /// 使用UIApplication的windows属性来获取当前窗口：
+        /// 这种方式获取窗口的方式在iOS 13之前是常用的做法
+        if (UIApplication.sharedApplication.delegate.window) {
+            window = UIApplication.sharedApplication.delegate.window;
+            return window;
+        }
+        /// 这种获取窗口的方式在iOS 2.0到iOS 13.0版本之间都是可用的
+        SuppressWdeprecatedDeclarationsWarning(
+            if (UIApplication.sharedApplication.keyWindow) {
+            window = UIApplication.sharedApplication.keyWindow;
+            return window;
+        });
+    }return window;
 }
 /**
  是否是iPhone刘海屏系列：   X系列（X/XS/XR/XS Max)、11系列（11、pro、pro max）
@@ -61,7 +62,7 @@ static inline BOOL isiPhoneX_series(void) {
         return iPhoneXSeries;
     }
     if (@available(iOS 11.0, *)) {
-        UIWindow *mainWindow = getMainWindow();
+        UIWindow *mainWindow = jobsGetMainWindow();
         if (mainWindow.safeAreaInsets.bottom > 0.0) {
             iPhoneXSeries = YES;
         }

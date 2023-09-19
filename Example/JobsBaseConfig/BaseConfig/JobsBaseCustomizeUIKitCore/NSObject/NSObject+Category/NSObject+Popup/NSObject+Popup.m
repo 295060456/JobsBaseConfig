@@ -21,14 +21,14 @@
         UIView *v = (UIView *)self;
         [view tf_showScale:v offset:CGPointZero popupParam:self.popupParameter];
     }else{
-        [view tf_showNormal:getMainWindow() animated:YES];
+        [view tf_showNormal:jobsGetMainWindow() animated:YES];
     }
 }
 /// 有自定义popupParam
 -(void)popupWithView:(UIView *_Nullable)view
           popupParam:(TFPopupParam *_Nullable)popupParam{
     if (popupParam) {
-        [view tf_showNormal:getMainWindow() popupParam:popupParam];
+        [view tf_showNormal:jobsGetMainWindow() popupParam:popupParam];
     }else{
         [self popupWithView:view];
     }

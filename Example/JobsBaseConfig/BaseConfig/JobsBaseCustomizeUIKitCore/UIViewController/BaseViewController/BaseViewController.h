@@ -13,6 +13,7 @@
 #import "MacroDef_Notification.h"
 #import "MacroDef_Log.h"
 #import "MacroDef_String.h"
+#import "MacroDef_Func.h"
 
 #import "UIView+Category.h"
 #import "UIViewController+Category.h"

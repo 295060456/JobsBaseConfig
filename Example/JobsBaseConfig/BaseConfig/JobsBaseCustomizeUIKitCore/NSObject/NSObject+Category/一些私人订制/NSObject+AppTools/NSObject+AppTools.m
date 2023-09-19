@@ -65,7 +65,7 @@
     CGFloat y = coverNav ? 0 : topHeight;
     maskView.frame = CGRectMake(0, y, JobsMainScreen_WIDTH(), JobsMainScreen_HEIGHT() - y);
     maskView.backgroundColor = color;
-    [getMainWindow() addSubview:maskView];
+    [jobsGetMainWindow() addSubview:maskView];
     return maskView;
 }
 

@@ -36,6 +36,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)ComingStyle pushOrPresent;
 @property(nonatomic,assign)BOOL setupNavigationBarHidden;
 @property(nonatomic,copy)JobsViewControllerLifeCycleBlock vcLifeCycleBlock;/// 用于检测生命周期
+@property(nonatomic,strong)UIView *statusBar;
+/// 更新状态栏颜色
+- (void)updateStatusBarCor:(UIColor *)cor;
 /// 查看用户数据
 -(void)showUserInfo;
 /// 配置GKNavigationBar
@@ -59,6 +62,7 @@ NS_ASSUME_NONNULL_END
 @synthesize alertController = _alertController;\
 @synthesize pushOrPresent = _pushOrPresent;\
 @synthesize setupNavigationBarHidden = _setupNavigationBarHidden;\
+@synthesize statusBar = _statusBar;\
 
 #endif
 
@@ -69,5 +73,6 @@ NS_ASSUME_NONNULL_END
 @dynamic alertController;\
 @dynamic pushOrPresent;\
 @dynamic setupNavigationBarHidden;\
+@dynamic statusBar;\
 
 #endif

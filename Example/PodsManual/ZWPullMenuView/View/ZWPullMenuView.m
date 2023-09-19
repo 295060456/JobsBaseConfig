@@ -249,7 +249,7 @@ UITableViewDataSource>
 }
 + (instancetype)pullMenuAnchorView:(UIView *)anchorView
                          menuArray:(NSArray<ZWPullMenuModel *> *)menuArray{
-    UIWindow * window = getMainWindow();
+    UIWindow * window = jobsGetMainWindow();
     ZWPullMenuView *menuView = [[ZWPullMenuView alloc] init];
     menuView.frame = [UIScreen mainScreen].bounds;
     [window addSubview:menuView];

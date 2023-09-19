@@ -372,7 +372,7 @@ referenceSizeForFooterInSection:(NSInteger)section{
 //            toast(Internationalization(@"编辑"));
             self.popupParameter.dragEnable = YES;
             self.popupParameter.disuseBackgroundTouchHide = NO;
-            [self.popupView tf_showSlide:getMainWindow()
+            [self.popupView tf_showSlide:jobsGetMainWindow()
                                direction:PopupDirectionBottom
                               popupParam:self.popupParameter];
         }];

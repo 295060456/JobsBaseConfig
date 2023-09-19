@@ -74,6 +74,10 @@ BaseViewControllerProtocol_synthesize
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    [self updateStatusBarCor:JobsOrangeColor];
+    
+    
     NSLog(@"%d",self.setupNavigationBarHidden);
     self.isHiddenNavigationBar = self.setupNavigationBarHidden;
     [self.navigationController setNavigationBarHidden:self.setupNavigationBarHidden animated:animated];
@@ -82,7 +86,7 @@ BaseViewControllerProtocol_synthesize
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    /// 只有是在Tabbar管理的，不含导航的根控制器才开启手势
+    /// 只有是在Tabbar管理的，不含导航的根控制器才开启手势（点语法会有 Property access result unused警告）
     self.isRootVC ? [self tabBarOpenPan] : [self tabBarClosePan];
     if (self.vcLifeCycleBlock) self.vcLifeCycleBlock(JobsLocalFunc,nil);
 #ifdef DEBUG
@@ -142,6 +146,23 @@ BaseViewControllerProtocol_synthesize
     return UIStatusBarStyleLightContent;
 }
 #pragma mark —— 一些私有方法
+/// 更新状态栏颜色
+- (void)updateStatusBarCor:(UIColor *)cor{
+    if(!cor)cor = JobsRedColor;
+    if (@available(iOS 13.0, *)) {
+        if (![jobsGetMainWindow().subviews containsObject:self.statusBar]) {
+            [jobsGetMainWindow() addSubview:self.statusBar];
+        }
+        self.statusBar.backgroundColor = cor;
+    } else {
+        UIView *statusBar = [UIApplication.sharedApplication.valueForKeyBlock(@"statusBarWindow") valueForKey:@"statusBar"];
+        if ([statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
+            statusBar.backgroundColor = cor;
+        }
+        // 手动触发 preferredStatusBarStyle 更新状态栏颜色
+        [self setNeedsStatusBarAppearanceUpdate];
+    }
+}
 /// 在loadView或者之前的生命周期中定义背景图片或者底色
 -(void)setBackGround{
     /// 底图没有 + 底色没有
@@ -187,6 +208,14 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
     _modalPresentationStyle = UIModalPresentationPopover;
 }
 #pragma mark —— lazyLoad
+- (UIView *)statusBar{
+    if (!_statusBar) {
+        if (@available(iOS 13.0, *)) {
+            _statusBar = [UIView.alloc initWithFrame:UIApplication.sharedApplication.keyWindow.windowScene.statusBarManager.statusBarFrame];
+        }
+    }return _statusBar;
+}
+
 -(UIImageView *)bgImageView{
     if (!_bgImageView) {
         _bgImageView = UIImageView.new;

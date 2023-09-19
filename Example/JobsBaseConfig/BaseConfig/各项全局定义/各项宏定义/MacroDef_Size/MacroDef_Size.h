@@ -242,13 +242,13 @@ static inline CGFloat JobsHeight(CGFloat height){
 /// 顶部的安全距离
 static inline CGFloat JobsTopSafeAreaHeight(void){
     if (@available(iOS 11.0, *)) {
-        return getMainWindow().safeAreaInsets.top;
+        return jobsGetMainWindow().safeAreaInsets.top;
     } else return 0.f;
 }
 /// 底部的安全距离，全面屏手机为34pt，非全面屏手机为0pt
 static inline CGFloat JobsBottomSafeAreaHeight(void){
     if (@available(iOS 11.0, *)) {
-        return getMainWindow().safeAreaInsets.bottom;
+        return jobsGetMainWindow().safeAreaInsets.bottom;
     } else return 0.f;
 }
 #pragma mark —— 状态栏高度
@@ -295,14 +295,14 @@ static inline CGFloat JobsStatusBarHeightByAppleIncData(void){
 static inline CGFloat JobsRectOfStatusbar(void){
     SuppressWdeprecatedDeclarationsWarning(
         if (@available(iOS 13.0, *)){
-            UIStatusBarManager *statusBarManager = getMainWindow().windowScene.statusBarManager;
+            UIStatusBarManager *statusBarManager = jobsGetMainWindow().windowScene.statusBarManager;
             return statusBarManager.statusBarHidden ? 0 : statusBarManager.statusBarFrame.size.height;
         }else return UIApplication.sharedApplication.statusBarFrame.size.height;);
 }
 /// 方法三：状态栏高度
 static inline CGFloat JobsStatusBarHeight(void){
     if (@available(iOS 11.0, *)) {
-        return getMainWindow().safeAreaInsets.top;
+        return jobsGetMainWindow().safeAreaInsets.top;
     } else return JobsRectOfStatusbar();
 }
 #pragma mark —— 导航栏高度

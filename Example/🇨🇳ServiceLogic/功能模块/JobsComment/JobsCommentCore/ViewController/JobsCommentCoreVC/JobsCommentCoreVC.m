@@ -29,7 +29,7 @@
 -(void)loadView{
     [super loadView];
     @jobs_weakify(self)
-    [getMainWindow() actionObjectBlock:^(id data) {
+    [jobsGetMainWindow() actionObjectBlock:^(id data) {
         @jobs_strongify(self)
         [self dismissViewControllerAnimated:YES
                                  completion:Nil];

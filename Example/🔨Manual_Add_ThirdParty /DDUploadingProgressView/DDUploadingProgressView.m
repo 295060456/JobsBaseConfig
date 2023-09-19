@@ -39,8 +39,8 @@ static DDUploadingProgressView *static_uploadingProgressView = nil;
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
         static_uploadingProgressView = self;
-        [getMainWindow() addSubview:self];
-        [getMainWindow() bringSubviewToFront:self];
+        [jobsGetMainWindow() addSubview:self];
+        [jobsGetMainWindow() bringSubviewToFront:self];
         self.imge = JobsIMG(@"icon_upload_imge");
         self.strokeColor = [UIColor colorWithPatternImage:[UIImage imageResize:JobsIMG(@"gradualColor")
                                                                    andResizeTo:CGSizeMake(50, 25)]]; //圆环底色

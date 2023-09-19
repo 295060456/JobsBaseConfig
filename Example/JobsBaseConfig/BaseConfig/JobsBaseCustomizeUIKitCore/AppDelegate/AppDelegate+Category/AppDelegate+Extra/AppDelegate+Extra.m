@@ -120,7 +120,7 @@ static char *AppDelegate_Extra_tabBarVC = "AppDelegate_Extra_tabBarVC";
                         }];
                         customerServiceView.size = [CasinoCustomerServiceView viewSizeWithModel:self.hotLabelDataMutArr];
                         [customerServiceView richElementsInViewWithModel:self.hotLabelDataMutArr];
-                        [customerServiceView tf_showSlide:getMainWindow()
+                        [customerServiceView tf_showSlide:jobsGetMainWindow()
                                                 direction:PopupDirectionBottom
                                                popupParam:self.appDelegatePopupParameter];
                     }
