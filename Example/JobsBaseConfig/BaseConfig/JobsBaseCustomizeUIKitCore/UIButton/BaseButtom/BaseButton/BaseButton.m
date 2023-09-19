@@ -43,18 +43,18 @@ BaseButtonProtocol_synthesize
     [super layoutSubviews];
     [self printValue];
     {/// 【组 1】UIButton 单独自定义设置系统自带控件的Frame ❤️与组2、3属性互斥❤️
-        if (!zeroRectValue(self.textLabelFrame)) {
+        if (!jobsZeroRectValue(self.textLabelFrame)) {
             self.titleLabel.frame = self.textLabelFrame;
         }
         
-        if (!zeroRectValue(self.imageViewFrame)) {
+        if (!jobsZeroRectValue(self.imageViewFrame)) {
             self.imageView.frame = self.imageViewFrame;
         }
-        if (!zeroRectValue(self.textLabelFrame) || !zeroRectValue(self.imageViewFrame)) return;
+        if (!jobsZeroRectValue(self.textLabelFrame) || !jobsZeroRectValue(self.imageViewFrame)) return;
     }
     
     {/// 【组 2】UIButton 单独自定义设置系统自带控件的Size ❤️与组1、3属性互斥❤️
-        if (!zeroSizeValue(self.textLabelSize)) {
+        if (!jobsZeroPointValue(self.textLabelSize)) {
             CGRect titleLabelFrame = self.titleLabel.frame;
             titleLabelFrame.size = self.textLabelSize;
             titleLabelFrame.origin.x += self.textLabelFrameOffsetX;
@@ -62,14 +62,14 @@ BaseButtonProtocol_synthesize
             self.titleLabel.frame = titleLabelFrame;
         }
         
-        if (!zeroSizeValue(self.imageViewSize)) {
+        if (!jobsZeroPointValue(self.imageViewSize)) {
             CGRect imageViewFrame = self.imageView.frame;
             imageViewFrame.size = self.imageViewSize;
             imageViewFrame.origin.x += self.imageViewFrameOffsetX;
             imageViewFrame.origin.y += self.imageViewFrameOffsetY;
             self.imageView.frame = imageViewFrame;
         }
-        if (!zeroSizeValue(self.textLabelSize) || !zeroSizeValue(self.imageViewSize)) return;
+        if (!jobsZeroPointValue(self.textLabelSize) || !jobsZeroPointValue(self.imageViewSize)) return;
     }
     
     {/// 【组 3】UIButton 单独自定义设置系统自带控件的长宽 ❤️与组1、2属性互斥❤️

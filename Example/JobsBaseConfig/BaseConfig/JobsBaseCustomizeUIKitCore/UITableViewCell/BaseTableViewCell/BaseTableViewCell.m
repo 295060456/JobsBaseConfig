@@ -136,25 +136,25 @@ UITableViewCellProtocol_synthesize
     }
     /// 修改 UITableViewCell 中默认子控件的frame
     {///【组 1】 UITableViewCell单独自定义设置系统自带控件的Frame 【形成Frame后直接return，避免被其他中间过程修改】❤️与组2、3属性互斥❤️
-        if (!zeroRectValue(self.textLabelFrame)) {
+        if (!jobsZeroRectValue(self.textLabelFrame)) {
             self.textLabel.frame = self.textLabelFrame;
         }
         
-        if (!zeroRectValue(self.detailTextLabelFrame)) {
+        if (!jobsZeroRectValue(self.detailTextLabelFrame)) {
             self.detailTextLabel.frame = self.detailTextLabelFrame;
         }
 
-        if (!zeroRectValue(self.imageViewFrame)) {
+        if (!jobsZeroRectValue(self.imageViewFrame)) {
             self.imageView.frame = self.imageViewFrame;
         }
         
-        if (!zeroRectValue(self.textLabelFrame) ||
-            !zeroRectValue(self.detailTextLabelFrame) ||
-            !zeroRectValue(self.imageViewFrame)) return;
+        if (!jobsZeroRectValue(self.textLabelFrame) ||
+            !jobsZeroRectValue(self.detailTextLabelFrame) ||
+            !jobsZeroRectValue(self.imageViewFrame)) return;
     }
     
     {///【组 2】UITableViewCell单独自定义设置系统自带控件的Size【形成Frame后直接return，避免被其他中间过程修改】❤️与组1、3属性互斥❤️
-        if (!zeroSizeValue(self.textLabelSize)) {
+        if (!jobsZeroPointValue(self.textLabelSize)) {
             CGRect textLabelFrame = self.textLabel.frame;
             textLabelFrame.size = self.textLabelSize;
             textLabelFrame.origin.x += self.textLabelFrameOffsetX;
@@ -162,7 +162,7 @@ UITableViewCellProtocol_synthesize
             self.textLabel.frame = textLabelFrame;
         }
         
-        if (!zeroSizeValue(self.detailTextLabelSize)) {
+        if (!jobsZeroPointValue(self.detailTextLabelSize)) {
             CGRect detailTextLabelFrame = self.detailTextLabel.frame;
             detailTextLabelFrame.size = self.detailTextLabelSize;
             detailTextLabelFrame.origin.x += self.detailTextLabelOffsetX;
@@ -170,7 +170,7 @@ UITableViewCellProtocol_synthesize
             self.detailTextLabel.frame = detailTextLabelFrame;
         }
         
-        if (!zeroSizeValue(self.imageViewSize)) {
+        if (!jobsZeroPointValue(self.imageViewSize)) {
             CGRect imageViewFrame = self.imageView.frame;
             imageViewFrame.size = self.imageViewSize;
             imageViewFrame.origin.x += self.imageViewFrameOffsetX;
@@ -178,9 +178,9 @@ UITableViewCellProtocol_synthesize
             self.imageView.frame = imageViewFrame;
         }
         
-        if (!zeroSizeValue(self.textLabelSize) ||
-            !zeroSizeValue(self.detailTextLabelSize) ||
-            !zeroSizeValue(self.imageViewSize)) return;
+        if (!jobsZeroPointValue(self.textLabelSize) ||
+            !jobsZeroPointValue(self.detailTextLabelSize) ||
+            !jobsZeroPointValue(self.imageViewSize)) return;
     }
     
     {///【组 3】UITableViewCell单独自定义设置系统自带控件的宽高【形成Frame后直接return，避免被其他中间过程修改】❤️与组1、2属性互斥❤️

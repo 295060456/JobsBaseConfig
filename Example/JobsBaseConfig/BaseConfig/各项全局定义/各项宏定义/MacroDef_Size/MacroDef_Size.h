@@ -340,15 +340,15 @@ static inline CGFloat JobsContentAreaHeight(UITabBarController * _Nullable tabBa
 #pragma mark —— 尺寸相关的结构体判定
 /// 结构体虽然分配了空间，但是里面的成员的值是随机的，特别是如果里面有指针的话，如果不初始化而直接访问，则会造成读取非法的内存地址的错误。
 /// 判定一个Size是否是CGSizeZero
-static inline BOOL zeroSizeValue(CGSize sizeValue){
+static inline BOOL jobsZeroSizeValue(CGSize sizeValue){
     return CGSizeEqualToSize(CGSizeZero, sizeValue);
 }
 /// 判定一个CGRect是否是CGRectZero
-static inline BOOL zeroRectValue(CGRect rectValue){
+static inline BOOL jobsZeroRectValue(CGRect rectValue){
     return CGRectEqualToRect(CGRectZero, rectValue);
 }
 /// 判定一个CGPoint是否是CGPointZero
-static inline BOOL zeroPointValue(CGPoint pointValue){
+static inline BOOL jobsZeroPointValue(CGPoint pointValue){
     return CGPointEqualToPoint(CGPointZero, pointValue);
 }
 /// 构建一个四边距离相等的 UIEdgeInsets

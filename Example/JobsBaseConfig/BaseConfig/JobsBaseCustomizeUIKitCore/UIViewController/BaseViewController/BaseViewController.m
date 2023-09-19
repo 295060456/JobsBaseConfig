@@ -74,9 +74,7 @@ BaseViewControllerProtocol_synthesize
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
     [self updateStatusBarCor:JobsOrangeColor];
-    
     NSLog(@"%d",self.setupNavigationBarHidden);
     self.isHiddenNavigationBar = self.setupNavigationBarHidden;
     [self.navigationController setNavigationBarHidden:self.setupNavigationBarHidden animated:animated];
@@ -96,11 +94,11 @@ BaseViewControllerProtocol_synthesize
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    [self restoreStatusBarCor];
     if (self.vcLifeCycleBlock) self.vcLifeCycleBlock(JobsLocalFunc,nil);
     NSLog(@"%d",self.setupNavigationBarHidden);
     self.isHiddenNavigationBar = self.setupNavigationBarHidden;
     [self.navigationController setNavigationBarHidden:self.setupNavigationBarHidden animated:animated];
-    [self restoreStatusBarCor];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
@@ -225,7 +223,7 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
 #pragma mark —— lazyLoad
 - (UIView *)statusBar{
     if (!_statusBar) {
-        _statusBar = [UIView.alloc initWithFrame:jobsGetMainWindow().windowScene.statusBarManager.statusBarFrame];
+        _statusBar = [UIView.alloc initWithFrame:jobsGetMainWindowWithSize().windowScene.statusBarManager.statusBarFrame];
     }return _statusBar;
 }
 
@@ -233,7 +231,7 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
     if (!_bgImageView) {
         _bgImageView = UIImageView.new;
         _bgImageView.frame = self.view.bounds;
-        _bgImageView.image = self.bgImage;
+        _bgImageView.image = self.viewModel.bgImage;
         _bgImageView.userInteractionEnabled = YES;
 //        self.view = _bgImageView; // 有时候不正确
         [self.view insertSubview:_bgImageView atIndex:0];
