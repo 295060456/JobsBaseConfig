@@ -77,7 +77,6 @@ BaseViewControllerProtocol_synthesize
     
     [self updateStatusBarCor:JobsOrangeColor];
     
-    
     NSLog(@"%d",self.setupNavigationBarHidden);
     self.isHiddenNavigationBar = self.setupNavigationBarHidden;
     [self.navigationController setNavigationBarHidden:self.setupNavigationBarHidden animated:animated];
@@ -101,6 +100,7 @@ BaseViewControllerProtocol_synthesize
     NSLog(@"%d",self.setupNavigationBarHidden);
     self.isHiddenNavigationBar = self.setupNavigationBarHidden;
     [self.navigationController setNavigationBarHidden:self.setupNavigationBarHidden animated:animated];
+    [self restoreStatusBarCor];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
@@ -146,7 +146,7 @@ BaseViewControllerProtocol_synthesize
     return UIStatusBarStyleLightContent;
 }
 #pragma mark —— 一些私有方法
-/// 更新状态栏颜色
+/// 更新状态栏颜色为自定义的颜色
 - (void)updateStatusBarCor:(UIColor *)cor{
     if(!cor)cor = JobsRedColor;
     if (@available(iOS 13.0, *)) {
@@ -158,6 +158,21 @@ BaseViewControllerProtocol_synthesize
         UIView *statusBar = [UIApplication.sharedApplication.valueForKeyBlock(@"statusBarWindow") valueForKey:@"statusBar"];
         if ([statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
             statusBar.backgroundColor = cor;
+        }
+        // 手动触发 preferredStatusBarStyle 更新状态栏颜色
+        [self setNeedsStatusBarAppearanceUpdate];
+    }
+}
+/// 恢复状态栏颜色
+-(void)restoreStatusBarCor{
+    if (@available(iOS 13.0, *)) {
+        if (![jobsGetMainWindow().subviews containsObject:self.statusBar]) {
+            [self.statusBar removeFromSuperview];
+        }
+    } else {
+        UIView *statusBar = [UIApplication.sharedApplication.valueForKeyBlock(@"statusBarWindow") valueForKey:@"statusBar"];
+        if ([statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
+            statusBar.backgroundColor = UIColor.clearColor;;
         }
         // 手动触发 preferredStatusBarStyle 更新状态栏颜色
         [self setNeedsStatusBarAppearanceUpdate];
@@ -210,9 +225,7 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
 #pragma mark —— lazyLoad
 - (UIView *)statusBar{
     if (!_statusBar) {
-        if (@available(iOS 13.0, *)) {
-            _statusBar = [UIView.alloc initWithFrame:UIApplication.sharedApplication.keyWindow.windowScene.statusBarManager.statusBarFrame];
-        }
+        _statusBar = [UIView.alloc initWithFrame:jobsGetMainWindow().windowScene.statusBarManager.statusBarFrame];
     }return _statusBar;
 }
 
