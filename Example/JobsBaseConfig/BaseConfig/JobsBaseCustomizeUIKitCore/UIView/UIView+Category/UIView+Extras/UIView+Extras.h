@@ -34,7 +34,7 @@ typedef NS_OPTIONS(NSUInteger, UIBorderSideType) {
 };
 
 @interface UIView (Extras)
-#pragma mark —— 键盘
+#pragma mark —— 键盘事件
 /// 监听键盘事件
 -(void)monitorKeyboardAction;
 #pragma mark —— 截屏
@@ -62,17 +62,23 @@ typedef NS_OPTIONS(NSUInteger, UIBorderSideType) {
 -(void)setBorderWithColor:(UIColor *__nonnull)color
               borderWidth:(CGFloat)borderWidth
                borderType:(UIBorderSideType)borderType;
-/// 切角
-/// @param cornerRadiusValue 切角参数
--(void)cornerCutToCircleWithCornerRadius:(CGFloat)cornerRadiusValue;
 /// 描边
 /// @param colour 颜色
 /// @param borderWidth 边线宽度
 -(void)layerBorderColour:(UIColor *__nonnull)colour
           andBorderWidth:(CGFloat)borderWidth;
-/// 指定圆切角
+#pragma mark —— 切角
+/// 切整个View的4个角为统一
+/// @param cornerRadiusValue 切角参数
+-(void)cornerCutToCircleWithCornerRadius:(CGFloat)cornerRadiusValue;
+/// 指定圆切角（方法一）
+/// ⚠️这种写法存在一定的弊端：如果在某个View上添加子View，并对这个View使用如下方法的圆切角，则这个View上的子视图不可见⚠️
 -(void)appointCornerCutToCircleByRoundingCorners:(UIRectCorner)corners
                                      cornerRadii:(CGSize)cornerRadii;
+/// 指定圆切角（方法二），避免了（方法一）的弊端
+/// 作用于需要切的View的子类里面的-(void)layoutSubviews方法
+-(void)layoutSubviewsCutCnrByRoundingCorners:(UIRectCorner)corners
+                                 cornerRadii:(CGSize)cornerRadii;
 #pragma mark —— @implementation UILabel (AutoScroll)
 /// 根据文字长短自动判断是否需要显示TextLayer，并且滚动
 -(void)setTextLayerScroll;

@@ -185,7 +185,7 @@ NSString * const kWebSocketdidReceiveMessageNote = @"kWebSocketdidReceiveMessage
     [self initHeartBeat];
     if (webSocket == self.socket) {
         NSLog(@"************************** socket 连接成功************************** ");
-        [[NSNotificationCenter defaultCenter] postNotificationName:kWebSocketDidOpenNote object:nil];
+        [NSNotificationCenter.defaultCenter postNotificationName:kWebSocketDidOpenNote object:nil];
     }
 }
 
@@ -203,7 +203,7 @@ NSString * const kWebSocketdidReceiveMessageNote = @"kWebSocketdidReceiveMessage
         NSLog(@"************************** socket连接断开************************** ");
         NSLog(@"被关闭连接，code:%ld,reason:%@,wasClean:%d",(long)code,reason,wasClean);
         [self SRWebSocketClose];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kWebSocketDidCloseNote object:nil];
+        [NSNotificationCenter.defaultCenter postNotificationName:kWebSocketDidCloseNote object:nil];
     }
 }
 
@@ -225,7 +225,7 @@ NSString * const kWebSocketdidReceiveMessageNote = @"kWebSocketdidReceiveMessage
         NSLog(@"我这后台约定的 message 是 json 格式数据收到数据，就按格式解析吧，然后把数据发给调用层");
         NSLog(@"message:%@",message);
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:kWebSocketdidReceiveMessageNote object:message];
+        [NSNotificationCenter.defaultCenter postNotificationName:kWebSocketdidReceiveMessageNote object:message];
     }
 }
 
@@ -235,7 +235,7 @@ NSString * const kWebSocketdidReceiveMessageNote = @"kWebSocketdidReceiveMessage
 }
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 

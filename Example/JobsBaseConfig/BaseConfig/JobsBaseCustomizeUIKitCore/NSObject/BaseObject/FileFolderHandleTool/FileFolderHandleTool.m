@@ -647,7 +647,7 @@ bundleFileSuffix:(NSString *__nonnull)bundleFileSuffix
                 if (success){
                     NSLog(@"保存视频成功!");
                     //保存视频成功 全局发通知
-                    [[NSNotificationCenter defaultCenter] postNotificationName:@"saveRes_success"
+                    [NSNotificationCenter.defaultCenter postNotificationName:@"saveRes_success"
                                                                         object:nil];
                 } else{
                     NSLog(@"保存视频失败:%@", error);

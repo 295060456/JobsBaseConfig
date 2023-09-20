@@ -8,55 +8,6 @@
 #import "UIViewController+MJRefresh.h"
 
 @implementation UIViewController (MJRefresh)
-
-static char *UIViewController_MJRefresh_refreshConfigHeader = "UIViewController_MJRefresh_refreshConfigHeader";
-@dynamic refreshConfigHeader;
-
-static char *UIViewController_MJRefresh_refreshConfigFooter = "UIViewController_MJRefresh_refreshConfigFooter";
-@dynamic refreshConfigFooter;
-
-#pragma mark —— MJRefreshHeader
-static char *UIViewController_MJRefresh_lotAnimMJRefreshHeader = "UIViewController_MJRefresh_lotAnimMJRefreshHeader";
-@dynamic lotAnimMJRefreshHeader;
-
-static char *UIViewController_MJRefresh_mjRefreshNormalHeader = "UIViewController_MJRefresh_mjRefreshNormalHeader";
-@dynamic mjRefreshNormalHeader;
-
-static char *UIViewController_MJRefresh_mjRefreshStateHeader = "UIViewController_MJRefresh_mjRefreshStateHeader";
-@dynamic mjRefreshStateHeader;
-
-static char *UIViewController_MJRefresh_mjRefreshHeader = "UIViewController_MJRefresh_mjRefreshHeader";
-@dynamic mjRefreshHeader;
-
-static char *UIViewController_MJRefresh_mjRefreshGifHeader = "UIViewController_MJRefresh_mjRefreshGifHeader";
-@dynamic mjRefreshGifHeader;
-#pragma mark —— MJRefreshFooter
-static char *UIViewController_MJRefresh_mjRefreshAutoGifFooter = "UIViewController_MJRefresh_mjRefreshAutoGifFooter";
-@dynamic mjRefreshAutoGifFooter;
-
-static char *UIViewController_MJRefresh_mjRefreshBackNormalFooter = "UIViewController_MJRefresh_mjRefreshBackNormalFooter";
-@dynamic mjRefreshBackNormalFooter;
-
-static char *UIViewController_MJRefresh_mjRefreshAutoNormalFooter = "UIViewController_MJRefresh_mjRefreshAutoNormalFooter";
-@dynamic mjRefreshAutoNormalFooter;
-
-static char *UIViewController_MJRefresh_mjRefreshAutoStateFooter = "UIViewController_MJRefresh_mjRefreshAutoStateFooter";
-@dynamic mjRefreshAutoStateFooter;
-
-static char *UIViewController_MJRefresh_mjRefreshAutoFooter = "UIViewController_MJRefresh_mjRefreshAutoFooter";
-@dynamic mjRefreshAutoFooter;
-
-static char *UIViewController_MJRefresh_mjRefreshBackGifFooter = "UIViewController_MJRefresh_mjRefreshBackGifFooter";
-@dynamic mjRefreshBackGifFooter;
-
-static char *UIViewController_MJRefresh_mjRefreshBackStateFooter = "UIViewController_MJRefresh_mjRefreshBackStateFooter";
-@dynamic mjRefreshBackStateFooter;
-
-static char *UIViewController_MJRefresh_mjRefreshBackFooter = "UIViewController_MJRefresh_mjRefreshBackFooter";
-@dynamic mjRefreshBackFooter;
-
-static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRefresh_mjRefreshFooter";
-@dynamic mjRefreshFooter;
 /*
  * 相关继承关系图谱 4个header + 9个Footer ;已经实现的👌
     MJRefreshGifHeader  👌 ->MJRefreshStateHeader->MJRefreshHeader->MJRefreshComponent->UIView
@@ -96,18 +47,20 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
                        context:(void *)context {
     if ([object isEqual:self.mjRefreshGifHeader] &&
         self.mjRefreshGifHeader.state == MJRefreshStatePulling) {
-        [self feedbackGenerator];
+        [NSObject feedbackGenerator];
     }else if (([object isEqual:self.mjRefreshAutoGifFooter] ||
                [object isEqual:self.mjRefreshBackNormalFooter] ||
                [object isEqual:self.mjRefreshAutoNormalFooter]) && (self.mjRefreshAutoGifFooter.state == MJRefreshStatePulling ||
                                                                     self.mjRefreshBackNormalFooter.state == MJRefreshStatePulling ||
                                                                     self.mjRefreshAutoNormalFooter.state == MJRefreshStatePulling)
              ) {
-        [self feedbackGenerator];
+        [NSObject feedbackGenerator];
     }else{}
 }
 #pragma mark —— SET | GET
 #pragma mark —— @property(nonatomic,strong)MJRefreshConfigModel *refreshConfigHeader;//头部的配置信息
+static char *UIViewController_MJRefresh_refreshConfigHeader = "UIViewController_MJRefresh_refreshConfigHeader";
+@dynamic refreshConfigHeader;
 -(MJRefreshConfigModel *)refreshConfigHeader{
     MJRefreshConfigModel *RefreshConfigHeader = objc_getAssociatedObject(self, UIViewController_MJRefresh_refreshConfigHeader);
     if (!RefreshConfigHeader) {
@@ -126,6 +79,8 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,strong)MJRefreshConfigModel *refreshConfigFooter;//尾部的配置信息
+static char *UIViewController_MJRefresh_refreshConfigFooter = "UIViewController_MJRefresh_refreshConfigFooter";
+@dynamic refreshConfigFooter;
 -(MJRefreshConfigModel *)refreshConfigFooter{
     MJRefreshConfigModel *RefreshConfigFooter = objc_getAssociatedObject(self, UIViewController_MJRefresh_refreshConfigFooter);
     if (!RefreshConfigFooter) {
@@ -152,6 +107,8 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
  */
 #pragma mark —— MJRefreshHeader
 #pragma mark —— @property(nonatomic,strong)LOTAnimationMJRefreshHeader *lotAnimMJRefreshHeader;
+static char *UIViewController_MJRefresh_lotAnimMJRefreshHeader = "UIViewController_MJRefresh_lotAnimMJRefreshHeader";
+@dynamic lotAnimMJRefreshHeader;
 -(LOTAnimationMJRefreshHeader *)lotAnimMJRefreshHeader{
     LOTAnimationMJRefreshHeader *lotAnimMJRefreshHeader = objc_getAssociatedObject(self, UIViewController_MJRefresh_lotAnimMJRefreshHeader);
     NSLog(@"DDD = %@",lotAnimMJRefreshHeader);
@@ -228,6 +185,8 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,strong)MJRefreshNormalHeader *mjRefreshNormalHeader;
+static char *UIViewController_MJRefresh_mjRefreshNormalHeader = "UIViewController_MJRefresh_mjRefreshNormalHeader";
+@dynamic mjRefreshNormalHeader;
 -(MJRefreshNormalHeader *)mjRefreshNormalHeader{
     MJRefreshNormalHeader *MjRefreshNormalHeader = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshNormalHeader);
     if (!MjRefreshNormalHeader) {
@@ -282,6 +241,8 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,strong)MJRefreshStateHeader *mjRefreshStateHeader;
+static char *UIViewController_MJRefresh_mjRefreshStateHeader = "UIViewController_MJRefresh_mjRefreshStateHeader";
+@dynamic mjRefreshStateHeader;
 -(MJRefreshStateHeader *)mjRefreshStateHeader{
     MJRefreshStateHeader *MjRefreshStateHeader = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshStateHeader);
     if (!MjRefreshStateHeader) {
@@ -322,7 +283,6 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
                           context:nil];
             }
         }
-        
         objc_setAssociatedObject(self,
                                  UIViewController_MJRefresh_mjRefreshStateHeader,
                                  MjRefreshStateHeader,
@@ -337,6 +297,8 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,strong)MJRefreshHeader *mjRefreshHeader;
+static char *UIViewController_MJRefresh_mjRefreshHeader = "UIViewController_MJRefresh_mjRefreshHeader";
+@dynamic mjRefreshHeader;
 -(MJRefreshHeader *)mjRefreshHeader{
     MJRefreshHeader *MjRefreshHeader = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshHeader);
     if (!MjRefreshHeader) {
@@ -355,7 +317,6 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
                           context:nil];
             }
         }
-        
         objc_setAssociatedObject(self,
                                  UIViewController_MJRefresh_mjRefreshHeader,
                                  MjRefreshHeader,
@@ -370,6 +331,8 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,strong)MJRefreshGifHeader *mjRefreshGifHeader;
+static char *UIViewController_MJRefresh_mjRefreshGifHeader = "UIViewController_MJRefresh_mjRefreshGifHeader";
+@dynamic mjRefreshGifHeader;
 -(MJRefreshGifHeader *)mjRefreshGifHeader{
     MJRefreshGifHeader *MjRefreshGifHeader = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshGifHeader);
     if (!MjRefreshGifHeader) {
@@ -429,7 +392,6 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
                           context:nil];
             }
         }
-        
         objc_setAssociatedObject(self,
                                  UIViewController_MJRefresh_mjRefreshGifHeader,
                                  MjRefreshGifHeader,
@@ -445,6 +407,8 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
 }
 #pragma mark —— MJRefreshFooter
 #pragma mark —— @property(nonatomic,strong)MJRefreshAutoGifFooter *mjRefreshAutoGifFooter;
+static char *UIViewController_MJRefresh_mjRefreshAutoGifFooter = "UIViewController_MJRefresh_mjRefreshAutoGifFooter";
+@dynamic mjRefreshAutoGifFooter;
 -(MJRefreshAutoGifFooter *)mjRefreshAutoGifFooter{
     MJRefreshAutoGifFooter *MjRefreshAutoGifFooter = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshAutoGifFooter);
     if (!MjRefreshAutoGifFooter) {
@@ -518,6 +482,8 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,strong)MJRefreshBackNormalFooter *mjRefreshBackNormalFooter;
+static char *UIViewController_MJRefresh_mjRefreshBackNormalFooter = "UIViewController_MJRefresh_mjRefreshBackNormalFooter";
+@dynamic mjRefreshBackNormalFooter;
 -(MJRefreshBackNormalFooter *)mjRefreshBackNormalFooter{
     MJRefreshBackNormalFooter *MjRefreshBackNormalFooter = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshBackNormalFooter);
     if (!MjRefreshBackNormalFooter) {
@@ -558,7 +524,6 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
                           context:nil];
             }
         }
-        
         objc_setAssociatedObject(self,
                                  UIViewController_MJRefresh_mjRefreshBackNormalFooter,
                                  MjRefreshBackNormalFooter,
@@ -573,6 +538,8 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,strong)MJRefreshAutoNormalFooter *mjRefreshAutoNormalFooter;
+static char *UIViewController_MJRefresh_mjRefreshAutoNormalFooter = "UIViewController_MJRefresh_mjRefreshAutoNormalFooter";
+@dynamic mjRefreshAutoNormalFooter;
 -(MJRefreshAutoNormalFooter *)mjRefreshAutoNormalFooter{
     MJRefreshAutoNormalFooter *MjRefreshAutoNormalFooter = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshAutoNormalFooter);
     if (!MjRefreshAutoNormalFooter) {
@@ -628,6 +595,8 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,strong)MJRefreshAutoStateFooter *mjRefreshAutoStateFooter;
+static char *UIViewController_MJRefresh_mjRefreshAutoStateFooter = "UIViewController_MJRefresh_mjRefreshAutoStateFooter";
+@dynamic mjRefreshAutoStateFooter;
 -(MJRefreshAutoStateFooter *)mjRefreshAutoStateFooter{
     MJRefreshAutoStateFooter *MjRefreshAutoStateFooter = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshAutoStateFooter);
     if (!MjRefreshAutoStateFooter) {
@@ -668,7 +637,6 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
                           context:nil];
             }
         }
-        
         objc_setAssociatedObject(self,
                                  UIViewController_MJRefresh_mjRefreshAutoStateFooter,
                                  MjRefreshAutoStateFooter,
@@ -683,6 +651,8 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,strong)MJRefreshAutoFooter *mjRefreshAutoFooter;
+static char *UIViewController_MJRefresh_mjRefreshAutoFooter = "UIViewController_MJRefresh_mjRefreshAutoFooter";
+@dynamic mjRefreshAutoFooter;
 -(MJRefreshAutoFooter *)mjRefreshAutoFooter{
     MJRefreshAutoFooter *MjRefreshAutoFooter = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshAutoFooter);
     if (!MjRefreshAutoFooter) {
@@ -705,6 +675,8 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,strong)MJRefreshBackGifFooter *mjRefreshBackGifFooter;
+static char *UIViewController_MJRefresh_mjRefreshBackGifFooter = "UIViewController_MJRefresh_mjRefreshBackGifFooter";
+@dynamic mjRefreshBackGifFooter;
 -(MJRefreshBackGifFooter *)mjRefreshBackGifFooter{
     MJRefreshBackGifFooter *MjRefreshBackGifFooter = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshBackGifFooter);
     if (!MjRefreshBackGifFooter) {
@@ -764,7 +736,6 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
                           context:nil];
             }
         }
-        
         objc_setAssociatedObject(self,
                                  UIViewController_MJRefresh_mjRefreshBackGifFooter,
                                  MjRefreshBackGifFooter,
@@ -779,6 +750,8 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,strong)MJRefreshBackStateFooter *mjRefreshBackStateFooter;
+static char *UIViewController_MJRefresh_mjRefreshBackStateFooter = "UIViewController_MJRefresh_mjRefreshBackStateFooter";
+@dynamic mjRefreshBackStateFooter;
 -(MJRefreshBackStateFooter *)mjRefreshBackStateFooter{
     MJRefreshBackStateFooter *MjRefreshBackStateFooter = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshBackStateFooter);
     if (!MjRefreshBackStateFooter) {
@@ -833,6 +806,8 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,strong)MJRefreshBackFooter *mjRefreshBackFooter;
+static char *UIViewController_MJRefresh_mjRefreshBackFooter = "UIViewController_MJRefresh_mjRefreshBackFooter";
+@dynamic mjRefreshBackFooter;
 -(MJRefreshBackFooter *)mjRefreshBackFooter{
     MJRefreshBackFooter *MjRefreshBackFooter = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshBackFooter);
     if (!MjRefreshBackFooter) {
@@ -851,7 +826,6 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
                           context:nil];
             }
         }
-        
         objc_setAssociatedObject(self,
                                  UIViewController_MJRefresh_mjRefreshBackFooter,
                                  MjRefreshBackFooter,
@@ -866,6 +840,8 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 #pragma mark —— @property(nonatomic,strong)MJRefreshFooter *mjRefreshFooter;
+static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRefresh_mjRefreshFooter";
+@dynamic mjRefreshFooter;
 -(MJRefreshFooter *)mjRefreshFooter{
     MJRefreshFooter *MjRefreshFooter = objc_getAssociatedObject(self, UIViewController_MJRefresh_mjRefreshFooter);
     if (!MjRefreshFooter) {
@@ -884,7 +860,6 @@ static char *UIViewController_MJRefresh_mjRefreshFooter = "UIViewController_MJRe
                           context:nil];
             }
         }
-        
         objc_setAssociatedObject(self,
                                  UIViewController_MJRefresh_mjRefreshFooter,
                                  MjRefreshFooter,

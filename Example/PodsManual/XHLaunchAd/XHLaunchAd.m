@@ -175,16 +175,16 @@ static  SourceType _sourceType = SourceTypeLaunchImage;
     if (self) {
         XHWeakSelf
         [self setupLaunchAd];
-        [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillEnterForegroundNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        [NSNotificationCenter.defaultCenter addObserverForName:UIApplicationWillEnterForegroundNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
             [self setupLaunchAdEnterForeground];
         }];
-        [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidEnterBackgroundNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        [NSNotificationCenter.defaultCenter addObserverForName:UIApplicationDidEnterBackgroundNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
             [self removeOnly];
         }];
-        [[NSNotificationCenter defaultCenter] addObserverForName:XHLaunchAdDetailPageWillShowNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        [NSNotificationCenter.defaultCenter addObserverForName:XHLaunchAdDetailPageWillShowNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
             weakSelf.detailPageShowing = YES;
         }];
-        [[NSNotificationCenter defaultCenter] addObserverForName:XHLaunchAdDetailPageShowFinishNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        [NSNotificationCenter.defaultCenter addObserverForName:XHLaunchAdDetailPageShowFinishNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
             weakSelf.detailPageShowing = NO;
         }];
     }
@@ -243,7 +243,7 @@ static  SourceType _sourceType = SourceTypeLaunchImage;
             XHWeakSelf
             [adImageView xh_setImageWithURL:[NSURL URLWithString:configuration.imageNameOrURLString] placeholderImage:nil GIFImageCycleOnce:configuration.GIFImageCycleOnce options:configuration.imageOption GIFImageCycleOnceFinish:^{
                 //GIF不循环,播放完成
-                [[NSNotificationCenter defaultCenter] postNotificationName:XHLaunchAdGIFImageCycleOnceFinishNotification object:nil userInfo:@{@"imageNameOrURLString":configuration.imageNameOrURLString}];
+                [NSNotificationCenter.defaultCenter postNotificationName:XHLaunchAdGIFImageCycleOnceFinishNotification object:nil userInfo:@{@"imageNameOrURLString":configuration.imageNameOrURLString}];
                 
             } completed:^(UIImage *image,NSData *imageData,NSError *error,NSURL *url){
                 if(!error){
@@ -277,7 +277,7 @@ static  SourceType _sourceType = SourceTypeLaunchImage;
                     if(configuration.GIFImageCycleOnce){
                         [w_adImageView stopAnimating];
                         XHLaunchAdLog(@"GIF不循环,播放完成");
-                        [[NSNotificationCenter defaultCenter] postNotificationName:XHLaunchAdGIFImageCycleOnceFinishNotification object:@{@"imageNameOrURLString":configuration.imageNameOrURLString}];
+                        [NSNotificationCenter.defaultCenter postNotificationName:XHLaunchAdGIFImageCycleOnceFinishNotification object:@{@"imageNameOrURLString":configuration.imageNameOrURLString}];
                     }
                 };
             }else{
@@ -338,9 +338,9 @@ static  SourceType _sourceType = SourceTypeLaunchImage;
     if(configuration.videoGravity) _adVideoView.videoGravity = configuration.videoGravity;
     _adVideoView.videoCycleOnce = configuration.videoCycleOnce;
     if(configuration.videoCycleOnce){
-        [[NSNotificationCenter defaultCenter] addObserverForName:AVPlayerItemDidPlayToEndTimeNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        [NSNotificationCenter.defaultCenter addObserverForName:AVPlayerItemDidPlayToEndTimeNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
             XHLaunchAdLog(@"video不循环,播放完成");
-            [[NSNotificationCenter defaultCenter] postNotificationName:XHLaunchAdVideoCycleOnceFinishNotification object:nil userInfo:@{@"videoNameOrURLString":configuration.videoNameOrURLString}];
+            [NSNotificationCenter.defaultCenter postNotificationName:XHLaunchAdVideoCycleOnceFinishNotification object:nil userInfo:@{@"videoNameOrURLString":configuration.videoNameOrURLString}];
         }];
     }
     /** video 数据源 */
@@ -505,7 +505,7 @@ static  SourceType _sourceType = SourceTypeLaunchImage;
         if(duration==0){
             DISPATCH_SOURCE_CANCEL_SAFE(_waitDataTimer);
             dispatch_async(dispatch_get_main_queue(), ^{
-                [[NSNotificationCenter defaultCenter] postNotificationName:XHLaunchAdWaitDataDurationArriveNotification object:nil];
+                [NSNotificationCenter.defaultCenter postNotificationName:XHLaunchAdWaitDataDurationArriveNotification object:nil];
                 [self remove];
                 return ;
             });
@@ -649,6 +649,6 @@ static  SourceType _sourceType = SourceTypeLaunchImage;
     }];
 }
 -(void)dealloc{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 @end

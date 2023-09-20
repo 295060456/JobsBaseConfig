@@ -41,7 +41,7 @@
     if (timer) {
         dispatch_source_cancel(timer);
     }
-//    [[NSNotificationCenter defaultCenter] removeObserver:self];
+//    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 /// 单例化和销毁
 +(void)destroySingleton{

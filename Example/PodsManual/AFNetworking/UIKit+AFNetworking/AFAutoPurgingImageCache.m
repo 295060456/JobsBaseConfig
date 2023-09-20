@@ -85,7 +85,7 @@
         NSString *queueName = [NSString stringWithFormat:@"com.alamofire.autopurgingimagecache-%@", [[NSUUID UUID] UUIDString]];
         self.synchronizationQueue = dispatch_queue_create([queueName cStringUsingEncoding:NSASCIIStringEncoding], DISPATCH_QUEUE_CONCURRENT);
 
-        [[NSNotificationCenter defaultCenter]
+        [NSNotificationCenter.defaultCenter
          addObserver:self
          selector:@selector(removeAllImages)
          name:UIApplicationDidReceiveMemoryWarningNotification
@@ -96,7 +96,7 @@
 }
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 - (UInt64)memoryUsage {

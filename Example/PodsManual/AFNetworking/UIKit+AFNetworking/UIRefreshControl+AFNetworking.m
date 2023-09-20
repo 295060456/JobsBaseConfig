@@ -64,7 +64,7 @@
 }
 
 - (void)setRefreshingWithStateOfTask:(NSURLSessionTask *)task {
-    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    NSNotificationCenter *notificationCenter = NSNotificationCenter.defaultCenter;
 
     [notificationCenter removeObserver:self name:AFNetworkingTaskDidResumeNotification object:nil];
     [notificationCenter removeObserver:self name:AFNetworkingTaskDidSuspendNotification object:nil];
@@ -101,7 +101,7 @@
 #pragma mark -
 
 - (void)dealloc {
-    NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+    NSNotificationCenter *notificationCenter = NSNotificationCenter.defaultCenter;
     
     [notificationCenter removeObserver:self name:AFNetworkingTaskDidCompleteNotification object:nil];
     [notificationCenter removeObserver:self name:AFNetworkingTaskDidResumeNotification object:nil];

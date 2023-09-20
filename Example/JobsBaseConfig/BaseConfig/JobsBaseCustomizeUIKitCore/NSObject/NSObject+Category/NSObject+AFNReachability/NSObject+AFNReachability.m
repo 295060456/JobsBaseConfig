@@ -24,7 +24,7 @@
         if (statusBlock) {
             statusBlock(status);
         }
-        [[NSNotificationCenter defaultCenter] postNotificationName:MKAFNReachabilityStatus
+        [NSNotificationCenter.defaultCenter postNotificationName:MKAFNReachabilityStatus
                                                             object:@(status)];
         @strongify(networkReachabilityManager)
         [networkReachabilityManager startMonitoring];

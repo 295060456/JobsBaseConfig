@@ -46,7 +46,7 @@ static NSString *const VideoPlayStatus = @"status";
 
 -(void)dealloc{
     [self.playerItem removeObserver:self forKeyPath:VideoPlayStatus];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 - (instancetype)init{
@@ -96,7 +96,7 @@ static NSString *const VideoPlayStatus = @"status";
     if([keyPath isEqualToString:VideoPlayStatus]){
         NSInteger newStatus = ((NSNumber *)change[@"new"]).integerValue;
         if (newStatus == AVPlayerItemStatusFailed) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:XHLaunchAdVideoPlayFailedNotification object:nil userInfo:@{@"videoNameOrURLString":_contentURL.absoluteString}];
+            [NSNotificationCenter.defaultCenter postNotificationName:XHLaunchAdVideoPlayFailedNotification object:nil userInfo:@{@"videoNameOrURLString":_contentURL.absoluteString}];
         }
     }
 }
@@ -110,7 +110,7 @@ static NSString *const VideoPlayStatus = @"status";
         _videoPlayer.view.frame = [UIScreen mainScreen].bounds;
         _videoPlayer.view.backgroundColor = [UIColor clearColor];
         //注册通知控制是否循环播放
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(runLoopTheMovie:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
+        [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(runLoopTheMovie:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
         
         /** 获取音频焦点 */
         [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];

@@ -20,7 +20,7 @@ static char *UIView_ZFPlayer_customPlayerControlView = "UIView_ZFPlayer_customPl
 @dynamic customPlayerControlView;
 
 -(void)enterBackgroundStopPlayer{
-    [[NSNotificationCenter defaultCenter] addObserver:self
+    [NSNotificationCenter.defaultCenter addObserver:self
                                              selector:@selector(notification:)
                                                  name:UBLEnterBackgroundStopPlayer
                                                object:nil];

@@ -9,7 +9,7 @@
 #import "UIView+Extras.h"
 
 @implementation UIView (Extras)
-#pragma mark —— 键盘
+#pragma mark —— 键盘事件
 /// 监听键盘事件
 -(void)monitorKeyboardAction{
     [NSNotificationCenter.defaultCenter addObserver:self
@@ -72,7 +72,8 @@
         /// 对view进行一个快照，然后将快照渲染到当前的上下文中 https://www.jianshu.com/p/3d246235388c
         /// rect：指定图片绘制的坐标
         /// afterUpdates：截图的瞬间是否将屏幕当前的变更渲染进去
-        [self drawViewHierarchyInRect:self.bounds afterScreenUpdates:YES];
+        [self drawViewHierarchyInRect:self.bounds
+                   afterScreenUpdates:YES];
     }else{
         /// 将view的layer渲染到当前的绘制的上下文中
         [self.layer renderInContext:UIGraphicsGetCurrentContext()];
@@ -169,12 +170,6 @@
         [self.layer addSublayer:layer];
     }
 }
-/// 切角
-/// @param cornerRadiusValue 切角参数
--(void)cornerCutToCircleWithCornerRadius:(CGFloat)cornerRadiusValue{
-    self.layer.cornerRadius = cornerRadiusValue;
-    self.layer.masksToBounds = YES;
-}
 /// 描边
 /// @param colour 颜色
 /// @param borderWidth 边线宽度
@@ -183,7 +178,15 @@
     self.layer.borderColor = colour.CGColor;
     self.layer.borderWidth = borderWidth;
 }
-/// 指定圆切角
+#pragma mark —— 切角
+/// 切整个View的4个角为统一
+/// @param cornerRadiusValue 切角参数
+-(void)cornerCutToCircleWithCornerRadius:(CGFloat)cornerRadiusValue{
+    self.layer.cornerRadius = cornerRadiusValue;
+    self.layer.masksToBounds = YES;
+}
+/// 指定圆切角（方法一）
+/// ⚠️这种写法存在一定的弊端：如果在某个View上添加子View，并对这个View使用如下方法的圆切角，则这个View上的子视图不可见⚠️
 -(void)appointCornerCutToCircleByRoundingCorners:(UIRectCorner)corners
                                      cornerRadii:(CGSize)cornerRadii{
     // 设置切哪个直角
@@ -203,6 +206,29 @@
     CAShapeLayer *maskLayer = CAShapeLayer.new;
     maskLayer.frame = self.bounds;
     /// 赋值
+    maskLayer.path = maskPath.CGPath;
+    self.layer.mask = maskLayer;
+}
+/// 指定圆切角（方法二），避免了（方法一）的弊端
+/// 作用于需要切的View的子类里面的-(void)layoutSubviews方法
+-(void)layoutSubviewsCutCnrByRoundingCorners:(UIRectCorner)corners
+                                 cornerRadii:(CGSize)cornerRadii{
+    //    设置切哪个直角
+    //    UIRectCornerTopLeft     = 1 << 0,  左上角
+    //    UIRectCornerTopRight    = 1 << 1,  右上角
+    //    UIRectCornerBottomLeft  = 1 << 2,  左下角
+    //    UIRectCornerBottomRight = 1 << 3,  右下角
+    //    UIRectCornerAllCorners  = ~0UL     全部角
+    
+    if (CGSizeEqualToSize(cornerRadii, CGSizeZero)) {
+        cornerRadii = CGSizeMake(self.width / 2,self.height / 2);
+    }
+    
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds
+                                                   byRoundingCorners:corners
+                                                         cornerRadii:cornerRadii];
+    CAShapeLayer *maskLayer = CAShapeLayer.layer;
+    maskLayer.frame = self.bounds;
     maskLayer.path = maskPath.CGPath;
     self.layer.mask = maskLayer;
 }
@@ -438,9 +464,7 @@
             
         default:
             break;
-    }
-    
-    targetShadowview.layer.shadowPath = path.CGPath;
+    }targetShadowview.layer.shadowPath = path.CGPath;
 }
 #pragma mark —— SET | GET
 /// 设置控件是否可见，对影响可视化的hidden 和 alpha属性进行操作
@@ -461,4 +485,3 @@ static char *UIView_Extras_jobsVisible = "UIView_Extras_jobsVisible";
 }
 
 @end
-

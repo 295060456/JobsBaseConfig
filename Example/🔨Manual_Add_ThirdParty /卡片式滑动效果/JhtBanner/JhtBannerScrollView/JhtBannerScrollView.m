@@ -46,7 +46,7 @@ static const NSString *subviewClassName = @"JhtBannerCardView";
         [_bannerTimer invalidate];
         _bannerTimer = nil;
     }
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 - (id)initWithFrame:(CGRect)frame {
@@ -83,12 +83,12 @@ static const NSString *subviewClassName = @"JhtBannerCardView";
 /** 注册系统通知 */
 - (void)bsvRegisterSystemNotification {
     // 后台 --> 前台
-    [[NSNotificationCenter defaultCenter] addObserver:self
+    [NSNotificationCenter.defaultCenter addObserver:self
                                              selector:@selector(continueScroll)
                                                  name:UIApplicationDidBecomeActiveNotification
                                                object:nil];
     // 前台 --> 后台
-    [[NSNotificationCenter defaultCenter] addObserver:self
+    [NSNotificationCenter.defaultCenter addObserver:self
                                              selector:@selector(pauseScroll)
                                                  name:UIApplicationDidEnterBackgroundNotification
                                                object:nil];

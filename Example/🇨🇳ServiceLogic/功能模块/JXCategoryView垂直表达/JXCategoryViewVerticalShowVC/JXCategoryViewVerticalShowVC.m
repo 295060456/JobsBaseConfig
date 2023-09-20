@@ -12,11 +12,11 @@
 @property(nonatomic,strong)JXCategoryTitleView *categoryView;/// 文字
 @property(nonatomic,strong)JXCategoryIndicatorLineView *lineView;/// 跟随的指示器
 @property(nonatomic,strong)JXCategoryListContainerView *listContainerView;/// 此属性决定依附于此的viewController
-// Data
-@property(nonatomic,strong)NSMutableArray <NSString *>*titleMutArr;
-@property(nonatomic,strong)NSMutableArray <NSString *>*imageNames;
-@property(nonatomic,strong)NSMutableArray <NSString *>*selectedImageNames;
+/// Data
 @property(nonatomic,strong)NSMutableArray <UIViewController *>*childVCMutArr;
+@property(nonatomic,strong)NSMutableArray <NSString *>*titleMutArr;
+//@property(nonatomic,strong)NSMutableArray <NSString *>*imageNames;
+//@property(nonatomic,strong)NSMutableArray <NSString *>*selectedImageNames;
 
 @end
 
@@ -24,7 +24,7 @@
 
 - (void)dealloc{
     NSLog(@"%@",JobsLocalFunc);
-    //    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    //    [NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 -(void)loadView{
