@@ -63,10 +63,10 @@ typedef NS_OPTIONS(NSUInteger, UIBorderSideType) {
               borderWidth:(CGFloat)borderWidth
                borderType:(UIBorderSideType)borderType;
 /// 描边
-/// @param colour 颜色
+/// @param layerBorderCor 颜色
 /// @param borderWidth 边线宽度
--(void)layerBorderColour:(UIColor *__nonnull)colour
-          andBorderWidth:(CGFloat)borderWidth;
+-(void)layerBorderCor:(UIColor *__nonnull)layerBorderCor
+       andBorderWidth:(CGFloat)borderWidth;
 #pragma mark —— 切角
 /// 切整个View的4个角为统一
 /// @param cornerRadiusValue 切角参数

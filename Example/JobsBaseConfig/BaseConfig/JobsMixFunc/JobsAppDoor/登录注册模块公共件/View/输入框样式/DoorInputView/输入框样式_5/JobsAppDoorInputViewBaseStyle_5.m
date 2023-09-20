@@ -342,18 +342,18 @@
         _btnTimerConfigModel.readyPlayValue.layerBorderWidth = 1;
         _btnTimerConfigModel.readyPlayValue.layerCornerRadius = 0;
         _btnTimerConfigModel.readyPlayValue.bgCor = JobsClearColor;
-        _btnTimerConfigModel.readyPlayValue.layerBorderColour = JobsClearColor;
+        _btnTimerConfigModel.readyPlayValue.layerBorderCor = JobsClearColor;
         _btnTimerConfigModel.readyPlayValue.textCor = HEXCOLOR(0xAE8330);
         _btnTimerConfigModel.readyPlayValue.text = Internationalization(@"獲取驗證碼");
         _btnTimerConfigModel.readyPlayValue.font = notoSansBold(14);
         /// 计时器进行中【动态值】
         _btnTimerConfigModel.runningValue.bgCor = JobsClearColor;
-        _btnTimerConfigModel.runningValue.layerBorderColour = JobsClearColor;
+        _btnTimerConfigModel.runningValue.layerBorderCor = JobsClearColor;
         _btnTimerConfigModel.runningValue.textCor = HEXCOLOR(0xAE8330);
         _btnTimerConfigModel.runningValue.text = Internationalization(@"");
         /// 计时器结束【静态值】
         _btnTimerConfigModel.endValue.bgCor = JobsClearColor;
-        _btnTimerConfigModel.endValue.layerBorderColour = JobsClearColor;
+        _btnTimerConfigModel.endValue.layerBorderCor = JobsClearColor;
         _btnTimerConfigModel.endValue.textCor = HEXCOLOR(0xAE8330);
         _btnTimerConfigModel.endValue.text = Internationalization(@"重新获取验证码");
         

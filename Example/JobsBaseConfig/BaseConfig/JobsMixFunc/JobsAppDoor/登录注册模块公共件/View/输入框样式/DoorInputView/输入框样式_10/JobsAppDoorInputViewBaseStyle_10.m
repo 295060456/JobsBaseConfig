@@ -30,7 +30,7 @@
         self.thisViewSize = thisViewSize;
         self.titleStr_1 = Internationalization(@"請輸入金額");
         self.titleStr_2 = Internationalization(@"全部金額");
-//        [self layerBorderColour:JobsWhiteColor andBorderWidth:1];
+//        [self layerBorderCor:JobsWhiteColor andBorderWidth:1];
         
     }return self;
 }

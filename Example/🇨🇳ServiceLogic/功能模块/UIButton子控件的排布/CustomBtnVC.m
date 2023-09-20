@@ -67,7 +67,7 @@
         }];
         
         [_btn1.imageView cornerCutToCircleWithCornerRadius:JobsWidth(1)];
-        [_btn1.imageView layerBorderColour:HEXCOLOR(0xEEE2C8) andBorderWidth:JobsWidth(1)];
+        [_btn1.imageView layerBorderCor:HEXCOLOR(0xEEE2C8) andBorderWidth:JobsWidth(1)];
         /// 一行显示。不定宽、定高、定字体。宽度自适应 【单行：ByFont】
         [_btn1 makeBtnLabelByShowingType:UILabelShowingType_03];
         [_btn1 layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft imageTitleSpace:JobsWidth(8)];
@@ -91,7 +91,7 @@
         }];
         
         [_btn2.imageView cornerCutToCircleWithCornerRadius:JobsWidth(1)];
-        [_btn2.imageView layerBorderColour:HEXCOLOR(0xEEE2C8) andBorderWidth:JobsWidth(1)];
+        [_btn2.imageView layerBorderCor:HEXCOLOR(0xEEE2C8) andBorderWidth:JobsWidth(1)];
         [_btn2 layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleRight imageTitleSpace:JobsWidth(8)];
         /// 一行显示。不定宽、定高、定字体。宽度自适应 【单行：ByFont】
         [_btn2 makeBtnLabelByShowingType:UILabelShowingType_03];
@@ -115,7 +115,7 @@
         }];
         
         [_btn3.imageView cornerCutToCircleWithCornerRadius:JobsWidth(1)];
-        [_btn3.imageView layerBorderColour:HEXCOLOR(0xEEE2C8) andBorderWidth:JobsWidth(1)];
+        [_btn3.imageView layerBorderCor:HEXCOLOR(0xEEE2C8) andBorderWidth:JobsWidth(1)];
         /// 一行显示。不定宽、定高、定字体。宽度自适应 【单行：ByFont】
         [_btn3 makeBtnLabelByShowingType:UILabelShowingType_03];
         [_btn3 layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop imageTitleSpace:JobsWidth(8)];
@@ -139,7 +139,7 @@
         }];
         
         [_btn4.imageView cornerCutToCircleWithCornerRadius:JobsWidth(1)];
-        [_btn4.imageView layerBorderColour:HEXCOLOR(0xEEE2C8) andBorderWidth:JobsWidth(1)];
+        [_btn4.imageView layerBorderCor:HEXCOLOR(0xEEE2C8) andBorderWidth:JobsWidth(1)];
         /// 一行显示。不定宽、定高、定字体。宽度自适应 【单行：ByFont】
         [_btn4 makeBtnLabelByShowingType:UILabelShowingType_03];
         [_btn4 layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleBottom imageTitleSpace:JobsWidth(8)];

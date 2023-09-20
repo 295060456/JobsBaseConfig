@@ -137,7 +137,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
             make.top.equalTo(self).offset(JobsWidth(43));
         }];
         [_userHeaderBtn.imageView cornerCutToCircleWithCornerRadius:_userHeaderBtn.imageView.image.height / 2];
-        [_userHeaderBtn.imageView layerBorderColour:HEXCOLOR(0xEEE2C8) andBorderWidth:JobsWidth(1)];
+        [_userHeaderBtn.imageView layerBorderCor:HEXCOLOR(0xEEE2C8) andBorderWidth:JobsWidth(1)];
         
         _userHeaderBtn.imageTitleSpace = JobsWidth(12);
         [_userHeaderBtn makeBtnLabelByShowingType:UILabelShowingType_05];

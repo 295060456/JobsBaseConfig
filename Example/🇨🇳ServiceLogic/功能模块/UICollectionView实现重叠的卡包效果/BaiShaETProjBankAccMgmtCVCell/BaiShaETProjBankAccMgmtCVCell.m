@@ -76,7 +76,7 @@
 
     _titleBtn.imageViewSize = CGSizeMake(JobsWidth(40), JobsWidth(40));
     [_titleBtn.imageView cornerCutToCircleWithCornerRadius:JobsWidth(20)];
-    [_titleBtn.imageView layerBorderColour:HEXCOLOR(0xEEE2C8) andBorderWidth:JobsWidth(1)];
+    [_titleBtn.imageView layerBorderCor:HEXCOLOR(0xEEE2C8) andBorderWidth:JobsWidth(1)];
     
     [_titleBtn makeBtnLabelByShowingType:UILabelShowingType_03];
     [_titleBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft imageTitleSpace:JobsWidth(50)];

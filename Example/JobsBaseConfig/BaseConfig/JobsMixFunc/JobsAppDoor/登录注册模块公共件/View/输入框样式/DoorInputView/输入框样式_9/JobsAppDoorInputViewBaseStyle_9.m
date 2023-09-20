@@ -30,7 +30,7 @@
         self.thisViewSize = thisViewSize;
         self.titleStr_1 = Internationalization(@"点击");
         self.titleStr_2 = Internationalization(@"发送验证码");
-        [self layerBorderColour:JobsWhiteColor andBorderWidth:1];
+        [self layerBorderCor:JobsWhiteColor andBorderWidth:1];
     }return self;
 }
 
@@ -114,7 +114,7 @@
         _btnTimerConfigModel.readyPlayValue.layerBorderWidth = 1;
         _btnTimerConfigModel.readyPlayValue.layerCornerRadius = JobsWidth(18);
         _btnTimerConfigModel.readyPlayValue.bgCor = UIColor.clearColor;
-        _btnTimerConfigModel.readyPlayValue.layerBorderColour = JobsClearColor;
+        _btnTimerConfigModel.readyPlayValue.layerBorderCor = JobsClearColor;
         _btnTimerConfigModel.readyPlayValue.textCor = HEXCOLOR_ALPHA(0xAE8330, 1);
         _btnTimerConfigModel.readyPlayValue.text = Title9;
         _btnTimerConfigModel.readyPlayValue.font = [UIFont systemFontOfSize:JobsWidth(14)
@@ -122,7 +122,7 @@
         /// 计时器进行中【动态值】
         _btnTimerConfigModel.runningValue.bgCor = UIColor.clearColor;
         _btnTimerConfigModel.runningValue.text = Internationalization(Title12);
-        _btnTimerConfigModel.runningValue.layerBorderColour = UIColor.clearColor;
+        _btnTimerConfigModel.runningValue.layerBorderCor = UIColor.clearColor;
         _btnTimerConfigModel.runningValue.textCor = HEXCOLOR_ALPHA(0xAE8330, 1);
         _btnTimerConfigModel.runningValue.font = [UIFont systemFontOfSize:JobsWidth(14)
                                                                                weight:UIFontWeightMedium];

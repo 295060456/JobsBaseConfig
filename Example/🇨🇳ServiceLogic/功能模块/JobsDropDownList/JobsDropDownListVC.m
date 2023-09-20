@@ -123,7 +123,7 @@
             make.top.equalTo(self.gk_navigationBar.mas_bottom);
             make.left.equalTo(self.view).offset(JobsWidth(16));
         }];
-        [_switcher layerBorderColour:_switcher.selected ? self.cor : HEXCOLOR(0xB0B0B0) andBorderWidth:JobsWidth(1)];
+        [_switcher layerBorderCor:_switcher.selected ? self.cor : HEXCOLOR(0xB0B0B0) andBorderWidth:JobsWidth(1)];
         @jobs_weakify(self)
         [_switcher switchClickEventBlock:^(UISwitch *x) {
             @jobs_strongify(self)
@@ -131,7 +131,7 @@
             self.btn.selected = !self.btn.selected;
             [self endDropDownListView];
             x.thumbTintColor = x.selected ? self.cor : HEXCOLOR(0xB0B0B0);
-            [x layerBorderColour:x.selected ? self.cor : HEXCOLOR(0xB0B0B0) andBorderWidth:JobsWidth(1)];
+            [x layerBorderCor:x.selected ? self.cor : HEXCOLOR(0xB0B0B0) andBorderWidth:JobsWidth(1)];
 //            toast(x.selected ? Internationalization(@"打开解锁"):Internationalization(@"关闭解锁"));
             self.dropDownListViewDirection = x.selected;
             self->_btn.normalTitle = x.selected ? Internationalization(@"点击按钮弹出上拉列表") : Internationalization(@"点击按钮弹出下拉列表");

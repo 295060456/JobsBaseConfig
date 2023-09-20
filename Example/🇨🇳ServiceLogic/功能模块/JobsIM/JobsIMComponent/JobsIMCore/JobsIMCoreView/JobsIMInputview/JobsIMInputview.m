@@ -116,7 +116,7 @@
         [self layoutIfNeeded];
         
         [_inputTextField cornerCutToCircleWithCornerRadius:_inputTextField.mj_h / 2];
-        [_inputTextField layerBorderColour:JobsWhiteColor andBorderWidth:1];
+        [_inputTextField layerBorderCor:JobsWhiteColor andBorderWidth:1];
         
         @jobs_weakify(self)
         [[_inputTextField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {

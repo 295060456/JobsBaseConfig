@@ -161,7 +161,7 @@
         }];
         [self.view layoutIfNeeded];
         [_inputUserNameView cornerCutToCircleWithCornerRadius:JobsWidth(self.inputViewSize.height / 2)];
-        [_inputUserNameView layerBorderColour:HEXCOLOR(0xEEE2C8) andBorderWidth:JobsWidth(1)];
+        [_inputUserNameView layerBorderCor:HEXCOLOR(0xEEE2C8) andBorderWidth:JobsWidth(1)];
     }return _inputUserNameView;
 }
 
@@ -181,7 +181,7 @@
         }];
         [self.view layoutIfNeeded];
         [_inputTelPhView cornerCutToCircleWithCornerRadius:JobsWidth(self.inputViewSize.height / 2)];
-        [_inputTelPhView layerBorderColour:HEXCOLOR(0xEEE2C8) andBorderWidth:JobsWidth(1)];
+        [_inputTelPhView layerBorderCor:HEXCOLOR(0xEEE2C8) andBorderWidth:JobsWidth(1)];
     }return _inputTelPhView;
 }
 
@@ -221,7 +221,7 @@
         }];
         
         _inputPwdView.layer.cornerRadius = self.inputViewSize.height / 2;
-        [_inputPwdView layerBorderColour:HEXCOLOR(0xEEE2C8) andBorderWidth:1.f];
+        [_inputPwdView layerBorderCor:HEXCOLOR(0xEEE2C8) andBorderWidth:1.f];
         
         [_inputPwdView richElementsInViewWithModel:self.inputPwdViewDataModel];
     }return _inputPwdView;
@@ -244,7 +244,7 @@
         }];
         
         _inputPwdConfirmView.layer.cornerRadius = self.inputViewSize.height / 2;
-        [_inputPwdConfirmView layerBorderColour:HEXCOLOR(0xEEE2C8) andBorderWidth:1.f];
+        [_inputPwdConfirmView layerBorderCor:HEXCOLOR(0xEEE2C8) andBorderWidth:1.f];
         
         [_inputPwdConfirmView richElementsInViewWithModel:self.inputPwdConfirmViewDataModel];
     }return _inputPwdConfirmView;

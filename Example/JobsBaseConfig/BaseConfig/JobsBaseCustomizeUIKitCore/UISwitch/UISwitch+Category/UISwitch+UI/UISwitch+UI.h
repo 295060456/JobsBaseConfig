@@ -57,12 +57,12 @@ NS_ASSUME_NONNULL_END
              make.top.equalTo(self.titleLab);
              make.right.equalTo(self.view).offset(JobsWidth(-16));
          }];
-         [_switcher layerBorderColour:_switcher.selected ? self.cor : HEXCOLOR(0xB0B0B0) andBorderWidth:JobsWidth(1)];
+         [_switcher layerBorderCor:_switcher.selected ? self.cor : HEXCOLOR(0xB0B0B0) andBorderWidth:JobsWidth(1)];
          SwitchClickEvent(_switcher, {
              x.selected = !x.selected;
              [WHToast toastMsg:x.selected ? Internationalization(@"打开解锁"):Internationalization(@"关闭解锁")];
              x.thumbTintColor = x.selected ? self.cor : HEXCOLOR(0xB0B0B0);
-             [x layerBorderColour:x.selected ? self.cor : HEXCOLOR(0xB0B0B0) andBorderWidth:JobsWidth(1)];
+             [x layerBorderCor:x.selected ? self.cor : HEXCOLOR(0xB0B0B0) andBorderWidth:JobsWidth(1)];
          });
      }return _switcher;
  }

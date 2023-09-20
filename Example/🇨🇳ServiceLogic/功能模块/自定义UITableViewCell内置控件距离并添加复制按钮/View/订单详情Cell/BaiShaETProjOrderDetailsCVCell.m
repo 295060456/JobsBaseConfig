@@ -38,7 +38,7 @@
     
     cell.indexPath = indexPath;
     [cell cornerCutToCircleWithCornerRadius:JobsWidth(8)];
-    [cell layerBorderColour:HEXCOLOR(0xEEE2C8) andBorderWidth:.5f];
+    [cell layerBorderCor:HEXCOLOR(0xEEE2C8) andBorderWidth:.5f];
     JobsCellCor(JobsWhiteColor);
     return cell;
 }

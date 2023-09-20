@@ -36,7 +36,7 @@
 }
 #pragma mark —— UI配置 1.1、【计时器未开始】设置Layer层 和 背景颜色
 -(void)setLayerConfigReadyPlay{
-    self.layer.borderColor = self.btnTimerConfig.readyPlayValue.layerBorderColour.CGColor;
+    self.layer.borderColor = self.btnTimerConfig.readyPlayValue.layerBorderCor.CGColor;
     self.layer.cornerRadius = self.btnTimerConfig.readyPlayValue.layerCornerRadius;
     self.layer.borderWidth = self.btnTimerConfig.readyPlayValue.layerBorderWidth;
     
@@ -53,7 +53,7 @@
 }
 #pragma mark —— UI配置 2.1、【计时器进行中】设置Layer层 和 背景颜色
 -(void)setLayerConfigRunning{
-    self.layer.borderColor = self.btnTimerConfig.runningValue.layerBorderColour.CGColor;
+    self.layer.borderColor = self.btnTimerConfig.runningValue.layerBorderCor.CGColor;
     self.layer.cornerRadius = self.btnTimerConfig.runningValue.layerCornerRadius;
     self.layer.borderWidth = self.btnTimerConfig.runningValue.layerBorderWidth;
     
@@ -69,7 +69,7 @@
 }
 #pragma mark —— UI配置 3.1、【计时器结束】设置Layer层 和 背景颜色
 -(void)setLayerConfigEnd{
-    self.layer.borderColor = self.btnTimerConfig.endValue.layerBorderColour.CGColor;
+    self.layer.borderColor = self.btnTimerConfig.endValue.layerBorderCor.CGColor;
     self.layer.cornerRadius = self.btnTimerConfig.endValue.layerCornerRadius;
     self.layer.borderWidth = self.btnTimerConfig.endValue.layerBorderWidth;
     

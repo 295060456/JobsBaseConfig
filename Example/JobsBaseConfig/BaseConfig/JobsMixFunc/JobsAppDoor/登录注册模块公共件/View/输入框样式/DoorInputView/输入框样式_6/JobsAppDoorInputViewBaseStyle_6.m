@@ -21,14 +21,14 @@
 - (instancetype)init{
     if (self = [super init]) {
         self.backgroundColor = JobsClearColor;
-        [self layerBorderColour:JobsWhiteColor andBorderWidth:1];
+        [self layerBorderCor:JobsWhiteColor andBorderWidth:1];
     }return self;
 }
 #pragma mark —— BaseViewProtocol
 - (instancetype)initWithSize:(CGSize)thisViewSize{
     if (self = [super init]) {
         self.backgroundColor = JobsClearColor;
-        [self layerBorderColour:JobsWhiteColor andBorderWidth:1];
+        [self layerBorderCor:JobsWhiteColor andBorderWidth:1];
     }return self;
 }
 

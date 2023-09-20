@@ -135,5 +135,6 @@ alpha:1] \
 /// 十六进制颜色
 #define HEXCOLOR(hexValue)  [UIColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16))/255.0 green:((float)((hexValue & 0xFF00) >> 8))/255.0 blue:((float)(hexValue & 0xFF))/255.0 alpha:1]
 #define HEXCOLOR_ALPHA(hexValue, al)  [UIColor colorWithRed:((float)((hexValue & 0xFF0000) >> 16))/255.0 green:((float)((hexValue & 0xFF00) >> 8))/255.0 blue:((float)(hexValue & 0xFF))/255.0 alpha:al]
+#define JobsCor(带井号的十六进制的颜色) [UIColor colorFromHexString:带井号的十六进制的颜色]
 
 #endif /* MacroDef_Cor_h */

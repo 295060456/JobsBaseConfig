@@ -337,7 +337,7 @@ static dispatch_once_t static_jobsAppDoor_Style2OnceToken;
         [self.view layoutIfNeeded];
         self.loginCustomerServiceBtnY = _customerServiceBtn.y;
         [_customerServiceBtn cornerCutToCircleWithCornerRadius:_customerServiceBtn.height / 2];
-        [_customerServiceBtn layerBorderColour:JobsWhiteColor andBorderWidth:2];
+        [_customerServiceBtn layerBorderCor:JobsWhiteColor andBorderWidth:2];
     }return _customerServiceBtn;
 }
 

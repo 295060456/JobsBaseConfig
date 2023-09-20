@@ -375,9 +375,9 @@
         [手机号码 changeTextFieldAnimationColor:self.toRegisterBtn.selected];
         [手机验证码 changeTextFieldAnimationColor:self.toRegisterBtn.selected];
         
-        [用户名 layerBorderColour:Cor4 andBorderWidth:1];
-        [密码 layerBorderColour:Cor4 andBorderWidth:1];
-        [确认密码 layerBorderColour:Cor4 andBorderWidth:1];
+        [用户名 layerBorderCor:Cor4 andBorderWidth:1];
+        [密码 layerBorderCor:Cor4 andBorderWidth:1];
+        [确认密码 layerBorderCor:Cor4 andBorderWidth:1];
     }
 }
 /// 核心方法

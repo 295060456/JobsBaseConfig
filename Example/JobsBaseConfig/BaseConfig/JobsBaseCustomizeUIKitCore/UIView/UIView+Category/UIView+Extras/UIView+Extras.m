@@ -171,11 +171,11 @@
     }
 }
 /// 描边
-/// @param colour 颜色
+/// @param layerBorderCor 颜色
 /// @param borderWidth 边线宽度
--(void)layerBorderColour:(UIColor *__nonnull)colour
-          andBorderWidth:(CGFloat)borderWidth{
-    self.layer.borderColor = colour.CGColor;
+-(void)layerBorderCor:(UIColor *__nonnull)layerBorderCor
+       andBorderWidth:(CGFloat)borderWidth{
+    self.layer.borderColor = layerBorderCor.CGColor;
     self.layer.borderWidth = borderWidth;
 }
 #pragma mark —— 切角

@@ -136,19 +136,19 @@
         _btnTimerConfigModel.readyPlayValue.layerBorderWidth = 0.1;
         _btnTimerConfigModel.readyPlayValue.layerCornerRadius = JobsWidth(8);
         _btnTimerConfigModel.readyPlayValue.bgCor = JobsYellowColor;
-        _btnTimerConfigModel.readyPlayValue.layerBorderColour = JobsBrownColor;
+        _btnTimerConfigModel.readyPlayValue.layerBorderCor = JobsBrownColor;
         _btnTimerConfigModel.readyPlayValue.textCor = JobsBlueColor;
         _btnTimerConfigModel.readyPlayValue.text = Internationalization(@"      获取验证码       ");
         _btnTimerConfigModel.readyPlayValue.font = UIFontWeightMediumSize(13);
         /// 计时器进行中【动态值】
         _btnTimerConfigModel.runningValue.bgCor = JobsCyanColor;
         _btnTimerConfigModel.runningValue.text = Internationalization(Title12);
-        _btnTimerConfigModel.runningValue.layerBorderColour = JobsRedColor;
+        _btnTimerConfigModel.runningValue.layerBorderCor = JobsRedColor;
         _btnTimerConfigModel.runningValue.textCor = JobsBlackColor;
         /// 计时器结束【静态值】
         _btnTimerConfigModel.endValue.bgCor = JobsYellowColor;
         _btnTimerConfigModel.endValue.text = Internationalization(@"    哈哈哈哈    ");
-        _btnTimerConfigModel.endValue.layerBorderColour = JobsPurpleColor;
+        _btnTimerConfigModel.endValue.layerBorderCor = JobsPurpleColor;
         _btnTimerConfigModel.endValue.textCor = JobsBlackColor;
         
     }return _btnTimerConfigModel;
@@ -164,7 +164,7 @@
             btn.normalBackgroundImage = JobsIMG(@"弹窗取消按钮背景图");
             btn.selectedBackgroundImage = JobsIMG(@"弹窗取消按钮背景图");
             [btn cornerCutToCircleWithCornerRadius:JobsWidth(8)];
-            [btn layerBorderColour:HEXCOLOR(0xAE8330) andBorderWidth:0.5f];
+            [btn layerBorderCor:HEXCOLOR(0xAE8330) andBorderWidth:0.5f];
             [self.view addSubview:btn];
             [_btnMutArr addObject:btn];
         }

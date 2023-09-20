@@ -33,7 +33,7 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = UIColor.whiteColor;
-        [self layerBorderColour:UIColor.whiteColor andBorderWidth:JobsWidth(2)];
+        [self layerBorderCor:UIColor.whiteColor andBorderWidth:JobsWidth(2)];
     }return self;
 }
 
@@ -72,7 +72,7 @@
             make.left.equalTo(self).offset(JobsWidth(15));
         }];
         [_userIconIMGV cornerCutToCircleWithCornerRadius:JobsWidth(32)];
-        [_userIconIMGV layerBorderColour:HEXCOLOR(0xC4C4C4) andBorderWidth:JobsWidth(1)];
+        [_userIconIMGV layerBorderCor:HEXCOLOR(0xC4C4C4) andBorderWidth:JobsWidth(1)];
     }return _userIconIMGV;
 }
 
@@ -105,7 +105,7 @@
             make.centerY.equalTo(self.userNameLab);
         }];
         [_editBtn cornerCutToCircleWithCornerRadius:JobsWidth(JobsWidth(10))];
-        [_editBtn layerBorderColour:HEXCOLOR(0xC4C4C4) andBorderWidth:JobsWidth(1)];
+        [_editBtn layerBorderCor:HEXCOLOR(0xC4C4C4) andBorderWidth:JobsWidth(1)];
         [_editBtn btnClickEventBlock:^(id data) {
             toast(Internationalization(@"编辑"));
         }];
@@ -127,7 +127,7 @@
             make.top.equalTo(self.userIconIMGV).offset(JobsWidth(45));
         }];
         [_userRankBtn cornerCutToCircleWithCornerRadius:JobsWidth(JobsWidth(10))];
-        [_userRankBtn layerBorderColour:UIColor.whiteColor andBorderWidth:JobsWidth(1)];
+        [_userRankBtn layerBorderCor:UIColor.whiteColor andBorderWidth:JobsWidth(1)];
         @jobs_weakify(self)
         [_userRankBtn btnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)

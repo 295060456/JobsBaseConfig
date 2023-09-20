@@ -178,7 +178,7 @@ static dispatch_once_t static_launchVCOnceToken;
         _btnTimerConfigModel.readyPlayValue.layerBorderWidth = LaunchConfig.layerBorderWidth;
         _btnTimerConfigModel.readyPlayValue.layerCornerRadius = JobsWidth(25 / 2);
         _btnTimerConfigModel.readyPlayValue.bgCor = LaunchConfig.bgCor;
-        _btnTimerConfigModel.readyPlayValue.layerBorderColour = LaunchConfig.layerBorderColour;
+        _btnTimerConfigModel.readyPlayValue.layerBorderCor = LaunchConfig.layerBorderCor;
         _btnTimerConfigModel.readyPlayValue.textCor = LaunchConfig.textCor;
         _btnTimerConfigModel.readyPlayValue.text = LaunchConfig.text;
         _btnTimerConfigModel.readyPlayValue.font = LaunchConfig.font;
@@ -186,12 +186,12 @@ static dispatch_once_t static_launchVCOnceToken;
         /// 计时器进行中【动态值】
         _btnTimerConfigModel.runningValue.bgCor = UIColor.cyanColor;
         _btnTimerConfigModel.runningValue.text = Internationalization(Title12);
-        _btnTimerConfigModel.runningValue.layerBorderColour = UIColor.redColor;
+        _btnTimerConfigModel.runningValue.layerBorderCor = UIColor.redColor;
         _btnTimerConfigModel.runningValue.textCor = JobsBlackColor;
         /// 计时器结束【静态值】
         _btnTimerConfigModel.endValue.bgCor = UIColor.yellowColor;
         _btnTimerConfigModel.endValue.text = Internationalization(@"点击跳过");
-        _btnTimerConfigModel.endValue.layerBorderColour = UIColor.purpleColor;
+        _btnTimerConfigModel.endValue.layerBorderCor = UIColor.purpleColor;
         _btnTimerConfigModel.endValue.textCor = JobsBlackColor;
         
     }return _btnTimerConfigModel;

@@ -433,7 +433,7 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
             NSLog(@"点击客服按钮");
         }];
         [_customerServiceBtn cornerCutToCircleWithCornerRadius:_customerServiceBtn.height / 2];
-        [_customerServiceBtn layerBorderColour:JobsWhiteColor andBorderWidth:2];
+        [_customerServiceBtn layerBorderCor:JobsWhiteColor andBorderWidth:2];
     }return _customerServiceBtn;
 }
 

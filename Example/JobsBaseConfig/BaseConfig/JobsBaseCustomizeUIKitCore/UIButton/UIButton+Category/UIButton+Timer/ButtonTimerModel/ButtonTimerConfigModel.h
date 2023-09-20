@@ -97,7 +97,7 @@ NS_ASSUME_NONNULL_END
          _btnTimerConfigModel.readyPlayValue.layerBorderWidth = 1;
          _btnTimerConfigModel.readyPlayValue.layerCornerRadius = JobsWidth(18);
          _btnTimerConfigModel.readyPlayValue.bgCor = JobsYellowColor;
-         _btnTimerConfigModel.readyPlayValue.layerBorderColour = JobsClearColor;
+         _btnTimerConfigModel.readyPlayValue.layerBorderCor = JobsClearColor;
          _btnTimerConfigModel.readyPlayValue.textCor = JobsBlackColor;
          _btnTimerConfigModel.readyPlayValue.text = Title9;
          _btnTimerConfigModel.readyPlayValue.font = UIFontWeightMediumSize(13);

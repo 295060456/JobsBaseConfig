@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong,nullable)NSMutableArray __block *jobsDataMutArr;/// 绑定的数据源，数据类型NSMutableArray
 @property(nonatomic,strong,nullable)NSMutableDictionary __block *jobsDataMutDic;/// 绑定的数据源，数据类型NSMutableDictionary
 // Layer
-@property(nonatomic,strong,nullable)UIColor __block *layerBorderColour;
+@property(nonatomic,strong,nullable)UIColor __block *layerBorderCor;
 @property(nonatomic,assign)CGFloat layerBorderWidth;
 @property(nonatomic,assign)CGFloat layerCornerRadius;
 
@@ -62,7 +62,7 @@ NS_ASSUME_NONNULL_END
 @synthesize isTranslucent = _isTranslucent;\
 @synthesize isVisible = _isVisible;\
 @synthesize labelShowingType = _labelShowingType;\
-@synthesize layerBorderColour = _layerBorderColour;\
+@synthesize layerBorderCor = _layerBorderColour;\
 @synthesize layerBorderWidth = _layerBorderWidth;\
 @synthesize layerCornerRadius = _layerCornerRadius;\
 @synthesize data = _data;\
@@ -88,7 +88,7 @@ NS_ASSUME_NONNULL_END
 @dynamic isTranslucent;\
 @dynamic isVisible;\
 @dynamic labelShowingType;\
-@dynamic layerBorderColour;\
+@dynamic layerBorderCor;\
 @dynamic layerBorderWidth;\
 @dynamic layerCornerRadius;\
 @dynamic data;\

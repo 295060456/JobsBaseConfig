@@ -129,7 +129,7 @@ NS_ASSUME_NONNULL_END
 @synthesize isTranslucent = _isTranslucent;\
 @synthesize isVisible = _isVisible;\
 @synthesize labelShowingType = _labelShowingType;\
-@synthesize layerBorderColour = _layerBorderColour;\
+@synthesize layerBorderCor = _layerBorderColour;\
 @synthesize layerBorderWidth = _layerBorderWidth;\
 @synthesize layerCornerRadius = _layerCornerRadius;\
 @synthesize data = _data;\
@@ -210,7 +210,7 @@ NS_ASSUME_NONNULL_END
 @dynamic isTranslucent;\
 @dynamic isVisible;\
 @dynamic labelShowingType;\
-@dynamic layerBorderColour;\
+@dynamic layerBorderCor;\
 @dynamic layerBorderWidth;\
 @dynamic layerCornerRadius;\
 @dynamic data;\

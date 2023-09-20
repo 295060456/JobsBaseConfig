@@ -98,7 +98,7 @@ static dispatch_once_t static_launchConfigOnceToken;
     }return _textAlignment;
 }
 
--(UIColor *)layerBorderColour{
+-(UIColor *)layerBorderCor{
     if (!_layerBorderColour) {
         _layerBorderColour = UIColor.whiteColor;
     }return _layerBorderColour;

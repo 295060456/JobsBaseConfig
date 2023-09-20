@@ -241,7 +241,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         
         [self.view addSubview:_tableView];
         [self fullScreenConstraintTargetView:_tableView topViewOffset:0];
-        [_tableView layerBorderColour:UIColor.clearColor andBorderWidth:0.1];
+        [_tableView layerBorderCor:UIColor.clearColor andBorderWidth:0.1];
     }return _tableView;
 }
 

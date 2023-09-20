@@ -64,7 +64,7 @@ UILocationProtocol_synthesize
     if (!_readyPlayValue) {
         _readyPlayValue = ButtonTimerProcessValueModel.new;
         
-        _readyPlayValue.layerBorderColour = JobsWhiteColor;
+        _readyPlayValue.layerBorderCor = JobsWhiteColor;
         _readyPlayValue.textCor = JobsWhiteColor;
         _readyPlayValue.font = UIFontWeightRegularSize(12);
         _readyPlayValue.bgCor = JobsLightGrayColor;
@@ -89,7 +89,7 @@ UILocationProtocol_synthesize
     if (!_runningValue) {
         _runningValue = ButtonTimerProcessValueModel.new;
         
-        _runningValue.layerBorderColour = JobsRedColor;
+        _runningValue.layerBorderCor = JobsRedColor;
         _runningValue.textCor = JobsGreenColor;
         _runningValue.font = UIFontWeightRegularSize(15);
         _runningValue.bgCor = JobsCyanColor;
@@ -109,7 +109,7 @@ UILocationProtocol_synthesize
     if (!_endValue) {
         _endValue = ButtonTimerProcessValueModel.new;
         
-        _endValue.layerBorderColour = self.readyPlayValue.layerBorderColour;
+        _endValue.layerBorderCor = self.readyPlayValue.layerBorderCor;
         _endValue.textCor = self.readyPlayValue.textCor;
         _endValue.font = self.readyPlayValue.font;
         _endValue.bgCor = self.readyPlayValue.bgCor;
