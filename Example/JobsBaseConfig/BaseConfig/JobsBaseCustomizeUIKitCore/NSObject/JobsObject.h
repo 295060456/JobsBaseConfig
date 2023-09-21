@@ -34,6 +34,8 @@
 #import "JobsFormatTime.h"
 /// 记录SEL和IMP
 #import "JobsSEL_IMP.h"
+/// 用Objective-C仿写Swift中的元祖
+#import "JobsTuple.h"
 
 #pragma mark —— Category
 /// 【二次封装HXPhotoPicker】弹出系统相册选择页面 + 调取系统相机进行拍摄

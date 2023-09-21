@@ -25,12 +25,12 @@ static inline NSString *__nullable JobsPathForResource(NSString *__nullable blue
                                                        NSString *__nullable bundle_folderName,
                                                        NSString *__nullable ofType){
     NSString *filePath = nil;
-    if (blueFolderName.nullString) {// 最外层是蓝色文件夹
+    if ([NSString isNullString:blueFolderName]) {// 最外层是蓝色文件夹
         filePath = [NSBundle.mainBundle pathForResource:pathForResource
                                                  ofType:ofType
                                             inDirectory:blueFolderName];//蓝色文件夹下是bundle
         
-        if (filePath.nullString) {//蓝色文件夹下是蓝色文件夹
+        if ([NSString isNullString:filePath]) {//蓝色文件夹下是蓝色文件夹
             filePath = blueFolderName;
         }
     }else{// 最外层是黄色文件夹
@@ -38,7 +38,7 @@ static inline NSString *__nullable JobsPathForResource(NSString *__nullable blue
                                                  ofType:ofType];
     }
     
-    if (!bundle_folderName.nullString) {
+    if (![NSString isNullString:bundle_folderName]) {
         filePath = [filePath stringByAppendingPathComponent:bundle_folderName];
     }
     
@@ -76,9 +76,9 @@ static inline UIImage *__nullable JobsBuddleIMG(NSString *__nullable blueFolderN
                                                 NSString *__nonnull fileFullNameWithSuffix){
     
     NSString *filePath = JobsPathForBuddleIMG(blueFolderName,
-                                          pathForResource,
-                                          bundle_folderName,
-                                          fileFullNameWithSuffix);
+                                              pathForResource,
+                                              bundle_folderName,
+                                              fileFullNameWithSuffix);
     UIImage *image = [UIImage imageWithContentsOfFile:filePath];
     return image;
 }
@@ -113,9 +113,7 @@ static inline UIImage *__nullable JobsIMGByDataFromBuddleIMG(NSString *__nullabl
                                                                 fileFullNameWithSuffix)];
     return image;
 }
-
-/*
- *
+/**
  1、imageNamed,其参数为图片的名字。
     这个方法用一个指定的名字在系统缓存中查找并返回一个图片对象如果它存在的话。
     如果缓存中没有找到相应的图片，这个方法从指定的文档中加载然后缓存并返回这个对象。
@@ -132,6 +130,4 @@ static inline UIImage *__nullable JobsIMGByDataFromBuddleIMG(NSString *__nullabl
  2、imageWithContentsOfFile，其参数也是图片文件的路径。
     仅加载图片，图像数据不会缓存。
     因此对于较大的图片以及使用情况较少时，那就可以用该方法，降低内存消耗。
- *
  */
-

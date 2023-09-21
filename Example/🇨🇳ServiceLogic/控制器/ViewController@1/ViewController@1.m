@@ -523,6 +523,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             [_dataMutArr addObject:viewModel];
         }
         
+        {
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"JobsContainerViewDemoVC"
+                                                           subTitle:Internationalization(@"测试JobsContainerViewDemo")];
+            viewModel.cls = JobsContainerViewDemoVC.class;
+            [_dataMutArr addObject:viewModel];
+        }
+        
 //        {
 //            UIViewModel *viewModel = [self configViewModelWithTitle:@"ProtocolKitVC"
 //                                                           subTitle:Internationalization(@"Objective-C中实现协议扩展")];
