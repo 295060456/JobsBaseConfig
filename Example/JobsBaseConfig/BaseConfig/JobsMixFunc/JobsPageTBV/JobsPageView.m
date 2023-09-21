@@ -63,9 +63,10 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     JobsPageTBVCell *cell = [JobsPageTBVCell cellStyleSubtitleWithTableView:tableView];
     [cell richElementsInCellWithModel:self.dataArr[indexPath.row]];
-    UIViewModel *viewModel = self.dataArr[indexPath.row];
-    viewModel.jobsWidth = [JobsPageTBVCell cellHeightWithModel:Nil] ? : self.cellHeight;
-    [UIView widthByData:viewModel];
+#warning 这里需要被修改
+//    UIViewModel *viewModel = self.dataArr[indexPath.row];
+//    viewModel.jobsWidth = [JobsPageTBVCell cellHeightWithModel:Nil] ? : self.cellHeight;
+//    [UIView widthByData:viewModel];
     return cell;
 }
 #pragma mark —— lazyLoad

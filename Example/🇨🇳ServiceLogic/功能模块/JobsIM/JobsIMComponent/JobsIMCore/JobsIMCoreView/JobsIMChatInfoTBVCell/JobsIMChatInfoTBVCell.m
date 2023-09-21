@@ -66,10 +66,12 @@
 +(CGFloat)cellHeightWithModel:(id _Nullable)model{
     if ([model isKindOfClass:JobsIMChatInfoModel.class]){
         JobsIMChatInfoModel *chatInfoModel = (JobsIMChatInfoModel *)model;
-        CGFloat CellHeight = [chatInfoModel.chatTextStr getContentHeightOrWidthWithParagraphStyleLineSpacing:0
-                                                                                       calcLabelHeight_Width:CalcLabelHeight
-                                                                                                        font:NULL
-                                                                                boundingRectWithHeight_Width:JobsIMChatInfoTBVChatContentLabWidth()];
+#warning 这里需要被修改
+        CGFloat CellHeight = 0;
+//        CGFloat CellHeight = [chatInfoModel.chatTextStr getContentHeightOrWidthWithParagraphStyleLineSpacing:0
+//                                                                                       calcLabelHeight_Width:CalcLabelHeight
+//                                                                                                        font:NULL
+//                                                                                boundingRectWithHeight_Width:JobsIMChatInfoTBVChatContentLabWidth()];
         NSLog(@"%f",CellHeight);
         return (CellHeight < JobsIMChatInfoTBVDefaultCellHeight() ? JobsIMChatInfoTBVDefaultCellHeight() : CellHeight) + (JobsIMChatInfoTBVDefaultCellHeight() / 2 - 5);
     }else{
@@ -94,18 +96,19 @@
         self.senderUserNameStr = chatInfoModel.userNameStr;
         self.identification = chatInfoModel.identification;
         
+#warning 这里需要被修改
         //先定宽，再定高
-        CGFloat contentWidthTemp = [self.senderChatTextStr getContentHeightOrWidthWithParagraphStyleLineSpacing:0
-                                                                                          calcLabelHeight_Width:CalcLabelWidth
-                                                                                                           font:NULL
-                                                                                   boundingRectWithHeight_Width:JobsIMChatInfoTBVDefaultCellHeight()];
-        //保证最小宽度 且 小于最大宽度
-        self.contentWidth = MIN(JobsIMChatInfoTBVChatContentLabWidth(), MAX(JobsIMChatInfoTBVChatContentLabDefaultWidth(), contentWidthTemp));
-        
-        self.contentHeight = [self.senderChatTextStr getContentHeightOrWidthWithParagraphStyleLineSpacing:0
-                                                                                    calcLabelHeight_Width:CalcLabelHeight
-                                                                                                     font:NULL
-                                                                             boundingRectWithHeight_Width:self.contentWidth];
+//        CGFloat contentWidthTemp = [self.senderChatTextStr getContentHeightOrWidthWithParagraphStyleLineSpacing:0
+//                                                                                          calcLabelHeight_Width:CalcLabelWidth
+//                                                                                                           font:NULL
+//                                                                                   boundingRectWithHeight_Width:JobsIMChatInfoTBVDefaultCellHeight()];
+//        //保证最小宽度 且 小于最大宽度
+//        self.contentWidth = MIN(JobsIMChatInfoTBVChatContentLabWidth(), MAX(JobsIMChatInfoTBVChatContentLabDefaultWidth(), contentWidthTemp));
+//
+//        self.contentHeight = [self.senderChatTextStr getContentHeightOrWidthWithParagraphStyleLineSpacing:0
+//                                                                                    calcLabelHeight_Width:CalcLabelHeight
+//                                                                                                     font:NULL
+//                                                                             boundingRectWithHeight_Width:self.contentWidth];
         
         NSLog(@"contentHeight = %f",self.contentHeight);
         NSLog(@"contentWidth = %f",self.contentWidth);

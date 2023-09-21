@@ -272,29 +272,6 @@
         }
     };
 }
-#pragma mark —— BaseViewProtocol
-/// 数据（字符串）定宽
-/// data.textModel.textLineSpacing
-/// data.textModel.font
-/// data.jobsHeight
-/// data.textModel.text
-+(CGFloat)widthByData:(UIViewModel *_Nonnull)data{
-    return [data.textModel.text getContentHeightOrWidthWithParagraphStyleLineSpacing:data.textModel.textLineSpacing
-                                                               calcLabelHeight_Width:CalcLabelWidth
-                                                                                font:data.textModel.font
-                                                        boundingRectWithHeight_Width:data.jobsHeight];
-}
-/// 数据（字符串）定高
-/// data.textModel.textLineSpacing
-/// data.textModel.font
-/// data.jobsWidth
-/// data.textModel.text
-+(CGFloat)heightByData:(UIViewModel *_Nonnull)data{
-    return [data.textModel.text getContentHeightOrWidthWithParagraphStyleLineSpacing:data.textModel.textLineSpacing
-                                                               calcLabelHeight_Width:CalcLabelHeight
-                                                                                font:data.textModel.font
-                                                        boundingRectWithHeight_Width:data.jobsWidth];
-}
 #pragma mark —— 简捷获得控件坐标
 static char *UIView_Measure_x = "UIView_Measure_x";
 @dynamic x;

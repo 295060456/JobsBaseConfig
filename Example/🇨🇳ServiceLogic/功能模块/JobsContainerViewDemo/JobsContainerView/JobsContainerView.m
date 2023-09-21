@@ -1,13 +1,13 @@
 //
-//  CustomContainerView.m
+//  JobsContainerView.m
 //  MataShop
 //
 //  Created by Jobs Hi on 9/21/23.
 //
 
-#import "CustomContainerView.h"
+#import "JobsContainerView.h"
 
-@interface CustomContainerView (){
+@interface JobsContainerView (){
     CGFloat btnWidth;
 }
 
@@ -16,7 +16,7 @@
 
 @end
 
-@implementation CustomContainerView
+@implementation JobsContainerView
 #pragma mark —— 初始化方法
 /// 禁止使用系统的alloc.init方法来进行创建对象
 /// 强制用户使用-(instancetype)initWithValues:(id)firstValue, ... 来进行创建对象

@@ -6,7 +6,7 @@
 //
 
 #import "BaseView.h"
-#import "JobsUpDownLab.h"
+#import "JobsContainerView.h"
 #import "MacroDef_String.h"
 #import "UIButton+UI.h"
 #import "UIView+BackgroundImage.h"
@@ -15,7 +15,7 @@
 #import "LoadingImage.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
+#warning 需要测试
 @interface JobsBaseConfigTestPopupView : BaseView
 
 @end

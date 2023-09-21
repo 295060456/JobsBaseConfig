@@ -341,8 +341,9 @@ UITableViewCellProtocol_synthesize
     vm.jobsWidth = JobsMainScreen_WIDTH() - JobsWidth(200);
     vm.textModel.text = model.subTextModel.text;
     vm.textModel.textLineSpacing = 0;
-    
-    return [UIView heightByData:vm] + JobsWidth(20);
+#warning 这里需要被修改
+//    return [UIView heightByData:vm] + JobsWidth(20);
+    return 0;
 }
 #pragma mark —— 协议属性合成set & get方法
 /// UIViewModelProtocol

@@ -95,7 +95,7 @@
     /// UI层
     for (int i = 0; i< self.dataMutArr.count; i++) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
-        JobsMsgTBVCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
         cell.selected = YES;
         
         if ([self.tableView.delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
@@ -112,7 +112,7 @@
     /// UI层
     for (int i = 0; i< self.dataMutArr.count; i++) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
-        JobsMsgTBVCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
         cell.selected = NO;
     }
     /// Data层
@@ -160,7 +160,7 @@ forRowAtIndexPath:(NSIndexPath*)indexPath{
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (self.tableView.editing) {
-        JobsMsgTBVCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         cell.selected = YES;
         NSMutableArray<JobsMsgDataModel *> *dataMutArr = [self manuallyDataAtIndexPath:indexPath];
         self.msgEditBoardView.getDeleteBtn.enabledBlock(dataMutArr.count);
@@ -186,7 +186,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 - (void)tableView:(UITableView *)tableView
 didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (self.tableView.editing) {
-        JobsMsgTBVCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         cell.selected = NO;
         NSMutableArray<JobsMsgDataModel *> *dataMutArr = [self manuallyDataAtIndexPath:indexPath];
         self.msgEditBoardView.getDeleteBtn.enabledBlock(dataMutArr.count);
@@ -200,7 +200,7 @@ didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [JobsMsgTBVCell cellHeightWithModel:nil];
+    return JobsWidth(60);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView
@@ -210,13 +210,8 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    JobsMsgTBVCell *cell = (JobsMsgTBVCell *)[JobsMsgTBVCell cellStyleValue1WithTableView:tableView];
-    [cell richElementsInCellWithModel:self.dataMutArr[indexPath.row]];
-    @jobs_weakify(self)
-    [cell actionObjectBlock:^(JobsPopupView02 *data) {
-        @jobs_strongify(self)
-        [self.view popupWithView:data];
-    }];return cell;
+    UITableViewCell *cell = (UITableViewCell *)[UITableViewCell cellStyleValue1WithTableView:tableView];
+    return cell;
 }
 #pragma mark —— lazyLoad
 -(UIButton *)editBtn{

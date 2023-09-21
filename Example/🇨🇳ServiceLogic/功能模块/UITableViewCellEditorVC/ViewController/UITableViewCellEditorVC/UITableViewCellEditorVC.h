@@ -7,11 +7,7 @@
 
 #import "BaseViewController.h"
 #import "JobsMsgDetailVC.h"
-
-#import "JobsMsgTBVCell.h"
 #import "MsgEditBoardView.h"
-#import "JobsPopupView02.h"
-
 #import "JobsMsgDataModel.h"
 
 NS_ASSUME_NONNULL_BEGIN

@@ -27,6 +27,5 @@
 #import "UINavigationController+FDFullscreenPopGesture.h"/// 手势滑动返回
 /// FOR TEST
 #import "JobsShowObjInfoVC.h"
-#import "JobsLab.h"
 
 #endif /* JobsMixFunc_h */

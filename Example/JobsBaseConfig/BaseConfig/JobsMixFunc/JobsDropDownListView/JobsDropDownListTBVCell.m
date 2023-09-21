@@ -50,7 +50,9 @@ UITableViewCellProtocol_synthesize
     vm.textModel.text = vm.subTextModel.text;
     vm.textModel.textLineSpacing = 0;
     
-    return [UIView heightByData:model ? : vm] + JobsWidth(20);
+#warning 这里需要被修改
+//    return [UIView heightByData:model ? : vm] + JobsWidth(20);
+    return 0;
 }
 
 @end

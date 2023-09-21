@@ -419,13 +419,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         }
         
         {
-            UIViewModel *viewModel = [self configViewModelWithTitle:@"IntervalTBVCellShow"
-                                                           subTitle:Internationalization(@"UITableViewCell间隔")];
-            viewModel.cls = IntervalTBVCellShow.class;
-            [_dataMutArr addObject:viewModel];
-        }
-        
-        {
             UIViewModel *viewModel = [self configViewModelWithTitle:@"CXBVC"
                                                            subTitle:Internationalization(@"程肖斌自研科技")];
             viewModel.cls = CXBVC.class;
@@ -506,13 +499,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             UIViewModel *viewModel = [self configViewModelWithTitle:@"JobsWalletVC"
                                                            subTitle:Internationalization(@"UICollectionView实现重叠的卡包效果")];
             viewModel.cls = JobsWalletVC.class;
-            [_dataMutArr addObject:viewModel];
-        }
-        
-        {
-            UIViewModel *viewModel = [self configViewModelWithTitle:@"BaiShaETProjTelFindPwdVC"
-                                                           subTitle:Internationalization(@"Masonry动画")];
-            viewModel.cls = BaiShaETProjTelFindPwdVC.class;
             [_dataMutArr addObject:viewModel];
         }
         

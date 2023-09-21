@@ -1,5 +1,5 @@
 //
-//  CustomContainerView.h
+//  JobsContainerView.h
 //  MataShop
 //
 //  Created by Jobs Hi on 9/21/23.
@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
  在iOS中，UILabel 默认的行间距是根据字体和文本内容来自动计算的，并且通常情况下不会有明确的默认值。
  行间距会受到字体、文本内容、字体大小以及UILabel的frame大小等因素的影响。
  */
-@interface CustomContainerView : BaseView
+@interface JobsContainerView : BaseView
 /// 禁止使用系统的 alloc.init 和 new方法来进行创建对象
 +(instancetype)new NS_UNAVAILABLE;
 -(instancetype)init NS_UNAVAILABLE;
@@ -59,9 +59,9 @@ NS_ASSUME_NONNULL_END
      5.5、容器View里面装着的是依据外界传入的数组A（数组里面装的是UIButton各项配置），自上而下紧挨着排布的，子元素之间的垂直距离offsetY。UIButton的个数 = 数组A的元素个数
  
  使用方法：
- -(CustomContainerView *)containerView{
+ -(JobsContainerView *)containerView{
     if(!_containerView){
-     _containerView = [CustomContainerView.alloc initWithWidth:JobsWidth(200)
+     _containerView = [JobsContainerView.alloc initWithWidth:JobsWidth(200)
                                                   buttonModels:self.btnModelMutArr];
      _containerView.backgroundColor = UIColor.purpleColor;
      [self.view addSubview:_containerView];

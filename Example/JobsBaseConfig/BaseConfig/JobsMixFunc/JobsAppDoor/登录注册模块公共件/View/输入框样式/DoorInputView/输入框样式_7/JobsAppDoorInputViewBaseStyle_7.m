@@ -161,14 +161,11 @@
         _chooseBtn.titleFont = self.chooseBtnViewModel.textModel.font;
         [self addSubview:_chooseBtn];
         [_chooseBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-//            make.bottom.equalTo(self).offset(-JobsWidth(8));
-//            make.size.mas_equalTo(self.chooseBtnSize);
-//            make.left.equalTo(self).offset(JobsWidth(0));
-            
             make.left.equalTo(self.leftIMGV.mas_right).offset(JobsWidth(20));
             make.centerY.equalTo(self);
             make.height.mas_equalTo(JobsWidth(16));
-            make.width.mas_equalTo([UIView widthByData:self.jobsPageViewDataMutArr[0]]);
+#warning 这里需要被修改
+//            make.width.mas_equalTo([UIView widthByData:self.jobsPageViewDataMutArr[0]]);
             
         }];
         @jobs_weakify(self)

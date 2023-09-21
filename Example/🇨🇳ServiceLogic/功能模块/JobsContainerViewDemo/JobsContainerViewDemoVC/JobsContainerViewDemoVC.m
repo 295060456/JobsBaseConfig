@@ -8,8 +8,9 @@
 #import "JobsContainerViewDemoVC.h"
 
 @interface JobsContainerViewDemoVC ()
-
-@property(nonatomic,strong)CustomContainerView *containerView;
+/// UI
+@property(nonatomic,strong)JobsContainerView *containerView;
+/// Data
 @property(nonatomic,strong)NSMutableArray <JobsBtnModel *>*btnModelMutArr;
 
 @end
@@ -65,9 +66,9 @@
     [super viewDidDisappear:animated];
 }
 #pragma mark —— lazyLoad
--(CustomContainerView *)containerView{
+-(JobsContainerView *)containerView{
     if(!_containerView){
-        _containerView = [CustomContainerView.alloc initWithWidth:JobsWidth(200)
+        _containerView = [JobsContainerView.alloc initWithWidth:JobsWidth(200)
                                                      buttonModels:self.btnModelMutArr];
         _containerView.backgroundColor = UIColor.purpleColor;
         [self.view addSubview:_containerView];

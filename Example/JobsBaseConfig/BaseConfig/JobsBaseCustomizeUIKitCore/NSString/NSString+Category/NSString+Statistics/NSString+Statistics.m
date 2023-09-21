@@ -9,73 +9,99 @@
 
 @implementation NSString (Statistics)
 #pragma mark —— 字符串的 统计 & 计算
-/// 根据字符串以及其对应的行宽（行高）、行高和字体字号，计算该文本占用的高度（宽度）
-/// @param lineSpacing 行与行之间的间距
-/// @param calcLabelHeight_Width 计算的结论是宽或者高
-/// @param font 该字符串的字号和字体
-/// @param Height_Width  文本的宽度/高度
--(CGFloat)getContentHeightOrWidthWithParagraphStyleLineSpacing:(CGFloat)lineSpacing
-                                         calcLabelHeight_Width:(CalcLabelHeight_Width)calcLabelHeight_Width
-                                                          font:(UIFont *_Nullable)font
-                                  boundingRectWithHeight_Width:(CGFloat)Height_Width{
+/**
+ NSStringDrawingUsesLineFragmentOrigin 是一个 NSStringDrawingOptions枚举值，用于指定字符串绘制时的绘制选项。
+ 这个选项主要用于计算字符串绘制的矩形框时，特别是在多行文本绘制中，以确定每行文本的起始点和高度。
+ 具体来说，它的作用是告诉绘制函数使用文本行片段的原点（origin）来确定每行的位置。
+
+ 在绘制多行文本时，每一行的高度可能不同，而且行与行之间可能有不同的行间距。
+ NSStringDrawingUsesLineFragmentOrigin 选项会考虑这些因素，确保计算的矩形框正确地包含文本的每一行，并使用行片段的原点作为起始点。
+
+ 这个选项通常与 boundingRectWithSize:options:attributes:context: 方法一起使用，该方法用于计算字符串在给定约束大小下的绘制矩形框。
+ 如果不使用 NSStringDrawingUsesLineFragmentOrigin 选项，计算的矩形框可能会不准确，尤其是在包含多行文本和不同行间距的情况下。
+ */
+/// 求字符串所占用的控件的高度
+/// - Parameters:
+///   - font: 字符串的字体（不能为空）
+///   - lineSpacing: 字符串的行间距
+///   - maxWidth: 字符串所占用的承接的控件的宽度
+-(NSStringModel *_Nullable)jobsTextHeightWithFont:(UIFont *_Nonnull)font
+                                       lineHeight:(CGFloat)lineSpacing
+                                     controlWidth:(CGFloat)controlWidth{
     if(@available(iOS 7.0, *)){
-        CGSize lableSize = CGSizeZero;
         if([self respondsToSelector:@selector(boundingRectWithSize:options:attributes:context:)]){
-            NSMutableDictionary *attributesMutDic = NSMutableDictionary.dictionary;
-            if (font) {
-                [attributesMutDic setObject:font
-                                     forKey:NSFontAttributeName];
-            }
-            if (lineSpacing) {
-                NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
-                paragraphStyle.lineSpacing = lineSpacing;
-                [attributesMutDic setObject:paragraphStyle
-                                     forKey:NSParagraphStyleAttributeName];
-            }
-            
-            CGSize size;
-            
-            switch (calcLabelHeight_Width) {
-                case CalcLabelHeight:{
-                    size = CGSizeMake(Height_Width, MAXFLOAT);
-                }break;
-                case CalcLabelWidth:{
-                    size = CGSizeMake(MAXFLOAT, Height_Width);
-                }break;
-                default:{
-                    size = CGSizeZero;
-                }break;
-            }
-            
-            CGSize sizeTemp = [self boundingRectWithSize:size
-                                                 options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
-                                              attributes:attributesMutDic
-                                                 context:nil].size;
-            lableSize = CGSizeMake(ceilf(sizeTemp.width),
-                                   ceilf(sizeTemp.height));
-        }
-        
-        switch (calcLabelHeight_Width) {
-            case CalcLabelHeight:{
-                return lableSize.height;
-            }break;
-            case CalcLabelWidth:{
-                return lableSize.width;
-            }break;
-            default:{
-                return 0;
-            }break;
-        }
-    }else{
-        NSAssert(NO, @"系统版本低于iOS 7，不兼容Api，请升级系统");
-        return 0;
-    }
+            // 创建一个NSMutableAttributedString，用于设置字体和行间距
+            NSMutableAttributedString *attributedText = [NSMutableAttributedString.alloc initWithString:self];
+            [attributedText addAttribute:NSFontAttributeName
+                                   value:font
+                                   range:NSMakeRange(0, self.length)];
+            // 创建段落样式，设置行间距
+            NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
+            paragraphStyle.lineSpacing = lineSpacing;
+            [attributedText addAttribute:NSParagraphStyleAttributeName
+                                   value:paragraphStyle
+                                   range:NSMakeRange(0, self.length)];
+            // 计算文本的高度
+            CGSize maxSize = CGSizeMake(controlWidth, CGFLOAT_MAX);
+            CGRect boundingRect = [attributedText boundingRectWithSize:maxSize
+                                                               options:NSStringDrawingUsesLineFragmentOrigin
+                                                               context:nil];
+            CGFloat textHeight = ceil(CGRectGetHeight(boundingRect));
+
+            NSStringModel *strModel = NSStringModel.new;
+            strModel.stringValue = self;
+            strModel.font = font;
+            strModel.lineSpacing = lineSpacing;
+            strModel.textWidth = controlWidth;
+            strModel.textHeight = textHeight;
+            return strModel;
+        }return nil;
+    }return nil;
 }
-/*
-    系统的length是不区分中文和英文的,中文一个字length也是1
-    通过计算ASCII码来实现:
-    循环遍历字符串长度，按照length来取值。判断这个值在不在ASCII的范围内，在的话就是1个字节，不在就是Unicode编码2个字节。
- **/
+/// 求字符串所占用的控件的宽度
+/// - Parameters:
+///   - font: 字符串的字体（不能为空）
+///   - lineSpacing: 字符串的行间距
+///   - maxHeight: 字符串所占用的承接的控件的高度
+-(NSStringModel *_Nullable)jobsTextWidthWithFont:(UIFont *_Nonnull)font
+                                      lineHeight:(CGFloat)lineSpacing
+                                   controlHeight:(CGFloat)controlHeight{
+    if(@available(iOS 7.0, *)){
+        if([self respondsToSelector:@selector(boundingRectWithSize:options:attributes:context:)]){
+            // 创建一个NSMutableAttributedString，用于设置字体和行间距
+            NSMutableAttributedString *attributedText = [NSMutableAttributedString.alloc initWithString:self];
+            [attributedText addAttribute:NSFontAttributeName
+                                   value:font
+                                   range:NSMakeRange(0, self.length)];
+            // 创建段落样式，设置行间距
+            NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
+            paragraphStyle.lineSpacing = lineSpacing;
+            [attributedText addAttribute:NSParagraphStyleAttributeName
+                                 value:paragraphStyle
+                                 range:NSMakeRange(0, self.length)];
+            // 计算文本的宽度
+            CGSize maxSize = CGSizeMake(CGFLOAT_MAX, controlHeight);
+            CGRect boundingRect = [attributedText boundingRectWithSize:maxSize
+                                                               options:NSStringDrawingUsesLineFragmentOrigin
+                                                               context:nil];
+
+            CGFloat textWidth = ceil(CGRectGetWidth(boundingRect));
+            
+            NSStringModel *strModel = NSStringModel.new;
+            strModel.stringValue = self;
+            strModel.font = font;
+            strModel.textWidth = textWidth;
+            strModel.textHeight = controlHeight;
+            strModel.lineSpacing = lineSpacing;
+            return strModel;
+        }return nil;
+    }return nil;
+}
+/**
+ 系统的length是不区分中文和英文的,中文一个字length也是1
+ 通过计算ASCII码来实现:
+ 循环遍历字符串长度，按照length来取值。判断这个值在不在ASCII的范围内，在的话就是1个字节，不在就是Unicode编码2个字节。
+ */
 -(NSUInteger)textLength{
     NSUInteger asciiLength = 0;
     for (NSUInteger i = 0; i < self.length; i++) {
@@ -98,9 +124,7 @@
             EnglishCount ++;
         }
     }
-         
     NSLog(@"字符串:%@包含——> 汉字字数：%ld;字母字数%ld",self,(long)chineseCount,(long)EnglishCount);
-    
     switch (statisticsAlphabetNumberType) {
         case StatisticsAlphabetNumberType_Chinese:{
             return chineseCount;
@@ -112,5 +136,9 @@
             break;
     }
 }
+
+@end
+
+@implementation NSStringModel
 
 @end

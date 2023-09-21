@@ -17,7 +17,7 @@
 #import "AppInternationalizationVC.h"
 #import "CasinoUpgradePopupView.h"
 #import "JobsHotLabelWithSingleLine.h"
-#import "JobsUpDownLab.h"
+#import "JobsContainerView.h"
 #import "JobsBaseConfigTestPopupView.h"
 
 #import "UIViewModel.h"
@@ -30,14 +30,13 @@
 #endif
 
 NS_ASSUME_NONNULL_BEGIN
-
+#warning 需要测试
 @interface NSObject (AppTools)
 <
 AppToolsProtocol
 ,UITextViewDelegate
 >
 /// UI
-@property(nonatomic,strong)JobsUpDownLab *titleLab;
 @property(nonatomic,strong)UIButton *联系客服;
 @property(nonatomic,strong)UIButton *立即注册;
 @property(nonatomic,strong)UILabel *separateLab;/// 分割线

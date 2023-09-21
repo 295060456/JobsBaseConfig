@@ -689,15 +689,10 @@
 		C52809BD2860770500654584 /* JobsBaseLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C52809BC2860770500654584 /* JobsBaseLabel.m */; };
 		C52809E128608BE100654584 /* TestBaseLabelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C52809E028608BE100654584 /* TestBaseLabelVC.m */; };
 		C52BFE06285C7948002B5D0F /* JobsSEL_IMP.m in Sources */ = {isa = PBXBuildFile; fileRef = C52BFE04285C7948002B5D0F /* JobsSEL_IMP.m */; };
-		C530CC28282E2DA800D5ECCF /* JobsUpDownLab.m in Sources */ = {isa = PBXBuildFile; fileRef = C530CC14282E2DA700D5ECCF /* JobsUpDownLab.m */; };
-		C530CC29282E2DA800D5ECCF /* JobsUpDownLabModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C530CC16282E2DA700D5ECCF /* JobsUpDownLabModel.m */; };
-		C530CC2A282E2DA800D5ECCF /* JobsLabBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C530CC1C282E2DA700D5ECCF /* JobsLabBaseModel.m */; };
-		C530CC2C282E2DA800D5ECCF /* JobsLeftRightLabModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C530CC20282E2DA700D5ECCF /* JobsLeftRightLabModel.m */; };
-		C530CC2D282E2DA800D5ECCF /* JobsLeftRightLab.m in Sources */ = {isa = PBXBuildFile; fileRef = C530CC24282E2DA700D5ECCF /* JobsLeftRightLab.m */; };
 		C53294022ABCC844004294E0 /* JobsTuple.m in Sources */ = {isa = PBXBuildFile; fileRef = C53294012ABCC844004294E0 /* JobsTuple.m */; };
 		C532940D2ABCC86D004294E0 /* JobsBtnModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C53294062ABCC86D004294E0 /* JobsBtnModel.m */; };
 		C532940E2ABCC86D004294E0 /* JobsContainerViewDemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C53294092ABCC86D004294E0 /* JobsContainerViewDemoVC.m */; };
-		C532940F2ABCC86D004294E0 /* CustomContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C532940C2ABCC86D004294E0 /* CustomContainerView.m */; };
+		C532940F2ABCC86D004294E0 /* JobsContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C532940C2ABCC86D004294E0 /* JobsContainerView.m */; };
 		C533BABB2837C9CF006FB231 /* NSObject+HXPhotoPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = C533BABA2837C9CE006FB231 /* NSObject+HXPhotoPicker.m */; };
 		C533BBBC2837D095006FB231 /* JobsUserHeaderDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = C533BBB32837D095006FB231 /* JobsUserHeaderDataView.m */; };
 		C533BBBD2837D095006FB231 /* JobsUserHeaderDataViewTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C533BBB52837D095006FB231 /* JobsUserHeaderDataViewTBVCell.m */; };
@@ -743,11 +738,6 @@
 		C57A203D282CB59F0032156B /* ZLGestureLockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C57A202F282CB59E0032156B /* ZLGestureLockViewController.m */; };
 		C57A203E282CB59F0032156B /* ZLGestureLockIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = C57A2030282CB59E0032156B /* ZLGestureLockIndicator.m */; };
 		C57A809F284F36BA00DD089E /* JobsMsgDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C57A809C284F36BA00DD089E /* JobsMsgDetailVC.m */; };
-		C57A8BE32850D04B00DD089E /* IntervalTBVCellShow.m in Sources */ = {isa = PBXBuildFile; fileRef = C57A8BE22850D04B00DD089E /* IntervalTBVCellShow.m */; };
-		C57A8BEC2850D20C00DD089E /* BaiShaETProjMembersTBVCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = C57A8BE62850D20C00DD089E /* BaiShaETProjMembersTBVCell1.m */; };
-		C57A8BED2850D20C00DD089E /* BaiShaETProjMembersTBVCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = C57A8BE92850D20C00DD089E /* BaiShaETProjMembersTBVCell2.m */; };
-		C57A8BF42850D2DC00DD089E /* BaiShaETProjMembersBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = C57A8BF22850D2DB00DD089E /* BaiShaETProjMembersBoardView.m */; };
-		C57A8BF82850D2EE00DD089E /* BaiShaETProjMembersSection1View.m in Sources */ = {isa = PBXBuildFile; fileRef = C57A8BF72850D2ED00DD089E /* BaiShaETProjMembersSection1View.m */; };
 		C57A8ED12851A7DE00DD089E /* CXBVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C57A8ECD2851A7DD00DD089E /* CXBVC.m */; };
 		C57A8ED22851A7DE00DD089E /* UIView+layout.m in Sources */ = {isa = PBXBuildFile; fileRef = C57A8ECF2851A7DD00DD089E /* UIView+layout.m */; };
 		C57A8ED62851A8E600DD089E /* OCDynamicRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C57A8ED52851A8E600DD089E /* OCDynamicRegisterVC.m */; };
@@ -776,7 +766,6 @@
 		C596B7A5283F6F7900C13619 /* JobsHotLabelWithMultiLine.m in Sources */ = {isa = PBXBuildFile; fileRef = C596B79F283F6F7800C13619 /* JobsHotLabelWithMultiLine.m */; };
 		C59D78CC2864631B004C97A1 /* NSObject+JobsDeployCellConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = C59D78C92864631B004C97A1 /* NSObject+JobsDeployCellConfig.m */; };
 		C59D78D028646420004C97A1 /* JobsHotLabelWithMultiLineHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C59D78CF28646420004C97A1 /* JobsHotLabelWithMultiLineHeaderFooterView.m */; };
-		C59EF6CF28788C600089B97C /* BaiShaETProjTelFindPwdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C59EF6CD28788C600089B97C /* BaiShaETProjTelFindPwdVC.m */; };
 		C5A21B9B2872D94A00CD6ED3 /* CustomBtnVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A21B9A2872D94A00CD6ED3 /* CustomBtnVC.m */; };
 		C5A7C2DC285B290F00F0F2BB /* 临时的占位图.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5A7C2DB285B290400F0F2BB /* 临时的占位图.xcassets */; };
 		C5A7C2E6285B5E8700F0F2BB /* ThreeClassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A7C2DE285B5E8600F0F2BB /* ThreeClassCell.m */; };
@@ -812,20 +801,8 @@
 		C5C47D0F284E1C4B007916B3 /* MsgEditBoardView.png in Resources */ = {isa = PBXBuildFile; fileRef = C5C47D0D284E1C4B007916B3 /* MsgEditBoardView.png */; };
 		C5C47D10284E1C4B007916B3 /* MsgEditBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D0E284E1C4B007916B3 /* MsgEditBoardView.m */; };
 		C5C47D15284E1C95007916B3 /* JobsMsgDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D13284E1C95007916B3 /* JobsMsgDataModel.m */; };
-		C5C47D1A284E1CB3007916B3 /* 消息Cell.png in Resources */ = {isa = PBXBuildFile; fileRef = C5C47D18284E1CB3007916B3 /* 消息Cell.png */; };
-		C5C47D1B284E1CB3007916B3 /* JobsMsgTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D19284E1CB3007916B3 /* JobsMsgTBVCell.m */; };
-		C5C47D56284E1DF9007916B3 /* JobsPopupView04.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D20284E1DF8007916B3 /* JobsPopupView04.m */; };
-		C5C47D5D284E1DF9007916B3 /* JobsPopupView02.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D2D284E1DF8007916B3 /* JobsPopupView02.m */; };
-		C5C47D60284E1DF9007916B3 /* JobsPopupView06.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D32284E1DF8007916B3 /* JobsPopupView06.m */; };
 		C5C47D61284E1DF9007916B3 /* CasinoUpgradePopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D35284E1DF8007916B3 /* CasinoUpgradePopupView.m */; };
 		C5C47D62284E1DF9007916B3 /* CasinoUpgradeContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D39284E1DF8007916B3 /* CasinoUpgradeContentView.m */; };
-		C5C47D63284E1DF9007916B3 /* JobsPopupView07.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D3B284E1DF8007916B3 /* JobsPopupView07.m */; };
-		C5C47D65284E1DF9007916B3 /* JobsDataShowBackView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D3F284E1DF8007916B3 /* JobsDataShowBackView.m */; };
-		C5C47D68284E1DF9007916B3 /* JobsPopupView08.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D45284E1DF9007916B3 /* JobsPopupView08.m */; };
-		C5C47D69284E1DF9007916B3 /* JobsPopupView09.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D47284E1DF9007916B3 /* JobsPopupView09.m */; };
-		C5C47D6B284E1DF9007916B3 /* JobsPopupView03.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D4B284E1DF9007916B3 /* JobsPopupView03.m */; };
-		C5C47D6E284E1DF9007916B3 /* JobsPopupView01.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D51284E1DF9007916B3 /* JobsPopupView01.m */; };
-		C5C47D70284E1DF9007916B3 /* JobsPopupView05.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C47D55284E1DF9007916B3 /* JobsPopupView05.m */; };
 		C5C48031284E21E5007916B3 /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FD0284E21E4007916B3 /* NotoSans-Regular.ttf */; };
 		C5C48032284E21E5007916B3 /* NotoSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FD1284E21E4007916B3 /* NotoSans-Medium.ttf */; };
 		C5C48033284E21E5007916B3 /* NotoSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5C47FD2284E21E4007916B3 /* NotoSans-MediumItalic.ttf */; };
@@ -2259,32 +2236,16 @@
 		C52809BC2860770500654584 /* JobsBaseLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsBaseLabel.m; sourceTree = "<group>"; };
 		C52809DF28608BE100654584 /* TestBaseLabelVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestBaseLabelVC.h; sourceTree = "<group>"; };
 		C52809E028608BE100654584 /* TestBaseLabelVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestBaseLabelVC.m; sourceTree = "<group>"; };
-		C52B9B7D287322D00072A12F /* Xnip2022-07-04_20-29-42.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Xnip2022-07-04_20-29-42.png"; sourceTree = "<group>"; };
 		C52BFE04285C7948002B5D0F /* JobsSEL_IMP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsSEL_IMP.m; sourceTree = "<group>"; };
 		C52BFE05285C7948002B5D0F /* JobsSEL_IMP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsSEL_IMP.h; sourceTree = "<group>"; };
-		C530CC10282E2DA700D5ECCF /* JobsUpDownLab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobsUpDownLab.png; sourceTree = "<group>"; };
-		C530CC11282E2DA700D5ECCF /* JobsUpDownLab.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = JobsUpDownLab.md; sourceTree = "<group>"; };
-		C530CC13282E2DA700D5ECCF /* JobsUpDownLab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsUpDownLab.h; sourceTree = "<group>"; };
-		C530CC14282E2DA700D5ECCF /* JobsUpDownLab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsUpDownLab.m; sourceTree = "<group>"; };
-		C530CC16282E2DA700D5ECCF /* JobsUpDownLabModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsUpDownLabModel.m; sourceTree = "<group>"; };
-		C530CC17282E2DA700D5ECCF /* JobsUpDownLabModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsUpDownLabModel.h; sourceTree = "<group>"; };
-		C530CC19282E2DA700D5ECCF /* JobsLab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsLab.h; sourceTree = "<group>"; };
-		C530CC1B282E2DA700D5ECCF /* JobsLabBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsLabBaseModel.h; sourceTree = "<group>"; };
-		C530CC1C282E2DA700D5ECCF /* JobsLabBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsLabBaseModel.m; sourceTree = "<group>"; };
-		C530CC1E282E2DA700D5ECCF /* JobsLeftRightLab.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = JobsLeftRightLab.md; sourceTree = "<group>"; };
-		C530CC20282E2DA700D5ECCF /* JobsLeftRightLabModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsLeftRightLabModel.m; sourceTree = "<group>"; };
-		C530CC21282E2DA700D5ECCF /* JobsLeftRightLabModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsLeftRightLabModel.h; sourceTree = "<group>"; };
-		C530CC23282E2DA700D5ECCF /* JobsLeftRightLab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsLeftRightLab.h; sourceTree = "<group>"; };
-		C530CC24282E2DA700D5ECCF /* JobsLeftRightLab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsLeftRightLab.m; sourceTree = "<group>"; };
-		C530CC25282E2DA700D5ECCF /* JobsLeftRightLab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobsLeftRightLab.png; sourceTree = "<group>"; };
 		C53294002ABCC844004294E0 /* JobsTuple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsTuple.h; sourceTree = "<group>"; };
 		C53294012ABCC844004294E0 /* JobsTuple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsTuple.m; sourceTree = "<group>"; };
 		C53294052ABCC86D004294E0 /* JobsBtnModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBtnModel.h; sourceTree = "<group>"; };
 		C53294062ABCC86D004294E0 /* JobsBtnModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsBtnModel.m; sourceTree = "<group>"; };
 		C53294082ABCC86D004294E0 /* JobsContainerViewDemoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsContainerViewDemoVC.h; sourceTree = "<group>"; };
 		C53294092ABCC86D004294E0 /* JobsContainerViewDemoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsContainerViewDemoVC.m; sourceTree = "<group>"; };
-		C532940B2ABCC86D004294E0 /* CustomContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomContainerView.h; sourceTree = "<group>"; };
-		C532940C2ABCC86D004294E0 /* CustomContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomContainerView.m; sourceTree = "<group>"; };
+		C532940B2ABCC86D004294E0 /* JobsContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsContainerView.h; sourceTree = "<group>"; };
+		C532940C2ABCC86D004294E0 /* JobsContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsContainerView.m; sourceTree = "<group>"; };
 		C533BAB92837C9CE006FB231 /* NSObject+HXPhotoPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HXPhotoPicker.h"; sourceTree = "<group>"; };
 		C533BABA2837C9CE006FB231 /* NSObject+HXPhotoPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HXPhotoPicker.m"; sourceTree = "<group>"; };
 		C533BBB22837D095006FB231 /* JobsUserHeaderDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsUserHeaderDataView.h; sourceTree = "<group>"; };
@@ -2388,18 +2349,6 @@
 		C57A809C284F36BA00DD089E /* JobsMsgDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsMsgDetailVC.m; sourceTree = "<group>"; };
 		C57A809D284F36BA00DD089E /* 消息详情页.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "消息详情页.png"; sourceTree = "<group>"; };
 		C57A809E284F36BA00DD089E /* JobsMsgDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsMsgDetailVC.h; sourceTree = "<group>"; };
-		C57A8BE12850D04B00DD089E /* IntervalTBVCellShow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntervalTBVCellShow.h; sourceTree = "<group>"; };
-		C57A8BE22850D04B00DD089E /* IntervalTBVCellShow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntervalTBVCellShow.m; sourceTree = "<group>"; };
-		C57A8BE62850D20C00DD089E /* BaiShaETProjMembersTBVCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiShaETProjMembersTBVCell1.m; sourceTree = "<group>"; };
-		C57A8BE72850D20C00DD089E /* BaiShaETProjMembersTBVCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiShaETProjMembersTBVCell1.h; sourceTree = "<group>"; };
-		C57A8BE92850D20C00DD089E /* BaiShaETProjMembersTBVCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiShaETProjMembersTBVCell2.m; sourceTree = "<group>"; };
-		C57A8BEA2850D20C00DD089E /* BaiShaETProjMembersTBVCell2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BaiShaETProjMembersTBVCell2.png; sourceTree = "<group>"; };
-		C57A8BEB2850D20C00DD089E /* BaiShaETProjMembersTBVCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiShaETProjMembersTBVCell2.h; sourceTree = "<group>"; };
-		C57A8BF02850D2DB00DD089E /* BaiShaETProjMembersBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiShaETProjMembersBoardView.h; sourceTree = "<group>"; };
-		C57A8BF12850D2DB00DD089E /* BaiShaETProjMembersBoardView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BaiShaETProjMembersBoardView.png; sourceTree = "<group>"; };
-		C57A8BF22850D2DB00DD089E /* BaiShaETProjMembersBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiShaETProjMembersBoardView.m; sourceTree = "<group>"; };
-		C57A8BF62850D2ED00DD089E /* BaiShaETProjMembersSection1View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiShaETProjMembersSection1View.h; sourceTree = "<group>"; };
-		C57A8BF72850D2ED00DD089E /* BaiShaETProjMembersSection1View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiShaETProjMembersSection1View.m; sourceTree = "<group>"; };
 		C57A8ECC2851A7DD00DD089E /* CXBVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXBVC.h; sourceTree = "<group>"; };
 		C57A8ECD2851A7DD00DD089E /* CXBVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXBVC.m; sourceTree = "<group>"; };
 		C57A8ECE2851A7DD00DD089E /* UIView+layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+layout.h"; sourceTree = "<group>"; };
@@ -2418,7 +2367,6 @@
 		C58D846E2877DCF3007020B6 /* BaiShaETProjBankAccMgmtCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiShaETProjBankAccMgmtCVCell.h; sourceTree = "<group>"; };
 		C58D846F2877DCF3007020B6 /* BaiShaETProjBankAccMgmtCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiShaETProjBankAccMgmtCVCell.m; sourceTree = "<group>"; };
 		C58D84702877DCF3007020B6 /* BaiShaETProjBankAccMgmtCVCell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BaiShaETProjBankAccMgmtCVCell.png; sourceTree = "<group>"; };
-		C58D8C5E287885E8007020B6 /* JobsLabProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsLabProtocol.h; sourceTree = "<group>"; };
 		C5932EC0282D26E500B3B053 /* JobsBaseConfigTestPopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsBaseConfigTestPopupView.m; sourceTree = "<group>"; };
 		C5932EC2282D26E500B3B053 /* 测试弹窗的背景图@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "测试弹窗的背景图@3x.png"; sourceTree = "<group>"; };
 		C5932EC3282D26E500B3B053 /* 测试弹窗的背景图@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "测试弹窗的背景图@2x.png"; sourceTree = "<group>"; };
@@ -2463,8 +2411,6 @@
 		C59D78CB2864631B004C97A1 /* NSObject+JobsDeployCellConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JobsDeployCellConfig.h"; sourceTree = "<group>"; };
 		C59D78CE28646420004C97A1 /* JobsHotLabelWithMultiLineHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsHotLabelWithMultiLineHeaderFooterView.h; sourceTree = "<group>"; };
 		C59D78CF28646420004C97A1 /* JobsHotLabelWithMultiLineHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsHotLabelWithMultiLineHeaderFooterView.m; sourceTree = "<group>"; };
-		C59EF6CD28788C600089B97C /* BaiShaETProjTelFindPwdVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaiShaETProjTelFindPwdVC.m; sourceTree = "<group>"; };
-		C59EF6CE28788C600089B97C /* BaiShaETProjTelFindPwdVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiShaETProjTelFindPwdVC.h; sourceTree = "<group>"; };
 		C5A21B992872D94A00CD6ED3 /* CustomBtnVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomBtnVC.h; sourceTree = "<group>"; };
 		C5A21B9A2872D94A00CD6ED3 /* CustomBtnVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomBtnVC.m; sourceTree = "<group>"; };
 		C5A7C2DB285B290400F0F2BB /* 临时的占位图.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "临时的占位图.xcassets"; sourceTree = "<group>"; };
@@ -2561,43 +2507,10 @@
 		C5C47D0E284E1C4B007916B3 /* MsgEditBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgEditBoardView.m; sourceTree = "<group>"; };
 		C5C47D13284E1C95007916B3 /* JobsMsgDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsMsgDataModel.m; sourceTree = "<group>"; };
 		C5C47D14284E1C95007916B3 /* JobsMsgDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsMsgDataModel.h; sourceTree = "<group>"; };
-		C5C47D17284E1CB3007916B3 /* JobsMsgTBVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsMsgTBVCell.h; sourceTree = "<group>"; };
-		C5C47D18284E1CB3007916B3 /* 消息Cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "消息Cell.png"; sourceTree = "<group>"; };
-		C5C47D19284E1CB3007916B3 /* JobsMsgTBVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsMsgTBVCell.m; sourceTree = "<group>"; };
-		C5C47D20284E1DF8007916B3 /* JobsPopupView04.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsPopupView04.m; sourceTree = "<group>"; };
-		C5C47D21284E1DF8007916B3 /* JobsPopupView04.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsPopupView04.h; sourceTree = "<group>"; };
-		C5C47D22284E1DF8007916B3 /* 弹框样式_04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹框样式_04.png"; sourceTree = "<group>"; };
-		C5C47D2C284E1DF8007916B3 /* JobsPopupView02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsPopupView02.h; sourceTree = "<group>"; };
-		C5C47D2D284E1DF8007916B3 /* JobsPopupView02.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsPopupView02.m; sourceTree = "<group>"; };
-		C5C47D2E284E1DF8007916B3 /* 弹框样式_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹框样式_02.png"; sourceTree = "<group>"; };
-		C5C47D30284E1DF8007916B3 /* JobsPopupView06.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsPopupView06.h; sourceTree = "<group>"; };
-		C5C47D31284E1DF8007916B3 /* 弹框样式_06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹框样式_06.png"; sourceTree = "<group>"; };
-		C5C47D32284E1DF8007916B3 /* JobsPopupView06.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsPopupView06.m; sourceTree = "<group>"; };
 		C5C47D35284E1DF8007916B3 /* CasinoUpgradePopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasinoUpgradePopupView.m; sourceTree = "<group>"; };
 		C5C47D36284E1DF8007916B3 /* CasinoUpgradePopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CasinoUpgradePopupView.h; sourceTree = "<group>"; };
 		C5C47D38284E1DF8007916B3 /* CasinoUpgradeContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CasinoUpgradeContentView.h; sourceTree = "<group>"; };
 		C5C47D39284E1DF8007916B3 /* CasinoUpgradeContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasinoUpgradeContentView.m; sourceTree = "<group>"; };
-		C5C47D3B284E1DF8007916B3 /* JobsPopupView07.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsPopupView07.m; sourceTree = "<group>"; };
-		C5C47D3D284E1DF8007916B3 /* JobsDataShowBackView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobsDataShowBackView.png; sourceTree = "<group>"; };
-		C5C47D3E284E1DF8007916B3 /* JobsDataShowBackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsDataShowBackView.h; sourceTree = "<group>"; };
-		C5C47D3F284E1DF8007916B3 /* JobsDataShowBackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsDataShowBackView.m; sourceTree = "<group>"; };
-		C5C47D40284E1DF8007916B3 /* 弹框样式_07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹框样式_07.png"; sourceTree = "<group>"; };
-		C5C47D41284E1DF8007916B3 /* JobsPopupView07.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsPopupView07.h; sourceTree = "<group>"; };
-		C5C47D43284E1DF9007916B3 /* JobsPopupView08.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsPopupView08.h; sourceTree = "<group>"; };
-		C5C47D44284E1DF9007916B3 /* 弹框样式_08.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹框样式_08.png"; sourceTree = "<group>"; };
-		C5C47D45284E1DF9007916B3 /* JobsPopupView08.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsPopupView08.m; sourceTree = "<group>"; };
-		C5C47D47284E1DF9007916B3 /* JobsPopupView09.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsPopupView09.m; sourceTree = "<group>"; };
-		C5C47D48284E1DF9007916B3 /* 弹框样式_09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹框样式_09.png"; sourceTree = "<group>"; };
-		C5C47D49284E1DF9007916B3 /* JobsPopupView09.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsPopupView09.h; sourceTree = "<group>"; };
-		C5C47D4B284E1DF9007916B3 /* JobsPopupView03.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsPopupView03.m; sourceTree = "<group>"; };
-		C5C47D4C284E1DF9007916B3 /* 弹框样式_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹框样式_03.png"; sourceTree = "<group>"; };
-		C5C47D4D284E1DF9007916B3 /* JobsPopupView03.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsPopupView03.h; sourceTree = "<group>"; };
-		C5C47D4F284E1DF9007916B3 /* JobsPopupView01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsPopupView01.h; sourceTree = "<group>"; };
-		C5C47D50284E1DF9007916B3 /* 弹框样式_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹框样式_01.png"; sourceTree = "<group>"; };
-		C5C47D51284E1DF9007916B3 /* JobsPopupView01.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsPopupView01.m; sourceTree = "<group>"; };
-		C5C47D53284E1DF9007916B3 /* JobsPopupView05.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsPopupView05.h; sourceTree = "<group>"; };
-		C5C47D54284E1DF9007916B3 /* 弹框样式_05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹框样式_05.png"; sourceTree = "<group>"; };
-		C5C47D55284E1DF9007916B3 /* JobsPopupView05.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsPopupView05.m; sourceTree = "<group>"; };
 		C5C47FD0284E21E4007916B3 /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
 		C5C47FD1284E21E4007916B3 /* NotoSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Medium.ttf"; sourceTree = "<group>"; };
 		C5C47FD2284E21E4007916B3 /* NotoSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-MediumItalic.ttf"; sourceTree = "<group>"; };
@@ -2785,7 +2698,6 @@
 				840F932C27736426004979E9 /* JobsDropDownListView */,
 				840F92C627736425004979E9 /* JobsHotLabel */,
 				840F92E327736426004979E9 /* JobsImageNumberView */,
-				840F930327736426004979E9 /* JobsLab */,
 				840F931B27736426004979E9 /* JobsPageTBV */,
 				840F932127736426004979E9 /* JobsSuspend */,
 				C54BC43128325BA80010EF20 /* JobsTitleView01 */,
@@ -3177,16 +3089,6 @@
 				840F930027736426004979E9 /* 0@3x.png */,
 			);
 			path = "阿拉伯数字符号";
-			sourceTree = "<group>";
-		};
-		840F930327736426004979E9 /* JobsLab */ = {
-			isa = PBXGroup;
-			children = (
-				C530CC18282E2DA700D5ECCF /* JobsLabCommon */,
-				C530CC1D282E2DA700D5ECCF /* JobsLeftRightLab */,
-				C530CC0F282E2DA700D5ECCF /* JobsUpDownLab */,
-			);
-			path = JobsLab;
 			sourceTree = "<group>";
 		};
 		840F931B27736426004979E9 /* JobsPageTBV */ = {
@@ -8207,7 +8109,6 @@
 				C53294032ABCC86D004294E0 /* JobsContainerViewDemo */,
 				C53683442875713B00DD7AA7 /* UICollectionView实现重叠的卡包效果 */,
 				C57FAEE1287562E600E72F91 /* GXCardViewDemo */,
-				C52B9B7C287322B20072A12F /* Masonry动画 */,
 				C5A21B982872D90D00CD6ED3 /* UIButton子控件的排布 */,
 				C5E8A7552869843200FAB31D /* 自定义UITableViewCell内置控件距离并添加复制按钮 */,
 				C5E297852865ECFC0017466D /* NSTimerManager模块测试 */,
@@ -8220,7 +8121,6 @@
 				C57208812852F1DF004BF695 /* 在 Objective-C 中实现协议扩展 */,
 				C57A8ED32851A88100DD089E /* OC动态添加类、方法列表、属性列表 */,
 				C57A8ECB2851A7D400DD089E /* 程肖斌 */,
-				C57A8BE02850CFF800DD089E /* UITableViewCell间隔 */,
 				C5C480A0284E24FE007916B3 /* 设置手势密码 */,
 				C5C47D07284E1C0A007916B3 /* UITableViewCellEditorVC */,
 				C56341572849DFD50047CA49 /* JobsTestVC */,
@@ -8876,15 +8776,6 @@
 			path = TestBaseLabelVC;
 			sourceTree = "<group>";
 		};
-		C52B9B7C287322B20072A12F /* Masonry动画 */ = {
-			isa = PBXGroup;
-			children = (
-				C59EF6CC28788C600089B97C /* BaiShaETProjTelFindPwdVC */,
-				C52B9B7D287322D00072A12F /* Xnip2022-07-04_20-29-42.png */,
-			);
-			path = "Masonry动画";
-			sourceTree = "<group>";
-		};
 		C52BFE03285C7948002B5D0F /* JobsSEL_IMP */ = {
 			isa = PBXGroup;
 			children = (
@@ -8892,83 +8783,6 @@
 				C52BFE04285C7948002B5D0F /* JobsSEL_IMP.m */,
 			);
 			path = JobsSEL_IMP;
-			sourceTree = "<group>";
-		};
-		C530CC0F282E2DA700D5ECCF /* JobsUpDownLab */ = {
-			isa = PBXGroup;
-			children = (
-				C530CC12282E2DA700D5ECCF /* JobsUpDownLab */,
-				C530CC11282E2DA700D5ECCF /* JobsUpDownLab.md */,
-				C530CC10282E2DA700D5ECCF /* JobsUpDownLab.png */,
-				C530CC15282E2DA700D5ECCF /* JobsUpDownLabModel */,
-			);
-			path = JobsUpDownLab;
-			sourceTree = "<group>";
-		};
-		C530CC12282E2DA700D5ECCF /* JobsUpDownLab */ = {
-			isa = PBXGroup;
-			children = (
-				C530CC13282E2DA700D5ECCF /* JobsUpDownLab.h */,
-				C530CC14282E2DA700D5ECCF /* JobsUpDownLab.m */,
-			);
-			path = JobsUpDownLab;
-			sourceTree = "<group>";
-		};
-		C530CC15282E2DA700D5ECCF /* JobsUpDownLabModel */ = {
-			isa = PBXGroup;
-			children = (
-				C530CC17282E2DA700D5ECCF /* JobsUpDownLabModel.h */,
-				C530CC16282E2DA700D5ECCF /* JobsUpDownLabModel.m */,
-			);
-			path = JobsUpDownLabModel;
-			sourceTree = "<group>";
-		};
-		C530CC18282E2DA700D5ECCF /* JobsLabCommon */ = {
-			isa = PBXGroup;
-			children = (
-				C58D8C5E287885E8007020B6 /* JobsLabProtocol.h */,
-				C530CC19282E2DA700D5ECCF /* JobsLab.h */,
-				C530CC1A282E2DA700D5ECCF /* JobsLabBaseModel */,
-			);
-			path = JobsLabCommon;
-			sourceTree = "<group>";
-		};
-		C530CC1A282E2DA700D5ECCF /* JobsLabBaseModel */ = {
-			isa = PBXGroup;
-			children = (
-				C530CC1B282E2DA700D5ECCF /* JobsLabBaseModel.h */,
-				C530CC1C282E2DA700D5ECCF /* JobsLabBaseModel.m */,
-			);
-			path = JobsLabBaseModel;
-			sourceTree = "<group>";
-		};
-		C530CC1D282E2DA700D5ECCF /* JobsLeftRightLab */ = {
-			isa = PBXGroup;
-			children = (
-				C530CC22282E2DA700D5ECCF /* JobsLeftRightLab */,
-				C530CC1E282E2DA700D5ECCF /* JobsLeftRightLab.md */,
-				C530CC25282E2DA700D5ECCF /* JobsLeftRightLab.png */,
-				C530CC1F282E2DA700D5ECCF /* JobsLeftRightLabModel */,
-			);
-			path = JobsLeftRightLab;
-			sourceTree = "<group>";
-		};
-		C530CC1F282E2DA700D5ECCF /* JobsLeftRightLabModel */ = {
-			isa = PBXGroup;
-			children = (
-				C530CC21282E2DA700D5ECCF /* JobsLeftRightLabModel.h */,
-				C530CC20282E2DA700D5ECCF /* JobsLeftRightLabModel.m */,
-			);
-			path = JobsLeftRightLabModel;
-			sourceTree = "<group>";
-		};
-		C530CC22282E2DA700D5ECCF /* JobsLeftRightLab */ = {
-			isa = PBXGroup;
-			children = (
-				C530CC23282E2DA700D5ECCF /* JobsLeftRightLab.h */,
-				C530CC24282E2DA700D5ECCF /* JobsLeftRightLab.m */,
-			);
-			path = JobsLeftRightLab;
 			sourceTree = "<group>";
 		};
 		C53293FF2ABCC844004294E0 /* JobsTuple */ = {
@@ -8986,7 +8800,7 @@
 			children = (
 				C53294042ABCC86D004294E0 /* JobsBtnModel */,
 				C53294072ABCC86D004294E0 /* JobsContainerViewDemoVC */,
-				C532940A2ABCC86D004294E0 /* CustomContainerView */,
+				C532940A2ABCC86D004294E0 /* JobsContainerView */,
 			);
 			path = JobsContainerViewDemo;
 			sourceTree = "<group>";
@@ -9009,13 +8823,13 @@
 			path = JobsContainerViewDemoVC;
 			sourceTree = "<group>";
 		};
-		C532940A2ABCC86D004294E0 /* CustomContainerView */ = {
+		C532940A2ABCC86D004294E0 /* JobsContainerView */ = {
 			isa = PBXGroup;
 			children = (
-				C532940B2ABCC86D004294E0 /* CustomContainerView.h */,
-				C532940C2ABCC86D004294E0 /* CustomContainerView.m */,
+				C532940B2ABCC86D004294E0 /* JobsContainerView.h */,
+				C532940C2ABCC86D004294E0 /* JobsContainerView.m */,
 			);
-			path = CustomContainerView;
+			path = JobsContainerView;
 			sourceTree = "<group>";
 		};
 		C533B9C92837C4DC006FB231 /* NSObject+HXPhotoPicker */ = {
@@ -9496,65 +9310,6 @@
 			path = "消息详情页";
 			sourceTree = "<group>";
 		};
-		C57A8BE02850CFF800DD089E /* UITableViewCell间隔 */ = {
-			isa = PBXGroup;
-			children = (
-				C57A8BF52850D2ED00DD089E /* BaiShaETProjMembersSection1View */,
-				C57A8BEF2850D2DB00DD089E /* BaiShaETProjMembersBoardView */,
-				C57A8BE52850D20C00DD089E /* BaiShaETProjMembersTBVCell1 */,
-				C57A8BE82850D20C00DD089E /* BaiShaETProjMembersTBVCell2 */,
-				C57A8BE42850D1F000DD089E /* IntervalTBVCellShow */,
-			);
-			path = "UITableViewCell间隔";
-			sourceTree = "<group>";
-		};
-		C57A8BE42850D1F000DD089E /* IntervalTBVCellShow */ = {
-			isa = PBXGroup;
-			children = (
-				C57A8BE12850D04B00DD089E /* IntervalTBVCellShow.h */,
-				C57A8BE22850D04B00DD089E /* IntervalTBVCellShow.m */,
-			);
-			path = IntervalTBVCellShow;
-			sourceTree = "<group>";
-		};
-		C57A8BE52850D20C00DD089E /* BaiShaETProjMembersTBVCell1 */ = {
-			isa = PBXGroup;
-			children = (
-				C57A8BE72850D20C00DD089E /* BaiShaETProjMembersTBVCell1.h */,
-				C57A8BE62850D20C00DD089E /* BaiShaETProjMembersTBVCell1.m */,
-			);
-			path = BaiShaETProjMembersTBVCell1;
-			sourceTree = "<group>";
-		};
-		C57A8BE82850D20C00DD089E /* BaiShaETProjMembersTBVCell2 */ = {
-			isa = PBXGroup;
-			children = (
-				C57A8BEB2850D20C00DD089E /* BaiShaETProjMembersTBVCell2.h */,
-				C57A8BE92850D20C00DD089E /* BaiShaETProjMembersTBVCell2.m */,
-				C57A8BEA2850D20C00DD089E /* BaiShaETProjMembersTBVCell2.png */,
-			);
-			path = BaiShaETProjMembersTBVCell2;
-			sourceTree = "<group>";
-		};
-		C57A8BEF2850D2DB00DD089E /* BaiShaETProjMembersBoardView */ = {
-			isa = PBXGroup;
-			children = (
-				C57A8BF02850D2DB00DD089E /* BaiShaETProjMembersBoardView.h */,
-				C57A8BF22850D2DB00DD089E /* BaiShaETProjMembersBoardView.m */,
-				C57A8BF12850D2DB00DD089E /* BaiShaETProjMembersBoardView.png */,
-			);
-			path = BaiShaETProjMembersBoardView;
-			sourceTree = "<group>";
-		};
-		C57A8BF52850D2ED00DD089E /* BaiShaETProjMembersSection1View */ = {
-			isa = PBXGroup;
-			children = (
-				C57A8BF62850D2ED00DD089E /* BaiShaETProjMembersSection1View.h */,
-				C57A8BF72850D2ED00DD089E /* BaiShaETProjMembersSection1View.m */,
-			);
-			path = BaiShaETProjMembersSection1View;
-			sourceTree = "<group>";
-		};
 		C57A8ECB2851A7D400DD089E /* 程肖斌 */ = {
 			isa = PBXGroup;
 			children = (
@@ -9644,15 +9399,6 @@
 			children = (
 				C5C47D33284E1DF8007916B3 /* 版本升级弹窗 */,
 				C5932EBF282D26E500B3B053 /* 弹框样式_0 */,
-				C5C47D4E284E1DF9007916B3 /* 弹框样式_01 */,
-				C5C47D2B284E1DF8007916B3 /* 弹框样式_02 */,
-				C5C47D4A284E1DF9007916B3 /* 弹框样式_03 */,
-				C5C47D1F284E1DF8007916B3 /* 弹框样式_04 */,
-				C5C47D52284E1DF9007916B3 /* 弹框样式_05 */,
-				C5C47D2F284E1DF8007916B3 /* 弹框样式_06 */,
-				C5C47D3A284E1DF8007916B3 /* 弹框样式_07 */,
-				C5C47D42284E1DF9007916B3 /* 弹框样式_08 */,
-				C5C47D46284E1DF9007916B3 /* 弹框样式_09 */,
 				C5932ECC282D271E00B3B053 /* JobsBaseConfigPopupViewHeader.h */,
 			);
 			path = "本App相关的自定义弹出框";
@@ -9826,15 +9572,6 @@
 				C59D78CF28646420004C97A1 /* JobsHotLabelWithMultiLineHeaderFooterView.m */,
 			);
 			path = JobsHotLabelWithMultiLineHeaderView;
-			sourceTree = "<group>";
-		};
-		C59EF6CC28788C600089B97C /* BaiShaETProjTelFindPwdVC */ = {
-			isa = PBXGroup;
-			children = (
-				C59EF6CE28788C600089B97C /* BaiShaETProjTelFindPwdVC.h */,
-				C59EF6CD28788C600089B97C /* BaiShaETProjTelFindPwdVC.m */,
-			);
-			path = BaiShaETProjTelFindPwdVC;
 			sourceTree = "<group>";
 		};
 		C5A21B982872D90D00CD6ED3 /* UIButton子控件的排布 */ = {
@@ -10230,8 +9967,8 @@
 			isa = PBXGroup;
 			children = (
 				C5C47D0C284E1C4B007916B3 /* MsgEditBoardView.h */,
-				C5C47D0D284E1C4B007916B3 /* MsgEditBoardView.png */,
 				C5C47D0E284E1C4B007916B3 /* MsgEditBoardView.m */,
+				C5C47D0D284E1C4B007916B3 /* MsgEditBoardView.png */,
 			);
 			path = MsgEditBoardView;
 			sourceTree = "<group>";
@@ -10254,16 +9991,6 @@
 			path = JobsMsgDataModel;
 			sourceTree = "<group>";
 		};
-		C5C47D16284E1CB3007916B3 /* 消息Cell */ = {
-			isa = PBXGroup;
-			children = (
-				C5C47D18284E1CB3007916B3 /* 消息Cell.png */,
-				C5C47D17284E1CB3007916B3 /* JobsMsgTBVCell.h */,
-				C5C47D19284E1CB3007916B3 /* JobsMsgTBVCell.m */,
-			);
-			path = "消息Cell";
-			sourceTree = "<group>";
-		};
 		C5C47D1C284E1CBB007916B3 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -10276,7 +10003,6 @@
 		C5C47D1D284E1CC4007916B3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C5C47D16284E1CB3007916B3 /* 消息Cell */,
 				C5C47D0B284E1C4B007916B3 /* MsgEditBoardView */,
 			);
 			path = View;
@@ -10288,36 +10014,6 @@
 				C5C47D12284E1C95007916B3 /* JobsMsgDataModel */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		C5C47D1F284E1DF8007916B3 /* 弹框样式_04 */ = {
-			isa = PBXGroup;
-			children = (
-				C5C47D22284E1DF8007916B3 /* 弹框样式_04.png */,
-				C5C47D21284E1DF8007916B3 /* JobsPopupView04.h */,
-				C5C47D20284E1DF8007916B3 /* JobsPopupView04.m */,
-			);
-			path = "弹框样式_04";
-			sourceTree = "<group>";
-		};
-		C5C47D2B284E1DF8007916B3 /* 弹框样式_02 */ = {
-			isa = PBXGroup;
-			children = (
-				C5C47D2E284E1DF8007916B3 /* 弹框样式_02.png */,
-				C5C47D2C284E1DF8007916B3 /* JobsPopupView02.h */,
-				C5C47D2D284E1DF8007916B3 /* JobsPopupView02.m */,
-			);
-			path = "弹框样式_02";
-			sourceTree = "<group>";
-		};
-		C5C47D2F284E1DF8007916B3 /* 弹框样式_06 */ = {
-			isa = PBXGroup;
-			children = (
-				C5C47D31284E1DF8007916B3 /* 弹框样式_06.png */,
-				C5C47D30284E1DF8007916B3 /* JobsPopupView06.h */,
-				C5C47D32284E1DF8007916B3 /* JobsPopupView06.m */,
-			);
-			path = "弹框样式_06";
 			sourceTree = "<group>";
 		};
 		C5C47D33284E1DF8007916B3 /* 版本升级弹窗 */ = {
@@ -10346,77 +10042,6 @@
 				C5C47D39284E1DF8007916B3 /* CasinoUpgradeContentView.m */,
 			);
 			path = CasinoUpgradeContentView;
-			sourceTree = "<group>";
-		};
-		C5C47D3A284E1DF8007916B3 /* 弹框样式_07 */ = {
-			isa = PBXGroup;
-			children = (
-				C5C47D40284E1DF8007916B3 /* 弹框样式_07.png */,
-				C5C47D3C284E1DF8007916B3 /* JobsDataShowBackView */,
-				C5C47D41284E1DF8007916B3 /* JobsPopupView07.h */,
-				C5C47D3B284E1DF8007916B3 /* JobsPopupView07.m */,
-			);
-			path = "弹框样式_07";
-			sourceTree = "<group>";
-		};
-		C5C47D3C284E1DF8007916B3 /* JobsDataShowBackView */ = {
-			isa = PBXGroup;
-			children = (
-				C5C47D3D284E1DF8007916B3 /* JobsDataShowBackView.png */,
-				C5C47D3E284E1DF8007916B3 /* JobsDataShowBackView.h */,
-				C5C47D3F284E1DF8007916B3 /* JobsDataShowBackView.m */,
-			);
-			path = JobsDataShowBackView;
-			sourceTree = "<group>";
-		};
-		C5C47D42284E1DF9007916B3 /* 弹框样式_08 */ = {
-			isa = PBXGroup;
-			children = (
-				C5C47D44284E1DF9007916B3 /* 弹框样式_08.png */,
-				C5C47D43284E1DF9007916B3 /* JobsPopupView08.h */,
-				C5C47D45284E1DF9007916B3 /* JobsPopupView08.m */,
-			);
-			path = "弹框样式_08";
-			sourceTree = "<group>";
-		};
-		C5C47D46284E1DF9007916B3 /* 弹框样式_09 */ = {
-			isa = PBXGroup;
-			children = (
-				C5C47D48284E1DF9007916B3 /* 弹框样式_09.png */,
-				C5C47D49284E1DF9007916B3 /* JobsPopupView09.h */,
-				C5C47D47284E1DF9007916B3 /* JobsPopupView09.m */,
-			);
-			path = "弹框样式_09";
-			sourceTree = "<group>";
-		};
-		C5C47D4A284E1DF9007916B3 /* 弹框样式_03 */ = {
-			isa = PBXGroup;
-			children = (
-				C5C47D4C284E1DF9007916B3 /* 弹框样式_03.png */,
-				C5C47D4D284E1DF9007916B3 /* JobsPopupView03.h */,
-				C5C47D4B284E1DF9007916B3 /* JobsPopupView03.m */,
-			);
-			path = "弹框样式_03";
-			sourceTree = "<group>";
-		};
-		C5C47D4E284E1DF9007916B3 /* 弹框样式_01 */ = {
-			isa = PBXGroup;
-			children = (
-				C5C47D50284E1DF9007916B3 /* 弹框样式_01.png */,
-				C5C47D4F284E1DF9007916B3 /* JobsPopupView01.h */,
-				C5C47D51284E1DF9007916B3 /* JobsPopupView01.m */,
-			);
-			path = "弹框样式_01";
-			sourceTree = "<group>";
-		};
-		C5C47D52284E1DF9007916B3 /* 弹框样式_05 */ = {
-			isa = PBXGroup;
-			children = (
-				C5C47D54284E1DF9007916B3 /* 弹框样式_05.png */,
-				C5C47D53284E1DF9007916B3 /* JobsPopupView05.h */,
-				C5C47D55284E1DF9007916B3 /* JobsPopupView05.m */,
-			);
-			path = "弹框样式_05";
 			sourceTree = "<group>";
 		};
 		C5C47FCE284E21D1007916B3 /* 外源字体 */ = {
@@ -11196,7 +10821,6 @@
 				C5C48074284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-MediumItalic.ttf in Resources */,
 				8459CE1B2776DCCF00125782 /* 启动页_01.png in Resources */,
 				844B085A2764CF4800B0513D /* 提醒事项@3x.png in Resources */,
-				C5C47D1A284E1CB3007916B3 /* 消息Cell.png in Resources */,
 				C57A203C282CB59F0032156B /* 橙色椭圆.png in Resources */,
 				84CA5F9B27897AFB00E46E71 /* RSA in Resources */,
 				84CA5E0427895B4700E46E71 /* GIF大图.gif in Resources */,
@@ -11414,7 +11038,6 @@
 				C596B7A5283F6F7900C13619 /* JobsHotLabelWithMultiLine.m in Sources */,
 				84566B042784833100636967 /* UINavigationController+Extra.m in Sources */,
 				840F967627736428004979E9 /* UIView+ViewController.m in Sources */,
-				C5C47D6E284E1DF9007916B3 /* JobsPopupView01.m in Sources */,
 				840F964827736427004979E9 /* UIImage+YBGIF.m in Sources */,
 				C5AA8B7C282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_5.m in Sources */,
 				C520F8922AB3A12100142DCC /* WKWebView+AFNetworking.m in Sources */,
@@ -11437,19 +11060,15 @@
 				84A160F12789567D00DACA3C /* ViewController@1.m in Sources */,
 				840F970E27736428004979E9 /* UITextField+Animation.m in Sources */,
 				844B08782764CF4800B0513D /* XHLaunchAdView.m in Sources */,
-				C5C47D56284E1DF9007916B3 /* JobsPopupView04.m in Sources */,
-				C530CC29282E2DA800D5ECCF /* JobsUpDownLabModel.m in Sources */,
 				840F96E827736428004979E9 /* NSObject+Measure.m in Sources */,
 				840F96E727736428004979E9 /* NSObject+OpenURL.m in Sources */,
 				846DF03927806D230050468A /* BaseContentView.m in Sources */,
 				C572088E2852F68A004BF695 /* ProtocolKitVC.m in Sources */,
 				C5733A7B2859C7C200D13A43 /* JobsVerticalMenuVC.m in Sources */,
 				C520F8952AB3A12100142DCC /* UIActivityIndicatorView+AFNetworking.m in Sources */,
-				C57A8BED2850D20C00DD089E /* BaiShaETProjMembersTBVCell2.m in Sources */,
 				84CA5FE227897AFB00E46E71 /* FSAppIconManager.m in Sources */,
 				840F96ED27736428004979E9 /* NSObject+UserNotifications.m in Sources */,
 				84CA63D12789B3CC00E46E71 /* TestIrregularViewTestVC.m in Sources */,
-				C57A8BEC2850D20C00DD089E /* BaiShaETProjMembersTBVCell1.m in Sources */,
 				842477A627C114BE00831270 /* NotifiManager.m in Sources */,
 				C5AA8B6F282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_1.m in Sources */,
 				842475AB27C0D67000831270 /* YTKChainRequest+AnimatingAccessory.m in Sources */,
@@ -11476,7 +11095,6 @@
 				840F960727736427004979E9 /* UITabBar+TLAnimation.m in Sources */,
 				840F964D27736427004979E9 /* UILabel+Measure.m in Sources */,
 				84CA60A12789817300E46E71 /* PHCycleView.m in Sources */,
-				C5C47D1B284E1CB3007916B3 /* JobsMsgTBVCell.m in Sources */,
 				84401A8127919E3B0038FF6F /* JobsSearchShowHotwordsTBVCell.m in Sources */,
 				840F96CC27736428004979E9 /* NSUserDefaults+Swizzle.m in Sources */,
 				840F969327736428004979E9 /* NSString+Eomji.m in Sources */,
@@ -11502,7 +11120,6 @@
 				84A491F127904A970002A837 /* JobsIMChatInfoModel.m in Sources */,
 				840F969127736428004979E9 /* NSString+Conversion.m in Sources */,
 				844B083B2764CF4800B0513D /* JXCategoryTitleBackgroundCell.m in Sources */,
-				C59EF6CF28788C600089B97C /* BaiShaETProjTelFindPwdVC.m in Sources */,
 				844B08502764CF4800B0513D /* ECPrivacyCheckPhotos.m in Sources */,
 				840F960B27736427004979E9 /* BWShareView.m in Sources */,
 				8424779227C1141900831270 /* CoreTextLearningVC.m in Sources */,
@@ -11567,7 +11184,6 @@
 				84CA64AE2789C2AF00E46E71 /* PlayerCell.m in Sources */,
 				84CA5FE127897AFB00E46E71 /* CountdownView.m in Sources */,
 				840F965627736428004979E9 /* NSBundle+CLLanguage.m in Sources */,
-				C530CC2D282E2DA800D5ECCF /* JobsLeftRightLab.m in Sources */,
 				845625A0278BF2780067ABB9 /* JobsCommentModel.m in Sources */,
 				84CA5FB627897AFB00E46E71 /* DDUploadingProgressView.m in Sources */,
 				8440A1A227A1053C0089EE40 /* JobsDropDownListVC.m in Sources */,
@@ -11605,14 +11221,12 @@
 				84CA61932789851300E46E71 /* A_VC.m in Sources */,
 				8456259D278BF2780067ABB9 /* JobsCommentConfig.m in Sources */,
 				C520F89D2AB3A12100142DCC /* AFSecurityPolicy.m in Sources */,
-				C57A8BF42850D2DC00DD089E /* BaiShaETProjMembersBoardView.m in Sources */,
 				C5E4ABC02858BEED00B782F0 /* UILabelWordRotatingVC.m in Sources */,
 				C55C895628437190005295B1 /* JXCategoryPopupVC.m in Sources */,
 				C59478D62851E2D7009D040A /* OCDynamic.m in Sources */,
 				844B084E2764CF4800B0513D /* ECPrivacyCheckMotionAndFitness.m in Sources */,
 				840F969A27736428004979E9 /* NSString+Replace.m in Sources */,
 				84D76437278090330003F0E4 /* UIViewController+SafeTransition.m in Sources */,
-				C5C47D69284E1DF9007916B3 /* JobsPopupView09.m in Sources */,
 				844B08512764CF4800B0513D /* ECPrivacyCheckContacts.m in Sources */,
 				C54BC43628325BA80010EF20 /* JobsTitleView01.m in Sources */,
 				84401A8727919E3B0038FF6F /* JobsSearchTableViewHeaderView.m in Sources */,
@@ -11626,7 +11240,7 @@
 				840F967A27736428004979E9 /* UIView+AOP.m in Sources */,
 				840F96F827736428004979E9 /* NSObject+AFNReachability.m in Sources */,
 				C5B3AE9A285378FA0052A4A9 /* BaiShaETProjVIPSubCVCell_03.m in Sources */,
-				C532940F2ABCC86D004294E0 /* CustomContainerView.m in Sources */,
+				C532940F2ABCC86D004294E0 /* JobsContainerView.m in Sources */,
 				844B02262764C8F000B0513D /* main.m in Sources */,
 				840F969927736428004979E9 /* NSString+FilteringSpecialCharacters.m in Sources */,
 				C520F88A2AB3A12100142DCC /* WMZBannerParam.m in Sources */,
@@ -11644,7 +11258,6 @@
 				840F971027736428004979E9 /* UITextField+Extend.m in Sources */,
 				84B9A8CE279680C80070DD20 /* TestLabelVC.m in Sources */,
 				84CA5FDB27897AFB00E46E71 /* AESCrypt.m in Sources */,
-				C57A8BF82850D2EE00DD089E /* BaiShaETProjMembersSection1View.m in Sources */,
 				8458D276278DBDD50063A76E /* LMJDropdownMenu+Extra.m in Sources */,
 				84CA5FDC27897AFB00E46E71 /* CFGradientLabel.m in Sources */,
 				840F96F027736428004979E9 /* NSObject+RegularExpression.m in Sources */,
@@ -11687,7 +11300,6 @@
 				C53294022ABCC844004294E0 /* JobsTuple.m in Sources */,
 				C5B3AF3728537E320052A4A9 /* BaiShaETProjCollectionHeaderView.m in Sources */,
 				8459D61C2779A88A00125782 /* CasinoCustomerContactModel.m in Sources */,
-				C530CC28282E2DA800D5ECCF /* JobsUpDownLab.m in Sources */,
 				84CA5F9927897AFB00E46E71 /* GTMBase64.m in Sources */,
 				84CA64BF2789C80600E46E71 /* MKRightBtnView.m in Sources */,
 				C596B7A4283F6F7900C13619 /* JobsHotLabelWithMultiLineCVCell.m in Sources */,
@@ -11726,7 +11338,6 @@
 				84868F19277ADF690098BE7A /* JobsDropDownListView.m in Sources */,
 				840F969827736428004979E9 /* NSString+Judgment.m in Sources */,
 				844B02182764C8EE00B0513D /* ViewController.m in Sources */,
-				C530CC2A282E2DA800D5ECCF /* JobsLabBaseModel.m in Sources */,
 				84A4921427904B000002A837 /* JobsIMShowVC.m in Sources */,
 				844B08492764CF4800B0513D /* ECPrivacyCheckCamera.m in Sources */,
 				8459D6172779A6CC00125782 /* CasinoCustomerServiceView.m in Sources */,
@@ -11737,7 +11348,6 @@
 				840F96D627736428004979E9 /* DispatchTimerManager.m in Sources */,
 				840F971A27736428004979E9 /* AppInternationalizationVC.m in Sources */,
 				84CA5CD12789587900E46E71 /* AppDelegate+XHLaunchAdDelegate.m in Sources */,
-				C5C47D70284E1DF9007916B3 /* JobsPopupView05.m in Sources */,
 				840F964727736427004979E9 /* UIImage+SYS.m in Sources */,
 				840F961127736427004979E9 /* ZBRequestManager.m in Sources */,
 				84CA65FC2789D3B500E46E71 /* JobsAppDoorVC_Style2.m in Sources */,
@@ -11760,7 +11370,6 @@
 				844B08452764CF4800B0513D /* EmptyView.m in Sources */,
 				C57FAEDF287562C600E72F91 /* GXCardItemDemoCell.m in Sources */,
 				84CA5FCB27897AFB00E46E71 /* TBCityIconInfo.m in Sources */,
-				C5C47D60284E1DF9007916B3 /* JobsPopupView06.m in Sources */,
 				840F965527736428004979E9 /* BaseTableViewCell.m in Sources */,
 				84CA61A32789859900E46E71 /* BackAnimation.m in Sources */,
 				840F96B227736428004979E9 /* UINavigationController+SafeTransition.m in Sources */,
@@ -11778,7 +11387,6 @@
 				840F964227736427004979E9 /* UIScrollView+FDFullscreenPopGesture.m in Sources */,
 				840F968B27736428004979E9 /* UICollectionViewCell+ShakeAnimation.m in Sources */,
 				840F96A127736428004979E9 /* UIViewController+JPImageresizerView.m in Sources */,
-				C5C47D65284E1DF9007916B3 /* JobsDataShowBackView.m in Sources */,
 				84758D10279922660074B4BA /* JobsLaunchConfig.m in Sources */,
 				84401A8227919E3B0038FF6F /* JobsSearchTBVCell.m in Sources */,
 				840F96AD27736428004979E9 /* LOTAnimationMJRefreshHeader.m in Sources */,
@@ -11795,7 +11403,6 @@
 				840F966227736428004979E9 /* LGiOSBtn.m in Sources */,
 				C50AFF122865ED7E00BBAE65 /* NSTimerManagerTestVC.m in Sources */,
 				846DF03727806D230050468A /* JobsAppDoorModel.m in Sources */,
-				C5C47D6B284E1DF9007916B3 /* JobsPopupView03.m in Sources */,
 				840F969F27736428004979E9 /* UIViewController+XLBubbleTransition.m in Sources */,
 				844B084C2764CF4800B0513D /* ECPrivacyCheckCalendars.m in Sources */,
 				C520F8902AB3A12100142DCC /* UIRefreshControl+AFNetworking.m in Sources */,
@@ -11813,7 +11420,6 @@
 				84CA64A42789C1F100E46E71 /* Douyin_ZFPlayerVC@1.m in Sources */,
 				C596B7A3283F6F7900C13619 /* JobsHotLabelWithSingleLine.m in Sources */,
 				844B084A2764CF4800B0513D /* ECPrivacyCheckLocationServices.m in Sources */,
-				C530CC2C282E2DA800D5ECCF /* JobsLeftRightLabModel.m in Sources */,
 				8424743F27C0CAEB00831270 /* GetImageApi.m in Sources */,
 				840F965B27736428004979E9 /* ButtonTimerConfigModel.m in Sources */,
 				840F96BF27736428004979E9 /* NSArray+Tools.m in Sources */,
@@ -11821,7 +11427,6 @@
 				840F968027736428004979E9 /* UITextView+Extend.m in Sources */,
 				84CA5FBE27897AFB00E46E71 /* ZHKeyChainManager.m in Sources */,
 				84CA5FDE27897AFB00E46E71 /* WGradientProgressView.m in Sources */,
-				C5C47D68284E1DF9007916B3 /* JobsPopupView08.m in Sources */,
 				C5C480A5284E250A007916B3 /* JobsSettingGestureVC.m in Sources */,
 				C520F8892AB3A12100142DCC /* WMZBannerFlowLayout.m in Sources */,
 				84CA660F2789D4CD00E46E71 /* FindCodeFlowChartView.m in Sources */,
@@ -11855,7 +11460,6 @@
 				846DF03B27806D230050468A /* JobsAppDoorContentView.m in Sources */,
 				844019902791997C0038FF6F /* NSMutableArray+Extra.m in Sources */,
 				C533BBBF2837D095006FB231 /* JobsUserHeaderDataViewForHeaderInSection.m in Sources */,
-				C57A8BE32850D04B00DD089E /* IntervalTBVCellShow.m in Sources */,
 				C520F8962AB3A12100142DCC /* AFAutoPurgingImageCache.m in Sources */,
 				840F968A27736428004979E9 /* BaseCollectionView.m in Sources */,
 				C57A203E282CB59F0032156B /* ZLGestureLockIndicator.m in Sources */,
@@ -11875,9 +11479,7 @@
 				8424771527C0FDCA00831270 /* GetCustomerContactApi.m in Sources */,
 				C5948B32287A867000EC655B /* BaseRequest.m in Sources */,
 				C53683632875856100DD7AA7 /* TMSWalletCollectionReusableView.m in Sources */,
-				C5C47D63284E1DF9007916B3 /* JobsPopupView07.m in Sources */,
 				840F963F27736427004979E9 /* JobsSuspendLab.m in Sources */,
-				C5C47D5D284E1DF9007916B3 /* JobsPopupView02.m in Sources */,
 				840F970127736428004979E9 /* NSObject+RichText.m in Sources */,
 				C5AA8B6B282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_6.m in Sources */,
 				840F967527736428004979E9 /* UIView+BackgroundImage.m in Sources */,

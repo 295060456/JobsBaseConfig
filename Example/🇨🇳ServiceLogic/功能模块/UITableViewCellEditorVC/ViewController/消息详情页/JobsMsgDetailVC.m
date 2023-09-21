@@ -16,7 +16,6 @@
 @property(nonatomic,strong)UITextView *textView;
 @property(nonatomic,strong)UIButton *deleteBtn;
 /// Data
-@property(nonatomic,strong)JobsUpDownLabModel *upDownLabModel;
 @property(nonatomic,strong)JobsMsgDataModel *msgDataModel;
 
 @end

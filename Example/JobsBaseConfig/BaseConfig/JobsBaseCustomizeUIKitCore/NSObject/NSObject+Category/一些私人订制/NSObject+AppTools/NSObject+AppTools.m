@@ -401,51 +401,6 @@ static char *NSObject_AppTools_hotLabelDataMutArr = "NSObject_AppTools_hotLabelD
                              hotLabelDataMutArr,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-static char *NSObject_AppTools_titleLab = "NSObject_AppTools_titleLab";
-@dynamic titleLab;
-#pragma mark —— @property(nonatomic,strong)JobsUpDownLab *titleLab;
--(JobsUpDownLab *)titleLab{
-    JobsUpDownLab *TitleLab = objc_getAssociatedObject(self, NSObject_AppTools_titleLab);
-    if ([self isKindOfClass:UIViewController.class] && !TitleLab) {
-        TitleLab = JobsUpDownLab.new;
-        
-        UIViewController *viewController = (UIViewController *)self;
-        [viewController.view addSubview:TitleLab];
-        [TitleLab mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(viewController.view).offset(JobsWidth(120));
-            make.left.equalTo(viewController.view).offset(JobsWidth(16));
-        }];
-        
-        {
-            JobsUpDownLabModel *model = JobsUpDownLabModel.new;
-            model.upLabText = Internationalization(@"登入獲得更多精彩");
-            model.upLabFont = [UIFont systemFontOfSize:JobsWidth(24)
-                                                weight:UIFontWeightBold];
-            model.upLabTextCor = JobsBlackColor;
-            model.upLabBgCor = UIColor.clearColor;
-            model.upLabTextAlignment = NSTextAlignmentLeft;
-            
-            model.downLabText = Internationalization(@"在這裡，體驗專業平台");
-            model.downLabFont = [UIFont systemFontOfSize:JobsWidth(16)
-                                                  weight:UIFontWeightRegular];
-            model.downLabTextCor = HEXCOLOR(0xB0B0B0);
-            model.downLabBgCor = UIColor.clearColor;
-            model.downLabTextAlignment = NSTextAlignmentLeft;
-            
-            model.space = JobsWidth(12);
-            
-            [TitleLab richElementsInViewWithModel:model];
-        }
-        [self setTitleLab:TitleLab];
-    }return TitleLab;
-}
-
--(void)setTitleLab:(JobsUpDownLab *)titleLab{
-    objc_setAssociatedObject(self,
-                             NSObject_AppTools_titleLab,
-                             titleLab,
-                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
 static char *NSObject_AppTools_separateLab = "NSObject_AppTools_separateLab";
 @dynamic separateLab;
 #pragma mark —— @property(nonatomic,strong)UILabel *separateLab;/// 分割线
