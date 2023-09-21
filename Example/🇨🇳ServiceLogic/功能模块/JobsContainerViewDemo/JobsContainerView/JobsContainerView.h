@@ -21,10 +21,14 @@ NS_ASSUME_NONNULL_BEGIN
  在iOS中，UILabel 默认的行间距是根据字体和文本内容来自动计算的，并且通常情况下不会有明确的默认值。
  行间距会受到字体、文本内容、字体大小以及UILabel的frame大小等因素的影响。
  */
+/// ❤️宽度的优先级示意图：JobsBtnModel.btnWidth > 不提行时候的最大宽度 > 整个容器的宽widthBySelf ❤️
 @interface JobsContainerView : BaseView
 /// 禁止使用系统的 alloc.init 和 new方法来进行创建对象
 +(instancetype)new NS_UNAVAILABLE;
 -(instancetype)init NS_UNAVAILABLE;
+/// - Parameters:
+///   - widthBySelf: 整个容器的宽度 == 子控件（UIButton）的预设值
+///   - buttonModels: 数据源
 -(instancetype)initWithWidth:(CGFloat)widthBySelf
                 buttonModels:(NSArray<JobsBtnModel *> *)buttonModels;
 @end

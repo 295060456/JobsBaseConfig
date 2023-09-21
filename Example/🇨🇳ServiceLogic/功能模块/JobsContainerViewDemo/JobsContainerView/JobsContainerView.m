@@ -67,6 +67,8 @@
         这个view的宽度 = 单行文字 + 字体 得出的这段文字的宽
     2.2、如果文字提行
         这个view的宽度 = 这个view在初始化方法中的预设值
+ 
+❤️优先级示意图：JobsBtnModel.btnWidth > 不提行时候的最大宽度 > 整个容器的宽widthBySelf ❤️
  */
         if(model.btnWidth){
             btnWidth = model.btnWidth;
@@ -102,7 +104,7 @@
 /// - Parameter model: 数据源
 -(UIButton *)createButtonWithModel:(JobsBtnModel *)model{
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.width = 200;/// 预设值，否则撑不开
+    button.width = self.widthBySelf;/// 预设值，否则撑不开
     button.backgroundColor = model.backgroundColor;
     button.normalTitle = model.title;
     button.normalTitleColor = model.titleColor;
