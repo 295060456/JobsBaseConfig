@@ -138,7 +138,7 @@ static dispatch_once_t static_msgEditBoardViewOnceToken;
         }];
         [_allChooseBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft imageTitleSpace:JobsWidth(12)];
         @jobs_weakify(self)
-        [_allChooseBtn btnClickEventBlock:^(UIButton *x) {
+        [_allChooseBtn jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             x.selected = !x.selected;
             if (self.objectBlock) self.objectBlock(x);
@@ -161,7 +161,7 @@ static dispatch_once_t static_msgEditBoardViewOnceToken;
             make.height.mas_equalTo(JobsWidth(14));
         }];
         @jobs_weakify(self)
-        [_markToReadBtn btnClickEventBlock:^(UIButton *x) {
+        [_markToReadBtn jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             x.selected = !x.selected;
             if (self.objectBlock) self.objectBlock(x);
@@ -184,7 +184,7 @@ static dispatch_once_t static_msgEditBoardViewOnceToken;
         }];
         [_deleteBtn makeBtnLabelByShowingType:UILabelShowingType_03];
         @jobs_weakify(self)
-        [_deleteBtn btnClickEventBlock:^(UIButton *x) {
+        [_deleteBtn jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             x.selected = !x.selected;
             if (self.objectBlock) self.objectBlock(x);

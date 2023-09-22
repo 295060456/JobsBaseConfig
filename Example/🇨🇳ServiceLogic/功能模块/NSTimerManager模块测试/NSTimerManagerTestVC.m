@@ -50,25 +50,25 @@
     
     @jobs_weakify(self)
     /// 开始
-    [self.btnMutArr[0] btnClickEventBlock:^(UIButton *data) {
+    [self.btnMutArr[0] jobsBtnClickEventBlock:^(UIButton *data) {
         @jobs_strongify(self)
         [self reloadBtn:data];
         [self.nsTimerManager nsTimeStartSysAutoInRunLoop];
     }];
     /// 暂停
-    [self.btnMutArr[1] btnClickEventBlock:^(UIButton *data) {
+    [self.btnMutArr[1] jobsBtnClickEventBlock:^(UIButton *data) {
         @jobs_strongify(self)
         [self reloadBtn:data];
         [self.nsTimerManager nsTimePause];
     }];
     /// 继续
-    [self.btnMutArr[2] btnClickEventBlock:^(UIButton *data) {
+    [self.btnMutArr[2] jobsBtnClickEventBlock:^(UIButton *data) {
         @jobs_strongify(self)
         [self reloadBtn:data];
         [self.nsTimerManager nsTimecontinue];
     }];
     /// 结束
-    [self.btnMutArr[3] btnClickEventBlock:^(UIButton *data) {
+    [self.btnMutArr[3] jobsBtnClickEventBlock:^(UIButton *data) {
         @jobs_strongify(self)
         [self reloadBtn:data];
         [self.nsTimerManager nsTimeDestroy];

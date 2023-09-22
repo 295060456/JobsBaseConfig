@@ -96,7 +96,7 @@ static CasinoCustomerServiceView *static_customerServiceView = nil;
         _contactCustomerServiceBtn = UIButton.new;
         _contactCustomerServiceBtn.normalImage = JobsIMG(Internationalization(@"zaixiankefu_en"));
         @jobs_weakify(self)
-        [_contactCustomerServiceBtn btnClickEventBlock:^(UIButton *x) {
+        [_contactCustomerServiceBtn jobsBtnClickEventBlock:^(UIButton *x) {
             NSLog(@"返回登录");
             @jobs_strongify(self)
             if (self.customerContactModel.onlineUrl.customerAccount.nullString) {
@@ -122,7 +122,7 @@ static CasinoCustomerServiceView *static_customerServiceView = nil;
         _closeBtn = UIButton.new;
         [_closeBtn normalBackgroundImage:JobsIMG(@"客服_关闭按钮")];
         @jobs_weakify(self)
-        [_closeBtn btnClickEventBlock:^(UIButton *x) {
+        [_closeBtn jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             if(self.objectBlock) self.objectBlock(x);
         }];

@@ -93,7 +93,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self.jobsCopyBtn makeBtnLabelByShowingType:UILabelShowingType_03];
     [self.jobsCopyBtn cornerCutToCircleWithCornerRadius:JobsWidth(18 / 2)];
     @jobs_weakify(self)
-    [self.jobsCopyBtn btnClickEventBlock:^(id data) {
+    [self.jobsCopyBtn jobsBtnClickEventBlock:^(id data) {
         @jobs_strongify(self)
         UIViewModel *viewModel = (UIViewModel *)self.viewModel.jobsDataMutArr[indexPath.row];
         [viewModel.subTextModel.text pasteboard];

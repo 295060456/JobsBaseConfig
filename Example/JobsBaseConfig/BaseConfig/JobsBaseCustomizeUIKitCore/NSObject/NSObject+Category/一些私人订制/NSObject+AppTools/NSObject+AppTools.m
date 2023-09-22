@@ -446,7 +446,7 @@ static char *NSObject_AppTools_立即注册 = "NSObject_AppTools_立即注册";
             make.left.equalTo(self.separateLab.mas_right).offset(JobsWidth(24));
         }];
         @jobs_weakify(self)
-        [_立即注册 btnClickEventBlock:^(id data) {
+        [_立即注册 jobsBtnClickEventBlock:^(id data) {
             @jobs_strongify(self)
             NSLog(@"立即注册")
             [self JobsTestPopView:@"立即注册"];
@@ -481,7 +481,7 @@ static char *NSObject_AppTools_联系客服 = "NSObject_AppTools_联系客服";
             make.right.equalTo(viewController.separateLab.mas_left).offset(JobsWidth(-24));
         }];
         @jobs_weakify(self)
-        [_联系客服 btnClickEventBlock:^(id data) {
+        [_联系客服 jobsBtnClickEventBlock:^(id data) {
             @jobs_strongify(self)
             NSLog(@"联系客服");
             [self JobsTestPopView:@"联系客服"];

@@ -18,7 +18,7 @@
         btn.size = self.size;
         btn.normalBackgroundImage = self.img;
         @jobs_weakify(self)
-        [btn btnClickEventBlock:^(id data) {
+        [btn jobsBtnClickEventBlock:^(id data) {
             @jobs_strongify(self)
             if (customAccessoryViewBlock) customAccessoryViewBlock(self);
         }];

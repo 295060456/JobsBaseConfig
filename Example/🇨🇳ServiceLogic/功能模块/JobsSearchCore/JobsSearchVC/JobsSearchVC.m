@@ -448,7 +448,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (!_scanBtn) {
         _scanBtn = UIButton.new;
         [_scanBtn normalBackgroundImage:JobsIMG(@"扫描")];
-        [_scanBtn btnClickEventBlock:^(id data) {
+        [_scanBtn jobsBtnClickEventBlock:^(id data) {
             toast(Internationalization(@"此功能尚未开发"));
         }];
     }return _scanBtn;

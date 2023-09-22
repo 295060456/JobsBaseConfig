@@ -74,7 +74,7 @@ static dispatch_once_t static_showNumViewOnceToken;
         btn.titleFont = UIFontWeightBoldSize(40);
         btn.normalTitleColor = HEXCOLOR(0xAE8330);
         @jobs_weakify(self)
-        [btn btnClickEventBlock:^(id data) {
+        [btn jobsBtnClickEventBlock:^(id data) {
             @jobs_strongify(self)
             NSLog(@"%@",btn.titleForNormalState)
         }];

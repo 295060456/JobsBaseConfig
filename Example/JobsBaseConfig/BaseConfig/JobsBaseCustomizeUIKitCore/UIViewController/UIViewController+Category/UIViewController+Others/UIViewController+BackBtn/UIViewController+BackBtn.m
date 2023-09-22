@@ -50,7 +50,7 @@ static char *BaseVC_BackBtn_backBtnCategory = "BaseVC_BackBtn_backBtnCategory";
     if (!BackBtnCategory) {
         BackBtnCategory = [self makeBackBtn:self.viewModel];
         @jobs_weakify(self)
-        [BackBtnCategory btnClickEventBlock:^(UIButton *x) {
+        [BackBtnCategory jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             [self backBtnClickEvent:x];
         }];

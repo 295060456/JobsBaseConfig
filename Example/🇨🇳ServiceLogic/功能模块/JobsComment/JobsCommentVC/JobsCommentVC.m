@@ -69,7 +69,7 @@
         _contactCustomerServiceBtn.normalImage = JobsIMG(Internationalization(@"zaixiankefu_en"));
         _contactCustomerServiceBtn.selectedImage = JobsIMG(Internationalization(@"zaixiankefu_en"));
         @jobs_weakify(self)
-        [_contactCustomerServiceBtn btnClickEventBlock:^(UIButton *x) {
+        [_contactCustomerServiceBtn jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             [self makeJobsCommentCoreVC];
         }];

@@ -367,7 +367,7 @@ referenceSizeForFooterInSection:(NSInteger)section{
         _editBtn.normalImage = JobsIMG(@"编辑");
         [_editBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft imageTitleSpace:JobsWidth(5.75)];
         @jobs_weakify(self)
-        [_editBtn btnClickEventBlock:^(id data) {
+        [_editBtn jobsBtnClickEventBlock:^(id data) {
             @jobs_strongify(self)
 //            toast(Internationalization(@"编辑"));
             self.popupParameter.dragEnable = YES;

@@ -111,7 +111,7 @@
 //        _LikeBtn.layer.borderWidth = 1;
         _LikeBtn.thumpNum = 0;
         @jobs_weakify(self)
-        [_LikeBtn btnClickEventBlock:^(UIButton *x) {
+        [_LikeBtn jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             if (self.objectBlock) self.objectBlock(x);
             if (self->_LikeBtn.selected) {

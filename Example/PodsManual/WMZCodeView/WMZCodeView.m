@@ -124,7 +124,7 @@ static dispatch_once_t static_codeViewOnceToken;
                                         40,
                                         40);
         @jobs_weakify(self)
-        [self.refresh btnClickEventBlock:^(UIButton *x) {
+        [self.refresh jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             [self refreshAction];
         }];
@@ -164,7 +164,7 @@ static dispatch_once_t static_codeViewOnceToken;
                                         40);
         self.refresh.normalImage = JobsIMG(@"refresh");
         @jobs_weakify(self)
-        [self.refresh btnClickEventBlock:^(id data) {
+        [self.refresh jobsBtnClickEventBlock:^(id data) {
             @jobs_strongify(self)
             [self refreshAction];
         }];
@@ -291,7 +291,7 @@ static dispatch_once_t static_codeViewOnceToken;
             btn.layer.masksToBounds = YES;
             btn.layer.cornerRadius = btnWidth/2;
             @jobs_weakify(self)
-            [btn btnClickEventBlock:^(UIButton *x) {
+            [btn jobsBtnClickEventBlock:^(UIButton *x) {
                 @jobs_strongify(self)
                 [self tapAction:x];
             }];

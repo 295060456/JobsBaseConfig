@@ -221,7 +221,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
         _editBtn.titleFont = notoSansBold(12);
         _editBtn.normalTitleColor = HEXCOLOR(0x3D4A58);
         @jobs_weakify(self)
-        [_editBtn btnClickEventBlock:^(UIButton *x) {
+        [_editBtn jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
 //            toast(x.titleForNormalState);
             x.selected = !x.selected;

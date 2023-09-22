@@ -19,7 +19,7 @@ static char *UIViewController_SuspendBtn_suspendBtn = "UIViewController_SuspendB
         SuspendBtn.normalImage = JobsIMG(@"旋转");
         SuspendBtn.isAllowDrag = YES;//悬浮效果必须要的参数
         @jobs_weakify(self)
-        [SuspendBtn btnClickEventBlock:^(UIButton *x) {
+        [SuspendBtn jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             x.selected = !x.selected;
             NSLog(@"%@",x.selected ? Internationalization(@"开始旋转") : Internationalization(@"停止旋转"));

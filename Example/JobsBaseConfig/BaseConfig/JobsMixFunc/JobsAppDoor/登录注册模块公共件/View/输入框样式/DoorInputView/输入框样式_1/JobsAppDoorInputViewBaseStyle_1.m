@@ -152,7 +152,7 @@
     if (!_countDownBtn) {
         _countDownBtn = [UIButton.alloc initWithConfig:self.btnTimerConfigModel];
         @jobs_weakify(self)
-        [_countDownBtn btnClickEventBlock:^(UIButton *x) {
+        [_countDownBtn jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             [x startTimer];//选择时机、触发启动
 //            NSLog(@"SSSSS = 获取验证码");

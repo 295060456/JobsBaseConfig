@@ -338,7 +338,7 @@ insetForSectionAtIndex:(NSInteger)section {
             make.right.equalTo(self.titleLab.mas_right).offset(JobsWidth(-25.12));
         }];
         @jobs_weakify(self)
-        [_closeBtn btnClickEventBlock:^(UIButton *x) {
+        [_closeBtn jobsBtnClickEventBlock:^(UIButton *x) {
             NSLog(@"关闭");
             @jobs_strongify(self)
             x.selected = !x.selected;
@@ -364,7 +364,7 @@ insetForSectionAtIndex:(NSInteger)section {
             make.size.mas_equalTo(CGSizeMake(JobsWidth(120), JobsWidth(40)));
         }];
         @jobs_weakify(self)
-        [_cancelBtn btnClickEventBlock:^(UIButton *x) {
+        [_cancelBtn jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             NSLog(@"恢复默认");
             x.selected = !x.selected;
@@ -390,7 +390,7 @@ insetForSectionAtIndex:(NSInteger)section {
             make.size.mas_equalTo(CGSizeMake(JobsWidth(120), JobsWidth(40)));
         }];
         @jobs_weakify(self)
-        [_sureBtn btnClickEventBlock:^(UIButton *x) {
+        [_sureBtn jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             x.selected = !x.selected;
             [self cancelBtnActionForPopView:self.dataMutArr];

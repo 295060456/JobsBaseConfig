@@ -68,7 +68,7 @@
         _sendBtn.normalBackgroundImage = [UIImage imageWithColor:JobsCyanColor];
         _sendBtn.selectedBackgroundImage = [UIImage imageWithColor:JobsLightGrayColor];
         @jobs_weakify(self)
-        [_sendBtn btnClickEventBlock:^(UIButton *x) {
+        [_sendBtn jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             [self endEditing:YES];
             if (!self.inputTextField.text.nullString) {

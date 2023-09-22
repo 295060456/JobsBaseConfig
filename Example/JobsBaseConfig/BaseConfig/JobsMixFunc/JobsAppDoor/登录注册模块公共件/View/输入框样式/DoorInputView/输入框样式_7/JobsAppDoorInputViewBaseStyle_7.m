@@ -169,7 +169,7 @@
             
         }];
         @jobs_weakify(self)
-        [_chooseBtn btnClickEventBlock:^(UIButton *x) {
+        [_chooseBtn jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             x.selected = !x.selected;
             if (x.selected) {

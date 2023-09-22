@@ -143,7 +143,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         _userHeadBtn.normalImage = JobsIMG(@"首页_头像");
         _userHeadBtn.normalTitle = Internationalization(@"");
         @jobs_weakify(self)
-        [_userHeadBtn btnClickEventBlock:^(UIButton *x) {
+        [_userHeadBtn jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             UIViewModel *viewModel = [self configViewModelWithTitle:@"用户信息展示(开发测试专用)" subTitle:nil];
             viewModel.cls = JobsShowObjInfoVC.class;

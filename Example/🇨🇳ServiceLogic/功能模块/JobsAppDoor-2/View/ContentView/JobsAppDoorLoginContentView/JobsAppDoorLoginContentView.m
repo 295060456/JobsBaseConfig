@@ -108,7 +108,7 @@
         _toRegisterBtn.normalTitle = Title2;
         _toRegisterBtn.normalImage = JobsIMG(@"用户名称");
         @jobs_weakify(self)
-        [_toRegisterBtn btnClickEventBlock:^(UIButton *x) {
+        [_toRegisterBtn jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             [self endEditing:YES];
             if (self.objectBlock) self.objectBlock(x);
@@ -151,7 +151,7 @@
             make.bottom.mas_equalTo(self).offset(-JobsWidth(30));
         }];
         @jobs_weakify(self)
-        [_abandonLoginBtn btnClickEventBlock:^(UIButton *x) {
+        [_abandonLoginBtn jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             if (self.objectBlock) self.objectBlock(x);
         }];
@@ -173,7 +173,7 @@
         }];
         [self layoutIfNeeded];
         [_sendBtn cornerCutToCircleWithCornerRadius:_sendBtn.height / 2];
-        [_sendBtn btnClickEventBlock:^(UIButton *x) {
+        [_sendBtn jobsBtnClickEventBlock:^(UIButton *x) {
             toast(x.titleForNormalState);
         }];
     }return _sendBtn;
@@ -200,7 +200,7 @@
         [_storeCodeBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft
                                        imageTitleSpace:JobsWidth(3)];
         @jobs_weakify(self)
-        [_storeCodeBtn btnClickEventBlock:^(UIButton *x) {
+        [_storeCodeBtn jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             x.selected = !x.selected;
             if (self.objectBlock) self.objectBlock(x);
@@ -222,7 +222,7 @@
             make.top.equalTo(inputView.mas_bottom).offset(JobsWidth(20));
         }];
         @jobs_weakify(self)
-        [_findCodeBtn btnClickEventBlock:^(UIButton *x) {
+        [_findCodeBtn jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             if (self.objectBlock) self.objectBlock(x);
         }];

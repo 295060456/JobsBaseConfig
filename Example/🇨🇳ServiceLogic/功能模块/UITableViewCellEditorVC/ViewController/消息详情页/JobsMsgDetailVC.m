@@ -168,7 +168,7 @@
         _deleteBtn.titleFont = notoSansRegular(12);
         _deleteBtn.normalTitleColor = HEXCOLOR(0x3D4A58);
         @jobs_weakify(self)
-        [_deleteBtn btnClickEventBlock:^(UIButton *x) {
+        [_deleteBtn jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             [self backBtnClickEvent:x];
             if (self.objectBlock) self.objectBlock(self.msgDataModel);

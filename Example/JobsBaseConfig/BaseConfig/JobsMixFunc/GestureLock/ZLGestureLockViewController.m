@@ -275,7 +275,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
         _otherAcountBtn.normalTitle = Internationalization(@"其他账户");
         _otherAcountBtn.titleFont = [UIFont systemFontOfSize:JobsWidth(12)];
         _otherAcountBtn.normalTitleColor = RGBA_COLOR(102, 102, 102, 1);
-        [_otherAcountBtn btnClickEventBlock:^(id data) {
+        [_otherAcountBtn jobsBtnClickEventBlock:^(id data) {
                     NSLog(@"点击其他账号登陆按钮")
         }];
         [self.view addSubview:_otherAcountBtn];
@@ -294,7 +294,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
         _resetPswBtn.titleFont = [UIFont systemFontOfSize:JobsWidth(12)];
         _resetPswBtn.normalTitleColor = RGBA_COLOR(102, 102, 102, 1);
         @jobs_weakify(self)
-        [_resetPswBtn btnClickEventBlock:^(id data) {
+        [_resetPswBtn jobsBtnClickEventBlock:^(id data) {
             @jobs_strongify(self)
             self.lastGesturePsw = nil;
             self.statusLabel.text = Internationalization(@"请绘制手势密码");
@@ -316,7 +316,7 @@ clickedButtonAtIndex:(NSInteger)buttonIndex {
         _forgetPswBtn.normalTitle = Internationalization(@"忘记密码");
         _forgetPswBtn.titleFont = [UIFont systemFontOfSize:JobsWidth(12)];
         _forgetPswBtn.normalTitleColor = UIColor.redColor;
-        [_forgetPswBtn btnClickEventBlock:^(id data) {
+        [_forgetPswBtn jobsBtnClickEventBlock:^(id data) {
             NSLog(@"点击忘记手势密码按钮");
         }];
         [self.view addSubview:_forgetPswBtn];

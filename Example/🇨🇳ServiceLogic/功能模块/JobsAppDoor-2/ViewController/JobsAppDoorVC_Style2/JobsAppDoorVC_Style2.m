@@ -323,7 +323,7 @@ static dispatch_once_t static_jobsAppDoor_Style2OnceToken;
         _customerServiceBtn.normalTitle = Title8;
         _customerServiceBtn.normalImage = JobsIMG(@"客服");
         @jobs_weakify(self)
-        [_customerServiceBtn btnClickEventBlock:^(UIButton *x) {
+        [_customerServiceBtn jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             toast(x.titleForNormalState);
         }];

@@ -93,7 +93,7 @@
         _btn1.normalTitleColor = HEXCOLOR(0x502600);
         _btn1.normalTitle = Internationalization(@"Cancel");
         @jobs_weakify(self)
-        [_btn1 btnClickEventBlock:^(id data) {
+        [_btn1 jobsBtnClickEventBlock:^(id data) {
             @jobs_strongify(self)
             if(self.objectBlock) self.objectBlock(self->_btn1);
         }];
@@ -115,7 +115,7 @@
         _btn2.normalBackgroundImage = JobsIMG(@"弹窗确定按钮背景图");
         _btn2.normalTitleColor = HEXCOLOR(0x502600);
         _btn2.normalTitle = Internationalization(@"Sure");
-        [_btn2 btnClickEventBlock:^(id data) {
+        [_btn2 jobsBtnClickEventBlock:^(id data) {
             if(self.objectBlock) self.objectBlock(self->_btn2);
         }];
         [self addSubview:_btn2];

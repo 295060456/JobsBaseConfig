@@ -9,30 +9,16 @@
 #import "MacroDef_Strong@Weak.h"
 #import "JobsBlock.h"
 #import "MacroDef_Cor.h"
-#import "BaseProtocol.h"
-/// For RAC
-/// @jobs_weakify(self) 在内层定义
-#define BtnClickEvent(button,action)\
-@jobs_weakify(self)\
-[[button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {\
-    @jobs_strongify(self)\
-    action\
-}];\
-/// @jobs_weakify(self) 在外层定义
-#define btnClickEvent(button,action)\
-[[button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {\
-    @jobs_strongify(self)\
-    action\
-}];\
-/// For UIKit
-#define BtnAction(button,target,action)\
-[button addTarget:target\
-           action:action\
- forControlEvents:UIControlEventTouchUpInside];\
+
+#if __has_include(<ReactiveObjC/ReactiveObjC.h>)
+#import <ReactiveObjC/ReactiveObjC.h>
+#else
+#import "ReactiveObjC.h"
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 /// ⚠️当font描绘的文字,或者文字大于UIButton的frame,UIButton的Title将不会显现⚠️
-@interface UIButton (UI)<BaseProtocol>
+@interface UIButton (UI)
 /// 为了迎合点语法而故意把下列方法属性化
 /// Common
 @property(nonatomic,strong)UIFont *titleFont;
@@ -54,7 +40,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)UIColor *endableNormalTitleColor;
 
 #pragma mark —— 一些功能性
--(RACDisposable *)btnClickEventBlock:(jobsByIDBlock)subscribeNextBlock;
+/// RAC 点击事件2次封装
+-(void)jobsBtnClickEventBlock:(jobsByIDBlock)subscribeNextBlock;
 /// 方法名字符串（带参数、参数之间用"："隔开）、作用对象、参数
 -(jobsByThreeIDBlock)btnClickActionWithParamarrays;
 /// 方法名字符串（不带参数）、作用对象

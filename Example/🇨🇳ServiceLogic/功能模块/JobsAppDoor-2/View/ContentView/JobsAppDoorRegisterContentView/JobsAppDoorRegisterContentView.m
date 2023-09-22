@@ -117,7 +117,7 @@
         _backToLoginBtn.normalTitle = Title1;
         _backToLoginBtn.normalImage = JobsIMG(@"用户名称");
         @jobs_weakify(self)
-        [_backToLoginBtn btnClickEventBlock:^(UIButton *x) {
+        [_backToLoginBtn jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             [self endEditing:YES];
             if (self.objectBlock) self.objectBlock(x);
@@ -154,7 +154,7 @@
         [_sendBtn normalTitleColor:UIColor.whiteColor];
         [_sendBtn titleFont:UIFontWeightRegularSize(16)];
         [_sendBtn buttonAutoWidthByFont];
-        [_sendBtn btnClickEventBlock:^(UIButton *x) {
+        [_sendBtn jobsBtnClickEventBlock:^(UIButton *x) {
             toast(x.titleForNormalState);
         }];
         _sendBtn.x = self.backToLoginBtn.width + JobsWidth(20);

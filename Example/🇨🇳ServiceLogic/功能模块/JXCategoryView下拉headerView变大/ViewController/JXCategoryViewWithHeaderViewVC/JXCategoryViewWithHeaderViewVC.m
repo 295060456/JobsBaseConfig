@@ -182,7 +182,7 @@ mainTableViewDidScroll:(UIScrollView *)scrollView{
         _ruleBtn.normalTitleColor = HEXCOLOR(0x3D4A58);
         _ruleBtn.normalTitle = Internationalization(@"VIP規則");
         _ruleBtn.titleFont = notoSansRegular(12);
-        [_ruleBtn btnClickEventBlock:^(id data) {
+        [_ruleBtn jobsBtnClickEventBlock:^(id data) {
             toast(Internationalization(@"VIP規則"));
         }];
     }return _ruleBtn;

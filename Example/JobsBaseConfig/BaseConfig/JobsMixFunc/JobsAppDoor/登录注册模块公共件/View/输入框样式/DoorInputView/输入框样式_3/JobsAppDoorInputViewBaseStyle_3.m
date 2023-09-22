@@ -124,7 +124,7 @@
         _securityModeBtn.selectedImage = self.doorInputViewBaseStyleModel.selectedSecurityBtnIMG ? : [UIImage imageWithColor:JobsRedColor];
         _securityModeBtn.normalImage = self.doorInputViewBaseStyleModel.unSelectedSecurityBtnIMG ? : [UIImage imageWithColor:JobsBlueColor];
         @jobs_weakify(self)
-        [_securityModeBtn btnClickEventBlock:^(UIButton *x) {
+        [_securityModeBtn jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             x.selected = !x.selected;
             self.textField.secureTextEntry = !x.selected;

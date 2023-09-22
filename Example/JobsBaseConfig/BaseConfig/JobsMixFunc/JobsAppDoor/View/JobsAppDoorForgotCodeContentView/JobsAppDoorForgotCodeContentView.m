@@ -85,7 +85,7 @@
         _backToLoginBtn.normalTitleColor = Cor3;
         _backToLoginBtn.normalTitle = Title1;
         _backToLoginBtn.normalImage = JobsIMG(@"用户名称");
-        [_backToLoginBtn btnClickEventBlock:^(UIButton *x) {
+        [_backToLoginBtn jobsBtnClickEventBlock:^(UIButton *x) {
             [self endEditing:YES];
             if (self.objectBlock) self.objectBlock(x);
         }];
@@ -105,7 +105,7 @@
         _contactCustomerServiceBtn = UIButton.new;
         _contactCustomerServiceBtn.normalImage = JobsIMG(Internationalization(@"zaixiankefu_en"));
         @jobs_weakify(self)
-        [_contactCustomerServiceBtn btnClickEventBlock:^(UIButton *x) {
+        [_contactCustomerServiceBtn jobsBtnClickEventBlock:^(UIButton *x) {
             NSLog(@"返回登录");
             @jobs_strongify(self)
             if (self.customerContactModel.onlineUrl.customerAccount.nullString) {

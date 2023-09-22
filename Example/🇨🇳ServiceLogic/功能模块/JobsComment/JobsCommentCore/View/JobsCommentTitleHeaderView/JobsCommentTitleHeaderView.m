@@ -47,7 +47,7 @@
         _cancelBtn = UIButton.new;
         _cancelBtn.normalImage = JobsBuddleIMG(@"bundle", @"Others", nil, @"删除");
         @jobs_weakify(self)
-        [_cancelBtn btnClickEventBlock:^(UIButton *x) {
+        [_cancelBtn jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             if (self.objectBlock) self.objectBlock(x);
         }];

@@ -421,7 +421,7 @@
         [_toRegisterBtn normalTitleColor:Cor3];
         _toRegisterBtn.titleLabel.font = UIFontWeightMediumSize(13);
         @jobs_weakify(self)
-        [_toRegisterBtn btnClickEventBlock:^(UIButton *x) {
+        [_toRegisterBtn jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             x.selected = !x.selected;
             [self endEditing:YES];
@@ -442,7 +442,7 @@
     if (!_abandonLoginBtn) {
         _abandonLoginBtn = UIButton.new;
         @jobs_weakify(self)
-        [_abandonLoginBtn btnClickEventBlock:^(UIButton *x) {
+        [_abandonLoginBtn jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             if (self.objectBlock) self.objectBlock(x);
         }];
@@ -454,7 +454,7 @@
     if (!_sendBtn) {
         _sendBtn = UIButton.new;
         @jobs_weakify(self)
-        [_sendBtn btnClickEventBlock:^(UIButton *x) {
+        [_sendBtn jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             [self endEditing:YES];
             x.objBindingParams = self.appDoorModel;
@@ -486,7 +486,7 @@
         [_storeCodeBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft
                                        imageTitleSpace:JobsWidth(3)];
         @jobs_weakify(self)
-        [_storeCodeBtn btnClickEventBlock:^(UIButton *x) {
+        [_storeCodeBtn jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             x.selected = !x.selected;
             if (self.objectBlock) self.objectBlock(x);
@@ -508,7 +508,7 @@
             make.right.equalTo(inputView).offset(-JobsWidth(20));
             make.top.equalTo(inputView.mas_bottom).offset(JobsWidth(20));
         }];
-        [_findCodeBtn btnClickEventBlock:^(UIButton *x) {
+        [_findCodeBtn jobsBtnClickEventBlock:^(UIButton *x) {
             if (self.objectBlock) self.objectBlock(x);
         }];
     }return _findCodeBtn;

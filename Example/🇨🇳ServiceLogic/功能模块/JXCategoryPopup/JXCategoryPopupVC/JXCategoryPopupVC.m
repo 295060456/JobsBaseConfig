@@ -232,7 +232,7 @@ ratio:(CGFloat)ratio {
         [_filterBtn makeBtnLabelByShowingType:UILabelShowingType_03];
         [_filterBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleRight imageTitleSpace:JobsWidth(6)];
         @jobs_weakify(self)
-        [_filterBtn btnClickEventBlock:^(UIButton *x) {
+        [_filterBtn jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             x.selected = !x.selected;
 //            [WHToast toastMsg:Internationalization(@"篩選")];
@@ -268,7 +268,7 @@ ratio:(CGFloat)ratio {
             make.left.equalTo(self.categoryView.mas_right);
         }];
         @jobs_weakify(self)
-        [_customBtn btnClickEventBlock:^(UIButton *x) {
+        [_customBtn jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             x.selected = !x.selected;
 //            [WHToast toastMsg:Internationalization(@"自定义")];

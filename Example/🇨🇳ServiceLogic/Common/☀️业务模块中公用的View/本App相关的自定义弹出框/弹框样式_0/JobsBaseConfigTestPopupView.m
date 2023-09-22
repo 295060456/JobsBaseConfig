@@ -126,7 +126,7 @@ static dispatch_once_t static_testPopupViewOnceToken;
             make.size.mas_equalTo(CGSizeMake(JobsWidth(190), JobsWidth(40)));
         }];
         @jobs_weakify(self)
-        [_testPopupViewSureBtn btnClickEventBlock:^(UIButton *x) {
+        [_testPopupViewSureBtn jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             x.selected = !x.selected;
             [self tf_hide];

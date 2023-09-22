@@ -114,7 +114,7 @@ static char *UIView_BaseView_NTESVerifyCodeCloseBtn = "UIView_BaseView_NTESVerif
                                JobsWidth(30),
                                JobsWidth(30));
         @jobs_weakify(self)
-        [btn btnClickEventBlock:^(UIButton *x) {
+        [btn jobsBtnClickEventBlock:^(UIButton *x) {
             @jobs_strongify(self)
             [self closeVerifyCodeView];
             x.jobsVisible = NO;
