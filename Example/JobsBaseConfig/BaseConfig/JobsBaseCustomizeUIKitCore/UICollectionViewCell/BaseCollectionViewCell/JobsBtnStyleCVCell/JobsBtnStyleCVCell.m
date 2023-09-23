@@ -1,22 +1,21 @@
 //
-//  JobsCVCell.m
+//  JobsBtnStyleCVCell.m
 //  BaiShaEntertainmentProj
 //
 //  Created by Jobs on 2022/6/16.
 //
 
-#import "JobsCVCell.h"
+#import "JobsBtnStyleCVCell.h"
 
-@interface JobsCVCell ()
+@interface JobsBtnStyleCVCell ()
 /// UI
 @property(nonatomic,strong)UIButton *btn;
+/// Data
 
 @end
 
-@implementation JobsCVCell
-
+@implementation JobsBtnStyleCVCell
 @synthesize viewModel = _viewModel;
-
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
         
@@ -29,28 +28,31 @@
 #pragma mark —— BaseCellProtocol
 +(instancetype)cellWithCollectionView:(nonnull UICollectionView *)collectionView
                          forIndexPath:(nonnull NSIndexPath *)indexPath{
-    JobsCVCell *cell = (JobsCVCell *)[collectionView collectionViewCellClass:JobsCVCell.class forIndexPath:indexPath];
+    JobsBtnStyleCVCell *cell = (JobsBtnStyleCVCell *)[collectionView collectionViewCellClass:JobsBtnStyleCVCell.class forIndexPath:indexPath];
     if (!cell) {
-        [collectionView registerCollectionViewCellClass:JobsCVCell.class];
-        cell = (JobsCVCell *)[collectionView collectionViewCellClass:JobsCVCell.class forIndexPath:indexPath];
+        [collectionView registerCollectionViewCellClass:JobsBtnStyleCVCell.class];
+        cell = (JobsBtnStyleCVCell *)[collectionView collectionViewCellClass:JobsBtnStyleCVCell.class forIndexPath:indexPath];
     }
+    
+    // UICollectionViewCell圆切角
+//    cell.contentView.layer.cornerRadius = cell.layer.cornerRadius = JobsWidth(8);
+//    cell.contentView.layer.borderWidth = cell.layer.borderWidth = JobsWidth(1);
+//    cell.contentView.layer.borderColor = cell.layer.borderColor = RGBA_COLOR(255, 225, 144, 1).CGColor;
+//    cell.contentView.layer.masksToBounds = cell.layer.masksToBounds = YES;
+
     cell.indexPath = indexPath;
+    
     return cell;
 }
 /// 具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 -(void)richElementsInCellWithModel:(UIViewModel *_Nullable)model{
-    self.viewModel = model ? : UIViewModel.new;
+    self.viewModel = model;
     self.btn.alpha = 1;
 }
 /// 具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 +(CGSize)cellSizeWithModel:(UIViewModel *_Nullable)model{
     return CGSizeMake(JobsWidth(106), JobsWidth(30));
 }
-
-//-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-//    NSLog(@"");
-//}
-
 #pragma mark —— 一些公有方法
 -(UIButton *)getBtn{
     return _btn;
@@ -74,7 +76,6 @@
     [_btn layoutButtonWithEdgeInsetsStyle:self.viewModel.buttonEdgeInsetsStyle
                           imageTitleSpace:self.viewModel.imageTitleSpace];
     [_btn cornerCutToCircleWithCornerRadius:self.viewModel.layerCornerRadius ? : JobsWidth(8)];
-    
     return _btn;
 }
 

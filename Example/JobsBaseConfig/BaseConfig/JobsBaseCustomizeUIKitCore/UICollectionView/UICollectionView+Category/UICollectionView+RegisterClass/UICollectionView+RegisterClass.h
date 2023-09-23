@@ -12,7 +12,8 @@
 #import "BaseCollectionViewCell.h"
 #import "JobsSearchDataCVCell.h"
 #import "JobsHotLabelWithMultiLineCVCell.h"
-#import "JobsCVCell.h"
+#import "JobsBtnStyleCVCell.h"
+#import "JobsImageViewStyleCVCell.h"
 #import "BaiShaETProjVIPSubCVFooterView.h"
 #import "BaiShaETProjOrderDetailsCVCell.h"
 

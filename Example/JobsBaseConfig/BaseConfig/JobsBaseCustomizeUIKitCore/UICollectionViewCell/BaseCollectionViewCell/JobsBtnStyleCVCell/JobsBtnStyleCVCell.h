@@ -1,5 +1,5 @@
 //
-//  JobsCVCell.h
+//  JobsBtnStyleCVCell.h
 //  BaiShaEntertainmentProj
 //
 //  Created by Jobs on 2022/6/16.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JobsCVCell : BaseCollectionViewCell
+@interface JobsBtnStyleCVCell : BaseCollectionViewCell
 
 #pragma mark —— 一些公有方法
 -(UIButton *)getBtn;

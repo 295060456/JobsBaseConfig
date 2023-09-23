@@ -13,7 +13,7 @@
 @end
 
 @implementation BaseCollectionView
-
+BaseViewProtocol_synthesize
 -(instancetype)init{
     if (self = [super init]) {
         
@@ -38,6 +38,10 @@
  */
 -(void)layoutSubviews{
     [super layoutSubviews];
+    if(!CGSizeEqualToSize(CGSizeZero, self.layoutSubviewsRectCornerSize)){
+        [self layoutSubviewsCutCnrByRoundingCorners:self.layoutSubviewsRectCorner
+                                        cornerRadii:self.layoutSubviewsRectCornerSize];
+    }
 }
 
 -(void)layoutIfNeeded{

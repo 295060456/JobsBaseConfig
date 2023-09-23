@@ -79,7 +79,7 @@ static dispatch_once_t static_popupView10OnceToken;
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView
 cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    JobsCVCell *cell = [JobsCVCell cellWithCollectionView:collectionView
+    JobsBtnStyleCVCell *cell = [JobsBtnStyleCVCell cellWithCollectionView:collectionView
                                              forIndexPath:indexPath];
     [cell richElementsInCellWithModel:self.dataMutArr[indexPath.item]];
 
@@ -91,7 +91,7 @@ cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
         cell.getBtn.normalTitleColor = HEXCOLOR(0x757575);
     }
     
-    [cell cornerCutToCircleWithCornerRadius:[JobsCVCell cellSizeWithModel:nil].height / 2];
+    [cell cornerCutToCircleWithCornerRadius:[JobsBtnStyleCVCell cellSizeWithModel:nil].height / 2];
     return cell;
 }
 

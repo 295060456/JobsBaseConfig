@@ -7,21 +7,13 @@
 
 #import <Foundation/Foundation.h>
 #import "JobsBlock.h"
-#if __has_include(<ReactiveObjC/ReactiveObjC.h>)
-#import <ReactiveObjC/ReactiveObjC.h>
-#else
-#import "ReactiveObjC.h"
-#endif
 
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol BaseProtocol <NSObject>
 
 @optional
-
 @property(nonatomic,copy)JobsReturnIDByIDBlock notificationBlock;
-@property(nonatomic,strong)RACDisposable *racDisposable;
-
 -(void)languageSwitchNotificationWithSelector:(SEL)aSelector;//在View上,target = self（view）,省略
 /// 更改UITabBarItem的标题
 -(void)changeTabBarItemTitle:(NSIndexPath *)indexPath;//NSObject (AppTools)
@@ -29,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// KVC-Block
 -(JobsReturnIDByIDBlock _Nonnull)valueForKeyBlock;
 /// isKindOfClass-Block
--(JobsReturnBOOLByIDBlock _Nonnull)isKindOfClassBlock;// if (idToObject(data).isKindOfClassBlock(UIViewModel.class))
+-(JobsReturnBOOLByIDBlock _Nonnull)isKindOfClassBlock;
 /// isMemberOfClass-Block
 -(JobsReturnBOOLByIDBlock _Nonnull)isMemberOfClassBlock;
 #pragma mark —— iOS 通知
@@ -54,3 +46,19 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
+#pragma mark —— @synthesize BaseProtocol
+#ifndef BaseProtocol_synthesize
+#define BaseProtocol_synthesize \
+\
+@synthesize notificationBlock = _notificationBlock;\
+
+#endif
+
+#pragma mark —— @dynamic BaseProtocol
+#ifndef BaseProtocol_dynamic
+#define BaseProtocol_dynamic \
+\
+@dynamic notificationBlock;\
+
+#endif

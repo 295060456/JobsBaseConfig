@@ -6,7 +6,7 @@
 //
 
 #import "BaseView.h"
-#import "JobsCVCell.h"
+#import "JobsBtnStyleCVCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

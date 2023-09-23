@@ -13,6 +13,7 @@
 #import "UICollectionViewCell+Default.h"
 #pragma mark —— Base
 #import "BaseCollectionViewCell.h"
-#import "JobsCVCell.h"
+#import "JobsBtnStyleCVCell.h"
+#import "JobsImageViewStyleCVCell.h"
 
 #endif /* JobsCollectionViewCell_h */

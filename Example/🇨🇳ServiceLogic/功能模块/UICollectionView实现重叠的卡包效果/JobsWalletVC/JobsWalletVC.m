@@ -103,7 +103,7 @@ resuableFooterViewHeightForIndexPath:(NSIndexPath *)indexPath {
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == self.dataSourceMutArr.count - 1) {
-        JobsCVCell *cell = [collectionView collectionViewCellClass:JobsCVCell.class forIndexPath:indexPath];
+        JobsBtnStyleCVCell *cell = [collectionView collectionViewCellClass:JobsBtnStyleCVCell.class forIndexPath:indexPath];
         [cell richElementsInCellWithModel:self.dataSourceMutArr[indexPath.section][indexPath.item]];
         return cell;
     }else{
