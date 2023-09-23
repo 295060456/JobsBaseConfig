@@ -50,11 +50,27 @@
 }
 /// 这个方法还有待完善
 -(void)handelAdjustsImageWhenHighlighted{
+    /// iOS 15以后，系统不直接提供设置按钮在高亮状态下的图像样式
+    /// 'adjustsImageWhenHighlighted' is deprecated: first deprecated in iOS 15.0 - This property is ignored when using UIButtonConfiguration, you may customize to replicate this behavior via a configurationUpdateHandler
     if (HDDeviceSystemVersion.floatValue >= 15.0) {
-#warning UIButtonConfiguration 怎么适配使用？
-//            'adjustsImageWhenHighlighted' is deprecated: first deprecated in iOS 15.0 - This property is ignored when using UIButtonConfiguration, you may customize to replicate this behavior via a configurationUpdateHandler
+        /**
+         UIButton *button = UIButton.new;
+         // 在按钮高亮状态变化时，使用 configurationUpdateHandler 来自定义图像样式
+         button.configurationUpdateHandler = ^(UIButton * _Nonnull updatedButton) {
+             if (updatedButton.isHighlighted) {
+                 // 按钮处于高亮状态，切换到高亮状态的图像样式
+                 UIImage *highlightedImage = [UIImage imageNamed:@"highlighted_image"];
+                 updatedButton.configuration.image = highlightedImage;
+             } else {
+                 // 按钮处于正常状态，切换到正常状态的图像样式
+                 UIImage *normalImage = [UIImage imageNamed:@"normal_image"];
+                 updatedButton.configuration.image = normalImage;
+             }
+         };
+         */
+    }else{
+        SuppressWdeprecatedDeclarationsWarning(self.adjustsImageWhenHighlighted = NO;);/// 设置按钮在高亮状态下的图像样式
     }
-    SuppressWdeprecatedDeclarationsWarning(self.adjustsImageWhenHighlighted = NO;);
 }
 /// UIButton 上的 image 旋转一定的角度angle
 -(void)changeAction:(CGFloat)angle{

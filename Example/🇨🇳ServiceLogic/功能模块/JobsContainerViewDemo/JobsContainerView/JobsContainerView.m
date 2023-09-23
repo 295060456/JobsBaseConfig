@@ -103,14 +103,29 @@
 /// 批量创建UIButton（使之兼容图文）
 /// - Parameter model: 数据源
 -(UIButton *)createButtonWithModel:(JobsBtnModel *)model{
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *button = nil;
+    
+    if(HDDeviceSystemVersion.floatValue <= 15.0){
+        button = [UIButton buttonWithType:UIButtonTypeCustom];
+        SuppressWdeprecatedDeclarationsWarning(button.contentEdgeInsets = model.contentEdgeInsets;);
+        button.normalTitle = model.title;
+    }else{
+        /// 使用 UIButtonConfiguration
+        UIButtonConfiguration *buttonConfig = UIButtonConfiguration.plainButtonConfiguration;
+        buttonConfig.title = model.title;
+        buttonConfig.baseBackgroundColor = model.backgroundColor;
+        buttonConfig.contentInsets = model.contentInsets;
+        
+        button = [UIButton buttonWithConfiguration:buttonConfig primaryAction:nil];
+    }
+    
     button.width = self.widthBySelf;/// 预设值，否则撑不开
     button.backgroundColor = model.backgroundColor;
-    button.normalTitle = model.title;
     button.normalTitleColor = model.titleColor;
     button.titleFont = model.font;
     button.normalImage = model.image;
     button.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;/// 设置按钮文本对齐方式为垂直居中
+    
     button.titleLabel.lineBreakMode = model.lineBreakMode;/// NSLineBreakByWordWrapping = 自动换行
     // 计算按钮文本所需的高度
     CGSize buttonSize = [button.titleLabel sizeThatFits:CGSizeMake(button.frame.size.width, CGFLOAT_MAX)];
