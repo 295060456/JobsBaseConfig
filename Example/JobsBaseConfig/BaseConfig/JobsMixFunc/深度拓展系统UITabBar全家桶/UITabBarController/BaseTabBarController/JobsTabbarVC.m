@@ -148,7 +148,7 @@ static JobsTabbarVC *static_tabbarVC = nil;
 /// @param index index
 -(BOOL)judgeLottieWithIndex:(NSInteger)index{
     JobsTabBarControllerConfig *config = (JobsTabBarControllerConfig *)self.tabBarControllerConfigMutArr[index];
-    return !config.lottieName.nullString;
+    return ![NSString isNullString:config.lottieName];
 }
 
 -(void)UISetting{
@@ -268,7 +268,7 @@ static JobsTabbarVC *static_tabbarVC = nil;
 #pragma mark —— TabBarItem的相关手势
 -(void)长按手势做什么:(UILongPressGestureRecognizer *)longPressGR{
     if (self.isFeedbackGenerator) {
-        [self feedbackGenerator];//震动反馈
+        [NSObject feedbackGenerator];//震动反馈
     }
 
     [JobsPullListAutoSizeView initWithTargetView:self.UITabBarButtonMutArr[longPressGR.view.tag]
@@ -276,12 +276,6 @@ static JobsTabbarVC *static_tabbarVC = nil;
 }
 
 -(void)添加长按手势{
-    
-    self.objectBlock;
-//    if (self.JobsByGestureRecognizerBlock) {
-//        <#statements#>
-//    }
-    
     for (UIView *subView in self.UITabBarButtonMutArr) {
         subView.tag = [self.UITabBarButtonMutArr indexOfObject:subView];
         
@@ -418,7 +412,7 @@ shouldSelectViewController:(UIViewController *)viewController {
     if (!_viewModel) {
         _viewModel = UIViewModel.new;
         _viewModel.bgCor = JobsWhiteColor;
-        _viewModel.bgImage = isiPhoneX_series() ? JobsIMG(@"底部导航栏背景(刘海屏)") : JobsIMG(@"底部导航栏背景(非刘海屏)");
+//        _viewModel.bgImage = isiPhoneX_series() ? JobsIMG(@"底部导航栏背景(刘海屏)") : JobsIMG(@"底部导航栏背景(非刘海屏)");
         _viewModel.isTranslucent = NO;
         _viewModel.offsetHeight = JobsWidth(5);
     }return _viewModel;
@@ -431,8 +425,6 @@ shouldSelectViewController:(UIViewController *)viewController {
 -(JobsTabBar *)myTabBar{
     if (!_myTabBar) {
         _myTabBar = JobsTabBar.new;
-        _myTabBar.backgroundImage = JobsIMG(@"底部导航栏背景(刘海屏)");
-        _myTabBar.backgroundColor = UIColor.yellowColor;
         [_myTabBar richElementsInViewWithModel:self.viewModel];
         [self setValue:_myTabBar
                 forKey:@"tabBar"];//KVC 进行替换

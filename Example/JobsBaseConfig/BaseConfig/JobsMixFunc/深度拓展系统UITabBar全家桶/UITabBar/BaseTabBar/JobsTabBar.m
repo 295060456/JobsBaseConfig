@@ -30,15 +30,14 @@
 }
 //具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 -(void)richElementsInViewWithModel:(UIViewModel *_Nullable)model{
-    self.viewModel = model ? : UIViewModel.new;
+    self.viewModel = model;
     if (self.viewModel) {
         self.barTintColor = self.viewModel.bgCor;
         self.translucent = self.viewModel.isTranslucent;// 取消tabBar的透明效果
         // 有设定背景图片值优先走背景图片设定，背景颜色自动忽略
         if (self.viewModel.bgImage) {
             //self.viewModel.bgImage;//用系统的backgroundImage属性失灵
-            self.backgroundImageView.image = isiPhoneX_series() ? JobsIMG(@"底部导航栏背景(刘海屏)") : JobsIMG(@"底部导航栏背景(非刘海屏)");
-            NSLog(@"");
+            self.backgroundImageView.image = self.viewModel.bgImage;
             return;
         }
         
