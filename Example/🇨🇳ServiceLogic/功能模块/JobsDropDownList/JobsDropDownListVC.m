@@ -125,7 +125,7 @@
         }];
         [_switcher layerBorderCor:_switcher.selected ? self.cor : HEXCOLOR(0xB0B0B0) andBorderWidth:JobsWidth(1)];
         @jobs_weakify(self)
-        [_switcher switchClickEventBlock:^(UISwitch *x) {
+        [_switcher jobsSwitchClickEventBlock:^(UISwitch *x) {
             @jobs_strongify(self)
             x.selected = !x.selected;
             self.btn.selected = !self.btn.selected;

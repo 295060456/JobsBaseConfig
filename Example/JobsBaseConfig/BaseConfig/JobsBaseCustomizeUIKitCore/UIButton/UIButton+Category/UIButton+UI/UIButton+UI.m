@@ -411,5 +411,18 @@ static char *UIButton_UI_endableNormalTitleColor = "UIButton_UI_endableNormalTit
                              endableNormalTitleColor,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+static char *UIButton_UI_racDisposable = "UIButton_UI_racDisposable";
+@dynamic racDisposable;
+#pragma mark —— @property(nonatomic,strong)RACDisposable *racDisposable;
+-(RACDisposable *)racDisposable{
+    return objc_getAssociatedObject(self, UIButton_UI_racDisposable);
+}
+
+-(void)setRacDisposable:(RACDisposable *)racDisposable{
+    objc_setAssociatedObject(self,
+                             UIButton_UI_racDisposable,
+                             racDisposable,
+                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 
 @end
