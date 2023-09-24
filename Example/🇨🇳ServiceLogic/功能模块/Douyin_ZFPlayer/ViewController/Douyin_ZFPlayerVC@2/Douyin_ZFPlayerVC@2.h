@@ -12,6 +12,12 @@
 #import "ZFDouYinControlView.h"
 #import "ZFDouYinCell.h"
 
+#if __has_include(<KTVHTTPCache/KTVHTTPCache.h>)
+#import <KTVHTTPCache/KTVHTTPCache.h>
+#else
+#import "KTVHTTPCache.h"
+#endif
+
 #import "VideoModel.h"
 
 NS_ASSUME_NONNULL_BEGIN

@@ -12,7 +12,6 @@
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)ZFPlayerController *player;
 @property(nonatomic,strong)ZFAVPlayerManager *playerManager;
-@property(nonatomic,strong)VIResourceLoaderManager *resourceLoaderManager;
 @property(nonatomic,strong)ZFDouYinControlView *controlView;
 @property(nonatomic,strong)ZFCustomControlView *fullControlView;
 @property(nonatomic,strong)JobsBitsMonitorSuspendLab *bitsMonitorSuspendLab;
@@ -55,6 +54,9 @@
 
 -(void)viewDidLoad {
     [super viewDidLoad];
+//    
+//    NSError *error = nil;
+//    [KTVHTTPCache proxyStart:&error];
     
     self.view.backgroundColor = JobsRandomColor;
     [self setGKNav];
@@ -87,12 +89,12 @@
      * 再viewWillLayoutSubviews-viewDidLayoutSubviews
      * 在这个时候拿到确定的当前self.indexPath进行播放
      */
-    if (self.dataMutArr.count) {
-        [self playTheVideoAtIndexPath:self.indexPath];
-        [self.tableView ly_hideEmptyView];
-    }else{
-        [self.tableView ly_showEmptyView];
-    }
+//    if (self.dataMutArr.count) {
+//        [self playTheVideoAtIndexPath:self.indexPath];
+//        [self.tableView ly_hideEmptyView];
+//    }else{
+//        [self.tableView ly_showEmptyView];
+//    }
 }
 #pragma mark —— 一些私有方法
 -(void)requestData{
@@ -148,9 +150,13 @@
  */
 -(void)playTheVideoAtIndexPath:(NSIndexPath *)indexPath{
     VideoModel_Core *data = (VideoModel_Core *)self.dataMutArr[indexPath.row];
-//    [self.player playTheIndexPath:indexPath assetURL:@"https://mvvideo5.meitudata.com/571090934cea5517.mp4".jobsUrl];
-    [self.player playTheIndexPath:indexPath assetURL:data.videoIdcUrl.jobsUrl];
-//    [self.player playTheIndexPath:indexPath assetURL:[VIResourceLoaderManager assetURLWithURL:data.videoIdcUrl.jobsUrl]];
+    
+    {
+        NSString *URLString = [data.videoIdcUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+        NSURL *URL = [KTVHTTPCache proxyURLWithOriginalURL:URLString.jobsUrl];
+        [self.player playTheIndexPath:indexPath assetURL:URL];
+    }
+
     [self.controlView resetControlView];
     [self.controlView showCoverViewWithUrl:data.thumbnail_url];
     [self.fullControlView showTitle:Internationalization(@"custom landscape controlView")
@@ -415,17 +421,11 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         };
     }return _player;
 }
-/// https://mvvideo5.meitudata.com/571090934cea5517.mp4
+
 -(ZFAVPlayerManager *)playerManager{
     if (!_playerManager) {
         _playerManager = ZFAVPlayerManager.new;
     }return _playerManager;
-}
-
--(VIResourceLoaderManager *)resourceLoaderManager{
-    if(!_resourceLoaderManager){
-        _resourceLoaderManager = VIResourceLoaderManager.new;
-    }return _resourceLoaderManager;
 }
 
 -(ZFDouYinControlView *)controlView{
