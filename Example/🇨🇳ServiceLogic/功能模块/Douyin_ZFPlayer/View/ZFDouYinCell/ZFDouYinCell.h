@@ -6,6 +6,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseCellProtocol.h"
+#import "UIMarkProtocol.h"
+
 #import "JobsRightBtnsView.h"
 
 #import "ZFDouYinCellDelegate.h"
@@ -14,10 +17,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ZFDouYinCell : UITableViewCell<BaseCellProtocol>
+@interface ZFDouYinCell : UITableViewCell
+<
+BaseCellProtocol,
+UIMarkProtocol
+>
 
-@property(nonatomic,assign)long index;
-@property(nonatomic,strong)VideoModel_Core *data;
 @property(nonatomic,weak)id<ZFDouYinCellDelegate> delegate;
 
 @end

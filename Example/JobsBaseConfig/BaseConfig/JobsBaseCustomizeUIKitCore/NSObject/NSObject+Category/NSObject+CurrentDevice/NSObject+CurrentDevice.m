@@ -70,7 +70,7 @@
 }
 
 -(BOOL)isPhone{
-    if (AvailableSysVersion(13.0)) {
+    if (JobsAvailableSysVersion(13.0)) {
         return UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPhone;
     }else{
         SuppressWdeprecatedDeclarationsWarning(return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone));
@@ -78,7 +78,7 @@
 }
 
 -(BOOL)isPad{
-    if (AvailableSysVersion(13.0)) {
+    if (JobsAvailableSysVersion(13.0)) {
         return UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad;
     }else{
         SuppressWdeprecatedDeclarationsWarning(return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad));

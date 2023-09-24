@@ -194,8 +194,8 @@ static inline void toastErr(NSString *_Nullable msg){
 #define reuseIdentifier(Class) Class.class.description
 #endif
 
-#ifndef AvailableSysVersion
-#define AvailableSysVersion(version) @available(iOS version, *)
+#ifndef JobsAvailableSysVersion
+#define JobsAvailableSysVersion(version) @available(iOS version, *)
 #endif
 
 #ifndef JobsCellRandomCor
@@ -208,6 +208,14 @@ static inline void toastErr(NSString *_Nullable msg){
 
 #ifndef JobsCellSelfCor
 #define JobsCellSelfCor(cor) self.backgroundColor = self.contentView.backgroundColor = cor;
+#endif
+
+#ifndef JobsIndexPathForItem
+#define JobsIndexPathForItem(section,item) [NSIndexPath indexPathForRow:item inSection:section];
+#endif
+
+#ifndef JobsIndexPathForRow
+#define JobsIndexPathForRow(section,row) [NSIndexPath indexPathForRow:row inSection:section];
 #endif
 
 #endif /* MacroDef_Func_h */

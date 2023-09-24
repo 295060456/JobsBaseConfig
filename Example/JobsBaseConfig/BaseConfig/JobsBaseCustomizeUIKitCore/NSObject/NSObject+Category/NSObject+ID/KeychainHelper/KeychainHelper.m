@@ -27,7 +27,7 @@
     if (SecItemCopyMatching((__bridge_retained CFDictionaryRef)keychainQuery, &result) == noErr){
         NSError *error = nil;
         @try {
-            if (AvailableSysVersion(12.0)) {
+            if (JobsAvailableSysVersion(12.0)) {
                 ret = [NSKeyedUnarchiver unarchivedObjectOfClass:NSObject.class
                                                         fromData:(__bridge NSData *)result
                                                            error:&error];
@@ -54,7 +54,7 @@
     // 删除旧的数据
     SecItemDelete((__bridge CFDictionaryRef)(keychainQuery));
     NSData *obj = nil;
-    if (AvailableSysVersion(12.0)) {
+    if (JobsAvailableSysVersion(12.0)) {
         NSError *error = nil;
         obj = [NSKeyedArchiver archivedDataWithRootObject:data
                                     requiringSecureCoding:YES

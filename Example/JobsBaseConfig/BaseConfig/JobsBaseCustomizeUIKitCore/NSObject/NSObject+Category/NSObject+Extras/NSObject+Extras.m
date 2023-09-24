@@ -371,10 +371,10 @@
 }
 /// 创建IndexPath坐标
 -(NSIndexPath *_Nonnull)myIndexPath:(JobsIndexPath)indexPath{
-    if (AvailableSysVersion(6.0)) {
-        return [NSIndexPath indexPathForItem:indexPath.rowOrItem inSection:indexPath.section];
+    if (JobsAvailableSysVersion(6.0)) {
+        return JobsIndexPathForItem(indexPath.section, indexPath.rowOrItem);
     }else{
-        return [NSIndexPath indexPathForRow:indexPath.rowOrItem inSection:indexPath.section];
+        return JobsIndexPathForRow(indexPath.section, indexPath.rowOrItem);
     }
 }
 /// 点击任意一个view，下拉弹出与此View等宽，且与下底有一个motivateViewOffset距离的列表【如果应用于可滑动模块，当触发控件滑动的时候，建议对此进行关闭处理】

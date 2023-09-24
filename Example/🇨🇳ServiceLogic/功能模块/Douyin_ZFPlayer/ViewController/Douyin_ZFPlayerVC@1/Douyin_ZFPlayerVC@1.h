@@ -12,7 +12,7 @@
 #import "VideoModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
-//这个类是我自己的理解
+/// 这个类是我自己的理解
 @interface Douyin_ZFPlayerVC_1 : BaseViewController
 <
 UITableViewDelegate,

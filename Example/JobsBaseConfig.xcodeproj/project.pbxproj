@@ -2246,6 +2246,10 @@
 		C52F2F6B2AC0298900BB5549 /* NSNotificationCenter+JobsBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+JobsBlock.h"; sourceTree = "<group>"; };
 		C52F2F6C2AC0298900BB5549 /* NSNotificationCenter+JobsBlock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSNotificationCenter+JobsBlock.m"; sourceTree = "<group>"; };
 		C52F2F6F2AC029F400BB5549 /* NSNotificationCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSNotificationCenter.h; sourceTree = "<group>"; };
+		C52F313A2AC0380300BB5549 /* 原作者的.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "原作者的.h"; sourceTree = "<group>"; };
+		C52F313B2AC0382500BB5549 /* For_Douyin_ZFPlayerVC_2.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = For_Douyin_ZFPlayerVC_2.md; sourceTree = "<group>"; };
+		C52F313C2AC0383600BB5549 /* For_Douyin_ZFPlayerVC_2.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = For_Douyin_ZFPlayerVC_2.md; sourceTree = "<group>"; };
+		C52F313D2AC0387600BB5549 /* For_Douyin_ZFPlayerVC_1.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = For_Douyin_ZFPlayerVC_1.md; sourceTree = "<group>"; };
 		C53294052ABCC86D004294E0 /* JobsBtnModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBtnModel.h; sourceTree = "<group>"; };
 		C53294062ABCC86D004294E0 /* JobsBtnModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsBtnModel.m; sourceTree = "<group>"; };
 		C53294082ABCC86D004294E0 /* JobsContainerViewDemoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsContainerViewDemoVC.h; sourceTree = "<group>"; };
@@ -8359,6 +8363,7 @@
 			children = (
 				84CA64AC2789C2AF00E46E71 /* JobsPlayerTBVCell.h */,
 				84CA64AD2789C2AF00E46E71 /* JobsPlayerTBVCell.m */,
+				C52F313D2AC0387600BB5549 /* For_Douyin_ZFPlayerVC_1.md */,
 			);
 			path = JobsPlayerTBVCell;
 			sourceTree = "<group>";
@@ -8368,6 +8373,7 @@
 			children = (
 				84CA64BA2789C80500E46E71 /* JobsRightBtnsView.h */,
 				84CA64B72789C80500E46E71 /* JobsRightBtnsView.m */,
+				C52F313C2AC0383600BB5549 /* For_Douyin_ZFPlayerVC_2.md */,
 			);
 			path = JobsRightBtnsView;
 			sourceTree = "<group>";
@@ -8377,6 +8383,7 @@
 			children = (
 				84CA64B92789C80500E46E71 /* ZFDouYinCell.h */,
 				84CA64B62789C80400E46E71 /* ZFDouYinCell.m */,
+				C52F313B2AC0382500BB5549 /* For_Douyin_ZFPlayerVC_2.md */,
 			);
 			path = ZFDouYinCell;
 			sourceTree = "<group>";
@@ -8386,6 +8393,7 @@
 			children = (
 				84CA64BC2789C80500E46E71 /* ZFDouYinControlView.h */,
 				84CA64B82789C80500E46E71 /* ZFDouYinControlView.m */,
+				C52F313A2AC0380300BB5549 /* 原作者的.h */,
 			);
 			path = ZFDouYinControlView;
 			sourceTree = "<group>";

@@ -13,11 +13,13 @@
 @property(nonatomic,strong)UIImageView *coverImageView;
 @property(nonatomic,strong)JobsRightBtnsView *rbView;
 @property(nonatomic,strong)UIButton *rotation;
+/// Data
+@property(nonatomic,strong)VideoModel_Core *data;
 
 @end
 
 @implementation ZFDouYinCell
-
+@synthesize index = _index;
 +(instancetype)cellStyleValue1WithTableView:(UITableView *)tableView{
     ZFDouYinCell *cell = (ZFDouYinCell *)[tableView tableViewCellClass:ZFDouYinCell.class];
     if (!cell) {
@@ -28,34 +30,22 @@
 }
 
 +(CGFloat)cellHeightWithModel:(id _Nullable)model{
-    if ([model isKindOfClass:NSDictionary.class]) {//
-        NSDictionary *dic = (NSDictionary *)model;
-        UITableView *tbv = (UITableView *)dic[@"tableView"];
+    if ([model isKindOfClass:UITableView.class]) {
+        UITableView *tbv = (UITableView *)model;
         return tbv.mj_h;
     }return JobsMainScreen_HEIGHT();
 }
 
--(void)richElementsInCellWithModel:(id _Nullable)model{
-    if ([model isKindOfClass:NSDictionary.class]) {
-        NSDictionary *dic = (NSDictionary *)model;
-        self.label.text = [NSString stringWithFormat:@"%d",[dic[@"index"] intValue]];
-        self.data = (VideoModel_Core *)dic[@"res"];
+-(void)richElementsInCellWithModel:(VideoModel_Core *_Nullable)model{
+    if ([model isKindOfClass:VideoModel_Core.class]) {
+        self.data = (VideoModel_Core *)model;
+        self.label.text = [NSString stringWithFormat:@"%ld",(long)self.index];
         self.rotation.alpha = 1;
         [self.coverImageView setImageWithURLString:self.data.videoImg
                                        placeholder:JobsBuddleIMG(@"bundle",@"Others", nil, @"loading_bgView")];
-//        self.titleLabel.text = data.title;
         self.rbView.alpha = 1;
-//        if (self.data.video_width > self.data.video_height) { /// 横屏视频才支持旋转
-//            self.rotation.hidden = NO;
-//        }else{
-//            self.rotation.hidden = YES;
-//        }
-    }
-}
-
--(void)rotationClick:(UIButton *)sender{
-    if ([self.delegate respondsToSelector:@selector(zf_douyinRotation)]) {
-        [self.delegate zf_douyinRotation];
+//        self.titleLabel.text = data.title;
+//        self.rotation.hidden;// 宽大于高 = 横屏视频，才支持旋转
     }
 }
 #pragma mark —— lazyLoad
@@ -77,9 +67,9 @@
         _rbView = JobsRightBtnsView.new;
         _rbView.offset = JobsWidth(15);
         [_rbView richElementsInViewWithModel:nil];
-        @jobs_weakify(self)
+//        @jobs_weakify(self)
         [_rbView actionObjectBlock:^(id data) {
-            @jobs_strongify(self)
+//            @jobs_strongify(self)
         }];
         [self.contentView addSubview:_rbView];
         [_rbView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -95,12 +85,12 @@
         _rotation.normalImage = JobsIMG(@"zfplayer_rotaiton");
         @jobs_weakify(self)
         [_rotation jobsBtnClickEventBlock:^(__kindof UIControl * _Nullable x) {
-                    @jobs_strongify(self)
-                    [self rotationClick:x];
+            @jobs_strongify(self)
+            if ([self.delegate respondsToSelector:@selector(zf_douyinRotation)]) [self.delegate zf_douyinRotation];
         }];
         [self.contentView addSubview:_rotation];
         [_rotation mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.size.mas_equalTo(CGSizeMake(50, 50));
+            make.size.mas_equalTo(CGSizeMake(JobsWidth(50), JobsWidth(50)));
             make.centerY.equalTo(self.contentView);
             make.left.equalTo(self.contentView);
         }];
