@@ -340,9 +340,9 @@ UITableViewCellProtocol_synthesize
     vm.jobsWidth = JobsMainScreen_WIDTH() - JobsWidth(200);
     vm.textModel.text = model.subTextModel.text;
     vm.textModel.textLineSpacing = 0;
-    return [vm.textModel.text jobsTextHeightWithFont:vm.textModel.font
-                                          lineHeight:vm.textModel.textLineSpacing
-                                        controlWidth:JobsMainScreen_WIDTH() - JobsWidth(200)].textHeight;
+    return 3 * [vm.textModel.text jobsTextHeightWithFont:vm.textModel.font
+                                              lineHeight:vm.textModel.textLineSpacing
+                                            controlWidth:JobsMainScreen_WIDTH() - JobsWidth(200)].textHeight;
 }
 #pragma mark —— 协议属性合成set & get方法
 /// UIViewModelProtocol

@@ -94,6 +94,12 @@
 #import "Masonry.h"
 #endif
 
+#if __has_include(<VIMediaCache/VIMediaCache.h>)
+#import <VIMediaCache/VIMediaCache.h>
+#else
+#import "VIMediaCache.h"
+#endif
+
 #if __has_include(<TABAnimated/TABAnimated.h>)
 #import <TABAnimated/TABAnimated.h>
 #else

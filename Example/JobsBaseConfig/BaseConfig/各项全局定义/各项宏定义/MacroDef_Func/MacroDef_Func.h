@@ -211,11 +211,11 @@ static inline void toastErr(NSString *_Nullable msg){
 #endif
 
 #ifndef JobsIndexPathForItem
-#define JobsIndexPathForItem(section,item) [NSIndexPath indexPathForRow:item inSection:section];
+#define JobsIndexPathForItem(section,item) [NSIndexPath indexPathForRow:item inSection:section]
 #endif
 
 #ifndef JobsIndexPathForRow
-#define JobsIndexPathForRow(section,row) [NSIndexPath indexPathForRow:row inSection:section];
+#define JobsIndexPathForRow(section,row) [NSIndexPath indexPathForRow:row inSection:section]
 #endif
 
 #endif /* MacroDef_Func_h */

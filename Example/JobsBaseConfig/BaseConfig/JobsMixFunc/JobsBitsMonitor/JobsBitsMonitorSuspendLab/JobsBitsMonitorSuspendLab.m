@@ -10,7 +10,7 @@
 extern NetworkingEnvir networkingEnvir;
 
 @interface JobsBitsMonitorSuspendLab ()
-
+/// Data
 @property(nonatomic,strong)NSMutableArray <NSString *>*operationEnvironMutArr;
 
 @end
@@ -79,9 +79,9 @@ extern NetworkingEnvir networkingEnvir;
         NSLog(@"action----->%ld",(long)menuRow);
         networkingEnvir = menuRow;
         if (menuRow + 1 <= self.operationEnvironMutArr.count) {
-            [WHToast toastMsg:[@"当前环境" stringByAppendingString:self.operationEnvironMutArr[menuRow]]];
+            [WHToast toastMsg:[Internationalization(@"当前环境") stringByAppendingString:self.operationEnvironMutArr[menuRow]]];
         }else{
-            [WHToast toastErrMsg:@"切换环境出现错误"];
+            [WHToast toastErrMsg:Internationalization(@"切换环境出现错误")];
         }
     };
 }

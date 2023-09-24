@@ -42,9 +42,10 @@
         self.label.text = [NSString stringWithFormat:@"%ld",(long)self.index];
         self.rotation.alpha = 1;
         [self.coverImageView setImageWithURLString:self.data.videoImg
-                                       placeholder:JobsBuddleIMG(@"bundle",@"Others", nil, @"loading_bgView")];
+                                       placeholder:JobsIMG(@"视频封面")];
         self.rbView.alpha = 1;
-//        self.titleLabel.text = data.title;
+        self.textLabel.text = self.data.videoTitle;
+        self.textLabel.textColor = JobsRedColor;
 //        self.rotation.hidden;// 宽大于高 = 横屏视频，才支持旋转
     }
 }
@@ -53,7 +54,7 @@
     if (!_coverImageView) {
         _coverImageView = UIImageView.new;
         _coverImageView.userInteractionEnabled = YES;
-        _coverImageView.tag = 100;//不写这个光有声音没有图像
+        _coverImageView.tag = kPlayerViewTag;//不写这个光有声音没有图像
         _coverImageView.contentMode = UIViewContentModeScaleAspectFit;
         [self.contentView addSubview:_coverImageView];
         [_coverImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -73,7 +74,8 @@
         }];
         [self.contentView addSubview:_rbView];
         [_rbView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.right.bottom.equalTo(self.contentView);
+            make.right.equalTo(self.contentView);
+            make.bottom.equalTo(self.contentView).offset(JobsWidth(-150));
             make.size.mas_equalTo([JobsRightBtnsView viewSizeWithModel:nil]);
         }];
     }return _rbView;

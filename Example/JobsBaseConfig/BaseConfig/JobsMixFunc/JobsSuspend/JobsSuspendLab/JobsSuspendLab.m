@@ -20,7 +20,6 @@
         self.text = JobsNonnullString(self.text, Internationalization(@"No Data"));
         self.internationalizationKEY = @"No Data";
         self.textAlignment = NSTextAlignmentCenter;
-        [self cornerCutToCircleWithCornerRadius:JobsWidth(8)];
     }return self;
 }
 
@@ -28,6 +27,7 @@
     [super drawRect:rect];
     self.panRcognize.enabled = self.isAllowDrag;
     self.userInteractionEnabled = self.isAllowDrag;
+//    [self cornerCutToCircleWithCornerRadius:self.height / 2];
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches

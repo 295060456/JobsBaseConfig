@@ -690,6 +690,7 @@
 		C52809BD2860770500654584 /* JobsBaseLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C52809BC2860770500654584 /* JobsBaseLabel.m */; };
 		C52809E128608BE100654584 /* TestBaseLabelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C52809E028608BE100654584 /* TestBaseLabelVC.m */; };
 		C52BFE06285C7948002B5D0F /* JobsSEL_IMP.m in Sources */ = {isa = PBXBuildFile; fileRef = C52BFE04285C7948002B5D0F /* JobsSEL_IMP.m */; };
+		C52E59F82AC04B8900FE5494 /* 视频模块.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C52E59F72AC04B8900FE5494 /* 视频模块.xcassets */; };
 		C52F2F6D2AC0298900BB5549 /* NSNotificationCenter+JobsBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = C52F2F6C2AC0298900BB5549 /* NSNotificationCenter+JobsBlock.m */; };
 		C532940D2ABCC86D004294E0 /* JobsBtnModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C53294062ABCC86D004294E0 /* JobsBtnModel.m */; };
 		C532940E2ABCC86D004294E0 /* JobsContainerViewDemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C53294092ABCC86D004294E0 /* JobsContainerViewDemoVC.m */; };
@@ -2243,6 +2244,7 @@
 		C52809E028608BE100654584 /* TestBaseLabelVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestBaseLabelVC.m; sourceTree = "<group>"; };
 		C52BFE04285C7948002B5D0F /* JobsSEL_IMP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsSEL_IMP.m; sourceTree = "<group>"; };
 		C52BFE05285C7948002B5D0F /* JobsSEL_IMP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsSEL_IMP.h; sourceTree = "<group>"; };
+		C52E59F72AC04B8900FE5494 /* 视频模块.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "视频模块.xcassets"; sourceTree = "<group>"; };
 		C52F2F6B2AC0298900BB5549 /* NSNotificationCenter+JobsBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+JobsBlock.h"; sourceTree = "<group>"; };
 		C52F2F6C2AC0298900BB5549 /* NSNotificationCenter+JobsBlock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSNotificationCenter+JobsBlock.m"; sourceTree = "<group>"; };
 		C52F2F6F2AC029F400BB5549 /* NSNotificationCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSNotificationCenter.h; sourceTree = "<group>"; };
@@ -7552,6 +7554,7 @@
 		84CA5DD427895B4700E46E71 /* xcassets */ = {
 			isa = PBXGroup;
 			children = (
+				C52E59F72AC04B8900FE5494 /* 视频模块.xcassets */,
 				C5A7C2DB285B290400F0F2BB /* 临时的占位图.xcassets */,
 				84CA5E7B27895BA400E46E71 /* AppDoor.xcassets */,
 				84CA5E7C27895BA400E46E71 /* Assets.xcassets */,
@@ -10630,6 +10633,7 @@
 				844B086C2764CF4800B0513D /* 照片@2x.png in Resources */,
 				840F962427736427004979E9 /* 1@2x.png in Resources */,
 				840F95E827736427004979E9 /* TabbaritemImage.bundle in Resources */,
+				C52E59F82AC04B8900FE5494 /* 视频模块.xcassets in Resources */,
 				C5C4804D284E21E5007916B3 /* NotoSansDisplay-ExtraBold.ttf in Resources */,
 				C5C4808C284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-ExtraBold.ttf in Resources */,
 				84CA5FAD27897AFB00E46E71 /* XLChannelControl in Resources */,

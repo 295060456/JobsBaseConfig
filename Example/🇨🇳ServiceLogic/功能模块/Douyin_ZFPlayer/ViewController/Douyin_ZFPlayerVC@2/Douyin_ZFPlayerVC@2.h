@@ -22,7 +22,7 @@ UITableViewDelegate,
 UITableViewDataSource,
 ZFDouYinCellDelegate
 >
-
+/// 指定到某一行播放
 -(void)playTheIndex:(NSInteger)index;
 
 @end

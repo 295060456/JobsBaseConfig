@@ -22,19 +22,19 @@
 @implementation JobsRightBtnsView
 @synthesize viewModel = _viewModel;
 #pragma mark —— BaseProtocol
-///// 单例化和销毁
-//+(void)destroySingleton{
-//    static_tipsView01OnceToken = 0;
-//    static_tipsView01 = nil;
-//}
-//
-//static BaiShaETProjTipsView01 *static_tipsView01 = nil;
-//static dispatch_once_t static_tipsView01OnceToken;
-//+(instancetype)sharedInstance{
-//    dispatch_once(&static_tipsView01OnceToken, ^{
-//        static_tipsView01 = MKRightBtnView.new;
-//    });return static_tipsView01;
-//}
+/// 单例化和销毁
++(void)destroySingleton{
+    static_rightBtnsViewOnceToken = 0;
+    static_rightBtnsView = nil;
+}
+
+static JobsRightBtnsView *static_rightBtnsView = nil;
+static dispatch_once_t static_rightBtnsViewOnceToken;
++(instancetype)sharedInstance{
+    dispatch_once(&static_rightBtnsViewOnceToken, ^{
+        static_rightBtnsView = JobsRightBtnsView.new;
+    });return static_rightBtnsView;
+}
 #pragma mark —— SysMethod
 -(instancetype)init{
     if (self = [super init]) {
@@ -94,8 +94,8 @@
     if (!_mkZanView) {
         _mkZanView = UIButton.new;
         
-        _mkZanView.normalImage = JobsBuddleIMG(@"bundle",@"Others", nil,@"喜欢-未点击");
-        _mkZanView.selectedImage = JobsBuddleIMG(@"bundle",@"Others", nil,@"喜欢-点击");
+        _mkZanView.normalImage = JobsIMG(@"视频未点赞");
+        _mkZanView.selectedImage = JobsIMG(@"视频未点赞");
         _mkZanView.titleFont = UIFontWeightRegularSize(JobsWidth(12));
         
         @jobs_weakify(self)
@@ -124,8 +124,7 @@
 -(UIButton *)mkCommentView{
     if (!_mkCommentView) {
         _mkCommentView = UIButton.new;
-        
-        _mkCommentView.normalImage = JobsBuddleIMG(@"bundle",@"Others",nil,@"信息");
+        _mkCommentView.normalImage = JobsIMG(@"视频评论");
         _mkCommentView.titleFont = UIFontWeightRegularSize(JobsWidth(12));
         @jobs_weakify(self)
         [_mkCommentView jobsBtnClickEventBlock:^(__kindof UIButton * _Nullable x) {
@@ -155,7 +154,7 @@
     if (!_mkShareView) {
         _mkShareView = UIButton.new;
         _mkShareView.normalTitle = Internationalization(@"分享");
-        _mkShareView.normalImage = JobsBuddleIMG(@"bundle", @"Others",nil,@"分享");
+        _mkShareView.normalImage = JobsIMG(@"分享");
         _mkShareView.titleFont = UIFontWeightRegularSize(JobsWidth(12));
         @jobs_weakify(self)
         [_mkShareView jobsBtnClickEventBlock:^(__kindof UIButton * _Nullable x) {
