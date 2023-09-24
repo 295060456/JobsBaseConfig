@@ -22,10 +22,11 @@ NS_ASSUME_NONNULL_BEGIN
 -(NSString *)dealWithString:(NSInteger)num;
 /// 服务器请求的数据为空值的时候进行替换本地默认值
 /// 因为json传输是通过对象包装来进行，所以其实归结起来就是2类，一类是基本数据类型被包装成Number、其他包装成String
-/// @param nullableStr 进行检查的资源
-/// @param replaceStr 进行替换的备用文字资源
-+(NSString *)ensureNonnullString:(id)nullableStr
-                      replaceStr:(NSString *)replaceStr;
+/// @param nullableString 进行检查的资源
+/// @param replaceString 进行替换的备用文字资源
+#define JobsNonnullString(nullableStr,replaceStr) [NSString nullableString:nullableStr replaceString:replaceStr]
++(NSString *)nullableString:(id)nullableString
+              replaceString:(NSString *)replaceString;
 
 @end
 

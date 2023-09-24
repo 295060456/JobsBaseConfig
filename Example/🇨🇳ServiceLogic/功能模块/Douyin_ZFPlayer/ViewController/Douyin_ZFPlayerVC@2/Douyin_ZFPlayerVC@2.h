@@ -8,7 +8,7 @@
 #import "BaseViewController.h"
 #import "MacroDef_Func.h"
 
-#import "PlayerCell.h"
+#import "JobsPlayerTBVCell.h"
 
 #import "ZFCustomControlView.h"
 #import "ZFDouYinControlView.h"

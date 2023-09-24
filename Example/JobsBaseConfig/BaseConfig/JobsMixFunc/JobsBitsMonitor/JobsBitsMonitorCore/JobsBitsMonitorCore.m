@@ -146,9 +146,8 @@ static JobsBitsMonitorCore *static_bitsMonitorCore = nil;
                                                           object:self.uploadNetworkSpeed];
         NSLog(@"self.uploadNetworkSpeed  :%@",self.uploadNetworkSpeed);
     }
-    
     [NSNotificationCenter.defaultCenter postNotificationName:GSUploadAndDownloadNetworkSpeedNotificationKey
-                                                      object:[NSString stringWithFormat:@"↑%@ / ↓%@",[NSString ensureNonnullString:self.uploadNetworkSpeed replaceStr:@"0b/s"],[NSString ensureNonnullString:self.downloadNetworkSpeed replaceStr:@"0b/s"]]];
+                                                      object:[NSString stringWithFormat:@"↑%@ / ↓%@",JobsNonnullString(self.uploadNetworkSpeed, @"0b/s"),JobsNonnullString(self.downloadNetworkSpeed, @"0b/s")]];
     _oBytes = oBytes;
 }
 //格式化数据输出

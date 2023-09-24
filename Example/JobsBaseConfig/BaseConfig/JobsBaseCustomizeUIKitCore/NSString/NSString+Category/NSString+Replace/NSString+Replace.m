@@ -40,31 +40,31 @@
 }
 /// 服务器请求的数据为空值的时候进行替换本地默认值
 /// 因为json传输是通过对象包装来进行，所以其实归结起来就是2类，一类是基本数据类型被包装成Number、其他包装成String
-/// @param nullableStr 进行检查的资源
-/// @param replaceStr 进行替换的备用文字资源
-+(NSString *)ensureNonnullString:(id)nullableStr
-                      replaceStr:(NSString *)replaceStr{
-    //只有NSNumber 和 NSString 这两种情况
-    //过滤特殊字符：空格
+/// @param nullableString 进行检查的资源
+/// @param replaceString 进行替换的备用文字资源
++(NSString *)nullableString:(id)nullableString
+              replaceString:(NSString *)replaceString{
+    /// 只有NSNumber 和 NSString 这两种情况
+    /// 过滤特殊字符：空格
     NSCharacterSet *whitespace = NSCharacterSet.whitespaceAndNewlineCharacterSet;
-    replaceStr = [replaceStr stringByTrimmingCharactersInSet:whitespace];//有空格，去除空格
-    if (replaceStr == nil ||
-        replaceStr == Nil ||
-        replaceStr.length == 0) {
-        replaceStr = Internationalization(@"No Data");
+    replaceString = [replaceString stringByTrimmingCharactersInSet:whitespace];//有空格，去除空格
+    if (replaceString == nil ||
+        replaceString == Nil ||
+        replaceString.length == 0) {
+        replaceString = Internationalization(@"No Data");
     }
-    if (nullableStr == nil ||
-        nullableStr == NULL ||
-        [nullableStr isKindOfClass:NSNull.class]) {//判断空 或者 空对象
-        return replaceStr;
-    }else if([nullableStr isKindOfClass:NSString.class]){
-        NSString *str = (NSString *)nullableStr;
+    if (nullableString == nil ||
+        nullableString == NULL ||
+        [nullableString isKindOfClass:NSNull.class]) {//判断空 或者 空对象
+        return replaceString;
+    }else if([nullableString isKindOfClass:NSString.class]){
+        NSString *str = (NSString *)nullableString;
         str = [str stringByTrimmingCharactersInSet:whitespace];//有空格，去除空格
-        return str.length == 0 ? replaceStr : str;
-    }else if ([nullableStr isKindOfClass:NSNumber.class]){
-        NSNumber *b = (NSNumber *)nullableStr;
-        return [b toString:nil].nullString ? replaceStr : [b toString:nil];
-    }else return replaceStr;
+        return str.length == 0 ? replaceString : str;
+    }else if ([nullableString isKindOfClass:NSNumber.class]){
+        NSNumber *b = (NSNumber *)nullableString;
+        return [b toString:nil].nullString ? replaceString : [b toString:nil];
+    }else return replaceString;
 }
 
 @end

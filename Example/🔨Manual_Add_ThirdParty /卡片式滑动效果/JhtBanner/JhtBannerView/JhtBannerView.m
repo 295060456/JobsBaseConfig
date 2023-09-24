@@ -98,18 +98,17 @@ cardViewForBannerViewAtIndex:(NSInteger)index {
         
         cardView.tag = index;
     }
-    
-    //data
+    /// data
     if ([self.dataArr.firstObject isKindOfClass:UIImage.class]) {
         cardView.cardImageView.image = self.dataArr[index];
     }else if ([self.dataArr.firstObject isKindOfClass:NSString.class]){
         NSString *str = self.dataArr[index];
-        //单纯的字符串 或者是 网址
+        /// 单纯的字符串 或者是 网址
         if ([str containsString:@"http"]) {
-            [cardView.cardImageView sd_setImageWithURL:[NSURL URLWithString:str]
-                                      placeholderImage:[UIImage imageNamed:self.placeholderImageName]];
+            [cardView.cardImageView sd_setImageWithURL:str.jobsUrl
+                                      placeholderImage:JobsIMG(self.placeholderImageName)];
         }else{
-            cardView.cardLab.text = [NSString ensureNonnullString:(NSString *)self.dataArr[index] replaceStr:self.placeholderName];
+            cardView.cardLab.text = JobsNonnullString(self.dataArr[index], self.placeholderName);
         }
     }
     return cardView;

@@ -7,7 +7,7 @@
 
 #import "BaseViewController.h"
 #import "LOTAnimationMJRefreshHeader.h"
-#import "PlayerCell.h"
+#import "JobsPlayerTBVCell.h"
 
 #import "VideoModel.h"
 

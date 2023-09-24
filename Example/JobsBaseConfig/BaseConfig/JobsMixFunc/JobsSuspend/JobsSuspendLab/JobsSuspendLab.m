@@ -17,11 +17,10 @@
 -(instancetype)init{
     if (self = [super init]) {
         self.backgroundColor = self.backgroundColor ? :JobsBlackColor;
-        self.text = [NSString ensureNonnullString:self.text
-                                       replaceStr:Internationalization(@"No Data")];
+        self.text = JobsNonnullString(self.text, Internationalization(@"No Data"));
         self.internationalizationKEY = @"No Data";
         self.textAlignment = NSTextAlignmentCenter;
-        [self cornerCutToCircleWithCornerRadius:8];
+        [self cornerCutToCircleWithCornerRadius:JobsWidth(8)];
     }return self;
 }
 
@@ -31,15 +30,9 @@
     self.userInteractionEnabled = self.isAllowDrag;
 }
 
--(void)actionSuspendViewBlock:(jobsByIDBlock _Nullable)suspendLabBlock{
-    self.suspendLabBlock = suspendLabBlock;
-}
-
 -(void)touchesBegan:(NSSet<UITouch *> *)touches
           withEvent:(UIEvent *)event{
-    if (self.suspendLabBlock) {
-        self.suspendLabBlock(@1);
-    }
+    if(self.objectBlock) self.objectBlock(@1);
 }
 
 @end

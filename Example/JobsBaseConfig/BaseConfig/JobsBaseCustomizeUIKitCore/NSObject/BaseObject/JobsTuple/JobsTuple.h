@@ -25,11 +25,9 @@ NS_ASSUME_NONNULL_END
  使用示例:
  
  // 创建元组
- JobsTuple *myTuple = [[JobsTuple alloc] initWithValues:@"Hello", @42, @3.14, @"World", nil];
+ JobsTuple *myTuple = [JobsTuple.alloc initWithValues:@"Hello", @42, @3.14, @"World", nil];
  // 访问元组的值
- for (id value in myTuple.values) {
-    NSLog(@"Value: %@", value);
- }
+ myTuple.jobsTupleValueArr;
  
  这样做的意义：
  当我们一个方法需要返回多组不同类型的值，我们可以建立一个Model，但是Model会固定这些值的个数和类型，所以用此类来解决问题

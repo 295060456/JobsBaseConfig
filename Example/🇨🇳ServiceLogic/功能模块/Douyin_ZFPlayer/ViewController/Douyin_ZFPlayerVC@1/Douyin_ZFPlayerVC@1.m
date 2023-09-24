@@ -19,7 +19,6 @@
 - (void)dealloc {
     NSLog(@"%@",JobsLocalFunc);
 }
-
 #pragma mark - Lifecycle
 -(instancetype)init{
     if (self = [super init]) {
@@ -45,8 +44,8 @@
     [self setGKNavBackBtn];
     
     self.tableView.alpha = 1;
+    
 //    [self monitorScrollView];
-    [self requestDataa:NO];
 //    [self requestData:NO];
 }
 
@@ -68,6 +67,7 @@
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
 }
+#pragma mark —— 一些私有方法
 ///下拉刷新
 -(void)pullToRefresh{
     NSLog(@"下拉刷新");
@@ -87,9 +87,8 @@
     
     @"data".readLocalFileWithName;/// 获取本地的数据
 }
-
 /// 真实的网络请求
--(void)requestDataa:(BOOL)isLoadMore{
+-(void)requestData:(BOOL)isLoadMore{
     DDNetworkingPrepare
     DataManager.sharedInstance.tag = ReuseIdentifier;
     /**
@@ -194,7 +193,7 @@
 #pragma mark —————————— UITableViewDelegate,UITableViewDataSource ——————————
 -(CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [PlayerCell cellHeightWithModel:nil];
+    return [JobsPlayerTBVCell cellHeightWithModel:nil];
 }
 
 -(void)tableView:(UITableView *)tableView
@@ -209,7 +208,7 @@ numberOfRowsInSection:(NSInteger)section{
 
 -(UITableViewCell *)tableView:(UITableView *)tableView
         cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    PlayerCell *cell = [PlayerCell cellStyleValue1WithTableView:tableView];
+    JobsPlayerTBVCell *cell = [JobsPlayerTBVCell cellStyleValue1WithTableView:tableView];
     cell.index = indexPath.row;
     
     UIViewModel *viewModel = UIViewModel.new;
@@ -220,27 +219,30 @@ numberOfRowsInSection:(NSInteger)section{
     
     self.index = indexPath.row;
     @jobs_weakify(self)
-    [cell actionBlockPlayerCell:^(NSNumber *direction,
-                                  NSNumber *index) {
+    [cell actionObjectBlock:^(JobsTuple *data) {
         @jobs_strongify(self)
+        NSNumber *direction = data.jobsTupleValueArr[0];
+        NSNumber *index = data.jobsTupleValueArr[1];
+        
         self.index = index.intValue;
         if (direction.intValue) {//手势朝下
             self.index -= 1;
         }else{//手势朝上
             self.index += 1;
         }
-        
+
         if (self.index < 0) {
             self.index = 0;
         }
-        
+
         if (self.index > self.dataMutArr.count - 1) {
             self.index = self.dataMutArr.count - 1;
         }
-        
+
         NSLog(@"MMM = %ld",self.index);
         [self roll];
     }];
+
     NSLog(@"DDD0 = %ld",self.index);
     return cell;
 }
@@ -248,21 +250,19 @@ numberOfRowsInSection:(NSInteger)section{
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
-//cell的生命周期
-//将要出现的cell
+/// UITableViewCell 的生命周期 : 将要出现的cell
 - (void)tableView:(UITableView *)tableView
-  willDisplayCell:(PlayerCell *)cell
+  willDisplayCell:(JobsPlayerTBVCell *)cell
 forRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"KKK %ld",(long)indexPath.row);
-
-    [cell.player.currentPlayerManager play];
+    [cell.getPlayer.currentPlayerManager play];
 }
-//已经消失的cell
+/// 已经消失的 UITableViewCell
 - (void)tableView:(UITableView *)tableView
-didEndDisplayingCell:(PlayerCell *)cell
+didEndDisplayingCell:(JobsPlayerTBVCell *)cell
 forRowAtIndexPath:(NSIndexPath*)indexPath{
     NSLog(@"DDDD %ld",(long)indexPath.row);
-    [cell.player.currentPlayerManager pause];
+    [cell.getPlayer.currentPlayerManager pause];
 }
 #pragma mark —— lazyLoad
 -(UITableView *)tableView{
@@ -279,19 +279,18 @@ forRowAtIndexPath:(NSIndexPath*)indexPath{
         {
             // 创建自定义值，用model管理
             MJRefreshConfigModel *refreshConfigHeader = MJRefreshConfigModel.new;
-            refreshConfigHeader.stateIdleTitle = @"下拉刷新数据";
-            refreshConfigHeader.pullingTitle = @"下拉刷新数据";
-            refreshConfigHeader.refreshingTitle = @"正在刷新数据";
-            refreshConfigHeader.willRefreshTitle = @"刷新数据中";
-            refreshConfigHeader.noMoreDataTitle = @"下拉刷新数据";
+            refreshConfigHeader.stateIdleTitle = Internationalization(@"下拉刷新数据");
+            refreshConfigHeader.pullingTitle = Internationalization(@"下拉刷新数据");
+            refreshConfigHeader.refreshingTitle = Internationalization(@"正在刷新数据");
+            refreshConfigHeader.willRefreshTitle = Internationalization(@"刷新数据中");
+            refreshConfigHeader.noMoreDataTitle = Internationalization(@"下拉刷新数据");
             
             MJRefreshConfigModel *refreshConfigFooter = MJRefreshConfigModel.new;
-            refreshConfigFooter.stateIdleTitle = @"";
-            refreshConfigFooter.pullingTitle = @"";
-            refreshConfigFooter.refreshingTitle = @"";
-            refreshConfigFooter.willRefreshTitle = @"";
-            refreshConfigFooter.noMoreDataTitle = @"";
-            
+            refreshConfigFooter.stateIdleTitle = Internationalization(@"");
+            refreshConfigFooter.pullingTitle = Internationalization(@"");
+            refreshConfigFooter.refreshingTitle = Internationalization(@"");
+            refreshConfigFooter.willRefreshTitle = Internationalization(@"");
+            refreshConfigFooter.noMoreDataTitle = Internationalization(@"");
             // 赋值
             self.lotAnimMJRefreshHeader.refreshConfigModel = refreshConfigHeader;
             self.refreshConfigFooter = refreshConfigFooter;//数据赋值
@@ -304,9 +303,8 @@ forRowAtIndexPath:(NSIndexPath*)indexPath{
         
         {
             _tableView.ly_emptyView = [EmptyView emptyViewWithImageStr:@"Indeterminate Spinner - Small"
-                                                              titleStr:@"暂无数据"
-                                                             detailStr:@"骚等片刻"];
-            
+                                                              titleStr:Internationalization(@"暂无数据")
+                                                             detailStr:Internationalization(@"骚等片刻")];
         }
         
         if(@available(iOS 11.0, *)) {
@@ -325,11 +323,7 @@ forRowAtIndexPath:(NSIndexPath*)indexPath{
             }
 
             extern AppDelegate *appDelegate;
-            if (appDelegate.tabBarVC.tabBar.isHidden) {
-                make.bottom.equalTo(self.view.mas_bottom);
-            }else{
-                make.bottom.equalTo(self.view.mas_bottom).offset(-JobsTabBarHeightByBottomSafeArea(appDelegate.tabBarVC));
-            }
+            make.bottom.equalTo(self.view.mas_bottom).offset(appDelegate.tabBarVC.tabBar.isHidden ? 0 : -JobsTabBarHeightByBottomSafeArea(appDelegate.tabBarVC));
         }];
     }return _tableView;
 }
@@ -337,36 +331,257 @@ forRowAtIndexPath:(NSIndexPath*)indexPath{
 -(NSMutableArray<VideoModel_Core *> *)dataMutArr{
     if (!_dataMutArr) {
         _dataMutArr = NSMutableArray.array;
-//        [_dataMutArr addObject:@"0"];
-//        [_dataMutArr addObject:@"1"];
-//        [_dataMutArr addObject:@"2"];
-//        [_dataMutArr addObject:@"3"];
-//        [_dataMutArr addObject:@"4"];
-//        [_dataMutArr addObject:@"5"];
-//        [_dataMutArr addObject:@"6"];
-//        [_dataMutArr addObject:@"7"];
-//        [_dataMutArr addObject:@"8"];
-//        [_dataMutArr addObject:@"9"];
-//        [_dataMutArr addObject:@"10"];
-//        [_dataMutArr addObject:@"11"];
-//        [_dataMutArr addObject:@"12"];
-//        [_dataMutArr addObject:@"13"];
-//        [_dataMutArr addObject:@"14"];
-//        [_dataMutArr addObject:@"15"];
-//        [_dataMutArr addObject:@"16"];
-//        [_dataMutArr addObject:@"17"];
-//        [_dataMutArr addObject:@"18"];
-//        [_dataMutArr addObject:@"19"];
-//        [_dataMutArr addObject:@"20"];
-//        [_dataMutArr addObject:@"21"];
-//        [_dataMutArr addObject:@"22"];
-//        [_dataMutArr addObject:@"23"];
-//        [_dataMutArr addObject:@"24"];
-//        [_dataMutArr addObject:@"25"];
-//        [_dataMutArr addObject:@"26"];
-//        [_dataMutArr addObject:@"27"];
-//        [_dataMutArr addObject:@"28"];
-//        [_dataMutArr addObject:@"29"];
+        /// 第1条视频
+        {
+            VideoModel_Core *data = VideoModel_Core.new;
+//            data.isPraise;
+//            data.authorId;
+//            data.videoSort;
+//            data.headImage;
+//            data.praiseNum;
+//            data.author;
+//            data.videoId;
+//            data.videoSize;
+//            data.isVip;
+//            data.commentNum;
+//            data.isAttention;
+//            data.areSelf;
+//            data.publishTime;
+//            data.playNum;
+//            data.videoTime;
+            
+            data.videoIdcUrl = @"https://www.apple.com/105/media/us/iphone-x/2017/01df5b43-28e4-4848-bf20-490c34a926a7/films/feature/iphone-x-feature-tpl-cc-us-20170912_1280x720h.mp4";
+            data.videoTitle = Internationalization(@"第1条视频");
+            data.videoImg = @"视频封面";
+            
+            [_dataMutArr addObject:data];
+        }
+        /// 第2条视频
+        {
+            VideoModel_Core *data = VideoModel_Core.new;
+//            data.isPraise;
+//            data.authorId;
+//            data.videoSort;
+//            data.headImage;
+//            data.praiseNum;
+//            data.author;
+//            data.videoId;
+//            data.videoSize;
+//            data.isVip;
+//            data.commentNum;
+//            data.isAttention;
+//            data.areSelf;
+//            data.publishTime;
+//            data.playNum;
+//            data.videoTime;
+            
+            data.videoIdcUrl = @"https://www.apple.com/105/media/cn/mac/family/2018/46c4b917_abfd_45a3_9b51_4e3054191797/films/bruce/mac-bruce-tpl-cn-2018_1280x720h.mp4";
+            data.videoTitle = Internationalization(@"第2条视频");
+            data.videoImg = @"视频封面";
+            
+            [_dataMutArr addObject:data];
+        }
+        /// 第3条视频
+        {
+            VideoModel_Core *data = VideoModel_Core.new;
+//            data.isPraise;
+//            data.authorId;
+//            data.videoSort;
+//            data.headImage;
+//            data.praiseNum;
+//            data.author;
+//            data.videoId;
+//            data.videoSize;
+//            data.isVip;
+//            data.commentNum;
+//            data.isAttention;
+//            data.areSelf;
+//            data.publishTime;
+//            data.playNum;
+//            data.videoTime;
+            
+            data.videoIdcUrl = @"https://www.apple.com/105/media/us/mac/family/2018/46c4b917_abfd_45a3_9b51_4e3054191797/films/peter/mac-peter-tpl-cc-us-2018_1280x720h.mp4";
+            data.videoTitle = Internationalization(@"第3条视频");
+            data.videoImg = @"视频封面";
+            
+            [_dataMutArr addObject:data];
+        }
+        /// 第4条视频
+        {
+            VideoModel_Core *data = VideoModel_Core.new;
+//            data.isPraise;
+//            data.authorId;
+//            data.videoSort;
+//            data.headImage;
+//            data.praiseNum;
+//            data.author;
+//            data.videoId;
+//            data.videoSize;
+//            data.isVip;
+//            data.commentNum;
+//            data.isAttention;
+//            data.areSelf;
+//            data.publishTime;
+//            data.playNum;
+//            data.videoTime;
+            
+            data.videoIdcUrl = @"https://www.apple.com/105/media/us/mac/family/2018/46c4b917_abfd_45a3_9b51_4e3054191797/films/grimes/mac-grimes-tpl-cc-us-2018_1280x720h.mp4";
+            data.videoTitle = Internationalization(@"第4条视频");
+            data.videoImg = @"视频封面";
+            
+            [_dataMutArr addObject:data];
+        }
+        /// 第5条视频
+        {
+            VideoModel_Core *data = VideoModel_Core.new;
+//            data.isPraise;
+//            data.authorId;
+//            data.videoSort;
+//            data.headImage;
+//            data.praiseNum;
+//            data.author;
+//            data.videoId;
+//            data.videoSize;
+//            data.isVip;
+//            data.commentNum;
+//            data.isAttention;
+//            data.areSelf;
+//            data.publishTime;
+//            data.playNum;
+//            data.videoTime;
+            
+            data.videoIdcUrl = @"https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7194236f31b2e1e3da0fe06cfed4ba2b.mp4";
+            data.videoTitle = Internationalization(@"第5条视频");
+            data.videoImg = @"视频封面";
+            
+            [_dataMutArr addObject:data];
+        }
+        /// 第6条视频
+        {
+            VideoModel_Core *data = VideoModel_Core.new;
+//            data.isPraise;
+//            data.authorId;
+//            data.videoSort;
+//            data.headImage;
+//            data.praiseNum;
+//            data.author;
+//            data.videoId;
+//            data.videoSize;
+//            data.isVip;
+//            data.commentNum;
+//            data.isAttention;
+//            data.areSelf;
+//            data.publishTime;
+//            data.playNum;
+//            data.videoTime;
+            
+            data.videoIdcUrl = @"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4";
+            data.videoTitle = Internationalization(@"第6条视频");
+            data.videoImg = @"视频封面";
+            
+            [_dataMutArr addObject:data];
+        }
+        /// 第7条视频
+        {
+            VideoModel_Core *data = VideoModel_Core.new;
+//            data.isPraise;
+//            data.authorId;
+//            data.videoSort;
+//            data.headImage;
+//            data.praiseNum;
+//            data.author;
+//            data.videoId;
+//            data.videoSize;
+//            data.isVip;
+//            data.commentNum;
+//            data.isAttention;
+//            data.areSelf;
+//            data.publishTime;
+//            data.playNum;
+//            data.videoTime;
+            
+            data.videoIdcUrl = @"http://vjs.zencdn.net/v/oceans.mp4";
+            data.videoTitle = Internationalization(@"第7条视频");
+            data.videoImg = @"视频封面";
+            
+            [_dataMutArr addObject:data];
+        }
+        /// 第8条视频
+        {
+            VideoModel_Core *data = VideoModel_Core.new;
+//            data.isPraise;
+//            data.authorId;
+//            data.videoSort;
+//            data.headImage;
+//            data.praiseNum;
+//            data.author;
+//            data.videoId;
+//            data.videoSize;
+//            data.isVip;
+//            data.commentNum;
+//            data.isAttention;
+//            data.areSelf;
+//            data.publishTime;
+//            data.playNum;
+//            data.videoTime;
+            
+            data.videoIdcUrl = @"https://media.w3.org/2010/05/sintel/trailer.mp4";
+            data.videoTitle = Internationalization(@"第8条视频");
+            data.videoImg = @"视频封面";
+            
+            [_dataMutArr addObject:data];
+        }
+        /// 第9条视频
+        {
+            VideoModel_Core *data = VideoModel_Core.new;
+//            data.isPraise;
+//            data.authorId;
+//            data.videoSort;
+//            data.headImage;
+//            data.praiseNum;
+//            data.author;
+//            data.videoId;
+//            data.videoSize;
+//            data.isVip;
+//            data.commentNum;
+//            data.isAttention;
+//            data.areSelf;
+//            data.publishTime;
+//            data.playNum;
+//            data.videoTime;
+            
+            data.videoIdcUrl = @"http://mirror.aarnet.edu.au/pub/TED-talks/911Mothers_2010W-480p.mp4";
+            data.videoTitle = Internationalization(@"第9条视频");
+            data.videoImg = @"视频封面";
+            
+            [_dataMutArr addObject:data];
+        }
+        /// 第10条视频
+        {
+            VideoModel_Core *data = VideoModel_Core.new;
+//            data.isPraise;
+//            data.authorId;
+//            data.videoSort;
+//            data.headImage;
+//            data.praiseNum;
+//            data.author;
+//            data.videoId;
+//            data.videoSize;
+//            data.isVip;
+//            data.commentNum;
+//            data.isAttention;
+//            data.areSelf;
+//            data.publishTime;
+//            data.playNum;
+//            data.videoTime;
+            
+            data.videoIdcUrl = @"https://sample-videos.com/video123/mp4/480/big_buck_bunny_480p_2mb.mp4";
+            data.videoTitle = Internationalization(@"第10条视频");
+            data.videoImg = @"视频封面";
+            
+            [_dataMutArr addObject:data];
+        }
+
     }return _dataMutArr;
 }
 

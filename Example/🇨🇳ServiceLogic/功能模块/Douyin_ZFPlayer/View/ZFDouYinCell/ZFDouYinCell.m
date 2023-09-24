@@ -6,13 +6,12 @@
 //
 
 #import "ZFDouYinCell.h"
-#import "MKRightBtnView.h"
 
 @interface ZFDouYinCell ()
-
+/// UI
 @property(nonatomic,strong)UILabel *label;
 @property(nonatomic,strong)UIImageView *coverImageView;
-@property(nonatomic,strong)MKRightBtnView *rbView;
+@property(nonatomic,strong)JobsRightBtnsView *rbView;
 @property(nonatomic,strong)UIButton *rotation;
 
 @end
@@ -73,15 +72,19 @@
     }return _coverImageView;
 }
 
--(MKRightBtnView *)rbView{
+-(JobsRightBtnsView *)rbView{
     if (!_rbView) {
-        _rbView = MKRightBtnView.new;
-        _rbView.MKRightBtnViewSize = CGSizeMake(50, JobsMainScreen_HEIGHT()/ 4);
-        _rbView.offset = 15;
+        _rbView = JobsRightBtnsView.new;
+        _rbView.offset = JobsWidth(15);
+        [_rbView richElementsInViewWithModel:nil];
+        @jobs_weakify(self)
+        [_rbView actionObjectBlock:^(id data) {
+            @jobs_strongify(self)
+        }];
         [self.contentView addSubview:_rbView];
         [_rbView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.bottom.equalTo(self.contentView);
-            make.size.mas_equalTo(CGSizeMake(50, JobsMainScreen_HEIGHT()/ 4));
+            make.size.mas_equalTo([JobsRightBtnsView viewSizeWithModel:nil]);
         }];
     }return _rbView;
 }
@@ -89,12 +92,11 @@
 -(UIButton *)rotation{
     if (!_rotation){
         _rotation = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_rotation setImage:JobsIMG(@"zfplayer_rotaiton")
-                   forState:UIControlStateNormal];
+        _rotation.normalImage = JobsIMG(@"zfplayer_rotaiton");
         @jobs_weakify(self)
-        [[_rotation rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-            @jobs_strongify(self)
-            [self rotationClick:x];
+        [_rotation jobsBtnClickEventBlock:^(__kindof UIControl * _Nullable x) {
+                    @jobs_strongify(self)
+                    [self rotationClick:x];
         }];
         [self.contentView addSubview:_rotation];
         [_rotation mas_makeConstraints:^(MASConstraintMaker *make) {

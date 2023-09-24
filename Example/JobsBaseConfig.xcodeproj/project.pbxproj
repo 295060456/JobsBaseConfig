@@ -626,10 +626,10 @@
 		84CA642B2789C00300E46E71 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 84CA642A2789C00300E46E71 /* data.json */; };
 		84CA64A42789C1F100E46E71 /* Douyin_ZFPlayerVC@1.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA64A32789C1F100E46E71 /* Douyin_ZFPlayerVC@1.m */; };
 		84CA64A92789C24600E46E71 /* VideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA64A72789C24600E46E71 /* VideoModel.m */; };
-		84CA64AE2789C2AF00E46E71 /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA64AD2789C2AF00E46E71 /* PlayerCell.m */; };
+		84CA64AE2789C2AF00E46E71 /* JobsPlayerTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA64AD2789C2AF00E46E71 /* JobsPlayerTBVCell.m */; };
 		84CA64B22789C2F300E46E71 /* Douyin_ZFPlayerVC@2.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA64B12789C2F300E46E71 /* Douyin_ZFPlayerVC@2.m */; };
 		84CA64BE2789C80600E46E71 /* ZFDouYinCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA64B62789C80400E46E71 /* ZFDouYinCell.m */; };
-		84CA64BF2789C80600E46E71 /* MKRightBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA64B72789C80500E46E71 /* MKRightBtnView.m */; };
+		84CA64BF2789C80600E46E71 /* JobsRightBtnsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA64B72789C80500E46E71 /* JobsRightBtnsView.m */; };
 		84CA64C02789C80600E46E71 /* ZFDouYinControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA64B82789C80500E46E71 /* ZFDouYinControlView.m */; };
 		84CA64C82789C94400E46E71 /* ZFTableData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA64C62789C94400E46E71 /* ZFTableData.m */; };
 		84CA65402789CAB600E46E71 /* DDNetworkingAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA653F2789CAB600E46E71 /* DDNetworkingAPI.m */; };
@@ -2120,15 +2120,15 @@
 		84CA64A32789C1F100E46E71 /* Douyin_ZFPlayerVC@1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Douyin_ZFPlayerVC@1.m"; sourceTree = "<group>"; };
 		84CA64A72789C24600E46E71 /* VideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoModel.m; sourceTree = "<group>"; };
 		84CA64A82789C24600E46E71 /* VideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoModel.h; sourceTree = "<group>"; };
-		84CA64AC2789C2AF00E46E71 /* PlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerCell.h; sourceTree = "<group>"; };
-		84CA64AD2789C2AF00E46E71 /* PlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerCell.m; sourceTree = "<group>"; };
+		84CA64AC2789C2AF00E46E71 /* JobsPlayerTBVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsPlayerTBVCell.h; sourceTree = "<group>"; };
+		84CA64AD2789C2AF00E46E71 /* JobsPlayerTBVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsPlayerTBVCell.m; sourceTree = "<group>"; };
 		84CA64B02789C2F300E46E71 /* Douyin_ZFPlayerVC@2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Douyin_ZFPlayerVC@2.h"; sourceTree = "<group>"; };
 		84CA64B12789C2F300E46E71 /* Douyin_ZFPlayerVC@2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Douyin_ZFPlayerVC@2.m"; sourceTree = "<group>"; };
 		84CA64B62789C80400E46E71 /* ZFDouYinCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFDouYinCell.m; sourceTree = "<group>"; };
-		84CA64B72789C80500E46E71 /* MKRightBtnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKRightBtnView.m; sourceTree = "<group>"; };
+		84CA64B72789C80500E46E71 /* JobsRightBtnsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsRightBtnsView.m; sourceTree = "<group>"; };
 		84CA64B82789C80500E46E71 /* ZFDouYinControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFDouYinControlView.m; sourceTree = "<group>"; };
 		84CA64B92789C80500E46E71 /* ZFDouYinCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFDouYinCell.h; sourceTree = "<group>"; };
-		84CA64BA2789C80500E46E71 /* MKRightBtnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKRightBtnView.h; sourceTree = "<group>"; };
+		84CA64BA2789C80500E46E71 /* JobsRightBtnsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsRightBtnsView.h; sourceTree = "<group>"; };
 		84CA64BC2789C80500E46E71 /* ZFDouYinControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFDouYinControlView.h; sourceTree = "<group>"; };
 		84CA64C62789C94400E46E71 /* ZFTableData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFTableData.m; sourceTree = "<group>"; };
 		84CA64C72789C94400E46E71 /* ZFTableData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFTableData.h; sourceTree = "<group>"; };
@@ -8334,8 +8334,8 @@
 			children = (
 				84CA64C52789C82300E46E71 /* ZFDouYinControlView */,
 				84CA64C42789C81B00E46E71 /* ZFDouYinCell */,
-				84CA64C22789C80B00E46E71 /* MKRightBtnView */,
-				84CA64B52789C7F900E46E71 /* PlayerCell */,
+				84CA64C22789C80B00E46E71 /* JobsRightBtnsView */,
+				84CA64B52789C7F900E46E71 /* JobsPlayerTBVCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -8349,22 +8349,22 @@
 			path = "Douyin_ZFPlayerVC@2";
 			sourceTree = "<group>";
 		};
-		84CA64B52789C7F900E46E71 /* PlayerCell */ = {
+		84CA64B52789C7F900E46E71 /* JobsPlayerTBVCell */ = {
 			isa = PBXGroup;
 			children = (
-				84CA64AC2789C2AF00E46E71 /* PlayerCell.h */,
-				84CA64AD2789C2AF00E46E71 /* PlayerCell.m */,
+				84CA64AC2789C2AF00E46E71 /* JobsPlayerTBVCell.h */,
+				84CA64AD2789C2AF00E46E71 /* JobsPlayerTBVCell.m */,
 			);
-			path = PlayerCell;
+			path = JobsPlayerTBVCell;
 			sourceTree = "<group>";
 		};
-		84CA64C22789C80B00E46E71 /* MKRightBtnView */ = {
+		84CA64C22789C80B00E46E71 /* JobsRightBtnsView */ = {
 			isa = PBXGroup;
 			children = (
-				84CA64BA2789C80500E46E71 /* MKRightBtnView.h */,
-				84CA64B72789C80500E46E71 /* MKRightBtnView.m */,
+				84CA64BA2789C80500E46E71 /* JobsRightBtnsView.h */,
+				84CA64B72789C80500E46E71 /* JobsRightBtnsView.m */,
 			);
-			path = MKRightBtnView;
+			path = JobsRightBtnsView;
 			sourceTree = "<group>";
 		};
 		84CA64C42789C81B00E46E71 /* ZFDouYinCell */ = {
@@ -11198,7 +11198,7 @@
 				84CA5FDD27897AFB00E46E71 /* WGradientProgress.m in Sources */,
 				844B087D2764CF4800B0513D /* XHLaunchAd.m in Sources */,
 				840F96F527736428004979E9 /* NSObject+Random.m in Sources */,
-				84CA64AE2789C2AF00E46E71 /* PlayerCell.m in Sources */,
+				84CA64AE2789C2AF00E46E71 /* JobsPlayerTBVCell.m in Sources */,
 				84CA5FE127897AFB00E46E71 /* CountdownView.m in Sources */,
 				840F965627736428004979E9 /* NSBundle+CLLanguage.m in Sources */,
 				845625A0278BF2780067ABB9 /* JobsCommentModel.m in Sources */,
@@ -11317,7 +11317,7 @@
 				C5B3AF3728537E320052A4A9 /* BaiShaETProjCollectionHeaderView.m in Sources */,
 				8459D61C2779A88A00125782 /* CasinoCustomerContactModel.m in Sources */,
 				84CA5F9927897AFB00E46E71 /* GTMBase64.m in Sources */,
-				84CA64BF2789C80600E46E71 /* MKRightBtnView.m in Sources */,
+				84CA64BF2789C80600E46E71 /* JobsRightBtnsView.m in Sources */,
 				C596B7A4283F6F7900C13619 /* JobsHotLabelWithMultiLineCVCell.m in Sources */,
 				C5C47D0A284E1C26007916B3 /* UITableViewCellEditorVC.m in Sources */,
 				C5E4ABC62858C06500B782F0 /* UIBezierPath+TextPath.m in Sources */,

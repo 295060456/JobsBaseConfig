@@ -185,7 +185,7 @@
     [self requestData:YES];
 }
 
-- (void)playTheIndex:(NSInteger)index {
+-(void)playTheIndex:(NSInteger)index {
     @jobs_weakify(self)
     /// 指定到某一行播放
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
@@ -212,12 +212,25 @@
 -(BOOL)prefersStatusBarHidden{
     return NO;
 }
-/// play the video
+/**
+ play the video
+ 
+ @"https://www.apple.com/105/media/us/iphone-x/2017/01df5b43-28e4-4848-bf20-490c34a926a7/films/feature/iphone-x-feature-tpl-cc-us-20170912_1280x720h.mp4"
+ @"https://www.apple.com/105/media/cn/mac/family/2018/46c4b917_abfd_45a3_9b51_4e3054191797/films/bruce/mac-bruce-tpl-cn-2018_1280x720h.mp4"
+ @"https://www.apple.com/105/media/us/mac/family/2018/46c4b917_abfd_45a3_9b51_4e3054191797/films/peter/mac-peter-tpl-cc-us-2018_1280x720h.mp4"
+ @"https://www.apple.com/105/media/us/mac/family/2018/46c4b917_abfd_45a3_9b51_4e3054191797/films/grimes/mac-grimes-tpl-cc-us-2018_1280x720h.mp4"
+ @"https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7194236f31b2e1e3da0fe06cfed4ba2b.mp4"
+ @"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
+ @"http://vjs.zencdn.net/v/oceans.mp4"
+ @"https://media.w3.org/2010/05/sintel/trailer.mp4"
+ @"http://mirror.aarnet.edu.au/pub/TED-talks/911Mothers_2010W-480p.mp4"
+ @"https://sample-videos.com/video123/mp4/480/big_buck_bunny_480p_2mb.mp4"
+ */
 -(void)playTheVideoAtIndexPath:(NSIndexPath *)indexPath{
     VideoModel_Core *data = self.dataSource[indexPath.row];
-    [self.player playTheIndexPath:indexPath//
-                         assetURL:[NSURL URLWithString:data.videoIdcUrl]];//@"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
-//    [self.player playTheIndexPath:indexPath assetURL:[VIResourceLoaderManager assetURLWithURL:[NSURL URLWithString:data.video_url]]];
+    [self.player playTheIndexPath:indexPath
+                         assetURL:data.videoIdcUrl.jobsUrl];
+//    [self.player playTheIndexPath:indexPath assetURL:[VIResourceLoaderManager assetURLWithURL:data.videoIdcUrl.jobsUrl]];
     [self.controlView resetControlView];
     [self.controlView showCoverViewWithUrl:data.videoImg];
     [self.fullControlView showTitle:@"custom landscape controlView"
@@ -297,7 +310,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (!_tableView) {
         _tableView = UITableView.new;
         _tableView.pagingEnabled = YES;
-        _tableView.backgroundColor = [UIColor lightGrayColor];
+        _tableView.backgroundColor = UIColor.lightGrayColor;
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -317,9 +330,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         
         {
 //            _tableView.ly_emptyView = [LYEmptyView emptyViewWithImageStr:@"暂无数据"
-//                                                                titleStr:@"暂无数据"
-//                                                               detailStr:@""];
-            _tableView.ly_emptyView = [EmptyView diyEmptyViewWithTitle:@"暂无数据"];
+//                                                                titleStr:Internationalization(@"暂无数据")
+//                                                               detailStr:Internationalization(@"")];
+            _tableView.ly_emptyView = [EmptyView diyEmptyViewWithTitle:Internationalization(@"暂无数据")];
             _tableView.ly_emptyView.autoShowEmptyView = NO;
             _tableView.ly_emptyView.titleLabTextColor = JobsWhiteColor;
             _tableView.ly_emptyView.contentViewOffset = -JobsWidth(40);
@@ -327,18 +340,18 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         
         {
             MJRefreshConfigModel *refreshConfigHeader = MJRefreshConfigModel.new;
-            refreshConfigHeader.stateIdleTitle = @"下拉刷新数据";
-            refreshConfigHeader.pullingTitle = @"下拉刷新数据";
-            refreshConfigHeader.refreshingTitle = @"正在刷新数据";
-            refreshConfigHeader.willRefreshTitle = @"刷新数据中";
-            refreshConfigHeader.noMoreDataTitle = @"下拉刷新数据";
+            refreshConfigHeader.stateIdleTitle = Internationalization(@"下拉刷新数据");
+            refreshConfigHeader.pullingTitle = Internationalization(@"下拉刷新数据");
+            refreshConfigHeader.refreshingTitle = Internationalization(@"正在刷新数据");
+            refreshConfigHeader.willRefreshTitle = Internationalization(@"刷新数据中");
+            refreshConfigHeader.noMoreDataTitle = Internationalization(@"下拉刷新数据");
             
             MJRefreshConfigModel *refreshConfigFooter = MJRefreshConfigModel.new;
-            refreshConfigFooter.stateIdleTitle = @"上拉加载数据";
-            refreshConfigFooter.pullingTitle = @"上拉加载数据";
-            refreshConfigFooter.refreshingTitle = @"正在加载数据";
-            refreshConfigFooter.willRefreshTitle = @"加载数据中";
-            refreshConfigFooter.noMoreDataTitle = @"没有更多数据";
+            refreshConfigFooter.stateIdleTitle = Internationalization(@"上拉加载数据");
+            refreshConfigFooter.pullingTitle = Internationalization(@"上拉加载数据");
+            refreshConfigFooter.refreshingTitle = Internationalization(@"正在加载数据");
+            refreshConfigFooter.willRefreshTitle = Internationalization(@"加载数据中");
+            refreshConfigFooter.noMoreDataTitle = Internationalization(@"没有更多数据");
             
             self.refreshConfigHeader = refreshConfigHeader;
             self.refreshConfigFooter = refreshConfigFooter;
@@ -403,13 +416,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
                                           BOOL isFullScreen) {
             @jobs_strongify(self)
             self->_player.controlView.hidden = NO;
-            if (isFullScreen) {
-                self->_player.controlView = self.fullControlView;
-            } else {
-                self->_player.controlView = self.controlView;
-            }
+            self->_player.controlView = isFullScreen ? self.fullControlView : self.controlView;
         };
-        
         /// 更新另一个控制层的时间
         _player.playerPlayTimeChanged = ^(id<ZFPlayerMediaPlayback>  _Nonnull asset,
                                           NSTimeInterval currentTime,
@@ -425,7 +433,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
                                         totalTime:duration];
             }
         };
-        
         /// 更新另一个控制层的缓冲时间
         _player.playerBufferTimeChanged = ^(id<ZFPlayerMediaPlayback>  _Nonnull asset,
                                             NSTimeInterval bufferTime) {
@@ -436,7 +443,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
             } else if ([self->_player.controlView isEqual:self.controlView]) {
                 [self.fullControlView videoPlayer:self->_player
                                        bufferTime:bufferTime];
-            }
+            }else{}
         };
         
         /// 停止的时候找出最合适的播放
@@ -487,17 +494,17 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 -(JobsBitsMonitorSuspendLab *)bitsMonitorSuspendLab{
     if (!_bitsMonitorSuspendLab) {
         _bitsMonitorSuspendLab = JobsBitsMonitorSuspendLab.new;
-        _bitsMonitorSuspendLab.font = [UIFont systemFontOfSize:10 weight:UIFontWeightBold];
+        _bitsMonitorSuspendLab.font = UIFontWeightBoldSize(JobsWidth(10));
         _bitsMonitorSuspendLab.backgroundColor = JobsLightGrayColor;
         _bitsMonitorSuspendLab.textColor = JobsRedColor;
         @jobs_weakify(self)
         _bitsMonitorSuspendLab.vc = weak_self;
         _bitsMonitorSuspendLab.isAllowDrag = YES;//悬浮效果必须要的参数
         [self.view addSubview:_bitsMonitorSuspendLab];
-        _bitsMonitorSuspendLab.frame = CGRectMake(20,
-                                                  JobsMainScreen_HEIGHT() - 200,
-                                                  80,
-                                                  30);
+        _bitsMonitorSuspendLab.frame = CGRectMake(JobsWidth(20),
+                                                  JobsMainScreen_HEIGHT() - JobsWidth(200),
+                                                  JobsWidth(80),
+                                                  JobsWidth(30));
     }return _bitsMonitorSuspendLab;
 }
 

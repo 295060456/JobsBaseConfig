@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JobsRightBtnsView.h"
 
 #import "ZFDouYinCellDelegate.h"
 #import "ZFTableData.h"
