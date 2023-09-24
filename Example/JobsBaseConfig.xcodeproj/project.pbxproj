@@ -690,6 +690,7 @@
 		C52809BD2860770500654584 /* JobsBaseLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C52809BC2860770500654584 /* JobsBaseLabel.m */; };
 		C52809E128608BE100654584 /* TestBaseLabelVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C52809E028608BE100654584 /* TestBaseLabelVC.m */; };
 		C52BFE06285C7948002B5D0F /* JobsSEL_IMP.m in Sources */ = {isa = PBXBuildFile; fileRef = C52BFE04285C7948002B5D0F /* JobsSEL_IMP.m */; };
+		C52F2F6D2AC0298900BB5549 /* NSNotificationCenter+JobsBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = C52F2F6C2AC0298900BB5549 /* NSNotificationCenter+JobsBlock.m */; };
 		C532940D2ABCC86D004294E0 /* JobsBtnModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C53294062ABCC86D004294E0 /* JobsBtnModel.m */; };
 		C532940E2ABCC86D004294E0 /* JobsContainerViewDemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C53294092ABCC86D004294E0 /* JobsContainerViewDemoVC.m */; };
 		C532940F2ABCC86D004294E0 /* JobsContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C532940C2ABCC86D004294E0 /* JobsContainerView.m */; };
@@ -2242,6 +2243,9 @@
 		C52809E028608BE100654584 /* TestBaseLabelVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestBaseLabelVC.m; sourceTree = "<group>"; };
 		C52BFE04285C7948002B5D0F /* JobsSEL_IMP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsSEL_IMP.m; sourceTree = "<group>"; };
 		C52BFE05285C7948002B5D0F /* JobsSEL_IMP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsSEL_IMP.h; sourceTree = "<group>"; };
+		C52F2F6B2AC0298900BB5549 /* NSNotificationCenter+JobsBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+JobsBlock.h"; sourceTree = "<group>"; };
+		C52F2F6C2AC0298900BB5549 /* NSNotificationCenter+JobsBlock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSNotificationCenter+JobsBlock.m"; sourceTree = "<group>"; };
+		C52F2F6F2AC029F400BB5549 /* NSNotificationCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSNotificationCenter.h; sourceTree = "<group>"; };
 		C53294052ABCC86D004294E0 /* JobsBtnModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBtnModel.h; sourceTree = "<group>"; };
 		C53294062ABCC86D004294E0 /* JobsBtnModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsBtnModel.m; sourceTree = "<group>"; };
 		C53294082ABCC86D004294E0 /* JobsContainerViewDemoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsContainerViewDemoVC.h; sourceTree = "<group>"; };
@@ -3173,6 +3177,7 @@
 			isa = PBXGroup;
 			children = (
 				840F93E527736426004979E9 /* JobsBaseCustomizeUIKitCoreHeader.h */,
+				C52F2F6A2AC0296700BB5549 /* NSNotificationCenter */,
 				C594831F2879837300EC655B /* UISlider */,
 				C5E4ABC82858C0C200B782F0 /* UIBezierPath */,
 				C57343E9285753690016705E /* UIProgressView */,
@@ -8800,6 +8805,24 @@
 			path = JobsSEL_IMP;
 			sourceTree = "<group>";
 		};
+		C52F2F6A2AC0296700BB5549 /* NSNotificationCenter */ = {
+			isa = PBXGroup;
+			children = (
+				C52F2F6F2AC029F400BB5549 /* NSNotificationCenter.h */,
+				C52F2F6E2AC029E400BB5549 /* NSNotificationCenter+JobsBlock */,
+			);
+			path = NSNotificationCenter;
+			sourceTree = "<group>";
+		};
+		C52F2F6E2AC029E400BB5549 /* NSNotificationCenter+JobsBlock */ = {
+			isa = PBXGroup;
+			children = (
+				C52F2F6B2AC0298900BB5549 /* NSNotificationCenter+JobsBlock.h */,
+				C52F2F6C2AC0298900BB5549 /* NSNotificationCenter+JobsBlock.m */,
+			);
+			path = "NSNotificationCenter+JobsBlock";
+			sourceTree = "<group>";
+		};
 		C53294032ABCC86D004294E0 /* JobsContainerViewDemo */ = {
 			isa = PBXGroup;
 			children = (
@@ -11371,6 +11394,7 @@
 				C55C8959284371A9005295B1 /* JXCategoryPopupSubVC.m in Sources */,
 				845C795E2786D29F009843EE /* NSObject+RunrtimeGet.m in Sources */,
 				840F960227736427004979E9 /* TransitionAnimation.m in Sources */,
+				C52F2F6D2AC0298900BB5549 /* NSNotificationCenter+JobsBlock.m in Sources */,
 				844B08802764CF4800B0513D /* XHLaunchAdImageView+XHLaunchAdCache.m in Sources */,
 				846DF03A27806D230050468A /* JobsAppDoorForgotCodeContentView.m in Sources */,
 				840F970927736428004979E9 /* NSObject+Class.m in Sources */,

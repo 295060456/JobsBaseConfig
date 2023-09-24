@@ -104,6 +104,7 @@
 //}
 // 刷新加载最新数据（以前的数据全部清空）
 -(void)requestData:(BOOL)isLoadMore{
+    return;
     /// 下拉时候一定要停止当前播放，不然有新数据，播放位置会错位。
     [self.player stopCurrentPlayingCell];
     NSLog(@"当前是否有网：%d 状态：%ld",[ZBRequestManager isNetworkReachable],[ZBRequestManager networkReachability]);
@@ -501,10 +502,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         _bitsMonitorSuspendLab.vc = weak_self;
         _bitsMonitorSuspendLab.isAllowDrag = YES;//悬浮效果必须要的参数
         [self.view addSubview:_bitsMonitorSuspendLab];
-        _bitsMonitorSuspendLab.frame = CGRectMake(JobsWidth(20),
-                                                  JobsMainScreen_HEIGHT() - JobsWidth(200),
-                                                  JobsWidth(80),
-                                                  JobsWidth(30));
+        _bitsMonitorSuspendLab.frame = [JobsBitsMonitorSuspendLab viewFrameWithModel:nil];
     }return _bitsMonitorSuspendLab;
 }
 

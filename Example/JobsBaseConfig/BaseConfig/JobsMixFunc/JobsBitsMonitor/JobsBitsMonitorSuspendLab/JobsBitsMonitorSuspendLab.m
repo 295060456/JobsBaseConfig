@@ -23,18 +23,32 @@ extern NetworkingEnvir networkingEnvir;
 
 -(instancetype)init{
     if (self = [super init]) {
-//        [NSNotificationCenter.defaultCenter addObserver:self
-//                                               selector:@selector(download:)
-//                                                   name:GSDownloadNetworkSpeedNotificationKey
-//                                                 object:nil];
-//        [NSNotificationCenter.defaultCenter addObserver:self
-//                                               selector:@selector(upload:)
-//                                                   name:GSUploadNetworkSpeedNotificationKey
-//                                                 object:nil];
-        [NSNotificationCenter.defaultCenter addObserver:self
-                                               selector:@selector(uploadAndDownload:)
-                                                   name:GSUploadAndDownloadNetworkSpeedNotificationKey
-                                                 object:nil];
+        
+        [JobsNotificationCenter addObserverForName:GSDownloadNetworkSpeedNotificationKey
+                                            object:nil
+                                             queue:nil
+                                        usingBlock:^(NSNotification * _Nonnull notification) {
+            /// download
+            NSLog(@"%@",notification.object);
+        }];
+        
+        [JobsNotificationCenter addObserverForName:GSUploadNetworkSpeedNotificationKey
+                                            object:nil
+                                             queue:nil
+                                        usingBlock:^(NSNotification * _Nonnull notification) {
+            /// upload
+            NSLog(@"%@",notification.object);
+        }];
+        
+        [JobsNotificationCenter addObserverForName:GSUploadAndDownloadNetworkSpeedNotificationKey
+                                            object:nil
+                                             queue:nil
+                                        usingBlock:^(NSNotification * _Nonnull notification) {
+            /// UploadAndDownload
+            NSLog(@"%@",notification.object);
+            self.text = notification.object;
+            [self makeLabelByShowingType:UILabelShowingType_03];
+        }];
         
         {
             self.numberOfTouchesRequired = 1;
@@ -45,7 +59,8 @@ extern NetworkingEnvir networkingEnvir;
             self.userInteractionEnabled = YES;
             @jobs_weakify(self)
             self.target = weak_self;
-            self.tapGR_SelImp.selector = [self jobsSelectorBlock:^(id _Nullable target, UITapGestureRecognizer *_Nullable arg) {
+            self.tapGR_SelImp.selector = [self jobsSelectorBlock:^(id _Nullable target,
+                                                                   UITapGestureRecognizer *_Nullable arg) {
                 @jobs_strongify(self)
                 [self showMenu];
             }];
@@ -70,21 +85,14 @@ extern NetworkingEnvir networkingEnvir;
         }
     };
 }
-
--(void)uploadAndDownload:(NSNotification *)noti{
-    NSLog(@"%@",noti.object);
-    self.text = noti.object;
-    [self makeLabelByShowingType:UILabelShowingType_03];
+#pragma mark —— BaseViewProtocol
+/// 具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
++(CGRect)viewFrameWithModel:(id _Nullable)model{
+    return CGRectMake(JobsWidth(20),
+                      JobsMainScreen_HEIGHT() - JobsWidth(200),
+                      JobsWidth(80),
+                      JobsWidth(40));
 }
-
-//-(void)download:(NSNotification *)noti{
-//    noti.object;
-//
-//}
-//
-//-(void)upload:(NSNotification *)noti{
-//    noti.object;
-//}
 #pragma mark —— lazyLoad
 -(NSMutableArray<NSString *> *)operationEnvironMutArr{
     if (!_operationEnvironMutArr) {

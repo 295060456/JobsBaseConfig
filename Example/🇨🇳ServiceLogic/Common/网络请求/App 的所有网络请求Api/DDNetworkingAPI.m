@@ -165,6 +165,7 @@ uploadVideosParamArr:(NSArray *_Nullable)uploadVideosParamArr
                         [self logOut];
                     }[self forcedLogin];
                 }
+                JobsPostNotification(退出登录,@(NO));
                 [NSNotificationCenter.defaultCenter postNotificationName:退出登录 object:@(NO)];
             }break;
             case HTTPResponseCodeAuthorizationFailure:{// 授权失败
