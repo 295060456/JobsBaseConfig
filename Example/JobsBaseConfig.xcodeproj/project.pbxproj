@@ -628,7 +628,7 @@
 		84CA64A92789C24600E46E71 /* VideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA64A72789C24600E46E71 /* VideoModel.m */; };
 		84CA64AE2789C2AF00E46E71 /* JobsPlayerTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA64AD2789C2AF00E46E71 /* JobsPlayerTBVCell.m */; };
 		84CA64B22789C2F300E46E71 /* Douyin_ZFPlayerVC@2.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA64B12789C2F300E46E71 /* Douyin_ZFPlayerVC@2.m */; };
-		84CA64BE2789C80600E46E71 /* ZFDouYinCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA64B62789C80400E46E71 /* ZFDouYinCell.m */; };
+		84CA64BE2789C80600E46E71 /* JobsVideoTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA64B62789C80400E46E71 /* JobsVideoTBVCell.m */; };
 		84CA64BF2789C80600E46E71 /* JobsRightBtnsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA64B72789C80500E46E71 /* JobsRightBtnsView.m */; };
 		84CA64C02789C80600E46E71 /* ZFDouYinControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA64B82789C80500E46E71 /* ZFDouYinControlView.m */; };
 		84CA64C82789C94400E46E71 /* ZFTableData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CA64C62789C94400E46E71 /* ZFTableData.m */; };
@@ -2170,10 +2170,10 @@
 		84CA64AD2789C2AF00E46E71 /* JobsPlayerTBVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsPlayerTBVCell.m; sourceTree = "<group>"; };
 		84CA64B02789C2F300E46E71 /* Douyin_ZFPlayerVC@2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Douyin_ZFPlayerVC@2.h"; sourceTree = "<group>"; };
 		84CA64B12789C2F300E46E71 /* Douyin_ZFPlayerVC@2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Douyin_ZFPlayerVC@2.m"; sourceTree = "<group>"; };
-		84CA64B62789C80400E46E71 /* ZFDouYinCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFDouYinCell.m; sourceTree = "<group>"; };
+		84CA64B62789C80400E46E71 /* JobsVideoTBVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsVideoTBVCell.m; sourceTree = "<group>"; };
 		84CA64B72789C80500E46E71 /* JobsRightBtnsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsRightBtnsView.m; sourceTree = "<group>"; };
 		84CA64B82789C80500E46E71 /* ZFDouYinControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFDouYinControlView.m; sourceTree = "<group>"; };
-		84CA64B92789C80500E46E71 /* ZFDouYinCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFDouYinCell.h; sourceTree = "<group>"; };
+		84CA64B92789C80500E46E71 /* JobsVideoTBVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsVideoTBVCell.h; sourceTree = "<group>"; };
 		84CA64BA2789C80500E46E71 /* JobsRightBtnsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsRightBtnsView.h; sourceTree = "<group>"; };
 		84CA64BC2789C80500E46E71 /* ZFDouYinControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFDouYinControlView.h; sourceTree = "<group>"; };
 		84CA64C62789C94400E46E71 /* ZFTableData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFTableData.m; sourceTree = "<group>"; };
@@ -8484,7 +8484,7 @@
 			isa = PBXGroup;
 			children = (
 				84CA64C52789C82300E46E71 /* ZFDouYinControlView */,
-				84CA64C42789C81B00E46E71 /* ZFDouYinCell */,
+				84CA64C42789C81B00E46E71 /* JobsVideoTBVCell */,
 				84CA64C22789C80B00E46E71 /* JobsRightBtnsView */,
 				84CA64B52789C7F900E46E71 /* JobsPlayerTBVCell */,
 			);
@@ -8520,14 +8520,14 @@
 			path = JobsRightBtnsView;
 			sourceTree = "<group>";
 		};
-		84CA64C42789C81B00E46E71 /* ZFDouYinCell */ = {
+		84CA64C42789C81B00E46E71 /* JobsVideoTBVCell */ = {
 			isa = PBXGroup;
 			children = (
-				84CA64B92789C80500E46E71 /* ZFDouYinCell.h */,
-				84CA64B62789C80400E46E71 /* ZFDouYinCell.m */,
+				84CA64B92789C80500E46E71 /* JobsVideoTBVCell.h */,
+				84CA64B62789C80400E46E71 /* JobsVideoTBVCell.m */,
 				C52F313B2AC0382500BB5549 /* For_Douyin_ZFPlayerVC_2.md */,
 			);
-			path = ZFDouYinCell;
+			path = JobsVideoTBVCell;
 			sourceTree = "<group>";
 		};
 		84CA64C52789C82300E46E71 /* ZFDouYinControlView */ = {
@@ -11542,7 +11542,7 @@
 				840F970427736428004979E9 /* NSObject+ChangeAppicon.m in Sources */,
 				840F96FB27736428004979E9 /* NSObject+UUID.m in Sources */,
 				8424779B27C1147E00831270 /* NotifiView.m in Sources */,
-				84CA64BE2789C80600E46E71 /* ZFDouYinCell.m in Sources */,
+				84CA64BE2789C80600E46E71 /* JobsVideoTBVCell.m in Sources */,
 				C57FAED92875625E00E72F91 /* GXCardView.m in Sources */,
 				84CA5FA227897AFB00E46E71 /* AES.m in Sources */,
 				842477A527C114BE00831270 /* NotifiViewFactory.m in Sources */,

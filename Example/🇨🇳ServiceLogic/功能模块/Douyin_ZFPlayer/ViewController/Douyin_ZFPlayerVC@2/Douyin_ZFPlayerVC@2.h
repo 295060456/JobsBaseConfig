@@ -10,7 +10,7 @@
 
 #import "ZFCustomControlView.h"
 #import "ZFDouYinControlView.h"
-#import "ZFDouYinCell.h"
+#import "JobsVideoTBVCell.h"
 
 #if __has_include(<KTVHTTPCache/KTVHTTPCache.h>)
 #import <KTVHTTPCache/KTVHTTPCache.h>

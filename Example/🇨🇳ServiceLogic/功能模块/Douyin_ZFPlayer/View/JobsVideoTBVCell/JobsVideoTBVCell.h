@@ -17,7 +17,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ZFDouYinCell : UITableViewCell
+@interface JobsVideoTBVCell : UITableViewCell
 <
 BaseCellProtocol,
 UIMarkProtocol

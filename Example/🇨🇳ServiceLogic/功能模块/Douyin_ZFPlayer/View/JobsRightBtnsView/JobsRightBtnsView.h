@@ -18,8 +18,6 @@ typedef NS_ENUM(NSUInteger, MKRightBtnViewBtnType) {
 
 @interface JobsRightBtnsView : BaseView
 
-@property(nonatomic,assign)CGFloat offset;
-
 @end
 
 NS_ASSUME_NONNULL_END

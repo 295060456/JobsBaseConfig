@@ -10,12 +10,13 @@
 
 @interface JobsRightBtnsView ()
 /// UI
-@property(nonatomic,strong)UIButton *mkZanView;
-@property(nonatomic,strong)UIButton *mkCommentView;
-@property(nonatomic,strong)UIButton *mkShareView;
+@property(nonatomic,strong)UIButton *loveBtn;/// 点赞
+@property(nonatomic,strong)UIButton *commentBtn;/// 评论
+@property(nonatomic,strong)UIButton *shareBtn;/// 分享
 /// Data
 @property(nonatomic,strong)NSMutableArray <UIButton *>*mutArr;
 @property(nonatomic,assign)BOOL isSelected;
+@property(nonatomic,strong)NSMutableArray *masonryViewArr;
 
 @end
 
@@ -72,110 +73,111 @@ static dispatch_once_t static_rightBtnsViewOnceToken;
 /// 具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 -(void)richElementsInViewWithModel:(UIViewModel *_Nullable)model{
     self.viewModel = model;
-    self.mkZanView.alpha = 1;
-    self.mkCommentView.alpha = 1;
-    self.mkShareView.alpha = 1;
+    self.loveBtn.alpha = 1;
+    self.commentBtn.alpha = 1;
+    self.shareBtn.alpha = 1;
+    [self 子视图垂直等间距排列];
+}
+#pragma mark —— 一些私有方法
+/// 垂直方向排列、固定控件高度、控件间隔不定
+-(void)子视图垂直等间距排列{
+    /// 实现masonry垂直方向固定控件高度方法
+    [self.masonryViewArr mas_distributeViewsAlongAxis:MASAxisTypeVertical
+                                  withFixedItemLength:[JobsRightBtnsView viewSizeWithModel:nil].width
+                                          leadSpacing:0
+                                          tailSpacing:0];
+    /// 设置array的水平方向的约束
+    [self.masonryViewArr mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self);
+        make.width.mas_equalTo([JobsRightBtnsView viewSizeWithModel:nil].width);
+    }];
 }
 #pragma mark —— Set方法
 -(void)setIsSelected:(BOOL)isSelected{
     _isSelected = isSelected;
-    self.mkZanView.selected = _isSelected;
-    if (self.mkZanView.selected) {
+    self.loveBtn.selected = _isSelected;
+    if (self.loveBtn.selected) {
         //特别重要，花了老子半个小时，mmp.只要改变选择状态都要进行刷新 走这一句
-        self.mkZanView.selectedTitle = JobsNonnullString(self.viewModel.textModel.text, Internationalization(@"点赞"));
+        self.loveBtn.selectedTitle = JobsNonnullString(self.viewModel.textModel.text, Internationalization(@"点赞"));
     }else{
-        self.mkZanView.normalTitle = JobsNonnullString(self.viewModel.textModel.text, Internationalization(@"点赞"));;
+        self.loveBtn.normalTitle = JobsNonnullString(self.viewModel.textModel.text, Internationalization(@"点赞"));;
     }
-    [self.mkZanView layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
+    [self.loveBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
                                     imageTitleSpace:JobsWidth(5)];
 }
 #pragma mark —— lazyLoad
--(UIButton *)mkZanView{
-    if (!_mkZanView) {
-        _mkZanView = UIButton.new;
+-(UIButton *)loveBtn{
+    if (!_loveBtn) {
+        _loveBtn = UIButton.new;
         
-        _mkZanView.normalImage = JobsIMG(@"视频未点赞");
-        _mkZanView.selectedImage = JobsIMG(@"视频未点赞");
-        _mkZanView.titleFont = UIFontWeightRegularSize(JobsWidth(12));
+        _loveBtn.normalImage = JobsIMG(@"视频未点赞");
+        _loveBtn.selectedImage = JobsIMG(@"视频未点赞");
+        _loveBtn.titleFont = UIFontWeightRegularSize(JobsWidth(12));
         
         @jobs_weakify(self)
-        [_mkZanView jobsBtnClickEventBlock:^(__kindof UIButton * _Nullable x) {
+        [_loveBtn jobsBtnClickEventBlock:^(__kindof UIButton * _Nullable x) {
             NSLog(@"我是点赞");
             [x.imageView addViewAnimationWithCompletionBlock:^(id data) {
                 @jobs_strongify(self)
-                self->_mkZanView.tag = MKRightBtnViewBtnType_mkZanView;//写在block外部，此值异常
-                if (self.objectBlock) self.objectBlock(self->_mkZanView);
+                self->_loveBtn.tag = MKRightBtnViewBtnType_mkZanView;//写在block外部，此值异常
+                if (self.objectBlock) self.objectBlock(self->_loveBtn);
             }];
         }];
-        [self addSubview:_mkZanView];
-        [_mkZanView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.left.right.equalTo(self);
-            make.height.mas_equalTo([JobsRightBtnsView viewSizeWithModel:nil].width);
-        }];
-        [self.mutArr addObject:_mkZanView];
+        [self addSubview:_loveBtn];
+        [self.mutArr addObject:_loveBtn];
         [self layoutIfNeeded];
     }
-    _mkZanView.normalTitle = JobsNonnullString(self.viewModel.textModel.text, Internationalization(@"点赞"));
-    [_mkZanView layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
+    _loveBtn.normalTitle = JobsNonnullString(self.viewModel.textModel.text, Internationalization(@"点赞"));
+    [_loveBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
                                 imageTitleSpace:JobsWidth(5)];
-    return _mkZanView;
+    return _loveBtn;
 }
 
--(UIButton *)mkCommentView{
-    if (!_mkCommentView) {
-        _mkCommentView = UIButton.new;
-        _mkCommentView.normalImage = JobsIMG(@"视频评论");
-        _mkCommentView.titleFont = UIFontWeightRegularSize(JobsWidth(12));
+-(UIButton *)commentBtn{
+    if (!_commentBtn) {
+        _commentBtn = UIButton.new;
+        _commentBtn.normalImage = JobsIMG(@"视频评论");
+        _commentBtn.titleFont = UIFontWeightRegularSize(JobsWidth(12));
         @jobs_weakify(self)
-        [_mkCommentView jobsBtnClickEventBlock:^(__kindof UIButton * _Nullable x) {
+        [_commentBtn jobsBtnClickEventBlock:^(__kindof UIButton * _Nullable x) {
             NSLog(@"我是评论");
             [x.imageView addViewAnimationWithCompletionBlock:^(id data) {
                 @jobs_strongify(self)
-                self->_mkCommentView.tag = MKRightBtnViewBtnType_mkCommentView;//写在block外部，此值异常
-                if (self.objectBlock) self.objectBlock(self->_mkCommentView);
+                self->_commentBtn.tag = MKRightBtnViewBtnType_mkCommentView;//写在block外部，此值异常
+                if (self.objectBlock) self.objectBlock(self->_commentBtn);
             }];
         }];
-        [self addSubview:_mkCommentView];
-        [_mkCommentView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.equalTo(self);
-            make.height.mas_equalTo([JobsRightBtnsView viewSizeWithModel:nil].width);
-            make.top.equalTo(self.mutArr.lastObject.mas_bottom).offset(self.offset);
-        }];
-        [self.mutArr addObject:_mkCommentView];
+        [self addSubview:_commentBtn];
+        [self.mutArr addObject:_commentBtn];
         [self layoutIfNeeded];
     }
-    _mkCommentView.normalTitle = JobsNonnullString(self.viewModel.subTextModel.text, Internationalization(@"评论"));
-    [_mkCommentView layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
+    _commentBtn.normalTitle = JobsNonnullString(self.viewModel.subTextModel.text, Internationalization(@"评论"));
+    [_commentBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
                                     imageTitleSpace:JobsWidth(5)];
-    return _mkCommentView;
+    return _commentBtn;
 }
 
--(UIButton *)mkShareView{
-    if (!_mkShareView) {
-        _mkShareView = UIButton.new;
-        _mkShareView.normalTitle = Internationalization(@"分享");
-        _mkShareView.normalImage = JobsIMG(@"分享");
-        _mkShareView.titleFont = UIFontWeightRegularSize(JobsWidth(12));
+-(UIButton *)shareBtn{
+    if (!_shareBtn) {
+        _shareBtn = UIButton.new;
+        _shareBtn.normalTitle = Internationalization(@"分享");
+        _shareBtn.normalImage = JobsIMG(@"分享");
+        _shareBtn.titleFont = UIFontWeightRegularSize(JobsWidth(12));
         @jobs_weakify(self)
-        [_mkShareView jobsBtnClickEventBlock:^(__kindof UIButton * _Nullable x) {
+        [_shareBtn jobsBtnClickEventBlock:^(__kindof UIButton * _Nullable x) {
             NSLog(@"我是分享");
             [x.imageView addViewAnimationWithCompletionBlock:^(id data) {
                 @jobs_strongify(self)
-                self->_mkShareView.tag = MKRightBtnViewBtnType_mkShareView;//写在block外部，此值异常
-                if (self.objectBlock) self.objectBlock(self->_mkShareView);
+                self->_shareBtn.tag = MKRightBtnViewBtnType_mkShareView;//写在block外部，此值异常
+                if (self.objectBlock) self.objectBlock(self->_shareBtn);
             }];
         }];
-        [self addSubview:_mkShareView];
-        [_mkShareView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.equalTo(self);
-            make.height.mas_equalTo([JobsRightBtnsView viewSizeWithModel:nil].width);
-            make.top.equalTo(self.mutArr.lastObject.mas_bottom).offset(self.offset);
-        }];
-        [self.mutArr addObject:_mkShareView];
+        [self addSubview:_shareBtn];
+        [self.mutArr addObject:_shareBtn];
         [self layoutIfNeeded];
-        [_mkShareView layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
+        [_shareBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
                                       imageTitleSpace:5];
-    }return _mkShareView;
+    }return _shareBtn;
 }
 
 -(NSMutableArray<UIButton *> *)mutArr{
@@ -184,10 +186,13 @@ static dispatch_once_t static_rightBtnsViewOnceToken;
     }return _mutArr;
 }
 
--(CGFloat)offset{
-    if (_offset == 0) {
-        _offset = ([JobsRightBtnsView viewSizeWithModel:nil].height - [JobsRightBtnsView viewSizeWithModel:nil].width * 3) / 2;
-    }return _offset;
+- (NSMutableArray *)masonryViewArr {
+    if (!_masonryViewArr) {
+        _masonryViewArr = NSMutableArray.array;
+        [_masonryViewArr addObject:self.loveBtn];
+        [_masonryViewArr addObject:self.commentBtn];
+        [_masonryViewArr addObject:self.shareBtn];
+    }return _masonryViewArr;
 }
 
 @end

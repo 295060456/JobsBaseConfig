@@ -5,9 +5,9 @@
 //  Created by Jobs on 2020/9/28.
 //
 
-#import "ZFDouYinCell.h"
+#import "JobsVideoTBVCell.h"
 
-@interface ZFDouYinCell ()
+@interface JobsVideoTBVCell ()
 /// UI
 @property(nonatomic,strong)UILabel *label;
 @property(nonatomic,strong)UIImageView *coverImageView;
@@ -18,12 +18,12 @@
 
 @end
 
-@implementation ZFDouYinCell
+@implementation JobsVideoTBVCell
 @synthesize index = _index;
 +(instancetype)cellStyleValue1WithTableView:(UITableView *)tableView{
-    ZFDouYinCell *cell = (ZFDouYinCell *)[tableView tableViewCellClass:ZFDouYinCell.class];
+    JobsVideoTBVCell *cell = (JobsVideoTBVCell *)[tableView tableViewCellClass:JobsVideoTBVCell.class];
     if (!cell) {
-        cell = [ZFDouYinCell initTableViewCellWithStyle:UITableViewCellStyleSubtitle];
+        cell = [JobsVideoTBVCell initTableViewCellWithStyle:UITableViewCellStyleSubtitle];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.contentView.backgroundColor = JobsRandomColor;
     }return cell;
@@ -66,7 +66,6 @@
 -(JobsRightBtnsView *)rbView{
     if (!_rbView) {
         _rbView = JobsRightBtnsView.new;
-        _rbView.offset = JobsWidth(15);
         [_rbView richElementsInViewWithModel:nil];
 //        @jobs_weakify(self)
         [_rbView actionObjectBlock:^(id data) {

@@ -228,7 +228,7 @@
 #pragma mark —————————— UITableViewDelegate,UITableViewDataSource ——————————
 -(CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [ZFDouYinCell cellHeightWithModel:tableView];
+    return [JobsVideoTBVCell cellHeightWithModel:tableView];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView
@@ -239,7 +239,7 @@ numberOfRowsInSection:(NSInteger)section {
 -(UITableViewCell *)tableView:(UITableView *)tableView
         cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     self.indexPath = indexPath;
-    ZFDouYinCell *cell = [ZFDouYinCell cellStyleValue1WithTableView:tableView];
+    JobsVideoTBVCell *cell = [JobsVideoTBVCell cellStyleValue1WithTableView:tableView];
     cell.delegate = self;
     cell.index = indexPath.row;
     [cell richElementsInCellWithModel:self.dataMutArr[indexPath.row]];
