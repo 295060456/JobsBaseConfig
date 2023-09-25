@@ -11,6 +11,7 @@
 /// UI
 @property(nonatomic,strong)JobsCommentTitleHeaderView *titleHeaderView;
 @property(nonatomic,strong)UITableView *tableView;
+/// Data
 
 @end
 

@@ -42,6 +42,10 @@
                                              nil);
 }
 #pragma mark —— ViewController
+-(UIViewController *_Nullable)jobsGetCurrentViewController{
+    return [self isKindOfClass:UIViewController.class] ? (UIViewController *)self : self.getCurrentViewController;
+}
+
 -(UIViewController *_Nullable)getCurrentViewController{
     return [self getCurrentViewControllerFromRootVC:jobsGetMainWindow().rootViewController];
 }
@@ -49,35 +53,30 @@
 -(UIViewController *_Nullable)getCurrentViewControllerFromRootVC:(UIViewController *_Nullable)rootVC{
     UIViewController *currentVC;
     if (rootVC.presentedViewController) {
-        // 视图是被presented出来的
+        /// 视图是被presented出来的
         currentVC = rootVC.presentedViewController;
     }
 
     if ([rootVC isKindOfClass:UITabBarController.class]) {
-        // 根视图为UITabBarController
+        /// 根视图为UITabBarController
         currentVC = [self getCurrentViewControllerFromRootVC:[(UITabBarController *)rootVC selectedViewController]];
     } else if ([rootVC isKindOfClass:UINavigationController.class]){
-        // 根视图为UINavigationController
+        /// 根视图为UINavigationController
         currentVC = [self getCurrentViewControllerFromRootVC:[(UINavigationController *)rootVC visibleViewController]];
     } else {
-        // 根视图为非导航类
+        /// 根视图为非导航类
         currentVC = rootVC;
     }return currentVC;
 }
-/**
-    【强制展现页面】
-    1、本类如果是ViewController则用本类推；
-    2、否则用向下遍历用最近的ViewController来推；
-    3、如果想用AppDelegate的自定义TabbarVC：
-        extern AppDelegate *appDelegate;
-        (UIViewController *)appDelegate.tabBarVC;
- 
-    @param toPushVC 需要进行展现的页面
-    @param requestParams 正向推页面传递的参数
- */
+/// 强制以Push的方式展现页面
+/// @param toPushVC 需要进行展现的页面
+/// @param requestParams 正向推页面传递的参数
+/// 如果想用AppDelegate的自定义TabbarVC：
+/// extern AppDelegate *appDelegate;
+/// (UIViewController *)appDelegate.tabBarVC;
 -(void)forceComingToPushVC:(UIViewController *_Nonnull)toPushVC
              requestParams:(id _Nullable)requestParams{
-    UIViewController *viewController = [self isKindOfClass:UIViewController.class] ? (UIViewController *)self : self.getCurrentViewController;
+    UIViewController *viewController = self.jobsGetCurrentViewController;
     if (viewController) {
         [viewController comingToPushVC:toPushVC
                          requestParams:requestParams];
@@ -85,6 +84,18 @@
         NSLog(@"%@强制展现页面%@失败,携带的参数%@",viewController,toPushVC,requestParams);
         [WHToast toastErrMsg:@"强制展现页面失败,请检查控制台"];
     }
+}
+/// 强制以Present的方式展现页面
+/// @param toPresentVC 需要进行展现的页面
+/// @param requestParams 正向推页面传递的参数
+/// @param completion 完成Present动作以后得动作
+-(void)forceComingToPresentVC:(UIViewController *_Nonnull)toPresentVC
+                requestParams:(id _Nullable)requestParams
+                   completion:(void (^ __nullable)(void))completion{
+    UIViewController *viewController = [self isKindOfClass:UIViewController.class] ? (UIViewController *)self : self.jobsGetCurrentViewController;
+    [viewController presentViewController:toPresentVC
+                                  animated:YES
+                                completion:completion];
 }
 #pragma mark —— KVO
 /**

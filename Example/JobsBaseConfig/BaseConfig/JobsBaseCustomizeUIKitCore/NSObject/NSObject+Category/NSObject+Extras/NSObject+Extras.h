@@ -117,21 +117,24 @@ BaseProtocol
                              inBundle:(nullable NSBundle *)bundle
                          defaultValue:(nullable NSString *)defaultValue;
 #pragma mark —— ViewController
+-(UIViewController *_Nullable)jobsGetCurrentViewController;
 -(UIViewController *_Nullable)getCurrentViewController;
 -(UIViewController *_Nullable)getCurrentViewControllerFromRootVC:(UIViewController *_Nullable)rootVC;
-/**
-    【强制展现页面】
-    1、本类如果是ViewController则用本类推；
-    2、否则用向下遍历用最近的ViewController来推；
-    3、如果想用AppDelegate的自定义TabbarVC：
-        extern AppDelegate *appDelegate;
-        (UIViewController *)appDelegate.tabBarVC;
- 
-    @param toPushVC 需要进行展现的页面
-    @param requestParams 正向推页面传递的参数
- */
+/// 强制以Push的方式展现页面
+/// @param toPushVC 需要进行展现的页面
+/// @param requestParams 正向推页面传递的参数
+/// 如果想用AppDelegate的自定义TabbarVC：
+/// extern AppDelegate *appDelegate;
+/// (UIViewController *)appDelegate.tabBarVC;
 -(void)forceComingToPushVC:(UIViewController *_Nonnull)toPushVC
              requestParams:(id _Nullable)requestParams;
+/// 强制以Present的方式展现页面
+/// @param toPresentVC 需要进行展现的页面
+/// @param requestParams 正向推页面传递的参数
+/// @param completion 完成Present动作以后得动作
+-(void)forceComingToPresentVC:(UIViewController *_Nonnull)toPresentVC
+                requestParams:(id _Nullable)requestParams
+                   completion:(void (^ __nullable)(void))completion;
 #pragma mark —— KVO
 /**
  

@@ -119,7 +119,7 @@ static dispatch_once_t static_rightBtnsViewOnceToken;
             NSLog(@"我是点赞");
             [x.imageView addViewAnimationWithCompletionBlock:^(id data) {
                 @jobs_strongify(self)
-                self->_loveBtn.tag = MKRightBtnViewBtnType_mkZanView;//写在block外部，此值异常
+                self->_loveBtn.tag = MKRightBtnViewBtnType_loveBtn;//写在block外部，此值异常
                 if (self.objectBlock) self.objectBlock(self->_loveBtn);
             }];
         }];
@@ -129,7 +129,7 @@ static dispatch_once_t static_rightBtnsViewOnceToken;
     }
     _loveBtn.normalTitle = JobsNonnullString(self.viewModel.textModel.text, Internationalization(@"点赞"));
     [_loveBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
-                                imageTitleSpace:JobsWidth(5)];
+                              imageTitleSpace:JobsWidth(5)];
     return _loveBtn;
 }
 
@@ -143,8 +143,17 @@ static dispatch_once_t static_rightBtnsViewOnceToken;
             NSLog(@"我是评论");
             [x.imageView addViewAnimationWithCompletionBlock:^(id data) {
                 @jobs_strongify(self)
-                self->_commentBtn.tag = MKRightBtnViewBtnType_mkCommentView;//写在block外部，此值异常
+                self->_commentBtn.tag = MKRightBtnViewBtnType_commentBtn;//写在block外部，此值异常
                 if (self.objectBlock) self.objectBlock(self->_commentBtn);
+
+//                JobsCommentCoreVC *jobsCommentCoreVC = JobsCommentCoreVC.new;
+//                jobsCommentCoreVC.transitioningDelegate = self.jobsGetCurrentViewController;
+//                @jobs_weakify(self)
+//                [jobsCommentCoreVC actionObjectBlock:^(id data) {
+//                    @jobs_strongify(self)
+//                    NSLog(@"您点击了评论");
+//                }];
+//                [self forceComingToPresentVC:jobsCommentCoreVC requestParams:@"" completion:nil];
             }];
         }];
         [self addSubview:_commentBtn];
@@ -153,7 +162,7 @@ static dispatch_once_t static_rightBtnsViewOnceToken;
     }
     _commentBtn.normalTitle = JobsNonnullString(self.viewModel.subTextModel.text, Internationalization(@"评论"));
     [_commentBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
-                                    imageTitleSpace:JobsWidth(5)];
+                                 imageTitleSpace:JobsWidth(5)];
     return _commentBtn;
 }
 
@@ -168,7 +177,7 @@ static dispatch_once_t static_rightBtnsViewOnceToken;
             NSLog(@"我是分享");
             [x.imageView addViewAnimationWithCompletionBlock:^(id data) {
                 @jobs_strongify(self)
-                self->_shareBtn.tag = MKRightBtnViewBtnType_mkShareView;//写在block外部，此值异常
+                self->_shareBtn.tag = MKRightBtnViewBtnType_shareBtn;//写在block外部，此值异常
                 if (self.objectBlock) self.objectBlock(self->_shareBtn);
             }];
         }];
@@ -176,7 +185,7 @@ static dispatch_once_t static_rightBtnsViewOnceToken;
         [self.mutArr addObject:_shareBtn];
         [self layoutIfNeeded];
         [_shareBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
-                                      imageTitleSpace:5];
+                                   imageTitleSpace:5];
     }return _shareBtn;
 }
 

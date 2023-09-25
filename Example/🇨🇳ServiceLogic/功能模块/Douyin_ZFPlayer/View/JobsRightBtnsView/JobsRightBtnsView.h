@@ -8,13 +8,13 @@
 
 #import "BaseView.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 typedef NS_ENUM(NSUInteger, MKRightBtnViewBtnType) {
-    MKRightBtnViewBtnType_mkZanView,///点赞
-    MKRightBtnViewBtnType_mkCommentView,/// 评论
-    MKRightBtnViewBtnType_mkShareView,/// 分享
+    MKRightBtnViewBtnType_loveBtn,///点赞
+    MKRightBtnViewBtnType_commentBtn,/// 评论
+    MKRightBtnViewBtnType_shareBtn/// 分享
 };
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface JobsRightBtnsView : BaseView
 
