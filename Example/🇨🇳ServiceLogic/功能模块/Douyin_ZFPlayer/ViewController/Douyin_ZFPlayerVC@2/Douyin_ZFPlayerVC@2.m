@@ -51,6 +51,9 @@
         self.viewModel.bgCor = RGBA_COLOR(255, 238, 221, 1);/// self.gk_navBackgroundColor 和 self.view.backgroundColor
         // self.viewModel.bgImage = JobsIMG(@"新首页的底图");
     }
+    /// 全局只需要写一次
+    NSError *error = nil;
+    [KTVHTTPCache proxyStart:&error];
 }
 
 -(void)viewDidLoad {
@@ -62,6 +65,7 @@
     self.view.backgroundColor = JobsRandomColor;
     [self setGKNav];
     [self setGKNavBackBtn];
+    self.gk_navigationBar.jobsVisible = YES;
     self.tableView.alpha = 1;
     self.bitsMonitorSuspendLab.alpha = 1;
 }
@@ -799,4 +803,3 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 //}
 
 @end
-

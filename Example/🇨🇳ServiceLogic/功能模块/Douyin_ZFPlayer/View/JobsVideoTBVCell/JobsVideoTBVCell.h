@@ -12,7 +12,6 @@
 #import "JobsRightBtnsView.h"
 
 #import "ZFDouYinCellDelegate.h"
-#import "ZFTableData.h"
 #import "VideoModel.h"
 
 NS_ASSUME_NONNULL_BEGIN

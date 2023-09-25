@@ -24,26 +24,6 @@ static JobsRecordPresentedViewController *static_JobsRecordPresentedVC = nil;
     }return _presentedVCMutArr;
 }
 
-//static char *JobsRecordPresentedViewController_presentedVCMutArr = "JobsRecordPresentedViewController_presentedVCMutArr";
-//- (NSMutableArray<UIViewController *> *)presentedVCMutArr {
-//    NSMutableArray *mutArr = objc_getAssociatedObject(self, JobsRecordPresentedViewController_presentedVCMutArr);
-//    if(!mutArr){
-//        mutArr = NSMutableArray.array;
-//    }
-//    objc_setAssociatedObject(self,
-//                             JobsRecordPresentedViewController_presentedVCMutArr,
-//                             mutArr,
-//                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-//    return mutArr;
-//}
-//
-//- (void)setPresentedVCMutArr:(NSMutableArray<UIViewController *> *)presentedVCMutArr {
-//    objc_setAssociatedObject(self,
-//                             JobsRecordPresentedViewController_presentedVCMutArr,
-//                             presentedVCMutArr,
-//                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-//}
-
 @end
 
 @implementation UIViewController (SafeTransition)
