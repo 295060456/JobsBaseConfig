@@ -235,8 +235,9 @@ BaseViewControllerProtocol_synthesize
 }
 
 - (void)updatePreferredContentSizeWithTraitCollection:(UITraitCollection *)traitCollection{
+    NSLog(@"%f",self.presentUpHeight);
     self.preferredContentSize = CGSizeMake(self.view.bounds.size.width,
-                                           traitCollection.verticalSizeClass == UIUserInterfaceSizeClassCompact ? 270 : self.presentUpHeight);/// 上升的高度
+                                           traitCollection.verticalSizeClass == UIUserInterfaceSizeClassCompact ? 270 : self.presentUpHeight);/// 上升的高度 
 }
 #pragma mark —— UIGestureRecognizerDelegate
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer

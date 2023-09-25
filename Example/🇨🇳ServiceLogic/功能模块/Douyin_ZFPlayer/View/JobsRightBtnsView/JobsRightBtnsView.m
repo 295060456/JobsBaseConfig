@@ -145,15 +145,23 @@ static dispatch_once_t static_rightBtnsViewOnceToken;
                 @jobs_strongify(self)
                 self->_commentBtn.tag = MKRightBtnViewBtnType_commentBtn;//写在block外部，此值异常
                 if (self.objectBlock) self.objectBlock(self->_commentBtn);
-
-//                JobsCommentCoreVC *jobsCommentCoreVC = JobsCommentCoreVC.new;
-//                jobsCommentCoreVC.transitioningDelegate = self.jobsGetCurrentViewController;
-//                @jobs_weakify(self)
-//                [jobsCommentCoreVC actionObjectBlock:^(id data) {
-//                    @jobs_strongify(self)
-//                    NSLog(@"您点击了评论");
-//                }];
-//                [self forceComingToPresentVC:jobsCommentCoreVC requestParams:@"" completion:nil];
+                
+                JobsCommentCoreVC *jobsCommentCoreVC = JobsCommentCoreVC.new;
+                JobsPresentationCtrl *presentationController NS_VALID_UNTIL_END_OF_SCOPE;
+                presentationController = [JobsPresentationCtrl.alloc initWithPresentedViewController:jobsCommentCoreVC presentingViewController:self.jobsGetCurrentViewController];
+                jobsCommentCoreVC.presentUpHeight = JobsWidth(800);
+                /// jobsCommentCoreVC.view.backgroundColor = JobsRedColor;
+                jobsCommentCoreVC.transitioningDelegate = presentationController;
+                
+                [self forceComingToPresentVC:jobsCommentCoreVC 
+                               requestParams:@""
+                                  completion:nil];
+                @jobs_weakify(self)
+                [jobsCommentCoreVC actionObjectBlock:^(id data) {
+                    @jobs_strongify(self)
+                    NSLog(@"您点击了评论");
+                }];
+                
             }];
         }];
         [self addSubview:_commentBtn];

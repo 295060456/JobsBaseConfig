@@ -147,7 +147,7 @@ NS_ASSUME_NONNULL_END
 
 /**
  自定义高度的模态推送控制器使用示例
- 
+ 1、如果self = ViewController
  JobsPresentedVC *vc = JobsPresentedVC.new;
  JobsPresentationCtrl *presentationController NS_VALID_UNTIL_END_OF_SCOPE;
  presentationController = [JobsPresentationCtrl.alloc initWithPresentedViewController:vc presentingViewController:self];
@@ -156,5 +156,7 @@ NS_ASSUME_NONNULL_END
  vc.transitioningDelegate = presentationController;
  
  [self presentViewController:vc animated:YES completion:NULL];
+ 
+ 2、如果self = View
  
  */
