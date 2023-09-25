@@ -97,6 +97,13 @@
                                   animated:YES
                                 completion:completion];
 }
+/// 获取Storyboard里面的单独控制器
+-(UIViewController *_Nullable)vcByStoryboardWithName:(NSString *_Nonnull)storyboardWithName
+                                    storyboardBundle:(NSBundle *_Nullable)storyboardBundle
+                                          identifier:(NSString *_Nonnull)identifier{
+    UIStoryboard *story = [UIStoryboard storyboardWithName:storyboardWithName bundle:storyboardBundle];
+    return [story instantiateViewControllerWithIdentifier:identifier];;
+}
 #pragma mark —— KVO
 /**
  

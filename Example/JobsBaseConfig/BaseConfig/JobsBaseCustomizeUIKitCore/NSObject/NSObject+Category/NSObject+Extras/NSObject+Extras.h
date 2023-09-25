@@ -135,6 +135,10 @@ BaseProtocol
 -(void)forceComingToPresentVC:(UIViewController *_Nonnull)toPresentVC
                 requestParams:(id _Nullable)requestParams
                    completion:(void (^ __nullable)(void))completion;
+/// 获取Storyboard里面的单独控制器
+-(UIViewController *_Nullable)vcByStoryboardWithName:(NSString *_Nonnull)storyboardWithName
+                                    storyboardBundle:(NSBundle *_Nullable)storyboardBundle
+                                          identifier:(NSString *_Nonnull)identifier;
 #pragma mark —— KVO
 /**
  

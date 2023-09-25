@@ -26,13 +26,13 @@ BaseViewControllerProtocol_synthesize
         PrintRetainCount(self)
     }
 }
-
+/// new方法触发
 - (instancetype)init{
     if (self = [super init]) {
         
     }return self;
 }
-
+/// new方法触发
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil
                          bundle:(NSBundle *)nibBundleOrNil {
     if(self = [super initWithNibName:nibNameOrNil
@@ -117,7 +117,7 @@ BaseViewControllerProtocol_synthesize
     if (self.vcLifeCycleBlock) self.vcLifeCycleBlock(JobsLocalFunc,nil);
 }
 /**
- #  iOS 状态栏颜色的修改
+ iOS 状态栏颜色的修改
  【全局修改】
   1、在Info.plist里面加入如下键值对：
      1.1、View controller-based status bar appearance : NO
@@ -214,11 +214,6 @@ shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherG
 #pragma mark —— BaseViewControllerProtocol
 -(void)actionVCLifeCycleBlock:(JobsViewControllerLifeCycleBlock)vcLifeCycleBlock{
     self.vcLifeCycleBlock = vcLifeCycleBlock;
-}
-#pragma mark —— Set方法
-@synthesize modalPresentationStyle = _modalPresentationStyle;
--(void)setModalPresentationStyle:(UIModalPresentationStyle)modalPresentationStyle{
-    _modalPresentationStyle = UIModalPresentationPopover;
 }
 #pragma mark —— lazyLoad
 - (UIView *)statusBar{

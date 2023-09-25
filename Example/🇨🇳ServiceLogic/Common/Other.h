@@ -75,5 +75,6 @@
 #import "JobsWalletVC.h"
 #import "JobsScrollViewVC.h"
 #import "JobsContainerViewDemoVC.h"
+#import "JobsPresentingVC.h"
 
 #endif /* Other_h */

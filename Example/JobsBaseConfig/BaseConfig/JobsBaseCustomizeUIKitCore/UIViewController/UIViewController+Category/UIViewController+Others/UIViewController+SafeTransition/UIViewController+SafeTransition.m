@@ -24,6 +24,26 @@ static JobsRecordPresentedViewController *static_JobsRecordPresentedVC = nil;
     }return _presentedVCMutArr;
 }
 
+//static char *JobsRecordPresentedViewController_presentedVCMutArr = "JobsRecordPresentedViewController_presentedVCMutArr";
+//- (NSMutableArray<UIViewController *> *)presentedVCMutArr {
+//    NSMutableArray *mutArr = objc_getAssociatedObject(self, JobsRecordPresentedViewController_presentedVCMutArr);
+//    if(!mutArr){
+//        mutArr = NSMutableArray.array;
+//    }
+//    objc_setAssociatedObject(self,
+//                             JobsRecordPresentedViewController_presentedVCMutArr,
+//                             mutArr,
+//                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+//    return mutArr;
+//}
+//
+//- (void)setPresentedVCMutArr:(NSMutableArray<UIViewController *> *)presentedVCMutArr {
+//    objc_setAssociatedObject(self,
+//                             JobsRecordPresentedViewController_presentedVCMutArr,
+//                             presentedVCMutArr,
+//                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+//}
+
 @end
 
 @implementation UIViewController (SafeTransition)
@@ -47,9 +67,10 @@ static JobsRecordPresentedViewController *static_JobsRecordPresentedVC = nil;
     [self swiz_dismissViewControllerAnimated:animated completion:completion];
 }
 
--(void)swiz_presentViewController:(UIViewController *)vc
+-(void)swiz_presentViewController:(UIViewController *_Nonnull)vc
                          animated:(BOOL)animated
                        completion:(void(^)(void))completion {
+    if(!vc) return;
     if ([vc isKindOfClass:UIImagePickerController.class]) {
         /// 在使用UIImagePickerController进行拍照时，如果没有相机权限，则需要弹出提示框提醒用户
         UIImagePickerController *imgPicker = (UIImagePickerController *)vc;
@@ -59,7 +80,7 @@ static JobsRecordPresentedViewController *static_JobsRecordPresentedVC = nil;
                 AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
                 if (status == AVAuthorizationStatusDenied ||
                     status == AVAuthorizationStatusRestricted) {
-                    [WHToast toastErrMsg:@"请在iPhone的“设置-隐私-相机”选项中，允许App访问您的相机。"];
+                    [WHToast toastErrMsg:Internationalization(@"请在iPhone的“设置-隐私-相机”选项中，允许App访问您的相机。")];
                 }
             };
         }
