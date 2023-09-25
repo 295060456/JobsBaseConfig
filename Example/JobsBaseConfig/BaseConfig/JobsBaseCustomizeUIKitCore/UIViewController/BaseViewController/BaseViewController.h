@@ -44,31 +44,29 @@ BaseViewControllerProtocol
 
 NS_ASSUME_NONNULL_END
 
-/***
- 加入键盘监听者 和 停止MJ_Refresh刷新 移到了NSObject 分类层，定位于 @interface NSObject (Extras)。这么做是考虑到调用类可能不仅仅局限于UIViewController
-
- -(void)keyboard;//加入键盘通知的监听者
- -(void)endRefreshing:(UIScrollView *_Nonnull)targetScrollView; 停止刷新
- 
- **/
-
 /**
- *  要想隐藏系统的导航栏，这里有2个手段。一个是在UIViewController的基类，一个是在UIViewController的分类
- * 1、如果要在viewDidLoad实现隐藏系统的导航栏，则调用UIViewController基类的父类方法self.setupNavigationBarHidden = YES;
- * 2、如果要在viewWillAppear实现隐藏系统的导航栏，则调用UIViewController分类的方法self.isHiddenNavigationBar = YES;//禁用系统的导航栏
+    加入键盘监听者 和 停止MJ_Refresh刷新 移到了NSObject 分类层，定位于 @interface NSObject (Extras)。这么做是考虑到调用类可能不仅仅局限于UIViewController
+
+    -(void)keyboard;//加入键盘通知的监听者
+    -(void)endRefreshing:(UIScrollView *_Nonnull)targetScrollView; 停止刷新
  */
 
 /**
- *
-     _collectionView.mj_header = self.mjRefreshGifHeader;
-     _collectionView.mj_header.automaticallyChangeAlpha = YES;//根据拖拽比例自动切换透明度
-     self.view.mjRefreshTargetView = _collectionView;
-     _collectionView.mj_footer = self.mjRefreshAutoNormalFooter;
-     _collectionView.mj_footer.hidden = YES;
+    要想隐藏系统的导航栏，这里有2个手段。一个是在UIViewController的基类，一个是在UIViewController的分类
+    1、如果要在viewDidLoad实现隐藏系统的导航栏，则调用UIViewController基类的父类方法self.setupNavigationBarHidden = YES;
+    2、如果要在viewWillAppear实现隐藏系统的导航栏，则调用UIViewController分类的方法self.isHiddenNavigationBar = YES;//禁用系统的导航栏
+ */
 
+/**
+    _collectionView.mj_header = self.mjRefreshGifHeader;
+    _collectionView.mj_header.automaticallyChangeAlpha = YES;//根据拖拽比例自动切换透明度
+    self.view.mjRefreshTargetView = _collectionView;
+    _collectionView.mj_footer = self.mjRefreshAutoNormalFooter;
+    _collectionView.mj_footer.hidden = YES;
 */
 
-/* TABAnimated 使用示范
+/**
+ TABAnimated 使用示范
 -(UICollectionView *)collectionView{
  if (!_collectionView) {
      _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero
@@ -86,7 +84,6 @@ NS_ASSUME_NONNULL_END
      }];
      
      {
-         
          NSArray *classArray = @[
                                  DDCollectionViewCell_Style2.class,
                                  DDCollectionViewCell_Style3.class,
@@ -118,32 +115,46 @@ NS_ASSUME_NONNULL_END
 }
  
  -(UITableView *)tableView{
- if (!_tableView) {
-     _tableView = UITableView.new;
-     _tableView.backgroundColor = HEXCOLOR(0xFAFAFA);
-     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-     _tableView.showsVerticalScrollIndicator = NO;
-     _tableView.delegate = self;
-     _tableView.dataSource = self;
-     [self dataLinkByTableView:_tableView];
-     _tableView.mj_header = self.mjRefreshGifHeader;
-     _tableView.mj_header.automaticallyChangeAlpha = YES;//根据拖拽比例自动切换透明度
-     _tableView.mj_footer = self.mjRefreshAutoGifFooter;
-     self.view.mjRefreshTargetView = _tableView;
-     [self.view addSubview:_tableView];
-     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-         make.top.equalTo(self.gk_navigationBar.mas_bottom);
-         make.left.right.bottom.equalTo(self.view);
-     }];
-     {/// 设置tabAnimated相关属性
-         // 可以不进行手动初始化，将使用默认属性
-         _tableView.tabAnimated = [TABTableAnimated animatedWithCellClass:[MKRankTBVCell class]
-                                                               cellHeight:[MKRankTBVCell cellHeightWithModel:nil]];
-         _tableView.tabAnimated.superAnimationType = TABViewSuperAnimationTypeShimmer;
-//            [_tableView.tabAnimated addHeaderViewClass:LineTableViewHeaderFooterView.class viewHeight:60 toSection:0];
-         [_tableView tab_startAnimation];   // 开启动画
-     }
- }return _tableView;
+     if (!_tableView) {
+         _tableView = UITableView.new;
+         _tableView.backgroundColor = HEXCOLOR(0xFAFAFA);
+         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+         _tableView.showsVerticalScrollIndicator = NO;
+         _tableView.delegate = self;
+         _tableView.dataSource = self;
+         [self dataLinkByTableView:_tableView];
+         _tableView.mj_header = self.mjRefreshGifHeader;
+         _tableView.mj_header.automaticallyChangeAlpha = YES;//根据拖拽比例自动切换透明度
+         _tableView.mj_footer = self.mjRefreshAutoGifFooter;
+         self.view.mjRefreshTargetView = _tableView;
+         [self.view addSubview:_tableView];
+         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+             make.top.equalTo(self.gk_navigationBar.mas_bottom);
+             make.left.right.bottom.equalTo(self.view);
+         }];
+         {/// 设置tabAnimated相关属性
+             // 可以不进行手动初始化，将使用默认属性
+             _tableView.tabAnimated = [TABTableAnimated animatedWithCellClass:[MKRankTBVCell class]
+                                                                   cellHeight:[MKRankTBVCell cellHeightWithModel:nil]];
+             _tableView.tabAnimated.superAnimationType = TABViewSuperAnimationTypeShimmer;
+    //            [_tableView.tabAnimated addHeaderViewClass:LineTableViewHeaderFooterView.class viewHeight:60 toSection:0];
+             [_tableView tab_startAnimation];   // 开启动画
+         }
+     }return _tableView;
 }
+ 
+ */
+
+/**
+ 自定义高度的模态推送控制器使用示例
+ 
+ JobsPresentedVC *vc = JobsPresentedVC.new;
+ JobsPresentationCtrl *presentationController NS_VALID_UNTIL_END_OF_SCOPE;
+ presentationController = [JobsPresentationCtrl.alloc initWithPresentedViewController:vc presentingViewController:self];
+ vc.presentUpHeight = JobsWidth(200);
+ vc.view.backgroundColor = JobsRedColor;
+ vc.transitioningDelegate = presentationController;
+ 
+ [self presentViewController:vc animated:YES completion:NULL];
  
  */

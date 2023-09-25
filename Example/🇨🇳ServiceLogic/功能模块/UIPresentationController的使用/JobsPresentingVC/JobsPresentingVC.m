@@ -42,7 +42,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.view.backgroundColor = JobsRandomColor;
     [self setGKNav];
     [self setGKNavBackBtn];
@@ -77,13 +76,13 @@
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches 
           withEvent:(UIEvent *)event{
+    
     JobsPresentedVC *vc = JobsPresentedVC.new;
     JobsPresentationCtrl *presentationController NS_VALID_UNTIL_END_OF_SCOPE;
     presentationController = [JobsPresentationCtrl.alloc initWithPresentedViewController:vc presentingViewController:self];
     vc.presentUpHeight = JobsWidth(200);
     vc.view.backgroundColor = JobsRedColor;
     vc.transitioningDelegate = presentationController;
-    
     
     [self presentViewController:vc animated:YES completion:NULL];
 }

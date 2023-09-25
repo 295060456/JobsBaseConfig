@@ -117,6 +117,7 @@ NS_ASSUME_NONNULL_END
 @synthesize currentPage = _currentPage;\
 @synthesize pageSize = _pageSize;\
 @synthesize isMark = _isMark;\
+@synthesize presentUpHeight = _presentUpHeight;\
 \
 @synthesize cls = _cls;\
 @synthesize viewModel = _viewModel;\
@@ -198,6 +199,8 @@ NS_ASSUME_NONNULL_END
 @dynamic index;\
 @dynamic currentPage;\
 @dynamic pageSize;\
+@dynamic isMark;\
+@dynamic presentUpHeight;\
 \
 @dynamic cls;\
 @dynamic viewModel;\
