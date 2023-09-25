@@ -23,7 +23,16 @@ typedef enum : NSUInteger {
     ComingStyle_PRESENT
 } ComingStyle;
 
-typedef id _Nullable (^JobsViewControllerLifeCycleBlock)(NSString * _Nonnull lifeCycleName,id _Nullable data);
+typedef enum : NSUInteger {
+    VCLifeCycle_loadView = 0,
+    VCLifeCycle_viewDidLoad,
+    VCLifeCycle_viewWillAppear,
+    VCLifeCycle_viewDidAppear,
+    VCLifeCycle_viewWillDisappear,
+    VCLifeCycle_viewDidDisappear,
+    VCLifeCycle_viewWillLayoutSubviews,
+    VCLifeCycle_viewDidLayoutSubviews
+} UIViewControllerLifeCycle;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -35,7 +44,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong,nullable)SPAlertController *alertController;
 @property(nonatomic,assign)ComingStyle pushOrPresent;
 @property(nonatomic,assign)BOOL setupNavigationBarHidden;
-@property(nonatomic,copy)JobsViewControllerLifeCycleBlock vcLifeCycleBlock;/// 用于检测生命周期
 @property(nonatomic,strong)UIView *statusBar;
 /// 更新状态栏颜色
 - (void)updateStatusBarCor:(UIColor *)cor;
@@ -50,9 +58,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// 铺满全屏展示的策略
 -(void)fullScreenConstraintTargetView:(nonnull __kindof UIView *)view
                         topViewOffset:(CGFloat)topViewOffset;
-/// 用于检测生命周期
--(void)actionVCLifeCycleBlock:(JobsViewControllerLifeCycleBlock)vcLifeCycleBlock;
-
 @end
 
 NS_ASSUME_NONNULL_END

@@ -29,10 +29,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)UILayoutConstraintAxis axis;
 @property(nonatomic,assign)UIStackViewDistribution distribution;
 @property(nonatomic,assign)UIStackViewAlignment alignment;
-/// UIButton 专用属性 — 图文的相对位置
+#pragma mark —— UIButton 专用属性 — 图文的相对位置
 @property(nonatomic,assign)GLButtonEdgeInsetsStyle buttonEdgeInsetsStyle;
 @property(nonatomic,assign)CGFloat imageTitleSpace;
-/// 关于 UITableViewCell 和 UICollectionViewCell
+#pragma mark —— 关于 UITableViewCell 和 UICollectionViewCell
 @property(nonatomic,assign)CGFloat cellHeight;
 @property(nonatomic,assign)CGFloat heightForHeaderInSection;
 @property(nonatomic,assign)CGSize cellSize;

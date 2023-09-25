@@ -19,12 +19,14 @@
     self.allowableMovement = 1;
     self.userInteractionEnabled = YES;
     self.target = self;
-    self.longPressGR_SelImp.selector = [self jobsSelectorBlock:^(id _Nullable target, UILongPressGestureRecognizer *_Nullable arg) {
+    self.longPressGR_SelImp.selector = [self jobsSelectorBlock:^(id _Nullable target, 
+                                                                 UILongPressGestureRecognizer *_Nullable arg) {
         NSLog(@"UILabel 的 长按 手势");
     }];
     self.longPressGR.enabled = YES;/// 必须在设置完Target和selector以后方可开启执行
     
-    self.tapGR_SelImp.selector = [self jobsSelectorBlock:^(id _Nullable target, UITapGestureRecognizer *_Nullable arg) {
+    self.tapGR_SelImp.selector = [self jobsSelectorBlock:^(id _Nullable target,
+                                                           UITapGestureRecognizer *_Nullable arg) {
         NSLog(@"UILabel 的 Tap 手势");
         [self clickLink];
     }];
@@ -34,9 +36,9 @@
 // 点击文本处理链接跳转
 -(void)clickLink{
     NSError *error = nil;
-    NSDataDetector *detector = [[NSDataDetector alloc] initWithTypes:NSTextCheckingTypeLink error:&error];
+    NSDataDetector *detector = [NSDataDetector.alloc initWithTypes:NSTextCheckingTypeLink error:&error];
     if (error) {
-        [WHToast toastMsg:@"出现错误"];
+        [WHToast toastMsg:Internationalization(@"出现错误")];
         return;
     }
     //通过检测字符串最后几位是否是.com .cn...来进行判定
@@ -46,12 +48,12 @@
     //判断有没有链接
     if(checkArr.count > 0) {
         if (checkArr.count > 1) { //网址多于1个时让用户选择跳哪个链接
-            [WHToast toastMsg:@"多于1个链接"];
+            [WHToast toastMsg:Internationalization(@"多于1个链接")];
         }else {//一个链接直接打开
-            [WHToast toastMsg:@"只有1个链接"];
+            [WHToast toastMsg:Internationalization(@"只有1个链接")];
         }
     }else{
-        [WHToast toastMsg:@"没有链接"];
+        [WHToast toastMsg:Internationalization(@"没有链接")];
     }
 }
 

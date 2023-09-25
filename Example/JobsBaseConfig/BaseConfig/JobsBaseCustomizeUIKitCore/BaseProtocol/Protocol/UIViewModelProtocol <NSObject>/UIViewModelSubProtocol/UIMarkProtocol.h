@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)NSInteger __block currentPage;/// 网路请求分页数据的时候的当前页码
 @property(nonatomic,assign)NSInteger __block pageSize;
 @property(nonatomic,assign)BOOL __block isMark;/// 是否被标记。标记的意思可以是是否维护中等等......
+@property(nonatomic,assign)CGFloat presentUpHeight;/// 当一个VC被以present的形式推出的时候，距离手机屏幕下边距的距离
 
 @end
 
@@ -39,6 +40,8 @@ NS_ASSUME_NONNULL_END
 @synthesize index = _index;\
 @synthesize currentPage = _currentPage;\
 @synthesize pageSize = _pageSize;\
+@synthesize isMark = _isMark;\
+@synthesize presentUpHeight = _presentUpHeight;\
 
 #endif
 
@@ -54,6 +57,8 @@ NS_ASSUME_NONNULL_END
 @dynamic index;\
 @dynamic currentPage;\
 @dynamic pageSize;\
+@dynamic isMark;\
+@dynamic presentUpHeight;\
 
 #endif
 

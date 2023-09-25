@@ -12,9 +12,15 @@
 @end
 
 @implementation JobsPresentedVC
+UIMarkProtocol_synthesize
+
+
 
 -(void)viewDidLoad{
     [super viewDidLoad];
+    
+    NSLog(@"%f",self.presentUpHeight);
+    
     [self updatePreferredContentSizeWithTraitCollection:self.traitCollection];
     
     /**
@@ -28,7 +34,6 @@
      
      self.modalPresentationCapturesStatusBarAppearance = YES;
      */
-    
 }
 
 - (void)willTransitionToTraitCollection:(UITraitCollection *)newCollection 
@@ -40,21 +45,8 @@
 }
 
 - (void)updatePreferredContentSizeWithTraitCollection:(UITraitCollection *)traitCollection{
-    self.preferredContentSize = CGSizeMake(self.view.bounds.size.width, traitCollection.verticalSizeClass == UIUserInterfaceSizeClassCompact ? 270 : 420);
-    /**
-     
-     To demonstrate how a presentation controller can dynamically respond
-     to changes to its presented view controller's preferredContentSize,
-     this view controller exposes a slider.  Dragging this slider updates
-     the preferredContentSize of this view controller in real time.
-    
-     Update the slider with appropriate min/max values and reset the
-     current value to reflect the changed preferredContentSize.
-     */
-    
-//    self.slider.maximumValue = self.preferredContentSize.height;
-//    self.slider.minimumValue = 220.f;
-//    self.slider.value = self.slider.maximumValue;
+    self.preferredContentSize = CGSizeMake(self.view.bounds.size.width,
+                                           traitCollection.verticalSizeClass == UIUserInterfaceSizeClassCompact ? 270 : self.presentUpHeight);/// 上升的高度
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches

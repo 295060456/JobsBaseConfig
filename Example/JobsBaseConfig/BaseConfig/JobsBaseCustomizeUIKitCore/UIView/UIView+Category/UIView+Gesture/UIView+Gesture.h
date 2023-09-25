@@ -107,7 +107,7 @@ NS_ASSUME_NONNULL_END
      _collectionView.numberOfTouchesRequired = 1;
      _collectionView.allowableMovement = 1;
      _collectionView.userInteractionEnabled = YES;
-     _collectionView.target = self;
+     _collectionView.target = self;/// ⚠️注意：任何手势这一句都要写
      _collectionView.longPressGR_SelImp.selector = [self jobsSelectorBlock:^(id  _Nullable weakSelf, id  _Nullable arg) {
          NSLog(@"");
      }];

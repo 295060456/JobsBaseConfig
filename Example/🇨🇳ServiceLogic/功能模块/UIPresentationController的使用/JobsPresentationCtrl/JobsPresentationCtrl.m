@@ -1,28 +1,18 @@
-/*
- Copyright (C) 2016 Apple Inc. All Rights Reserved.
- See LICENSE.txt for this sample’s licensing information
- 
- Abstract:
- A custom presentation controller which slides the presenting view controller
-  upwards to reveal the presented view controller.
- */
-
-#import "AAPLCustomPresentationController.h"
+#import "JobsPresentationCtrl.h"
 
 //! The corner radius applied to the view containing the presented view
 //! controller.
 #define CORNER_RADIUS   16.f
 
-@interface AAPLCustomPresentationController ()
-
+@interface JobsPresentationCtrl ()
+/// UI
 @property(nonatomic,strong)UIView *dimmingView;
 @property(nonatomic,strong)UIView *presentationWrappingView;
 
 @end
 
-
-@implementation AAPLCustomPresentationController
-
+@implementation JobsPresentationCtrl
+#pragma mark —— 覆写系统方法
 - (instancetype)initWithPresentedViewController:(UIViewController *)presentedViewController
                        presentingViewController:(UIViewController *)presentingViewController{
     if (self = [super initWithPresentedViewController:presentedViewController
@@ -60,7 +50,8 @@
     //
     // SEE ALSO: The note in AAPLCustomPresentationSecondViewController.m.
     {
-        UIView *presentationWrapperView = [[UIView alloc] initWithFrame:self.frameOfPresentedViewInContainerView];
+        UIView *presentationWrapperView = UIView.new;
+        presentationWrapperView.frame = self.frameOfPresentedViewInContainerView;
         presentationWrapperView.layer.shadowOpacity = 0.44f;
         presentationWrapperView.layer.shadowRadius = 13.f;
         presentationWrapperView.layer.shadowOffset = CGSizeMake(0, -6.f);
@@ -72,7 +63,8 @@
         // effect calls for only the top two corners to be rounded we size
         // the view such that the bottom CORNER_RADIUS points lie below
         // the bottom edge of the screen.
-        UIView *presentationRoundedCornerView = [[UIView alloc] initWithFrame:UIEdgeInsetsInsetRect(presentationWrapperView.bounds, UIEdgeInsetsMake(0, 0, -CORNER_RADIUS, 0))];
+        UIView *presentationRoundedCornerView = UIView.new;
+        presentationRoundedCornerView.frame = UIEdgeInsetsInsetRect(presentationWrapperView.bounds, UIEdgeInsetsMake(0, 0, -CORNER_RADIUS, 0));
         presentationRoundedCornerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         presentationRoundedCornerView.layer.cornerRadius = CORNER_RADIUS;
         presentationRoundedCornerView.layer.masksToBounds = YES;
@@ -81,7 +73,8 @@
         // presentedViewControllerWrapperView is inset by CORNER_RADIUS points.
         // This also matches the size of presentedViewControllerWrapperView's
         // bounds to the size of -frameOfPresentedViewInContainerView.
-        UIView *presentedViewControllerWrapperView = [[UIView alloc] initWithFrame:UIEdgeInsetsInsetRect(presentationRoundedCornerView.bounds, UIEdgeInsetsMake(0, 0, CORNER_RADIUS, 0))];
+        UIView *presentedViewControllerWrapperView = UIView.new;
+        presentedViewControllerWrapperView.frame = UIEdgeInsetsInsetRect(presentationRoundedCornerView.bounds, UIEdgeInsetsMake(0, 0, CORNER_RADIUS, 0));
         presentedViewControllerWrapperView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         
         // Add presentedViewControllerView -> presentedViewControllerWrapperView.
@@ -100,11 +93,19 @@
     // is added later (by the animator) so any views added here will be
     // appear behind the -presentedView.
     {
-        UIView *dimmingView = [[UIView alloc] initWithFrame:self.containerView.bounds];
-        dimmingView.backgroundColor = [UIColor blackColor];
+        UIView *dimmingView = UIView.new;
+        dimmingView.frame = self.containerView.bounds;
+        dimmingView.backgroundColor = UIColor.blackColor;
         dimmingView.opaque = NO;
         dimmingView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        [dimmingView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dimmingViewTapped:)]];
+        
+        dimmingView.target = self;
+        dimmingView.tapGR_SelImp.selector = [self jobsSelectorBlock:^(id _Nullable target,
+                                                                      UITapGestureRecognizer *_Nullable arg) {
+            [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
+        }];
+        dimmingView.tapGR.enabled = YES;/// 必须在设置完Target和selector以后方可开启执行
+        
         self.dimmingView = dimmingView;
         [self.containerView addSubview:dimmingView];
         
@@ -113,14 +114,14 @@
         id<UIViewControllerTransitionCoordinator> transitionCoordinator = self.presentingViewController.transitionCoordinator;
         
         self.dimmingView.alpha = 0.f;
+        @jobs_weakify(self)
         [transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+            @jobs_strongify(self)
             self.dimmingView.alpha = 0.5f;
         } completion:NULL];
     }
 }
 
-
-//| ----------------------------------------------------------------------------
 - (void)presentationTransitionDidEnd:(BOOL)completed{
     // The value of the 'completed' argument is the same value passed to the
     // -completeTransition: method by the animator.  It may
@@ -136,26 +137,22 @@
     }
 }
 
-
-//| ----------------------------------------------------------------------------
 - (void)dismissalTransitionWillBegin{
     // Get the transition coordinator for the dismissal so we can
     // fade out the dimmingView alongside the dismissal animation.
     id<UIViewControllerTransitionCoordinator> transitionCoordinator = self.presentingViewController.transitionCoordinator;
-    
+    @jobs_weakify(self)
     [transitionCoordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        @jobs_strongify(self)
         self.dimmingView.alpha = 0.f;
     } completion:NULL];
 }
 
-
-//| ----------------------------------------------------------------------------
 - (void)dismissalTransitionDidEnd:(BOOL)completed{
     // The value of the 'completed' argument is the same value passed to the
     // -completeTransition: method by the animator.  It may
     // be NO in the case of a cancelled interactive transition.
-    if (completed == YES)
-    {
+    if (completed == YES){
         // The system removes the presented view controller's view from its
         // superview and disposes of the containerView.  This implicitly
         // removes the views created in -presentationTransitionWillBegin: from
@@ -166,33 +163,31 @@
     }
 }
 
-#pragma mark Layout
-
-//| ----------------------------------------------------------------------------
-//  This method is invoked whenever the presentedViewController's
-//  preferredContentSize property changes.  It is also invoked just before the
-//  presentation transition begins (prior to -presentationTransitionWillBegin).
-//
+#pragma mark —— Layout
+/**
+ 
+ This method is invoked whenever the presentedViewController's
+ preferredContentSize property changes.  It is also invoked just before the
+ presentation transition begins (prior to -presentationTransitionWillBegin).
+ */
 -(void)preferredContentSizeDidChangeForChildContentContainer:(id<UIContentContainer>)container{
     [super preferredContentSizeDidChangeForChildContentContainer:container];
-    
     if (container == self.presentedViewController)
         [self.containerView setNeedsLayout];
 }
+/**
+ 
+ When the presentation controller receives a
+ -viewWillTransitionToSize:withTransitionCoordinator: message it calls this
+ method to retrieve the new size for the presentedViewController's view.
+ The presentation controller then sends a
+ -viewWillTransitionToSize:withTransitionCoordinator: message to the
+ presentedViewController with this size as the first argument.
 
-
-//| ----------------------------------------------------------------------------
-//  When the presentation controller receives a
-//  -viewWillTransitionToSize:withTransitionCoordinator: message it calls this
-//  method to retrieve the new size for the presentedViewController's view.
-//  The presentation controller then sends a
-//  -viewWillTransitionToSize:withTransitionCoordinator: message to the
-//  presentedViewController with this size as the first argument.
-//
-//  Note that it is up to the presentation controller to adjust the frame
-//  of the presented view controller's view to match this promised size.
-//  We do this in -containerViewWillLayoutSubviews.
-//
+ Note that it is up to the presentation controller to adjust the frame
+ of the presented view controller's view to match this promised size.
+ We do this in -containerViewWillLayoutSubviews.
+ */
 -(CGSize)sizeForChildContentContainer:(id<UIContentContainer>)container
               withParentContainerSize:(CGSize)parentSize{
     if (container == self.presentedViewController)
@@ -200,12 +195,10 @@
     else return [super sizeForChildContentContainer:container withParentContainerSize:parentSize];
 }
 
-
-//| ----------------------------------------------------------------------------
 - (CGRect)frameOfPresentedViewInContainerView{
     CGRect containerViewBounds = self.containerView.bounds;
-    CGSize presentedViewContentSize = [self sizeForChildContentContainer:self.presentedViewController withParentContainerSize:containerViewBounds.size];
-    
+    CGSize presentedViewContentSize = [self sizeForChildContentContainer:self.presentedViewController
+                                                 withParentContainerSize:containerViewBounds.size];
     // The presented view extends presentedViewContentSize.height points from
     // the bottom edge of the screen.
     CGRect presentedViewControllerFrame = containerViewBounds;
@@ -213,44 +206,28 @@
     presentedViewControllerFrame.origin.y = CGRectGetMaxY(containerViewBounds) - presentedViewContentSize.height;
     return presentedViewControllerFrame;
 }
-
-
-//| ----------------------------------------------------------------------------
-//  This method is similar to the -viewWillLayoutSubviews method in
-//  UIViewController.  It allows the presentation controller to alter the
-//  layout of any custom views it manages.
-//
+/**
+ 
+ This method is similar to the -viewWillLayoutSubviews method in
+ UIViewController.  It allows the presentation controller to alter the
+ layout of any custom views it manages.
+ */
 - (void)containerViewWillLayoutSubviews{
     [super containerViewWillLayoutSubviews];
-    
     self.dimmingView.frame = self.containerView.bounds;
     self.presentationWrappingView.frame = self.frameOfPresentedViewInContainerView;
 }
-
-#pragma mark Tap Gesture Recognizer
-
-//| ----------------------------------------------------------------------------
-//  IBAction for the tap gesture recognizer added to the dimmingView.
-//  Dismisses the presented view controller.
-//
-- (IBAction)dimmingViewTapped:(UITapGestureRecognizer*)sender{
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
-}
-
-#pragma mark UIViewControllerAnimatedTransitioning
-
-//| ----------------------------------------------------------------------------
-- (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext{
+#pragma mark —— UIViewControllerAnimatedTransitioning
+-(NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext{
     return [transitionContext isAnimated] ? 0.35 : 0;
 }
-
-
-//| ----------------------------------------------------------------------------
-//  The presentation animation is tightly integrated with the overall
-//  presentation so it makes the most sense to implement
-//  <UIViewControllerAnimatedTransitioning> in the presentation controller
-//  rather than in a separate object.
-//
+/**
+ 
+ The presentation animation is tightly integrated with the overall
+ presentation so it makes the most sense to implement
+ <UIViewControllerAnimatedTransitioning> in the presentation controller
+ rather than in a separate object.
+ */
 -(void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext{
     UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
@@ -282,7 +259,6 @@
     UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
     
     BOOL isPresenting = (fromViewController == self.presentingViewController);
-    
     // This will be the current frame of fromViewController.view.
     CGRect __unused fromViewInitialFrame = [transitionContext initialFrameForViewController:fromViewController];
     // For a presentation which removes the presenter's view, this will be
@@ -293,7 +269,6 @@
     // For a presentation, this will be the value returned from the
     // presentation controller's -frameOfPresentedViewInContainerView method.
     CGRect toViewFinalFrame = [transitionContext finalFrameForViewController:toViewController];
-    
     // We are responsible for adding the incoming view to the containerView
     // for the presentation (will have no effect on dismissal because the
     // presenting view controller's view was not removed).
@@ -314,10 +289,8 @@
     NSTimeInterval transitionDuration = [self transitionDuration:transitionContext];
     
     [UIView animateWithDuration:transitionDuration animations:^{
-        if (isPresenting)
-            toView.frame = toViewFinalFrame;
-        else
-            fromView.frame = fromViewFinalFrame;
+        if (isPresenting) toView.frame = toViewFinalFrame;
+        else fromView.frame = fromViewFinalFrame;
         
     } completion:^(BOOL finished) {
         // When we complete, tell the transition context
@@ -327,17 +300,15 @@
         [transitionContext completeTransition:!wasCancelled];
     }];
 }
-
-#pragma mark -
-#pragma mark UIViewControllerTransitioningDelegate
-
-//| ----------------------------------------------------------------------------
-//  If the modalPresentationStyle of the presented view controller is
-//  UIModalPresentationCustom, the system calls this method on the presented
-//  view controller's transitioningDelegate to retrieve the presentation
-//  controller that will manage the presentation.  If your implementation
-//  returns nil, an instance of UIPresentationController is used.
-//
+#pragma mark —— UIViewControllerTransitioningDelegate
+/**
+ 
+ If the modalPresentationStyle of the presented view controller is
+ UIModalPresentationCustom, the system calls this method on the presented
+ view controller's transitioningDelegate to retrieve the presentation
+ controller that will manage the presentation.  If your implementation
+ returns nil, an instance of UIPresentationController is used.
+ */
 -(UIPresentationController*)presentationControllerForPresentedViewController:(UIViewController *)presented
                                                     presentingViewController:(UIViewController *)presenting
                                                         sourceViewController:(UIViewController *)source{
@@ -345,31 +316,29 @@
              self, presented, self.presentedViewController);
     return self;
 }
-
-
-//| ----------------------------------------------------------------------------
-//  The system calls this method on the presented view controller's
-//  transitioningDelegate to retrieve the animator object used for animating
-//  the presentation of the incoming view controller.  Your implementation is
-//  expected to return an object that conforms to the
-//  UIViewControllerAnimatedTransitioning protocol, or nil if the default
-//  presentation animation should be used.
-//
+/**
+ 
+ The system calls this method on the presented view controller's
+ transitioningDelegate to retrieve the animator object used for animating
+ the presentation of the incoming view controller.  Your implementation is
+ expected to return an object that conforms to the
+ UIViewControllerAnimatedTransitioning protocol, or nil if the default
+ presentation animation should be used.
+ */
 -(id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
                                                                  presentingController:(UIViewController *)presenting
                                                                      sourceController:(UIViewController *)source{
     return self;
 }
-
-
-//| ----------------------------------------------------------------------------
-//  The system calls this method on the presented view controller's
-//  transitioningDelegate to retrieve the animator object used for animating
-//  the dismissal of the presented view controller.  Your implementation is
-//  expected to return an object that conforms to the
-//  UIViewControllerAnimatedTransitioning protocol, or nil if the default
-//  dismissal animation should be used.
-//
+/**
+ 
+ The system calls this method on the presented view controller's
+ transitioningDelegate to retrieve the animator object used for animating
+ the dismissal of the presented view controller.  Your implementation is
+ expected to return an object that conforms to the
+ UIViewControllerAnimatedTransitioning protocol, or nil if the default
+ dismissal animation should be used.
+ */
 -(id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed{
     return self;
 }

@@ -45,7 +45,8 @@
             _imageView.userInteractionEnabled = YES;
             _imageView.target = self;
             @jobs_weakify(self)
-            _imageView.tapGR_SelImp.selector = [self jobsSelectorBlock:^(id _Nullable target, UITapGestureRecognizer *_Nullable arg) {
+            _imageView.tapGR_SelImp.selector = [self jobsSelectorBlock:^(id _Nullable target,
+                                                                         UITapGestureRecognizer *_Nullable arg) {
                 @jobs_strongify(self)
                 NSLog(@"%@",self.popupView);
                 [self.popupView tf_hide];

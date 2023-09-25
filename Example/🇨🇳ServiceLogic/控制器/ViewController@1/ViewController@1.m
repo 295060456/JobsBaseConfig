@@ -27,11 +27,25 @@
 
 -(void)loadView{
     [super loadView];
+    
     if ([self.requestParams isKindOfClass:UIViewModel.class]) {
         self.viewModel = (UIViewModel *)self.requestParams;
     }
-    self.viewModel.textModel.text = Internationalization(@"相关功能列表");
+    
     self.setupNavigationBarHidden = YES;
+    
+    {
+        self.viewModel.backBtnTitleModel.text = Internationalization(@"返回");
+        self.viewModel.textModel.textCor = HEXCOLOR(0x3D4A58);
+        self.viewModel.textModel.text = Internationalization(@"相关功能列表");
+        self.viewModel.textModel.font = UIFontWeightRegularSize(JobsWidth(16));
+        
+        // 使用原则：底图有 + 底色有 = 优先使用底图数据
+        // 以下2个属性的设置，涉及到的UI结论 请参阅父类（BaseViewController）的私有方法：-(void)setBackGround
+        // self.viewModel.bgImage = JobsIMG(@"内部招聘导航栏背景图");/// self.gk_navBackgroundImage 和 self.bgImageView
+        self.viewModel.bgCor = RGBA_COLOR(255, 238, 221, 1);/// self.gk_navBackgroundColor 和 self.view.backgroundColor
+    //    self.viewModel.bgImage = JobsIMG(@"新首页的底图");
+    }
     /// 装填用户信息数据
     /// json生成器 ： https://www.site24x7.com/zhcn/tools/json-generator.html
     NSDictionary *dic = @"UserData".readLocalFileWithName;
@@ -42,6 +56,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = JobsRandomColor;
+    
     [self setGKNav];
     [self setGKNavBackBtn];
     self.gk_navLeftBarButtonItem = [UIBarButtonItem.alloc initWithCustomView:self.userHeadBtn];
@@ -54,15 +69,17 @@
         if ([data isKindOfClass:JobsSuspendBtn.class]) {
             JobsSuspendBtn *suspendBtn = (JobsSuspendBtn *)data;
             if (suspendBtn.selected) {
-                NSInteger s = [self.tableView numberOfSections];/// 有多少组
+                NSInteger s = self.tableView.numberOfSections;/// 有多少组
                 if (s < 1) return;
                 NSInteger r = [self.tableView numberOfRowsInSection:s-1];/// 最后一组有多少行
                 if (r < 1) return;
                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:r - 1 inSection:s - 1];/// 取最后一行数据
-                [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];/// 滚动到最后一行
+                [self.tableView scrollToRowAtIndexPath:indexPath
+                                      atScrollPosition:UITableViewScrollPositionBottom animated:YES];/// 滚动到最后一行
             }else{
                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];/// 取第一行数据
-                [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];/// 滚动到第一行
+                [self.tableView scrollToRowAtIndexPath:indexPath
+                                      atScrollPosition:UITableViewScrollPositionTop animated:YES];/// 滚动到第一行
             }
         }
     };
@@ -70,12 +87,10 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-
     if (_dataMutArr.count) {
         [self.dataMutArr removeAllObjects];
         _dataMutArr = nil;
     }
-    
     [self.tableView.mj_header beginRefreshing];
 }
 
@@ -113,7 +128,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
         [self comingToPushVC:self.dataMutArr[indexPath.row].cls.new
                requestParams:self.dataMutArr[indexPath.row]];
     }else{
-        [WHToast toastMsg:@"尚未接入此功能"];
+        [WHToast toastMsg:Internationalization(@"尚未接入此功能")];
     }
 }
 
@@ -139,7 +154,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
 -(UIButton *)userHeadBtn{
     if (!_userHeadBtn) {
         _userHeadBtn = UIButton.new;
-        
         _userHeadBtn.normalImage = JobsIMG(@"首页_头像");
         _userHeadBtn.normalTitle = Internationalization(@"");
         @jobs_weakify(self)
@@ -173,18 +187,18 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
                                                    JobsWidth(0));
         {
             MJRefreshConfigModel *refreshConfigHeader = MJRefreshConfigModel.new;
-            refreshConfigHeader.stateIdleTitle = @"下拉可以刷新";
-            refreshConfigHeader.pullingTitle = @"下拉可以刷新";
-            refreshConfigHeader.refreshingTitle = @"松开立即刷新";
-            refreshConfigHeader.willRefreshTitle = @"刷新数据中";
-            refreshConfigHeader.noMoreDataTitle = @"下拉可以刷新";
+            refreshConfigHeader.stateIdleTitle = Internationalization(@"下拉可以刷新");
+            refreshConfigHeader.pullingTitle = Internationalization(@"下拉可以刷新");
+            refreshConfigHeader.refreshingTitle = Internationalization(@"松开立即刷新");
+            refreshConfigHeader.willRefreshTitle = Internationalization(@"刷新数据中");
+            refreshConfigHeader.noMoreDataTitle = Internationalization(@"下拉可以刷新");
             
             MJRefreshConfigModel *refreshConfigFooter = MJRefreshConfigModel.new;
-            refreshConfigFooter.stateIdleTitle = @"";
-            refreshConfigFooter.pullingTitle = @"";
-            refreshConfigFooter.refreshingTitle = @"";
-            refreshConfigFooter.willRefreshTitle = @"";
-            refreshConfigFooter.noMoreDataTitle = @"";
+            refreshConfigFooter.stateIdleTitle = Internationalization(@"");
+            refreshConfigFooter.pullingTitle = Internationalization(@"");
+            refreshConfigFooter.refreshingTitle = Internationalization(@"");
+            refreshConfigFooter.willRefreshTitle = Internationalization(@"");
+            refreshConfigFooter.noMoreDataTitle = Internationalization(@"");
             
             self.refreshConfigHeader = refreshConfigHeader;
             self.refreshConfigFooter = refreshConfigFooter;
@@ -195,8 +209,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         
         {
             _tableView.ly_emptyView = [LYEmptyView emptyViewWithImageStr:@"暂无数据"
-                                                                titleStr:@"暂无数据"
-                                                               detailStr:@""];
+                                                                titleStr:Internationalization(@"暂无数据")
+                                                               detailStr:Internationalization(@"")];
             
             _tableView.ly_emptyView.titleLabTextColor = JobsLightGrayColor;
             _tableView.ly_emptyView.contentViewOffset = -JobsWidth(180);
@@ -264,13 +278,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         }
 
         {
-            UIViewModel *viewModel = [self configViewModelWithTitle:@"TransparentRegion"
-                                                           subTitle:Internationalization(@"镂空特效")];
-            viewModel.cls = TransparentRegionVC.class;
-            [_dataMutArr addObject:viewModel];
-        }
-        
-        {
             UIViewModel *viewModel = [self configViewModelWithTitle:@"Douyin_ZFPlayer_1"
                                                            subTitle:Internationalization(@"播放效果 1")];
             viewModel.cls = Douyin_ZFPlayerVC_1.class;
@@ -281,6 +288,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             UIViewModel *viewModel = [self configViewModelWithTitle:@"Douyin_ZFPlayer_2"
                                                            subTitle:Internationalization(@"播放效果 2")];
             viewModel.cls = Douyin_ZFPlayerVC_2.class;
+            [_dataMutArr addObject:viewModel];
+        }
+        
+        {
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"TransparentRegion"
+                                                           subTitle:Internationalization(@"镂空特效")];
+            viewModel.cls = TransparentRegionVC.class;
             [_dataMutArr addObject:viewModel];
         }
         

@@ -15,7 +15,6 @@
         UIViewModel *viewModel = [self configViewModelWithTitle:@"用户信息展示(开发测试专用)" subTitle:nil];
         viewModel.cls = JobsShowObjInfoVC.class;
         viewModel.requestParams = self.readUserInfo;
-        
         [self forceComingToPushVC:viewModel.cls.new
                     requestParams:viewModel];// 测试专用
     }
@@ -28,7 +27,7 @@
     self.gk_navBackgroundColor = self.viewModel.bgCor;
     self.gk_navBackgroundImage = self.viewModel.bgImage;
     self.gk_navLineHidden = YES;
-    self.gk_navItemLeftSpace = 20;
+    self.gk_navItemLeftSpace = JobsWidth(20);
     [self hideNavLine];
 }
 /// 配置GKNavigationBar的返回按钮
@@ -63,12 +62,13 @@
     }];
 }
 #pragma mark —— present
+#define JobsPresentationStyle UIDevice.currentDevice.systemVersion.doubleValue >= 13.0 ? UIModalPresentationAutomatic : UIModalPresentationFullScreen
 /// 简洁版强制present展现一个控制器页面【不需要正向传参】
 -(void)comingToPresentVC:(UIViewController *_Nonnull)viewController{
     [UIViewController comingFromVC:self
                               toVC:viewController
                        comingStyle:ComingStyle_PRESENT
-                 presentationStyle:UIDevice.currentDevice.systemVersion.doubleValue >= 13.0 ? UIModalPresentationAutomatic : UIModalPresentationFullScreen
+                 presentationStyle:JobsPresentationStyle
                      requestParams:nil
           hidesBottomBarWhenPushed:YES
                           animated:YES
@@ -80,7 +80,7 @@
     [UIViewController comingFromVC:self
                               toVC:viewController
                        comingStyle:ComingStyle_PRESENT
-                 presentationStyle:UIDevice.currentDevice.systemVersion.doubleValue >= 13.0 ? UIModalPresentationAutomatic : UIModalPresentationFullScreen
+                 presentationStyle:JobsPresentationStyle
                      requestParams:requestParams
           hidesBottomBarWhenPushed:YES
                           animated:YES
@@ -92,7 +92,7 @@
     [UIViewController comingFromVC:self
                               toVC:viewController
                        comingStyle:ComingStyle_PUSH
-                 presentationStyle:UIDevice.currentDevice.systemVersion.doubleValue >= 13.0 ? UIModalPresentationAutomatic : UIModalPresentationFullScreen
+                 presentationStyle:JobsPresentationStyle
                      requestParams:nil
           hidesBottomBarWhenPushed:YES
                           animated:YES
@@ -104,7 +104,7 @@
     [UIViewController comingFromVC:self
                               toVC:viewController
                        comingStyle:ComingStyle_PUSH
-                 presentationStyle:UIDevice.currentDevice.systemVersion.doubleValue >= 13.0 ? UIModalPresentationAutomatic : UIModalPresentationFullScreen
+                 presentationStyle:JobsPresentationStyle
                      requestParams:requestParams
           hidesBottomBarWhenPushed:YES
                           animated:YES
@@ -265,19 +265,6 @@ static char *UIViewController_BaseVC_jobsTag = "UIViewController_BaseVC_jobsTag"
                              UIViewController_BaseVC_jobsTag,
                              [NSNumber numberWithBool:jobsTag],
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-static char *UIViewController_BaseVC_vcLifeCycleBlock = "UIViewController_BaseVC_vcLifeCycleBlock";
-@dynamic vcLifeCycleBlock;
-#pragma mark —— @property(nonatomic,copy)JobsViewControllerLifeCycleBlock vcLifeCycleBlock;/// 用于检测生命周期
--(JobsViewControllerLifeCycleBlock)vcLifeCycleBlock{
-    return objc_getAssociatedObject(self, UIViewController_BaseVC_vcLifeCycleBlock);
-}
-
--(void)setVcLifeCycleBlock:(JobsViewControllerLifeCycleBlock)vcLifeCycleBlock{
-    objc_setAssociatedObject(self,
-                             UIViewController_BaseVC_vcLifeCycleBlock,
-                             vcLifeCycleBlock,
-                             OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
 @end

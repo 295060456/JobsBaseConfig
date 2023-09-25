@@ -761,7 +761,7 @@
 		C563415A2849DFE90047CA49 /* JobsTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C56341592849DFE90047CA49 /* JobsTestVC.m */; };
 		C56C210D2AC1CBB7000BA232 /* UIViewController+SafeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D76435278090330003F0E4 /* UIViewController+SafeTransition.m */; };
 		C56C217C2AC1F912000BA232 /* JobsPresentingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C56C217B2AC1F912000BA232 /* JobsPresentingVC.m */; };
-		C56C21EC2AC1FB67000BA232 /* AAPLCustomPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C56C21EB2AC1FB67000BA232 /* AAPLCustomPresentationController.m */; };
+		C56C21EC2AC1FB67000BA232 /* JobsPresentationCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = C56C21EB2AC1FB67000BA232 /* JobsPresentationCtrl.m */; };
 		C56C4CDD285B7E2700999913 /* JobsBtnStyleCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C56C4CDB285B7E2700999913 /* JobsBtnStyleCVCell.m */; };
 		C5703FA7283FA5110048382E /* UIView+BRPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5703FA5283FA5110048382E /* UIView+BRPickerView.m */; };
 		C572088E2852F68A004BF695 /* ProtocolKitVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C57208892852F28C004BF695 /* ProtocolKitVC.m */; };
@@ -2453,8 +2453,8 @@
 		C56341592849DFE90047CA49 /* JobsTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsTestVC.m; sourceTree = "<group>"; };
 		C56C217A2AC1F912000BA232 /* JobsPresentingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsPresentingVC.h; sourceTree = "<group>"; };
 		C56C217B2AC1F912000BA232 /* JobsPresentingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsPresentingVC.m; sourceTree = "<group>"; };
-		C56C21EA2AC1FB67000BA232 /* AAPLCustomPresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLCustomPresentationController.h; sourceTree = "<group>"; };
-		C56C21EB2AC1FB67000BA232 /* AAPLCustomPresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLCustomPresentationController.m; sourceTree = "<group>"; };
+		C56C21EA2AC1FB67000BA232 /* JobsPresentationCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsPresentationCtrl.h; sourceTree = "<group>"; };
+		C56C21EB2AC1FB67000BA232 /* JobsPresentationCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsPresentationCtrl.m; sourceTree = "<group>"; };
 		C56C4CDA285B7E2700999913 /* JobsBtnStyleCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBtnStyleCVCell.h; sourceTree = "<group>"; };
 		C56C4CDB285B7E2700999913 /* JobsBtnStyleCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsBtnStyleCVCell.m; sourceTree = "<group>"; };
 		C56C4CDC285B7E2700999913 /* JobsBtnStyleCVCell.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = JobsBtnStyleCVCell.md; sourceTree = "<group>"; };
@@ -9461,13 +9461,13 @@
 			path = JobsPresentingVC;
 			sourceTree = "<group>";
 		};
-		C56C21ED2AC1FB6B000BA232 /* AAPLCustomPresentationController */ = {
+		C56C21ED2AC1FB6B000BA232 /* JobsPresentationCtrl */ = {
 			isa = PBXGroup;
 			children = (
-				C56C21EA2AC1FB67000BA232 /* AAPLCustomPresentationController.h */,
-				C56C21EB2AC1FB67000BA232 /* AAPLCustomPresentationController.m */,
+				C56C21EA2AC1FB67000BA232 /* JobsPresentationCtrl.h */,
+				C56C21EB2AC1FB67000BA232 /* JobsPresentationCtrl.m */,
 			);
-			path = AAPLCustomPresentationController;
+			path = JobsPresentationCtrl;
 			sourceTree = "<group>";
 		};
 		C56C4CD9285B7E2700999913 /* JobsBtnStyleCVCell */ = {
@@ -10798,7 +10798,7 @@
 		C5FBD0F32AC19DFC0043B932 /* UIPresentationController的使用 */ = {
 			isa = PBXGroup;
 			children = (
-				C56C21ED2AC1FB6B000BA232 /* AAPLCustomPresentationController */,
+				C56C21ED2AC1FB6B000BA232 /* JobsPresentationCtrl */,
 				C56C217D2AC1F917000BA232 /* JobsPresentingVC */,
 				C5FBD1E72AC1A9300043B932 /* JobsPresentedVC */,
 			);
@@ -11929,7 +11929,7 @@
 				84758D0B279855710074B4BA /* JobsLaunchVC.m in Sources */,
 				C5366D712ABA406700BA9C3C /* JobsScrollViewVC.m in Sources */,
 				8424743527C0C32B00831270 /* YTKNetworkStudyVC.m in Sources */,
-				C56C21EC2AC1FB67000BA232 /* AAPLCustomPresentationController.m in Sources */,
+				C56C21EC2AC1FB67000BA232 /* JobsPresentationCtrl.m in Sources */,
 				84869679277C68470098BE7A /* NSString+Check.m in Sources */,
 				C55E6B5C2843701D00ABA84A /* UIViewController+TFPopupView.m in Sources */,
 				C52E5CE22AC07EE500FE5494 /* HTTPLogging.m in Sources */,
