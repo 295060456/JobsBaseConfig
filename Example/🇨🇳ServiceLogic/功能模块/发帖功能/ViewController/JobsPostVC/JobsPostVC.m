@@ -94,16 +94,6 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
-    /// 调取系统相机
-    @jobs_weakify(self)
-    [self invokeSysCameraSuccessBlock:^(HXPhotoPickerModel *data) {
-        @jobs_strongify(self)
-        self.photoManager = data.photoManager;
-    } failBlock:^(HXPhotoPickerModel *data) {
-        @jobs_strongify(self)
-    }];
-
 }
 
 -(void)viewWillLayoutSubviews{

@@ -62,13 +62,7 @@
 /// 选取最后一张你选的图，作为显示
 -(void)getImageFromResource:(NSArray <HXPhotoModel *>*)resource{
     @jobs_weakify(self)
-    [resource hx_requestImageWithOriginal:NO
-                               completion:^(NSArray<UIImage *> * _Nullable imageArray,
-                                            NSArray<HXPhotoModel *> * _Nullable errorArray) {
-        @strongify(self)
-        self.photosImageMutArr = [NSMutableArray arrayWithArray:imageArray];
-        self.imageView.image = (UIImage *)self.photosImageMutArr.lastObject;/// 永远值显示最后选择的图
-    }];
+
 }
 #pragma mark —— lazyLoad
 -(UIButton *)cameraBtn{
@@ -89,7 +83,7 @@
             /// 调取系统相机
             [self invokeSysCameraSuccessBlock:^(HXPhotoPickerModel *data) {
                 @jobs_strongify(self)
-                [self getImageFromResource:data.photoList];
+                self.imageView.image = data.photoModel.previewPhoto;
             } failBlock:^(HXPhotoPickerModel *data) {
                 @jobs_strongify(self)
             }];
@@ -110,13 +104,18 @@
             make.top.equalTo(self.gk_navigationBar.mas_bottom).offset(JobsWidth(100));
         }];
         [_photoAlbumBtn makeBtnLabelByShowingType:UILabelShowingType_03];
-        @jobs_weakify(self)
         [_photoAlbumBtn jobsBtnClickEventBlock:^(id data) {
             /// 调取系统相册
+            @jobs_weakify(self)
             [self invokeSysPhotoAlbumSuccessBlock:^(HXPhotoPickerModel *data) {
-                @jobs_strongify(self)
                 self.photoManager = data.photoManager;
-                [self getImageFromResource:data.photoList];
+                [data.photoList hx_requestImageWithOriginal:NO
+                                                 completion:^(NSArray<UIImage *> * _Nullable imageArray,
+                                                              NSArray<HXPhotoModel *> * _Nullable errorArray) {
+                    @strongify(self)
+                    self.photosImageMutArr = [NSMutableArray arrayWithArray:imageArray];
+                    self.imageView.image = (UIImage *)self.photosImageMutArr.lastObject;/// 永远值显示最后选择的图
+                }];
             } failBlock:^(HXPhotoPickerModel *data) {
                 @jobs_strongify(self)
             }];
