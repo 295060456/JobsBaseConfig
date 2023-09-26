@@ -320,15 +320,22 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         }
         
         {
-            UIViewModel *viewModel = [self configViewModelWithTitle:@"JobsShooting"
-                                                           subTitle:Internationalization(@"📹拍摄功能")];
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"发帖（图文）功能"
+                                                           subTitle:Internationalization(@"相册获取资源+存/取未完成字符串")];
+            viewModel.cls = JobsPostVC.class;
+            [_dataMutArr addObject:viewModel];
+        }
+        
+        {
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"相册选取图片和视频"
+                                                           subTitle:Internationalization(@"")];
             viewModel.cls = JobsShootingVC.class;
             [_dataMutArr addObject:viewModel];
         }
         
         {
             UIViewModel *viewModel = [self configViewModelWithTitle:@"DynamicView"
-                                                           subTitle:Internationalization(@"gif图片读取")];
+                                                           subTitle:Internationalization(@"Gif图片读取")];
             viewModel.cls = DynamicViewTestVC.class;
             [_dataMutArr addObject:viewModel];
         }

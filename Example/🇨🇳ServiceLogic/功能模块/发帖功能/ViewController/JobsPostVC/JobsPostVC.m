@@ -5,21 +5,37 @@
 //  Created by Jobs Hi on 9/26/23.
 //
 
-#import "JobsShootingVC.h"
-#import "JobsShootingVC+HXPhotoViewDelegate.h"
+#import "JobsPostVC.h"
 
-@interface JobsShootingVC ()
-// UI
+@interface JobsPostVC (){
+    CGFloat DDPostDelViewHeight;
+}
+/// UI
+@property(nonatomic,strong)HXPhotoView *postPhotoView;//展示选择的图片
+@property(nonatomic,strong)HXPhotoManager *photoManager;//选取图片的数据管理类
+@property(nonatomic,strong)DDPostDelView *postDelView;//长按拖动的删除区域
 @property(nonatomic,strong)UIButton *releaseBtn;
 @property(nonatomic,strong)UIBarButtonItem *releaseBtnItem;
 @property(nonatomic,strong)DDTextView *textView;
 @property(nonatomic,strong)UILabel *tipsLab;
-// Data
-@property(nonatomic,assign) BOOL isUpload;
+/// Data
+@property(nonatomic,assign)BOOL isUpload;
+@property(nonatomic,strong)NSArray <HXPhotoModel *>*historyPhotoDataArr;//与之相对应的是self.photoManager.afterSelectedArray
+@property(nonatomic,strong)NSArray <HXPhotoModel *>*__block photosDataArr;
+@property(nonatomic,strong)NSArray <HXPhotoModel *>*__block videosDataArr;
+@property(nonatomic,strong)NSString *__block inputDataString;
+@property(nonatomic,strong)NSString *__block inputDataHistoryString;
+@property(nonatomic,strong)NSData *__block videosData;
+@property(nonatomic,strong)NSURL *__block videosUrl;
+@property(nonatomic,strong)NSMutableArray <UIImage *>*photosImageMutArr;
+@property(nonatomic,strong)NSString *__block pictures;
+@property(nonatomic,strong)NSString *__block videos;
+@property(nonatomic,strong)NSString *__block coverVideo;
+@property(nonatomic,assign)BOOL needDeleteItem;
 
 @end
 
-@implementation JobsShootingVC
+@implementation JobsPostVC
 
 - (void)dealloc{
     [NSNotificationCenter.defaultCenter removeObserver:self];
@@ -37,8 +53,8 @@
     {
         self.viewModel.backBtnTitleModel.text = Internationalization(@"返回");
         self.viewModel.textModel.textCor = HEXCOLOR(0x3D4A58);
-        self.viewModel.textModel.text = Internationalization(@"发帖+拍摄");
-        self.viewModel.textModel.font = notoSansBold(16);
+//        self.viewModel.textModel.text = Internationalization(@"发帖功能");
+        self.viewModel.textModel.font = UIFontWeightRegularSize(16);
         
         // 使用原则：底图有 + 底色有 = 优先使用底图数据
         // 以下2个属性的设置，涉及到的UI结论 请参阅父类（BaseViewController）的私有方法：-(void)setBackGround
@@ -61,7 +77,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = JobsRandomColor;
+    self.view.backgroundColor = JobsWhiteColor;
     [self setGKNav];
     [self setGKNavBackBtn];
     self.gk_navigationBar.jobsVisible = YES;
@@ -78,6 +94,16 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
+    /// 调取系统相机
+    @jobs_weakify(self)
+    [self invokeSysCameraSuccessBlock:^(HXPhotoPickerModel *data) {
+        @jobs_strongify(self)
+        self.photoManager = data.photoManager;
+    } failBlock:^(HXPhotoPickerModel *data) {
+        @jobs_strongify(self)
+    }];
+
 }
 
 -(void)viewWillLayoutSubviews{
@@ -155,13 +181,13 @@
 -(void)saveDoc{
     SPAlertControllerConfig *config = SPAlertControllerConfig.new;
     config.SPAlertControllerInitType = NSObject_SPAlertControllerInitType_2;
-    config.title = @"提示";
-    config.message = @"是否将当前内容保存为草稿？";
+    config.title = Internationalization(@"提示");
+    config.message = Internationalization(@"是否将当前内容保存为草稿？");
     config.preferredStyle = SPAlertControllerStyleAlert;
     config.animationType = SPAlertAnimationTypeDefault;
-    config.alertActionTitleArr = @[@"不保存",@"保存"];
+    config.alertActionTitleArr = @[Internationalization(@"不保存"),Internationalization(@"保存")];
     config.alertActionStyleArr = @[@(SPAlertActionStyleDestructive),@(SPAlertActionStyleDefault)];
-    config.alertBtnActionArr = @[@"不保留文字",@"保留文字"];
+    config.alertBtnActionArr = @[Internationalization(@"不保留文字"),Internationalization(@"保留文字")];
     config.targetVC = self;
     config.funcInWhere = self;
     config.animated = YES;
@@ -208,6 +234,100 @@
     self.releaseBtn.enabled = photoDataArr.count || inputDataString.length;
     self.releaseBtn.normalBackgroundImage = self.releaseBtn.enabled ? JobsIMG(@"发布") : JobsIMG(@"未发布");
 }
+#pragma mark —— HXPhotoViewDelegate
+/// 在这里获取到点选的资料
+- (void)photoView:(HXPhotoView *)photoView
+   changeComplete:(NSArray<HXPhotoModel *> *)allList//self.photoManager.afterSelectedArray
+           photos:(NSArray<HXPhotoModel *> *)photos
+           videos:(NSArray<HXPhotoModel *> *)videos
+         original:(BOOL)isOriginal{
+    self.photosDataArr = photos;
+    self.videosDataArr = videos;
+    @weakify(self)
+    if (self.videosDataArr.count) {
+        [FileFolderHandleTool getVideoFromPHAsset:self.videosDataArr.lastObject.asset
+                                         complete:^(FileFolderHandleModel *data) {
+            @strongify(self)
+            self.videosData = data.data;
+        }];
+    }else if(self.photosDataArr.count){
+        if (self.photosImageMutArr.count) [self.photosImageMutArr removeAllObjects];
+        [self.photosDataArr hx_requestImageWithOriginal:NO
+                                             completion:^(NSArray<UIImage *> * _Nullable imageArray,
+                                                          NSArray<HXPhotoModel *> * _Nullable errorArray) {
+            @strongify(self)
+            self.photosImageMutArr = [NSMutableArray arrayWithArray:imageArray];
+        }];
+    }else{}
+    [self releaseBtnState:allList
+          inputDataString:self.inputDataString];
+}
+
+- (void)photoView:(HXPhotoView *)photoView
+      updateFrame:(CGRect)frame {
+    @weakify(self)
+    [UIView animateWithDuration:0.25
+                     animations:^{
+        @strongify(self)
+        self.postDelView.y = JobsMainScreen_HEIGHT() - self->DDPostDelViewHeight;
+    }];
+}
+
+- (void)photoView:(HXPhotoView *)photoView
+currentDeleteModel:(HXPhotoModel *)model
+     currentIndex:(NSInteger)index {
+    // 删除的时候需要将草稿删除
+    if (self.photoManager.localModels) {
+        NSMutableArray *localModels = self.photoManager.localModels.mutableCopy;
+        if ([self.photoManager.localModels containsObject:model]) {
+            [localModels removeObject:model];
+        }
+        self.photoManager.localModels = localModels.copy;
+    }
+}
+
+- (BOOL)photoViewShouldDeleteCurrentMoveItem:(HXPhotoView *)photoView
+                           gestureRecognizer:(UILongPressGestureRecognizer *)longPgr
+                                   indexPath:(NSIndexPath *)indexPath {
+    return self.needDeleteItem;
+}
+
+- (void)photoView:(HXPhotoView *)photoView
+gestureRecognizerBegan:(UILongPressGestureRecognizer *)longPgr
+        indexPath:(NSIndexPath *)indexPath{
+    @weakify(self)
+    [UIView animateWithDuration:0.25
+                     animations:^{
+        @strongify(self)
+        self.postDelView.y = JobsMainScreen_HEIGHT() - self->DDPostDelViewHeight;
+    }];
+}
+
+- (void)photoView:(HXPhotoView *)photoView
+gestureRecognizerChange:(UILongPressGestureRecognizer *)longPgr
+        indexPath:(NSIndexPath *)indexPath {
+    CGPoint point = [longPgr locationInView:self.view];
+    [self.postDelView richElementsInViewWithModel:@(point.y >= self.postDelView.hx_y)];
+}
+
+- (void)photoView:(HXPhotoView *)photoView
+gestureRecognizerEnded:(UILongPressGestureRecognizer *)longPgr
+        indexPath:(NSIndexPath *)indexPath {
+    CGPoint point = [longPgr locationInView:self.view];
+    self.needDeleteItem = point.y >= self.postDelView.y;
+    if (point.y >= self.postDelView.y) {
+        [self.postPhotoView deleteModelWithIndex:indexPath.item];
+    }
+    @jobs_weakify(self)
+    [UIView animateWithDuration:0.25f
+                     animations:^{
+        @jobs_strongify(self)
+        self.postDelView.y = JobsMainScreen_HEIGHT();
+    } completion:^(BOOL finished) {
+        @jobs_strongify(self)
+        [self.postDelView richElementsInViewWithModel:@(NO)];
+    }];
+}
 #pragma mark —— lazyLoad
 -(UIButton *)releaseBtn{
     if (!_releaseBtn) {
@@ -216,7 +336,7 @@
         _releaseBtn.normalBackgroundImage = JobsIMG(@"未发布");
         _releaseBtn.normalTitle = Internationalization(@"发布");
         _releaseBtn.normalTitleColor = JobsWhiteColor;
-        _releaseBtn.titleLabel.font = UIFontWeightRegularSize(12.5);
+        _releaseBtn.titleFont = UIFontWeightRegularSize(12.5);
         _releaseBtn.width = JobsWidth(38);
         _releaseBtn.height = JobsWidth(23);
         @jobs_weakify(self)
@@ -298,7 +418,7 @@
 
 -(HXPhotoManager *)photoManager {
     if (!_photoManager) {
-        _photoManager = [[HXPhotoManager alloc] initWithType:HXPhotoManagerSelectedTypePhotoAndVideo];
+        _photoManager = [HXPhotoManager.alloc initWithType:HXPhotoManagerSelectedTypePhotoAndVideo];
         _photoManager.configuration.localFileName = Internationalization(@"DouDongPhotoModels");// 设置保存的文件名称
         _photoManager.configuration.type = HXConfigurationTypeWXChat;
         _photoManager.configuration.showOriginalBytes = YES;

@@ -56,7 +56,7 @@
                          failBlock:(jobsByIDBlock _Nullable)failBlock{
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         /// 请求相机📷权限
-        @jobs_weakify(self)
+//        @jobs_weakify(self)
         [ECPrivacyCheckGatherTool requestCameraAuthorizationWithCompletionHandler:^(BOOL granted) {
             if (granted) {
                 if ([self isKindOfClass:UIViewController.class]) {
