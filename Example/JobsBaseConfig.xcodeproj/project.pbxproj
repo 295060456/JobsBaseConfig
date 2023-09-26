@@ -749,6 +749,11 @@
 		C53683622875855E00DD7AA7 /* TMSWalletCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C536834B2875715F00DD7AA7 /* TMSWalletCollectionViewCell.m */; };
 		C53683632875856100DD7AA7 /* TMSWalletCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C53683472875715F00DD7AA7 /* TMSWalletCollectionReusableView.m */; };
 		C53684D328758C6B00DD7AA7 /* TMSCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C53684D128758C6A00DD7AA7 /* TMSCollectionViewLayout.m */; };
+		C536CE852AC242A0005D1FCD /* JobsShootingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C536CE842AC242A0005D1FCD /* JobsShootingVC.m */; };
+		C536CF022AC248C6005D1FCD /* 拍摄模块.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C536CF012AC248C6005D1FCD /* 拍摄模块.xcassets */; };
+		C536CF072AC2581D005D1FCD /* JobsShootingVC+HXPhotoViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C536CF052AC2581D005D1FCD /* JobsShootingVC+HXPhotoViewDelegate.m */; };
+		C536CF0C2AC2588B005D1FCD /* DDTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C536CF0B2AC2588B005D1FCD /* DDTextView.m */; };
+		C536CF0F2AC258BB005D1FCD /* DDPostDelView.m in Sources */ = {isa = PBXBuildFile; fileRef = C536CF0D2AC258BB005D1FCD /* DDPostDelView.m */; };
 		C537C6F2286DA1C3007D6539 /* BaseTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C537C6F1286DA1C3007D6539 /* BaseTableViewHeaderFooterView.m */; };
 		C548C7EE28700AED00F5ED90 /* UIScrollView+AnimationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C548C7ED28700AED00F5ED90 /* UIScrollView+AnimationKit.m */; };
 		C54BC43628325BA80010EF20 /* JobsTitleView01.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BC43428325BA80010EF20 /* JobsTitleView01.m */; };
@@ -2424,6 +2429,16 @@
 		C53683562875722300DD7AA7 /* JobsWalletVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsWalletVC.m; sourceTree = "<group>"; };
 		C53684D128758C6A00DD7AA7 /* TMSCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMSCollectionViewLayout.m; sourceTree = "<group>"; };
 		C53684D228758C6B00DD7AA7 /* TMSCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMSCollectionViewLayout.h; sourceTree = "<group>"; };
+		C536CE832AC242A0005D1FCD /* JobsShootingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsShootingVC.h; sourceTree = "<group>"; };
+		C536CE842AC242A0005D1FCD /* JobsShootingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsShootingVC.m; sourceTree = "<group>"; };
+		C536CF012AC248C6005D1FCD /* 拍摄模块.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "拍摄模块.xcassets"; sourceTree = "<group>"; };
+		C536CF032AC25732005D1FCD /* 发帖.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "发帖.png"; sourceTree = "<group>"; };
+		C536CF052AC2581D005D1FCD /* JobsShootingVC+HXPhotoViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JobsShootingVC+HXPhotoViewDelegate.m"; sourceTree = "<group>"; };
+		C536CF062AC2581D005D1FCD /* JobsShootingVC+HXPhotoViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JobsShootingVC+HXPhotoViewDelegate.h"; sourceTree = "<group>"; };
+		C536CF0A2AC2588A005D1FCD /* DDTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTextView.h; sourceTree = "<group>"; };
+		C536CF0B2AC2588B005D1FCD /* DDTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTextView.m; sourceTree = "<group>"; };
+		C536CF0D2AC258BB005D1FCD /* DDPostDelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDPostDelView.m; sourceTree = "<group>"; };
+		C536CF0E2AC258BB005D1FCD /* DDPostDelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDPostDelView.h; sourceTree = "<group>"; };
 		C537C6F0286DA1C2007D6539 /* BaseTableViewHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewHeaderFooterView.h; sourceTree = "<group>"; };
 		C537C6F1286DA1C3007D6539 /* BaseTableViewHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewHeaderFooterView.m; sourceTree = "<group>"; };
 		C546E1EC287ACD6200074386 /* NetworkingConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingConstant.h; sourceTree = "<group>"; };
@@ -7699,6 +7714,7 @@
 		84CA5DD427895B4700E46E71 /* xcassets */ = {
 			isa = PBXGroup;
 			children = (
+				C536CF012AC248C6005D1FCD /* 拍摄模块.xcassets */,
 				C52E59F72AC04B8900FE5494 /* 视频模块.xcassets */,
 				C5A7C2DB285B290400F0F2BB /* 临时的占位图.xcassets */,
 				84CA5E7B27895BA400E46E71 /* AppDoor.xcassets */,
@@ -8269,6 +8285,7 @@
 		84CA609D278980E700E46E71 /* 功能模块 */ = {
 			isa = PBXGroup;
 			children = (
+				C536CE822AC2428C005D1FCD /* 拍摄功能 */,
 				C5FBD0F32AC19DFC0043B932 /* UIPresentationController的使用 */,
 				C53294032ABCC86D004294E0 /* JobsContainerViewDemo */,
 				C53683442875713B00DD7AA7 /* UICollectionView实现重叠的卡包效果 */,
@@ -9351,6 +9368,70 @@
 				C536834B2875715F00DD7AA7 /* TMSWalletCollectionViewCell.m */,
 			);
 			path = TMSWalletCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		C536CE822AC2428C005D1FCD /* 拍摄功能 */ = {
+			isa = PBXGroup;
+			children = (
+				C536CF032AC25732005D1FCD /* 发帖.png */,
+				C536CF092AC2587B005D1FCD /* View */,
+				C536CF082AC25872005D1FCD /* ViewController */,
+			);
+			path = "拍摄功能";
+			sourceTree = "<group>";
+		};
+		C536CF082AC25872005D1FCD /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C536CF102AC25EA8005D1FCD /* JobsShootingVC */,
+				C536CF112AC25EB1005D1FCD /* JobsShootingVC+HXPhotoViewDelegate */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C536CF092AC2587B005D1FCD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C536CF132AC25F5D005D1FCD /* DDTextView */,
+				C536CF122AC25F2F005D1FCD /* DDPostDelView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C536CF102AC25EA8005D1FCD /* JobsShootingVC */ = {
+			isa = PBXGroup;
+			children = (
+				C536CE832AC242A0005D1FCD /* JobsShootingVC.h */,
+				C536CE842AC242A0005D1FCD /* JobsShootingVC.m */,
+			);
+			path = JobsShootingVC;
+			sourceTree = "<group>";
+		};
+		C536CF112AC25EB1005D1FCD /* JobsShootingVC+HXPhotoViewDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				C536CF062AC2581D005D1FCD /* JobsShootingVC+HXPhotoViewDelegate.h */,
+				C536CF052AC2581D005D1FCD /* JobsShootingVC+HXPhotoViewDelegate.m */,
+			);
+			path = "JobsShootingVC+HXPhotoViewDelegate";
+			sourceTree = "<group>";
+		};
+		C536CF122AC25F2F005D1FCD /* DDPostDelView */ = {
+			isa = PBXGroup;
+			children = (
+				C536CF0E2AC258BB005D1FCD /* DDPostDelView.h */,
+				C536CF0D2AC258BB005D1FCD /* DDPostDelView.m */,
+			);
+			path = DDPostDelView;
+			sourceTree = "<group>";
+		};
+		C536CF132AC25F5D005D1FCD /* DDTextView */ = {
+			isa = PBXGroup;
+			children = (
+				C536CF0A2AC2588A005D1FCD /* DDTextView.h */,
+				C536CF0B2AC2588B005D1FCD /* DDTextView.m */,
+			);
+			path = DDTextView;
 			sourceTree = "<group>";
 		};
 		C548C7EF28700AF400F5ED90 /* UIScrollView+AnimationKit */ = {
@@ -10939,6 +11020,7 @@
 				84CA5E0827895B4700E46E71 /* iph_X.mp4 in Resources */,
 				840F962A27736427004979E9 /* 6@3x.png in Resources */,
 				840F95F027736427004979E9 /* 我的.json in Resources */,
+				C536CF022AC248C6005D1FCD /* 拍摄模块.xcassets in Resources */,
 				C520F8312AB39EDD00142DCC /* 1179x2556.png in Resources */,
 				844B08562764CF4800B0513D /* 运动与健身@2x.png in Resources */,
 				844B02232764C8F000B0513D /* LaunchScreen.storyboard in Resources */,
@@ -11451,6 +11533,7 @@
 				840F96FE27736428004979E9 /* NSObject+DeviceID.m in Sources */,
 				C520F88B2AB3A12100142DCC /* WMZBannerView.m in Sources */,
 				840F96F427736428004979E9 /* NSObject+Popup.m in Sources */,
+				C536CF072AC2581D005D1FCD /* JobsShootingVC+HXPhotoViewDelegate.m in Sources */,
 				840F964E27736427004979E9 /* UITableViewCell+BaseCellProtocol.m in Sources */,
 				C52E5CA12AC07E9800FE5494 /* KTVHCDataNetworkSource.m in Sources */,
 				C57A2034282CB59F0032156B /* ZLGestureLockView.m in Sources */,
@@ -11674,6 +11757,7 @@
 				C52E5CE52AC07EE500FE5494 /* MultipartMessageHeaderField.m in Sources */,
 				C57343F5285753B10016705E /* JobsAnimationLabel.m in Sources */,
 				840F968E27736428004979E9 /* BaseImageView.m in Sources */,
+				C536CE852AC242A0005D1FCD /* JobsShootingVC.m in Sources */,
 				C52E5CDB2AC07EE500FE5494 /* HTTPErrorResponse.m in Sources */,
 				840F961427736427004979E9 /* CustomZFPlayerControlView.m in Sources */,
 				C5C47D10284E1C4B007916B3 /* MsgEditBoardView.m in Sources */,
@@ -11702,6 +11786,7 @@
 				C5B3AE9A285378FA0052A4A9 /* BaiShaETProjVIPSubCVCell_03.m in Sources */,
 				C532940F2ABCC86D004294E0 /* JobsContainerView.m in Sources */,
 				844B02262764C8F000B0513D /* main.m in Sources */,
+				C536CF0C2AC2588B005D1FCD /* DDTextView.m in Sources */,
 				840F969927736428004979E9 /* NSString+FilteringSpecialCharacters.m in Sources */,
 				C520F88A2AB3A12100142DCC /* WMZBannerParam.m in Sources */,
 				840F960827736427004979E9 /* UITabBar+Ex.m in Sources */,
@@ -11853,6 +11938,7 @@
 				C52E5CE92AC07EE500FE5494 /* DDNumber.m in Sources */,
 				C5B3AEAC2853799F0052A4A9 /* BaiShaETProjChoiceStadiumView.m in Sources */,
 				840F969E27736428004979E9 /* XLBubbleTransition.m in Sources */,
+				C536CF0F2AC258BB005D1FCD /* DDPostDelView.m in Sources */,
 				840F960627736427004979E9 /* TLTabBarAnimation.m in Sources */,
 				C520F8912AB3A12100142DCC /* AFNetworkActivityIndicatorManager.m in Sources */,
 				844B087F2764CF4800B0513D /* XHLaunchAdDownloader.m in Sources */,

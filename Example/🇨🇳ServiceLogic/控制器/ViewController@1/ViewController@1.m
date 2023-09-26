@@ -322,7 +322,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         {
             UIViewModel *viewModel = [self configViewModelWithTitle:@"JobsShooting"
                                                            subTitle:Internationalization(@"📹拍摄功能")];
-//            viewModel.cls =
+            viewModel.cls = JobsShootingVC.class;
             [_dataMutArr addObject:viewModel];
         }
         

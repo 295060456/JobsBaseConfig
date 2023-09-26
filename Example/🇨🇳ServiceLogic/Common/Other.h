@@ -76,5 +76,6 @@
 #import "JobsScrollViewVC.h"
 #import "JobsContainerViewDemoVC.h"
 #import "JobsPresentingVC.h"
+#import "JobsShootingVC.h"
 
 #endif /* Other_h */

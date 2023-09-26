@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy)NSString *deviceId;// 设备ID
 @property(nonatomic,copy)NSString *validate;// 网易云盾
 @property(nonatomic,copy)NSString *resourcesAddress;// 文件服务器地址
+@property(nonatomic,copy)NSString *postDraftURLStr;// 保存用户编辑中的文字
 
 @end
 

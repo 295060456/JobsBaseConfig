@@ -7,7 +7,20 @@
 
 #import "DDUserModel.h"
 
+@interface DDUserModel ()
+
+@end
+
 @implementation DDUserModel
+
+static DDUserModel *static_userModel = nil;
++(instancetype)sharedInstance{
+    @synchronized(self){
+        if (!static_userModel) {
+            static_userModel = DDUserModel.new;
+        }
+    }return static_userModel;
+}
 
 - (id)mj_newValueFromOldValue:(id)oldValue
                      property:(MJProperty *)property{

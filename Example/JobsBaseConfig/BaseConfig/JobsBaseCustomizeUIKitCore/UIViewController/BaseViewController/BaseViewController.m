@@ -87,6 +87,7 @@ BaseViewControllerProtocol_synthesize
                     LanguageSwitchNotification,
                     nil);
     [self UIViewControllerLifeCycle:JobsLocalFunc];
+//    self.fd_interactivePopDisabled = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
