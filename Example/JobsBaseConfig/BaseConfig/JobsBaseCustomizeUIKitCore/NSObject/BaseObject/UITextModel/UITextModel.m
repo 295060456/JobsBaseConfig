@@ -21,7 +21,7 @@ UIViewModelOthersProtocol_synthesize
 
 -(UIFont *)font{
     if (!_font) {
-        _font = [UIFont systemFontOfSize:JobsWidth(12) weight:UIFontWeightRegular];
+        _font = UIFontWeightRegularSize(12);
     }return _font;
 }
 

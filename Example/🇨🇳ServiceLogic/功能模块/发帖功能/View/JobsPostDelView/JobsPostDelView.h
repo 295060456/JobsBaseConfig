@@ -1,5 +1,5 @@
 //
-//  DDPostDelView.h
+//  JobsPostDelView.h
 //  DouDong-II
 //
 //  Created by Jobs on 2021/1/1.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DDPostDelView : BaseView
+@interface JobsPostDelView : BaseView
 
 @end
 

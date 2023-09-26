@@ -11,17 +11,6 @@
 #import "JobsString.h"
 #import "UITextView+IndicateWordLimit.h"
 
-#define TextFieldEvent(textField,filterAction,subscribeNextAction)\
-@jobs_weakify(self)\
-[[textField.rac_textSignal filter:^BOOL(NSString * _Nullable value) {\
-    @jobs_strongify(self)\
-    filterAction\
-}] subscribeNext:^(NSString * _Nullable x) {\
-    @jobs_strongify(self)\
-    subscribeNextAction\
-    NSLog(@"MMM = %@",x);\
-}];\
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UITextView (Extend)
@@ -29,36 +18,38 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSString *replacementText;
 @property(nonatomic,strong)NSString *resStr;
 
--(void)textViewEvent:(JobsReturnBOOLByIDBlock)filterBlock
-  subscribeNextBlock:(jobsByIDBlock)subscribeNextBlock;
+-(void)jobsTextViewFilterBlock:(JobsReturnBOOLByIDBlock)filterBlock
+            subscribeNextBlock:(jobsByIDBlock)subscribeNextBlock;
+
+-(void)jobsTextViewSubscribeNextBlock:(jobsByIDBlock)subscribeNextBlock;
 /**
  IOS UITextView内容垂直居中方法 https://www.jianshu.com/p/5e4cf8488bfd
  原理：由于textView是继承自UIScrollview，所以会有ContentSize属性。
  所以可以通过文字内容的高度（也就是ContentSize）的高度和textView的高度之间的差值，设置内边距，就相当于把内容居中了。
  */
 - (void)contentSizeToFitByFont:(UIFont *_Nullable)font;
-/*
-    如果执行的是删除动作，那么textView.text 去掉最后一个字符向外输出
-    否则textView.text + replacementString进行输出
+/**
+ 如果执行的是删除动作，那么textView.text 去掉最后一个字符向外输出
+ 否则textView.text + replacementString进行输出
  */
 -(NSString *)getCurrentTextViewValueByReplacementText:(NSString *)replacementString;
-/*
-    一般用于- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
-    对提行、删除【包含删除Emoji表情】、正向输入【包含汉字拼音输入法中的占位符】操作进行区分
+/**
+ 一般用于终值部分，对应协议方法:textViewDidChange
+ 因为在- (void)textViewDidChange:(UITextView *)textView里面的textView.text = textView确定值 + 输入法拼音模式下的占位符值
+ 我们在某些业务场景下需要对此进行区分，也就是只锚点textView的确定值
+ @param valueBlock 回调TextView的确定值，以表明占位符有值
+ @param invalidBlock 回调占位符无值的状态
+ */
+-(void)markedTextValue:(jobsByIDBlock)valueBlock
+          invalidBlock:(jobsByVoidBlock)invalidBlock;
+/**
+ 一般用于- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+ 对提行、删除【包含删除Emoji表情】、正向输入【包含汉字拼音输入法中的占位符】操作进行区分
  */
 -(BOOL)replacementText:(NSString *)replacementText
      beginNewLineBlock:(jobsByIDBlock)beginNewLineBlock
               delBlock:(jobsByIDBlock)delBlock
       normalInputBlock:(jobsByIDBlock)normalInputBlock;
-/*
-    用于终值部分，对应协议方法:textViewDidChange
-    因为在- (void)textViewDidChange:(UITextView *)textView里面的textView.text = textView确定值 + 输入法拼音模式下的占位符值
-    我们在某些业务场景下需要对此进行区分，也就是只锚点textView的确定值
- /// @param valueBlock 回调TextView的确定值，以表明占位符有值
- /// @param invalidBlock 回调占位符无值的状态
- */
--(void)markedTextValue:(jobsByIDBlock)valueBlock
-          invalidBlock:(jobsByVoidBlock)invalidBlock;
 
 @end
 

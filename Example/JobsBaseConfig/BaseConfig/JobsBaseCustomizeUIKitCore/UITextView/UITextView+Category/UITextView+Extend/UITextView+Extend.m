@@ -9,11 +9,17 @@
 
 @implementation UITextView (Extend)
 
--(void)textViewEvent:(JobsReturnBOOLByIDBlock)filterBlock
-   subscribeNextBlock:(jobsByIDBlock)subscribeNextBlock{
+-(void)jobsTextViewFilterBlock:(JobsReturnBOOLByIDBlock)filterBlock
+            subscribeNextBlock:(jobsByIDBlock)subscribeNextBlock{
     [[self.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
         return filterBlock ? filterBlock(value) : YES;
     }] subscribeNext:^(NSString * _Nullable x) {
+        if (subscribeNextBlock) subscribeNextBlock(x);
+    }];
+}
+
+-(void)jobsTextViewSubscribeNextBlock:(jobsByIDBlock)subscribeNextBlock{
+    [self.rac_textSignal subscribeNext:^(NSString * _Nullable x) {
         if (subscribeNextBlock) subscribeNextBlock(x);
     }];
 }
@@ -52,21 +58,21 @@
         [self setContentInset:offset];
     }
 }
-/*
-    如果执行的是删除动作，那么textView.text 去掉最后一个字符向外输出
-    否则textView.text + replacementString进行输出
+/**
+ 如果执行的是删除动作，那么textView.text 去掉最后一个字符向外输出
+ 否则textView.text + replacementString进行输出
  */
 -(NSString *)getCurrentTextViewValueByReplacementText:(NSString *)replacementString{
     if (self.text.length) {
         return [replacementString isEqualToString:@""] ? [self.text substringToIndex:(self.text.length - 1)] : [self.text stringByAppendingString:replacementString];
     }return replacementString;
 }
-/*
-    一般用于终值部分，对应协议方法:textViewDidChange
-    因为在- (void)textViewDidChange:(UITextView *)textView里面的textView.text = textView确定值 + 输入法拼音模式下的占位符值
-    我们在某些业务场景下需要对此进行区分，也就是只锚点textView的确定值
- /// @param valueBlock 回调TextView的确定值，以表明占位符有值
- /// @param invalidBlock 回调占位符无值的状态
+/**
+ 一般用于终值部分，对应协议方法:textViewDidChange
+ 因为在- (void)textViewDidChange:(UITextView *)textView里面的textView.text = textView确定值 + 输入法拼音模式下的占位符值
+ 我们在某些业务场景下需要对此进行区分，也就是只锚点textView的确定值
+ @param valueBlock 回调TextView的确定值，以表明占位符有值
+ @param invalidBlock 回调占位符无值的状态
  */
 -(void)markedTextValue:(jobsByIDBlock)valueBlock
           invalidBlock:(jobsByVoidBlock)invalidBlock{
@@ -79,9 +85,9 @@
         if (invalidBlock) invalidBlock();
     }
 }
-/*
-    一般用于- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
-    对提行、删除【包含删除Emoji表情】、正向输入【包含汉字拼音输入法中的占位符】操作进行区分
+/**
+ 一般用于- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+ 对提行、删除【包含删除Emoji表情】、正向输入【包含汉字拼音输入法中的占位符】操作进行区分
  */
 -(BOOL)replacementText:(NSString *)replacementText
      beginNewLineBlock:(jobsByIDBlock)beginNewLineBlock
@@ -92,10 +98,10 @@
         if (beginNewLineBlock) beginNewLineBlock(self.text);
         return NO;
     }else if([replacementText isEqualToString:@""]){//删除
-        /*
-             删除操作是系统接收@“”作为指令内部进行删除操作
-             获取需要操作的字符，最后2位，如果是emoji则删除2个字符，否则删除一个字符
-             截取 textView.text 最后2位
+        /**
+         删除操作是系统接收@“”作为指令内部进行删除操作
+         获取需要操作的字符，最后2位，如果是emoji则删除2个字符，否则删除一个字符
+         截取 textView.text 最后2位
          */
         NSString *res = @"";
         NSLog(@"MMM = %@",self.text);

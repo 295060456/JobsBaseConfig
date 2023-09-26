@@ -193,7 +193,7 @@ static char *UIButton_UI_titleFont = "UIButton_UI_titleFont";
 -(UIFont *)titleFont{
     UIFont *TitleFont = objc_getAssociatedObject(self, UIButton_UI_titleFont);
     if (!TitleFont) {
-        TitleFont = UIFontWeightBoldSize(JobsWidth(12));
+        TitleFont = UIFontWeightBoldSize(12);
         [self setTitleFont:TitleFont];
     }return TitleFont;
 }

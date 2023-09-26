@@ -271,7 +271,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 -(JobsBitsMonitorSuspendLab *)bitsMonitorSuspendLab{
     if (!_bitsMonitorSuspendLab) {
         _bitsMonitorSuspendLab = JobsBitsMonitorSuspendLab.new;
-        _bitsMonitorSuspendLab.font = UIFontWeightBoldSize(JobsWidth(10));
+        _bitsMonitorSuspendLab.font = UIFontWeightBoldSize(10);
         _bitsMonitorSuspendLab.backgroundColor = JobsLightGrayColor;
         _bitsMonitorSuspendLab.textColor = JobsRedColor;
         @jobs_weakify(self)

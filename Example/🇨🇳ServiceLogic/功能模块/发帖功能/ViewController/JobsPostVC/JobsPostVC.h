@@ -6,8 +6,8 @@
 //
 
 #import "BaseViewController.h"
-#import "DDPostDelView.h"
-#import "DDTextView.h"
+#import "JobsPostDelView.h"
+#import "JobsTextView.h"
 
 #if __has_include(<SZTextView/SZTextView.h>)
 #import <SZTextView/SZTextView.h>

@@ -8,35 +8,36 @@
 #import "JobsPostVC.h"
 
 @interface JobsPostVC (){
-    CGFloat DDPostDelViewHeight;
+    CGFloat JobsPostDelViewHeight;
 }
 /// UI
-@property(nonatomic,strong)HXPhotoView *postPhotoView;//展示选择的图片
-@property(nonatomic,strong)HXPhotoManager *photoManager;//选取图片的数据管理类
-@property(nonatomic,strong)DDPostDelView *postDelView;//长按拖动的删除区域
+@property(nonatomic,strong)HXPhotoView *postPhotoView;/// 展示选择的图片
+@property(nonatomic,strong)HXPhotoManager *photoManager;/// 选取图片的数据管理类
+@property(nonatomic,strong)JobsPostDelView *postDelView;/// 长按拖动的删除区域
+@property(nonatomic,strong)JobsTextView *textView;
 @property(nonatomic,strong)UIButton *releaseBtn;
 @property(nonatomic,strong)UIBarButtonItem *releaseBtnItem;
-@property(nonatomic,strong)DDTextView *textView;
 @property(nonatomic,strong)UILabel *tipsLab;
 /// Data
-@property(nonatomic,assign)BOOL isUpload;
-@property(nonatomic,strong)NSArray <HXPhotoModel *>*historyPhotoDataArr;//与之相对应的是self.photoManager.afterSelectedArray
+@property(nonatomic,strong)NSArray <HXPhotoModel *>*historyPhotoDataArr;/// 与之相对应的是self.photoManager.afterSelectedArray
 @property(nonatomic,strong)NSArray <HXPhotoModel *>*__block photosDataArr;
 @property(nonatomic,strong)NSArray <HXPhotoModel *>*__block videosDataArr;
 @property(nonatomic,strong)NSString *__block inputDataString;
 @property(nonatomic,strong)NSString *__block inputDataHistoryString;
-@property(nonatomic,strong)NSData *__block videosData;
-@property(nonatomic,strong)NSURL *__block videosUrl;
-@property(nonatomic,strong)NSMutableArray <UIImage *>*photosImageMutArr;
 @property(nonatomic,strong)NSString *__block pictures;
 @property(nonatomic,strong)NSString *__block videos;
 @property(nonatomic,strong)NSString *__block coverVideo;
+@property(nonatomic,strong)NSMutableArray <UIImage *>*photosImageMutArr;
+@property(nonatomic,strong)NSData *__block videosData;
+@property(nonatomic,strong)NSURL *__block videosUrl;
+@property(nonatomic,strong)UITextModel *textModel;
+@property(nonatomic,assign)BOOL isUpload;
 @property(nonatomic,assign)BOOL needDeleteItem;
 
 @end
 
 @implementation JobsPostVC
-
+UIViewModelProtocol_synthesize
 - (void)dealloc{
     [NSNotificationCenter.defaultCenter removeObserver:self];
     NSLog(@"%@",JobsLocalFunc);
@@ -64,7 +65,7 @@
     }
     
     {
-        DDPostDelViewHeight = JobsBottomSafeAreaHeight() + JobsWidth(50);
+        JobsPostDelViewHeight =[JobsPostDelView viewSizeWithModel:nil].height;
         self.historyPhotoDataArr = [self.photoManager getLocalModelsInFileWithAddData:YES];
         if (![NSString isNullString:DDUserModel.sharedInstance.postDraftURLStr]) {
             self.inputDataHistoryString = [FileFolderHandleTool filePath:DDUserModel.sharedInstance.postDraftURLStr
@@ -208,13 +209,11 @@
     if (![self.photoManager.afterSelectedArray compareEqualArrElement:self.historyPhotoDataArr] ||//!d
         ![NSString isEqualStrA:self.inputDataHistoryString strB:self.inputDataString]) {
         [self saveDoc];
-    }else{
-        [self back:sender];
-    }
+    }else [self back:sender];
 }
 
 - (void)back:(id)sender{
-    // 因为manager上个界面也持有了，并不会释放。所以手动清空一下已选的数据
+    /// 因为manager上个界面也持有了，并不会释放。所以手动清空一下已选的数据
     [self.photoManager clearSelectedList];
     [self backBtnClickEvent:sender];
 }
@@ -255,12 +254,6 @@
 
 - (void)photoView:(HXPhotoView *)photoView
       updateFrame:(CGRect)frame {
-    @weakify(self)
-    [UIView animateWithDuration:0.25
-                     animations:^{
-        @strongify(self)
-        self.postDelView.y = JobsMainScreen_HEIGHT() - self->DDPostDelViewHeight;
-    }];
 }
 
 - (void)photoView:(HXPhotoView *)photoView
@@ -286,10 +279,10 @@ currentDeleteModel:(HXPhotoModel *)model
 gestureRecognizerBegan:(UILongPressGestureRecognizer *)longPgr
         indexPath:(NSIndexPath *)indexPath{
     @weakify(self)
-    [UIView animateWithDuration:0.25
+    [UIView animateWithDuration:0.25f
                      animations:^{
         @strongify(self)
-        self.postDelView.y = JobsMainScreen_HEIGHT() - self->DDPostDelViewHeight;
+        self.postDelView.y = JobsMainScreen_HEIGHT() - self->JobsPostDelViewHeight;
     }];
 }
 
@@ -346,14 +339,9 @@ gestureRecognizerEnded:(UILongPressGestureRecognizer *)longPgr
     }return _releaseBtnItem;
 }
 
--(DDTextView *)textView{
+-(JobsTextView *)textView{
     if (!_textView) {
-        _textView = DDTextView.new;
-        _textView.text = self.inputDataHistoryString;
-        _textView.placeholder = Internationalization(@"撩骚内容，写在这里哦~");
-        _textView.placeholderColor = RGB_SAMECOLOR(173);
-        _textView.font = UIFontWeightRegularSize(14);
-        _textView.maxWordCount = 2000;
+        _textView = JobsTextView.new;
         _textView.backgroundColor = UIColor.whiteColor;
         [self.view addSubview:_textView];
         [_textView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -362,31 +350,16 @@ gestureRecognizerEnded:(UILongPressGestureRecognizer *)longPgr
             make.right.equalTo(self.view).offset(JobsWidth(-0));
             make.height.mas_equalTo(JobsWidth(101));
         }];
+        [_textView richElementsInViewWithModel:self.textModel];
         @jobs_weakify(self)
         [_textView actionObjectBlock:^(id data) {
             @jobs_strongify(self)
-            NSString* x = (NSString*)data;
+            NSString *x = (NSString *)data;
             self.inputDataString = x;
             [self releaseBtnState:self.photoManager.afterSelectedArray
                   inputDataString:self.inputDataString];
         }];
     }return _textView;
-}
-
--(UILabel *)tipsLab{
-    if (!_tipsLab) {
-        _tipsLab = UILabel.new;
-        _tipsLab.textColor = RGB_SAMECOLOR(173);
-        _tipsLab.font = UIFontWeightBoldSize(12);
-        _tipsLab.numberOfLines = 0;
-        _tipsLab.text = Internationalization(@"1、内容不允许出现纯数字，英文字母；\n2、图片/视频(图片最多9张/仅上传一段视频，大小不超100M)。");
-        [self.view addSubview:_tipsLab];
-        [_tipsLab mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.view).offset(JobsWidth(14));
-            make.top.equalTo(self.textView.mas_bottom).offset(JobsWidth(11));
-        }];
-        [_tipsLab makeLabelByShowingType:UILabelShowingType_03];
-    }return _tipsLab;
 }
 
 -(HXPhotoView *)postPhotoView{
@@ -425,15 +398,47 @@ gestureRecognizerEnded:(UILongPressGestureRecognizer *)longPgr
     }return _photoManager;
 }
 
--(DDPostDelView *)postDelView{
+-(JobsPostDelView *)postDelView{
     if (!_postDelView) {
-        _postDelView = DDPostDelView.new;
+        _postDelView = JobsPostDelView.new;
         [self.view addSubview:_postDelView];
-        _postDelView.frame = CGRectMake(0,
-                                        JobsMainScreen_HEIGHT(),
-                                        JobsMainScreen_WIDTH(),
-                                        DDPostDelViewHeight);
+        _postDelView.frame = [JobsPostDelView viewFrameWithModel:nil];
+        [_postDelView richElementsInViewWithModel:nil];
     }return _postDelView;
+}
+
+-(UILabel *)tipsLab{
+    if (!_tipsLab) {
+        _tipsLab = UILabel.new;
+        _tipsLab.textColor = RGB_SAMECOLOR(173);
+        _tipsLab.font = UIFontWeightBoldSize(12);
+        _tipsLab.numberOfLines = 0;
+        _tipsLab.text = Internationalization(@"1、内容不允许出现纯数字，英文字母；\n2、图片/视频(图片最多9张/仅上传一段视频，大小不超100M)。");
+        [self.view addSubview:_tipsLab];
+        [_tipsLab mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.view).offset(JobsWidth(14));
+            make.top.equalTo(self.textView.mas_bottom).offset(JobsWidth(11));
+        }];
+        [_tipsLab makeLabelByShowingType:UILabelShowingType_03];
+    }return _tipsLab;
+}
+
+-(UITextModel *)textModel{
+    if(!_textModel){
+        _textModel = UITextModel.new;
+        _textModel.text = self.inputDataHistoryString;
+        _textModel.textCor = JobsBlackColor;
+        _textModel.placeholder = Internationalization(@"撩骚内容，写在这里哦~");
+        _textModel.placeholderColor = RGB_SAMECOLOR(173);
+        _textModel.font = UIFontWeightRegularSize(14);
+        _textModel.maxWordCount = 10;        
+    }return _textModel;
+}
+
+-(NSString *)inputDataHistoryString{
+    if(!_inputDataHistoryString){
+        _inputDataHistoryString = Internationalization(@"");
+    }return _inputDataHistoryString;
 }
 
 -(NSMutableArray<UIImage *> *)photosImageMutArr{

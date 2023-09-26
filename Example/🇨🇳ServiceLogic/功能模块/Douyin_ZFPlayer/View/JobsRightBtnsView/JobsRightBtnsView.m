@@ -112,7 +112,7 @@ static dispatch_once_t static_rightBtnsViewOnceToken;
         
         _loveBtn.normalImage = JobsIMG(@"视频未点赞");
         _loveBtn.selectedImage = JobsIMG(@"视频未点赞");
-        _loveBtn.titleFont = UIFontWeightRegularSize(JobsWidth(12));
+        _loveBtn.titleFont = UIFontWeightRegularSize(12);
         
         @jobs_weakify(self)
         [_loveBtn jobsBtnClickEventBlock:^(__kindof UIButton * _Nullable x) {
@@ -137,7 +137,7 @@ static dispatch_once_t static_rightBtnsViewOnceToken;
     if (!_commentBtn) {
         _commentBtn = UIButton.new;
         _commentBtn.normalImage = JobsIMG(@"视频评论");
-        _commentBtn.titleFont = UIFontWeightRegularSize(JobsWidth(12));
+        _commentBtn.titleFont = UIFontWeightRegularSize(12);
         @jobs_weakify(self)
         [_commentBtn jobsBtnClickEventBlock:^(__kindof UIButton * _Nullable x) {
             NSLog(@"我是评论");
@@ -179,7 +179,7 @@ static dispatch_once_t static_rightBtnsViewOnceToken;
         _shareBtn = UIButton.new;
         _shareBtn.normalTitle = Internationalization(@"分享");
         _shareBtn.normalImage = JobsIMG(@"分享");
-        _shareBtn.titleFont = UIFontWeightRegularSize(JobsWidth(12));
+        _shareBtn.titleFont = UIFontWeightRegularSize(12);
         @jobs_weakify(self)
         [_shareBtn jobsBtnClickEventBlock:^(__kindof UIButton * _Nullable x) {
             NSLog(@"我是分享");

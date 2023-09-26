@@ -751,8 +751,8 @@
 		C53684D328758C6B00DD7AA7 /* TMSCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C53684D128758C6A00DD7AA7 /* TMSCollectionViewLayout.m */; };
 		C536CE852AC242A0005D1FCD /* JobsPostVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C536CE842AC242A0005D1FCD /* JobsPostVC.m */; };
 		C536CF022AC248C6005D1FCD /* 相册选取图片和视频.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C536CF012AC248C6005D1FCD /* 相册选取图片和视频.xcassets */; };
-		C536CF0C2AC2588B005D1FCD /* DDTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C536CF0B2AC2588B005D1FCD /* DDTextView.m */; };
-		C536CF0F2AC258BB005D1FCD /* DDPostDelView.m in Sources */ = {isa = PBXBuildFile; fileRef = C536CF0D2AC258BB005D1FCD /* DDPostDelView.m */; };
+		C536CF0C2AC2588B005D1FCD /* JobsTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C536CF0B2AC2588B005D1FCD /* JobsTextView.m */; };
+		C536CF0F2AC258BB005D1FCD /* JobsPostDelView.m in Sources */ = {isa = PBXBuildFile; fileRef = C536CF0D2AC258BB005D1FCD /* JobsPostDelView.m */; };
 		C537C6F2286DA1C3007D6539 /* BaseTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C537C6F1286DA1C3007D6539 /* BaseTableViewHeaderFooterView.m */; };
 		C548C7EE28700AED00F5ED90 /* UIScrollView+AnimationKit.m in Sources */ = {isa = PBXBuildFile; fileRef = C548C7ED28700AED00F5ED90 /* UIScrollView+AnimationKit.m */; };
 		C54BC43628325BA80010EF20 /* JobsTitleView01.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BC43428325BA80010EF20 /* JobsTitleView01.m */; };
@@ -2433,10 +2433,10 @@
 		C536CE842AC242A0005D1FCD /* JobsPostVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsPostVC.m; sourceTree = "<group>"; };
 		C536CF012AC248C6005D1FCD /* 相册选取图片和视频.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "相册选取图片和视频.xcassets"; sourceTree = "<group>"; };
 		C536CF032AC25732005D1FCD /* 发帖.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "发帖.png"; sourceTree = "<group>"; };
-		C536CF0A2AC2588A005D1FCD /* DDTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTextView.h; sourceTree = "<group>"; };
-		C536CF0B2AC2588B005D1FCD /* DDTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTextView.m; sourceTree = "<group>"; };
-		C536CF0D2AC258BB005D1FCD /* DDPostDelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDPostDelView.m; sourceTree = "<group>"; };
-		C536CF0E2AC258BB005D1FCD /* DDPostDelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDPostDelView.h; sourceTree = "<group>"; };
+		C536CF0A2AC2588A005D1FCD /* JobsTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsTextView.h; sourceTree = "<group>"; };
+		C536CF0B2AC2588B005D1FCD /* JobsTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsTextView.m; sourceTree = "<group>"; };
+		C536CF0D2AC258BB005D1FCD /* JobsPostDelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsPostDelView.m; sourceTree = "<group>"; };
+		C536CF0E2AC258BB005D1FCD /* JobsPostDelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsPostDelView.h; sourceTree = "<group>"; };
 		C537C6F0286DA1C2007D6539 /* BaseTableViewHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewHeaderFooterView.h; sourceTree = "<group>"; };
 		C537C6F1286DA1C3007D6539 /* BaseTableViewHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewHeaderFooterView.m; sourceTree = "<group>"; };
 		C546E1EC287ACD6200074386 /* NetworkingConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingConstant.h; sourceTree = "<group>"; };
@@ -5536,9 +5536,9 @@
 			isa = PBXGroup;
 			children = (
 				840F95CA27736427004979E9 /* TextFieldDefine.h */,
-				840F95CB27736427004979E9 /* ZYTextField.m */,
 				840F95CC27736427004979E9 /* ZYTextField.bundle */,
 				840F95CD27736427004979E9 /* ZYTextField.h */,
+				840F95CB27736427004979E9 /* ZYTextField.m */,
 			);
 			path = ZYTextField;
 			sourceTree = "<group>";
@@ -5546,8 +5546,8 @@
 		840F95CE27736427004979E9 /* JobsMagicTextField */ = {
 			isa = PBXGroup;
 			children = (
-				840F95CF27736427004979E9 /* JobsMagicTextField.m */,
 				840F95D027736427004979E9 /* JobsMagicTextField.h */,
+				840F95CF27736427004979E9 /* JobsMagicTextField.m */,
 			);
 			path = JobsMagicTextField;
 			sourceTree = "<group>";
@@ -9392,8 +9392,8 @@
 		C536CF092AC2587B005D1FCD /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C536CF132AC25F5D005D1FCD /* DDTextView */,
-				C536CF122AC25F2F005D1FCD /* DDPostDelView */,
+				C536CF132AC25F5D005D1FCD /* JobsTextView */,
+				C536CF122AC25F2F005D1FCD /* JobsPostDelView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -9407,22 +9407,22 @@
 			path = JobsPostVC;
 			sourceTree = "<group>";
 		};
-		C536CF122AC25F2F005D1FCD /* DDPostDelView */ = {
+		C536CF122AC25F2F005D1FCD /* JobsPostDelView */ = {
 			isa = PBXGroup;
 			children = (
-				C536CF0E2AC258BB005D1FCD /* DDPostDelView.h */,
-				C536CF0D2AC258BB005D1FCD /* DDPostDelView.m */,
+				C536CF0E2AC258BB005D1FCD /* JobsPostDelView.h */,
+				C536CF0D2AC258BB005D1FCD /* JobsPostDelView.m */,
 			);
-			path = DDPostDelView;
+			path = JobsPostDelView;
 			sourceTree = "<group>";
 		};
-		C536CF132AC25F5D005D1FCD /* DDTextView */ = {
+		C536CF132AC25F5D005D1FCD /* JobsTextView */ = {
 			isa = PBXGroup;
 			children = (
-				C536CF0A2AC2588A005D1FCD /* DDTextView.h */,
-				C536CF0B2AC2588B005D1FCD /* DDTextView.m */,
+				C536CF0A2AC2588A005D1FCD /* JobsTextView.h */,
+				C536CF0B2AC2588B005D1FCD /* JobsTextView.m */,
 			);
-			path = DDTextView;
+			path = JobsTextView;
 			sourceTree = "<group>";
 		};
 		C536CF8C2AC27822005D1FCD /* 相册选取图片和视频 */ = {
@@ -11793,7 +11793,7 @@
 				C5B3AE9A285378FA0052A4A9 /* BaiShaETProjVIPSubCVCell_03.m in Sources */,
 				C532940F2ABCC86D004294E0 /* JobsContainerView.m in Sources */,
 				844B02262764C8F000B0513D /* main.m in Sources */,
-				C536CF0C2AC2588B005D1FCD /* DDTextView.m in Sources */,
+				C536CF0C2AC2588B005D1FCD /* JobsTextView.m in Sources */,
 				840F969927736428004979E9 /* NSString+FilteringSpecialCharacters.m in Sources */,
 				C520F88A2AB3A12100142DCC /* WMZBannerParam.m in Sources */,
 				840F960827736427004979E9 /* UITabBar+Ex.m in Sources */,
@@ -11945,7 +11945,7 @@
 				C52E5CE92AC07EE500FE5494 /* DDNumber.m in Sources */,
 				C5B3AEAC2853799F0052A4A9 /* BaiShaETProjChoiceStadiumView.m in Sources */,
 				840F969E27736428004979E9 /* XLBubbleTransition.m in Sources */,
-				C536CF0F2AC258BB005D1FCD /* DDPostDelView.m in Sources */,
+				C536CF0F2AC258BB005D1FCD /* JobsPostDelView.m in Sources */,
 				840F960627736427004979E9 /* TLTabBarAnimation.m in Sources */,
 				C520F8912AB3A12100142DCC /* AFNetworkActivityIndicatorManager.m in Sources */,
 				844B087F2764CF4800B0513D /* XHLaunchAdDownloader.m in Sources */,

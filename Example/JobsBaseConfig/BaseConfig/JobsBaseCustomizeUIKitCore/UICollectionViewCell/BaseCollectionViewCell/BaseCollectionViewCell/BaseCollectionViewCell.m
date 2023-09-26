@@ -244,10 +244,10 @@
         }];
         [self layoutIfNeeded];
         @jobs_weakify(self)
-        [_textView textViewEvent:^BOOL(NSString *data) {
+        [_textView jobsTextViewFilterBlock:^BOOL(id data) {
             @jobs_strongify(self)
             return YES;
-        } subscribeNextBlock:^(NSString *data) {
+        } subscribeNextBlock:^(id data) {
             @jobs_strongify(self)
         }];
     }

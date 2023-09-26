@@ -336,7 +336,7 @@ UITableViewCellProtocol_synthesize
 
 +(CGFloat)cellHeightWithModel:(UIViewModel *_Nullable)model{
     UIViewModel *vm = UIViewModel.new;
-    vm.textModel.font = UIFontWeightRegularSize(JobsWidth(14));
+    vm.textModel.font = UIFontWeightRegularSize(14);
     vm.jobsWidth = JobsMainScreen_WIDTH() - JobsWidth(200);
     vm.textModel.text = model.subTextModel.text;
     vm.textModel.textLineSpacing = 0;
