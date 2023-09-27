@@ -36,12 +36,9 @@
     return ^(NSString * _Nonnull methodName,
              id _Nonnull targetObj){
         SEL selector = NSSelectorFromString(methodName);
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-        [[self rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIButton * _Nullable x) {
+        SuppressWarcPerformSelectorLeaksWarning([self jobsBtnClickEventBlock:^(id data) {
             [targetObj performSelector:selector withObject:nil];
-        }];
-#pragma clang diagnostic pop
+        }];);
     };
 }
 /// 代码触发点击调用
@@ -87,8 +84,7 @@
     return ^(BOOL enabled) {
         @jobs_strongify(self)
         self.enabled = enabled;
-        self.endableNormalTitleColor = self.endableNormalTitleColor ? : self.normalTitleColor;
-        self.normalTitleColor = self.enabled ? self.endableNormalTitleColor : HEXCOLOR(0xB0B0B0);
+        self.normalTitleColor = self.enabled ? self.normalTitleColor : HEXCOLOR(0xB0B0B0);
     };
 }
 #pragma mark —— Common
@@ -189,7 +185,7 @@
 #pragma mark —— SET | GET
 static char *UIButton_UI_titleFont = "UIButton_UI_titleFont";
 @dynamic titleFont;
-//@property(nonatomic,strong)UIFont *titleFont;
+#pragma mark —— @property(nonatomic,strong)UIFont *titleFont;
 -(UIFont *)titleFont{
     UIFont *TitleFont = objc_getAssociatedObject(self, UIButton_UI_titleFont);
     if (!TitleFont) {
@@ -207,7 +203,7 @@ static char *UIButton_UI_titleFont = "UIButton_UI_titleFont";
 }
 static char *UIButton_UI_normalImage = "UIButton_UI_normalImage";
 @dynamic normalImage;
-//@property(nonatomic,strong)UIImage *normalImage;
+#pragma mark —— @property(nonatomic,strong)UIImage *normalImage;
 -(UIImage *)normalImage{
     UIImage *NormalImage = objc_getAssociatedObject(self, UIButton_UI_normalImage);
     return NormalImage;
@@ -224,7 +220,7 @@ static char *UIButton_UI_normalImage = "UIButton_UI_normalImage";
 }
 static char *UIButton_UI_normalBackgroundImage = "UIButton_UI_normalBackgroundImage";
 @dynamic normalBackgroundImage;
-//@property(nonatomic,strong)UIImage *normalBackgroundImage;
+#pragma mark —— @property(nonatomic,strong)UIImage *normalBackgroundImage;
 -(UIImage *)normalBackgroundImage{
     UIImage *NormalBackgroundImage = objc_getAssociatedObject(self, UIButton_UI_normalBackgroundImage);
     return NormalBackgroundImage;
@@ -241,7 +237,7 @@ static char *UIButton_UI_normalBackgroundImage = "UIButton_UI_normalBackgroundIm
 }
 static char *UIButton_UI_normalTitle = "UIButton_UI_normalTitle";
 @dynamic normalTitle;
-//@property(nonatomic,strong)NSString *normalTitle;
+#pragma mark —— @property(nonatomic,strong)NSString *normalTitle;
 -(NSString *)normalTitle{
     NSString *NormalTitle = objc_getAssociatedObject(self, UIButton_UI_normalTitle);
     if (!NormalTitle) {
@@ -259,7 +255,7 @@ static char *UIButton_UI_normalTitle = "UIButton_UI_normalTitle";
 }
 static char *UIButton_UI_normalTitleColor = "UIButton_UI_normalTitleColor";
 @dynamic normalTitleColor;
-//@property(nonatomic,strong)UIColor *normalTitleColor;
+#pragma mark —— @property(nonatomic,strong)UIColor *normalTitleColor;
 -(UIColor *)normalTitleColor{
     UIColor *NormalTitleColor = objc_getAssociatedObject(self, UIButton_UI_normalTitleColor);
     if (!NormalTitleColor) {
@@ -277,7 +273,7 @@ static char *UIButton_UI_normalTitleColor = "UIButton_UI_normalTitleColor";
 }
 static char *UIButton_UI_normalAttributedTitle = "UIButton_UI_normalAttributedTitle";
 @dynamic normalAttributedTitle;
-//@property(nonatomic,strong)NSAttributedString *normalAttributedTitle;
+#pragma mark —— @property(nonatomic,strong)NSAttributedString *normalAttributedTitle;
 -(NSAttributedString *)normalAttributedTitle{
     NSAttributedString *NormalAttributedTitle = objc_getAssociatedObject(self, UIButton_UI_normalAttributedTitle);
     return NormalAttributedTitle;
@@ -292,7 +288,7 @@ static char *UIButton_UI_normalAttributedTitle = "UIButton_UI_normalAttributedTi
 }
 static char *UIButton_UI_selectedImage = "UIButton_UI_selectedImage";
 @dynamic selectedImage;
-//@property(nonatomic,strong)UIImage *selectedImage;
+#pragma mark —— @property(nonatomic,strong)UIImage *selectedImage;
 -(UIImage *)selectedImage{
     UIImage *SelectedImage = objc_getAssociatedObject(self, UIButton_UI_selectedImage);
     return SelectedImage;
@@ -307,7 +303,7 @@ static char *UIButton_UI_selectedImage = "UIButton_UI_selectedImage";
 }
 static char *UIButton_UI_selectedBackgroundImage = "UIButton_UI_selectedBackgroundImage";
 @dynamic selectedBackgroundImage;
-//@property(nonatomic,strong)UIImage *selectedBackgroundImage;
+#pragma mark —— @property(nonatomic,strong)UIImage *selectedBackgroundImage;
 -(UIImage *)selectedBackgroundImage{
     UIImage *SelectedBackgroundImage = objc_getAssociatedObject(self, UIButton_UI_selectedBackgroundImage);
     return SelectedBackgroundImage;
@@ -322,7 +318,7 @@ static char *UIButton_UI_selectedBackgroundImage = "UIButton_UI_selectedBackgrou
 }
 static char *UIButton_UI_selectedTitle = "UIButton_UI_selectedTitle";
 @dynamic selectedTitle;
-//@property(nonatomic,strong)NSString *selectedTitle;
+#pragma mark —— @property(nonatomic,strong)NSString *selectedTitle;
 -(NSString *)selectedTitle{
     NSString *selectedTitle = objc_getAssociatedObject(self, UIButton_UI_selectedTitle);
     if (!selectedTitle) {
@@ -340,7 +336,7 @@ static char *UIButton_UI_selectedTitle = "UIButton_UI_selectedTitle";
 }
 static char *UIButton_UI_selectedTitleColor = "UIButton_UI_selectedTitleColor";
 @dynamic selectedTitleColor;
-//@property(nonatomic,strong)UIColor *selectedTitleColor;
+#pragma mark —— @property(nonatomic,strong)UIColor *selectedTitleColor;
 -(UIColor *)selectedTitleColor{
     UIColor *SelectedTitleColor = objc_getAssociatedObject(self, UIButton_UI_selectedTitleColor);
     return SelectedTitleColor;
@@ -355,7 +351,7 @@ static char *UIButton_UI_selectedTitleColor = "UIButton_UI_selectedTitleColor";
 }
 static char *UIButton_UI_selectedAttributedTitle = "UIButton_UI_selectedAttributedTitle";
 @dynamic selectedAttributedTitle;
-//@property(nonatomic,strong)NSAttributedString *selectedAttributedTitle;
+#pragma mark —— @property(nonatomic,strong)NSAttributedString *selectedAttributedTitle;
 -(NSAttributedString *)selectedAttributedTitle{
     NSAttributedString *SelectedAttributedTitle = objc_getAssociatedObject(self, UIButton_UI_selectedAttributedTitle);
     return SelectedAttributedTitle;
@@ -370,7 +366,7 @@ static char *UIButton_UI_selectedAttributedTitle = "UIButton_UI_selectedAttribut
 }
 static char *UIButton_UI_titleAlignment = "UIButton_UI_titleAlignment";
 @dynamic titleAlignment;
-//@property(nonatomic,assign)NSTextAlignment titleAlignment;
+#pragma mark —— @property(nonatomic,assign)NSTextAlignment titleAlignment;
 -(NSTextAlignment)titleAlignment{
     NSTextAlignment TitleAlignment = [objc_getAssociatedObject(self, UIButton_UI_titleAlignment) NSIntValue];
     return TitleAlignment;
@@ -381,34 +377,6 @@ static char *UIButton_UI_titleAlignment = "UIButton_UI_titleAlignment";
     objc_setAssociatedObject(self,
                              UIButton_UI_titleAlignment,
                              [NSNumber numberWithInteger:titleAlignment],
-                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-static char *UIButton_UI_makeNewLineShows = "UIButton_UI_makeNewLineShows";
-@dynamic makeNewLineShows;
-//@property(nonatomic,assign)BOOL makeNewLineShows;
--(BOOL)makeNewLineShows{
-    BOOL MakeNewLineShows = [objc_getAssociatedObject(self, UIButton_UI_makeNewLineShows) booLValue];
-    return MakeNewLineShows;
-}
-
--(void)setMakeNewLineShows:(BOOL)makeNewLineShows{
-    self.titleLabel.numberOfLines = !makeNewLineShows;
-    objc_setAssociatedObject(self,
-                             UIButton_UI_makeNewLineShows,
-                             [NSNumber numberWithBool:makeNewLineShows],
-                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-static char *UIButton_UI_endableNormalTitleColor = "UIButton_UI_endableNormalTitleColor";
-@dynamic endableNormalTitleColor;
-//@property(nonatomic,strong)UIColor *endableNormalTitleColor;
--(UIColor *)endableNormalTitleColor{
-    return objc_getAssociatedObject(self, UIButton_UI_endableNormalTitleColor);
-}
-
--(void)setEndableNormalTitleColor:(UIColor *)endableNormalTitleColor{
-    objc_setAssociatedObject(self,
-                             UIButton_UI_endableNormalTitleColor,
-                             endableNormalTitleColor,
                              OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 static char *UIButton_UI_racDisposable = "UIButton_UI_racDisposable";
