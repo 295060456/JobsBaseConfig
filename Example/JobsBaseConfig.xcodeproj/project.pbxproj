@@ -644,6 +644,7 @@
 		84D764B7278093660003F0E4 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D764B6278093650003F0E4 /* DataManager.m */; };
 		ABB2A8B711CC6C1FEF7A4899 /* Pods_JobsBaseConfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 013934AB50FCDA373FFA6597 /* Pods_JobsBaseConfig.framework */; };
 		C50AFF122865ED7E00BBAE65 /* NSTimerManagerTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C50AFF112865ED7E00BBAE65 /* NSTimerManagerTestVC.m */; };
+		C50E8A462AC375F1000D3F4E /* MasonryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C50E8A452AC375F1000D3F4E /* MasonryVC.m */; };
 		C50ED5D3283CC64B0097DE89 /* UISwitch+UI.m in Sources */ = {isa = PBXBuildFile; fileRef = C50ED5D2283CC64B0097DE89 /* UISwitch+UI.m */; };
 		C520550F28534CC400CCB724 /* UICollectionHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C520550E28534CC400CCB724 /* UICollectionHeaderFooterView.m */; };
 		C520F8232AB39EDD00142DCC /* 启动页SLOGAN.png in Resources */ = {isa = PBXBuildFile; fileRef = C520F8122AB39EDD00142DCC /* 启动页SLOGAN.png */; };
@@ -749,6 +750,8 @@
 		C53683622875855E00DD7AA7 /* TMSWalletCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C536834B2875715F00DD7AA7 /* TMSWalletCollectionViewCell.m */; };
 		C53683632875856100DD7AA7 /* TMSWalletCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C53683472875715F00DD7AA7 /* TMSWalletCollectionReusableView.m */; };
 		C53684D328758C6B00DD7AA7 /* TMSCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C53684D128758C6A00DD7AA7 /* TMSCollectionViewLayout.m */; };
+		C5368A272AC3D54D00A6AF05 /* MSMineView2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C5368A242AC3D54D00A6AF05 /* MSMineView2.jpg */; };
+		C5368A282AC3D54D00A6AF05 /* MSMineView2.m in Sources */ = {isa = PBXBuildFile; fileRef = C5368A262AC3D54D00A6AF05 /* MSMineView2.m */; };
 		C536CE852AC242A0005D1FCD /* JobsPostVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C536CE842AC242A0005D1FCD /* JobsPostVC.m */; };
 		C536CF022AC248C6005D1FCD /* 相册选取图片和视频.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C536CF012AC248C6005D1FCD /* 相册选取图片和视频.xcassets */; };
 		C536CF0C2AC2588B005D1FCD /* JobsTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C536CF0B2AC2588B005D1FCD /* JobsTextView.m */; };
@@ -2215,6 +2218,8 @@
 		C50708D8285CA049002983B3 /* NSObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObject.h; sourceTree = "<group>"; };
 		C50AFF102865ED7E00BBAE65 /* NSTimerManagerTestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSTimerManagerTestVC.h; sourceTree = "<group>"; };
 		C50AFF112865ED7E00BBAE65 /* NSTimerManagerTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSTimerManagerTestVC.m; sourceTree = "<group>"; };
+		C50E8A442AC375F1000D3F4E /* MasonryVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasonryVC.h; sourceTree = "<group>"; };
+		C50E8A452AC375F1000D3F4E /* MasonryVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasonryVC.m; sourceTree = "<group>"; };
 		C50ED323283C89B90097DE89 /* MacroDef_Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDef_Font.h; sourceTree = "<group>"; };
 		C50ED5CE283CC64B0097DE89 /* JobsSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsSwitch.h; sourceTree = "<group>"; };
 		C50ED5D1283CC64B0097DE89 /* UISwitch+UI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISwitch+UI.h"; sourceTree = "<group>"; };
@@ -2429,6 +2434,9 @@
 		C53683562875722300DD7AA7 /* JobsWalletVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsWalletVC.m; sourceTree = "<group>"; };
 		C53684D128758C6A00DD7AA7 /* TMSCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMSCollectionViewLayout.m; sourceTree = "<group>"; };
 		C53684D228758C6B00DD7AA7 /* TMSCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMSCollectionViewLayout.h; sourceTree = "<group>"; };
+		C5368A242AC3D54D00A6AF05 /* MSMineView2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MSMineView2.jpg; sourceTree = "<group>"; };
+		C5368A252AC3D54D00A6AF05 /* MSMineView2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMineView2.h; sourceTree = "<group>"; };
+		C5368A262AC3D54D00A6AF05 /* MSMineView2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMineView2.m; sourceTree = "<group>"; };
 		C536CE832AC242A0005D1FCD /* JobsPostVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsPostVC.h; sourceTree = "<group>"; };
 		C536CE842AC242A0005D1FCD /* JobsPostVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsPostVC.m; sourceTree = "<group>"; };
 		C536CF012AC248C6005D1FCD /* 相册选取图片和视频.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "相册选取图片和视频.xcassets"; sourceTree = "<group>"; };
@@ -8285,6 +8293,7 @@
 		84CA609D278980E700E46E71 /* 功能模块 */ = {
 			isa = PBXGroup;
 			children = (
+				C5368A292AC3D5FC00A6AF05 /* Masonry的应用与实践 */,
 				C536CF8C2AC27822005D1FCD /* 相册选取图片和视频 */,
 				C536CE822AC2428C005D1FCD /* 发帖功能 */,
 				C5FBD0F32AC19DFC0043B932 /* UIPresentationController的使用 */,
@@ -9369,6 +9378,34 @@
 				C536834B2875715F00DD7AA7 /* TMSWalletCollectionViewCell.m */,
 			);
 			path = TMSWalletCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		C5368A232AC3D54D00A6AF05 /* MSMineView2 */ = {
+			isa = PBXGroup;
+			children = (
+				C5368A242AC3D54D00A6AF05 /* MSMineView2.jpg */,
+				C5368A252AC3D54D00A6AF05 /* MSMineView2.h */,
+				C5368A262AC3D54D00A6AF05 /* MSMineView2.m */,
+			);
+			path = MSMineView2;
+			sourceTree = "<group>";
+		};
+		C5368A292AC3D5FC00A6AF05 /* Masonry的应用与实践 */ = {
+			isa = PBXGroup;
+			children = (
+				C5368A2A2AC3D60F00A6AF05 /* MasonryVC */,
+				C5368A232AC3D54D00A6AF05 /* MSMineView2 */,
+			);
+			path = "Masonry的应用与实践";
+			sourceTree = "<group>";
+		};
+		C5368A2A2AC3D60F00A6AF05 /* MasonryVC */ = {
+			isa = PBXGroup;
+			children = (
+				C50E8A442AC375F1000D3F4E /* MasonryVC.h */,
+				C50E8A452AC375F1000D3F4E /* MasonryVC.m */,
+			);
+			path = MasonryVC;
 			sourceTree = "<group>";
 		};
 		C536CE822AC2428C005D1FCD /* 发帖功能 */ = {
@@ -11007,6 +11044,7 @@
 				C5C4804A284E21E5007916B3 /* NotoSansDisplay-Black.ttf in Resources */,
 				84CA5F9D27897AFB00E46E71 /* SHA-384 in Resources */,
 				840F960D27736427004979E9 /* 分享控件的用法.md in Resources */,
+				C5368A272AC3D54D00A6AF05 /* MSMineView2.jpg in Resources */,
 				C5C4806C284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-Italic.ttf in Resources */,
 				840F95EE27736427004979E9 /* dingdan.json in Resources */,
 				84A491FA27904A970002A837 /* Drop@2x.png in Resources */,
@@ -11580,6 +11618,7 @@
 				C5C48124284E254B007916B3 /* JobsMembersSubsBaseVC.m in Sources */,
 				C5329C892ABEDC4D004294E0 /* JobsImageViewStyleCVCell.m in Sources */,
 				840F970027736428004979E9 /* NSObject+IDFV.m in Sources */,
+				C50E8A462AC375F1000D3F4E /* MasonryVC.m in Sources */,
 				840F967C27736428004979E9 /* UIView+Extras.m in Sources */,
 				842D299C276C9547003B6C8E /* JobsBaseConfigNotificationManager.m in Sources */,
 				84869260277B33570098BE7A /* NSNumber+Extra.m in Sources */,
@@ -11731,6 +11770,7 @@
 				840F965627736428004979E9 /* NSBundle+CLLanguage.m in Sources */,
 				845625A0278BF2780067ABB9 /* JobsCommentModel.m in Sources */,
 				84CA5FB627897AFB00E46E71 /* DDUploadingProgressView.m in Sources */,
+				C5368A282AC3D54D00A6AF05 /* MSMineView2.m in Sources */,
 				C52E5CDD2AC07EE500FE5494 /* HTTPDynamicFileResponse.m in Sources */,
 				8440A1A227A1053C0089EE40 /* JobsDropDownListVC.m in Sources */,
 				84A160FA278956AF00DACA3C /* ViewController@3.m in Sources */,

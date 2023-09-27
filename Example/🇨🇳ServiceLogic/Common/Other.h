@@ -78,5 +78,6 @@
 #import "JobsPresentingVC.h"
 #import "JobsPostVC.h"
 #import "JobsShootingVC.h"
+#import "MasonryVC.h"
 
 #endif /* Other_h */
