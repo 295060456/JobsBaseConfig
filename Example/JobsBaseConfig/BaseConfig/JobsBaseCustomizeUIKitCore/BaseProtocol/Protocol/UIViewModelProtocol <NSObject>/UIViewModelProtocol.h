@@ -223,4 +223,3 @@ NS_ASSUME_NONNULL_END
 @dynamic jobsDataMutDic;\
 
 #endif
-

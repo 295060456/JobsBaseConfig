@@ -17,7 +17,7 @@
  利用 UIButtonConfiguration 来解决问题，示例：
  -(UIButtonConfiguration *)btnConfig{
      if(!_btnConfig){
-         _btnConfig = UIButtonConfiguration.plainButtonConfiguration;
+         _btnConfig = UIButtonConfiguration.filledButtonConfiguration;
          {// 图片
              _btnConfig.image = JobsIMG(@"入职Mata"); // 替换为你的图像名称
              _btnConfig.imagePlacement = NSDirectionalRectEdgeLeading;// 这里将图像放置在标题的前面

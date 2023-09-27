@@ -29,19 +29,6 @@
         self.viewModel = (UIViewModel *)self.requestParams;
     }
     self.setupNavigationBarHidden = YES;
-    
-    {
-        self.viewModel.backBtnTitleModel.text = Internationalization(@"返回");
-        self.viewModel.textModel.textCor = HEXCOLOR(0x3D4A58);
-    //    self.viewModel.textModel.text = Internationalization(@"消息详情页");
-        self.viewModel.textModel.font = UIFontWeightRegularSize(16);
-        
-        // 使用原则：底图有 + 底色有 = 优先使用底图数据
-        // 以下2个属性的设置，涉及到的UI结论 请参阅父类（BaseViewController）的私有方法：-(void)setBackGround
-        // self.viewModel.bgImage = JobsIMG(@"内部招聘导航栏背景图");/// self.gk_navBackgroundImage 和 self.bgImageView
-        self.viewModel.bgCor = RGBA_COLOR(255, 238, 221, 1);/// self.gk_navBackgroundColor 和 self.view.backgroundColor
-    //    self.viewModel.bgImage = JobsIMG(@"新首页的底图");
-    }
 }
 
 - (void)viewDidLoad {
@@ -99,9 +86,9 @@
             JobsBtnModel *model = JobsBtnModel.new;
             model.backgroundColor = UIColor.yellowColor;
 //            model.backgroundImage = JobsIMG(@"手机号码");
-            model.title = Internationalization(@"普通的.普通的.普通的.普通的.普通的.普通的.");
-            model.font = UIFontWeightRegularSize(12);
-            model.titleColor = UIColor.blueColor;
+            model.normalTitle = Internationalization(@"普通的.普通的.普通的.普通的.普通的.普通的.");
+            model.titleFont = UIFontWeightRegularSize(12);
+            model.normalTitleColor = UIColor.blueColor;
             model.image = JobsIMG(@"手机号码");
             model.imageSize = CGSizeMake(JobsWidth(50), JobsWidth(80));
             model.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
@@ -116,9 +103,9 @@
             JobsBtnModel *model = JobsBtnModel.new;
             model.backgroundColor = UIColor.grayColor;
 //            model.backgroundImage = JobsIMG(@"手机号码");
-            model.title = Internationalization(@"我不换行.我不换行.我不换行.我不换行.");
-            model.font = UIFontWeightRegularSize(12);
-            model.titleColor = UIColor.redColor;
+            model.normalTitle = Internationalization(@"我不换行.我不换行.我不换行.我不换行.");
+            model.titleFont = UIFontWeightRegularSize(12);
+            model.normalTitleColor = UIColor.redColor;
             model.image = JobsIMG(@"手机号码");
             model.imageSize = CGSizeMake(JobsWidth(50), JobsWidth(80));
             model.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
@@ -133,9 +120,9 @@
             JobsBtnModel *model = JobsBtnModel.new;
             model.backgroundColor = UIColor.yellowColor;
 //            model.backgroundImage = JobsIMG(@"手机号码");
-            model.title = Internationalization(@"我要换行.我要换行.我要换行.我要换行.我要换行.我要换行.我要换行.我要换行.");
-            model.font = UIFontWeightRegularSize(12);
-            model.titleColor = UIColor.greenColor;
+            model.normalTitle = Internationalization(@"我要换行.我要换行.我要换行.我要换行.我要换行.我要换行.我要换行.我要换行.");
+            model.titleFont = UIFontWeightRegularSize(12);
+            model.normalTitleColor = UIColor.greenColor;
             model.image = JobsIMG(@"手机号码");
             model.imageSize = CGSizeMake(JobsWidth(50), JobsWidth(80));
             model.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;

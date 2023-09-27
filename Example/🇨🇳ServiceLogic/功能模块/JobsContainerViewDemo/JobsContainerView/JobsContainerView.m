@@ -75,8 +75,8 @@
             maxWidth = MAX(maxWidth, btnWidth);
         }else{
             if(model.lineBreakMode){// 不提行
-                NSDictionary *attributes = @{NSFontAttributeName: model.font};
-                btnWidth = [model.title sizeWithAttributes:attributes].width;
+                NSDictionary *attributes = @{NSFontAttributeName: model.titleFont};
+                btnWidth = [model.normalTitle sizeWithAttributes:attributes].width;
                 maxWidth = MAX(maxWidth, btnWidth);
             }else{
                 maxWidth = self.widthBySelf;
@@ -108,23 +108,23 @@
     if(HDDeviceSystemVersion.floatValue <= 15.0){
         button = [UIButton buttonWithType:UIButtonTypeCustom];
         SuppressWdeprecatedDeclarationsWarning(button.contentEdgeInsets = model.contentEdgeInsets;);
-        button.normalTitle = model.title;
-        button.normalTitleColor = model.titleColor;
+        button.normalTitle = model.normalTitle;
+        button.normalTitleColor = model.normalTitleColor;
         button.normalImage = model.image;
         
     }else{
         /// 使用 UIButtonConfiguration
         UIButtonConfiguration *buttonConfig = UIButtonConfiguration.plainButtonConfiguration;
         buttonConfig.contentInsets = model.contentInsets;
-        buttonConfig.image = model.image;
-        buttonConfig.attributedTitle = [NSAttributedString.alloc initWithString:model.title
-                                                                     attributes:@{NSForegroundColorAttributeName:model.titleColor}];
+        buttonConfig.image = model.normalImage;
+        buttonConfig.attributedTitle = [NSAttributedString.alloc initWithString:model.normalTitle
+                                                                     attributes:@{NSForegroundColorAttributeName:model.normalTitleColor}];
         button = [UIButton buttonWithConfiguration:buttonConfig primaryAction:nil];
     }
 
     button.width = self.widthBySelf;/// 预设值，否则撑不开
     button.backgroundColor = model.backgroundColor;
-    button.titleFont = model.font;
+    button.titleFont = model.titleFont;
     button.contentVerticalAlignment = model.contentVerticalAlignment;
     button.contentHorizontalAlignment = model.contentHorizontalAlignment;
     button.titleLabel.lineBreakMode = model.lineBreakMode;/// NSLineBreakByWordWrapping = 自动换行

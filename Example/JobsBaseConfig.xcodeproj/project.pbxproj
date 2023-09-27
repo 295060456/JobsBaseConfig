@@ -967,6 +967,7 @@
 		C5EE3EB32ABA23C90020BDB8 /* BaseScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5EE3EB22ABA23C90020BDB8 /* BaseScrollView.m */; };
 		C5EE41022ABA3B270020BDB8 /* NSObject+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F958A27736427004979E9 /* NSObject+Extras.m */; };
 		C5FBD1E62AC1A92A0043B932 /* JobsPresentedVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5FBD1E52AC1A92A0043B932 /* JobsPresentedVC.m */; };
+		C5FF91B32AC48CD700D3A386 /* JobsTBVHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5FF91B12AC48CD700D3A386 /* JobsTBVHeaderFooterView.m */; };
 		F65541EC060397D8F6D09547 /* Pods_JobsBaseConfigUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -2816,6 +2817,8 @@
 		C5EE3EB22ABA23C90020BDB8 /* BaseScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseScrollView.m; sourceTree = "<group>"; };
 		C5FBD1E42AC1A92A0043B932 /* JobsPresentedVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsPresentedVC.h; sourceTree = "<group>"; };
 		C5FBD1E52AC1A92A0043B932 /* JobsPresentedVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobsPresentedVC.m; sourceTree = "<group>"; };
+		C5FF91B12AC48CD700D3A386 /* JobsTBVHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsTBVHeaderFooterView.m; sourceTree = "<group>"; };
+		C5FF91B22AC48CD700D3A386 /* JobsTBVHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsTBVHeaderFooterView.h; sourceTree = "<group>"; };
 		FEDDD2E7A82BF58DE2012E29 /* Pods-JobsBaseConfigUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JobsBaseConfigUITests.debug.xcconfig"; path = "Target Support Files/Pods-JobsBaseConfigUITests/Pods-JobsBaseConfigUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -4651,6 +4654,7 @@
 			isa = PBXGroup;
 			children = (
 				840F94BD27736426004979E9 /* JobsTableViewHeaderFooterView.h */,
+				C5FF91B02AC48CD700D3A386 /* JobsTBVHeaderFooterView */,
 				840F94BE27736426004979E9 /* UITableViewHeaderFooterView+Category */,
 				840F94C527736426004979E9 /* BaseTableViewHeaderFooterView */,
 			);
@@ -10927,6 +10931,15 @@
 			path = JobsPresentedVC;
 			sourceTree = "<group>";
 		};
+		C5FF91B02AC48CD700D3A386 /* JobsTBVHeaderFooterView */ = {
+			isa = PBXGroup;
+			children = (
+				C5FF91B12AC48CD700D3A386 /* JobsTBVHeaderFooterView.m */,
+				C5FF91B22AC48CD700D3A386 /* JobsTBVHeaderFooterView.h */,
+			);
+			path = JobsTBVHeaderFooterView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -12005,6 +12018,7 @@
 				844B08422764CF4800B0513D /* ZWPullMenuView.m in Sources */,
 				C5C48095284E22C4007916B3 /* JobsShowNumView.m in Sources */,
 				C52E5C9A2AC07E9800FE5494 /* KTVHCDataStorage.m in Sources */,
+				C5FF91B32AC48CD700D3A386 /* JobsTBVHeaderFooterView.m in Sources */,
 				840F968C27736428004979E9 /* UICollectionViewCell+Default.m in Sources */,
 				842477A427C114BE00831270 /* NotifiOperation.m in Sources */,
 				C52E5CA72AC07E9800FE5494 /* KTVHCLog.m in Sources */,

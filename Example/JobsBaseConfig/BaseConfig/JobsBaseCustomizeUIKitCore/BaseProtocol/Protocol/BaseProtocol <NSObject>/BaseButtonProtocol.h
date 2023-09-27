@@ -13,6 +13,37 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol BaseButtonProtocol <BaseViewProtocol>
 
 @optional
+#pragma mark —— UIButton + UI
+/// 为了迎合点语法而故意把下列方法属性化
+/// Common
+@property(nonatomic,strong)UIFont *titleFont;
+@property(nonatomic,assign)NSTextAlignment titleAlignment;
+/// Normal
+@property(nonatomic,strong)UIImage *normalImage;
+@property(nonatomic,strong)UIImage *normalBackgroundImage;
+@property(nonatomic,strong)NSString *normalTitle;
+@property(nonatomic,strong)UIColor *normalTitleColor;
+@property(nonatomic,strong)NSAttributedString *normalAttributedTitle;// 富文本
+@property(nonatomic,strong)NSAttributedString *normalAttributedSubTitle;// 富文本
+/// Selected
+@property(nonatomic,strong)UIImage *selectedImage;
+@property(nonatomic,strong)UIImage *selectedBackgroundImage;
+@property(nonatomic,strong)NSString *selectedTitle;
+@property(nonatomic,strong)UIColor *selectedTitleColor;
+@property(nonatomic,strong)NSAttributedString *selectedAttributedTitle;// 富文本
+@property(nonatomic,strong)NSAttributedString *selectedAttributedSubTitle;// 富文本
+#pragma mark —— JobsBtnModel
+@property(nonatomic,strong)UIColor *backgroundColor;
+@property(nonatomic,assign)CGSize imageSize;
+/// 结合下列属性来实现改变Button文字位置
+@property(nonatomic,assign)UIControlContentHorizontalAlignment contentHorizontalAlignment;
+@property(nonatomic,assign)UIControlContentVerticalAlignment contentVerticalAlignment;
+@property(nonatomic,assign)UIEdgeInsets contentEdgeInsets;/// iOS 15以前可以用
+@property(nonatomic,readwrite,assign)NSDirectionalEdgeInsets contentInsets;/// iOS 15以后 结合UIButtonConfiguration 以替换属性：UIEdgeInsets contentEdgeInsets;
+@property(nonatomic,assign)CGFloat contentSpacing;
+@property(nonatomic,assign)NSLineBreakMode lineBreakMode;
+@property(nonatomic,assign)CGFloat btnWidth;/// 预设值，父视图的宽度不能大于这个值
+#pragma mark —— 以前的
 /// ⚠️执行return的顺序依照下列👇🏻属性的排序⚠️
 ///【组 1】UIButton 单独自定义设置系统自带控件的Frame【形成Frame后直接return，避免被其他中间过程修改】❤️与组2、3属性互斥❤️
 @property(nonatomic,assign)CGRect textLabelFrame;
@@ -39,6 +70,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 //具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 -(void)richElementsInButtonWithModel:(id _Nullable)model;
+#pragma mark —— 用类方法定义
 //具体由子类进行复写【数据定宽】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 +(CGFloat)buttonWidthWithModel:(id _Nullable)model;
 //具体由子类进行复写【数据定高】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
@@ -47,6 +79,15 @@ NS_ASSUME_NONNULL_BEGIN
 +(CGSize)buttonSizeWithModel:(id _Nullable)model;
 //具体由子类进行复写【数据Frame】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 +(CGRect)buttonFrameWithModel:(id _Nullable)model;
+#pragma mark —— 用实例方法定义
+//具体由子类进行复写【数据定宽】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
+-(CGFloat)buttonWidthWithModel:(id _Nullable)model;
+//具体由子类进行复写【数据定高】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
+-(CGFloat)buttonHeightWithModel:(id _Nullable)model;
+//具体由子类进行复写【数据尺寸】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
+-(CGSize)buttonSizeWithModel:(id _Nullable)model;
+//具体由子类进行复写【数据Frame】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
+-(CGRect)buttonFrameWithModel:(id _Nullable)model;
 
 @end
 
@@ -55,6 +96,30 @@ NS_ASSUME_NONNULL_END
 #pragma mark —— @synthesize BaseButtonProtocol
 #ifndef BaseButtonProtocol_synthesize
 #define BaseButtonProtocol_synthesize \
+\
+@synthesize titleFont = _titleFont;\
+@synthesize titleAlignment = _titleAlignment;\
+@synthesize normalImage = _normalImage;\
+@synthesize normalBackgroundImage = _normalBackgroundImage;\
+@synthesize normalTitle = _normalTitle;\
+@synthesize normalTitleColor = _normalTitleColor;\
+@synthesize normalAttributedTitle = _normalAttributedTitle;\
+@synthesize normalAttributedSubTitle = _normalAttributedSubTitle;\
+@synthesize selectedImage = _selectedImage;\
+@synthesize selectedBackgroundImage = _selectedBackgroundImage;\
+@synthesize selectedTitle = _selectedTitle;\
+@synthesize selectedTitleColor = _selectedTitleColor;\
+@synthesize selectedAttributedTitle = _selectedAttributedTitle;\
+@synthesize selectedAttributedSubTitle = _selectedAttributedSubTitle;\
+@synthesize backgroundColor = _backgroundColor;\
+@synthesize imageSize = imageSize;\
+@synthesize contentHorizontalAlignment = contentHorizontalAlignment;\
+@synthesize contentVerticalAlignment = contentVerticalAlignment;\
+@synthesize contentEdgeInsets = _contentEdgeInsets;\
+@synthesize contentInsets = _contentInsets;\
+@synthesize contentSpacing = _contentSpacing;\
+@synthesize lineBreakMode = _lineBreakMode;\
+@synthesize btnWidth = _btnWidth;\
 \
 @synthesize textLabelFrame = _textLabelFrame;\
 @synthesize imageViewFrame = _imageViewFrame;\
@@ -78,10 +143,34 @@ NS_ASSUME_NONNULL_END
 @synthesize imageViewFrameOffsetHeight = _imageViewFrameOffsetHeight;\
 
 #endif
-//
+
 #pragma mark —— @dynamic BaseButtonProtocol
 #ifndef BaseButtonProtocol_dynamic
 #define BaseButtonProtocol_dynamic \
+\
+@dynamic titleFont;\
+@dynamic titleAlignment;\
+@dynamic normalImage;\
+@dynamic normalBackgroundImage;\
+@dynamic normalTitle;\
+@dynamic normalTitleColor;\
+@dynamic normalAttributedTitle;\
+@dynamic normalAttributedSubTitle;\
+@dynamic selectedImage;\
+@dynamic selectedBackgroundImage;\
+@dynamic selectedTitle;\
+@dynamic selectedTitleColor;\
+@dynamic selectedAttributedTitle;\
+@dynamic selectedAttributedSubTitle;\
+@dynamic backgroundColor;\
+@dynamic imageSize;\
+@dynamic contentHorizontalAlignment;\
+@dynamic contentVerticalAlignment;\
+@dynamic contentEdgeInsets;\
+@dynamic contentInsets;\
+@dynamic contentSpacing;\
+@dynamic lineBreakMode;\
+@dynamic btnWidth;\
 \
 @dynamic textLabelFrame;\
 @dynamic imageViewFrame;\

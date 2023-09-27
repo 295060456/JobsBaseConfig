@@ -1,20 +1,20 @@
 //
-//  JobsHotLabelWithMultiLineCollectionReusableView.m
+//  JobsTBVHeaderFooterView.m
 //  BaiShaEntertainmentProj
 //
-//  Created by Jobs on 2022/5/25.
+//  Created by Jobs on 2022/6/30.
 //
 
-#import "JobsHotLabelWithMultiLineHeaderFooterView.h"
+#import "JobsTBVHeaderFooterView.h"
 
-@interface JobsHotLabelWithMultiLineHeaderFooterView ()
+@interface JobsTBVHeaderFooterView ()
 /// UI
 @property(nonatomic,strong)UILabel *titleLab;
 @property(nonatomic,strong)BaseButton *subTitleBtn;
 
 @end
 
-@implementation JobsHotLabelWithMultiLineHeaderFooterView
+@implementation JobsTBVHeaderFooterView
 
 @synthesize viewModel = _viewModel;
 
@@ -25,15 +25,15 @@
 }
 #pragma mark —— BaseViewProtocol
 /// 由具体的子类进行覆写
-+(CGSize)viewSizeWithModel:(UIViewModel *_Nullable)model{
-    return CGSizeZero;
-}
-/// 由具体的子类进行覆写
 -(void)richElementsInViewWithModel:(UIViewModel *_Nullable)model{
     self.viewModel = model ? : UIViewModel.new;
-    self.backgroundColor = self.viewModel.bgCor;
     self.titleLab.alpha = 1;
     self.subTitleBtn.alpha = 1;
+    self.contentView.backgroundColor = self.viewModel.bgCor;
+}
+/// 具体由子类进行复写【数据定高】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
++(CGFloat)heightForHeaderInSection:(id _Nullable)model{
+    return JobsWidth(46);
 }
 #pragma mark —— 一些公共方法
 -(UILabel *)getTitleLab{
@@ -96,5 +96,6 @@
                                   imageTitleSpace:self.viewModel.imageTitleSpace];
     return _subTitleBtn;
 }
+
 
 @end

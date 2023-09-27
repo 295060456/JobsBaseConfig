@@ -6,26 +6,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BaseButtonProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JobsBtnModel : NSObject
-
-@property(nonatomic,strong)UIColor *backgroundColor;
-@property(nonatomic,strong)UIImage *backgroundImage;
-@property(nonatomic,copy)NSString *title;
-@property(nonatomic,strong)UIFont *font;
-@property(nonatomic,strong)UIColor *titleColor;
-@property(nonatomic,strong)UIImage *image;
-@property(nonatomic,assign)CGSize imageSize;
-/// 结合下列属性来实现改变Button文字位置
-@property(nonatomic,assign)UIControlContentHorizontalAlignment contentHorizontalAlignment;
-@property(nonatomic,assign)UIControlContentVerticalAlignment contentVerticalAlignment;
-@property(nonatomic,assign)UIEdgeInsets contentEdgeInsets;/// iOS 15以前可以用
-@property(nonatomic,readwrite,assign)NSDirectionalEdgeInsets contentInsets;/// iOS 15以后 结合UIButtonConfiguration 以替换属性：UIEdgeInsets contentEdgeInsets;
-@property(nonatomic,assign)CGFloat contentSpacing;
-@property(nonatomic,assign)NSLineBreakMode lineBreakMode;
-@property(nonatomic,assign)CGFloat btnWidth;/// 预设值，父视图的宽度不能大于这个值
+@interface JobsBtnModel : NSObject<BaseButtonProtocol>
 
 @end
 
@@ -53,7 +38,7 @@ NS_ASSUME_NONNULL_END
  利用 UIButtonConfiguration 来解决问题，示例：
  -(UIButtonConfiguration *)btnConfig{
      if(!_btnConfig){
-         _btnConfig = UIButtonConfiguration.plainButtonConfiguration;
+         _btnConfig = UIButtonConfiguration.filledButtonConfiguration;
          {// 图片
              _btnConfig.image = JobsIMG(@"入职Mata"); // 替换为你的图像名称
              _btnConfig.imagePlacement = NSDirectionalRectEdgeLeading;// 这里将图像放置在标题的前面

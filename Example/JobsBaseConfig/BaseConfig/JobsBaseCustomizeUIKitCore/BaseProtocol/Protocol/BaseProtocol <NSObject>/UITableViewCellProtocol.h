@@ -42,8 +42,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,assign)CGFloat imageViewFrameOffsetX;
 @property(nonatomic,assign)CGFloat imageViewFrameOffsetY;
-@property(nonatomic,assign)CGFloat imageViewFrameOffsetWidth;
-@property(nonatomic,assign)CGFloat imageViewFrameOffsetHeight;
+@property(nonatomic,assign)CGFloat imageViewFrameOffsetWidth;/// 负值缩小，正值放大
+@property(nonatomic,assign)CGFloat imageViewFrameOffsetHeight;/// 负值缩小，正值放大
 #pragma mark —— 初始化方法
 /// @implementation UITableViewCell (BaseCellProtocol)
 +(instancetype)initTableViewCellWithStyle:(UITableViewCellStyle)style;

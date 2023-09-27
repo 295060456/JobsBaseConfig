@@ -9,6 +9,7 @@
 #import "MacroDef_Strong@Weak.h"
 #import "JobsBlock.h"
 #import "MacroDef_Cor.h"
+#import "BaseButtonProtocol.h"
 
 #if __has_include(<ReactiveObjC/ReactiveObjC.h>)
 #import <ReactiveObjC/ReactiveObjC.h>
@@ -18,27 +19,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 /// ⚠️当font描绘的文字,或者文字大于UIButton的frame,UIButton的Title将不会显现⚠️
-@interface UIButton (UI)<BaseProtocol>
-/// 为了迎合点语法而故意把下列方法属性化
-/// Common
-@property(nonatomic,strong)UIFont *titleFont;
-@property(nonatomic,assign)NSTextAlignment titleAlignment;
-@property(nonatomic,assign)BOOL makeNewLineShows;
-/// Normal
-@property(nonatomic,strong)UIImage *normalImage;
-@property(nonatomic,strong)UIImage *normalBackgroundImage;
-@property(nonatomic,strong)NSString *normalTitle;
-@property(nonatomic,strong)UIColor *normalTitleColor;
-@property(nonatomic,strong)NSAttributedString *normalAttributedTitle;
-/// Selected
-@property(nonatomic,strong)UIImage *selectedImage;
-@property(nonatomic,strong)UIImage *selectedBackgroundImage;
-@property(nonatomic,strong)NSString *selectedTitle;
-@property(nonatomic,strong)UIColor *selectedTitleColor;
-@property(nonatomic,strong)NSAttributedString *selectedAttributedTitle;
-/// Endable
-@property(nonatomic,strong)UIColor *endableNormalTitleColor;
-
+@interface UIButton (UI)<BaseProtocol,BaseButtonProtocol>
 #pragma mark —— 一些功能性
 /// RAC 点击事件2次封装
 -(void)jobsBtnClickEventBlock:(jobsByIDBlock)subscribeNextBlock;
@@ -111,7 +92,7 @@ NS_ASSUME_NONNULL_END
  利用 UIButtonConfiguration 来解决问题，示例：
  -(UIButtonConfiguration *)btnConfig{
      if(!_btnConfig){
-         _btnConfig = UIButtonConfiguration.plainButtonConfiguration;
+         _btnConfig = UIButtonConfiguration.filledButtonConfiguration;
          {// 图片
              _btnConfig.image = JobsIMG(@"入职Mata"); // 替换为你的图像名称
              _btnConfig.imagePlacement = NSDirectionalRectEdgeLeading;// 这里将图像放置在标题的前面

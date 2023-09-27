@@ -8,5 +8,6 @@
 #import "JobsBtnModel.h"
 
 @implementation JobsBtnModel
+BaseButtonProtocol_synthesize
 
 @end

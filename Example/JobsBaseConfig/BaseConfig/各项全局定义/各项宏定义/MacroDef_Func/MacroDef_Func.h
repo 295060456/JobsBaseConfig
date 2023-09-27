@@ -45,17 +45,35 @@ static inline UIWindow *_Nullable jobsGetMainWindowBefore13(void){
     }return window;
 }
 /// 获取 iOS 13 之后的 window
+//static inline UIWindow *_Nullable jobsGetMainWindowAfter13(void){
+//    UIWindow *window = nil;
+//    /// 使用UIWindowScene（需要iOS 13及更高版本）来获取主窗口
+//    /// iOS 13及更高版本中才会被执行
+//    if (@available(iOS 13.0, *)) {
+//        for (UIWindowScene* windowScene in UIApplication.sharedApplication.connectedScenes){
+//            if (windowScene.activationState == UISceneActivationStateForegroundActive){
+//                window = windowScene.windows.firstObject;
+//            }
+//        }
+//    }return window;
+//}
 static inline UIWindow *_Nullable jobsGetMainWindowAfter13(void){
-    UIWindow *window = nil;
-    /// 使用UIWindowScene（需要iOS 13及更高版本）来获取主窗口
-    /// iOS 13及更高版本中才会被执行
+    UIWindow *mainWindow = nil;
     if (@available(iOS 13.0, *)) {
-        for (UIWindowScene* windowScene in UIApplication.sharedApplication.connectedScenes){
-            if (windowScene.activationState == UISceneActivationStateForegroundActive){
-                window = windowScene.windows.firstObject;
+        for (UIWindowScene* windowScene in UIApplication.sharedApplication.connectedScenes) {
+            if (windowScene.activationState == UISceneActivationStateForegroundActive) {
+                for (UIWindow *window in windowScene.windows) {
+                    if (window.isKeyWindow) {
+                        mainWindow = window;
+                        break;
+                    }
+                }
+            }
+            if (mainWindow) {
+                break; // 如果找到主窗口，退出循环
             }
         }
-    }return window;
+    }return mainWindow;
 }
 /**
  注意：有些时候UIApplication.sharedApplication.keyWindow获取到的window有frame，而windowScene.windows.firstObject获取到的window没有frame

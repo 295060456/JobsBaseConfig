@@ -292,13 +292,14 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
     // 这里设置弹出框的尺寸
     popupView.size = [popViewClass viewSizeWithModel:nil];
     [popupView richElementsInViewWithModel:viewModel ? : self.testPopViewData];
-    
     [popupView actionObjectBlock:^(UIButton *data) {
-        if ([[data titleForNormalState] isEqualToString:Internationalization(@"Cancel")]) {
-            
-        }else if ([[data titleForNormalState] isEqualToString:Internationalization(@"Sure")]){
-            
-        }else{}
+        if([data.titleForNormalState isKindOfClass:NSString.class]){
+            if (data.titleForNormalState.isEqualToString(Internationalization(@"Cancel"))) {
+
+            }else if (data.titleForNormalState.isEqualToString(Internationalization(@"Sure"))){
+                
+            }else{}
+        }
         [popupView tf_hide];
         [popViewClass.class destroySingleton];
     }];return popupView;
