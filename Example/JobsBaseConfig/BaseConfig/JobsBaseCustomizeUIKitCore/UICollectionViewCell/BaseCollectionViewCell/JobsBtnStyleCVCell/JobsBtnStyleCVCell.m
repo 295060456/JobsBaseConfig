@@ -55,7 +55,7 @@
 }
 #pragma mark —— 一些公有方法
 -(UIButton *)getBtn{
-    return _btn;
+    return self.btn;
 }
 #pragma mark —— lazyLoad
 -(UIButton *)btn{

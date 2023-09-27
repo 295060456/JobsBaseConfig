@@ -109,23 +109,24 @@
         button = [UIButton buttonWithType:UIButtonTypeCustom];
         SuppressWdeprecatedDeclarationsWarning(button.contentEdgeInsets = model.contentEdgeInsets;);
         button.normalTitle = model.title;
+        button.normalTitleColor = model.titleColor;
+        button.normalImage = model.image;
+        
     }else{
         /// 使用 UIButtonConfiguration
         UIButtonConfiguration *buttonConfig = UIButtonConfiguration.plainButtonConfiguration;
-        buttonConfig.title = model.title;
-        buttonConfig.baseBackgroundColor = model.backgroundColor;
         buttonConfig.contentInsets = model.contentInsets;
-        
+        buttonConfig.image = model.image;
+        buttonConfig.attributedTitle = [NSAttributedString.alloc initWithString:model.title
+                                                                     attributes:@{NSForegroundColorAttributeName:model.titleColor}];
         button = [UIButton buttonWithConfiguration:buttonConfig primaryAction:nil];
     }
-    
+
     button.width = self.widthBySelf;/// 预设值，否则撑不开
     button.backgroundColor = model.backgroundColor;
-    button.normalTitleColor = model.titleColor;
     button.titleFont = model.font;
-    button.normalImage = model.image;
-    button.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;/// 设置按钮文本对齐方式为垂直居中
-    
+    button.contentVerticalAlignment = model.contentVerticalAlignment;
+    button.contentHorizontalAlignment = model.contentHorizontalAlignment;
     button.titleLabel.lineBreakMode = model.lineBreakMode;/// NSLineBreakByWordWrapping = 自动换行
     // 计算按钮文本所需的高度
     CGSize buttonSize = [button.titleLabel sizeThatFits:CGSizeMake(button.frame.size.width, CGFLOAT_MAX)];
