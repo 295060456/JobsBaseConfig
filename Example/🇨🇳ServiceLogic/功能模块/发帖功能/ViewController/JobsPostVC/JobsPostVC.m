@@ -323,10 +323,11 @@ gestureRecognizerEnded:(UILongPressGestureRecognizer *)longPgr
         _releaseBtn.width = JobsWidth(38);
         _releaseBtn.height = JobsWidth(23);
         @jobs_weakify(self)
-        [_releaseBtn jobsBtnClickEventBlock:^(id data) {
+        [_releaseBtn jobsBtnClickEventBlock:^id(id data) {
             @jobs_strongify(self)
             [self.view endEditing:YES];
             [self networking_checkHadRoleGET];
+            return nil;
         }];
         [self.view addSubview:_releaseBtn];
         [_releaseBtn cornerCutToCircleWithCornerRadius:_releaseBtn.height / 2];

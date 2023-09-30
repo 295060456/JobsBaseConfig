@@ -6,7 +6,7 @@
 //
 
 #import "ViewController@1.h"
-
+BOOL ISLogin;
 @interface ViewController_1 ()
 /// UI
 @property(nonatomic,strong)UITableView *tableView;
@@ -157,13 +157,14 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         _userHeadBtn.normalImage = JobsIMG(@"首页_头像");
         _userHeadBtn.normalTitle = Internationalization(@"");
         @jobs_weakify(self)
-        [_userHeadBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_userHeadBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)
             UIViewModel *viewModel = [self configViewModelWithTitle:@"用户信息展示(开发测试专用)" subTitle:nil];
             viewModel.cls = JobsShowObjInfoVC.class;
             viewModel.requestParams = self.readUserInfo;
             [self forceComingToPushVC:viewModel.cls.new
                         requestParams:viewModel];// 测试专用
+            return nil;
         }];
         _userHeadBtn.size = CGSizeMake(JobsWidth(32), JobsWidth(32));
         [_userHeadBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft

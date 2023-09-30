@@ -181,8 +181,9 @@ static dispatch_once_t static_customViewOnceToken;
             make.left.equalTo(self).offset(JobsWidth(16));
         }];
         [_cancelBtn cornerCutToCircleWithCornerRadius:self.btnSize.height / 2];
-        [_cancelBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_cancelBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             toast(x.titleForNormalState);
+            return nil;
         }];
     }return _cancelBtn;
 }
@@ -200,8 +201,9 @@ static dispatch_once_t static_customViewOnceToken;
             make.right.equalTo(self).offset(JobsWidth(-16));
         }];
         [_sureBtn cornerCutToCircleWithCornerRadius:self.btnSize.height / 2];
-        [_sureBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_sureBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             toast(x.titleForNormalState);
+            return nil;
         }];
     }return _sureBtn;
 }

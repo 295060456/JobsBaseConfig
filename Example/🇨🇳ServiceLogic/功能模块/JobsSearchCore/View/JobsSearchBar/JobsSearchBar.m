@@ -107,9 +107,10 @@
         [_cancelBtn layerBorderCor:UIColor.whiteColor andBorderWidth:1];
         [_cancelBtn cornerCutToCircleWithCornerRadius:8];
         @jobs_weakify(self)
-        [_cancelBtn jobsBtnClickEventBlock:^(id data) {
+        [_cancelBtn jobsBtnClickEventBlock:^id(id data) {
             @jobs_strongify(self)
             [self.textField resignFirstResponder];
+            return nil;
         }];
     }return _cancelBtn;
 }

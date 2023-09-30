@@ -226,7 +226,6 @@
 		844B0E532764DE1A00B0513D /* DDResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B0E4B2764DE1900B0513D /* DDResponseModel.m */; };
 		844B0E542764DE1A00B0513D /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B0E4E2764DE1900B0513D /* BaseModel.m */; };
 		844B0E552764DE1A00B0513D /* DDUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B0E512764DE1A00B0513D /* DDUserModel.m */; };
-		844B12892764E5C200B0513D /* URLManagerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B12872764E5C200B0513D /* URLManagerModel.m */; };
 		84562572278BF1FB0067ABB9 /* JobsComment【OutLines 01】.png in Resources */ = {isa = PBXBuildFile; fileRef = 8456256D278BF1FB0067ABB9 /* JobsComment【OutLines 01】.png */; };
 		84562573278BF1FB0067ABB9 /* JobsComment【OutLines 05】.png in Resources */ = {isa = PBXBuildFile; fileRef = 8456256E278BF1FB0067ABB9 /* JobsComment【OutLines 05】.png */; };
 		84562574278BF1FB0067ABB9 /* JobsComment【OutLines 04】.png in Resources */ = {isa = PBXBuildFile; fileRef = 8456256F278BF1FB0067ABB9 /* JobsComment【OutLines 04】.png */; };
@@ -269,7 +268,6 @@
 		84868DA32779DDA50098BE7A /* ZMJCells.m in Sources */ = {isa = PBXBuildFile; fileRef = 84868DA22779DDA50098BE7A /* ZMJCells.m */; };
 		84868F19277ADF690098BE7A /* JobsDropDownListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84868F15277ADF690098BE7A /* JobsDropDownListView.m */; };
 		84868F1A277ADF690098BE7A /* JobsDropDownListTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84868F18277ADF690098BE7A /* JobsDropDownListTBVCell.m */; };
-		848691DF277B03410098BE7A /* DynamicInvoke.m in Sources */ = {isa = PBXBuildFile; fileRef = 848691DB277B03410098BE7A /* DynamicInvoke.m */; };
 		84869679277C68470098BE7A /* NSString+Check.m in Sources */ = {isa = PBXBuildFile; fileRef = 84869677277C68470098BE7A /* NSString+Check.m */; };
 		84A160F12789567D00DACA3C /* ViewController@1.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A160F02789567D00DACA3C /* ViewController@1.m */; };
 		84A160F7278956A500DACA3C /* ViewController@2.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A160F6278956A500DACA3C /* ViewController@2.m */; };
@@ -1370,8 +1368,6 @@
 		844B0E512764DE1A00B0513D /* DDUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDUserModel.m; sourceTree = "<group>"; };
 		844B0E522764DE1A00B0513D /* DDUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDUserModel.h; sourceTree = "<group>"; };
 		844B0E562764DE2D00B0513D /* DAO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DAO.h; sourceTree = "<group>"; };
-		844B12872764E5C200B0513D /* URLManagerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLManagerModel.m; sourceTree = "<group>"; };
-		844B12882764E5C200B0513D /* URLManagerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLManagerModel.h; sourceTree = "<group>"; };
 		8456256D278BF1FB0067ABB9 /* JobsComment【OutLines 01】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsComment【OutLines 01】.png"; sourceTree = "<group>"; };
 		8456256E278BF1FB0067ABB9 /* JobsComment【OutLines 05】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsComment【OutLines 05】.png"; sourceTree = "<group>"; };
 		8456256F278BF1FB0067ABB9 /* JobsComment【OutLines 04】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsComment【OutLines 04】.png"; sourceTree = "<group>"; };
@@ -1449,8 +1445,6 @@
 		84868F16277ADF690098BE7A /* JobsDropDownListTBVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsDropDownListTBVCell.h; sourceTree = "<group>"; };
 		84868F17277ADF690098BE7A /* JobsDropDownListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsDropDownListView.h; sourceTree = "<group>"; };
 		84868F18277ADF690098BE7A /* JobsDropDownListTBVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsDropDownListTBVCell.m; sourceTree = "<group>"; };
-		848691DB277B03410098BE7A /* DynamicInvoke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicInvoke.m; sourceTree = "<group>"; };
-		848691DD277B03410098BE7A /* DynamicInvoke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicInvoke.h; sourceTree = "<group>"; };
 		84869677277C68470098BE7A /* NSString+Check.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Check.m"; sourceTree = "<group>"; };
 		84869678277C68470098BE7A /* NSString+Check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Check.h"; sourceTree = "<group>"; };
 		84A160ED2789561A00DACA3C /* 🇨🇳ServiceLogic.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "🇨🇳ServiceLogic.md"; sourceTree = "<group>"; };
@@ -4230,7 +4224,6 @@
 				84D764AC2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel */,
 				844B0E4A2764DE1900B0513D /* DDResponseModel */,
 				844B0E502764DE1A00B0513D /* DDUserModel */,
-				844B12862764E5C200B0513D /* URLManagerModel */,
 			);
 			path = DAO;
 			sourceTree = "<group>";
@@ -4260,15 +4253,6 @@
 				844B0E512764DE1A00B0513D /* DDUserModel.m */,
 			);
 			path = DDUserModel;
-			sourceTree = "<group>";
-		};
-		844B12862764E5C200B0513D /* URLManagerModel */ = {
-			isa = PBXGroup;
-			children = (
-				844B12882764E5C200B0513D /* URLManagerModel.h */,
-				844B12872764E5C200B0513D /* URLManagerModel.m */,
-			);
-			path = URLManagerModel;
 			sourceTree = "<group>";
 		};
 		8456256B278BF0A70067ABB9 /* JobsComment */ = {
@@ -6221,15 +6205,6 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
-		C5217D522860946C00ACA6D9 /* DynamicInvoke */ = {
-			isa = PBXGroup;
-			children = (
-				848691DD277B03410098BE7A /* DynamicInvoke.h */,
-				848691DB277B03410098BE7A /* DynamicInvoke.m */,
-			);
-			path = DynamicInvoke;
-			sourceTree = "<group>";
-		};
 		C52180772860B20800ACA6D9 /* 随机数测试模块 */ = {
 			isa = PBXGroup;
 			children = (
@@ -7054,7 +7029,6 @@
 			children = (
 				C59478D22851DE57009D040A /* 4767245-ce0c1c26ef2ab354.png */,
 				C59478D12851DAB4009D040A /* objc_property_attribute_t.png */,
-				C5217D522860946C00ACA6D9 /* DynamicInvoke */,
 				C59478D72851E2DD009D040A /* OCDynamic */,
 				C59478D32851E2B3009D040A /* OCDynamicRegisterVC */,
 			);
@@ -11845,14 +11819,12 @@
 				840F961227736427004979E9 /* ZBCacheManager.m in Sources */,
 				C593DF4A2AC897FC00F875B5 /* UIView+JHGestureBlock.m in Sources */,
 				C593DF3C2AC897FC00F875B5 /* NSNotificationCenter+JobsBlock.m in Sources */,
-				848691DF277B03410098BE7A /* DynamicInvoke.m in Sources */,
 				C5B3AEB028537D180052A4A9 /* JXCategoryViewWithHeaderViewVC.m in Sources */,
 				844B08392764CF4800B0513D /* RACEXTRuntimeExtensions.m in Sources */,
 				840F960F27736427004979E9 /* ZBURLRequest.m in Sources */,
 				8424779C27C1147E00831270 /* CutomView.m in Sources */,
 				C593DF8F2AC897FC00F875B5 /* UITableView+RegisterClass.m in Sources */,
 				C520F88C2AB3A12100142DCC /* WMZBannerControl.m in Sources */,
-				844B12892764E5C200B0513D /* URLManagerModel.m in Sources */,
 				C593DFE22AC897FC00F875B5 /* NSObject+IDFA.m in Sources */,
 				C52E5C9E2AC07E9800FE5494 /* KTVHCDataRequest.m in Sources */,
 				C5E8A7582869848600FAB31D /* CustomTableViewCellVC.m in Sources */,

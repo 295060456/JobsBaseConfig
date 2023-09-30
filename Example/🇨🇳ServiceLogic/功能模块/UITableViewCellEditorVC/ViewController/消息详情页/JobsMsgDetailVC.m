@@ -174,10 +174,11 @@
         _deleteBtn.titleFont = notoSansRegular(12);
         _deleteBtn.normalTitleColor = HEXCOLOR(0x3D4A58);
         @jobs_weakify(self)
-        [_deleteBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_deleteBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)
             [self backBtnClickEvent:x];
             if (self.objectBlock) self.objectBlock(self.msgDataModel);
+            return nil;
         }];
     }return _deleteBtn;
 }

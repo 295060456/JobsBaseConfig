@@ -373,7 +373,7 @@ referenceSizeForFooterInSection:(NSInteger)section{
         _editBtn.normalImage = JobsIMG(@"编辑");
         [_editBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft imageTitleSpace:JobsWidth(5.75)];
         @jobs_weakify(self)
-        [_editBtn jobsBtnClickEventBlock:^(id data) {
+        [_editBtn jobsBtnClickEventBlock:^id(id data) {
             @jobs_strongify(self)
 //            toast(Internationalization(@"编辑"));
             self.popupParameter.dragEnable = YES;
@@ -381,6 +381,7 @@ referenceSizeForFooterInSection:(NSInteger)section{
             [self.popupView tf_showSlide:jobsGetMainWindow()
                                direction:PopupDirectionBottom
                               popupParam:self.popupParameter];
+            return nil;
         }];
         [self.view addSubview:_editBtn];
         [_editBtn mas_makeConstraints:^(MASConstraintMaker *make) {

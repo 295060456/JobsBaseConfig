@@ -106,6 +106,66 @@
 -(void)actionReturnIDByStringBlock:(JobsReturnIDByStringBlock)returnObjectByStringBlock{
     self.returnObjectByStringBlock = returnObjectByStringBlock;
 }
+
+-(void)actionReturnNSIntegerByIDBlock:(JobsReturnNSIntegerByIDBlock)returnNSIntegerByIDBlock{
+    self.returnNSIntegerByIDBlock = returnNSIntegerByIDBlock;
+}
+
+-(void)actionReturnNSUIntegerByIDBlock:(JobsReturnNSUIntegerByIDBlock)returnNSUIntegerByIDBlock{
+    self.returnNSUIntegerByIDBlock = returnNSUIntegerByIDBlock;
+}
+
+-(void)actionReturnCGFloatByIDBlock:(JobsReturnCGFloatByIDBlock)returnCGFloatByIDBlock{
+    self.returnCGFloatByIDBlock = returnCGFloatByIDBlock;
+}
+
+-(void)actionReturnBOOLByIDBlock:(JobsReturnBOOLByIDBlock)returnBOOLByIDBlock{
+    self.returnBOOLByIDBlock = returnBOOLByIDBlock;
+}
+
+-(void)actionReturnIntByIDBlock:(JobsReturnIntByIDBlock)returnIntByIDBlock{
+    self.returnIntByIDBlock = returnIntByIDBlock;
+}
+
+-(void)actionReturnUnsignedIntByIDBlock:(JobsReturnUnsignedIntByIDBlock)returnUnsignedIntByIDBlock{
+    self.returnUnsignedIntByIDBlock = returnUnsignedIntByIDBlock;
+}
+
+-(void)actionReturnFloatByIDBlock:(JobsReturnFloatByIDBlock)returnFloatByIDBlock{
+    self.returnFloatByIDBlock = returnFloatByIDBlock;
+}
+
+-(void)actionReturnDoubleByIDBlock:(JobsReturnDoubleByIDBlock)returnDoubleByIDBlock{
+    self.returnDoubleByIDBlock = returnDoubleByIDBlock;
+}
+
+-(void)actionReturnCharByIDBlock:(JobsReturnCharByIDBlock)returnCharByIDBlock{
+    self.returnCharByIDBlock = returnCharByIDBlock;
+}
+
+-(void)actionReturnUnsignedCharByIDBlock:(JobsReturnUnsignedCharByIDBlock)returnUnsignedCharByIDBlock{
+    self.returnUnsignedCharByIDBlock = returnUnsignedCharByIDBlock;
+}
+
+-(void)actionReturnShortByIDBlock:(JobsReturnShortByIDBlock)returnShortByIDBlock{
+    self.returnShortByIDBlock = returnShortByIDBlock;
+}
+
+-(void)actionReturnUnsignedShortByIDBlock:(JobsReturnUnsignedShortByIDBlock)returnUnsignedShortByIDBlock{
+    self.returnUnsignedShortByIDBlock = returnUnsignedShortByIDBlock;
+}
+
+-(void)actionReturnLongByIDBlock:(JobsReturnLongByIDBlock)returnLongByIDBlock{
+    self.returnLongByIDBlock = returnLongByIDBlock;
+}
+
+-(void)actionReturnUnsignedLongByIDBlock:(JobsReturnUnsignedLongByIDBlock)returnUnsignedLongByIDBlock{
+    self.returnUnsignedLongByIDBlock = returnUnsignedLongByIDBlock;
+}
+
+-(void)actionReturnUnsignedLongLongByIDBlock:(JobsReturnUnsignedLongLongByIDBlock)returnUnsignedLongLongByIDBlock{
+    self.returnUnsignedLongLongByIDBlock = returnUnsignedLongLongByIDBlock;
+}
 /// 6、有（单一）入参、有返回值的回调【返回入参类型】
 -(void)actionReturnObjectBlock:(JobsReturnIDByIDBlock)returnObjectBlock{
     self.returnObjectBlock = returnObjectBlock;
@@ -414,6 +474,156 @@ JobsKey(_returnObjectByStringBlock)
 
 -(void)setReturnObjectByStringBlock:(JobsReturnIDByStringBlock)returnObjectByStringBlock{
     Jobs_setAssociatedCOPY_NONATOMIC(_returnObjectByStringBlock, returnObjectByStringBlock)
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnNSIntegerByIDBlock returnNSIntegerByIDBlock;
+JobsKey(_returnNSIntegerByIDBlock)
+@dynamic returnNSIntegerByIDBlock;
+-(JobsReturnNSIntegerByIDBlock)returnNSIntegerByIDBlock{
+    return Jobs_getAssociatedObject(_returnNSIntegerByIDBlock);
+}
+
+-(void)setReturnNSIntegerByIDBlock:(JobsReturnNSIntegerByIDBlock)returnNSIntegerByIDBlock{
+    Jobs_setAssociatedCOPY_NONATOMIC(_returnNSIntegerByIDBlock, returnNSIntegerByIDBlock)
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnNSUIntegerByIDBlock returnNSUIntegerByIDBlock;
+JobsKey(_returnNSUIntegerByIDBlock)
+@dynamic returnNSUIntegerByIDBlock;
+-(JobsReturnNSUIntegerByIDBlock)returnNSUIntegerByIDBlock{
+    return Jobs_getAssociatedObject(_returnNSUIntegerByIDBlock);
+}
+
+-(void)setReturnNSUIntegerByIDBlock:(JobsReturnNSUIntegerByIDBlock)returnNSUIntegerByIDBlock{
+    Jobs_setAssociatedCOPY_NONATOMIC(_returnNSUIntegerByIDBlock, returnNSUIntegerByIDBlock)
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnCGFloatByIDBlock returnCGFloatByIDBlock;
+JobsKey(_returnCGFloatByIDBlock)
+@dynamic returnCGFloatByIDBlock;
+-(JobsReturnCGFloatByIDBlock)returnCGFloatByIDBlock{
+    return Jobs_getAssociatedObject(_returnCGFloatByIDBlock);
+}
+
+-(void)setReturnCGFloatByIDBlock:(JobsReturnCGFloatByIDBlock)returnCGFloatByIDBlock{
+    Jobs_setAssociatedCOPY_NONATOMIC(_returnCGFloatByIDBlock, returnCGFloatByIDBlock)
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnBOOLByIDBlock returnBOOLByIDBlock;
+JobsKey(_returnBOOLByIDBlock)
+@dynamic returnBOOLByIDBlock;
+-(JobsReturnBOOLByIDBlock)returnBOOLByIDBlock{
+    return Jobs_getAssociatedObject(_returnBOOLByIDBlock);
+}
+
+-(void)setReturnBOOLByIDBlock:(JobsReturnBOOLByIDBlock)returnBOOLByIDBlock{
+    Jobs_setAssociatedCOPY_NONATOMIC(_returnBOOLByIDBlock, returnBOOLByIDBlock);
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnIntByIDBlock returnIntByIDBlock;
+JobsKey(_returnIntByIDBlock)
+@dynamic returnIntByIDBlock;
+-(JobsReturnIntByIDBlock)returnIntByIDBlock{
+    return Jobs_getAssociatedObject(_returnIntByIDBlock);
+}
+
+-(void)setReturnIntByIDBlock:(JobsReturnIntByIDBlock)returnIntByIDBlock{
+    Jobs_setAssociatedCOPY_NONATOMIC(_returnIntByIDBlock, returnIntByIDBlock)
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnUnsignedIntByIDBlock returnUnsignedIntByIDBlock;
+JobsKey(_returnUnsignedIntByIDBlock)
+@dynamic returnUnsignedIntByIDBlock;
+-(JobsReturnUnsignedIntByIDBlock)returnUnsignedIntByIDBlock{
+    return Jobs_getAssociatedObject(_returnUnsignedIntByIDBlock);
+}
+
+-(void)setReturnUnsignedIntByIDBlock:(JobsReturnUnsignedIntByIDBlock)returnUnsignedIntByIDBlock{
+    Jobs_setAssociatedCOPY_NONATOMIC(_returnUnsignedIntByIDBlock,returnUnsignedIntByIDBlock)
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnFloatByIDBlock returnFloatByIDBlock;
+JobsKey(_returnFloatByIDBlock)
+@dynamic returnFloatByIDBlock;
+-(JobsReturnFloatByIDBlock)returnFloatByIDBlock{
+    return Jobs_getAssociatedObject(_returnFloatByIDBlock);
+}
+
+-(void)setReturnFloatByIDBlock:(JobsReturnFloatByIDBlock)returnFloatByIDBlock{
+    Jobs_setAssociatedCOPY_NONATOMIC(_returnFloatByIDBlock, returnFloatByIDBlock)
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnDoubleByIDBlock returnDoubleByIDBlock;
+JobsKey(_returnDoubleByIDBlock)
+@dynamic returnDoubleByIDBlock;
+-(JobsReturnDoubleByIDBlock)returnDoubleByIDBlock{
+    return Jobs_getAssociatedObject(_returnDoubleByIDBlock);
+}
+
+-(void)setReturnDoubleByIDBlock:(JobsReturnDoubleByIDBlock)returnDoubleByIDBlock{
+    Jobs_setAssociatedCOPY_NONATOMIC(_returnDoubleByIDBlock, returnDoubleByIDBlock)
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnCharByIDBlock returnCharByIDBlock;
+JobsKey(_returnCharByIDBlock)
+@dynamic returnCharByIDBlock;
+-(JobsReturnCharByIDBlock)returnCharByIDBlock{
+    return Jobs_getAssociatedObject(_returnCharByIDBlock);
+}
+
+-(void)setReturnCharByIDBlock:(JobsReturnCharByIDBlock)returnCharByIDBlock{
+    Jobs_setAssociatedCOPY_NONATOMIC(_returnCharByIDBlock, returnCharByIDBlock)
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnUnsignedCharByIDBlock returnUnsignedCharByIDBlock;
+JobsKey(_returnUnsignedCharByIDBlock)
+@dynamic returnUnsignedCharByIDBlock;
+-(JobsReturnUnsignedCharByIDBlock)returnUnsignedCharByIDBlock{
+    return Jobs_getAssociatedObject(_returnUnsignedCharByIDBlock);
+}
+
+-(void)setReturnUnsignedCharByIDBlock:(JobsReturnUnsignedCharByIDBlock)returnUnsignedCharByIDBlock{
+    Jobs_setAssociatedCOPY_NONATOMIC(_returnUnsignedCharByIDBlock, returnUnsignedCharByIDBlock)
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnShortByIDBlock returnShortByIDBlock;
+JobsKey(_returnShortByIDBlock)
+@dynamic returnShortByIDBlock;
+-(JobsReturnShortByIDBlock)returnShortByIDBlock{
+    return Jobs_getAssociatedObject(_returnShortByIDBlock);
+}
+
+-(void)setReturnShortByIDBlock:(JobsReturnShortByIDBlock)returnShortByIDBlock{
+    Jobs_setAssociatedCOPY_NONATOMIC(_returnShortByIDBlock, returnShortByIDBlock)
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnUnsignedShortByIDBlock returnUnsignedShortByIDBlock;
+JobsKey(_returnUnsignedShortByIDBlock)
+@dynamic returnUnsignedShortByIDBlock;
+-(JobsReturnUnsignedShortByIDBlock)returnUnsignedShortByIDBlock{
+    return Jobs_getAssociatedObject(_returnUnsignedShortByIDBlock);
+}
+
+-(void)setReturnUnsignedShortByIDBlock:(JobsReturnUnsignedShortByIDBlock)returnUnsignedShortByIDBlock{
+    Jobs_setAssociatedCOPY_NONATOMIC(_returnUnsignedShortByIDBlock, returnUnsignedShortByIDBlock)
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnLongByIDBlock returnLongByIDBlock;
+JobsKey(_returnLongByIDBlock)
+@dynamic returnLongByIDBlock;
+-(JobsReturnLongByIDBlock)returnLongByIDBlock{
+    return Jobs_getAssociatedObject(_returnLongByIDBlock);
+}
+
+-(void)setReturnLongByIDBlock:(JobsReturnLongByIDBlock)returnLongByIDBlock{
+    Jobs_setAssociatedCOPY_NONATOMIC(_returnLongByIDBlock, returnLongByIDBlock)
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnUnsignedLongByIDBlock returnUnsignedLongByIDBlock;
+JobsKey(_returnUnsignedLongByIDBlock)
+@dynamic returnUnsignedLongByIDBlock;
+-(JobsReturnUnsignedLongByIDBlock)returnUnsignedLongByIDBlock{
+    return Jobs_getAssociatedObject(_returnUnsignedLongByIDBlock);
+}
+
+-(void)setReturnUnsignedLongByIDBlock:(JobsReturnUnsignedLongByIDBlock)returnUnsignedLongByIDBlock{
+    Jobs_setAssociatedCOPY_NONATOMIC(_returnUnsignedLongByIDBlock, returnUnsignedLongByIDBlock)
+}
+#pragma mark —— @property(nonatomic,assign)JobsReturnUnsignedLongLongByIDBlock returnUnsignedLongLongByIDBlock;
+JobsKey(_returnUnsignedLongLongByIDBlock)
+@dynamic returnUnsignedLongLongByIDBlock;
+-(JobsReturnUnsignedLongLongByIDBlock)returnUnsignedLongLongByIDBlock{
+    return Jobs_getAssociatedObject(_returnUnsignedLongLongByIDBlock);
+}
+
+-(void)setReturnUnsignedLongLongByIDBlock:(JobsReturnUnsignedLongLongByIDBlock)returnUnsignedLongLongByIDBlock{
+    Jobs_setAssociatedCOPY_NONATOMIC(_returnUnsignedLongLongByIDBlock, returnUnsignedLongLongByIDBlock)
 }
 /// 6、有（单一）入参、有返回值的回调【返回入参类型】
 #pragma mark —— @property(nonatomic,assign)JobsReturnIDByIDBlock returnObjectBlock;

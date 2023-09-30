@@ -445,8 +445,9 @@ accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
         _shareBtn.normalImage = JobsBuddleIMG(@"⚽️PicResource", @"Others", nil, @"分享");
         _shareBtn.normalTitleColor = JobsWhiteColor;
         [_shareBtn cornerCutToCircleWithCornerRadius:23 / 2];
-        [_shareBtn jobsBtnClickEventBlock:^(id data) {
+        [_shareBtn jobsBtnClickEventBlock:^id(id data) {
             toast(Internationalization(@"正在研发中...敬请期待"));
+            return nil;
         }];
     }return _shareBtn;
 }

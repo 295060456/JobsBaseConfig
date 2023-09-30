@@ -63,9 +63,10 @@
         _delBtn = UIButton.new;
         [_delBtn normalImage:JobsIMG(@"垃圾箱")];
         @jobs_weakify(self)
-        [_delBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_delBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)
             if(self.objectBlock)self.objectBlock(x);
+            return nil;
         }];
         [self.contentView addSubview:_delBtn];
         [_delBtn mas_makeConstraints:^(MASConstraintMaker *make) {

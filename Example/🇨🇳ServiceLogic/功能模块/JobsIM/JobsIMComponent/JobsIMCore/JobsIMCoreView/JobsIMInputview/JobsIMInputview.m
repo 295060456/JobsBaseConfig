@@ -68,7 +68,7 @@
         _sendBtn.normalBackgroundImage = [UIImage imageWithColor:JobsCyanColor];
         _sendBtn.selectedBackgroundImage = [UIImage imageWithColor:JobsLightGrayColor];
         @jobs_weakify(self)
-        [_sendBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_sendBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)
             [self endEditing:YES];
             if (!self.inputTextField.text.nullString) {
@@ -78,6 +78,7 @@
             }
             self.inputTextField.text = @"";
             x.enabled = NO;
+            return nil;
         }];
         
         [self addSubview:_sendBtn];

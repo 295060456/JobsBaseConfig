@@ -8,37 +8,35 @@
 #import "UICollectionView+RegisterClass.h"
 
 @implementation UICollectionView (RegisterClass)
-
+/// 注册的时候不开辟内存，只有当用字符串进行取值的时候才开辟内存
 -(void)registerCollectionViewClass{
     // CollectionReusableView-Header
     [self registerCollectionElementKindSectionHeaderClass:UICollectionReusableView.class];
     [self registerCollectionElementKindSectionHeaderClass:BaseCollectionReusableView.class];
     [self registerCollectionElementKindSectionHeaderClass:JobsHotLabelWithMultiLineHeaderFooterView.class];
-    [self registerCollectionElementKindSectionHeaderClass:MSHomeCollectionReusableView.class];
-//    [self registerCollectionElementKindSectionHeaderClass:BaiShaETProjTopupTipsVIew.class];
-//    [self registerCollectionElementKindSectionHeaderClass:BaiShaETProjUSDTWithdrawalCRView.class];
     // CollectionReusableView—Footer
     [self registerCollectionElementKindSectionFooterClass:UICollectionReusableView.class];
+    [self registerCollectionElementKindSectionFooterClass:BaseCollectionReusableView.class];
+    [self registerCollectionElementKindSectionFooterClass:BaseCollectionReusableView.class];
     [self registerCollectionElementKindSectionFooterClass:JobsHotLabelWithMultiLineHeaderFooterView.class];
-//    [self registerCollectionElementKindSectionFooterClass:BaiShaETProjVIPSubCVFooterView.class];
-//    [self registerCollectionElementKindSectionFooterClass:BaiShaETProjTopupTipsVIew.class];
+    [self registerCollectionElementKindSectionFooterClass:BaiShaETProjVIPSubCVFooterView.class];
     // CollectionViewCell
     [self registerCollectionViewCellClass:UICollectionViewCell.class];
     [self registerCollectionViewCellClass:BaseCollectionViewCell.class];
     [self registerCollectionViewCellClass:JobsHotLabelWithMultiLineCVCell.class];
+    [self registerCollectionViewCellClass:JobsSearchDataCVCell.class];
     [self registerCollectionViewCellClass:JobsBtnStyleCVCell.class];
     [self registerCollectionViewCellClass:JobsImageViewStyleCVCell.class];
-
-    [self registerCollectionViewCellClass:MSTransactionRecordCVCell.class];// 储宝-交易记录子控件UI
-    [self registerCollectionViewCellClass:MSPromotionIncentiveCVCell.class];// 储宝-推广奖励子控件UI
-    [self registerCollectionViewCellClass:MSInterestSettleRecordCVCell.class];// 储宝-结息记录子控件UI
-    [self registerCollectionViewCellClass:MSProdSelectCVCell.class];// 储宝-产品选购子控件UI
-    [self registerCollectionViewCellClass:MSProdShowCVCell.class];// 商品展示UI
-    [self registerCollectionViewCellClass:MSInternalRecruitmentCVCell1.class];// 内部招聘Cell1
-    [self registerCollectionViewCellClass:MSInternalRecruitmentCVCell2.class];// 内部招聘Cell2
-    [self registerCollectionViewCellClass:MSFindCVCell.class];//
-    [self registerCollectionViewCellClass:MSVedioCVCell.class];// 
-    [self registerCollectionViewCellClass:MSMineView6CVCell.class];//
+    
+    [self registerCollectionViewCellClass:BaiShaETProjOrderDetailsCVCell.class];
+    [self registerCollectionViewCellClass:BaiShaETProjVIPSubCVCell_01.class];
+    [self registerCollectionViewCellClass:BaiShaETProjVIPSubCVCell_02.class];
+    [self registerCollectionViewCellClass:BaiShaETProjVIPSubCVCell_03.class];
+    [self registerCollectionViewCellClass:BaiShaETProjVIPSubCVCell_04.class];
+    [self registerCollectionViewCellClass:BaiShaETProjVIPSubCVCell_05.class];
+    [self registerCollectionViewCellClass:BaiShaETProjBankAccMgmtCVCell.class];
+    
+    [self registerCollectionViewCellClass:ThreeClassCell.class];
 }
 /// 注册 UICollectionViewCell 及其子类
 -(void)registerCollectionViewCellClass:(Class)cls{

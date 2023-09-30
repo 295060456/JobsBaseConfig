@@ -113,7 +113,6 @@ static dispatch_once_t static_testPopupViewOnceToken;
 -(UIButton *)testPopupViewSureBtn{
     if (!_testPopupViewSureBtn) {
         _testPopupViewSureBtn = UIButton.new;
-        [_testPopupViewSureBtn handelAdjustsImageWhenHighlighted];
         _testPopupViewSureBtn.normalBackgroundImage = JobsIMG(@"测试弹窗的确定按钮");
         _testPopupViewSureBtn.selectedBackgroundImage = JobsIMG(@"测试弹窗的确定按钮");
         _testPopupViewSureBtn.normalTitle = Internationalization(@"确定");
@@ -126,11 +125,12 @@ static dispatch_once_t static_testPopupViewOnceToken;
             make.size.mas_equalTo(CGSizeMake(JobsWidth(190), JobsWidth(40)));
         }];
         @jobs_weakify(self)
-        [_testPopupViewSureBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_testPopupViewSureBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)
             x.selected = !x.selected;
             [self tf_hide];
             if(self.objectBlock) self.objectBlock(x);
+            return nil;
         }];
     }return _testPopupViewSureBtn;
 }

@@ -93,7 +93,7 @@
         _btn.titleFont = UIFontWeightRegularSize(12);
         _btn.normalTitleColor = JobsWhiteColor;
         @jobs_weakify(self)
-        [_btn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_btn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)
             NSLog(@"AAA = %@",self.dropDownListView);
             x.selected = !x.selected;
@@ -108,7 +108,7 @@
                 }];
             }else{
                 [self endDropDownListView];
-            }
+            }return nil;
         }];
         _btn.backgroundColor = UIColor.orangeColor;
         [_btn buttonAutoWidthByFont];

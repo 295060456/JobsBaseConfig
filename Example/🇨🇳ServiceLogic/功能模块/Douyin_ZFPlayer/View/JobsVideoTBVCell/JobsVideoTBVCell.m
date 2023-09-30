@@ -85,9 +85,10 @@
         _rotation = [UIButton buttonWithType:UIButtonTypeCustom];
         _rotation.normalImage = JobsIMG(@"zfplayer_rotaiton");
         @jobs_weakify(self)
-        [_rotation jobsBtnClickEventBlock:^(__kindof UIControl * _Nullable x) {
+        [_rotation jobsBtnClickEventBlock:^id(__kindof UIControl * _Nullable x) {
             @jobs_strongify(self)
             if ([self.delegate respondsToSelector:@selector(zf_douyinRotation)]) [self.delegate zf_douyinRotation];
+            return nil;
         }];
         [self.contentView addSubview:_rotation];
         [_rotation mas_makeConstraints:^(MASConstraintMaker *make) {

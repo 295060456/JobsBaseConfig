@@ -121,8 +121,9 @@
         _shareBtn.normalImage = JobsBuddleIMG(@"⚽️PicResource", @"Others", nil, @"PLUS");
         _shareBtn.normalTitleColor = JobsWhiteColor;
         [_shareBtn cornerCutToCircleWithCornerRadius:23 / 2];
-        [_shareBtn jobsBtnClickEventBlock:^(id data) {
+        [_shareBtn jobsBtnClickEventBlock:^id(id data) {
             toast(Internationalization(@"此功能尚在开发中..."));
+            return nil;
         }];
     }return _shareBtn;
 }

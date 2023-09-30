@@ -42,7 +42,7 @@
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self.parameters
                                                        options:NSJSONWritingPrettyPrinted
                                                          error:&parseError];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:self.requestUrl.url
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:self.requestUrl.jobsUrl
                                                            cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
                                                        timeoutInterval:30];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];

@@ -338,12 +338,13 @@ insetForSectionAtIndex:(NSInteger)section {
             make.right.equalTo(self.titleLab.mas_right).offset(JobsWidth(-25.12));
         }];
         @jobs_weakify(self)
-        [_closeBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_closeBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             NSLog(@"关闭");
             @jobs_strongify(self)
             x.selected = !x.selected;
             [self cancelBtnActionForPopView:x];
             [self shakeCell:NO];
+            return nil;
         }];
     }return _closeBtn;
 }
@@ -351,7 +352,6 @@ insetForSectionAtIndex:(NSInteger)section {
 -(UIButton *)cancelBtn{
     if (!_cancelBtn) {
         _cancelBtn = UIButton.new;
-        [_cancelBtn handelAdjustsImageWhenHighlighted];
         _cancelBtn.normalBackgroundImage = JobsIMG(@"弹窗取消按钮");
         _cancelBtn.selectedBackgroundImage = JobsIMG(@"弹窗取消按钮");
         _cancelBtn.normalTitle = Internationalization(@"恢复默认");
@@ -364,12 +364,13 @@ insetForSectionAtIndex:(NSInteger)section {
             make.size.mas_equalTo(CGSizeMake(JobsWidth(120), JobsWidth(40)));
         }];
         @jobs_weakify(self)
-        [_cancelBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_cancelBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)
             NSLog(@"恢复默认");
             x.selected = !x.selected;
             [self cancelBtnActionForPopView:x];
             [self shakeCell:NO];
+            return nil;
         }];
     }return _cancelBtn;
 }
@@ -377,7 +378,6 @@ insetForSectionAtIndex:(NSInteger)section {
 -(UIButton *)sureBtn{
     if (!_sureBtn) {
         _sureBtn = UIButton.new;
-        [_sureBtn handelAdjustsImageWhenHighlighted];
         _sureBtn.normalBackgroundImage = JobsIMG(@"弹窗提交按钮");
         _sureBtn.selectedBackgroundImage = JobsIMG(@"弹窗提交按钮");
         _sureBtn.normalTitle = Internationalization(@"完成");
@@ -390,11 +390,12 @@ insetForSectionAtIndex:(NSInteger)section {
             make.size.mas_equalTo(CGSizeMake(JobsWidth(120), JobsWidth(40)));
         }];
         @jobs_weakify(self)
-        [_sureBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_sureBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)
             x.selected = !x.selected;
             [self cancelBtnActionForPopView:self.dataMutArr];
             [self shakeCell:NO];
+            return nil;
         }];
     }return _sureBtn;
 }

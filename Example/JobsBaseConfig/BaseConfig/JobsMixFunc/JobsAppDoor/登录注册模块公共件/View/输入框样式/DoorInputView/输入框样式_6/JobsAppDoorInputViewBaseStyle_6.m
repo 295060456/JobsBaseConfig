@@ -130,7 +130,7 @@
         _textField = JobsMagicTextField.new;
         _textField.delegate = self;
         @jobs_weakify(self)
-        [_textField textFieldEventFilterBlock:^BOOL(id _Nullable data) {
+        [_textField jobsTextFieldEventFilterBlock:^BOOL(id _Nullable data) {
             @jobs_strongify(self)
             return self.returnBOOLByIDBlock ? self.returnBOOLByIDBlock(data) : YES;
         } subscribeNextBlock:^(id _Nullable x) {

@@ -122,7 +122,7 @@ JobsKey(_configMutArr)
         ConfigMutArr = NSMutableArray.array;
         {
             JobsTabBarControllerConfig *config = JobsTabBarControllerConfig.new;
-            config.vc = MSHomeVC.new;
+            config.vc = UIViewController.new;
             config.title = self.tabBarTitleMutArr[ConfigMutArr.count];
             config.imageSelected = JobsIMG(@"tabbar_home_selected");
             config.imageUnselected = JobsIMG(@"tabbar_home_normal");
@@ -134,7 +134,7 @@ JobsKey(_configMutArr)
         
         {
             JobsTabBarControllerConfig *config = JobsTabBarControllerConfig.new;
-            config.vc = MSMomentsVC.new;
+            config.vc = UIViewController.new;
             config.title = self.tabBarTitleMutArr[ConfigMutArr.count];
             config.imageSelected = JobsIMG(@"tabbar_game_selected");
             config.imageUnselected = JobsIMG(@"tabbar_game_normal");
@@ -146,7 +146,7 @@ JobsKey(_configMutArr)
         
         {
             JobsTabBarControllerConfig *config = JobsTabBarControllerConfig.new;
-            config.vc = MSOrderVC.new;
+            config.vc = UIViewController.new;
             config.title = self.tabBarTitleMutArr[ConfigMutArr.count];
             config.imageSelected = JobsIMG(@"tabbar_discount_selected");
             config.imageUnselected = JobsIMG(@"tabbar_discount_normal");
@@ -158,7 +158,7 @@ JobsKey(_configMutArr)
         
         {
             JobsTabBarControllerConfig *config = JobsTabBarControllerConfig.new;
-            config.vc = MSMsgVC.new;
+            config.vc = UIViewController.new;
             config.title = self.tabBarTitleMutArr[ConfigMutArr.count];
             config.imageSelected = JobsIMG(@"tabbar_tutorial_selected");
             config.imageUnselected = JobsIMG(@"tabbar_tutorial_normal");
@@ -170,7 +170,7 @@ JobsKey(_configMutArr)
         
         {
             JobsTabBarControllerConfig *config = JobsTabBarControllerConfig.new;
-            config.vc = MSMineVC.new;
+            config.vc = UIViewController.new;
             config.title = self.tabBarTitleMutArr[ConfigMutArr.count];
             config.imageSelected = JobsIMG(@"tabbar_member_selected");
             config.imageUnselected = JobsIMG(@"tabbar_member_normal");

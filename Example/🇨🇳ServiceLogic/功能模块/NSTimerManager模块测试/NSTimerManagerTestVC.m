@@ -56,30 +56,34 @@
     
     @jobs_weakify(self)
     /// 开始
-    [self.btnMutArr[0] jobsBtnClickEventBlock:^(UIButton *data) {
+    [self.btnMutArr[0] jobsBtnClickEventBlock:^id(UIButton *data) {
         @jobs_strongify(self)
         [self reloadBtn:data];
         [self.nsTimerManager nsTimeStartSysAutoInRunLoop];
+        return nil;
     }];
     /// 暂停
-    [self.btnMutArr[1] jobsBtnClickEventBlock:^(UIButton *data) {
+    [self.btnMutArr[1] jobsBtnClickEventBlock:^id(UIButton *data) {
         @jobs_strongify(self)
         [self reloadBtn:data];
         [self.nsTimerManager nsTimePause];
+        return nil;
     }];
     /// 继续
-    [self.btnMutArr[2] jobsBtnClickEventBlock:^(UIButton *data) {
+    [self.btnMutArr[2] jobsBtnClickEventBlock:^id(UIButton *data) {
         @jobs_strongify(self)
         [self reloadBtn:data];
         [self.nsTimerManager nsTimecontinue];
+        return nil;
     }];
     /// 结束
-    [self.btnMutArr[3] jobsBtnClickEventBlock:^(UIButton *data) {
+    [self.btnMutArr[3] jobsBtnClickEventBlock:^id(UIButton *data) {
         @jobs_strongify(self)
         [self reloadBtn:data];
         [self.nsTimerManager nsTimeDestroy];
         self.nsTimerManager = nil;
         self.valueLab.text = @"";
+        return nil;
     }];
 }
 

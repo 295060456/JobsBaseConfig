@@ -61,24 +61,28 @@
     
     @jobs_weakify(self)
     /// 开始
-    [self.btnMutArr[0] jobsBtnClickEventBlock:^(UIButton *data) {
+    [self.btnMutArr[0] jobsBtnClickEventBlock:^id(UIButton *data) {
         @jobs_strongify(self)
         [self.countDownBtn startTimer];
+        return nil;
     }];
     /// 暂停
-    [self.btnMutArr[1] jobsBtnClickEventBlock:^(UIButton *data) {
+    [self.btnMutArr[1] jobsBtnClickEventBlock:^id(UIButton *data) {
         @jobs_strongify(self)
         [self.countDownBtn timerSuspend];
+        return nil;
     }];
     /// 继续
-    [self.btnMutArr[2] jobsBtnClickEventBlock:^(UIButton *data) {
+    [self.btnMutArr[2] jobsBtnClickEventBlock:^id(UIButton *data) {
         @jobs_strongify(self)
         [self.countDownBtn timerContinue];
+        return nil;
     }];
     /// 结束
-    [self.btnMutArr[3] jobsBtnClickEventBlock:^(UIButton *data) {
+    [self.btnMutArr[3] jobsBtnClickEventBlock:^id(UIButton *data) {
         @jobs_strongify(self)
         [self.countDownBtn timerDestroy];
+        return nil;
     }];
 }
 
@@ -119,9 +123,10 @@
         }];
         [_countDownBtn makeBtnLabelByShowingType:UILabelShowingType_03];
         
-        [_countDownBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_countDownBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             [x startTimer];//选择时机、触发启动
             NSLog(@"🪓🪓🪓🪓🪓 = 获取验证码");
+            return nil;
         }];
         
         [_countDownBtn actionObjectBlock:^(id data) {

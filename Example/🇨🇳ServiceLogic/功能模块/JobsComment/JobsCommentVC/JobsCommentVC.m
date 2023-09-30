@@ -82,9 +82,10 @@
         _contactCustomerServiceBtn.normalImage = JobsIMG(Internationalization(@"zaixiankefu_en"));
         _contactCustomerServiceBtn.selectedImage = JobsIMG(Internationalization(@"zaixiankefu_en"));
         @jobs_weakify(self)
-        [_contactCustomerServiceBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_contactCustomerServiceBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)
             [self makeJobsCommentCoreVC];
+            return nil;
         }];
         [self.view addSubview:_contactCustomerServiceBtn];
         [_contactCustomerServiceBtn mas_makeConstraints:^(MASConstraintMaker *make) {

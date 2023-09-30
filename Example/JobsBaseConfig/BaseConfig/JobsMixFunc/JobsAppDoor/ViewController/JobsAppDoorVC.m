@@ -441,8 +441,9 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
         _customerServiceBtn.centerX = JobsMainScreen_WIDTH() / 2;
         _customerServiceBtn.top = self.jobsAppDoorContentView.top + self.jobsAppDoorContentView.height + 20;
         self.customerServiceBtnY = _customerServiceBtn.y;
-        [_customerServiceBtn jobsBtnClickEventBlock:^(id data) {
+        [_customerServiceBtn jobsBtnClickEventBlock:^id(id data) {
             NSLog(@"点击客服按钮");
+            return nil;
         }];
         [_customerServiceBtn cornerCutToCircleWithCornerRadius:_customerServiceBtn.height / 2];
         [_customerServiceBtn layerBorderCor:JobsWhiteColor andBorderWidth:2];

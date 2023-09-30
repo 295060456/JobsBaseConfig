@@ -124,9 +124,10 @@ static dispatch_once_t static_codeViewOnceToken;
                                         40,
                                         40);
         @jobs_weakify(self)
-        [self.refresh jobsBtnClickEventBlock:^(UIButton *x) {
+        [self.refresh jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)
             [self refreshAction];
+            return nil;
         }];
         self.refresh.normalImage = JobsIMG(@"refresh");
         self.refresh;
@@ -164,9 +165,10 @@ static dispatch_once_t static_codeViewOnceToken;
                                         40);
         self.refresh.normalImage = JobsIMG(@"refresh");
         @jobs_weakify(self)
-        [self.refresh jobsBtnClickEventBlock:^(id data) {
+        [self.refresh jobsBtnClickEventBlock:^id(id data) {
             @jobs_strongify(self)
             [self refreshAction];
+            return nil;
         }];
         self.refresh;
     })];
@@ -190,7 +192,7 @@ static dispatch_once_t static_codeViewOnceToken;
     [self.WMZSlider setThumbImage:tempImage forState:UIControlStateHighlighted];
     /// 滑块滑动事件
     @jobs_weakify(self)
-    [self.WMZSlider sliderValueChangedEventBlock:^(UISlider *x) {
+    [self.WMZSlider jobsSliderValueChangedEventBlock:^(UISlider *x) {
         @jobs_strongify(self)
         [x setValue:x.value animated:NO];
         x.minimumTrackTintColor = x.value > 0 ? JobsRedColor : JobsClearColor;
@@ -291,9 +293,10 @@ static dispatch_once_t static_codeViewOnceToken;
             btn.layer.masksToBounds = YES;
             btn.layer.cornerRadius = btnWidth/2;
             @jobs_weakify(self)
-            [btn jobsBtnClickEventBlock:^(UIButton *x) {
+            [btn jobsBtnClickEventBlock:^id(UIButton *x) {
                 @jobs_strongify(self)
                 [self tapAction:x];
+                return nil;
             }];
             CGFloat h = [self getRandomNumber:btnWidth to:WMZimageHeight-WMZmargin];
             if (self.type == CodeTypeLabel) {

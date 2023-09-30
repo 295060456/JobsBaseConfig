@@ -74,9 +74,10 @@ static dispatch_once_t static_showNumViewOnceToken;
         btn.titleFont = UIFontWeightBoldSize(40);
         btn.normalTitleColor = HEXCOLOR(0xAE8330);
         @jobs_weakify(self)
-        [btn jobsBtnClickEventBlock:^(id data) {
+        [btn jobsBtnClickEventBlock:^id(id data) {
             @jobs_strongify(self)
             NSLog(@"%@",btn.titleForNormalState)
+            return nil;
         }];
         [self addSubview:btn];
         [btn mas_makeConstraints:^(MASConstraintMaker *make) {

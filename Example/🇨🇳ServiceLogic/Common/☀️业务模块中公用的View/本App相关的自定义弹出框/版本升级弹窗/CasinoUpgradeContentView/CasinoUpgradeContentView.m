@@ -79,9 +79,10 @@
         _cancelBtn.titleFont = UIFontWeightRegularSize(14);
         _cancelBtn.normalBackgroundImage = JobsIMG(@"弹窗取消按钮背景图");
         @jobs_weakify(self)
-        [_cancelBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_cancelBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)
             if(self.objectBlock) self.objectBlock(x);
+            return nil;
         }];
         [self addSubview:_cancelBtn];
         [_cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -100,9 +101,10 @@
         _sureBtn.normalBackgroundImage = JobsIMG(@"弹窗确定按钮背景图");
         _sureBtn.titleFont = UIFontWeightRegularSize(14);
         @jobs_weakify(self)
-        [_sureBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_sureBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)
             if(self.objectBlock) self.objectBlock(x);
+            return nil;
         }];
         [self addSubview:_sureBtn];
         [_sureBtn mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -108,10 +108,11 @@
         _toRegisterBtn.normalTitle = Title2;
         _toRegisterBtn.normalImage = JobsIMG(@"用户名称");
         @jobs_weakify(self)
-        [_toRegisterBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_toRegisterBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)
             [self endEditing:YES];
             if (self.objectBlock) self.objectBlock(x);
+            return nil;
         }];
         [self addSubview:_toRegisterBtn];
         [_toRegisterBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -151,9 +152,10 @@
             make.bottom.mas_equalTo(self).offset(-JobsWidth(30));
         }];
         @jobs_weakify(self)
-        [_abandonLoginBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_abandonLoginBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)
             if (self.objectBlock) self.objectBlock(x);
+            return nil;
         }];
     }return _abandonLoginBtn;
 }
@@ -173,8 +175,9 @@
         }];
         [self layoutIfNeeded];
         [_sendBtn cornerCutToCircleWithCornerRadius:_sendBtn.height / 2];
-        [_sendBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_sendBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             toast(x.titleForNormalState);
+            return nil;
         }];
     }return _sendBtn;
 }
@@ -200,10 +203,11 @@
         [_storeCodeBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft
                                        imageTitleSpace:JobsWidth(3)];
         @jobs_weakify(self)
-        [_storeCodeBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_storeCodeBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)
             x.selected = !x.selected;
             if (self.objectBlock) self.objectBlock(x);
+            return nil;
         }];
     }return _storeCodeBtn;
 }
@@ -222,9 +226,10 @@
             make.top.equalTo(inputView.mas_bottom).offset(JobsWidth(20));
         }];
         @jobs_weakify(self)
-        [_findCodeBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_findCodeBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)
             if (self.objectBlock) self.objectBlock(x);
+            return nil;
         }];
     }return _findCodeBtn;
 }

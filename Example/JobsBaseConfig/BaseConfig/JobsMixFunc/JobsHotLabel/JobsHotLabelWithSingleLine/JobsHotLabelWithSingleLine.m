@@ -135,11 +135,12 @@
     btn.titleFont = vm.textModel.font;
     btn.normalTitleColor = vm.textModel.textCor;
     @jobs_weakify(self)
-    [btn jobsBtnClickEventBlock:^(UIButton *x) {
+    [btn jobsBtnClickEventBlock:^id(UIButton *x) {
         @jobs_strongify(self)
         [self changeButtonState];
         x.selected = !x.selected;
         if (self.objectBlock) self.objectBlock(x);
+        return nil;
     }];
     [btn actionObjectBlock:^(id data) {
         @jobs_strongify(self)

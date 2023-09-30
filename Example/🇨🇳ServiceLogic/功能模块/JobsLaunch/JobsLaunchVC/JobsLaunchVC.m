@@ -137,10 +137,11 @@ static dispatch_once_t static_launchVCOnceToken;
     if (!_skipBtn) {
         _skipBtn = [UIButton.alloc initWithConfig:self.btnTimerConfigModel];
         @jobs_weakify(self)
-        [_skipBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_skipBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)
             [x timerDestroy];
             [self backItemClick:x];
+            return nil;
         }];
         
         [_skipBtn actionObjectBlock:^(id data) {

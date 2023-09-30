@@ -117,10 +117,11 @@
         _backToLoginBtn.normalTitle = Title1;
         _backToLoginBtn.normalImage = JobsIMG(@"用户名称");
         @jobs_weakify(self)
-        [_backToLoginBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_backToLoginBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)
             [self endEditing:YES];
             if (self.objectBlock) self.objectBlock(x);
+            return nil;
         }];
         [self addSubview:_backToLoginBtn];
         [_backToLoginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -154,8 +155,9 @@
         [_sendBtn normalTitleColor:UIColor.whiteColor];
         [_sendBtn titleFont:UIFontWeightRegularSize(16)];
         [_sendBtn buttonAutoWidthByFont];
-        [_sendBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_sendBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             toast(x.titleForNormalState);
+            return nil;
         }];
         _sendBtn.x = self.backToLoginBtn.width + JobsWidth(20);
         _sendBtn.size = CGSizeMake(self.width - self.backToLoginBtn.width - JobsWidth(40), ThingsHeight);

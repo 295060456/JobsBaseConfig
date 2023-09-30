@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
 【命名规则】：
-    1、无返回值省略Return 
+    1、无返回值省略Return
     2、无入参标志为Void
     3、入参、返回值同一类型，标识为ReturnBy
     4、有返回值前缀Jobs、无返回值前缀jobs
@@ -51,6 +51,21 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)JobsReturnIDByGestureRecognizerBlock returnObjectByGestureRecognizerBlock;/// 入参为UIGestureRecognizer，返回值为ID的回调
 @property(nonatomic,assign)JobsReturnIDBySELBlock returnObjectBySELBlock;/// 入参为SEL，返回值为ID的回调
 @property(nonatomic,assign)JobsReturnIDByStringBlock returnObjectByStringBlock;/// 入参为NSString，返回值为ID的回调
+@property(nonatomic,assign)JobsReturnNSIntegerByIDBlock returnNSIntegerByIDBlock;
+@property(nonatomic,assign)JobsReturnNSUIntegerByIDBlock returnNSUIntegerByIDBlock;
+@property(nonatomic,assign)JobsReturnCGFloatByIDBlock returnCGFloatByIDBlock;
+@property(nonatomic,assign)JobsReturnBOOLByIDBlock returnBOOLByIDBlock;
+@property(nonatomic,assign)JobsReturnIntByIDBlock returnIntByIDBlock;
+@property(nonatomic,assign)JobsReturnUnsignedIntByIDBlock returnUnsignedIntByIDBlock;
+@property(nonatomic,assign)JobsReturnFloatByIDBlock returnFloatByIDBlock;
+@property(nonatomic,assign)JobsReturnDoubleByIDBlock returnDoubleByIDBlock;
+@property(nonatomic,assign)JobsReturnCharByIDBlock returnCharByIDBlock;
+@property(nonatomic,assign)JobsReturnUnsignedCharByIDBlock returnUnsignedCharByIDBlock;
+@property(nonatomic,assign)JobsReturnShortByIDBlock returnShortByIDBlock;
+@property(nonatomic,assign)JobsReturnUnsignedShortByIDBlock returnUnsignedShortByIDBlock;
+@property(nonatomic,assign)JobsReturnLongByIDBlock returnLongByIDBlock;
+@property(nonatomic,assign)JobsReturnUnsignedLongByIDBlock returnUnsignedLongByIDBlock;
+@property(nonatomic,assign)JobsReturnUnsignedLongLongByIDBlock returnUnsignedLongLongByIDBlock;
 /// 6、有（单一）入参、有返回值的回调【返回入参类型】
 @property(nonatomic,assign)JobsReturnIDByIDBlock returnObjectBlock;/// 返回值为ID的回调
 @property(nonatomic,assign)JobsReturnByNSIntegerBlock returnNSIntegerBlock;/// 返回值为NSInteger的回调
@@ -99,6 +114,21 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)actionReturnIDByGestureRecognizerBlock:(JobsReturnIDByGestureRecognizerBlock)returnObjectByGestureRecognizerBlock;
 -(void)actionReturnIDBySELBlock:(JobsReturnIDBySELBlock)returnObjectBySELBlock;
 -(void)actionReturnIDByStringBlock:(JobsReturnIDByStringBlock)returnObjectByStringBlock;
+-(void)actionReturnNSIntegerByIDBlock:(JobsReturnNSIntegerByIDBlock)returnNSIntegerByIDBlock;
+-(void)actionReturnNSUIntegerByIDBlock:(JobsReturnNSUIntegerByIDBlock)returnNSUIntegerByIDBlock;
+-(void)actionReturnCGFloatByIDBlock:(JobsReturnCGFloatByIDBlock)returnCGFloatByIDBlock;
+-(void)actionReturnBOOLByIDBlock:(JobsReturnBOOLByIDBlock)returnBOOLByIDBlock;
+-(void)actionReturnIntByIDBlock:(JobsReturnIntByIDBlock)returnIntByIDBlock;
+-(void)actionReturnUnsignedIntByIDBlock:(JobsReturnUnsignedIntByIDBlock)returnUnsignedIntByIDBlock;
+-(void)actionReturnFloatByIDBlock:(JobsReturnFloatByIDBlock)returnFloatByIDBlock;
+-(void)actionReturnDoubleByIDBlock:(JobsReturnDoubleByIDBlock)returnDoubleByIDBlock;
+-(void)actionReturnCharByIDBlock:(JobsReturnCharByIDBlock)returnCharByIDBlock;
+-(void)actionReturnUnsignedCharByIDBlock:(JobsReturnUnsignedCharByIDBlock)returnUnsignedCharByIDBlock;
+-(void)actionReturnShortByIDBlock:(JobsReturnShortByIDBlock)returnShortByIDBlock;
+-(void)actionReturnUnsignedShortByIDBlock:(JobsReturnUnsignedShortByIDBlock)returnUnsignedShortByIDBlock;
+-(void)actionReturnLongByIDBlock:(JobsReturnLongByIDBlock)returnLongByIDBlock;
+-(void)actionReturnUnsignedLongByIDBlock:(JobsReturnUnsignedLongByIDBlock)returnUnsignedLongByIDBlock;
+-(void)actionReturnUnsignedLongLongByIDBlock:(JobsReturnUnsignedLongLongByIDBlock)returnUnsignedLongLongByIDBlock;
 /// 6、有（单一）入参、有返回值的回调【返回入参类型】
 -(void)actionReturnObjectBlock:(JobsReturnIDByIDBlock)returnObjectBlock;
 -(void)actionReturnNSIntegerBlock:(JobsReturnByNSIntegerBlock)returnNSIntegerBlock;

@@ -76,7 +76,7 @@
     if (!_titleLab) {
         _titleLab = JobsBaseLabel.new;
         [_titleLab richElementsInViewWithModel:nil];
-        _titleLab.getLabel.offsetY = JobsWidth(-2);
+        _titleLab.getLabel.jobsOffsetY = JobsWidth(-2);
         _titleLab.getLabel.textColor = UIColor.whiteColor;
         _titleLab.getLabel.font = notoSansRegular(12);
         _titleLab.getLabel.textAlignment = NSTextAlignmentCenter;
@@ -86,13 +86,13 @@
             make.left.equalTo(self.view).offset(JobsWidth(100));
             make.height.mas_equalTo(JobsWidth(26));
         }];
-        
-        [_titleLab.getLabel actionTapGRBlock:^id(UIGestureRecognizer *data) {
+
+        [_titleLab.getLabel actionReturnIDByGestureRecognizerBlock:^id(UIGestureRecognizer *data) {
             NSLog(@"JobsBaseLabel的Tap手势");
             return @1;
         }];
         
-        [_titleLab.getLabel actionLongPressGRBlock:^id(UIGestureRecognizer *data) {
+        [_titleLab.getLabel actionReturnIDByGestureRecognizerBlock:^id(UIGestureRecognizer *data) {
             NSLog(@"JobsBaseLabel的LongPress手势");
             return @1;
         }];
@@ -108,7 +108,7 @@
 -(BaseLabel *)baseLabel{
     if (!_baseLabel) {
         _baseLabel = BaseLabel.new;
-        _baseLabel.offsetX = JobsWidth(10);
+        _baseLabel.jobsOffsetX = JobsWidth(10);
         _baseLabel.text = Internationalization(@"测试 -BaseLabel-");
         _baseLabel.backgroundColor = JobsCyanColor;
         [self.view addSubview:_baseLabel];
@@ -118,12 +118,12 @@
             make.height.mas_equalTo(JobsWidth(26));
         }];
         
-        [_baseLabel actionTapGRBlock:^id(UIGestureRecognizer *data) {
+        [_baseLabel actionReturnIDByGestureRecognizerBlock:^id(UIGestureRecognizer *data) {
             NSLog(@"BaseLabel的Tap手势");
             return @1;
         }];
         
-        [_baseLabel actionLongPressGRBlock:^id(UIGestureRecognizer *data) {
+        [_baseLabel actionReturnIDByGestureRecognizerBlock:^id(UIGestureRecognizer *data) {
             NSLog(@"BaseLabel的LongPress手势");
             return @1;
         }];

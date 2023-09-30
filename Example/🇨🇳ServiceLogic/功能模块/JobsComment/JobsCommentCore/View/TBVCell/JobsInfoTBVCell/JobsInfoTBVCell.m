@@ -75,7 +75,7 @@
 //        _LikeBtn.layer.borderWidth = 1;
         _LikeBtn.thumpNum = 0;
         @jobs_weakify(self)
-        [_LikeBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_LikeBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)
             if (self.objectBlock) self.objectBlock(x);
             if (self->_LikeBtn.selected) {
@@ -86,7 +86,7 @@
                 [self->_LikeBtn setThumbWithSelected:YES
                                             thumbNum:self->_LikeBtn.thumpNum + 1
                                      animation:YES];
-            }
+            }return nil;
         }];
         
         [self.contentView addSubview:_LikeBtn];

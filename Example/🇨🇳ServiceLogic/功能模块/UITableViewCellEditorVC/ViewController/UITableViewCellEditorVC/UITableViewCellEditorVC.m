@@ -228,13 +228,14 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
         _editBtn.titleFont = notoSansBold(12);
         _editBtn.normalTitleColor = HEXCOLOR(0x3D4A58);
         @jobs_weakify(self)
-        [_editBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_editBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)
 //            toast(x.titleForNormalState);
             x.selected = !x.selected;
             x.normalTitle = x.selected ? Internationalization(@"完成") : Internationalization(@"編輯");
             [self.tableView setEditing:x.selected animated:YES];
             x.selected ? [self.getMsgEditBoardView appearByView:self.view] : [self.getMsgEditBoardView disappearByView:self.view];
+            return nil;
         }];
     }return _editBtn;
 }

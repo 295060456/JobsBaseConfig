@@ -115,13 +115,14 @@ static dispatch_once_t static_rightBtnsViewOnceToken;
         _loveBtn.titleFont = UIFontWeightRegularSize(12);
         
         @jobs_weakify(self)
-        [_loveBtn jobsBtnClickEventBlock:^(__kindof UIButton * _Nullable x) {
+        [_loveBtn jobsBtnClickEventBlock:^id(__kindof UIButton * _Nullable x) {
             NSLog(@"我是点赞");
             [x.imageView addViewAnimationWithCompletionBlock:^(id data) {
                 @jobs_strongify(self)
                 self->_loveBtn.tag = MKRightBtnViewBtnType_loveBtn;//写在block外部，此值异常
                 if (self.objectBlock) self.objectBlock(self->_loveBtn);
             }];
+            return nil;
         }];
         [self addSubview:_loveBtn];
         [self.mutArr addObject:_loveBtn];
@@ -139,7 +140,7 @@ static dispatch_once_t static_rightBtnsViewOnceToken;
         _commentBtn.normalImage = JobsIMG(@"视频评论");
         _commentBtn.titleFont = UIFontWeightRegularSize(12);
         @jobs_weakify(self)
-        [_commentBtn jobsBtnClickEventBlock:^(__kindof UIButton * _Nullable x) {
+        [_commentBtn jobsBtnClickEventBlock:^id(__kindof UIButton * _Nullable x) {
             NSLog(@"我是评论");
             [x.imageView addViewAnimationWithCompletionBlock:^(id data) {
                 @jobs_strongify(self)
@@ -161,8 +162,8 @@ static dispatch_once_t static_rightBtnsViewOnceToken;
                     @jobs_strongify(self)
                     NSLog(@"您点击了评论");
                 }];
-                
             }];
+            return nil;
         }];
         [self addSubview:_commentBtn];
         [self.mutArr addObject:_commentBtn];
@@ -181,13 +182,14 @@ static dispatch_once_t static_rightBtnsViewOnceToken;
         _shareBtn.normalImage = JobsIMG(@"分享");
         _shareBtn.titleFont = UIFontWeightRegularSize(12);
         @jobs_weakify(self)
-        [_shareBtn jobsBtnClickEventBlock:^(__kindof UIButton * _Nullable x) {
+        [_shareBtn jobsBtnClickEventBlock:^id(__kindof UIButton * _Nullable x) {
             NSLog(@"我是分享");
             [x.imageView addViewAnimationWithCompletionBlock:^(id data) {
                 @jobs_strongify(self)
                 self->_shareBtn.tag = MKRightBtnViewBtnType_shareBtn;//写在block外部，此值异常
                 if (self.objectBlock) self.objectBlock(self->_shareBtn);
             }];
+            return nil;
         }];
         [self addSubview:_shareBtn];
         [self.mutArr addObject:_shareBtn];

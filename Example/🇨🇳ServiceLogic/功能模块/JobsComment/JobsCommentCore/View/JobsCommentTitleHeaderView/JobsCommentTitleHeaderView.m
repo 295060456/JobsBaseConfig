@@ -47,9 +47,10 @@
         _cancelBtn = UIButton.new;
         _cancelBtn.normalImage = JobsBuddleIMG(@"bundle", @"Others", nil, @"删除");
         @jobs_weakify(self)
-        [_cancelBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_cancelBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)
             if (self.objectBlock) self.objectBlock(x);
+            return nil;
         }];
         [self addSubview:_cancelBtn];
         [_cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -143,13 +143,13 @@
         _securityModeBtn.selectedImage = self.doorInputViewBaseStyleModel.selectedSecurityBtnIMG ? : [UIImage imageWithColor:JobsRedColor];
         _securityModeBtn.normalImage = self.doorInputViewBaseStyleModel.unSelectedSecurityBtnIMG ? : [UIImage imageWithColor:JobsBlueColor];
         @jobs_weakify(self)
-        [_securityModeBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_securityModeBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)
             x.selected = !x.selected;
             self.textField.secureTextEntry = x.selected;
             if (x.selected && !self.textField.isEditing) {
                 self.textField.placeholder = self.doorInputViewBaseStyleModel.placeHolderStr;
-            }
+            }return nil;
         }];
         [self addSubview:_securityModeBtn];
         [_securityModeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -180,9 +180,10 @@
         _authCodeBtn = [UIButton.alloc initWithConfig:self.btnTimerConfigModel];
         _authCodeBtn.normalTitle = Internationalization(@"獲取驗證碼");
 //        @jobs_weakify(self)
-        [_authCodeBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_authCodeBtn jobsBtnClickEventBlock:^id(UIButton *x) {
 //            @jobs_strongify(self)
             [x startTimer];
+            return nil;
         }];
         [_authCodeBtn actionObjectBlock:^(id data) {
 //            @jobs_strongify(self)
@@ -219,7 +220,7 @@
             make.left.equalTo(self).offset(JobsWidth(0));
         }];
         @jobs_weakify(self)
-        [_chooseBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_chooseBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)
             x.selected = !x.selected;
             if (x.selected) {
@@ -236,7 +237,7 @@
                 }];
             }else{
                 [self->dropDownListView dropDownListViewDisappear:x];
-            }
+            }return nil;
         }];
         [_chooseBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleRight imageTitleSpace:JobsWidth(8)];
     }return _chooseBtn;
@@ -247,7 +248,7 @@
         _textField = ZYTextField.new;
         _textField.delegate = self;
         @jobs_weakify(self)
-        [_textField textFieldEventFilterBlock:^BOOL(NSString * _Nullable data) {
+        [_textField jobsTextFieldEventFilterBlock:^BOOL(NSString * _Nullable data) {
             @jobs_strongify(self)
             return self.returnBOOLByIDBlock ? self.returnBOOLByIDBlock(data) : YES;
         } subscribeNextBlock:^(NSString * _Nullable x) {

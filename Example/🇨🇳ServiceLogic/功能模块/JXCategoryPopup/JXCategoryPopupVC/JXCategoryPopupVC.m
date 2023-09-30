@@ -232,7 +232,7 @@ ratio:(CGFloat)ratio {
         [_filterBtn makeBtnLabelByShowingType:UILabelShowingType_03];
         [_filterBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleRight imageTitleSpace:JobsWidth(6)];
         @jobs_weakify(self)
-        [_filterBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_filterBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)
             x.selected = !x.selected;
 //            [WHToast toastMsg:Internationalization(@"篩選")];
@@ -249,7 +249,7 @@ ratio:(CGFloat)ratio {
                 self.popUpFiltrationView.popupDelegate = self;
             }else{
                 [self.vc hidePopupView:self.popUpFiltrationView];
-            }
+            }return nil;
         }];
     }return _filterBtn;
 }
@@ -268,7 +268,7 @@ ratio:(CGFloat)ratio {
             make.left.equalTo(self.categoryView.mas_right);
         }];
         @jobs_weakify(self)
-        [_customBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_customBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)
             x.selected = !x.selected;
 //            [WHToast toastMsg:Internationalization(@"自定义")];
@@ -286,7 +286,7 @@ ratio:(CGFloat)ratio {
 //                self.popUpCustomView.popupDelegate = self;
             }else{
                 [self.vc hidePopupView:self.popUpCustomView];
-            }
+            }return nil;
         }];
     }return _customBtn;
 }

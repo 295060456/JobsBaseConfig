@@ -79,7 +79,7 @@
         }];
         [_cameraBtn makeBtnLabelByShowingType:UILabelShowingType_03];
         @jobs_weakify(self)
-        [_cameraBtn jobsBtnClickEventBlock:^(id data) {
+        [_cameraBtn jobsBtnClickEventBlock:^id(id data) {
             /// 调取系统相机
             [self invokeSysCameraSuccessBlock:^(HXPhotoPickerModel *data) {
                 @jobs_strongify(self)
@@ -87,6 +87,7 @@
             } failBlock:^(HXPhotoPickerModel *data) {
                 @jobs_strongify(self)
             }];
+            return nil;
         }];
     }return _cameraBtn;
 }
@@ -104,7 +105,7 @@
             make.top.equalTo(self.gk_navigationBar.mas_bottom).offset(JobsWidth(100));
         }];
         [_photoAlbumBtn makeBtnLabelByShowingType:UILabelShowingType_03];
-        [_photoAlbumBtn jobsBtnClickEventBlock:^(id data) {
+        [_photoAlbumBtn jobsBtnClickEventBlock:^id(id data) {
             /// 调取系统相册
             @jobs_weakify(self)
             [self invokeSysPhotoAlbumSuccessBlock:^(HXPhotoPickerModel *data) {
@@ -119,6 +120,7 @@
             } failBlock:^(HXPhotoPickerModel *data) {
                 @jobs_strongify(self)
             }];
+            return nil;
         }];
     }return _photoAlbumBtn;
 }

@@ -99,9 +99,8 @@ static dispatch_once_t static_countdownViewOnceToken;
                 self.minutesStr = strArr1[0];
                 NSArray *strArr2 = [strArr1[1] componentsSeparatedByString:Internationalization(@"秒")];
                 self.secondStr = strArr2[0];
-                self.countdownTimeLab.attributedText = [self makeAttributedStringWithRichTextMutArr:self.richTextMutArr
-                                                                               richTextConfigMutArr:self.richTextConfigMutArr
-                                                                                     paragraphStyle:self.paragraphStyle];
+                self.countdownTimeLab.attributedText = [self richTextWithDataConfigMutArr:self.richTextConfigMutArr
+                                                                           paragraphStyle:self.paragraphStyle];
             }
         }];
     }return _nsTimerManager;
@@ -138,9 +137,8 @@ static dispatch_once_t static_countdownViewOnceToken;
 -(UILabel *)countdownTimeLab{
     if (!_countdownTimeLab) {
         _countdownTimeLab = UILabel.new;
-        _countdownTimeLab.attributedText = [self makeAttributedStringWithRichTextMutArr:self.richTextMutArr
-                                                                   richTextConfigMutArr:self.richTextConfigMutArr
-                                                                         paragraphStyle:self.paragraphStyle];
+        _countdownTimeLab.attributedText = [self richTextWithDataConfigMutArr:self.richTextConfigMutArr
+                                                               paragraphStyle:self.paragraphStyle];
         _countdownTimeLab.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_countdownTimeLab];
         [_countdownTimeLab mas_makeConstraints:^(MASConstraintMaker *make) {

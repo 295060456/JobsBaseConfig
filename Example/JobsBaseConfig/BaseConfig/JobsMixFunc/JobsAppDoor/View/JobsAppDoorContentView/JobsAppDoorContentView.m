@@ -421,11 +421,12 @@
         [_toRegisterBtn normalTitleColor:Cor3];
         _toRegisterBtn.titleLabel.font = UIFontWeightMediumSize(13);
         @jobs_weakify(self)
-        [_toRegisterBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_toRegisterBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)
             x.selected = !x.selected;
             [self endEditing:YES];
             [self animationChangeRegisterBtnFrame];
+            return nil;
         }];
         [self addSubview:_toRegisterBtn];
     }return _toRegisterBtn;
@@ -442,9 +443,10 @@
     if (!_abandonLoginBtn) {
         _abandonLoginBtn = UIButton.new;
         @jobs_weakify(self)
-        [_abandonLoginBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_abandonLoginBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)
             if (self.objectBlock) self.objectBlock(x);
+            return nil;
         }];
         [self addSubview:_abandonLoginBtn];
     }return _abandonLoginBtn;
@@ -454,11 +456,12 @@
     if (!_sendBtn) {
         _sendBtn = UIButton.new;
         @jobs_weakify(self)
-        [_sendBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_sendBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)
             [self endEditing:YES];
             x.objBindingParams = self.appDoorModel;
             if (self.objectBlock) self.objectBlock(x);
+            return nil;
         }];
         [self addSubview:_sendBtn];
         [_sendBtn cornerCutToCircleWithCornerRadius:_sendBtn.height / 2];
@@ -486,10 +489,11 @@
         [_storeCodeBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft
                                        imageTitleSpace:JobsWidth(3)];
         @jobs_weakify(self)
-        [_storeCodeBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_storeCodeBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)
             x.selected = !x.selected;
             if (self.objectBlock) self.objectBlock(x);
+            return nil;
         }];
     }return _storeCodeBtn;
 }
@@ -508,8 +512,9 @@
             make.right.equalTo(inputView).offset(-JobsWidth(20));
             make.top.equalTo(inputView.mas_bottom).offset(JobsWidth(20));
         }];
-        [_findCodeBtn jobsBtnClickEventBlock:^(UIButton *x) {
+        [_findCodeBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             if (self.objectBlock) self.objectBlock(x);
+            return nil;
         }];
     }return _findCodeBtn;
 }
