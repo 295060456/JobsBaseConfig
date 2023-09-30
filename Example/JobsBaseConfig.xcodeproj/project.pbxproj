@@ -538,6 +538,10 @@
 		C55224232AC898EE00668516 /* NSObject+UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C55224222AC898EE00668516 /* NSObject+UserInfo.m */; };
 		C55224282AC8994D00668516 /* NSObject+AppTools.m in Sources */ = {isa = PBXBuildFile; fileRef = C55224252AC8994D00668516 /* NSObject+AppTools.m */; };
 		C55224292AC8994D00668516 /* 此类主要封装一些本App常用的、可以替换资源的函数调用或者是鉴权机制.md in Resources */ = {isa = PBXBuildFile; fileRef = C55224272AC8994D00668516 /* 此类主要封装一些本App常用的、可以替换资源的函数调用或者是鉴权机制.md */; };
+		C55226642AC89EF100668516 /* RequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C55226632AC89EF100668516 /* RequestTool.m */; };
+		C552266C2AC89F9000668516 /* URLManagerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55226672AC89F9000668516 /* URLManagerModel.m */; };
+		C552266D2AC89F9000668516 /* NSObject+URLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C552266A2AC89F9000668516 /* NSObject+URLManager.m */; };
+		C55226712AC89F9E00668516 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C55226702AC89F9E00668516 /* DataManager.m */; };
 		C55C895628437190005295B1 /* JXCategoryPopupVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C55C895528437190005295B1 /* JXCategoryPopupVC.m */; };
 		C55C8959284371A9005295B1 /* JXCategoryPopupSubVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C55C8958284371A9005295B1 /* JXCategoryPopupSubVC.m */; };
 		C55E6B5428436F8100ABA84A /* JobsCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = C55E6B4E28436F8100ABA84A /* JobsCustomView.m */; };
@@ -1956,6 +1960,14 @@
 		C55224252AC8994D00668516 /* NSObject+AppTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AppTools.m"; sourceTree = "<group>"; };
 		C55224262AC8994D00668516 /* NSObject+AppTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AppTools.h"; sourceTree = "<group>"; };
 		C55224272AC8994D00668516 /* 此类主要封装一些本App常用的、可以替换资源的函数调用或者是鉴权机制.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "此类主要封装一些本App常用的、可以替换资源的函数调用或者是鉴权机制.md"; sourceTree = "<group>"; };
+		C55226622AC89EF100668516 /* RequestTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestTool.h; sourceTree = "<group>"; };
+		C55226632AC89EF100668516 /* RequestTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestTool.m; sourceTree = "<group>"; };
+		C55226672AC89F9000668516 /* URLManagerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLManagerModel.m; sourceTree = "<group>"; };
+		C55226682AC89F9000668516 /* URLManagerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLManagerModel.h; sourceTree = "<group>"; };
+		C552266A2AC89F9000668516 /* NSObject+URLManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+URLManager.m"; sourceTree = "<group>"; };
+		C552266B2AC89F9000668516 /* NSObject+URLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+URLManager.h"; sourceTree = "<group>"; };
+		C552266F2AC89F9E00668516 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		C55226702AC89F9E00668516 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		C55C895428437190005295B1 /* JXCategoryPopupVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JXCategoryPopupVC.h; sourceTree = "<group>"; };
 		C55C895528437190005295B1 /* JXCategoryPopupVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JXCategoryPopupVC.m; sourceTree = "<group>"; };
 		C55C8957284371A9005295B1 /* JXCategoryPopupSubVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JXCategoryPopupSubVC.h; sourceTree = "<group>"; };
@@ -5927,6 +5939,9 @@
 		84CA653C2789CA8600E46E71 /* 网络请求 */ = {
 			isa = PBXGroup;
 			children = (
+				C552266E2AC89F9E00668516 /* 存取页面数据 */,
+				C55226652AC89F9000668516 /* URL_Manager */,
+				C55226612AC89EF100668516 /* 请求的公共配置文件 */,
 				84CA65412789CABD00E46E71 /* App 的所有网络请求Api */,
 			);
 			path = "网络请求";
@@ -6732,6 +6747,51 @@
 				C55E6B4E28436F8100ABA84A /* JobsCustomView.m */,
 			);
 			path = JobsCustomView;
+			sourceTree = "<group>";
+		};
+		C55226612AC89EF100668516 /* 请求的公共配置文件 */ = {
+			isa = PBXGroup;
+			children = (
+				C55226622AC89EF100668516 /* RequestTool.h */,
+				C55226632AC89EF100668516 /* RequestTool.m */,
+			);
+			path = "请求的公共配置文件";
+			sourceTree = "<group>";
+		};
+		C55226652AC89F9000668516 /* URL_Manager */ = {
+			isa = PBXGroup;
+			children = (
+				C55226662AC89F9000668516 /* URLManagerModel */,
+				C55226692AC89F9000668516 /* NSObject+URLManager */,
+			);
+			path = URL_Manager;
+			sourceTree = "<group>";
+		};
+		C55226662AC89F9000668516 /* URLManagerModel */ = {
+			isa = PBXGroup;
+			children = (
+				C55226672AC89F9000668516 /* URLManagerModel.m */,
+				C55226682AC89F9000668516 /* URLManagerModel.h */,
+			);
+			path = URLManagerModel;
+			sourceTree = "<group>";
+		};
+		C55226692AC89F9000668516 /* NSObject+URLManager */ = {
+			isa = PBXGroup;
+			children = (
+				C552266A2AC89F9000668516 /* NSObject+URLManager.m */,
+				C552266B2AC89F9000668516 /* NSObject+URLManager.h */,
+			);
+			path = "NSObject+URLManager";
+			sourceTree = "<group>";
+		};
+		C552266E2AC89F9E00668516 /* 存取页面数据 */ = {
+			isa = PBXGroup;
+			children = (
+				C552266F2AC89F9E00668516 /* DataManager.h */,
+				C55226702AC89F9E00668516 /* DataManager.m */,
+			);
+			path = "存取页面数据";
 			sourceTree = "<group>";
 		};
 		C55C895A284371B2005295B1 /* JXCategoryPopupVC */ = {
@@ -11830,6 +11890,7 @@
 				840F963B27736427004979E9 /* JobsPageTBVCell.m in Sources */,
 				84A16102278956D000DACA3C /* ViewController@5.m in Sources */,
 				C593DF662AC897FC00F875B5 /* BaseImageView.m in Sources */,
+				C55226642AC89EF100668516 /* RequestTool.m in Sources */,
 				844B084B2764CF4800B0513D /* ECPrivacyCheckFilesAndFolders.m in Sources */,
 				840F95E627736427004979E9 /* UITabBarItem+TLAnimation.m in Sources */,
 				C593DF822AC897FC00F875B5 /* UIViewController+GifImageView.m in Sources */,
@@ -11984,6 +12045,7 @@
 				840F964027736427004979E9 /* JobsSuspendView.m in Sources */,
 				84A491F327904A970002A837 /* JobsIMInputview.m in Sources */,
 				C593DFB32AC897FC00F875B5 /* UITextModel.m in Sources */,
+				C552266D2AC89F9000668516 /* NSObject+URLManager.m in Sources */,
 				C5B3AE81285378A70052A4A9 /* JXCategoryViewWithHeaderViewSubVC.m in Sources */,
 				C593DF9B2AC897FC00F875B5 /* UITableViewHeaderFooterView+BaseTableViewHeaderFooterViewProtocol.m in Sources */,
 				840F963D27736427004979E9 /* JobsPageView.m in Sources */,
@@ -12014,6 +12076,7 @@
 				C593DFF52AC897FC00F875B5 /* UITextField+Placeholder.m in Sources */,
 				C52E5CEB2AC07EE500FE5494 /* DDRange.m in Sources */,
 				C593DF142AC897FC00F875B5 /* JobsBaseLabel.m in Sources */,
+				C552266C2AC89F9000668516 /* URLManagerModel.m in Sources */,
 				8424771527C0FDCA00831270 /* GetCustomerContactApi.m in Sources */,
 				C593DF302AC897FC00F875B5 /* RBCLikeButton.m in Sources */,
 				C593DF872AC897FC00F875B5 /* LOTAnimationMJRefreshHeader.m in Sources */,
@@ -12030,6 +12093,7 @@
 				84CA61A22789859900E46E71 /* PushAnimation.m in Sources */,
 				C593DF5D2AC897FC00F875B5 /* BaseCollectionView.m in Sources */,
 				C593DF122AC897FC00F875B5 /* UIWindow+Extra.m in Sources */,
+				C55226712AC89F9E00668516 /* DataManager.m in Sources */,
 				C563415A2849DFE90047CA49 /* JobsTestVC.m in Sources */,
 				C593DF372AC897FC00F875B5 /* IrregularBtn.m in Sources */,
 				842475B527C0DE6100831270 /* YTKRequest+Custom.m in Sources */,
