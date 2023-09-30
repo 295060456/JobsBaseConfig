@@ -48,7 +48,7 @@ ITTDPRINT(xx, ##__VA_ARGS__);\
 
 #pragma mark —— 我的调试
 #ifndef JobsDebug
-#define JobsDebug 1
+#define JobsDebug 0
 #endif
 
 #endif /* MacroDef_Log_h */

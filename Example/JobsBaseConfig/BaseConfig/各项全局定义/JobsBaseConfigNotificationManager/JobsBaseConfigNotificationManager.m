@@ -1,8 +1,8 @@
 //
 //  JobsBaseConfigNotificationManager.m
-//  JobsBaseConfig
+//  Casino
 //
-//  Created by Jobs on 2021/12/17.
+//  Created by Jobs on 2021/12/13.
 //
 
 #import "JobsBaseConfigNotificationManager.h"

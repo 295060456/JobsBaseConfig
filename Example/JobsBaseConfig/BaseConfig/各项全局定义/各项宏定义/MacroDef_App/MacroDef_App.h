@@ -8,9 +8,12 @@
 #ifndef MacroDef_App_h
 #define MacroDef_App_h
 
+#define debug 1//是否显示debug控件
+
 static NSString *退出登录 = @"退出登录";
 static NSString *登录成功 = @"登录成功";
 
+#define HeightForsSpreadsheetViewRow JobsWidth(35.f)
 #define AppVersion @"100010017"
 #define categoryTitleViewHeight 50
 #define Margin_collectionView 12

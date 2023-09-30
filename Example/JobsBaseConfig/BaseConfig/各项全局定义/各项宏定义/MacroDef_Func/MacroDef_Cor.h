@@ -5,7 +5,7 @@
 //  Created by Jobs on 2020/10/9.
 //
 
-#ifndef MacroDef_Cor_h
+#ifndef MacroDef_Cor_h 
 #define MacroDef_Cor_h
 
 #pragma mark ======================================== 色彩相关 ========================================

@@ -1,13 +1,9 @@
 //
 //  JobsBaseConfigNotificationManager.h
-//  JobsBaseConfig
+//  Casino
 //
-//  Created by Jobs on 2021/12/17.
+//  Created by Jobs on 2021/12/13.
 //
-
-#import <Foundation/Foundation.h>
-
-extern NSString *const kUserAssert;
 
 FOUNDATION_EXTERN NSString *const LanguageSwitchNotification;
 FOUNDATION_EXTERN NSString *const UBLEnterBackgroundStopPlayer;
