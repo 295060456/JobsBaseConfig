@@ -13,8 +13,8 @@
     self.popupParameter.disuseBackgroundTouchHide = NO;
     CGRect targetFrame = CGRectMake(0,
                                     0,
-                                    [BaiShaETProjFiltrationView viewSizeWithModel:nil].width,
-                                    [BaiShaETProjFiltrationView viewSizeWithModel:nil].height);
+                                    [JobsFiltrationView viewSizeWithModel:nil].width,
+                                    [JobsFiltrationView viewSizeWithModel:nil].height);
     if ([self isKindOfClass:UIViewController.class]) {
         [self.filtrationView tf_showFold:self.view
                              targetFrame:targetFrame
@@ -27,8 +27,8 @@
     self.popupParameter.disuseBackgroundTouchHide = NO;
     CGRect targetFrame = CGRectMake(0,
                                     0,
-                                    [BaiShaETProjCustomView viewSizeWithModel:nil].width,
-                                    [BaiShaETProjCustomView viewSizeWithModel:nil].height);
+                                    [JobsCustomView viewSizeWithModel:nil].width,
+                                    [JobsCustomView viewSizeWithModel:nil].height);
     if ([self isKindOfClass:UIViewController.class]) {
         [self.customView tf_showFold:self.view
                          targetFrame:targetFrame
@@ -40,36 +40,36 @@
 -(void)hidePopupView:(UIView *)popupView{
     [popupView tf_hide];
 }
-#pragma mark —— @property(nonatomic,strong)BaiShaETProjFiltrationView *filtrationView;/// 过滤
+#pragma mark —— @property(nonatomic,strong)JobsFiltrationView *filtrationView;/// 过滤
 JobsKey(_filtrationView)
 @dynamic filtrationView;
--(BaiShaETProjFiltrationView *)filtrationView{
-    BaiShaETProjFiltrationView *FiltrationView = Jobs_getAssociatedObject(_filtrationView);
+-(JobsFiltrationView *)filtrationView{
+    JobsFiltrationView *FiltrationView = Jobs_getAssociatedObject(_filtrationView);
     if (!FiltrationView) {
-        FiltrationView = BaiShaETProjFiltrationView.new;
-        FiltrationView.size = [BaiShaETProjFiltrationView viewSizeWithModel:nil];
+        FiltrationView = JobsFiltrationView.new;
+        FiltrationView.size = [JobsFiltrationView viewSizeWithModel:nil];
         [FiltrationView richElementsInViewWithModel:nil];
         Jobs_setAssociatedRETAIN_NONATOMIC(_filtrationView, FiltrationView)
     }return FiltrationView;
 }
 
--(void)setFiltrationView:(BaiShaETProjFiltrationView *)filtrationView{
+-(void)setFiltrationView:(JobsFiltrationView *)filtrationView{
     Jobs_setAssociatedRETAIN_NONATOMIC(_filtrationView, filtrationView)
 }
-#pragma mark —— @property(nonatomic,strong)BaiShaETProjCustomView *customView;/// 自定义
+#pragma mark —— @property(nonatomic,strong)JobsCustomView *customView;/// 自定义
 JobsKey(_customView)
 @dynamic customView;
--(BaiShaETProjCustomView *)customView{
-    BaiShaETProjCustomView *CustomView = Jobs_getAssociatedObject(_customView);
+-(JobsCustomView *)customView{
+    JobsCustomView *CustomView = Jobs_getAssociatedObject(_customView);
     if (!CustomView) {
-        CustomView = BaiShaETProjCustomView.new;
-        CustomView.size = [BaiShaETProjFiltrationView viewSizeWithModel:nil];
+        CustomView = JobsCustomView.new;
+        CustomView.size = [JobsFiltrationView viewSizeWithModel:nil];
         [CustomView richElementsInViewWithModel:nil];
         Jobs_setAssociatedRETAIN_NONATOMIC(_customView, CustomView)
     }return CustomView;
 }
 
--(void)setCustomView:(BaiShaETProjCustomView *)customView{
+-(void)setCustomView:(JobsCustomView *)customView{
     Jobs_setAssociatedRETAIN_NONATOMIC(_customView, customView)
 }
 

@@ -231,7 +231,7 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
     }];return popupView;
 }
 /// App 升级弹窗：在根控制器下实现，做到覆盖全局的统一
--(void)appUpdateWithData:(BaiShaETProjGetiOSNewestVersionModel *_Nonnull)updateData
+-(void)appUpdateWithData:(CasinoGetiOSNewestVersionModel *_Nonnull)updateData
                sureBlock:(jobsByIDBlock _Nullable)sureBlock
              cancelBlock:(jobsByIDBlock _Nullable)cancelBlock{
 //    CasinoUpgradePopupView *upgradePopupView = CasinoUpgradePopupView.new;

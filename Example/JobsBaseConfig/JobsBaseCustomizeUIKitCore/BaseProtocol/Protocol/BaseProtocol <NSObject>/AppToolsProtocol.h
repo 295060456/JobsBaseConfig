@@ -9,7 +9,7 @@
 #import "BaseProtocol.h"
 #import "JobsAppDoorConfig.h"
 #import "NetworkingConstant.h"
-#import "BaiShaETProjGetiOSNewestVersionModel.h"
+#import "CasinoGetiOSNewestVersionModel.h"
 
 @class JobsHotLabelWithSingleLine;
 
@@ -57,7 +57,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 当前语言【枚举形式】
 -(HTTPRequestHeaderLanguageType)currentLanguageType;
 /// App 升级弹窗：在根控制器下实现，做到覆盖全局的统一
--(void)appUpdateWithData:(BaiShaETProjGetiOSNewestVersionModel *_Nonnull)updateData
+-(void)appUpdateWithData:(CasinoGetiOSNewestVersionModel *_Nonnull)updateData
                sureBlock:(jobsByIDBlock _Nullable)sureBlock
              cancelBlock:(jobsByIDBlock _Nullable)cancelBlock;
 

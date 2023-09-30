@@ -9,20 +9,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef enum : NSInteger {
-    CustomerContactStyle_QQ = 1, // QQ
-    CustomerContactStyle_Skype, // Skype
-    CustomerContactStyle_Telegram, // Telegram
-    CustomerContactStyle_whatsApp, // whatsApp
-    CustomerContactStyle_手机号码, // 手机号码
-    CustomerContactStyle_onlineURL // onlineURL
-} CustomerContactStyle;//客服平台标识
-
-typedef enum : NSInteger {
-    CustomerContactStateStyle_Close = 0, // 停用
-    CustomerContactStateStyle_Open // 启用
-} CustomerContactStateStyle;//客服平台状态
-
 @interface CasinoCustomerContactElementModel : BaseModel
 
 @property(nonatomic,copy)NSString *appIconUrl; // 移动端图标

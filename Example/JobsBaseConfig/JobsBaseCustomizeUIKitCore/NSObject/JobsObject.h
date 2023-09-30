@@ -99,5 +99,9 @@
 #import "NSObject+UIScrollViewDelegate.h"
 /// Cell 部署策略
 #import "NSObject+JobsDeployCellConfig.h"
+/// 用户信息
+#import "NSObject+UserInfo.h"
+/// 常用设定
+#import "NSObject+AppTools.h"
 
 #endif /* JobsObject_h */
