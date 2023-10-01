@@ -322,38 +322,59 @@ BaseProtocol
 #pragma mark —— 键盘⌨️
 /**
  ❤️使用方法❤️
- IQKeyboardManager.sharedManager.enable = NO;
- [self keyboard];
- [self actionNotificationBlock:^id(NSNotificationKeyboardModel *data) {
-     @jobs_strongify(self)
-     NSLog(@"userInfo = %@",data.userInfo);
-     NSLog(@"beginFrame = %@",NSStringFromCGRect(data.beginFrame));
-     NSLog(@"endFrame = %@",NSStringFromCGRect(data.endFrame));
-     NSLog(@"keyboardOffsetY = %f",data.keyboardOffsetY);
-     NSLog(@"notificationName = %@",data.notificationName);
-     if (data.notificationName.isEqualToString(@"UIKeyboardWillChangeFrameNotification")) {
+ /// 在初始化方法里面进行接入
+ -(instancetype)init{
+     if (self = [super init]) {
+         [self registerKeyboard];
+     }return self;
+ }
 
-         if (data.keyboardOffsetY >= 0) {
-             [self.collectionView setContentOffset:CGPointMake(0,self.collectionView.contentOffset.y + data.keyboardOffsetY)
-                                          animated:YES];
-         }else if(data.keyboardOffsetY < 0){
-             [self.collectionView setContentOffset:CGPointMake(0,0)
-                                          animated:YES];
-         }
+ -(void)registerKeyboard{
+     IQKeyboardManager.sharedManager.enable = NO;
+     [self keyboard];
+     @jobs_weakify(self)
+     __block CGFloat gg = 0;// 修正间距
+     /// 键盘弹起的时候的方法监听回调
+     [self actionkeyboardUpNotificationBlock:^id(NSNotificationKeyboardModel *data) {
+         @jobs_strongify(self)
+         NSLog(@"userInfo = %@",data.userInfo);
+         NSLog(@"beginFrame = %@",NSStringFromCGRect(data.beginFrame));
+         NSLog(@"endFrame = %@",NSStringFromCGRect(data.endFrame));
+         NSLog(@"keyboardOffsetY = %f",data.keyboardOffsetY);
+         NSLog(@"notificationName = %@",data.notificationName);
          
-     }else if (data.notificationName.isEqualToString(@"UIKeyboardDidChangeFrameNotification")){
-         NSLog(@"");
-     }else{}
-     
-     return nil;
- }];
+         // 键盘高度：data.keyboardOffsetY
+         // view底的Y值：self.y + [MSPayView viewSizeWithModel:nil].height
+         // 我希望的view距离键盘的固定距离为JobsWidth(20),即:data.keyboardOffsetY - (self.y + [MSPayView viewSizeWithModel:nil].height) = JobsWidth(20)
+         CGFloat dd = data.keyboardOffsetY - (self.y + [MSPayView viewSizeWithModel:nil].height);// 实际间距
+         CGFloat ff = JobsWidth(20) - dd;
+         if(ff > 0){
+             // 实际间距 小于 我希望的距离
+             self.y -= JobsWidth(20);
+             gg = ff;// 修正为补偿值
+         }else{
+             // 实际间距 大于 我希望的距离
+             gg = JobsWidth(20);
+         }
+         self.y -= gg;
+         return nil;
+     }];
+     /// 键盘消失的时候的方法监听回调
+     [self actionkeyboardDownNotificationBlock:^id(id data) {
+         @jobs_strongify(self)
+         self.y += gg;
+         NSLog(@"ddd = %f",self.origin.y);
+         return nil;
+     }];
+ }
  */
 /// 加入键盘通知的监听者
 -(void)keyboard;
 /// 键盘 弹出 和 收回 走这个方法
 -(void)keyboardWillChangeFrameNotification:(NSNotification *_Nullable)notification;
 -(void)keyboardDidChangeFrameNotification:(NSNotification *_Nullable)notification;
--(void)actionNotificationBlock:(JobsReturnIDByIDBlock _Nullable)notificationBlock;
+-(void)actionkeyboardUpNotificationBlock:(JobsReturnIDByIDBlock _Nullable)keyboardUpNotificationBlock;
+-(void)actionkeyboardDownNotificationBlock:(JobsReturnIDByIDBlock _Nullable)keyboardDownNotificationBlock;
 #pragma mark —— 刷新
 /// 停止刷新【可能还有数据的情况，状态为：MJRefreshStateIdle】
 -(void)endRefreshing:(UIScrollView *_Nonnull)targetScrollView;

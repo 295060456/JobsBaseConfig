@@ -215,14 +215,14 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
                                viewModel:(UIViewModel *_Nullable)viewModel{
     // 将方法内的变量进行单例化,避免重复创建
     UIView<BaseViewProtocol> *popupView = popViewClass.class.sharedInstance;
-    // 这里设置弹出框的尺寸
-    popupView.size = [popViewClass viewSizeWithModel:nil];
+    // 这里设置弹出框的尺寸（最好在View内部layoutSubviews里面进行设置，外界设置的话，在某些情况下会出现异常）
+    // popupView.size = [popViewClass viewSizeWithModel:nil];
     [popupView richElementsInViewWithModel:viewModel ? : self.testPopViewData];
     [popupView actionObjectBlock:^(UIButton *data) {
         if([data.titleForNormalState isKindOfClass:NSString.class]){
-            if (data.titleForNormalState.isEqualToString(Internationalization(@"Cancel"))) {
+            if (data.titleForNormalState.isEqualToString(Internationalization(@"取消"))) {
 
-            }else if (data.titleForNormalState.isEqualToString(Internationalization(@"Sure"))){
+            }else if (data.titleForNormalState.isEqualToString(Internationalization(@"确认"))){
                 
             }else{}
         }

@@ -71,6 +71,8 @@ static inline UIWindow *_Nullable jobsGetMainWindowAfter13(void){
             }
             if (mainWindow) {
                 break; // 如果找到主窗口，退出循环
+            }else{
+                mainWindow = windowScene.windows.firstObject;
             }
         }
     }return mainWindow;
