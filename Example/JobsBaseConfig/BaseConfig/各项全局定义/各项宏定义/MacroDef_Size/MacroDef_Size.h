@@ -378,4 +378,16 @@ static inline CGPoint jobsSamePoint(CGFloat x){
     return CGPointMake(JobsWidth(x), JobsWidth(x));
 }
 
+static inline BOOL jobsEqualToZeroRect(CGRect x){
+    return CGRectEqualToRect(x, CGRectZero);
+}
+
+static inline BOOL jobsEqualToZeroPoint(CGPoint x){
+    return CGPointEqualToPoint(x, CGPointZero);
+}
+
+static inline BOOL jobsEqualToZeroSize(CGSize x){
+    return CGSizeEqualToSize(x, CGSizeZero);
+}
+
 #endif /* MacroDef_Size_h */
