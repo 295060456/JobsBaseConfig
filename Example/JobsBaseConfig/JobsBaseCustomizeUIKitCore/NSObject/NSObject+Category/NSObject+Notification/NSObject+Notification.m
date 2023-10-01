@@ -14,7 +14,7 @@
     if ([NSString isNullString:notificationName]) {
         return;
     }
-    NotificationAdd(self,
+    JobsAddNotification(self,
                     @selector(selector),
                     notificationName,
                     nil);
@@ -42,7 +42,7 @@
             break;
     }
     /// 发通知，通知需要更改的地方进行修改
-    NotificationPostOnMainThread(LanguageSwitchNotification,
+    JobsPostNotificationOnMainThread(LanguageSwitchNotification,
                                  CLLanguageManager.userLanguage,
                                  nil);
 }

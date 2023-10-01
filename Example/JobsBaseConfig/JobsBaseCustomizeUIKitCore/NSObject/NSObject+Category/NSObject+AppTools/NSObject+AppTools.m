@@ -31,7 +31,7 @@
 /// @param aSelector 相关逻辑
 +(void)targetView:(UIView *)targetView
 languageSwitchNotificationWithSelector:(SEL)aSelector{
-    NotificationAdd(targetView, aSelector, LanguageSwitchNotification, nil);
+    JobsAddNotification(targetView, aSelector, LanguageSwitchNotification, nil);
 }
 /// 【App语言国际化】更改UITabBarItem的标题
 -(void)changeTabBarItemTitle:(NSIndexPath *)indexPath{

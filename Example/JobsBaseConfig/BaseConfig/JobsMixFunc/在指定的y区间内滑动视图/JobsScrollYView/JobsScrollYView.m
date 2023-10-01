@@ -38,7 +38,7 @@ static dispatch_once_t static_scrollYViewOnceToken;
 
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        NotificationAdd(self,
+        JobsAddNotification(self,
                         @selector(languageSwitchNotification:),
                         LanguageSwitchNotification,
                         nil);

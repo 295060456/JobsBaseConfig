@@ -6,13 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-/// 定义通知
-#define JobsNotificationCenter NSNotificationCenter.defaultCenter
-/// 发送通知
-#define JobsPostNotification(NotificationName,Obj) [JobsNotificationCenter postNotificationName:NotificationName object:Obj]
-/// 销毁通知
-#define JobsRemoveNotification(Object) [JobsNotificationCenter removeObserver:Object]
+#import "MacroDef_Notification.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

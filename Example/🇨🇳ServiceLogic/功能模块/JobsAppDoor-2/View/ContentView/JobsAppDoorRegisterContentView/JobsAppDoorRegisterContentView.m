@@ -31,7 +31,7 @@
     if (self = [super init]) {
         self.backgroundColor = Cor1;
         
-        NotificationAdd(self,
+        JobsAddNotification(self,
                         selectorBlocks(^(id  _Nullable weakSelf,
                                                   id  _Nullable arg) {
             

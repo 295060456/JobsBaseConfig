@@ -82,7 +82,7 @@ BaseViewControllerProtocol_synthesize
 //        self.gk_navLineHidden = YES;
 //    }
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
-    NotificationAdd(self,
+    JobsAddNotification(self,
                     @selector(languageSwitchNotification:),
                     LanguageSwitchNotification,
                     nil);

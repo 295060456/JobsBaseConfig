@@ -40,7 +40,7 @@ static dispatch_once_t static_mineView2OnceToken;
 
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        NotificationAdd(self,
+        JobsAddNotification(self,
                         @selector(languageSwitchNotification:),
                         LanguageSwitchNotification,
                         nil);
