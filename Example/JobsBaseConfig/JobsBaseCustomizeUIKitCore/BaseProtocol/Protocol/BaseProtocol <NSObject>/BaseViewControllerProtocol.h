@@ -46,9 +46,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)BOOL setupNavigationBarHidden;
 @property(nonatomic,strong)UIView *statusBar;
 /// 更新状态栏颜色
-- (void)updateStatusBarCor:(UIColor *)cor;
+- (void)updateStatusBarCor:(UIColor *_Nullable)cor;
 /// 恢复状态栏颜色
--(void)restoreStatusBarCor;
+-(void)restoreStatusBarCor:(UIColor *_Nullable)cor;
 /// 查看用户数据
 -(void)showUserInfo;
 /// 配置GKNavigationBar

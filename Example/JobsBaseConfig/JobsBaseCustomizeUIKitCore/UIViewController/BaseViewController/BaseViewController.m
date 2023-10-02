@@ -111,7 +111,7 @@ BaseViewControllerProtocol_synthesize
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [self restoreStatusBarCor];
+//    [self restoreStatusBarCor:nil];
     [self UIViewControllerLifeCycle:JobsLocalFunc];
     NSLog(@"%d",self.setupNavigationBarHidden);
     self.isHiddenNavigationBar = self.setupNavigationBarHidden;
@@ -169,7 +169,7 @@ BaseViewControllerProtocol_synthesize
     if(self.objectBlock) self.objectBlock(viewModel);
 }
 /// 更新状态栏颜色为自定义的颜色
-- (void)updateStatusBarCor:(UIColor *)cor{
+- (void)updateStatusBarCor:(UIColor *_Nullable)cor{
     if(!cor)cor = JobsRedColor;
     if (@available(iOS 13.0, *)) {
         if (![jobsGetMainWindow().subviews containsObject:self.statusBar]) {
@@ -186,11 +186,13 @@ BaseViewControllerProtocol_synthesize
     }
 }
 /// 恢复状态栏颜色
--(void)restoreStatusBarCor{
+-(void)restoreStatusBarCor:(UIColor *_Nullable)cor{
     if (@available(iOS 13.0, *)) {
         if (![jobsGetMainWindow().subviews containsObject:self.statusBar]) {
             [self.statusBar removeFromSuperview];
         }
+        if(!cor) cor = JobsWhiteColor;
+        self.statusBar.backgroundColor = cor;
     } else {
         UIView *statusBar = [UIApplication.sharedApplication.valueForKeyBlock(@"statusBarWindow") valueForKey:@"statusBar"];
         if ([statusBar respondsToSelector:@selector(setBackgroundColor:)]) {
