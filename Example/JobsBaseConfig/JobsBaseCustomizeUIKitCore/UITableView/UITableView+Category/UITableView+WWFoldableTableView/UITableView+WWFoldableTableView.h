@@ -28,3 +28,8 @@
 +(void)ww_swizzClassMethod:(SEL)methodOrig withMethod:(SEL)methodNew;
 
 @end
+/**
+ *  使用方法：
+ *  _tableView.ww_foldable = YES;//设置可折叠
+ *  点击UITableViewHeaderFooterView子类触发： [self.tableView ww_foldSection:section fold:![self.tableView ww_isSectionFolded:section]];//设置可折叠
+ */

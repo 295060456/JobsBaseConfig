@@ -12,11 +12,12 @@
 @implementation UITableView (WWFoldableTableView)
 #pragma mark - init
 + (void)load{
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wundeclared-selector"
-//    [self ww_swizzInstanceMethod:@selector(_numberOfSections) withMethod:@selector(ww__numberOfSections)];
-    [self ww_swizzInstanceMethod:@selector(_numberOfRowsInSection:) withMethod:@selector(ww__numberOfRowsInSection:)];
-#pragma clang diagnostic pop
+    SuppressWundeclaredSelectorWarning(
+//                                       [self ww_swizzInstanceMethod:@selector(_numberOfSections)
+//                                                         withMethod:@selector(ww__numberOfSections)];
+                                       [self ww_swizzInstanceMethod:@selector(_numberOfRowsInSection:)
+                                                         withMethod:@selector(ww__numberOfRowsInSection:)];
+                                       );
 }
 
 - (NSInteger)ww__numberOfRowsInSection:(NSInteger)section{
@@ -27,15 +28,14 @@
     BOOL isFolded = [self ww_isSectionFolded:section];
     return isFolded ? 0 : [self ww__numberOfRowsInSection:section];
 }
-#pragma mark - getter/setter
-static const char WWFoldableKey = '\0';
+JobsKey(_ww_foldable)
 - (BOOL)ww_foldable{
-    return [objc_getAssociatedObject(self, &WWFoldableKey) boolValue];
+    return Jobs_getAssociatedObject(_ww_foldable);
 }
 
 - (void)setWw_foldable:(BOOL)ww_foldable{
     [self willChangeValueForKey:@"ww_foldable"];
-    objc_setAssociatedObject(self, &WWFoldableKey, @(ww_foldable), OBJC_ASSOCIATION_ASSIGN);
+    Jobs_setAssociatedASSIGN(_ww_foldable, @(ww_foldable))
     [self didChangeValueForKey:@"ww_foldable"];
     
     if(ww_foldable && !self.ww_foldState){
