@@ -74,5 +74,37 @@ isEqualToPoint2:(CGPoint)point2{
 isEqualToSize2:(CGSize)size2{
     return CGSizeEqualToSize(size1, size2);
 }
+/// UILabel多行文本的高度（定宽）：根据文本+字体+控件宽度+提行模式，计算高度
+- (CGFloat)jobsGetLabelHeightByWidth:(CGFloat)width
+                               title:(NSString *)title
+                                font:(UIFont *)font{
+    UILabel *label = UILabel.new;
+    label.frame = CGRectMake(0, 0, width, 0);
+    label.text = title;
+    label.font = font;
+    label.numberOfLines = 0;
+    [label sizeToFit];
+    CGFloat height = label.frame.size.height;
+    return ceil(height);
+}
+/// UILabe单行文本的宽度：根据字体计算单行文本的宽度
+- (CGSize)jobsGetLabelWidthWithTitle:(NSString *)title
+                                font:(UIFont *)font{
+    return [title sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:font,NSFontAttributeName,nil]];
+}
+/// UILabel多行文本的行数（定宽）：根据文本+字体+控件宽度+提行模式，计算行数
+-(NSInteger)jobsGetLineNumsByWidth:(CGFloat)width
+                             title:(NSString *)title
+                              font:(UIFont *)font{
+    UILabel *label = UILabel.new;
+    label.frame = CGRectMake(0, 0, width, 0);
+    label.text = title;
+    label.font = font;
+    label.numberOfLines = 0;
+    [label sizeToFit];
+    CGFloat height = label.frame.size.height;
+    /// 先用UILabel的 sizeToFit 计算出最佳大小，然后用高度/lineHeight就是行数，lineHeight为UIFont的属性
+    return ceil(height)/label.font.lineHeight;
+}
 
 @end

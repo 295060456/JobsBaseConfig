@@ -79,5 +79,6 @@
 #import "JobsPostVC.h"
 #import "JobsShootingVC.h"
 #import "MasonryVC.h"
+#import "UITBVCellFoldVC.h"
 
 #endif /* Other_h */

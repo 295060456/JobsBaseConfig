@@ -553,6 +553,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         }
         
         
+        {
+            UIViewModel *viewModel = [self configViewModelWithTitle:@"UITBVCellFoldVC"
+                                                           subTitle:Internationalization(@"UITableViewCell的折叠效果")];
+            viewModel.cls = UITBVCellFoldVC.class;
+            [_dataMutArr addObject:viewModel];
+        }
         
 //        {
 //            UIViewModel *viewModel = [self configViewModelWithTitle:@"ProtocolKitVC"

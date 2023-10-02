@@ -532,6 +532,12 @@
 		C536CF022AC248C6005D1FCD /* 相册选取图片和视频.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C536CF012AC248C6005D1FCD /* 相册选取图片和视频.xcassets */; };
 		C536CF0C2AC2588B005D1FCD /* JobsTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C536CF0B2AC2588B005D1FCD /* JobsTextView.m */; };
 		C536CF0F2AC258BB005D1FCD /* JobsPostDelView.m in Sources */ = {isa = PBXBuildFile; fileRef = C536CF0D2AC258BB005D1FCD /* JobsPostDelView.m */; };
+		C5432D662ACB1C9F008F92B0 /* UITBVCellFoldVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5432D652ACB1C9F008F92B0 /* UITBVCellFoldVC.m */; };
+		C5432D742ACB1CF6008F92B0 /* MSCommentTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5432D6C2ACB1CF6008F92B0 /* MSCommentTBVCell.m */; };
+		C5432D752ACB1CF6008F92B0 /* MSCommentView.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C5432D6E2ACB1CF6008F92B0 /* MSCommentView.jpg */; };
+		C5432D762ACB1CF6008F92B0 /* MSCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5432D702ACB1CF6008F92B0 /* MSCommentView.m */; };
+		C5432D772ACB1CF6008F92B0 /* MSCommentTableHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5432D732ACB1CF6008F92B0 /* MSCommentTableHeaderFooterView.m */; };
+		C5432DF32ACB1E09008F92B0 /* MSCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5432DF22ACB1E09008F92B0 /* MSCommentModel.m */; };
 		C54BC43628325BA80010EF20 /* JobsTitleView01.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BC43428325BA80010EF20 /* JobsTitleView01.m */; };
 		C55224232AC898EE00668516 /* NSObject+UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C55224222AC898EE00668516 /* NSObject+UserInfo.m */; };
 		C55224282AC8994D00668516 /* NSObject+AppTools.m in Sources */ = {isa = PBXBuildFile; fileRef = C55224252AC8994D00668516 /* NSObject+AppTools.m */; };
@@ -1945,6 +1951,17 @@
 		C536CF0B2AC2588B005D1FCD /* JobsTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsTextView.m; sourceTree = "<group>"; };
 		C536CF0D2AC258BB005D1FCD /* JobsPostDelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsPostDelView.m; sourceTree = "<group>"; };
 		C536CF0E2AC258BB005D1FCD /* JobsPostDelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsPostDelView.h; sourceTree = "<group>"; };
+		C5432D642ACB1C9F008F92B0 /* UITBVCellFoldVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITBVCellFoldVC.h; sourceTree = "<group>"; };
+		C5432D652ACB1C9F008F92B0 /* UITBVCellFoldVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITBVCellFoldVC.m; sourceTree = "<group>"; };
+		C5432D6B2ACB1CF6008F92B0 /* MSCommentTBVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCommentTBVCell.h; sourceTree = "<group>"; };
+		C5432D6C2ACB1CF6008F92B0 /* MSCommentTBVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCommentTBVCell.m; sourceTree = "<group>"; };
+		C5432D6E2ACB1CF6008F92B0 /* MSCommentView.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MSCommentView.jpg; sourceTree = "<group>"; };
+		C5432D6F2ACB1CF6008F92B0 /* MSCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCommentView.h; sourceTree = "<group>"; };
+		C5432D702ACB1CF6008F92B0 /* MSCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCommentView.m; sourceTree = "<group>"; };
+		C5432D722ACB1CF6008F92B0 /* MSCommentTableHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCommentTableHeaderFooterView.h; sourceTree = "<group>"; };
+		C5432D732ACB1CF6008F92B0 /* MSCommentTableHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCommentTableHeaderFooterView.m; sourceTree = "<group>"; };
+		C5432DF12ACB1E09008F92B0 /* MSCommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCommentModel.h; sourceTree = "<group>"; };
+		C5432DF22ACB1E09008F92B0 /* MSCommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCommentModel.m; sourceTree = "<group>"; };
 		C546E1EC287ACD6200074386 /* NetworkingConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingConstant.h; sourceTree = "<group>"; };
 		C54BC43228325BA80010EF20 /* JobsTitleView01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsTitleView01.h; sourceTree = "<group>"; };
 		C54BC43328325BA80010EF20 /* JobsTitleView01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobsTitleView01.png; sourceTree = "<group>"; };
@@ -5640,6 +5657,7 @@
 		84CA609D278980E700E46E71 /* 功能模块 */ = {
 			isa = PBXGroup;
 			children = (
+				C5432D632ACB1C5A008F92B0 /* UITableViewCell的折叠效果 */,
 				C5368A292AC3D5FC00A6AF05 /* Masonry的应用与实践 */,
 				C536CF8C2AC27822005D1FCD /* 相册选取图片和视频 */,
 				C536CE822AC2428C005D1FCD /* 发帖功能 */,
@@ -6683,6 +6701,88 @@
 				C5BDB3D82AC278F6009583D7 /* ViewController */,
 			);
 			path = "相册选取图片和视频";
+			sourceTree = "<group>";
+		};
+		C5432D632ACB1C5A008F92B0 /* UITableViewCell的折叠效果 */ = {
+			isa = PBXGroup;
+			children = (
+				C5432DF42ACB1E0D008F92B0 /* Model */,
+				C5432D672ACB1CD9008F92B0 /* View */,
+				C5432D682ACB1CDE008F92B0 /* ViewController */,
+			);
+			path = "UITableViewCell的折叠效果";
+			sourceTree = "<group>";
+		};
+		C5432D672ACB1CD9008F92B0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C5432D712ACB1CF6008F92B0 /* MSCommentTableHeaderFooterView */,
+				C5432D6A2ACB1CF6008F92B0 /* MSCommentTBVCell */,
+				C5432D6D2ACB1CF6008F92B0 /* MSCommentView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C5432D682ACB1CDE008F92B0 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C5432D692ACB1CE6008F92B0 /* UITBVCellFoldVC */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C5432D692ACB1CE6008F92B0 /* UITBVCellFoldVC */ = {
+			isa = PBXGroup;
+			children = (
+				C5432D642ACB1C9F008F92B0 /* UITBVCellFoldVC.h */,
+				C5432D652ACB1C9F008F92B0 /* UITBVCellFoldVC.m */,
+			);
+			path = UITBVCellFoldVC;
+			sourceTree = "<group>";
+		};
+		C5432D6A2ACB1CF6008F92B0 /* MSCommentTBVCell */ = {
+			isa = PBXGroup;
+			children = (
+				C5432D6B2ACB1CF6008F92B0 /* MSCommentTBVCell.h */,
+				C5432D6C2ACB1CF6008F92B0 /* MSCommentTBVCell.m */,
+			);
+			path = MSCommentTBVCell;
+			sourceTree = "<group>";
+		};
+		C5432D6D2ACB1CF6008F92B0 /* MSCommentView */ = {
+			isa = PBXGroup;
+			children = (
+				C5432D6E2ACB1CF6008F92B0 /* MSCommentView.jpg */,
+				C5432D6F2ACB1CF6008F92B0 /* MSCommentView.h */,
+				C5432D702ACB1CF6008F92B0 /* MSCommentView.m */,
+			);
+			path = MSCommentView;
+			sourceTree = "<group>";
+		};
+		C5432D712ACB1CF6008F92B0 /* MSCommentTableHeaderFooterView */ = {
+			isa = PBXGroup;
+			children = (
+				C5432D722ACB1CF6008F92B0 /* MSCommentTableHeaderFooterView.h */,
+				C5432D732ACB1CF6008F92B0 /* MSCommentTableHeaderFooterView.m */,
+			);
+			path = MSCommentTableHeaderFooterView;
+			sourceTree = "<group>";
+		};
+		C5432DF02ACB1E09008F92B0 /* MSCommentModel */ = {
+			isa = PBXGroup;
+			children = (
+				C5432DF12ACB1E09008F92B0 /* MSCommentModel.h */,
+				C5432DF22ACB1E09008F92B0 /* MSCommentModel.m */,
+			);
+			path = MSCommentModel;
+			sourceTree = "<group>";
+		};
+		C5432DF42ACB1E0D008F92B0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C5432DF02ACB1E09008F92B0 /* MSCommentModel */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C54BC43128325BA80010EF20 /* JobsTitleView01 */ = {
@@ -11306,6 +11406,7 @@
 				C520F8252AB39EDD00142DCC /* 480x762.png in Resources */,
 				844B08732764CF4800B0513D /* ECPrivacyCheckTools不用pod管理的情况说明.md in Resources */,
 				840F95FD27736427004979E9 /* tab_message_animate.json in Resources */,
+				C5432D752ACB1CF6008F92B0 /* MSCommentView.jpg in Resources */,
 				C59483342879846400EC655B /* B.png in Resources */,
 				8440287B27930D020038FF6F /* 垃圾箱.png in Resources */,
 				84CA5F9E27897AFB00E46E71 /* SHA-256 in Resources */,
@@ -11640,6 +11741,7 @@
 				840F960B27736427004979E9 /* BWShareView.m in Sources */,
 				8424779227C1141900831270 /* CoreTextLearningVC.m in Sources */,
 				C593DF8B2AC897FC00F875B5 /* BaseViewController.m in Sources */,
+				C5432D762ACB1CF6008F92B0 /* MSCommentView.m in Sources */,
 				C5B3AEA72853796A0052A4A9 /* BaiShaETProjVIPSubCVFooterView.m in Sources */,
 				C593DF512AC897FC00F875B5 /* UIFont+Extras.m in Sources */,
 				C593DF4D2AC897FC00F875B5 /* UIView+Masonry.m in Sources */,
@@ -11768,6 +11870,7 @@
 				C593DFCB2AC897FC00F875B5 /* NSObject+UIScrollViewDelegate.m in Sources */,
 				840F964427736427004979E9 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				C593DF9D2AC897FC00F875B5 /* JobsTBVHeaderFooterView.m in Sources */,
+				C5432D742ACB1CF6008F92B0 /* MSCommentTBVCell.m in Sources */,
 				C593DF162AC897FC00F875B5 /* UILabel+AutoScroll.m in Sources */,
 				C593DF692AC897FC00F875B5 /* NSString+Conversion.m in Sources */,
 				C520F8972AB3A12100142DCC /* AFImageDownloader.m in Sources */,
@@ -11793,6 +11896,7 @@
 				84CA5FA627897AFB00E46E71 /* NSData+CommonCrypto.m in Sources */,
 				84CA5FA827897AFB00E46E71 /* MovieCountDown.m in Sources */,
 				C52E5CA32AC07E9800FE5494 /* KTVHCDataCacheItem.m in Sources */,
+				C5432DF32ACB1E09008F92B0 /* MSCommentModel.m in Sources */,
 				84B9A8CE279680C80070DD20 /* TestLabelVC.m in Sources */,
 				C593DF962AC897FC00F875B5 /* UIControl+XY.m in Sources */,
 				C593DF7B2AC897FC00F875B5 /* UIViewController+SafeTransition.m in Sources */,
@@ -11874,6 +11978,7 @@
 				84868F19277ADF690098BE7A /* JobsDropDownListView.m in Sources */,
 				C593DF5F2AC897FC00F875B5 /* UICollectionViewCell+Default.m in Sources */,
 				844B02182764C8EE00B0513D /* ViewController.m in Sources */,
+				C5432D772ACB1CF6008F92B0 /* MSCommentTableHeaderFooterView.m in Sources */,
 				C52E5C942AC07E9800FE5494 /* KTVHCURLTool.m in Sources */,
 				C593DFE82AC897FC00F875B5 /* NSObject+DeviceIP.m in Sources */,
 				84A4921427904B000002A837 /* JobsIMShowVC.m in Sources */,
@@ -12047,6 +12152,7 @@
 				C593DFAD2AC897FC00F875B5 /* CALayer+Anim.m in Sources */,
 				C593DFF52AC897FC00F875B5 /* UITextField+Placeholder.m in Sources */,
 				C52E5CEB2AC07EE500FE5494 /* DDRange.m in Sources */,
+				C5432D662ACB1C9F008F92B0 /* UITBVCellFoldVC.m in Sources */,
 				C593DF142AC897FC00F875B5 /* JobsBaseLabel.m in Sources */,
 				C552266C2AC89F9000668516 /* URLManagerModel.m in Sources */,
 				8424771527C0FDCA00831270 /* GetCustomerContactApi.m in Sources */,
