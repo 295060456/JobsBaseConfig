@@ -26,6 +26,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 资料来源：https://www.jianshu.com/p/12426709420e
 /// - Parameters:
 ///   - btnConfiguration: 来自新Api的配置文件。UIButtonConfiguration.filledButtonConfiguration;
+///   - background: 自定义按钮背景的配置
+///   - titleAlignment: 针对文本的对齐方式 UIButtonConfiguration.titleAlignment 【新Api】
+///   - textAlignment: 针对文本的对齐方式 UIButton.titleLabel.titleAlignment【老Api】
 ///   - normalImage: 正常情况下的image
 ///   - highlightImage: 高亮情况下的image
 ///   - attributedTitle: 主标题的富文本（优先级高于普通文本）
@@ -37,9 +40,14 @@ NS_ASSUME_NONNULL_BEGIN
 ///   - subTitleFont: 副标题字体
 ///   - titleCor: 主标题文字颜色
 ///   - subTitleCor: 副标题文字颜色
+///   - titleLineBreakMode: 主标题换行模式
+///   - subtitleLineBreakMode: 副标题换行模式
 ///   - baseBackgroundColor: 背景颜色
-///   - imagePlacement: 表示一个矩形的边缘或方向
 ///   - imagePadding: 图像与标题之间的间距
+///   - titlePadding: 标题和副标题标签之间的距离
+///   - imagePlacement: 表示一个矩形的边缘或方向
+///   - contentHorizontalAlignment: 针对内容的横向对齐方式
+///   - contentVerticalAlignment: 针对内容的竖向对齐方式
 ///   - contentInsets: 定位内边距的方向
 ///   - cornerRadiusValue: 圆切角—作用于所有的角
 ///   - roundingCorners: 圆切角—作用于指定的方位
@@ -50,6 +58,9 @@ NS_ASSUME_NONNULL_BEGIN
 ///   - clickEventBlock: 老Api的点击事件，利用RAC实现
 ///   如果同时设置 clickEventBlock 和 primaryAction，会优先响应新的Api，再响应老的Api
 -(instancetype)jobsInitBtnByConfiguration:(UIButtonConfiguration *_Nullable)btnConfiguration
+                               background:(UIBackgroundConfiguration *_Nullable)background
+                           titleAlignment:(UIButtonConfigurationTitleAlignment)titleAlignment/// 针对文本的对齐方式 UIButtonConfiguration.titleAlignment 【新Api】
+                            textAlignment:(NSTextAlignment)textAlignment/// 针对文本的对齐方式 UIButton.titleLabel.titleAlignment【老Api】
                               normalImage:(UIImage *_Nullable)normalImage
                            highlightImage:(UIImage *_Nullable)highlightImage
                           attributedTitle:(NSAttributedString *_Nullable)attributedTitle
@@ -61,10 +72,15 @@ NS_ASSUME_NONNULL_BEGIN
                              subTitleFont:(UIFont *_Nullable)subTitleFont
                                  titleCor:(UIColor *_Nullable)titleCor
                               subTitleCor:(UIColor *_Nullable)subTitleCor
+                       titleLineBreakMode:(NSLineBreakMode)titleLineBreakMode/// 对应老Api中的：UIButton.lineBreakMode
+                    subtitleLineBreakMode:(NSLineBreakMode)subtitleLineBreakMode
                       baseBackgroundColor:(UIColor *_Nullable)baseBackgroundColor
-                           imagePlacement:(NSDirectionalRectEdge)imagePlacement
                              imagePadding:(CGFloat)imagePadding
-                            contentInsets:(NSDirectionalEdgeInsets)contentInsets
+                             titlePadding:(CGFloat)titlePadding
+                           imagePlacement:(NSDirectionalRectEdge)imagePlacement
+               contentHorizontalAlignment:(UIControlContentHorizontalAlignment)contentHorizontalAlignment /// 针对内容
+                 contentVerticalAlignment:(UIControlContentVerticalAlignment)contentVerticalAlignment /// 针对内容
+                            contentInsets:(NSDirectionalEdgeInsets)contentInsets/// 对应老Api中的：UIButton.contentEdgeInsets
                         cornerRadiusValue:(CGFloat)cornerRadiusValue
                           roundingCorners:(UIRectCorner)roundingCorners
                      roundingCornersRadii:(CGSize)roundingCornersRadii

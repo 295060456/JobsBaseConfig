@@ -13,6 +13,9 @@
 /// 资料来源：https://www.jianshu.com/p/12426709420e
 /// - Parameters:
 ///   - btnConfiguration: 来自新Api的配置文件。UIButtonConfiguration.filledButtonConfiguration;
+///   - background: 自定义按钮背景的配置
+///   - titleAlignment: 针对文本的对齐方式 UIButtonConfiguration.titleAlignment 【新Api】
+///   - textAlignment: 针对文本的对齐方式 UIButton.titleLabel.titleAlignment【老Api】
 ///   - normalImage: 正常情况下的image
 ///   - highlightImage: 高亮情况下的image
 ///   - attributedTitle: 主标题的富文本（优先级高于普通文本）
@@ -24,9 +27,14 @@
 ///   - subTitleFont: 副标题字体
 ///   - titleCor: 主标题文字颜色
 ///   - subTitleCor: 副标题文字颜色
+///   - titleLineBreakMode: 主标题换行模式
+///   - subtitleLineBreakMode: 副标题换行模式
 ///   - baseBackgroundColor: 背景颜色
-///   - imagePlacement: 表示一个矩形的边缘或方向
 ///   - imagePadding: 图像与标题之间的间距
+///   - titlePadding: 标题和副标题标签之间的距离
+///   - imagePlacement: 表示一个矩形的边缘或方向
+///   - contentHorizontalAlignment: 针对内容的横向对齐方式
+///   - contentVerticalAlignment: 针对内容的竖向对齐方式
 ///   - contentInsets: 定位内边距的方向
 ///   - cornerRadiusValue: 圆切角—作用于所有的角
 ///   - roundingCorners: 圆切角—作用于指定的方位
@@ -37,6 +45,9 @@
 ///   - clickEventBlock: 老Api的点击事件，利用RAC实现
 ///   如果同时设置 clickEventBlock 和 primaryAction，会优先响应新的Api，再响应老的Api
 -(instancetype)jobsInitBtnByConfiguration:(UIButtonConfiguration *_Nullable)btnConfiguration
+                               background:(UIBackgroundConfiguration *_Nullable)background
+                           titleAlignment:(UIButtonConfigurationTitleAlignment)titleAlignment/// 针对文本的对齐方式 UIButtonConfiguration.titleAlignment 【新Api】
+                            textAlignment:(NSTextAlignment)textAlignment/// 针对文本的对齐方式 UIButton.titleLabel.titleAlignment【老Api】
                               normalImage:(UIImage *_Nullable)normalImage
                            highlightImage:(UIImage *_Nullable)highlightImage
                           attributedTitle:(NSAttributedString *_Nullable)attributedTitle
@@ -48,10 +59,15 @@
                              subTitleFont:(UIFont *_Nullable)subTitleFont
                                  titleCor:(UIColor *_Nullable)titleCor
                               subTitleCor:(UIColor *_Nullable)subTitleCor
+                       titleLineBreakMode:(NSLineBreakMode)titleLineBreakMode/// 对应老Api中的：UIButton.lineBreakMode
+                    subtitleLineBreakMode:(NSLineBreakMode)subtitleLineBreakMode
                       baseBackgroundColor:(UIColor *_Nullable)baseBackgroundColor
-                           imagePlacement:(NSDirectionalRectEdge)imagePlacement
                              imagePadding:(CGFloat)imagePadding
-                            contentInsets:(NSDirectionalEdgeInsets)contentInsets
+                             titlePadding:(CGFloat)titlePadding
+                           imagePlacement:(NSDirectionalRectEdge)imagePlacement
+               contentHorizontalAlignment:(UIControlContentHorizontalAlignment)contentHorizontalAlignment /// 针对内容
+                 contentVerticalAlignment:(UIControlContentVerticalAlignment)contentVerticalAlignment /// 针对内容
+                            contentInsets:(NSDirectionalEdgeInsets)contentInsets/// 对应老Api中的：UIButton.contentEdgeInsets
                         cornerRadiusValue:(CGFloat)cornerRadiusValue
                           roundingCorners:(UIRectCorner)roundingCorners
                      roundingCornersRadii:(CGSize)roundingCornersRadii
@@ -59,22 +75,24 @@
                               borderWidth:(CGFloat)borderWidth
                             primaryAction:(UIAction *_Nullable)primaryAction
                           clickEventBlock:(JobsReturnIDByIDBlock _Nullable)clickEventBlock{
-    if(!btnConfiguration){
-        btnConfiguration = UIButtonConfiguration.filledButtonConfiguration;
-    }
+    if(!btnConfiguration) btnConfiguration = UIButtonConfiguration.filledButtonConfiguration;
     /// 图片
     {
         btnConfiguration.image = normalImage;
         btnConfiguration.imagePlacement = imagePlacement;
-        btnConfiguration.imagePadding = imagePadding;// 设置图像与标题之间的间距
+        btnConfiguration.imagePadding = imagePadding;/// 设置图像与标题之间的间距
     }
     /// 一般的文字
     {
         btnConfiguration.title = title;
+        btnConfiguration.titlePadding = titlePadding;
         btnConfiguration.subtitle = subTitle;
         btnConfiguration.baseForegroundColor = titleCor;
+        btnConfiguration.titleAlignment = titleAlignment;/// 文本的对齐方式
+        btnConfiguration.titleLineBreakMode = titleLineBreakMode;/// 主标题的提行方式
+        btnConfiguration.subtitleLineBreakMode = subtitleLineBreakMode;/// 副标题的提行方式
     }
-    /// 富文本
+    /// 富文本 优先级高于普通文本
     {
         /// 设置按钮标题的文本属性
         if (attributedTitle) {
@@ -84,15 +102,12 @@
                 btnConfiguration.titleTextAttributesTransformer = ^NSDictionary<NSAttributedStringKey, id> *(NSDictionary<NSAttributedStringKey, id> *textAttributes) {
                     NSMutableDictionary<NSAttributedStringKey, id> *newTextAttributes = textAttributes.mutableCopy;
                     [newTextAttributes addEntriesFromDictionary:@{
-                        NSFontAttributeName:titleFont, // 替换为你想要的字体和大小
-                        NSForegroundColorAttributeName:titleCor // 替换为你想要的文本颜色
+                        NSFontAttributeName:titleFont, /// 替换为你想要的字体和大小
+                        NSForegroundColorAttributeName:titleCor /// 替换为你想要的文本颜色
                     }];return newTextAttributes;
                 };
             }
-            
-            if(titleCor){
-                btnConfiguration.attributedTitle = [NSAttributedString.alloc initWithString:title attributes:@{NSForegroundColorAttributeName:titleCor}];
-            }
+            if(titleCor) btnConfiguration.attributedTitle = [NSAttributedString.alloc initWithString:title attributes:@{NSForegroundColorAttributeName:titleCor}];
         }
         /// 设置按钮副标题的文本属性
         if(attributedSubtitle){
@@ -108,10 +123,7 @@
                 };
             }
             
-            if(subTitleCor){
-                btnConfiguration.attributedSubtitle = [NSAttributedString.alloc initWithString:subTitle
-                                                                                    attributes:@{NSForegroundColorAttributeName:subTitleCor}];
-            }
+            if(subTitleCor) btnConfiguration.attributedSubtitle = [NSAttributedString.alloc initWithString:subTitle attributes:@{NSForegroundColorAttributeName:subTitleCor}];
         }
     }
     /// 其他
@@ -144,33 +156,39 @@
             btn.normalTitle = title;
             btn.normalTitleColor = titleCor;
         }
-        
-        if(selectedAttributedTitle){
-            btn.selectedAttributedTitle = selectedAttributedTitle;
-        }
+        SuppressWdeprecatedDeclarationsWarning(btn.contentEdgeInsets = UIEdgeInsetsMake(contentInsets.top,
+                                                                                        contentInsets.leading,
+                                                                                        contentInsets.bottom,
+                                                                                        contentInsets.trailing););
+        if(selectedAttributedTitle) btn.selectedAttributedTitle = selectedAttributedTitle;
         
         /// 在按钮高亮状态变化时，使用 configurationUpdateHandler 来自定义图像样式
         btn.configurationUpdateHandler = ^(UIButton * _Nonnull updatedButton) {
             updatedButton.configuration.image = updatedButton.isHighlighted ? highlightImage : normalImage;
         };
-    }
-    if(self.deviceSystemVersion.floatValue < 15.0){
+        btn.titleLabel.textAlignment = textAlignment;
+        
         [btn layoutButtonWithEdgeInsetsStyle:imagePlacement
                                 imagePadding:imagePadding];
     }
-    /// 描边
-    [btn layerBorderCor:layerBorderCor andBorderWidth:borderWidth];
-    
-    if(roundingCorners == UIRectCornerAllCorners && jobsZeroSizeValue(roundingCornersRadii)){
-        /// 圆切角（四个角全部按照统一的标准切）
-        [btn cornerCutToCircleWithCornerRadius:cornerRadiusValue];
-    }else{
-        /// 圆切角（指定某个角按照统一的标准Size切）
-        [btn appointCornerCutToCircleByRoundingCorners:roundingCorners cornerRadii:roundingCornersRadii];
-    }
-    /// 点击事件
-    if(clickEventBlock) clickEventBlock(btn);
-    return btn;
+    /// 公共设置
+    {
+        /// 描边
+        [btn layerBorderCor:layerBorderCor andBorderWidth:borderWidth];
+        
+        if(roundingCorners == UIRectCornerAllCorners && jobsZeroSizeValue(roundingCornersRadii)){
+            /// 圆切角（四个角全部按照统一的标准切）
+            [btn cornerCutToCircleWithCornerRadius:cornerRadiusValue];
+        }else{
+            /// 圆切角（指定某个角按照统一的标准Size切）
+            [btn appointCornerCutToCircleByRoundingCorners:roundingCorners cornerRadii:roundingCornersRadii];
+        }
+        /// 内容的对齐方式
+        btn.contentVerticalAlignment = contentVerticalAlignment;
+        btn.contentHorizontalAlignment = contentHorizontalAlignment;
+        /// 点击事件
+        if(clickEventBlock) clickEventBlock(btn);
+    }return btn;
 }
 /// RAC 点击事件2次封装
 -(RACDisposable *)jobsBtnClickEventBlock:(JobsReturnIDByIDBlock)subscribeNextBlock{
