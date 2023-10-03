@@ -371,7 +371,8 @@ referenceSizeForFooterInSection:(NSInteger)section{
         _editBtn.normalTitleColor = HEXCOLOR(0xB0B0B0);
         _editBtn.titleFont = notoSansRegular(12);
         _editBtn.normalImage = JobsIMG(@"编辑");
-        [_editBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft imageTitleSpace:JobsWidth(5.75)];
+        [_editBtn layoutButtonWithEdgeInsetsStyle:NSDirectionalRectEdgeLeading
+                                     imagePadding:JobsWidth(5.75)];
         @jobs_weakify(self)
         [_editBtn jobsBtnClickEventBlock:^id(id data) {
             @jobs_strongify(self)

@@ -230,7 +230,8 @@ ratio:(CGFloat)ratio {
             make.top.bottom.equalTo(self.categoryView);
         }];
         [_filterBtn makeBtnLabelByShowingType:UILabelShowingType_03];
-        [_filterBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleRight imageTitleSpace:JobsWidth(6)];
+        [_filterBtn layoutButtonWithEdgeInsetsStyle:NSDirectionalRectEdgeTrailing 
+                                       imagePadding:JobsWidth(6)];
         @jobs_weakify(self)
         [_filterBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)

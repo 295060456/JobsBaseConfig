@@ -93,7 +93,7 @@
     
     [_subTitleBtn makeBtnLabelByShowingType:self.viewModel.labelShowingType];
     [_subTitleBtn layoutButtonWithEdgeInsetsStyle:self.viewModel.buttonEdgeInsetsStyle
-                                  imageTitleSpace:self.viewModel.imageTitleSpace];
+                                     imagePadding:self.viewModel.imageTitleSpace];
     return _subTitleBtn;
 }
 

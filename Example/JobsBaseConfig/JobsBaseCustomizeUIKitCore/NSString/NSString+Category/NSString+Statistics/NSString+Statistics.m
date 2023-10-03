@@ -24,7 +24,7 @@
 /// - Parameters:
 ///   - font: 字符串的字体（不能为空）
 ///   - lineSpacing: 字符串的行间距
-///   - maxWidth: 字符串所占用的承接的控件的宽度
+///   - controlWidth: 字符串所占用的承接的控件的宽度
 -(UITextModel *_Nullable)jobsTextHeightWithFont:(UIFont *_Nonnull)font
                                      lineHeight:(CGFloat)lineSpacing
                                    controlWidth:(CGFloat)controlWidth{
@@ -63,7 +63,7 @@
 /// - Parameters:
 ///   - font: 字符串的字体（不能为空）
 ///   - lineSpacing: 字符串的行间距
-///   - maxHeight: 字符串所占用的承接的控件的高度
+///   - controlHeight: 字符串所占用的承接的控件的高度
 -(UITextModel *_Nullable)jobsTextWidthWithFont:(UIFont *_Nonnull)font
                                     lineHeight:(CGFloat)lineSpacing
                                  controlHeight:(CGFloat)controlHeight{
@@ -98,6 +98,14 @@
             return textModel;
         }return nil;
     }return nil;
+}
+/// 获取一行文本的高度
+/// 这个方法仅计算文本本身的高度，不包括行间距等因素
+-(CGFloat)jobsSingleLineHeightWithfont:(UIFont *)font{
+    UILabel *label = UILabel.new;
+    label.font = font;
+    label.text = self;
+    return label.font.lineHeight;
 }
 /**
  系统的length是不区分中文和英文的,中文一个字length也是1

@@ -104,7 +104,7 @@ NS_ASSUME_NONNULL_END
              make.left.equalTo(self).offset(JobsWidth(6));
          }];
          if(self.deviceSystemVersion.floatValue < 15.0){
-             [_btn1 layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft imageTitleSpace:JobsWidth(8)];
+             [_btn1 layoutButtonWithEdgeInsetsStyle:NSDirectionalRectEdgeLeading imagePadding:JobsWidth(8)];
          }
      }return _btn1;
  }

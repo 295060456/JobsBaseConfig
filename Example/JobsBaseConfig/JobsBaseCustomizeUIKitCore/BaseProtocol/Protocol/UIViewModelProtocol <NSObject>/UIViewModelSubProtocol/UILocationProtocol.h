@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)UIStackViewDistribution __block distribution;
 @property(nonatomic,assign)UIStackViewAlignment __block alignment;
 #pragma mark —— UIButton 专用属性 — 图文的相对位置
-@property(nonatomic,assign)GLButtonEdgeInsetsStyle __block buttonEdgeInsetsStyle;
+@property(nonatomic,assign)NSDirectionalRectEdge __block buttonEdgeInsetsStyle;
 @property(nonatomic,assign)CGFloat __block imageTitleSpace;
 #pragma mark —— 关于 UITableViewCell 和 UICollectionViewCell
 @property(nonatomic,assign)CGFloat __block cellHeight;

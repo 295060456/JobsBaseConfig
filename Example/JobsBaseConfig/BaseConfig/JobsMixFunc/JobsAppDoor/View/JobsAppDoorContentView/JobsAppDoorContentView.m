@@ -225,8 +225,8 @@
 
 -(void)initialToRegisterBtn{
     [self.toRegisterBtn normalTitle:Title2];
-    [self.toRegisterBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
-                                        imageTitleSpace:JobsWidth(20)];
+    [self.toRegisterBtn layoutButtonWithEdgeInsetsStyle:NSDirectionalRectEdgeTop
+                                           imagePadding:JobsWidth(20)];
 }
 /// 一些需要通过点击状态改变状态的控件【被选中状态】
 -(void)selectTitleLab{
@@ -359,8 +359,8 @@
 -(void)animationCommon{
     if (self.objectBlock) self.objectBlock(self.toRegisterBtn);
     
-    [self.toRegisterBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
-                                     imageTitleSpace:8];
+    [self.toRegisterBtn layoutButtonWithEdgeInsetsStyle:NSDirectionalRectEdgeTop
+                                           imagePadding:8];
     // 一些UI逻辑
     if (self.registerDoorInputViewBaseStyleMutArr.count == 5) {
         JobsAppDoorInputViewBaseStyle_3 *用户名 = (JobsAppDoorInputViewBaseStyle_3 *)self.registerDoorInputViewBaseStyleMutArr[0];
@@ -486,8 +486,8 @@
             make.top.equalTo(inputView.mas_bottom).offset(JobsWidth(25));
         }];
         [self layoutIfNeeded];
-        [_storeCodeBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft
-                                       imageTitleSpace:JobsWidth(3)];
+        [_storeCodeBtn layoutButtonWithEdgeInsetsStyle:NSDirectionalRectEdgeLeading
+                                          imagePadding:JobsWidth(3)];
         @jobs_weakify(self)
         [_storeCodeBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)

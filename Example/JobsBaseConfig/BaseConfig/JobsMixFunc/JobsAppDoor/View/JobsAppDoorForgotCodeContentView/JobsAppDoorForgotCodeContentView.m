@@ -96,8 +96,8 @@
             make.width.mas_equalTo(btnWidth);
         }];
         [self layoutIfNeeded];
-        [_backToLoginBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
-                                         imageTitleSpace:JobsWidth(8)];
+        [_backToLoginBtn layoutButtonWithEdgeInsetsStyle:NSDirectionalRectEdgeTop
+                                            imagePadding:JobsWidth(8)];
     }return _backToLoginBtn;
 }
 

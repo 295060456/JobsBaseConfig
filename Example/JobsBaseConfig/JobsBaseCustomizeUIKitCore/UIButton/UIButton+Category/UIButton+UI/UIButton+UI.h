@@ -21,6 +21,46 @@ NS_ASSUME_NONNULL_BEGIN
 /// ⚠️当font描绘的文字,或者文字大于UIButton的frame,UIButton的Title将不会显现⚠️
 @interface UIButton (UI)<BaseProtocol,BaseButtonProtocol>
 #pragma mark —— 一些功能性
+/// 为了兼容新的Api，批量设定UIButton
+/// 资料来源：https://www.jianshu.com/p/12426709420e
+/// - Parameters:
+///   - btnConfiguration: 来自新Api的配置文件。UIButtonConfiguration.filledButtonConfiguration;
+///   - normalImage: 正常情况下的image
+///   - highlightImage: 高亮情况下的image
+///   - attributedTitle: 主标题的富文本（优先级高于普通文本）
+///   - selectedAttributedTitle: UIControlStateSelected状态下的标题富文本
+///   - attributedSubtitle: 副标题的富文本（优先级高于普通文本）
+///   - title: 主标题
+///   - subTitle: 副标题（新Api才有的）
+///   - titleFont: 主标题字体
+///   - subTitleFont: 副标题字体
+///   - titleCor: 主标题文字颜色
+///   - subTitleCor: 副标题文字颜色
+///   - baseBackgroundColor: 背景颜色
+///   - imagePlacement: 表示一个矩形的边缘或方向
+///   - imagePadding: 图像与标题之间的间距
+///   - contentInsets: 定位内边距的方向
+///   - clickEventBlock: 老Api的点击事件，利用RAC实现
+///   - primaryAction: 新Api的点击事件
+///   如果同时设置 clickEventBlock 和 primaryAction，会优先响应新的Api，再响应老的Api
+-(instancetype)jobsInitBtnByConfiguration:(UIButtonConfiguration *_Nullable)btnConfiguration
+                              normalImage:(UIImage *_Nullable)normalImage
+                           highlightImage:(UIImage *_Nullable)highlightImage
+                          attributedTitle:(NSAttributedString *_Nullable)attributedTitle
+                  selectedAttributedTitle:(NSAttributedString *_Nullable)selectedAttributedTitle
+                       attributedSubtitle:(NSAttributedString *_Nullable)attributedSubtitle
+                                    title:(NSString *_Nullable)title
+                                 subTitle:(NSString *_Nullable)subTitle
+                                titleFont:(UIFont *_Nullable)titleFont
+                             subTitleFont:(UIFont *_Nullable)subTitleFont
+                                 titleCor:(UIColor *_Nullable)titleCor
+                              subTitleCor:(UIColor *_Nullable)subTitleCor
+                      baseBackgroundColor:(UIColor *_Nullable)baseBackgroundColor
+                           imagePlacement:(NSDirectionalRectEdge)imagePlacement
+                             imagePadding:(CGFloat)imagePadding
+                            contentInsets:(NSDirectionalEdgeInsets)contentInsets
+                          clickEventBlock:(JobsReturnIDByIDBlock _Nullable)clickEventBlock
+                            primaryAction:(UIAction *_Nullable)primaryAction;
 /// RAC 点击事件2次封装
 -(RACDisposable *)jobsBtnClickEventBlock:(JobsReturnIDByIDBlock)subscribeNextBlock;
 /// 方法名字符串（带参数、参数之间用"："隔开）、作用对象、参数
@@ -33,36 +73,37 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)changeAction:(CGFloat)angle;
 /// 当Button不可用的时候，需要做些什么
 -(jobsByBOOLBlock _Nonnull)enabledBlock;
-#pragma mark —— Common
+#pragma mark —— UIButton普通文本的通用设置
+/// 代码触发点击调用
 -(void)titleFont:(UIFont *)font;
 -(void)titleAlignment:(NSTextAlignment)textAlignment;
--(void)makeNewLineShows:(BOOL)breakLine;/// 换行显示
-#pragma mark —— Normal
-// set
+/// 换行显示
+-(void)makeNewLineShows:(BOOL)breakLine;
+#pragma mark —— UIButton.UIControlStateNormal.set
 -(void)normalImage:(UIImage *)image;
 -(void)normalBackgroundImage:(UIImage *)backgroundImage;
 -(void)normalTitle:(NSString *)title;
 -(void)normalTitleColor:(UIColor *)titleColor;
 -(void)normalAttributedTitle:(NSAttributedString *)title;
-// get
--(nullable NSString *)titleForNormalState;
--(nullable NSAttributedString *)attributedTitleForNormalState;
--(nullable UIColor *)titleColorForNormalState;
+#pragma mark —— UIButton.UIControlStateNormal.get
 -(nullable UIImage *)imageForNormalState;
 -(nullable UIImage *)backgroundImageForNormalState;
-#pragma mark —— Selected
-// set
+-(nullable NSString *)titleForNormalState;
+-(nullable UIColor *)titleColorForNormalState;
+-(nullable NSAttributedString *)attributedTitleForNormalState;
+#pragma mark —— UIButton.UIControlStateSelected.set
 -(void)selectedImage:(UIImage *)image;
 -(void)selectedBackgroundImage:(UIImage *)backgroundImage;
 -(void)selectedTitle:(NSString *)title;
 -(void)selectedTitleColor:(UIColor *)titleColor;
+/// 富文本
 -(void)selectedAttributedTitle:(NSAttributedString *)title;
-// get
--(nullable NSString *)titleForSelectedState;
--(nullable NSAttributedString *)attributedTitleForSelectedState;
--(nullable UIColor *)titleColorForSelectedState;
+#pragma mark —— UIButton.UIControlStateSelected.get
 -(nullable UIImage *)imageForSelectedState;
 -(nullable UIImage *)backgroundImageForSelectedState;
+-(nullable NSString *)titleForSelectedState;
+-(nullable UIColor *)titleColorForSelectedState;
+-(nullable NSAttributedString *)attributedTitleForSelectedState;
 
 @end
 
@@ -156,7 +197,7 @@ NS_ASSUME_NONNULL_END
              make.left.equalTo(self).offset(JobsWidth(6));
          }];
          if(self.deviceSystemVersion.floatValue < 15.0){
-             [_btn1 layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft imageTitleSpace:JobsWidth(8)];
+             [_btn1 layoutButtonWithEdgeInsetsStyle:NSDirectionalRectEdgeLeading imagePadding:JobsWidth(8)];
          }
      }return _btn1;
  }

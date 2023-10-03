@@ -102,8 +102,8 @@ static dispatch_once_t static_rightBtnsViewOnceToken;
     }else{
         self.loveBtn.normalTitle = JobsNonnullString(self.viewModel.textModel.text, Internationalization(@"点赞"));;
     }
-    [self.loveBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
-                                    imageTitleSpace:JobsWidth(5)];
+    [self.loveBtn layoutButtonWithEdgeInsetsStyle:NSDirectionalRectEdgeTop
+                                     imagePadding:JobsWidth(5)];
 }
 #pragma mark —— lazyLoad
 -(UIButton *)loveBtn{
@@ -129,8 +129,8 @@ static dispatch_once_t static_rightBtnsViewOnceToken;
         [self layoutIfNeeded];
     }
     _loveBtn.normalTitle = JobsNonnullString(self.viewModel.textModel.text, Internationalization(@"点赞"));
-    [_loveBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
-                              imageTitleSpace:JobsWidth(5)];
+    [_loveBtn layoutButtonWithEdgeInsetsStyle:NSDirectionalRectEdgeTop
+                                 imagePadding:JobsWidth(5)];
     return _loveBtn;
 }
 
@@ -170,8 +170,8 @@ static dispatch_once_t static_rightBtnsViewOnceToken;
         [self layoutIfNeeded];
     }
     _commentBtn.normalTitle = JobsNonnullString(self.viewModel.subTextModel.text, Internationalization(@"评论"));
-    [_commentBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
-                                 imageTitleSpace:JobsWidth(5)];
+    [_commentBtn layoutButtonWithEdgeInsetsStyle:NSDirectionalRectEdgeTop
+                                    imagePadding:JobsWidth(5)];
     return _commentBtn;
 }
 
@@ -194,8 +194,8 @@ static dispatch_once_t static_rightBtnsViewOnceToken;
         [self addSubview:_shareBtn];
         [self.mutArr addObject:_shareBtn];
         [self layoutIfNeeded];
-        [_shareBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
-                                   imageTitleSpace:5];
+        [_shareBtn layoutButtonWithEdgeInsetsStyle:NSDirectionalRectEdgeTop
+                                      imagePadding:5];
     }return _shareBtn;
 }
 

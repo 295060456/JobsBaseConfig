@@ -109,7 +109,8 @@ UILocationProtocol_synthesize
     _btn.selected = self.dataModel.jobsSelected;
     _btn.normalTitle =  self.dataModel.subTextModel.text;
     [_btn makeBtnLabelByShowingType:UILabelShowingType_03];
-    [_btn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft imageTitleSpace:JobsWidth(5)];
+    [_btn layoutButtonWithEdgeInsetsStyle:NSDirectionalRectEdgeLeading
+                             imagePadding:JobsWidth(5)];
     return _btn;
 }
 

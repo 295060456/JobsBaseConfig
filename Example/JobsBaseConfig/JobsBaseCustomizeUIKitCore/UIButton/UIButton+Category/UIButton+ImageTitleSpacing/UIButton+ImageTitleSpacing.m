@@ -10,8 +10,8 @@
 
 @implementation UIButton (ImageTitleSpacing)
 
--(void)layoutButtonWithEdgeInsetsStyle:(GLButtonEdgeInsetsStyle)style
-                       imageTitleSpace:(CGFloat)imageTitleSpace{
+-(void)layoutButtonWithEdgeInsetsStyle:(NSDirectionalRectEdge)style
+                          imagePadding:(CGFloat)imagePadding{
     if (self.deviceSystemVersion.floatValue >= 15.0) {
 /**
  利用 UIButtonConfiguration 来解决问题，示例：
@@ -69,11 +69,11 @@
              make.left.equalTo(self).offset(JobsWidth(6));
          }];
          if(self.deviceSystemVersion.floatValue < 15.0){
-             [_btn1 layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft imageTitleSpace:JobsWidth(8)];
+             [_btn1 layoutButtonWithEdgeInsetsStyle:NSDirectionalRectEdgeLeading imagePadding:JobsWidth(8)];
          }
      }return _btn1;
  }
- */    
+ */
     }
     SuppressWdeprecatedDeclarationsWarning(
                                            /**
@@ -98,45 +98,45 @@
                                            UIEdgeInsets labelEdgeInsets = UIEdgeInsetsZero;
                                            // 3.、根据style和space得到imageEdgeInsets和labelEdgeInsets的值
                                            switch (style) {
-                                               case GLButtonEdgeInsetsStyleTop:{
-                                                   imageEdgeInsets = UIEdgeInsetsMake(-labelHeight-imageTitleSpace / 2.0,
+                                               case NSDirectionalRectEdgeTop:{
+                                                   imageEdgeInsets = UIEdgeInsetsMake(-labelHeight - imagePadding / 2.0,
                                                                                       0,
                                                                                       0,
                                                                                       -labelWidth);
                                                    labelEdgeInsets = UIEdgeInsetsMake(0,
                                                                                       -imageWith,
-                                                                                      -imageHeight-imageTitleSpace / 2.0,
+                                                                                      -imageHeight - imagePadding / 2.0,
                                                                                       0);
                                                }break;
-                                               case GLButtonEdgeInsetsStyleLeft:{
+                                               case NSDirectionalRectEdgeLeading:{
                                                    imageEdgeInsets = UIEdgeInsetsMake(0,
-                                                                                      -imageTitleSpace / 2.0,
+                                                                                      -imagePadding / 2.0,
                                                                                       0,
-                                                                                      imageTitleSpace / 2.0);
+                                                                                      imagePadding / 2.0);
                                                    labelEdgeInsets = UIEdgeInsetsMake(0,
-                                                                                      imageTitleSpace / 2.0,
+                                                                                      imagePadding / 2.0,
                                                                                       0,
-                                                                                      -imageTitleSpace / 2.0);
+                                                                                      -imagePadding / 2.0);
                                                }break;
-                                               case GLButtonEdgeInsetsStyleBottom:{
+                                               case NSDirectionalRectEdgeBottom:{
                                                    imageEdgeInsets = UIEdgeInsetsMake(0,
                                                                                       0,
-                                                                                      -labelHeight-imageTitleSpace / 2.0,
+                                                                                      -labelHeight - imagePadding / 2.0,
                                                                                       -labelWidth);
-                                                   labelEdgeInsets = UIEdgeInsetsMake(-imageHeight-imageTitleSpace / 2.0,
+                                                   labelEdgeInsets = UIEdgeInsetsMake(-imageHeight - imagePadding / 2.0,
                                                                                       -imageWith,
                                                                                       0,
                                                                                       0);
                                                }break;
-                                               case GLButtonEdgeInsetsStyleRight:{
+                                               case NSDirectionalRectEdgeTrailing:{
                                                    imageEdgeInsets = UIEdgeInsetsMake(0,
-                                                                                      labelWidth+imageTitleSpace / 2.0,
+                                                                                      labelWidth + imagePadding / 2.0,
                                                                                       0,
-                                                                                      -labelWidth-imageTitleSpace / 2.0);
+                                                                                      -labelWidth - imagePadding / 2.0);
                                                    labelEdgeInsets = UIEdgeInsetsMake(0,
-                                                                                      -imageWith-imageTitleSpace / 2.0,
+                                                                                      -imageWith - imagePadding / 2.0,
                                                                                       0,
-                                                                                      imageWith+imageTitleSpace / 2.0);
+                                                                                      imageWith + imagePadding / 2.0);
                                                }break;
                                                default:
                                                    break;

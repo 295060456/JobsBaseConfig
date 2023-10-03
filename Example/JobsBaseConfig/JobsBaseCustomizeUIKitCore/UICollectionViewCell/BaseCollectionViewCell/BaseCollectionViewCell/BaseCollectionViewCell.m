@@ -228,7 +228,7 @@
     _bgBtn.titleAlignment = self.viewModel.textModel.textAlignment;
 //        _bgBtn.makeNewLineShows = self.viewModel.textModel.lineBreakMode;
     [_bgBtn layoutButtonWithEdgeInsetsStyle:self.viewModel.buttonEdgeInsetsStyle
-                            imageTitleSpace:self.viewModel.imageTitleSpace];
+                               imagePadding:self.viewModel.imageTitleSpace];
     return _bgBtn;
 }
 

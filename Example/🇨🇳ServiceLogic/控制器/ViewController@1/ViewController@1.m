@@ -120,7 +120,7 @@ BOOL ISLogin;
 - (CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 #warning 要解决DetailText提行的问题
-    return [BaseTableViewCell cellHeightWithModel:Nil] * 2;
+    return [BaseTableViewCell cellHeightWithModel:self.dataMutArr[indexPath.row]] * 2;
 }
 
 - (void)tableView:(UITableView *)tableView
@@ -168,8 +168,8 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
             return nil;
         }];
         _userHeadBtn.size = CGSizeMake(JobsWidth(32), JobsWidth(32));
-        [_userHeadBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft
-                                      imageTitleSpace:JobsWidth(1)];
+        [_userHeadBtn layoutButtonWithEdgeInsetsStyle:NSDirectionalRectEdgeLeading
+                                         imagePadding:JobsWidth(1)];
     }return _userHeadBtn;
 }
 

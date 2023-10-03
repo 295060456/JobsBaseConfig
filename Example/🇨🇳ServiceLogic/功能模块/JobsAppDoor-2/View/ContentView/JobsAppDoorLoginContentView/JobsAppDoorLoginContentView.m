@@ -119,8 +119,8 @@
             make.top.right.bottom.equalTo(self);
             make.width.mas_equalTo(btnWidth);
         }];
-        [_toRegisterBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleTop
-                                        imageTitleSpace:JobsWidth(8)];
+        [_toRegisterBtn layoutButtonWithEdgeInsetsStyle:NSDirectionalRectEdgeTop
+                                           imagePadding:JobsWidth(8)];
     }return _toRegisterBtn;
 }
 
@@ -200,8 +200,8 @@
         }];
         
         [self layoutIfNeeded];
-        [_storeCodeBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleLeft
-                                       imageTitleSpace:JobsWidth(3)];
+        [_storeCodeBtn layoutButtonWithEdgeInsetsStyle:NSDirectionalRectEdgeLeading
+                                          imagePadding:JobsWidth(3)];
         @jobs_weakify(self)
         [_storeCodeBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)

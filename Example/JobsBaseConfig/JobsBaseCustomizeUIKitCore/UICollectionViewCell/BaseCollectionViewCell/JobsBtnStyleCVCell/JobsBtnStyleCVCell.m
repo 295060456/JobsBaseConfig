@@ -74,7 +74,7 @@
     _btn.normalTitle = self.viewModel.textModel.text;
     _btn.titleFont = self.viewModel.textModel.font ? : notoSansRegular(12);
     [_btn layoutButtonWithEdgeInsetsStyle:self.viewModel.buttonEdgeInsetsStyle
-                          imageTitleSpace:self.viewModel.imageTitleSpace];
+                             imagePadding:self.viewModel.imageTitleSpace];
     [_btn cornerCutToCircleWithCornerRadius:self.viewModel.layerCornerRadius ? : JobsWidth(8)];
     return _btn;
 }

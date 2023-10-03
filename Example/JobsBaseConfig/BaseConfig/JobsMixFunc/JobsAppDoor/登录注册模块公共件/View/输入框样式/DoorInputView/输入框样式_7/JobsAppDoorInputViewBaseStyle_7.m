@@ -188,7 +188,8 @@
                 [self->dropDownListView dropDownListViewDisappear:x];
             }return nil;
         }];
-        [_chooseBtn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleRight imageTitleSpace:JobsWidth(8)];
+        [_chooseBtn layoutButtonWithEdgeInsetsStyle:NSDirectionalRectEdgeTrailing
+                                       imagePadding:JobsWidth(8)];
     }return _chooseBtn;
 }
 

@@ -19,8 +19,8 @@
 -(void)greatAtEmpty{
     UIButton *btn = self.great;
     [btn normalImage:JobsIMG(@"空白图")];
-    [btn layoutButtonWithEdgeInsetsStyle:GLButtonEdgeInsetsStyleRight
-                         imageTitleSpace:JobsWidth(5)];
+    [btn layoutButtonWithEdgeInsetsStyle:NSDirectionalRectEdgeTrailing
+                            imagePadding:JobsWidth(5)];
 }
 
 @end

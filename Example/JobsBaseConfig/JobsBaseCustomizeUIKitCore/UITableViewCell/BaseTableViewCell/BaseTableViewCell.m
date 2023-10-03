@@ -335,14 +335,38 @@ UITableViewCellProtocol_synthesize
 }
 
 +(CGFloat)cellHeightWithModel:(UIViewModel *_Nullable)model{
+    /**
+     换行策略：
+     1、如果text的实际长度小于整个屏幕的一半，那么不提行，正常显示
+     2、如果text的实际长度大于整个屏幕的一半，那么提行，且计算在这种情况下的高
+     */
     UIViewModel *vm = UIViewModel.new;
     vm.textModel.font = UIFontWeightRegularSize(14);
     vm.textModel.text = model.subTextModel.text;
     vm.textModel.textLineSpacing = 0;
     vm.jobsWidth = JobsMainScreen_WIDTH() - JobsWidth(50);
-    return [vm.textModel.text jobsTextHeightWithFont:vm.textModel.font
-                                          lineHeight:vm.textModel.textLineSpacing
-                                        controlWidth:vm.jobsWidth].jobsHeight;
+    
+    CGFloat s = JobsMainScreen_WIDTH() / 2;
+    /// 文字 vm.textModel.text 在宽度 = vm.jobsWidth 的时候的高度
+    CGFloat height1 = [vm.textModel.text jobsTextHeightWithFont:vm.textModel.font
+                                                     lineHeight:vm.textModel.textLineSpacing
+                                                   controlWidth:vm.jobsWidth].jobsHeight;
+    /// 文字 vm.textModel.text 在宽度 s = JobsMainScreen_WIDTH() / 2 的情况下的高度
+    CGFloat height2 = [vm.textModel.text jobsTextWidthWithFont:vm.textModel.font
+                                                   lineHeight:vm.textModel.textLineSpacing
+                                                controlHeight:s].jobsHeight;
+    /// 单行文本 vm.textModel.text 的高度
+    CGFloat singleLineHeight = [vm.textModel.text jobsSingleLineHeightWithfont:vm.textModel.font];
+    /// 文字 vm.textModel.text 在高度 = singleLineHeight 的时候的宽度
+    CGFloat width1 = [vm.textModel.text jobsTextWidthWithFont:vm.textModel.font
+                                                   lineHeight:vm.textModel.textLineSpacing
+                                                controlHeight:singleLineHeight].jobsWidth;
+    
+    if(width1 <= s){/// 正常显示
+        return height1;
+    }else{/// 提行显示，宽度为 s = JobsMainScreen_WIDTH() / 2
+        return height2;
+    }
 }
 #pragma mark —— 协议属性合成set & get方法
 /// UIViewModelProtocol
