@@ -10,6 +10,7 @@
 #import "JobsBlock.h"
 #import "MacroDef_Cor.h"
 #import "BaseButtonProtocol.h"
+#import "UIView+Extras.h"
 
 #if __has_include(<ReactiveObjC/ReactiveObjC.h>)
 #import <ReactiveObjC/ReactiveObjC.h>
@@ -40,8 +41,13 @@ NS_ASSUME_NONNULL_BEGIN
 ///   - imagePlacement: 表示一个矩形的边缘或方向
 ///   - imagePadding: 图像与标题之间的间距
 ///   - contentInsets: 定位内边距的方向
-///   - clickEventBlock: 老Api的点击事件，利用RAC实现
+///   - cornerRadiusValue: 圆切角—作用于所有的角
+///   - roundingCorners: 圆切角—作用于指定的方位
+///   - roundingCornersRadii: 圆切角—指定方位的Size大小
+///   - layerBorderCor: 描边的颜色
+///   - borderWidth: 描边线的宽度
 ///   - primaryAction: 新Api的点击事件
+///   - clickEventBlock: 老Api的点击事件，利用RAC实现
 ///   如果同时设置 clickEventBlock 和 primaryAction，会优先响应新的Api，再响应老的Api
 -(instancetype)jobsInitBtnByConfiguration:(UIButtonConfiguration *_Nullable)btnConfiguration
                               normalImage:(UIImage *_Nullable)normalImage
@@ -59,8 +65,13 @@ NS_ASSUME_NONNULL_BEGIN
                            imagePlacement:(NSDirectionalRectEdge)imagePlacement
                              imagePadding:(CGFloat)imagePadding
                             contentInsets:(NSDirectionalEdgeInsets)contentInsets
-                          clickEventBlock:(JobsReturnIDByIDBlock _Nullable)clickEventBlock
-                            primaryAction:(UIAction *_Nullable)primaryAction;
+                        cornerRadiusValue:(CGFloat)cornerRadiusValue
+                          roundingCorners:(UIRectCorner)roundingCorners
+                     roundingCornersRadii:(CGSize)roundingCornersRadii
+                           layerBorderCor:(UIColor *_Nullable)layerBorderCor
+                              borderWidth:(CGFloat)borderWidth
+                            primaryAction:(UIAction *_Nullable)primaryAction
+                          clickEventBlock:(JobsReturnIDByIDBlock _Nullable)clickEventBlock;
 /// RAC 点击事件2次封装
 -(RACDisposable *)jobsBtnClickEventBlock:(JobsReturnIDByIDBlock)subscribeNextBlock;
 /// 方法名字符串（带参数、参数之间用"："隔开）、作用对象、参数

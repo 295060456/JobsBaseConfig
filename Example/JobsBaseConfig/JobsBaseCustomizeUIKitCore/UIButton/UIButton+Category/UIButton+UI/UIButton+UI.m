@@ -28,8 +28,13 @@
 ///   - imagePlacement: 表示一个矩形的边缘或方向
 ///   - imagePadding: 图像与标题之间的间距
 ///   - contentInsets: 定位内边距的方向
-///   - clickEventBlock: 老Api的点击事件，利用RAC实现
+///   - cornerRadiusValue: 圆切角—作用于所有的角
+///   - roundingCorners: 圆切角—作用于指定的方位
+///   - roundingCornersRadii: 圆切角—指定方位的Size大小
+///   - layerBorderCor: 描边的颜色
+///   - borderWidth: 描边线的宽度
 ///   - primaryAction: 新Api的点击事件
+///   - clickEventBlock: 老Api的点击事件，利用RAC实现
 ///   如果同时设置 clickEventBlock 和 primaryAction，会优先响应新的Api，再响应老的Api
 -(instancetype)jobsInitBtnByConfiguration:(UIButtonConfiguration *_Nullable)btnConfiguration
                               normalImage:(UIImage *_Nullable)normalImage
@@ -47,8 +52,13 @@
                            imagePlacement:(NSDirectionalRectEdge)imagePlacement
                              imagePadding:(CGFloat)imagePadding
                             contentInsets:(NSDirectionalEdgeInsets)contentInsets
-                          clickEventBlock:(JobsReturnIDByIDBlock _Nullable)clickEventBlock
-                            primaryAction:(UIAction *_Nullable)primaryAction{
+                        cornerRadiusValue:(CGFloat)cornerRadiusValue
+                          roundingCorners:(UIRectCorner)roundingCorners
+                     roundingCornersRadii:(CGSize)roundingCornersRadii
+                           layerBorderCor:(UIColor *_Nullable)layerBorderCor
+                              borderWidth:(CGFloat)borderWidth
+                            primaryAction:(UIAction *_Nullable)primaryAction
+                          clickEventBlock:(JobsReturnIDByIDBlock _Nullable)clickEventBlock{
     if(!btnConfiguration){
         btnConfiguration = UIButtonConfiguration.filledButtonConfiguration;
     }
@@ -70,28 +80,38 @@
         if (attributedTitle) {
             btnConfiguration.attributedTitle = attributedTitle;
         }else{
-            btnConfiguration.titleTextAttributesTransformer = ^NSDictionary<NSAttributedStringKey, id> *(NSDictionary<NSAttributedStringKey, id> *textAttributes) {
-                NSMutableDictionary<NSAttributedStringKey, id> *newTextAttributes = textAttributes.mutableCopy;
-                [newTextAttributes addEntriesFromDictionary:@{
-                    NSFontAttributeName:titleFont, // 替换为你想要的字体和大小
-                    NSForegroundColorAttributeName:titleCor // 替换为你想要的文本颜色
-                }];return newTextAttributes;
-            };
-            btnConfiguration.attributedTitle = [NSAttributedString.alloc initWithString:title attributes:@{NSForegroundColorAttributeName:titleCor}];
+            if(titleFont && titleCor){
+                btnConfiguration.titleTextAttributesTransformer = ^NSDictionary<NSAttributedStringKey, id> *(NSDictionary<NSAttributedStringKey, id> *textAttributes) {
+                    NSMutableDictionary<NSAttributedStringKey, id> *newTextAttributes = textAttributes.mutableCopy;
+                    [newTextAttributes addEntriesFromDictionary:@{
+                        NSFontAttributeName:titleFont, // 替换为你想要的字体和大小
+                        NSForegroundColorAttributeName:titleCor // 替换为你想要的文本颜色
+                    }];return newTextAttributes;
+                };
+            }
+            
+            if(titleCor){
+                btnConfiguration.attributedTitle = [NSAttributedString.alloc initWithString:title attributes:@{NSForegroundColorAttributeName:titleCor}];
+            }
         }
         /// 设置按钮副标题的文本属性
         if(attributedSubtitle){
             btnConfiguration.attributedSubtitle = attributedSubtitle;
         }else{
-            btnConfiguration.subtitleTextAttributesTransformer = ^NSDictionary<NSAttributedStringKey, id> *(NSDictionary<NSAttributedStringKey, id> *textAttributes) {
-                NSMutableDictionary<NSAttributedStringKey, id> *newTextAttributes = textAttributes.mutableCopy;
-                [newTextAttributes addEntriesFromDictionary:@{
-                    NSFontAttributeName: subTitleFont, // 替换为你想要的副标题字体和大小
-                    NSForegroundColorAttributeName: subTitleCor // 替换为你想要的副标题文本颜色
-                }];return newTextAttributes;
-            };
-            btnConfiguration.attributedSubtitle = [NSAttributedString.alloc initWithString:subTitle
-                                                                                attributes:@{NSForegroundColorAttributeName:subTitleCor}];
+            if(subTitleFont && subTitleCor){
+                btnConfiguration.subtitleTextAttributesTransformer = ^NSDictionary<NSAttributedStringKey, id> *(NSDictionary<NSAttributedStringKey, id> *textAttributes) {
+                    NSMutableDictionary<NSAttributedStringKey, id> *newTextAttributes = textAttributes.mutableCopy;
+                    [newTextAttributes addEntriesFromDictionary:@{
+                        NSFontAttributeName: subTitleFont, // 替换为你想要的副标题字体和大小
+                        NSForegroundColorAttributeName: subTitleCor // 替换为你想要的副标题文本颜色
+                    }];return newTextAttributes;
+                };
+            }
+            
+            if(subTitleCor){
+                btnConfiguration.attributedSubtitle = [NSAttributedString.alloc initWithString:subTitle
+                                                                                    attributes:@{NSForegroundColorAttributeName:subTitleCor}];
+            }
         }
     }
     /// 其他
@@ -138,11 +158,19 @@
         [btn layoutButtonWithEdgeInsetsStyle:imagePlacement
                                 imagePadding:imagePadding];
     }
+    /// 描边
+    [btn layerBorderCor:layerBorderCor andBorderWidth:borderWidth];
+    
+    if(roundingCorners == UIRectCornerAllCorners && jobsZeroSizeValue(roundingCornersRadii)){
+        /// 圆切角（四个角全部按照统一的标准切）
+        [btn cornerCutToCircleWithCornerRadius:cornerRadiusValue];
+    }else{
+        /// 圆切角（指定某个角按照统一的标准Size切）
+        [btn appointCornerCutToCircleByRoundingCorners:roundingCorners cornerRadii:roundingCornersRadii];
+    }
     /// 点击事件
-    [self jobsBtnClickEventBlock:^id(id data) {
-        if(clickEventBlock) clickEventBlock(data);
-        return nil;
-    }];return btn;
+    if(clickEventBlock) clickEventBlock(btn);
+    return btn;
 }
 /// RAC 点击事件2次封装
 -(RACDisposable *)jobsBtnClickEventBlock:(JobsReturnIDByIDBlock)subscribeNextBlock{
