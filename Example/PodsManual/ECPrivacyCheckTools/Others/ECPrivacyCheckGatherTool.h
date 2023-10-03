@@ -12,15 +12,12 @@
 /// Common privacy permission check collection tools, include LocationServices,Photos,Camera,Contacts
 /// Support iOS 8.0+
 
-
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 #import <Photos/Photos.h>
 #import <AVFoundation/AVFoundation.h>
 #import <Contacts/Contacts.h>
 #import <AddressBook/AddressBook.h>
-
-
 /** 授权状态
  *  ECAuthorizationStatusUnable：不支持或不可用
  *  ECAuthorizationStatusNotDetermined：用户从未进行过授权等处理，首次访问相应内容会提示用户进行授权
@@ -35,7 +32,6 @@ typedef NS_ENUM(NSInteger, ECAuthorizationStatus) {
     ECAuthorizationStatusDenied,
     ECAuthorizationStatusAuthorized
 };
-
 /** 定位授权状态
  *
  *  ECLBSAuthorizationStatusUnable：不支持或不可用
@@ -56,71 +52,47 @@ typedef NS_ENUM(NSInteger, ECLBSAuthorizationStatus) {
     ECLBSAuthorizationStatusAuthorized API_DEPRECATED("Use ECLBSAuthorizationStatusAuthorizedAlways", ios(2.0, 8.0)) = ECLBSAuthorizationStatusAuthorizedAlways
 };
 
-
-
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ECPrivacyCheckGatherTool : NSObject
-
-// MARK: - 定位服务 LocationServices
-
+@interface ECPrivacyCheckGatherTool : NSObject<CLLocationManagerDelegate>
+#pragma mark —— 定位服务 LocationServices
 /// 检查定位权限状态：仅检查权限，不主动请求权限
 + (ECLBSAuthorizationStatus)locationAuthorizationStatus;
-
 /// 检查定位权限状态：仅检查权限，不主动请求权限
 - (ECLBSAuthorizationStatus)locationAuthorizationStatus;
-
 /// 请求定位权限
 /// @param completionHandler completionHandler
 - (void)requestLocationAuthorizationWithCompletionHandler:(void(^)(ECLBSAuthorizationStatus status))completionHandler;
-
-
-// MARK: - 照片 Photos
-
+#pragma mark —— 照片 Photos
 /// 检查相册权限状态：仅检查权限，不主动请求权限
 + (ECAuthorizationStatus)photosAuthorizationStatus;
-
 /// 检查相册权限状态：仅检查权限，不主动请求权限
 - (ECAuthorizationStatus)photosAuthorizationStatus;
-
 /// 请求相册权限
 /// @param completionHandler completionHandler
 + (void)requestPhotosAuthorizationWithCompletionHandler:(void(^)(BOOL granted))completionHandler;
-
 /// 请求相册权限
 /// @param completionHandler completionHandler
 - (void)requestPhotosAuthorizationWithCompletionHandler:(void(^)(BOOL granted))completionHandler;
-
-
-// MARK: - 相机 Camera
-
+#pragma mark —— 相机 Camera
 /// 检查相机权限状态：仅检查权限，不主动请求权限
 + (ECAuthorizationStatus)cameraAuthorizationStatus;
-
 /// 检查相机权限状态：仅检查权限，不主动请求权限
 - (ECAuthorizationStatus)cameraAuthorizationStatus;
-
 /// 请求相机权限
 /// @param completionHandler completionHandler
 + (void)requestCameraAuthorizationWithCompletionHandler:(void(^)(BOOL granted))completionHandler;
-
 /// 请求相机权限
 /// @param completionHandler completionHandler
 - (void)requestCameraAuthorizationWithCompletionHandler:(void(^)(BOOL granted))completionHandler;
-
-
-// MARK: - 通讯录 Contacts
-
+#pragma mark —— 通讯录 Contacts
 /// 检查通讯录权限状态：仅检查权限，不主动请求权限
 + (ECAuthorizationStatus)contactsAuthorizationStatus;
-
 /// 检查通讯录权限状态：仅检查权限，不主动请求权限
 - (ECAuthorizationStatus)contactsAuthorizationStatus;
-
 /// 请求通讯录权限
 /// @param completionHandler completionHandler
 + (void)requestContactsAuthorizationWithCompletionHandler:(void(^)(BOOL granted))completionHandler;
-
 /// 请求通讯录权限
 /// @param completionHandler completionHandler
 - (void)requestContactsAuthorizationWithCompletionHandler:(void(^)(BOOL granted))completionHandler;

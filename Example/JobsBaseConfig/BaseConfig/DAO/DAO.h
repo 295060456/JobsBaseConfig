@@ -8,7 +8,7 @@
 #ifndef DAO_h
 #define DAO_h
 
-#import "DDUserModel.h"
+#import "JobsUserModel.h"
 #import "DDResponseModel.h"
 #import "BaseModel.h"
 #import "URLManagerModel.h"

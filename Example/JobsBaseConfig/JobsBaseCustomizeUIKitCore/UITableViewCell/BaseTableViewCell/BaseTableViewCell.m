@@ -337,12 +337,12 @@ UITableViewCellProtocol_synthesize
 +(CGFloat)cellHeightWithModel:(UIViewModel *_Nullable)model{
     UIViewModel *vm = UIViewModel.new;
     vm.textModel.font = UIFontWeightRegularSize(14);
-    vm.jobsWidth = JobsMainScreen_WIDTH() - JobsWidth(200);
     vm.textModel.text = model.subTextModel.text;
     vm.textModel.textLineSpacing = 0;
+    vm.jobsWidth = JobsMainScreen_WIDTH() - JobsWidth(50);
     return [vm.textModel.text jobsTextHeightWithFont:vm.textModel.font
                                           lineHeight:vm.textModel.textLineSpacing
-                                        controlWidth:JobsMainScreen_WIDTH() - JobsWidth(200)].jobsHeight;
+                                        controlWidth:vm.jobsWidth].jobsHeight;
 }
 #pragma mark —— 协议属性合成set & get方法
 /// UIViewModelProtocol

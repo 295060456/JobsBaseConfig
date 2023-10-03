@@ -2337,8 +2337,8 @@ enum GCDAsyncSocketConfig
 	
 	NSAssert(dispatch_get_specific(IsOnSocketQueueOrTargetQueueKey), @"Must be dispatched on socketQueue");
 	
-	LogVerbose(@"IPv4: %@:%hu", [[self class] hostFromAddress:address4], [[self class] portFromAddress:address4]);
-	LogVerbose(@"IPv6: %@:%hu", [[self class] hostFromAddress:address6], [[self class] portFromAddress:address6]);
+	LogVerbose(@"IPv4: %@:%hu", [self.class hostFromAddress:address4], [self.class portFromAddress:address4]);
+	LogVerbose(@"IPv6: %@:%hu", [self.class hostFromAddress:address6], [self.class portFromAddress:address6]);
 	
 	// Determine socket type
 	
@@ -2387,7 +2387,7 @@ enum GCDAsyncSocketConfig
 	{
 		LogVerbose(@"Binding socket...");
 		
-		if ([[self class] portFromAddress:connectInterface] > 0)
+		if ([self.class portFromAddress:connectInterface] > 0)
 		{
 			// Since we're going to be binding to a specific port,
 			// we should turn on reuseaddr to allow us to override sockets in time_wait.
@@ -3249,7 +3249,7 @@ enum GCDAsyncSocketConfig
 	{
 		return nil;
 	}
-	return [[self class] hostFromSockaddr4:&sockaddr4];
+	return [self.class hostFromSockaddr4:&sockaddr4];
 }
 
 - (NSString *)connectedHostFromSocket6:(int)socketFD
@@ -3261,7 +3261,7 @@ enum GCDAsyncSocketConfig
 	{
 		return nil;
 	}
-	return [[self class] hostFromSockaddr6:&sockaddr6];
+	return [self.class hostFromSockaddr6:&sockaddr6];
 }
 
 - (uint16_t)connectedPortFromSocket4:(int)socketFD
@@ -3273,7 +3273,7 @@ enum GCDAsyncSocketConfig
 	{
 		return 0;
 	}
-	return [[self class] portFromSockaddr4:&sockaddr4];
+	return [self.class portFromSockaddr4:&sockaddr4];
 }
 
 - (uint16_t)connectedPortFromSocket6:(int)socketFD
@@ -3285,7 +3285,7 @@ enum GCDAsyncSocketConfig
 	{
 		return 0;
 	}
-	return [[self class] portFromSockaddr6:&sockaddr6];
+	return [self.class portFromSockaddr6:&sockaddr6];
 }
 
 - (NSString *)localHostFromSocket4:(int)socketFD
@@ -3297,7 +3297,7 @@ enum GCDAsyncSocketConfig
 	{
 		return nil;
 	}
-	return [[self class] hostFromSockaddr4:&sockaddr4];
+	return [self.class hostFromSockaddr4:&sockaddr4];
 }
 
 - (NSString *)localHostFromSocket6:(int)socketFD
@@ -3309,7 +3309,7 @@ enum GCDAsyncSocketConfig
 	{
 		return nil;
 	}
-	return [[self class] hostFromSockaddr6:&sockaddr6];
+	return [self.class hostFromSockaddr6:&sockaddr6];
 }
 
 - (uint16_t)localPortFromSocket4:(int)socketFD
@@ -3321,7 +3321,7 @@ enum GCDAsyncSocketConfig
 	{
 		return 0;
 	}
-	return [[self class] portFromSockaddr4:&sockaddr4];
+	return [self.class portFromSockaddr4:&sockaddr4];
 }
 
 - (uint16_t)localPortFromSocket6:(int)socketFD
@@ -3333,7 +3333,7 @@ enum GCDAsyncSocketConfig
 	{
 		return 0;
 	}
-	return [[self class] portFromSockaddr6:&sockaddr6];
+	return [self.class portFromSockaddr6:&sockaddr6];
 }
 
 - (NSData *)connectedAddress
@@ -7012,8 +7012,8 @@ static void CFWriteStreamCallback (CFWriteStreamRef stream, CFStreamEventType ty
 	{
 		LogVerbose(@"Adding streams to runloop...");
 		
-		[[self class] startCFStreamThreadIfNeeded];
-		[[self class] performSelector:@selector(scheduleCFStreams:)
+		[self.class startCFStreamThreadIfNeeded];
+		[self.class performSelector:@selector(scheduleCFStreams:)
 		                     onThread:cfstreamThread
 		                   withObject:self
 		                waitUntilDone:YES];
@@ -7035,7 +7035,7 @@ static void CFWriteStreamCallback (CFWriteStreamRef stream, CFStreamEventType ty
 	{
 		LogVerbose(@"Removing streams from runloop...");
 		
-		[[self class] performSelector:@selector(unscheduleCFStreams:)
+		[self.class performSelector:@selector(unscheduleCFStreams:)
 		                     onThread:cfstreamThread
 		                   withObject:self
 		                waitUntilDone:YES];

@@ -64,7 +64,7 @@ callingMethodWithName:(nullable NSString *)methodName{
         // 处理方式二：【经常崩溃损伤硬件】
 //        {
 //            //传入的方法不存在 就抛异常
-//            NSString *info = [NSString stringWithFormat:@"-[%@ %@]:unrecognized selector sent to instance",[self class],NSStringFromSelector(selector)];
+//            NSString *info = [NSString stringWithFormat:@"-[%@ %@]:unrecognized selector sent to instance",self.class,NSStringFromSelector(selector)];
 //            @throw [[NSException alloc] initWithName:@"方法不存在"
 //                                              reason:info
 //                                            userInfo:nil];

@@ -7,13 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "NSUserDefaults+Manager.h"
-#import "DDUserModel.h"
-
-#if __has_include(<MJExtension/MJExtension.h>)
-#import <MJExtension/MJExtension.h>
-#else
-#import "MJExtension.h"
-#endif
+#import "JobsUserModel.h"
 
 FOUNDATION_EXTERN NSString * _Nonnull const 用户信息;
 FOUNDATION_EXTERN NSString * _Nonnull const 用户名数组;
@@ -31,14 +25,14 @@ NS_ASSUME_NONNULL_BEGIN
 /// 登出清空用户数据
 -(void)logOut;
 /// 保存用户数据（用 NSUserDefaults ）
--(void)saveUserInfo:(DDUserModel *)userModel;
+-(void)saveUserInfo:(JobsUserModel *)userModel;
 /// 读取用户信息
--(DDUserModel *)readUserInfo;
+-(JobsUserModel *)readUserInfo;
 #pragma mark —— 保存特定的用户数据（不随登出清空数据）
 ///【通过特定的用户名】 保存（更新）用户的本地资料（用 NSUserDefaults ）
--(void)userNameToSaveUserInfo:(DDUserModel *)userModel;
+-(void)userNameToSaveUserInfo:(JobsUserModel <NSCoding>*)userModel;
 ///【通过特定的用户名】 读取用户的本地资料
--(DDUserModel *)readUserInfoByUserName:(NSString *)userName;
+-(JobsUserModel *)readUserInfoByUserName:(NSString *)userName;
 ///【通过特定的用户名】 删除该用户的本地资料
 -(void)deleteUserInfoByUserName:(NSString *)userName;
 #pragma mark —— 全局保存和删除已经登录成功的用户名
@@ -55,13 +49,13 @@ NS_ASSUME_NONNULL_END
  
  #pragma mark —— 存取用户信息Demo
  -(void)saveAndReadUserInfoDemo{
-     DDUserModel *userModel = DDUserModel.new;
+     JobsAppDoorVC *userModel = JobsAppDoorVC.new;
      userModel.token = @"12345";
      userModel.uid = @"54321";
      
      [self saveUserInfo:userModel];
      NSLog(@"");
-     DDUserModel *f = [self readUserInfo];
+     JobsAppDoorVC *f = [self readUserInfo];
      NSLog(@"");
  }
  

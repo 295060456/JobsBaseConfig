@@ -90,7 +90,7 @@
     
     [self cancelImageDownloadTask];
 
-    AFImageDownloader *downloader = [[self class] sharedImageDownloader];
+    AFImageDownloader *downloader = [self.class sharedImageDownloader];
     id <AFImageRequestCache> imageCache = downloader.imageCache;
 
     //Use the image from the image cache if it exists

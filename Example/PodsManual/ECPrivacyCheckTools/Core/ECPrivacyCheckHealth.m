@@ -17,54 +17,45 @@
     if ([HKHealthStore isHealthDataAvailable]) {
         // 以心率 HKQuantityTypeIdentifierHeartRate 为例
         HKQuantityType *heartRateType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate];
-        HKHealthStore *store = [[HKHealthStore alloc] init];
+        HKHealthStore *store = HKHealthStore.new;
         HKAuthorizationStatus status = [store authorizationStatusForType:heartRateType];
-        
         if (status == HKAuthorizationStatusNotDetermined) {
             return ECHealthAuthorizationStatusNotDetermined;
         } else if (status == HKAuthorizationStatusSharingDenied) {
             return ECHealthAuthorizationStatusDenied;
-        } else {
-            return ECHealthAuthorizationStatusAuthorized;
-        }
-    } else {
-        return ECHealthAuthorizationStatusUnable;
-    }
+        } else return ECHealthAuthorizationStatusAuthorized;
+    } else return ECHealthAuthorizationStatusUnable;
 }
 
 - (ECHealthAuthorizationStatus)healthAuthorizationStatus {
-    return [[self class] healthAuthorizationStatus];
+    return [self.class healthAuthorizationStatus];
 }
 
 + (void)requestHealthsAuthorizationWithCompletionHandler:(void(^)(BOOL granted))completionHandler {
-    ECHealthAuthorizationStatus status = [[self class] healthAuthorizationStatus];
-    
+    ECHealthAuthorizationStatus status = [self.class healthAuthorizationStatus];
     if (status == ECHealthAuthorizationStatusNotDetermined) {
         // 以心率 HKQuantityTypeIdentifierHeartRate 为例
         HKQuantityType *heartRateType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate];
-        HKHealthStore *store = [[HKHealthStore alloc] init];
+        HKHealthStore *store = HKHealthStore.new;
         NSSet *typeSet = [NSSet setWithObject:heartRateType];
-        
-        [store requestAuthorizationToShareTypes:typeSet readTypes:typeSet completion:^(BOOL success, NSError * _Nullable error) {
+        [store requestAuthorizationToShareTypes:typeSet
+                                      readTypes:typeSet
+                                     completion:^(BOOL success,
+                                                  NSError * _Nullable error) {
             [self callbackOnMainQueue:^{
-                if (completionHandler) {
-                    completionHandler(success);
-                }
+                if (completionHandler) completionHandler(success);
             }];
         }];
         
     } else {
         [self callbackOnMainQueue:^{
-            if (completionHandler) {
-                completionHandler(status == ECHealthAuthorizationStatusAuthorized);
-            }
+            if (completionHandler) completionHandler(status == ECHealthAuthorizationStatusAuthorized);
         }];
     }
 }
 
 - (void)requestHealthsAuthorizationWithCompletionHandler:(void (^)(BOOL))completionHandler {
-    [[self class] requestHealthsAuthorizationWithCompletionHandler:completionHandler];
+    [self.class requestHealthsAuthorizationWithCompletionHandler:completionHandler];
 }
-
 
 @end

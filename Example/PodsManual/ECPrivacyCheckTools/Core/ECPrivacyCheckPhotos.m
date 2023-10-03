@@ -15,48 +15,40 @@
 
 + (ECPhotosAuthorizationStatus)photosAuthorizationStatus {
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
-        
-        PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
+        PHAuthorizationStatus status = PHPhotoLibrary.authorizationStatus;
         if (status == PHAuthorizationStatusNotDetermined) {
             return ECPhotosAuthorizationStatusNotDetermined;
         } else if (status == PHAuthorizationStatusRestricted) {
             return ECPhotosAuthorizationStatusRestricted;
         } else if (status == PHAuthorizationStatusDenied) {
             return ECPhotosAuthorizationStatusDenied;
-        } else {
-            return ECPhotosAuthorizationStatusAuthorized;
-        }
-    } else {
-        return ECPhotosAuthorizationStatusUnable;
-    }
+        } else return ECPhotosAuthorizationStatusAuthorized;
+    } else return ECPhotosAuthorizationStatusUnable;
 }
 
 - (ECPhotosAuthorizationStatus)photosAuthorizationStatus {
-    return [[self class] photosAuthorizationStatus];
+    return [self.class photosAuthorizationStatus];
 }
 
 + (void)requestPhotosAuthorizationWithCompletionHandler:(void(^)(BOOL granted))completionHandler {
-    ECPhotosAuthorizationStatus status = [[self class] photosAuthorizationStatus];
+    ECPhotosAuthorizationStatus status = [self.class photosAuthorizationStatus];
     if (status == ECPhotosAuthorizationStatusNotDetermined) {
-        
+        @jobs_weakify(self)
         [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+            @jobs_strongify(self)
             [self callbackOnMainQueue:^{
-                if (completionHandler) {
-                    completionHandler(status == PHAuthorizationStatusAuthorized);
-                }
+                if (completionHandler) completionHandler(status == PHAuthorizationStatusAuthorized);
             }];
         }];
     } else {
         [self callbackOnMainQueue:^{
-            if (completionHandler) {
-                completionHandler(status == ECPhotosAuthorizationStatusAuthorized);
-            }
+            if (completionHandler) completionHandler(status == ECPhotosAuthorizationStatusAuthorized);
         }];
     }
 }
 
 - (void)requestPhotosAuthorizationWithCompletionHandler:(void(^)(BOOL granted))completionHandler {
-    [[self class] requestPhotosAuthorizationWithCompletionHandler:completionHandler];
+    [self.class requestPhotosAuthorizationWithCompletionHandler:completionHandler];
 }
 
 @end

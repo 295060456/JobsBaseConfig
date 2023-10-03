@@ -15,24 +15,24 @@
 @implementation UINavigationController (SafeTransition)
 
 + (void)load {
-    TYFFSwizzleMethod([self class],
+    TYFFSwizzleMethod(self.class,
                       @selector(pushViewController:animated:),
-                      [self class],
+                      self.class,
                       @selector(safePushViewController:animated:));
     
-    TYFFSwizzleMethod([self class],
+    TYFFSwizzleMethod(self.class,
                       @selector(popViewControllerAnimated:),
-                      [self class],
+                      self.class,
                       @selector(safePopViewControllerAnimated:));
     
-    TYFFSwizzleMethod([self class],
+    TYFFSwizzleMethod(self.class,
                       @selector(popToRootViewControllerAnimated:),
-                      [self class],
+                      self.class,
                       @selector(safePopToRootViewControllerAnimated:));
     
-    TYFFSwizzleMethod([self class],
+    TYFFSwizzleMethod(self.class,
                       @selector(popToViewController:animated:),
-                      [self class],
+                      self.class,
                       @selector(safePopToViewController:animated:));
 }
 #pragma mark - setter & getter

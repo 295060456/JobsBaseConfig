@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
-
-
 /** 定位授权状态
  *
  *  ECLocationAuthorizationStatusUnable：不支持或不可用
@@ -30,17 +28,13 @@ typedef NS_ENUM(NSInteger, ECLocationAuthorizationStatus) {
     ECLocationAuthorizationStatusAuthorized API_DEPRECATED("Use ECLocationAuthorizationStatusAuthorizedAlways", ios(2.0, 8.0)) = ECLocationAuthorizationStatusAuthorizedAlways
 };
 
-
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ECPrivacyCheckLocationServices : NSObject
-
+@interface ECPrivacyCheckLocationServices : NSObject<CLLocationManagerDelegate>
 /// 检查定位权限状态：仅检查权限，不主动请求权限
 + (ECLocationAuthorizationStatus)locationAuthorizationStatus;
-
 /// 检查定位权限状态：仅检查权限，不主动请求权限
 - (ECLocationAuthorizationStatus)locationAuthorizationStatus;
-
 /// 请求定位权限
 /// @param completionHandler completionHandler
 - (void)requestLocationAuthorizationWithCompletionHandler:(void(^)(ECLocationAuthorizationStatus status))completionHandler;

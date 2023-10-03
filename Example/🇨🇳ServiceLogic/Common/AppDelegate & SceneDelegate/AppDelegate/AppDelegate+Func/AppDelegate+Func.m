@@ -45,13 +45,13 @@
 }
 #pragma mark —— 存取用户信息Demo
 -(void)saveAndReadUserInfoDemo{
-    DDUserModel *userModel = DDUserModel.new;
+    JobsUserModel *userModel = JobsUserModel.new;
     userModel.token = @"12345";
     userModel.uid = @"54321";
     
     [self saveUserInfo:userModel];
     NSLog(@"");
-    DDUserModel *f = [self readUserInfo];
+    JobsUserModel *f = [self readUserInfo];
     NSLog(@"");
 }
 #pragma mark —— 读取Plist配置文件

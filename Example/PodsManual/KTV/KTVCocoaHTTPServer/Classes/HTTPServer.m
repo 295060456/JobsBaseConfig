@@ -313,7 +313,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_INFO; // | HTTP_LOG_FLAG_TRACE;
 				result = [[netService name] copy];
 			};
 			
-			[[self class] performBonjourBlock:bonjourBlock];
+			[self.class performBonjourBlock:bonjourBlock];
 		}
 	});
 	
@@ -391,7 +391,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_INFO; // | HTTP_LOG_FLAG_TRACE;
 				[theNetService setTXTRecordData:txtRecordData];
 			};
 			
-			[[self class] performBonjourBlock:bonjourBlock];
+			[self.class performBonjourBlock:bonjourBlock];
 		}
 	});
 	
@@ -589,8 +589,8 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_INFO; // | HTTP_LOG_FLAG_TRACE;
 			}
 		};
 		
-		[[self class] startBonjourThreadIfNeeded];
-		[[self class] performBonjourBlock:bonjourBlock];
+		[self.class startBonjourThreadIfNeeded];
+		[self.class performBonjourBlock:bonjourBlock];
 	}
 }
 
@@ -609,7 +609,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_INFO; // | HTTP_LOG_FLAG_TRACE;
 			[theNetService stop];
 		};
 		
-		[[self class] performBonjourBlock:bonjourBlock];
+		[self.class performBonjourBlock:bonjourBlock];
 		
 		netService = nil;
 	}

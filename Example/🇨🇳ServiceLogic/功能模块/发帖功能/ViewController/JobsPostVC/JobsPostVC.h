@@ -21,6 +21,8 @@
 #import "HXPhotoPicker.h"
 #endif
 
+#import "JobsUserModel.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JobsPostVC : BaseViewController

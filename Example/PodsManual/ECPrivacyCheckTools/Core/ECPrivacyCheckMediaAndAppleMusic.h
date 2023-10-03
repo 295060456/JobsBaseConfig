@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <StoreKit/StoreKit.h>
-
-
 /** 授权状态
  *  ECMediaAndAppleMusicAuthorizationStatusUnable：不支持或不可用
  *  ECMediaAndAppleMusicAuthorizationStatusNotDetermined：用户从未进行过授权等处理，首次访问相应内容会提示用户进行授权
@@ -25,25 +23,19 @@ typedef NS_ENUM(NSInteger, ECMediaAndAppleMusicAuthorizationStatus) {
     ECMediaAndAppleMusicAuthorizationStatusAuthorized
 };
 
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ECPrivacyCheckMediaAndAppleMusic : NSObject
-
 /// 检查 媒体与Apple Music 权限状态：仅检查权限，不主动请求权限
 + (ECMediaAndAppleMusicAuthorizationStatus)mediaAndAppleMusicAuthorizationStatus API_AVAILABLE(ios(9.3));
-
 /// 检查 媒体与Apple Music 权限状态：仅检查权限，不主动请求权限
 - (ECMediaAndAppleMusicAuthorizationStatus)mediaAndAppleMusicAuthorizationStatus API_AVAILABLE(ios(9.3));
-
 /// 请求 媒体与Apple Music 权限
 /// @param completionHandler completionHandler
 + (void)requestMediaAndAppleMusicAuthorizationWithCompletionHandler:(void(^)(BOOL granted))completionHandler API_AVAILABLE(ios(9.3));
-
 /// 请求 媒体与Apple Music 权限
 /// @param completionHandler completionHandler
 - (void)requestMediaAndAppleMusicAuthorizationWithCompletionHandler:(void(^)(BOOL granted))completionHandler API_AVAILABLE(ios(9.3));
-
 
 @end
 

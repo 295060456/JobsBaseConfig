@@ -190,10 +190,14 @@
  */
 -(JobsReturnIDByIDBlock _Nonnull)valueForKeyBlock{
     return ^(NSString *data) {
-        return [data isKindOfClass:NSString.class] ? [self valueForKey:data] : nil;
+        id value = nil;
+        if([data isKindOfClass:NSString.class] && 
+           [self respondsToSelector:NSSelectorFromString(data)]){
+            value = [self valueForKey:data];
+        }return value;
     };
 }
-// if (idToObject(data).isKindOfClassBlock(UIViewModel.class))
+
 -(JobsReturnBOOLByIDBlock _Nonnull)isKindOfClassBlock{
     return ^(Class cls) {
         return [self isKindOfClass:cls];

@@ -444,7 +444,7 @@ static NSMutableArray *recentNonces;
 		{
 			// The given nonce may be from another connection
 			// We need to search our list of recent nonce strings that have been recently distributed
-			if ([[self class] hasRecentNonce:[auth nonce]])
+			if ([self.class hasRecentNonce:[auth nonce]])
 			{
 				// Store nonce in local (cached) nonce variable to prevent array searches in the future
 				nonce = [[auth nonce] copy];
@@ -538,7 +538,7 @@ static NSMutableArray *recentNonces;
 	HTTPLogTrace();
 	
 	NSString *authFormat = @"Digest realm=\"%@\", qop=\"auth\", nonce=\"%@\"";
-	NSString *authInfo = [NSString stringWithFormat:authFormat, [self realm], [[self class] generateNonce]];
+	NSString *authInfo = [NSString stringWithFormat:authFormat, [self realm], [self.class generateNonce]];
 	
 	[response setHeaderField:@"WWW-Authenticate" value:authInfo];
 }

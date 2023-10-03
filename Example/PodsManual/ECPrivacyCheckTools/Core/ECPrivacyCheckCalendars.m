@@ -21,38 +21,33 @@
         return ECCalendarsAuthorizationStatusRestricted;
     } else if (status == EKAuthorizationStatusDenied) {
         return ECCalendarsAuthorizationStatusDenied;
-    } else {
-        return ECCalendarsAuthorizationStatusAuthorized;
-    }
+    } else return ECCalendarsAuthorizationStatusAuthorized;
 }
 
 - (ECCalendarsAuthorizationStatus)calendarsAuthorizationStatus {
-    return [[self class] calendarsAuthorizationStatus];
+    return [self.class calendarsAuthorizationStatus];
 }
 
 + (void)requestCalendarsAuthorizationWithCompletionHandler:(void(^)(BOOL granted))completionHandler {
-    ECCalendarsAuthorizationStatus status = [[self class] calendarsAuthorizationStatus];
-
+    ECCalendarsAuthorizationStatus status = [self.class calendarsAuthorizationStatus];
     if (status == ECCalendarsAuthorizationStatusNotDetermined) {
-        EKEventStore *store = [[EKEventStore alloc] init];
-        [store requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError * _Nullable error) {
+        EKEventStore *store = EKEventStore.new;
+        [store requestAccessToEntityType:EKEntityTypeEvent
+                              completion:^(BOOL granted,
+                                           NSError * _Nullable error) {
             [self callbackOnMainQueue:^{
-                if (completionHandler) {
-                    completionHandler(granted);
-                }
+                if (completionHandler) completionHandler(granted);
             }];
         }];
     } else {
         [self callbackOnMainQueue:^{
-            if (completionHandler) {
-                completionHandler(status == ECCalendarsAuthorizationStatusAuthorized);
-            }
+            if (completionHandler) completionHandler(status == ECCalendarsAuthorizationStatusAuthorized);
         }];
     }
 }
 
 - (void)requestCalendarsAuthorizationWithCompletionHandler:(void(^)(BOOL granted))completionHandler {
-    [[self class] requestCalendarsAuthorizationWithCompletionHandler:completionHandler];
+    [self.class requestCalendarsAuthorizationWithCompletionHandler:completionHandler];
 }
 
 

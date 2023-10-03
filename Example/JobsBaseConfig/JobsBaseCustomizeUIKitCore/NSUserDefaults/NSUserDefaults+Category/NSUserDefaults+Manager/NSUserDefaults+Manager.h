@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 存数据
 +(void)updateWithModel:(UserDefaultModel *)userDefaultModel;
 /// 读取数据
-+(NSObject *_Nullable)readWithKey:(NSString *)key;
++(id _Nullable)readWithKey:(NSString *)key;
 /// 删除数据
 +(void)deleteWithKey:(NSString *)key;
 

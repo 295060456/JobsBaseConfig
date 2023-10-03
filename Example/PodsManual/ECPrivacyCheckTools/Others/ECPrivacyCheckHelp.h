@@ -9,7 +9,6 @@
 #define ECPrivacyCheckHelp_h
 
 /// version:2.0.0
-
 /**
 *  ECPrivacyCheckGatherTool             常用隐私权限检测集合工具，包含：定位、照片、相机、通讯录
 *
@@ -27,9 +26,7 @@
 *  ECPrivacyCheckMediaAndAppleMusic     媒体与Apple Music >= iOS9.3
 *  ECPrivacyCheckFilesAndFolders        文件和文件夹
 *  ECPrivacyCheckMotionAndFitness       运动与健身
-*
 */
-
 #endif /* ECPrivacyCheckHelp_h */
 
 

@@ -7,11 +7,10 @@
 
 #import "ECPrivacyCheckGatherTool.h"
 
- 
-@interface ECPrivacyCheckGatherTool () <CLLocationManagerDelegate>
+@interface ECPrivacyCheckGatherTool () 
 
-@property (nonatomic, strong) CLLocationManager *locationManager;
-@property (nonatomic,copy) void (^kCLCallBackBlock)(CLAuthorizationStatus status);
+@property(nonatomic, strong)CLLocationManager *locationManager;
+@property(nonatomic,copy)void (^kCLCallBackBlock)(CLAuthorizationStatus status);
 
 @end
 
@@ -24,115 +23,91 @@
 + (void)callbackOnMainQueue:(dispatch_block_t)block {
     dispatch_async(dispatch_get_main_queue(), block);
 }
-
-
-// MARK: - 定位服务 LocationServices
-
+#pragma mark —— 定位服务 LocationServices
 + (ECLBSAuthorizationStatus)locationAuthorizationStatus {
     if (![CLLocationManager locationServicesEnabled]) {
         return ECLBSAuthorizationStatusUnable;
     }
-    
-    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
-    switch (status) {
-        case kCLAuthorizationStatusNotDetermined: {
-            return ECLBSAuthorizationStatusNotDetermined;
-        }
-            break;
-        case kCLAuthorizationStatusRestricted: {
-            return ECLBSAuthorizationStatusRestricted;
-        }
-            break;
-        case kCLAuthorizationStatusDenied: {
-            return ECLBSAuthorizationStatusDenied;
-        }
-            break;
-        case kCLAuthorizationStatusAuthorizedAlways: {
-            return ECLBSAuthorizationStatusAuthorizedAlways;
-        }
-            break;
-        case kCLAuthorizationStatusAuthorizedWhenInUse: {
-            return ECLBSAuthorizationStatusAuthorizedWhenInUse;
-        }
-        default:
-            break;
-    }
+    SuppressWdeprecatedDeclarationsWarning(
+                                           switch (CLLocationManager.authorizationStatus) {
+                                               case kCLAuthorizationStatusNotDetermined: {
+                                                   return ECLBSAuthorizationStatusNotDetermined;
+                                               }
+                                                   break;
+                                               case kCLAuthorizationStatusRestricted: {
+                                                   return ECLBSAuthorizationStatusRestricted;
+                                               }
+                                                   break;
+                                               case kCLAuthorizationStatusDenied: {
+                                                   return ECLBSAuthorizationStatusDenied;
+                                               }
+                                                   break;
+                                               case kCLAuthorizationStatusAuthorizedAlways: {
+                                                   return ECLBSAuthorizationStatusAuthorizedAlways;
+                                               }
+                                                   break;
+                                               case kCLAuthorizationStatusAuthorizedWhenInUse: {
+                                                   return ECLBSAuthorizationStatusAuthorizedWhenInUse;
+                                               }
+                                               default:
+                                                   break;
+                                           });
+
 }
 
 - (ECLBSAuthorizationStatus)locationAuthorizationStatus {
-    return [[self class] locationAuthorizationStatus];
+    return [self.class locationAuthorizationStatus];
 }
 
 - (void)requestLocationAuthorizationWithCompletionHandler:(void(^)(ECLBSAuthorizationStatus status))completionHandler {
-    __block ECLBSAuthorizationStatus lbsStatus = [[self class] locationAuthorizationStatus];
+    __block ECLBSAuthorizationStatus lbsStatus = [self.class locationAuthorizationStatus];
     if (lbsStatus == ECLBSAuthorizationStatusNotDetermined) {
-        self.locationManager = [[CLLocationManager alloc] init];
+        self.locationManager = CLLocationManager.new;
         self.locationManager.delegate = self;
         [self.locationManager requestWhenInUseAuthorization];
-        
-        __weak typeof (self)weakSelf = self;
+        @jobs_weakify(self)
         [self setKCLCallBackBlock:^(CLAuthorizationStatus status) {
-            
-            [weakSelf callbackOnMainQueue:^{
-
+            @jobs_strongify(self)
+            [self callbackOnMainQueue:^{
                 switch (status) {
                     case kCLAuthorizationStatusNotDetermined: {
                         lbsStatus = ECLBSAuthorizationStatusNotDetermined;
-                    }
-                        break;
+                    }break;
                     case kCLAuthorizationStatusRestricted: {
                         lbsStatus = ECLBSAuthorizationStatusRestricted;
-                    }
-                        break;
+                    }break;
                     case kCLAuthorizationStatusDenied: {
                         lbsStatus = ECLBSAuthorizationStatusDenied;
-                    }
-                        break;
+                    }break;
                     case kCLAuthorizationStatusAuthorizedAlways: {
                         lbsStatus = ECLBSAuthorizationStatusAuthorizedAlways;
-                    }
-                        break;
+                    }break;
                     case kCLAuthorizationStatusAuthorizedWhenInUse: {
                         lbsStatus = ECLBSAuthorizationStatusAuthorizedWhenInUse;
-                    }
-                    default:
+                    }default:
                         break;
                 }
-                
-                if (completionHandler) {
-                    completionHandler(lbsStatus);
-                }
+                if (completionHandler) completionHandler(lbsStatus);
             }];
         }];
-        
     } else {
         [self callbackOnMainQueue:^{
-            if (completionHandler) {
-                completionHandler(lbsStatus);
-            }
+            if (completionHandler) completionHandler(lbsStatus);
         }];
     }
 }
-
-// CLLocationManagerDelegate
-- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
-    
-    NSLog(@"%d", status);
-    
-    
-    
-    if (self.kCLCallBackBlock) {
-        self.kCLCallBackBlock(status);
-    }
+#pragma mark —— CLLocationManagerDelegate
+_Pragma("clang diagnostic push")
+_Pragma("clang diagnostic ignored \"-Wdeprecated-implementations\"")
+- (void)locationManager:(CLLocationManager *)manager
+    didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+        if (self.kCLCallBackBlock) self.kCLCallBackBlock(status);
 }
-
-
-// MARK: - 照片 Photos
-
+_Pragma("clang diagnostic pop")
+#pragma mark —— 照片 Photos
 + (ECAuthorizationStatus)photosAuthorizationStatus {
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
-        
-        PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
+        PHAuthorizationStatus status = PHPhotoLibrary.authorizationStatus;
         if (status == PHAuthorizationStatusNotDetermined) {
             return ECAuthorizationStatusNotDetermined;
         } else if (status == PHAuthorizationStatusRestricted) {
@@ -142,109 +117,83 @@
         } else {
             return ECAuthorizationStatusAuthorized;
         }
-    } else {
-        return ECAuthorizationStatusUnable;
-    }
+    } else return ECAuthorizationStatusUnable;
 }
 
 - (ECAuthorizationStatus)photosAuthorizationStatus {
-    return [[self class] photosAuthorizationStatus];
+    return [self.class photosAuthorizationStatus];
 }
 
 + (void)requestPhotosAuthorizationWithCompletionHandler:(void(^)(BOOL granted))completionHandler {
-    ECAuthorizationStatus status = [[self class] photosAuthorizationStatus];
+    ECAuthorizationStatus status = [self.class photosAuthorizationStatus];
     if (status == ECAuthorizationStatusNotDetermined) {
-        
         [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
             [self callbackOnMainQueue:^{
-                if (completionHandler) {
-                    completionHandler(status == PHAuthorizationStatusAuthorized);
-                }
+                if (completionHandler) completionHandler(status == PHAuthorizationStatusAuthorized);
             }];
         }];
     } else {
         [self callbackOnMainQueue:^{
-            if (completionHandler) {
-                completionHandler(status == ECAuthorizationStatusAuthorized);
-            }
+            if (completionHandler) completionHandler(status == ECAuthorizationStatusAuthorized);
         }];
     }
 }
 
 - (void)requestPhotosAuthorizationWithCompletionHandler:(void(^)(BOOL granted))completionHandler {
-    [[self class] requestPhotosAuthorizationWithCompletionHandler:completionHandler];
+    [self.class requestPhotosAuthorizationWithCompletionHandler:completionHandler];
 }
-
-
-// MARK: - 相机 Camera
-
+#pragma mark —— 相机 Camera
 + (ECAuthorizationStatus)cameraAuthorizationStatus {
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
-        
         if (status == AVAuthorizationStatusNotDetermined) {
             return ECAuthorizationStatusNotDetermined;
         } else if (status == AVAuthorizationStatusRestricted){
             return ECAuthorizationStatusRestricted;
         } else if (status == AVAuthorizationStatusDenied) {
             return ECAuthorizationStatusDenied;
-        } else {
-            return ECAuthorizationStatusAuthorized;
-        }
-        
-    } else {
-        return ECAuthorizationStatusUnable;
-    }
+        } else return ECAuthorizationStatusAuthorized;
+    } else return ECAuthorizationStatusUnable;
 }
 
 - (ECAuthorizationStatus)cameraAuthorizationStatus {
-    return [[self class] cameraAuthorizationStatus];
+    return [self.class cameraAuthorizationStatus];
 }
-    
 
 + (void)requestCameraAuthorizationWithCompletionHandler:(void(^)(BOOL granted))completionHandler {
-    ECAuthorizationStatus status = [[self class] cameraAuthorizationStatus];
-    
+    ECAuthorizationStatus status = [self.class cameraAuthorizationStatus];
     if (status == ECAuthorizationStatusNotDetermined) {
-        [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+        @jobs_weakify(self)
+        [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo
+                                 completionHandler:^(BOOL granted) {
+            @jobs_strongify(self)
             [self callbackOnMainQueue:^{
-                if (completionHandler) {
-                    completionHandler(granted);
-                }
+                if (completionHandler) completionHandler(granted);
             }];
         }];
     } else {
         [self callbackOnMainQueue:^{
-            if (completionHandler) {
-                completionHandler(status == ECAuthorizationStatusAuthorized);
-            }
+            if (completionHandler) completionHandler(status == ECAuthorizationStatusAuthorized);
         }];
     }
 }
     
 - (void)requestCameraAuthorizationWithCompletionHandler:(void(^)(BOOL granted))completionHandler {
-    [[self class] requestCameraAuthorizationWithCompletionHandler:completionHandler];
+    [self.class requestCameraAuthorizationWithCompletionHandler:completionHandler];
 }
-
-
-// MARK: - 通讯录 Contacts
-
+#pragma mark —— 通讯录 Contacts
 + (ECAuthorizationStatus)contactsAuthorizationStatus {
     if (@available(iOS 9.0, *)) {
-        CNAuthorizationStatus status = [CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts];
-        switch (status) {
+        switch ([CNContactStore authorizationStatusForEntityType:CNEntityTypeContacts]) {
             case CNAuthorizationStatusNotDetermined: {
                 return ECAuthorizationStatusNotDetermined;
-            }
-                break;
+            }break;
             case CNAuthorizationStatusRestricted: {
                 return ECAuthorizationStatusRestricted;
-            }
-                break;
+            }break;
             case CNAuthorizationStatusDenied: {
                 return ECAuthorizationStatusDenied;
-            }
-                break;
+            }break;
             case CNAuthorizationStatusAuthorized: {
                 return ECAuthorizationStatusAuthorized;
             }
@@ -252,69 +201,65 @@
                 break;
         }
     } else {
-        // Fallback on earlier versions
-        ABAuthorizationStatus status = ABAddressBookGetAuthorizationStatus();
-        switch (status) {
-            case kABAuthorizationStatusNotDetermined: {
-                return ECAuthorizationStatusNotDetermined;
-            }
-                break;
-            case kABAuthorizationStatusRestricted: {
-                return ECAuthorizationStatusRestricted;
-            }
-                break;
-            case kABAuthorizationStatusDenied: {
-                return ECAuthorizationStatusDenied;
-            }
-                break;
-            case kABAuthorizationStatusAuthorized: {
-                return ECAuthorizationStatusAuthorized;
-            }
-            default:
-                break;
-        }
+        SuppressWdeprecatedDeclarationsWarning(
+                                               switch (ABAddressBookGetAuthorizationStatus()) {
+                                                   case kABAuthorizationStatusNotDetermined: {
+                                                       return ECAuthorizationStatusNotDetermined;
+                                                   }break;
+                                                   case kABAuthorizationStatusRestricted: {
+                                                       return ECAuthorizationStatusRestricted;
+                                                   }break;
+                                                   case kABAuthorizationStatusDenied: {
+                                                       return ECAuthorizationStatusDenied;
+                                                   }break;
+                                                   case kABAuthorizationStatusAuthorized: {
+                                                       return ECAuthorizationStatusAuthorized;
+                                                   }default:
+                                                       break;
+                                               });
+        
     }
 }
 
 - (ECAuthorizationStatus)contactsAuthorizationStatus {
-    return [[self class] contactsAuthorizationStatus];
+    return [self.class contactsAuthorizationStatus];
 }
 
 + (void)requestContactsAuthorizationWithCompletionHandler:(void(^)(BOOL granted))completionHandler {
-    ECAuthorizationStatus status = [[self class] contactsAuthorizationStatus];
+    ECAuthorizationStatus status = [self.class contactsAuthorizationStatus];
     if (status == ECAuthorizationStatusNotDetermined) {
         if (@available(iOS 9.0, *)) {
-            CNContactStore *contactStore = [[CNContactStore alloc] init];
-            [contactStore requestAccessForEntityType:CNEntityTypeContacts completionHandler:^(BOOL granted, NSError * _Nullable error) {
+            CNContactStore *contactStore = CNContactStore.new;
+            [contactStore requestAccessForEntityType:CNEntityTypeContacts
+                                   completionHandler:^(BOOL granted,
+                                                       NSError * _Nullable error) {
                 [self callbackOnMainQueue:^{
-                    if (completionHandler) {
-                        completionHandler(granted);
-                    }
+                    if (completionHandler) completionHandler(granted);
                 }];
             }];
         } else {
-            // Fallback on earlier versions
-            ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
-            ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool granted, CFErrorRef error) {
-                [self callbackOnMainQueue:^{
-                    if (completionHandler) {
-                        completionHandler(granted);
-                    }
-                }];
-            });
+            SuppressWdeprecatedDeclarationsWarning(
+                                                   ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
+                                                   ABAddressBookRequestAccessWithCompletion(addressBook,
+                                                                                            ^(bool granted,
+                                                                                              CFErrorRef error) {
+                                                       @jobs_weakify(self)
+                                                       [self callbackOnMainQueue:^{
+                                                           @jobs_strongify(self)
+                                                           if (completionHandler) completionHandler(granted);
+                                                       }];
+                                                   });
+                                                   );
         }
-
     } else {
         [self callbackOnMainQueue:^{
-            if (completionHandler) {
-                completionHandler(status == ECAuthorizationStatusAuthorized);
-            }
+            if (completionHandler) completionHandler(status == ECAuthorizationStatusAuthorized);
         }];
     }
 }
 
 - (void)requestContactsAuthorizationWithCompletionHandler:(void(^)(BOOL granted))completionHandler {
-    [[self class] requestContactsAuthorizationWithCompletionHandler:completionHandler];
+    [self.class requestContactsAuthorizationWithCompletionHandler:completionHandler];
 }
 
 @end

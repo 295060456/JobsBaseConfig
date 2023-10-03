@@ -228,7 +228,7 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
 //                   successBlock:^(DDResponseModel *data) {
 //        @jobs_strongify(self)
 //        NSLog(@"用户Token为:%@",data.data);
-//        DDUserModel *userModel = DDUserModel.new;
+//        JobsUserModel *userModel = JobsUserModel.new;
 //        userModel.userName = account;
 //        userModel.password = password;
 //        userModel.deviceId = deviceId;

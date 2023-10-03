@@ -7,11 +7,10 @@
 
 #import "ECPrivacyCheckLocationServices.h"
 
-@interface ECPrivacyCheckLocationServices () <CLLocationManagerDelegate>
+@interface ECPrivacyCheckLocationServices () 
 
-@property (nonatomic, strong) CLLocationManager *locationManager;
-@property (nonatomic,copy) void (^kCLCallBackBlock)(CLAuthorizationStatus status);
-
+@property(nonatomic,strong)CLLocationManager *locationManager;
+@property(nonatomic,copy)void (^kCLCallBackBlock)(CLAuthorizationStatus status);
 
 @end
 
@@ -22,94 +21,80 @@
 }
 
 + (ECLocationAuthorizationStatus)locationAuthorizationStatus {
-    if (![CLLocationManager locationServicesEnabled]) {
-        return ECLocationAuthorizationStatusUnable;
-    }
-    
-    switch (CLLocationManager.authorizationStatus) {
-        case kCLAuthorizationStatusNotDetermined: {
-            return ECLocationAuthorizationStatusNotDetermined;
-        }
-            break;
-        case kCLAuthorizationStatusRestricted: {
-            return ECLocationAuthorizationStatusRestricted;
-        }
-            break;
-        case kCLAuthorizationStatusDenied: {
-            return ECLocationAuthorizationStatusDenied;
-        }
-            break;
-        case kCLAuthorizationStatusAuthorizedAlways: {
-            return ECLocationAuthorizationStatusAuthorizedAlways;
-        }
-            break;
-        case kCLAuthorizationStatusAuthorizedWhenInUse: {
-            return ECLocationAuthorizationStatusAuthorizedWhenInUse;
-        }
-        default:
-            break;
-    }
+    if (![CLLocationManager locationServicesEnabled]) return ECLocationAuthorizationStatusUnable;
+    SuppressWdeprecatedDeclarationsWarning(
+                                           switch (CLLocationManager.authorizationStatus) {
+                                               case kCLAuthorizationStatusNotDetermined: {
+                                                   return ECLocationAuthorizationStatusNotDetermined;
+                                               }
+                                                   break;
+                                               case kCLAuthorizationStatusRestricted: {
+                                                   return ECLocationAuthorizationStatusRestricted;
+                                               }
+                                                   break;
+                                               case kCLAuthorizationStatusDenied: {
+                                                   return ECLocationAuthorizationStatusDenied;
+                                               }
+                                                   break;
+                                               case kCLAuthorizationStatusAuthorizedAlways: {
+                                                   return ECLocationAuthorizationStatusAuthorizedAlways;
+                                               }
+                                                   break;
+                                               case kCLAuthorizationStatusAuthorizedWhenInUse: {
+                                                   return ECLocationAuthorizationStatusAuthorizedWhenInUse;
+                                               }default:
+                                                   break;
+                                           });
 }
 
 - (ECLocationAuthorizationStatus)locationAuthorizationStatus {
-    return [[self class] locationAuthorizationStatus];
+    return [self.class locationAuthorizationStatus];
 }
 
 - (void)requestLocationAuthorizationWithCompletionHandler:(void (^)(ECLocationAuthorizationStatus))completionHandler {
-    __block ECLocationAuthorizationStatus lbsStatus = [[self class] locationAuthorizationStatus];
+    __block ECLocationAuthorizationStatus lbsStatus = [self.class locationAuthorizationStatus];
     if (lbsStatus == ECLocationAuthorizationStatusNotDetermined) {
-        self.locationManager = [[CLLocationManager alloc] init];
+        self.locationManager = CLLocationManager.new;
         self.locationManager.delegate = self;
         [self.locationManager requestAlwaysAuthorization];
-        
-        __weak typeof (self)weakSelf = self;
+        @jobs_weakify(self)
         [self setKCLCallBackBlock:^(CLAuthorizationStatus status) {
-            [weakSelf callbackOnMainQueue:^{
+            @jobs_strongify(self)
+            [self callbackOnMainQueue:^{
                 switch (status) {
                     case kCLAuthorizationStatusNotDetermined: {
                         lbsStatus = ECLocationAuthorizationStatusNotDetermined;
-                    }
-                        break;
+                    }break;
                     case kCLAuthorizationStatusRestricted: {
                         lbsStatus = ECLocationAuthorizationStatusRestricted;
-                    }
-                        break;
+                    }break;
                     case kCLAuthorizationStatusDenied: {
                         lbsStatus = ECLocationAuthorizationStatusDenied;
-                    }
-                        break;
+                    }break;
                     case kCLAuthorizationStatusAuthorizedAlways: {
                         lbsStatus = ECLocationAuthorizationStatusAuthorizedAlways;
-                    }
-                        break;
+                    }break;
                     case kCLAuthorizationStatusAuthorizedWhenInUse: {
                         lbsStatus = ECLocationAuthorizationStatusAuthorizedWhenInUse;
-                    }
-                    default:
+                    }default:
                         break;
                 }
-                
-                if (completionHandler) {
-                    completionHandler(lbsStatus);
-                }
+                if (completionHandler) completionHandler(lbsStatus);
             }];
         }];
-        
     } else {
         [self callbackOnMainQueue:^{
-            if (completionHandler) {
-                  completionHandler(lbsStatus);
-              }
+            if (completionHandler) completionHandler(lbsStatus);
         }];
     }
 }
-
-// MARK: - CLLocationManagerDelegate
-- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
-    if (self.kCLCallBackBlock) {
-        self.kCLCallBackBlock(status);
-    }
+#pragma mark ——  CLLocationManagerDelegate
+_Pragma("clang diagnostic push")
+_Pragma("clang diagnostic ignored \"-Wdeprecated-implementations\"")
+- (void)locationManager:(CLLocationManager *)manager
+didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    if (self.kCLCallBackBlock) self.kCLCallBackBlock(status);
 }
-
+_Pragma("clang diagnostic pop")
 
 @end

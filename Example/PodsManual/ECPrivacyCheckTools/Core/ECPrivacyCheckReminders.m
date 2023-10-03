@@ -21,38 +21,33 @@
         return ECRemindersAuthorizationStatusRestricted;
     } else if (status == EKAuthorizationStatusDenied) {
         return ECRemindersAuthorizationStatusDenied;
-    } else {
-        return ECRemindersAuthorizationStatusAuthorized;
-    }
+    } else return ECRemindersAuthorizationStatusAuthorized;
 }
 
 - (ECRemindersAuthorizationStatus)remindersAuthorizationStatus {
-    return [[self class] remindersAuthorizationStatus];
+    return [self.class remindersAuthorizationStatus];
 }
 
 + (void)requestRemindersAuthorizationWithCompletionHandler:(void(^)(BOOL granted))completionHandler {
-    ECRemindersAuthorizationStatus status = [[self class] remindersAuthorizationStatus];
-    
+    ECRemindersAuthorizationStatus status = [self.class remindersAuthorizationStatus];
     if (status == ECRemindersAuthorizationStatusNotDetermined) {
-        EKEventStore *store = [[EKEventStore alloc] init];
-        [store requestAccessToEntityType:EKEntityTypeReminder completion:^(BOOL granted, NSError * _Nullable error) {
+        EKEventStore *store = EKEventStore.new;
+        [store requestAccessToEntityType:EKEntityTypeReminder
+                              completion:^(BOOL granted,
+                                           NSError * _Nullable error) {
             [self callbackOnMainQueue:^{
-                if (completionHandler) {
-                    completionHandler(granted);
-                }
+                if (completionHandler) completionHandler(granted);
             }];
         }];
     } else {
         [self callbackOnMainQueue:^{
-            if (completionHandler) {
-                completionHandler(status == ECRemindersAuthorizationStatusAuthorized);
-            }
+            if (completionHandler) completionHandler(status == ECRemindersAuthorizationStatusAuthorized);
         }];
     }
 }
 
 - (void)requestRemindersAuthorizationWithCompletionHandler:(void (^)(BOOL))completionHandler {
-    [[self class] requestRemindersAuthorizationWithCompletionHandler:completionHandler];
+    [self.class requestRemindersAuthorizationWithCompletionHandler:completionHandler];
 }
 
 @end

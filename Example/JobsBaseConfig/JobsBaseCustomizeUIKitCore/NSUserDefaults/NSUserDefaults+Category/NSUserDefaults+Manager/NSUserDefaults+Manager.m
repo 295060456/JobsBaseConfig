@@ -8,20 +8,26 @@
 #import "NSUserDefaults+Manager.h"
 
 @implementation NSUserDefaults (Manager)
-
 /// CRUD（create, read, update, delete）
-
-/// 存数据
+/// 存数据（包括父类直到NSObject的所有属性）
 +(void)updateWithModel:(UserDefaultModel *)userDefaultModel{
     if (![NSString isNullString:userDefaultModel.key]) {
         if (userDefaultModel.obj && ![userDefaultModel.obj isKindOfClass:NSNull.class]) {
-            /// 例如：自定义的Model，因为没有被序列化所以直接存不进去，会报错误❌attempt to insert non-property list object❌
-            /// 所以需要mj_JSONString，对象Json序列化后存入
-            [NSUserDefaults.standardUserDefaults setObject:userDefaultModel.obj.mj_JSONString
-                                                    forKey:userDefaultModel.key];
-            [NSUserDefaults.standardUserDefaults synchronize];
-            NSLog(@"%@",NSString.userDefaultsDir);
-            return;
+            // 步骤1: 将NSObject对象归档为二进制数据
+            NSError *error = nil;
+            NSData *archivedData = [NSKeyedArchiver archivedDataWithRootObject:userDefaultModel.obj
+                                                         requiringSecureCoding:NO
+                                                                         error:&error];
+            if (error) {
+                NSLog(@"归档失败: %@", error.localizedDescription);
+            } else {
+                // 步骤2: 将归档数据存储到NSUserDefaults
+                [NSUserDefaults.standardUserDefaults setObject:archivedData
+                                                        forKey:userDefaultModel.key];
+                [NSUserDefaults.standardUserDefaults synchronize];
+                NSLog(@"%@",NSString.userDefaultsDir);
+                return;
+            }
         }
         
         if (userDefaultModel.booLValue) {
@@ -34,11 +40,10 @@
     }
 }
 /// 读取数据
-+(NSObject *_Nullable)readWithKey:(NSString *)key{
-    NSObject *data = nil;
++(id _Nullable)readWithKey:(NSString *)key{
+    id data = nil;
     if (![NSString isNullString:key]){
         data = [NSUserDefaults.standardUserDefaults valueForKey:key];
-        data = data.mj_JSONObject;
     }return data;
 }
 /// 删除数据

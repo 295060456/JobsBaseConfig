@@ -12,10 +12,10 @@
 + (void)load{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        MethodSwizzle([self class],
+        MethodSwizzle(self.class,
                       @selector(setBackgroundColor:),
                       @selector(aop_setBackgroundColor:));
-        MethodSwizzle([self class],
+        MethodSwizzle(self.class,
                       @selector(willMoveToSuperview:),
                       @selector(aop_willMoveToSuperview:));
     });
@@ -33,7 +33,7 @@
 }
 // 两边的竖线
 - (void)aop_willMoveToSuperview:(UIView *)view{
-    NSString *className = NSStringFromClass([self class]);
+    NSString *className = NSStringFromClass(self.class);
     if([className isEqualToString:@"UISelectionGrabber"] ||
        [className isEqualToString:@"UISelectionGrabberDot"]){
         UIView *coverView = [self viewWithTag:10000];

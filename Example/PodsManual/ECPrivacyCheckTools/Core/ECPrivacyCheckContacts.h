@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <Contacts/Contacts.h>
 #import <AddressBook/AddressBook.h>
-
-
 /** 授权状态
  *  ECContactsAuthorizationStatusUnable：不支持或不可用
  *  ECContactsAuthorizationStatusNotDetermined：用户从未进行过授权等处理，首次访问相应内容会提示用户进行授权
@@ -26,21 +24,16 @@ typedef NS_ENUM(NSInteger, ECContactsAuthorizationStatus) {
     ECContactsAuthorizationStatusAuthorized
 };
 
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ECPrivacyCheckContacts : NSObject
-
 /// 检查通讯录权限状态：仅检查权限，不主动请求权限
 + (ECContactsAuthorizationStatus)contactsAuthorizationStatus;
-
 /// 检查通讯录权限状态：仅检查权限，不主动请求权限
 - (ECContactsAuthorizationStatus)contactsAuthorizationStatus;
-
 /// 请求通讯录权限
 /// @param completionHandler completionHandler
 + (void)requestContactsAuthorizationWithCompletionHandler:(void(^)(BOOL granted))completionHandler;
-
 /// 请求通讯录权限
 /// @param completionHandler completionHandler
 - (void)requestContactsAuthorizationWithCompletionHandler:(void(^)(BOOL granted))completionHandler;

@@ -236,7 +236,7 @@ NSString *jobsName(){
 }
 /// 调用方法
 void funcIMP(Class self, SEL _cmd){
-    Class class = [self class];
+    Class class = self.class;
     // 类： dynaminClass, sel： test.
     NSLog(@"self: %@ sel: %s", class, _cmd);
 }
@@ -263,7 +263,7 @@ void jobs_class_addProperty(Class targetClass , const char *propertyName) {
 /// self和_cmd是必须的，在之后可以随意添加其他参数
 static void addMethodForMyClass(id self, SEL _cmd, NSString *test) {
     // 获取类中指定名称实例成员变量的信息
-    Ivar ivar = class_getInstanceVariable([self class], "test");
+    Ivar ivar = class_getInstanceVariable(self.class, "test");
 // 获取整个成员变量列表
 //   Ivar * class_copyIvarList ( Class cls, unsigned intint * outCount );
 // 获取类中指定名称实例成员变量的信息
@@ -274,7 +274,7 @@ static void addMethodForMyClass(id self, SEL _cmd, NSString *test) {
     id obj = object_getIvar(self, ivar);
     NSLog(@"%@",obj);
     NSLog(@"addMethodForMyClass:参数：%@",test);
-    NSLog(@"ClassName：%@",NSStringFromClass([self class]));
+    NSLog(@"ClassName：%@",NSStringFromClass(self.class));
 }
 /// 这个方法实际上没有被调用,但是必须实现否则不会调用下面的方法
 - (void)addMethodForMyClass:(NSString *)string {

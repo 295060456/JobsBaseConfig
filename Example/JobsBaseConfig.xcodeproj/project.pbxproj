@@ -225,7 +225,7 @@
 		844B08832764CF4800B0513D /* XHLaunchAdImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B08362764CF4800B0513D /* XHLaunchAdImageManager.m */; };
 		844B0E532764DE1A00B0513D /* DDResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B0E4B2764DE1900B0513D /* DDResponseModel.m */; };
 		844B0E542764DE1A00B0513D /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B0E4E2764DE1900B0513D /* BaseModel.m */; };
-		844B0E552764DE1A00B0513D /* DDUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B0E512764DE1A00B0513D /* DDUserModel.m */; };
+		844B0E552764DE1A00B0513D /* JobsUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B0E512764DE1A00B0513D /* JobsUserModel.m */; };
 		84562572278BF1FB0067ABB9 /* JobsComment【OutLines 01】.png in Resources */ = {isa = PBXBuildFile; fileRef = 8456256D278BF1FB0067ABB9 /* JobsComment【OutLines 01】.png */; };
 		84562573278BF1FB0067ABB9 /* JobsComment【OutLines 05】.png in Resources */ = {isa = PBXBuildFile; fileRef = 8456256E278BF1FB0067ABB9 /* JobsComment【OutLines 05】.png */; };
 		84562574278BF1FB0067ABB9 /* JobsComment【OutLines 04】.png in Resources */ = {isa = PBXBuildFile; fileRef = 8456256F278BF1FB0067ABB9 /* JobsComment【OutLines 04】.png */; };
@@ -1371,8 +1371,8 @@
 		844B0E4C2764DE1900B0513D /* DDResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDResponseModel.h; sourceTree = "<group>"; };
 		844B0E4E2764DE1900B0513D /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		844B0E4F2764DE1900B0513D /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
-		844B0E512764DE1A00B0513D /* DDUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDUserModel.m; sourceTree = "<group>"; };
-		844B0E522764DE1A00B0513D /* DDUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDUserModel.h; sourceTree = "<group>"; };
+		844B0E512764DE1A00B0513D /* JobsUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsUserModel.m; sourceTree = "<group>"; };
+		844B0E522764DE1A00B0513D /* JobsUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsUserModel.h; sourceTree = "<group>"; };
 		844B0E562764DE2D00B0513D /* DAO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DAO.h; sourceTree = "<group>"; };
 		8456256D278BF1FB0067ABB9 /* JobsComment【OutLines 01】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsComment【OutLines 01】.png"; sourceTree = "<group>"; };
 		8456256E278BF1FB0067ABB9 /* JobsComment【OutLines 05】.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JobsComment【OutLines 05】.png"; sourceTree = "<group>"; };
@@ -4084,34 +4084,34 @@
 		844B07D52764CF4700B0513D /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				844B07D62764CF4700B0513D /* ECPrivacyCheckCalendars.h */,
-				844B07D72764CF4700B0513D /* ECPrivacyCheckMicrophone.m */,
-				844B07D82764CF4700B0513D /* ECPrivacyCheckMotionAndFitness.h */,
-				844B07D92764CF4700B0513D /* ECPrivacyCheckHomeKit.m */,
-				844B07DA2764CF4700B0513D /* ECPrivacyCheckSpeechRecognition.h */,
+				844B07E62764CF4700B0513D /* ECPrivacyCheckBluetooth.h */,
 				844B07DB2764CF4700B0513D /* ECPrivacyCheckBluetooth.m */,
+				844B07D62764CF4700B0513D /* ECPrivacyCheckCalendars.h */,
+				844B07E52764CF4700B0513D /* ECPrivacyCheckCalendars.m */,
+				844B07EB2764CF4700B0513D /* ECPrivacyCheckCamera.h */,
 				844B07DC2764CF4700B0513D /* ECPrivacyCheckCamera.m */,
+				844B07E22764CF4700B0513D /* ECPrivacyCheckContacts.h */,
+				844B07EF2764CF4700B0513D /* ECPrivacyCheckContacts.m */,
+				844B07EE2764CF4700B0513D /* ECPrivacyCheckFilesAndFolders.h */,
+				844B07E12764CF4700B0513D /* ECPrivacyCheckFilesAndFolders.m */,
+				844B07E02764CF4700B0513D /* ECPrivacyCheckHealth.h */,
+				844B07F02764CF4700B0513D /* ECPrivacyCheckHealth.m */,
+				844B07E82764CF4700B0513D /* ECPrivacyCheckHomeKit.h */,
+				844B07D92764CF4700B0513D /* ECPrivacyCheckHomeKit.m */,
+				844B07EC2764CF4700B0513D /* ECPrivacyCheckLocationServices.h */,
 				844B07DD2764CF4700B0513D /* ECPrivacyCheckLocationServices.m */,
 				844B07DE2764CF4700B0513D /* ECPrivacyCheckMediaAndAppleMusic.h */,
-				844B07DF2764CF4700B0513D /* ECPrivacyCheckReminders.h */,
-				844B07E02764CF4700B0513D /* ECPrivacyCheckHealth.h */,
-				844B07E12764CF4700B0513D /* ECPrivacyCheckFilesAndFolders.m */,
-				844B07E22764CF4700B0513D /* ECPrivacyCheckContacts.h */,
-				844B07E32764CF4700B0513D /* ECPrivacyCheckPhotos.h */,
-				844B07E42764CF4700B0513D /* ECPrivacyCheckMicrophone.h */,
-				844B07E52764CF4700B0513D /* ECPrivacyCheckCalendars.m */,
-				844B07E62764CF4700B0513D /* ECPrivacyCheckBluetooth.h */,
-				844B07E72764CF4700B0513D /* ECPrivacyCheckSpeechRecognition.m */,
-				844B07E82764CF4700B0513D /* ECPrivacyCheckHomeKit.h */,
-				844B07E92764CF4700B0513D /* ECPrivacyCheckMotionAndFitness.m */,
 				844B07EA2764CF4700B0513D /* ECPrivacyCheckMediaAndAppleMusic.m */,
-				844B07EB2764CF4700B0513D /* ECPrivacyCheckCamera.h */,
-				844B07EC2764CF4700B0513D /* ECPrivacyCheckLocationServices.h */,
+				844B07E42764CF4700B0513D /* ECPrivacyCheckMicrophone.h */,
+				844B07D72764CF4700B0513D /* ECPrivacyCheckMicrophone.m */,
+				844B07D82764CF4700B0513D /* ECPrivacyCheckMotionAndFitness.h */,
+				844B07E92764CF4700B0513D /* ECPrivacyCheckMotionAndFitness.m */,
+				844B07E32764CF4700B0513D /* ECPrivacyCheckPhotos.h */,
 				844B07ED2764CF4700B0513D /* ECPrivacyCheckPhotos.m */,
-				844B07EE2764CF4700B0513D /* ECPrivacyCheckFilesAndFolders.h */,
-				844B07EF2764CF4700B0513D /* ECPrivacyCheckContacts.m */,
-				844B07F02764CF4700B0513D /* ECPrivacyCheckHealth.m */,
+				844B07DF2764CF4700B0513D /* ECPrivacyCheckReminders.h */,
 				844B07F12764CF4700B0513D /* ECPrivacyCheckReminders.m */,
+				844B07DA2764CF4700B0513D /* ECPrivacyCheckSpeechRecognition.h */,
+				844B07E72764CF4700B0513D /* ECPrivacyCheckSpeechRecognition.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -4156,10 +4156,10 @@
 		844B08112764CF4700B0513D /* Others */ = {
 			isa = PBXGroup;
 			children = (
-				844B08122764CF4700B0513D /* ECPrivacyCheckHelp.h */,
-				844B08132764CF4800B0513D /* ECPrivacyCheckGatherTool.m */,
 				844B08142764CF4800B0513D /* ECMacros.h */,
 				844B08152764CF4800B0513D /* ECPrivacyCheckGatherTool.h */,
+				844B08132764CF4800B0513D /* ECPrivacyCheckGatherTool.m */,
+				844B08122764CF4700B0513D /* ECPrivacyCheckHelp.h */,
 				844B08162764CF4800B0513D /* ECPrivacyCheckTools.h */,
 			);
 			path = Others;
@@ -4240,7 +4240,7 @@
 				8459D6192779A88900125782 /* CasinoCustomerContactModel */,
 				84D764AC2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel */,
 				844B0E4A2764DE1900B0513D /* DDResponseModel */,
-				844B0E502764DE1A00B0513D /* DDUserModel */,
+				844B0E502764DE1A00B0513D /* JobsUserModel */,
 			);
 			path = DAO;
 			sourceTree = "<group>";
@@ -4263,13 +4263,13 @@
 			path = BaseModel;
 			sourceTree = "<group>";
 		};
-		844B0E502764DE1A00B0513D /* DDUserModel */ = {
+		844B0E502764DE1A00B0513D /* JobsUserModel */ = {
 			isa = PBXGroup;
 			children = (
-				844B0E522764DE1A00B0513D /* DDUserModel.h */,
-				844B0E512764DE1A00B0513D /* DDUserModel.m */,
+				844B0E522764DE1A00B0513D /* JobsUserModel.h */,
+				844B0E512764DE1A00B0513D /* JobsUserModel.m */,
 			);
-			path = DDUserModel;
+			path = JobsUserModel;
 			sourceTree = "<group>";
 		};
 		8456256B278BF0A70067ABB9 /* JobsComment */ = {
@@ -11719,7 +11719,7 @@
 				846DF02127806D230050468A /* JobsAppDoorConfig.m in Sources */,
 				84A491F027904A970002A837 /* MGSwipeButtonModel.m in Sources */,
 				C520F88D2AB3A12100142DCC /* WMZBannerFadeLayout.m in Sources */,
-				844B0E552764DE1A00B0513D /* DDUserModel.m in Sources */,
+				844B0E552764DE1A00B0513D /* JobsUserModel.m in Sources */,
 				844B08812764CF4800B0513D /* XHLaunchAdConfiguration.m in Sources */,
 				C52E5CA62AC07E9800FE5494 /* KTVHCDataCallback.m in Sources */,
 				C593DFD62AC897FC00F875B5 /* NSObject+CurrentDevice.m in Sources */,

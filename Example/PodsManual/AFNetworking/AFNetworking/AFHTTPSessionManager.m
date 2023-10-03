@@ -48,7 +48,7 @@
 @dynamic responseSerializer;
 
 + (instancetype)manager {
-    return [[[self class] alloc] initWithBaseURL:nil];
+    return [[self.class alloc] initWithBaseURL:nil];
 }
 
 - (instancetype)init {
@@ -295,7 +295,7 @@
 #pragma mark - NSObject
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"<%@: %p, baseURL: %@, session: %@, operationQueue: %@>", NSStringFromClass([self class]), self, [self.baseURL absoluteString], self.session, self.operationQueue];
+    return [NSString stringWithFormat:@"<%@: %p, baseURL: %@, session: %@, operationQueue: %@>", NSStringFromClass(self.class), self, [self.baseURL absoluteString], self.session, self.operationQueue];
 }
 
 #pragma mark - NSSecureCoding
@@ -346,7 +346,7 @@
 #pragma mark - NSCopying
 
 - (instancetype)copyWithZone:(NSZone *)zone {
-    AFHTTPSessionManager *HTTPClient = [[[self class] allocWithZone:zone] initWithBaseURL:self.baseURL sessionConfiguration:self.session.configuration];
+    AFHTTPSessionManager *HTTPClient = [[self.class allocWithZone:zone] initWithBaseURL:self.baseURL sessionConfiguration:self.session.configuration];
 
     HTTPClient.requestSerializer = [self.requestSerializer copyWithZone:zone];
     HTTPClient.responseSerializer = [self.responseSerializer copyWithZone:zone];

@@ -21,7 +21,7 @@
      基础配置
      需要在请求之前配置，设置后所有请求都会带上 此基础配置
      */
-    DDUserModel *f = self.readUserInfo;
+    JobsUserModel *f = self.readUserInfo;
     NSMutableDictionary *parameters = NSMutableDictionary.dictionary;
     NSString *timeString = [NSString stringWithFormat:@"%.2f",NSDate.date.timeIntervalSince1970];
     parameters[@"timeString"] = timeString;//时间戳

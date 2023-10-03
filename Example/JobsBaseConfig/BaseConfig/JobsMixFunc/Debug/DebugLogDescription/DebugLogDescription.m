@@ -45,7 +45,7 @@
     NSMutableDictionary *dictionary = NSMutableDictionary.dictionary;
     //得到当前class的所有属性
     uint count;
-    objc_property_t *properties = class_copyPropertyList([self class], &count);
+    objc_property_t *properties = class_copyPropertyList(self.class, &count);
     //循环并用KVC得到每个属性的值
     for (int i = 0; i<count; i++) {
         objc_property_t property = properties[i];
@@ -56,7 +56,7 @@
     //释放
     free(properties);
     //return
-    return [NSString stringWithFormat:@"<%@: %p> -- %@",[self class],self,dictionary];
+    return [NSString stringWithFormat:@"<%@: %p> -- %@",self.class,self,dictionary];
 }
 /// 将obj转换成json字符串。如果失败则返回nil.
 -(NSString *)convertToJsonString {
@@ -98,13 +98,13 @@
     //方法交换
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        MethodSwizzle([self class],
+        MethodSwizzle(self.class,
                       @selector(descriptionWithLocale:),
                       @selector(printlog_descriptionWithLocale:));
-        MethodSwizzle([self class],
+        MethodSwizzle(self.class,
                       @selector(descriptionWithLocale:indent:),
                       @selector(printlog_descriptionWithLocale:indent:));
-        MethodSwizzle([self class],
+        MethodSwizzle(self.class,
                       @selector(debugDescription),
                       @selector(printlog_debugDescription));
     });
@@ -117,13 +117,13 @@
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        MethodSwizzle([self class],
+        MethodSwizzle(self.class,
                       @selector(descriptionWithLocale:),
                       @selector(printlog_descriptionWithLocale:));
-        MethodSwizzle([self class],
+        MethodSwizzle(self.class,
                       @selector(descriptionWithLocale:indent:),
                       @selector(printlog_descriptionWithLocale:indent:));
-        MethodSwizzle([self class],
+        MethodSwizzle(self.class,
                       @selector(debugDescription),
                       @selector(printlog_debugDescription));
     });
@@ -144,5 +144,3 @@
 @end
 
 #endif
-
-

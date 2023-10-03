@@ -11,11 +11,9 @@
 /// 那么持有 CBCentralManager 的这个类在初始化之后也必须被 ViewController 持有，否则控制台会有如下的错误输出：
 /// [CoreBluetooth] XPC connection invalid
 /// ECPrivacyCheckBluetooth 也要使用全局属性定义
-
-
+///
 #import <Foundation/Foundation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
-
 /** 蓝牙权限状态
  *
  *  ECCBAuthorizationStateUnknown：未知状态
@@ -35,14 +33,11 @@ typedef NS_ENUM(NSInteger, ECCBAuthorizationState) {
     ECCBAuthorizationStatePoweredOn
 };
 
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ECPrivacyCheckBluetooth : NSObject
-
 /// 必须设置为全局属性，否则会报错
 @property (nonatomic, strong) CBCentralManager *cbcManager;
-
 /// 获取蓝牙权限
 /// @param completionHandler completionHandler
 - (void)requestBluetoothAuthorizationWithCompletionHandler:(void(^)(ECCBAuthorizationState state))completionHandler;

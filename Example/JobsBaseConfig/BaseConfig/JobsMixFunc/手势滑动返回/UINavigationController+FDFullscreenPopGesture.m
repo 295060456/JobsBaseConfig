@@ -126,7 +126,7 @@ typedef void (^_FDViewControllerWillAppearInjectBlock)(UIViewController *viewCon
     // Inject "-pushViewController:animated:"
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        Class class = [self class];
+        Class class = self.class;
         
         SEL originalSelector = @selector(pushViewController:animated:);
         SEL swizzledSelector = @selector(fd_pushViewController:animated:);

@@ -10,7 +10,6 @@
 @implementation ECPrivacyCheckFilesAndFolders
 
 - (void)test {
-    
     /**
      拷贝模式：将文档拷贝到自己项目中
      在 Info.plist中，添加 “Document Types” 键值

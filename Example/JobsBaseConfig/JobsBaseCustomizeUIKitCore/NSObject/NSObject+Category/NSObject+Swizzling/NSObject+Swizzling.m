@@ -12,7 +12,7 @@
 
 -(void)swizzlingInstanceMethod:(SEL _Nonnull)originalSelector
               swizzledSelector:(SEL _Nonnull)swizzledSelector {
-    Class class = [self class];
+    Class class = self.class;
     Method originalMethod = class_getInstanceMethod(class, originalSelector);
     Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
     /**

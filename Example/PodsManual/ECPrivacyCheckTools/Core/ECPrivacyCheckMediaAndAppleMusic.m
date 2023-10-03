@@ -15,17 +15,14 @@
 
 + (ECMediaAndAppleMusicAuthorizationStatus)mediaAndAppleMusicAuthorizationStatus {
     if (@available(iOS 9.3, *)) {
-        SKCloudServiceAuthorizationStatus status = [SKCloudServiceController authorizationStatus];
-        
+        SKCloudServiceAuthorizationStatus status = SKCloudServiceController.authorizationStatus;
         if (status == SKCloudServiceAuthorizationStatusNotDetermined) {
             return ECMediaAndAppleMusicAuthorizationStatusNotDetermined;
         } else if (status == SKCloudServiceAuthorizationStatusRestricted) {
             return ECMediaAndAppleMusicAuthorizationStatusRestricted;
         } else if (status == SKCloudServiceAuthorizationStatusDenied) {
             return ECMediaAndAppleMusicAuthorizationStatusDenied;
-        } else {
-            return ECMediaAndAppleMusicAuthorizationStatusAuthorized;
-        }
+        } else return ECMediaAndAppleMusicAuthorizationStatusAuthorized;
     } else {
         // Fallback on earlier versions
         // iOS 9.3 以下不支持
@@ -34,41 +31,35 @@
 }
 
 - (ECMediaAndAppleMusicAuthorizationStatus)mediaAndAppleMusicAuthorizationStatus {
-    return [[self class] mediaAndAppleMusicAuthorizationStatus];
+    return [self.class mediaAndAppleMusicAuthorizationStatus];
 }
 
 + (void)requestMediaAndAppleMusicAuthorizationWithCompletionHandler:(void(^)(BOOL granted))completionHandler {
-    ECMediaAndAppleMusicAuthorizationStatus status = [[self class] mediaAndAppleMusicAuthorizationStatus];
-
+    ECMediaAndAppleMusicAuthorizationStatus status = [self.class mediaAndAppleMusicAuthorizationStatus];
     if (status == ECMediaAndAppleMusicAuthorizationStatusNotDetermined) {
-        
         if (@available(iOS 9.3, *)) {
+            @jobs_weakify(self)
             [SKCloudServiceController requestAuthorization:^(SKCloudServiceAuthorizationStatus status) {
+                @jobs_strongify(self)
                 [self callbackOnMainQueue:^{
-                    if (completionHandler) {
-                        completionHandler(status == SKCloudServiceAuthorizationStatusAuthorized);
-                    }
+                    if (completionHandler) completionHandler(status == SKCloudServiceAuthorizationStatusAuthorized);
                 }];
             }];
         } else {
             // Fallback on earlier versions
             [self callbackOnMainQueue:^{
-                if (completionHandler) {
-                    completionHandler(NO);
-                }
+                if (completionHandler) completionHandler(NO);
             }];
         }
     } else {
         [self callbackOnMainQueue:^{
-            if (completionHandler) {
-                completionHandler(status == ECMediaAndAppleMusicAuthorizationStatusAuthorized);
-            }
+            if (completionHandler) completionHandler(status == ECMediaAndAppleMusicAuthorizationStatusAuthorized);
         }];
     }
 }
 
 - (void)requestMediaAndAppleMusicAuthorizationWithCompletionHandler:(void (^)(BOOL))completionHandler {
-    [[self class] requestMediaAndAppleMusicAuthorizationWithCompletionHandler:completionHandler];
+    [self.class requestMediaAndAppleMusicAuthorizationWithCompletionHandler:completionHandler];
 }
 
 @end

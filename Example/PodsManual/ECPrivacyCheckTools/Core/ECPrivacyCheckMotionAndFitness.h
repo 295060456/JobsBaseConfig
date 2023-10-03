@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreMotion/CoreMotion.h>
-
-
 /** 授权状态
  *  ECMotionAndFitnessAuthorizationStatusUnable：不支持或不可用
  *  ECMotionAndFitnessAuthorizationStatusNotDetermined：用户从未进行过授权等处理，首次访问相应内容会提示用户进行授权
@@ -25,24 +23,20 @@ typedef NS_ENUM(NSInteger, ECMotionAndFitnessAuthorizationStatus) {
     ECMotionAndFitnessAuthorizationStatusAuthorized
 } API_AVAILABLE(ios(11.0), watchos(4.0));
 
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ECPrivacyCheckMotionAndFitness : NSObject
-
 /// 检查运动与健身权限状态：仅检查权限，不主动请求权限
 + (ECMotionAndFitnessAuthorizationStatus)motionAndFitnessAuthorizationStatus API_AVAILABLE(ios(11.0));
-
 /// 检查运动与健身权限状态：仅检查权限，不主动请求权限
 - (ECMotionAndFitnessAuthorizationStatus)motionAndFitnessAuthorizationStatus API_AVAILABLE(ios(11.0));
-
 /// 请求运动与健身权限
 /// @param completionHandler completionHandler
 + (void)requestMotionAndFitnessAuthorizationWithCompletionHandler:(void(^)(BOOL granted))completionHandler;
-
 /// 请求运动与健身权限
 /// @param completionHandler completionHandler
 - (void)requestMotionAndFitnessAuthorizationWithCompletionHandler:(void(^)(BOOL granted))completionHandler;
+
 @end
 
 NS_ASSUME_NONNULL_END

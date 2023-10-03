@@ -181,8 +181,8 @@ static inline NSUInteger WS_PAYLOAD_LENGTH(UInt8 frame)
 		[asyncSocket setDelegate:self delegateQueue:websocketQueue];
 		
 		isOpen = NO;
-		isVersion76 = [[self class] isVersion76Request:request];
-		isRFC6455 = [[self class] isRFC6455Request:request];
+		isVersion76 = [self.class isVersion76Request:request];
+		isRFC6455 = [self.class isRFC6455Request:request];
 		
 		term = [[NSData alloc] initWithBytes:"\xFF" length:1];
 	}

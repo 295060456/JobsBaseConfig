@@ -16,49 +16,38 @@
 + (ECCameraAuthorizationStatus)cameraAuthorizationStatus {
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
-        
         if (status == AVAuthorizationStatusNotDetermined) {
             return ECCameraAuthorizationStatusNotDetermined;
         } else if (status == AVAuthorizationStatusRestricted){
             return ECCameraAuthorizationStatusRestricted;
         } else if (status == AVAuthorizationStatusDenied) {
             return ECCameraAuthorizationStatusDenied;
-        } else {
-            return ECCameraAuthorizationStatusAuthorized;
-        }
-        
-    } else {
-        return ECCameraAuthorizationStatusUnable;
-    }
+        } else return ECCameraAuthorizationStatusAuthorized;
+    } else return ECCameraAuthorizationStatusUnable;
 }
 
 - (ECCameraAuthorizationStatus)cameraAuthorizationStatus {
-    return [[self class] cameraAuthorizationStatus];
+    return [self.class cameraAuthorizationStatus];
 }
     
-
 + (void)requestCameraAuthorizationWithCompletionHandler:(void(^)(BOOL granted))completionHandler {
-    ECCameraAuthorizationStatus status = [[self class] cameraAuthorizationStatus];
-    
+    ECCameraAuthorizationStatus status = [self.class cameraAuthorizationStatus];
     if (status == ECCameraAuthorizationStatusNotDetermined) {
-        [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+        [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo
+                                 completionHandler:^(BOOL granted) {
             [self callbackOnMainQueue:^{
-                if (completionHandler) {
-                    completionHandler(granted);
-                }
+                if (completionHandler) completionHandler(granted);
             }];
         }];
     } else {
         [self callbackOnMainQueue:^{
-            if (completionHandler) {
-                completionHandler(status == ECCameraAuthorizationStatusAuthorized);
-            }
+            if (completionHandler) completionHandler(status == ECCameraAuthorizationStatusAuthorized);
         }];
     }
 }
     
 - (void)requestCameraAuthorizationWithCompletionHandler:(void(^)(BOOL granted))completionHandler {
-    [[self class] requestCameraAuthorizationWithCompletionHandler:completionHandler];
+    [self.class requestCameraAuthorizationWithCompletionHandler:completionHandler];
 }
     
 @end

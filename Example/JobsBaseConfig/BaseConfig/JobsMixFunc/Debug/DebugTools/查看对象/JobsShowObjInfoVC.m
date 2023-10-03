@@ -75,11 +75,17 @@
         NSMutableArray <NSString *>*propertyList = requestParams.printPropertyList;
         for (NSString *propertyName in propertyList) {
             UIViewModel *viewModel = UIViewModel.new;
-            viewModel.textModel.text = propertyName;
-            viewModel.textModel.textCor = UIColor.blueColor;
-            viewModel.subTextModel.text = requestParams.valueForKeyBlock(propertyName);
-            viewModel.textModel.textCor = UIColor.redColor;
-            [self.dataMutArr addObject:viewModel];
+            NSString *text = propertyName;
+            id subtext = requestParams.valueForKeyBlock(propertyName);
+            /// 防崩溃处理：
+            if([subtext isKindOfClass:NSString.class] &&
+               [text isKindOfClass:NSString.class]){
+                viewModel.textModel.text = propertyName;
+                viewModel.subTextModel.text = requestParams.valueForKeyBlock(propertyName);
+                viewModel.textModel.textCor = UIColor.blueColor;
+                viewModel.textModel.textCor = UIColor.redColor;
+                [self.dataMutArr addObject:viewModel];
+            }
         }
     }
 }

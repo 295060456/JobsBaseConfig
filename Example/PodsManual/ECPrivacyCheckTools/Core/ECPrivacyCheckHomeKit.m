@@ -7,13 +7,10 @@
 
 #import "ECPrivacyCheckHomeKit.h"
 
-
 @interface ECPrivacyCheckHomeKit () <HMHomeManagerDelegate>
 
 @property (nonatomic, strong) HMHomeManager *homeManager;
-
 @property (nonatomic, copy) ECHomeAccessCompletionHandler completionHandler;
-
 
 @end
 
@@ -28,55 +25,51 @@
 }
 
 + (void)requestHomeAccessWithCompletionHandler:(ECHomeAccessCompletionHandler)completionHandler {
-    ECPrivacyCheckHomeKit *objc =[[ECPrivacyCheckHomeKit alloc] init];
+    ECPrivacyCheckHomeKit *objc = ECPrivacyCheckHomeKit.new;
     [objc requestHomeAccessWithCompletionHandler:completionHandler];
 }
 
 - (void)requestHomeAccessWithCompletionHandler:(ECHomeAccessCompletionHandler)completionHandler {
     self.completionHandler = completionHandler;
-    
-    HMHomeManager *homeManager = [[HMHomeManager alloc] init];
+    HMHomeManager *homeManager = HMHomeManager.new;
     homeManager.delegate = self;
 }
-
-
-// MARK: - HMHomeManagerDelegate
+#pragma mark —— HMHomeManagerDelegate
 - (void)homeManagerDidUpdateHomes:(HMHomeManager *)manager {
-    
     if (self.completionHandler) {
         if (manager.homes.count > 0) {
-            
             NSLog(@"a home exists, so we have access.");
             self.completionHandler(YES, manager);
         } else {
-            __weak HMHomeManager *weakHomeManager = manager;
-            [manager addHomeWithName:@"Test Home" completionHandler:^(HMHome * _Nullable home, NSError * _Nullable error) {
+            @jobs_weakify(manager)
+            [manager addHomeWithName:@"Test Home"
+                   completionHandler:^(HMHome * _Nullable home,
+                                       NSError * _Nullable error) {
+                @jobs_strongify(manager)
                 if (!error) {
                     NSLog(@"we have access for home.");
-                    self.completionHandler(YES, weakHomeManager);
+                    self.completionHandler(YES, manager);
                 } else {
                     // consult HMError.h
                     if (error.code == HMErrorCodeHomeAccessNotAuthorized) {
                         // user denied permission
                         NSLog(@"用户拒绝 ser denied permission");
-                        self.completionHandler(NO, weakHomeManager);
+                        self.completionHandler(NO, manager);
                     } else {
                         NSLog(@"HOME_ERROR:%ld,%@",(long)error.code, error.localizedDescription);
-                        self.completionHandler(YES, weakHomeManager);
+                        self.completionHandler(YES, manager);
                     }
                 }
                 
                 if (home) {
-                    [weakHomeManager removeHome:home completionHandler:^(NSError * _Nullable error) {
+                    [manager removeHome:home
+                      completionHandler:^(NSError * _Nullable error) {
                         // do something with the result of removing the home...
                     }];
                 }
             }];
         }
-    } else {
-        NSAssert(self.completionHandler == nil, @"please check completionHandler is not nil.");
-    }
+    } else NSAssert(self.completionHandler == nil, @"please check completionHandler is not nil.");
 }
-
 
 @end

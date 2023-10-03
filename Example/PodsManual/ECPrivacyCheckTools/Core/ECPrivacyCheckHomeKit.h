@@ -10,24 +10,18 @@
  *  建议可以根据实际业务进行封装
  *  这里提供使用方法供参考
  */
-
 #import <Foundation/Foundation.h>
 #import <HomeKit/HomeKit.h>
-
-
 /// granted:bool
 /// manager:HMHomeManager
 typedef void(^ECHomeAccessCompletionHandler)(BOOL granted, HMHomeManager * _Nullable manager);
 
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ECPrivacyCheckHomeKit : NSObject
-
 /// 请求家庭权限
 /// @param completionHandler completionHandler
 + (void)requestHomeAccessWithCompletionHandler:(ECHomeAccessCompletionHandler)completionHandler;
-
 /// 请求家庭权限
 /// @param completionHandler completionHandler
 - (void)requestHomeAccessWithCompletionHandler:(ECHomeAccessCompletionHandler)completionHandler;

@@ -30,9 +30,9 @@
 @property(nonatomic,strong)NSMutableArray <UIImage *>*photosImageMutArr;
 @property(nonatomic,strong)NSData *__block videosData;
 @property(nonatomic,strong)NSURL *__block videosUrl;
-@property(nonatomic,strong)UITextModel *textModel;
 @property(nonatomic,assign)BOOL isUpload;
 @property(nonatomic,assign)BOOL needDeleteItem;
+@property(nonatomic,strong)UITextModel *postTextModel;
 
 @end
 
@@ -67,8 +67,8 @@ UIViewModelProtocol_synthesize
     {
         JobsPostDelViewHeight =[JobsPostDelView viewSizeWithModel:nil].height;
         self.historyPhotoDataArr = [self.photoManager getLocalModelsInFileWithAddData:YES];
-        if (![NSString isNullString:DDUserModel.sharedInstance.postDraftURLStr]) {
-            self.inputDataHistoryString = [FileFolderHandleTool filePath:DDUserModel.sharedInstance.postDraftURLStr
+        if (![NSString isNullString:JobsUserModel.sharedInstance.postDraftURLStr]) {
+            self.inputDataHistoryString = [FileFolderHandleTool filePath:JobsUserModel.sharedInstance.postDraftURLStr
                                                                 fileType:TXT];
         }
         NSLog(@"%@",self.inputDataHistoryString);
@@ -141,14 +141,14 @@ UIViewModelProtocol_synthesize
 
 -(void)保留文字{
     if (![NSString isNullString:self.inputDataString]) {
-        DDUserModel.sharedInstance.postDraftURLStr = [NSObject saveData:self.inputDataString
+        JobsUserModel.sharedInstance.postDraftURLStr = [NSObject saveData:self.inputDataString
                                                   withDocumentsChildDir:Internationalization(@"发帖草稿数据临时文件夹")
                                                            fileFullname:@"发帖草稿数据.txt"
                                                                  error:nil];
     }else{
-        [FileFolderHandleTool cleanFilesWithPath:DDUserModel.sharedInstance.postDraftURLStr];
+        [FileFolderHandleTool cleanFilesWithPath:JobsUserModel.sharedInstance.postDraftURLStr];
     }
-    NSLog(@"%@",DDUserModel.sharedInstance.postDraftURLStr);
+    NSLog(@"%@",JobsUserModel.sharedInstance.postDraftURLStr);
     [self.view hx_showLoadingHUDText:nil];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         BOOL success = [self.photoManager saveLocalModelsToFile];//保存图片
@@ -164,7 +164,7 @@ UIViewModelProtocol_synthesize
 }
 
 -(void)不保留文字{
-    [FileFolderHandleTool cleanFilesWithPath:DDUserModel.sharedInstance.postDraftURLStr];
+    [FileFolderHandleTool cleanFilesWithPath:JobsUserModel.sharedInstance.postDraftURLStr];
     [self.photoManager deleteLocalModelsInFile];
     [self back:nil];
 }
@@ -383,7 +383,7 @@ gestureRecognizerEnded:(UILongPressGestureRecognizer *)longPgr
 -(HXPhotoManager *)photoManager {
     if (!_photoManager) {
         _photoManager = [HXPhotoManager.alloc initWithType:HXPhotoManagerSelectedTypePhotoAndVideo];
-        _photoManager.configuration.localFileName = Internationalization(@"DouDongPhotoModels");// 设置保存的文件名称
+        _photoManager.configuration.localFileName = jobsCurrentAppName();// 设置保存的文件名称
         _photoManager.configuration.type = HXConfigurationTypeWXChat;
         _photoManager.configuration.showOriginalBytes = YES;
         _photoManager.configuration.showOriginalBytesLoading = YES;
@@ -424,15 +424,15 @@ gestureRecognizerEnded:(UILongPressGestureRecognizer *)longPgr
     }return _tipsLab;
 }
 
--(UITextModel *)textModel{
-    if(!_textModel){
-        _textModel = UITextModel.new;
-        _textModel.text = self.inputDataHistoryString;
-        _textModel.textCor = JobsBlackColor;
-        _textModel.placeholder = Internationalization(@"撩骚内容，写在这里哦~");
-        _textModel.placeholderColor = RGB_SAMECOLOR(173);
-        _textModel.font = UIFontWeightRegularSize(14);
-        _textModel.maxWordCount = 10;        
+-(UITextModel *)postTextModel{
+    if(!_postTextModel){
+        _postTextModel = UITextModel.new;
+        _postTextModel.text = self.inputDataHistoryString;
+        _postTextModel.textCor = JobsBlackColor;
+        _postTextModel.placeholder = Internationalization(@"撩骚内容，写在这里哦~");
+        _postTextModel.placeholderColor = RGB_SAMECOLOR(173);
+        _postTextModel.font = UIFontWeightRegularSize(14);
+        _postTextModel.maxWordCount = 10;
     }return _textModel;
 }
 

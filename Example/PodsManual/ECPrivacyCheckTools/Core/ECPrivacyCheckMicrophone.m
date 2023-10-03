@@ -15,44 +15,39 @@
 
 + (ECMicrophoneAuthorizationStatus)microphoneAuthorizationStatus {
     AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio];
-    
     if (status == AVAuthorizationStatusNotDetermined) {
         return ECMicrophoneAuthorizationStatusNotDetermined;
     } else if (status == AVAuthorizationStatusRestricted){
         return ECMicrophoneAuthorizationStatusRestricted;
     } else if (status == AVAuthorizationStatusDenied) {
         return ECMicrophoneAuthorizationStatusDenied;
-    } else {
-        return ECMicrophoneAuthorizationStatusAuthorized;
-    }
+    } else return ECMicrophoneAuthorizationStatusAuthorized;
 }
 
 - (ECMicrophoneAuthorizationStatus)microphoneAuthorizationStatus {
-    return [[self class] microphoneAuthorizationStatus];
+    return [self.class microphoneAuthorizationStatus];
 }
 
 + (void)requestMicrophoneAuthorizationWithCompletionHandler:(void(^)(BOOL granted))completionHandler {
-    ECMicrophoneAuthorizationStatus status = [[self class] microphoneAuthorizationStatus];
-    
+    ECMicrophoneAuthorizationStatus status = [self.class microphoneAuthorizationStatus];
     if (status == ECMicrophoneAuthorizationStatusNotDetermined) {
-        [AVCaptureDevice requestAccessForMediaType:AVMediaTypeAudio completionHandler:^(BOOL granted) {
+        @jobs_weakify(self)
+        [AVCaptureDevice requestAccessForMediaType:AVMediaTypeAudio
+                                 completionHandler:^(BOOL granted) {
+            @jobs_strongify(self)
             [self callbackOnMainQueue:^{
-                if (completionHandler) {
-                    completionHandler(granted);
-                }
+                if (completionHandler) completionHandler(granted);
             }];
         }];
     } else {
         [self callbackOnMainQueue:^{
-            if (completionHandler) {
-                completionHandler(status == ECMicrophoneAuthorizationStatusAuthorized);
-            }
+            if (completionHandler) completionHandler(status == ECMicrophoneAuthorizationStatusAuthorized);
         }];
     }
 }
 
 - (void)requestMicrophoneAuthorizationWithCompletionHandler:(void (^)(BOOL))completionHandler {
-    [[self class] requestMicrophoneAuthorizationWithCompletionHandler:completionHandler];
+    [self.class requestMicrophoneAuthorizationWithCompletionHandler:completionHandler];
 }
 
 @end

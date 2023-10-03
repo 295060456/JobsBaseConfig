@@ -49,7 +49,7 @@ BOOL ISLogin;
     /// 装填用户信息数据
     /// json生成器 ： https://www.site24x7.com/zhcn/tools/json-generator.html
     NSDictionary *dic = @"UserData".readLocalFileWithName;
-    DDUserModel *userModel = [DDUserModel mj_objectWithKeyValues:dic];
+    JobsUserModel *userModel = [JobsUserModel mj_objectWithKeyValues:dic];
     [self saveUserInfo:userModel];// 保存全局唯一的一份用户档案
 }
 
@@ -71,7 +71,7 @@ BOOL ISLogin;
             if (suspendBtn.selected) {
                 NSInteger s = self.tableView.numberOfSections;/// 有多少组
                 if (s < 1) return;
-                NSInteger r = [self.tableView numberOfRowsInSection:s-1];/// 最后一组有多少行
+                NSInteger r = [self.tableView numberOfRowsInSection:s - 1];/// 最后一组有多少行
                 if (r < 1) return;
                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:r - 1 inSection:s - 1];/// 取最后一行数据
                 [self.tableView scrollToRowAtIndexPath:indexPath
