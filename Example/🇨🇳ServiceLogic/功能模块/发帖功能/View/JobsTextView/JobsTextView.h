@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface JobsTextView : BaseView
 
 -(SZTextView *)getTextView;
+-(void)updateWordCount:(NSInteger)count;
 
 @end
 

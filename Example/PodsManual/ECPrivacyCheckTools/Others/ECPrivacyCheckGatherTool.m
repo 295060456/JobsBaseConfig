@@ -7,7 +7,7 @@
 
 #import "ECPrivacyCheckGatherTool.h"
 
-@interface ECPrivacyCheckGatherTool () 
+@interface ECPrivacyCheckGatherTool ()
 
 @property(nonatomic, strong)CLLocationManager *locationManager;
 @property(nonatomic,copy)void (^kCLCallBackBlock)(CLAuthorizationStatus status);
@@ -239,13 +239,13 @@ _Pragma("clang diagnostic pop")
             }];
         } else {
             SuppressWdeprecatedDeclarationsWarning(
+                                                   @jobs_weakify(self)
                                                    ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
                                                    ABAddressBookRequestAccessWithCompletion(addressBook,
                                                                                             ^(bool granted,
                                                                                               CFErrorRef error) {
-                                                       @jobs_weakify(self)
+                                                       @jobs_strongify(self)
                                                        [self callbackOnMainQueue:^{
-                                                           @jobs_strongify(self)
                                                            if (completionHandler) completionHandler(granted);
                                                        }];
                                                    });

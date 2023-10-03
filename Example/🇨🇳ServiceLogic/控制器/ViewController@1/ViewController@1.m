@@ -119,7 +119,8 @@ BOOL ISLogin;
 
 - (CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [BaseTableViewCell cellHeightWithModel:Nil];
+#warning 要解决DetailText提行的问题
+    return [BaseTableViewCell cellHeightWithModel:Nil] * 2;
 }
 
 - (void)tableView:(UITableView *)tableView
