@@ -45,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///   - baseBackgroundColor: 背景颜色
 ///   - imagePadding: 图像与标题之间的间距
 ///   - titlePadding: 标题和副标题标签之间的距离
-///   - imagePlacement: 表示一个矩形的边缘或方向
+///   - imagePlacement: ❤️图片和文字的位置关系❤️
 ///   - contentHorizontalAlignment: 针对内容的横向对齐方式
 ///   - contentVerticalAlignment: 针对内容的竖向对齐方式
 ///   - contentInsets: 定位内边距的方向
@@ -100,6 +100,39 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)changeAction:(CGFloat)angle;
 /// 当Button不可用的时候，需要做些什么
 -(jobsByBOOLBlock _Nonnull)enabledBlock;
+/**
+ 1、一一对应UIButtonConfiguration.h文件里面的属性
+ 2、只有通过UIButtonConfiguration创建的UIButton，这个UIbutton的configuration属性才不为空
+ 3、要修改通过UIButtonConfiguration创建的UIButton的各属性值，只有通过下列方式方可以
+ */
+#pragma mark —— UIButton.configuration的各项属性值的修改
+-(void)setBtnConfigBackground:(UIBackgroundConfiguration *)background;
+-(void)setBtnConfigCornerStyle:(UIButtonConfigurationCornerStyle)cornerStyle;
+-(void)setBtnConfigButtonSize:(UIButtonConfigurationSize)buttonSize;
+-(void)setBtnConfigMacIdiomStyle:(UIButtonConfigurationMacIdiomStyle)macIdiomStyle;
+-(void)setBtnConfigBaseForegroundColor:(UIColor *)baseForegroundColor;
+-(void)setBtnConfigBaseBackgroundColor:(UIColor *)baseBackgroundColor;
+-(void)setBtnConfigImage:(UIImage *)image;
+-(void)setBtnConfigImageColorTransformer:(UIConfigurationColorTransformer)imageColorTransformer;
+-(void)setBtnConfigPreferredSymbolConfigurationForImage:(UIImageSymbolConfiguration *)preferredSymbolConfigurationForImage;
+-(void)setBtnConfigShowsActivityIndicator:(BOOL)showsActivityIndicator;
+-(void)setBtnConfigActivityIndicatorColorTransformer:(UIConfigurationColorTransformer)activityIndicatorColorTransformer;
+-(void)setBtnConfigTitle:(NSString *)title;
+-(void)setBtnConfigAttributedTitle:(NSAttributedString *)attributedTitle;
+-(void)setBtnConfigTitleTextAttributesTransformer:(UIConfigurationTextAttributesTransformer)titleTextAttributesTransformer;
+-(void)setBtnConfigTitleLineBreakMode:(NSLineBreakMode)titleLineBreakMode;
+-(void)setBtnConfigSubtitle:(NSString *)subtitle;
+-(void)setBtnConfigAttributedSubtitle:(NSAttributedString *)attributedSubtitle;
+-(void)setBtnConfigSubtitleTextAttributesTransformer:(UIConfigurationTextAttributesTransformer)subtitleTextAttributesTransformer;
+-(void)setBtnConfigSubtitleLineBreakMode:(NSLineBreakMode)subtitleLineBreakMode;
+-(void)setBtnConfigIndicator:(UIButtonConfigurationIndicator)indicator;
+-(void)setBtnConfigIndicatorColorTransformer:(UIConfigurationColorTransformer)indicatorColorTransformer;
+-(void)setBtnConfigContentInsets:(NSDirectionalEdgeInsets)contentInsets;
+-(void)setBtnConfigImagePlacement:(NSDirectionalRectEdge)imagePlacement;
+-(void)setBtnConfigImagePadding:(CGFloat)imagePadding;
+-(void)setBtnConfigTitlePadding:(CGFloat)titlePadding;
+-(void)setBtnConfigTitleAlignment:(UIButtonConfigurationTitleAlignment)titleAlignment;
+-(void)setBtnConfigAutomaticallyUpdateForSelection:(BOOL)automaticallyUpdateForSelection;
 #pragma mark —— UIButton普通文本的通用设置
 /// 代码触发点击调用
 -(void)titleFont:(UIFont *)font;

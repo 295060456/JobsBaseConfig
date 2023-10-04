@@ -32,7 +32,7 @@
 ///   - baseBackgroundColor: 背景颜色
 ///   - imagePadding: 图像与标题之间的间距
 ///   - titlePadding: 标题和副标题标签之间的距离
-///   - imagePlacement: 表示一个矩形的边缘或方向
+///   - imagePlacement: ❤️图片和文字的位置关系❤️
 ///   - contentHorizontalAlignment: 针对内容的横向对齐方式
 ///   - contentVerticalAlignment: 针对内容的竖向对齐方式
 ///   - contentInsets: 定位内边距的方向
@@ -107,7 +107,7 @@
                     }];return newTextAttributes;
                 };
             }
-            if(titleCor) btnConfiguration.attributedTitle = [NSAttributedString.alloc initWithString:title attributes:@{NSForegroundColorAttributeName:titleCor}];
+            if(titleCor && title) btnConfiguration.attributedTitle = [NSAttributedString.alloc initWithString:title attributes:@{NSForegroundColorAttributeName:titleCor}];
         }
         /// 设置按钮副标题的文本属性
         if(attributedSubtitle){
@@ -123,7 +123,7 @@
                 };
             }
             
-            if(subTitleCor) btnConfiguration.attributedSubtitle = [NSAttributedString.alloc initWithString:subTitle attributes:@{NSForegroundColorAttributeName:subTitleCor}];
+            if(subTitleCor && subTitle) btnConfiguration.attributedSubtitle = [NSAttributedString.alloc initWithString:subTitle attributes:@{NSForegroundColorAttributeName:subTitleCor}];
         }
     }
     /// 其他
@@ -135,6 +135,10 @@
     if(self.deviceSystemVersion.floatValue >= 15.0){
         btn = [UIButton buttonWithConfiguration:btnConfiguration
                                   primaryAction:primaryAction];
+        
+        NSLog(@"%@",btnConfiguration);
+        NSLog(@"%@",btn.configuration);
+        NSLog(@"");
     /**
      UIAction *action = [UIAction actionWithTitle:@"按钮点击操作"
                                             image:nil
@@ -187,7 +191,7 @@
         btn.contentVerticalAlignment = contentVerticalAlignment;
         btn.contentHorizontalAlignment = contentHorizontalAlignment;
         /// 点击事件
-        if(clickEventBlock) clickEventBlock(btn);
+        [btn jobsBtnClickEventBlock:clickEventBlock];
     }return btn;
 }
 /// RAC 点击事件2次封装
@@ -242,6 +246,173 @@
         self.enabled = enabled;
         self.normalTitleColor = self.enabled ? self.normalTitleColor : HEXCOLOR(0xB0B0B0);
     };
+}
+/**
+ 1、一一对应UIButtonConfiguration.h文件里面的属性
+ 2、只有通过UIButtonConfiguration创建的UIButton，这个UIbutton的configuration属性才不为空
+ 3、要修改通过UIButtonConfiguration创建的UIButton的各属性值，只有通过下列方式方可以
+ */
+#pragma mark —— UIButton.configuration的各项属性值的修改
+-(void)setBtnConfigBackground:(UIBackgroundConfiguration *)background{
+    UIButtonConfiguration *btnConfig = self.configuration;
+    btnConfig.background = background;
+    self.configuration = btnConfig;
+}
+
+-(void)setBtnConfigCornerStyle:(UIButtonConfigurationCornerStyle)cornerStyle{
+    UIButtonConfiguration *btnConfig = self.configuration;
+    btnConfig.cornerStyle = cornerStyle;
+    self.configuration = btnConfig;
+}
+
+-(void)setBtnConfigButtonSize:(UIButtonConfigurationSize)buttonSize{
+    UIButtonConfiguration *btnConfig = self.configuration;
+    btnConfig.buttonSize = buttonSize;
+    self.configuration = btnConfig;
+}
+
+-(void)setBtnConfigMacIdiomStyle:(UIButtonConfigurationMacIdiomStyle)macIdiomStyle{
+    UIButtonConfiguration *btnConfig = self.configuration;
+    btnConfig.macIdiomStyle = macIdiomStyle;
+    self.configuration = btnConfig;
+}
+
+-(void)setBtnConfigBaseForegroundColor:(UIColor *)baseForegroundColor{
+    UIButtonConfiguration *btnConfig = self.configuration;
+    btnConfig.baseForegroundColor = baseForegroundColor;
+    self.configuration = btnConfig;
+}
+
+-(void)setBtnConfigBaseBackgroundColor:(UIColor *)baseBackgroundColor{
+    UIButtonConfiguration *btnConfig = self.configuration;
+    btnConfig.baseBackgroundColor = baseBackgroundColor;
+    self.configuration = btnConfig;
+}
+
+-(void)setBtnConfigImage:(UIImage *)image{
+    UIButtonConfiguration *btnConfig = self.configuration;
+    btnConfig.image = image;
+    self.configuration = btnConfig;
+}
+
+-(void)setBtnConfigImageColorTransformer:(UIConfigurationColorTransformer)imageColorTransformer{
+    UIButtonConfiguration *btnConfig = self.configuration;
+    btnConfig.imageColorTransformer = imageColorTransformer;
+    self.configuration = btnConfig;
+}
+
+-(void)setBtnConfigPreferredSymbolConfigurationForImage:(UIImageSymbolConfiguration *)preferredSymbolConfigurationForImage{
+    UIButtonConfiguration *btnConfig = self.configuration;
+    btnConfig.preferredSymbolConfigurationForImage = preferredSymbolConfigurationForImage;
+    self.configuration = btnConfig;
+}
+
+-(void)setBtnConfigShowsActivityIndicator:(BOOL)showsActivityIndicator{
+    UIButtonConfiguration *btnConfig = self.configuration;
+    btnConfig.showsActivityIndicator = showsActivityIndicator;
+    self.configuration = btnConfig;
+}
+
+-(void)setBtnConfigActivityIndicatorColorTransformer:(UIConfigurationColorTransformer)activityIndicatorColorTransformer{
+    UIButtonConfiguration *btnConfig = self.configuration;
+    btnConfig.activityIndicatorColorTransformer = activityIndicatorColorTransformer;
+    self.configuration = btnConfig;
+}
+
+-(void)setBtnConfigTitle:(NSString *)title{
+    UIButtonConfiguration *btnConfig = self.configuration;
+    btnConfig.title = title;
+    self.configuration = btnConfig;
+}
+
+-(void)setBtnConfigAttributedTitle:(NSAttributedString *)attributedTitle{
+    UIButtonConfiguration *btnConfig = self.configuration;
+    btnConfig.attributedTitle = attributedTitle;
+    self.configuration = btnConfig;
+}
+
+-(void)setBtnConfigTitleTextAttributesTransformer:(UIConfigurationTextAttributesTransformer)titleTextAttributesTransformer{
+    UIButtonConfiguration *btnConfig = self.configuration;
+    btnConfig.titleTextAttributesTransformer = titleTextAttributesTransformer;
+    self.configuration = btnConfig;
+}
+
+-(void)setBtnConfigTitleLineBreakMode:(NSLineBreakMode)titleLineBreakMode{
+    UIButtonConfiguration *btnConfig = self.configuration;
+    btnConfig.titleLineBreakMode = titleLineBreakMode;
+    self.configuration = btnConfig;
+}
+
+-(void)setBtnConfigSubtitle:(NSString *)subtitle{
+    UIButtonConfiguration *btnConfig = self.configuration;
+    btnConfig.subtitle = subtitle;
+    self.configuration = btnConfig;
+}
+
+-(void)setBtnConfigAttributedSubtitle:(NSAttributedString *)attributedSubtitle{
+    UIButtonConfiguration *btnConfig = self.configuration;
+    btnConfig.attributedSubtitle = attributedSubtitle;
+    self.configuration = btnConfig;
+}
+
+-(void)setBtnConfigSubtitleTextAttributesTransformer:(UIConfigurationTextAttributesTransformer)subtitleTextAttributesTransformer{
+    UIButtonConfiguration *btnConfig = self.configuration;
+    btnConfig.subtitleTextAttributesTransformer = subtitleTextAttributesTransformer;
+    self.configuration = btnConfig;
+}
+
+-(void)setBtnConfigSubtitleLineBreakMode:(NSLineBreakMode)subtitleLineBreakMode{
+    UIButtonConfiguration *btnConfig = self.configuration;
+    btnConfig.subtitleLineBreakMode = subtitleLineBreakMode;
+    self.configuration = btnConfig;
+}
+
+-(void)setBtnConfigIndicator:(UIButtonConfigurationIndicator)indicator{
+    UIButtonConfiguration *btnConfig = self.configuration;
+    btnConfig.indicator = indicator;
+    self.configuration = btnConfig;
+}
+
+-(void)setBtnConfigIndicatorColorTransformer:(UIConfigurationColorTransformer)indicatorColorTransformer{
+    UIButtonConfiguration *btnConfig = self.configuration;
+    btnConfig.indicatorColorTransformer = indicatorColorTransformer;
+    self.configuration = btnConfig;
+}
+
+-(void)setBtnConfigContentInsets:(NSDirectionalEdgeInsets)contentInsets{
+    UIButtonConfiguration *btnConfig = self.configuration;
+    btnConfig.contentInsets = contentInsets;
+    self.configuration = btnConfig;
+}
+
+-(void)setBtnConfigImagePlacement:(NSDirectionalRectEdge)imagePlacement{
+    UIButtonConfiguration *btnConfig = self.configuration;
+    btnConfig.imagePlacement = imagePlacement;
+    self.configuration = btnConfig;
+}
+
+-(void)setBtnConfigImagePadding:(CGFloat)imagePadding{
+    UIButtonConfiguration *btnConfig = self.configuration;
+    btnConfig.imagePadding = imagePadding;
+    self.configuration = btnConfig;
+}
+
+-(void)setBtnConfigTitlePadding:(CGFloat)titlePadding{
+    UIButtonConfiguration *btnConfig = self.configuration;
+    btnConfig.titlePadding = titlePadding;
+    self.configuration = btnConfig;
+}
+
+-(void)setBtnConfigTitleAlignment:(UIButtonConfigurationTitleAlignment)titleAlignment{
+    UIButtonConfiguration *btnConfig = self.configuration;
+    btnConfig.titleAlignment = titleAlignment;
+    self.configuration = btnConfig;
+}
+
+-(void)setBtnConfigAutomaticallyUpdateForSelection:(BOOL)automaticallyUpdateForSelection{
+    UIButtonConfiguration *btnConfig = self.configuration;
+    btnConfig.automaticallyUpdateForSelection = automaticallyUpdateForSelection;
+    self.configuration = btnConfig;
 }
 #pragma mark —— UIButton普通文本的通用设置
 /// 代码触发点击调用
@@ -385,6 +556,17 @@ JobsKey(_normalTitle)
     [self setTitle:normalTitle forState:UIControlStateNormal];
     Jobs_setAssociatedRETAIN_NONATOMIC(_normalTitle, normalTitle)
 }
+#pragma mark —— @property(nonatomic,strong)NSString *normalSubTitle
+@dynamic normalSubTitle;
+JobsKey(_normalSubTitle)
+-(NSString *)normalSubTitle{
+    return Jobs_getAssociatedObject(_normalSubTitle);
+}
+
+-(void)setNormalSubTitle:(NSString *)normalSubTitle{
+    [self setTitle:normalSubTitle forState:UIControlStateNormal];
+    Jobs_setAssociatedRETAIN_NONATOMIC(_normalSubTitle, normalSubTitle)
+}
 #pragma mark —— @property(nonatomic,strong)UIColor *normalTitleColor;
 JobsKey(_normalTitleColor)
 @dynamic normalTitleColor;
@@ -400,6 +582,21 @@ JobsKey(_normalTitleColor)
     [self setTitleColor:normalTitleColor forState:UIControlStateNormal];
     Jobs_setAssociatedRETAIN_NONATOMIC(_normalTitleColor, normalTitleColor);
 }
+#pragma mark —— @property(nonatomic,strong)UIColor *normalSubTitleColor;
+JobsKey(_normalSubTitleColor)
+@dynamic normalSubTitleColor;
+-(UIColor *)normalSubTitleColor{
+    UIColor *NormalSubTitleColor = Jobs_getAssociatedObject(_normalSubTitleColor);
+    if (!NormalSubTitleColor) {
+        NormalSubTitleColor = JobsBlackColor;
+        Jobs_setAssociatedRETAIN_NONATOMIC(_normalSubTitleColor, NormalSubTitleColor);
+    }return NormalSubTitleColor;
+}
+
+-(void)setNormalSubTitleColor:(UIColor *)normalSubTitleColor{
+    [self setTitleColor:normalSubTitleColor forState:UIControlStateNormal];
+    Jobs_setAssociatedRETAIN_NONATOMIC(_normalSubTitleColor, normalSubTitleColor);
+}
 #pragma mark —— @property(nonatomic,strong)NSAttributedString *normalAttributedTitle;
 JobsKey(_normalAttributedTitle)
 @dynamic normalAttributedTitle;
@@ -410,6 +607,17 @@ JobsKey(_normalAttributedTitle)
 -(void)setNormalAttributedTitle:(NSAttributedString *)normalAttributedTitle{
     [self setAttributedTitle:normalAttributedTitle forState:UIControlStateNormal];
     Jobs_setAssociatedRETAIN_NONATOMIC(_normalAttributedTitle, normalAttributedTitle)
+}
+#pragma mark —— @property(nonatomic,strong)NSAttributedString *normalAttributedSubTitle;
+JobsKey(_normalAttributedSubTitle)
+@dynamic normalAttributedSubTitle;
+-(NSAttributedString *)normalAttributedSubTitle{
+    return Jobs_getAssociatedObject(_normalAttributedSubTitle);
+}
+
+-(void)setNormalAttributedSubTitle:(NSAttributedString *)normalAttributedSubTitle{
+    [self setAttributedTitle:normalAttributedSubTitle forState:UIControlStateNormal];
+    Jobs_setAssociatedRETAIN_NONATOMIC(_normalAttributedSubTitle, normalAttributedSubTitle)
 }
 #pragma mark —— @property(nonatomic,strong)UIImage *selectedImage;
 JobsKey(_selectedImage)
@@ -444,6 +652,17 @@ JobsKey(_selectedTitle)
     [self setTitle:selectedTitle forState:UIControlStateSelected];
     Jobs_setAssociatedRETAIN_NONATOMIC(_selectedTitle, selectedTitle)
 }
+#pragma mark —— @property(nonatomic,strong)NSString *selectedSubTitle;
+JobsKey(_selectedSubTitle)
+@dynamic selectedSubTitle;
+-(NSString *)selectedSubTitle{
+    return Jobs_getAssociatedObject(_selectedSubTitle);
+}
+
+-(void)setSelectedSubTitle:(NSString *)selectedSubTitle{
+    [self setTitle:selectedSubTitle forState:UIControlStateSelected];
+    Jobs_setAssociatedRETAIN_NONATOMIC(_selectedSubTitle, selectedSubTitle)
+}
 #pragma mark —— @property(nonatomic,strong)UIColor *selectedTitleColor;
 JobsKey(_selectedTitleColor)
 @dynamic selectedTitleColor;
@@ -455,6 +674,17 @@ JobsKey(_selectedTitleColor)
     [self setTitleColor:selectedTitleColor forState:UIControlStateSelected];
     Jobs_setAssociatedRETAIN_NONATOMIC(_selectedTitleColor, selectedTitleColor)
 }
+#pragma mark —— @property(nonatomic,strong)UIColor *selectedSubTitleColor;
+JobsKey(_selectedSubTitleColor)
+@dynamic selectedSubTitleColor;
+-(UIColor *)selectedSubTitleColor{
+    return Jobs_getAssociatedObject(_selectedSubTitleColor);
+}
+
+-(void)setSelectedSubTitleColor:(UIColor *)selectedSubTitleColor{
+    [self setTitleColor:selectedSubTitleColor forState:UIControlStateSelected];
+    Jobs_setAssociatedRETAIN_NONATOMIC(_selectedSubTitleColor, selectedSubTitleColor)
+}
 #pragma mark —— @property(nonatomic,strong)NSAttributedString *selectedAttributedTitle;
 JobsKey(_selectedAttributedTitle)
 @dynamic selectedAttributedTitle;
@@ -465,6 +695,17 @@ JobsKey(_selectedAttributedTitle)
 -(void)setSelectedAttributedTitle:(NSAttributedString *)selectedAttributedTitle{
     [self setAttributedTitle:selectedAttributedTitle forState:UIControlStateSelected];
     Jobs_setAssociatedRETAIN_NONATOMIC(_selectedAttributedTitle, selectedAttributedTitle);
+}
+#pragma mark —— @property(nonatomic,strong)NSAttributedString *selectedAttributedSubTitle;
+JobsKey(_selectedAttributedSubTitle)
+@dynamic selectedAttributedSubTitle;
+-(NSAttributedString *)selectedAttributedSubTitle{
+    return Jobs_getAssociatedObject(_selectedAttributedSubTitle);
+}
+
+-(void)setSelectedAttributedSubTitle:(NSAttributedString *)selectedAttributedSubTitle{
+    [self setAttributedTitle:selectedAttributedSubTitle forState:UIControlStateSelected];
+    Jobs_setAssociatedRETAIN_NONATOMIC(_selectedAttributedSubTitle, selectedAttributedSubTitle);
 }
 #pragma mark —— @property(nonatomic,assign)NSTextAlignment titleAlignment;
 JobsKey(_titleAlignment)
