@@ -17,19 +17,19 @@ typedef id _Nullable(^JobsReturnIDByIDBlock)(id _Nullable data);
 typedef id _Nullable(^JobsReturnIDByStringBlock)(NSString * _Nullable data);
 typedef id _Nullable(^JobsReturnIDByGestureRecognizerBlock)(UIGestureRecognizer * _Nullable data);
 
-typedef CGPoint (^_Nullable JobsReturnCGPointByVoidBlock)(void);
-typedef CGPoint (^_Nullable JobsReturnCGPointByIDBlock)(id _Nullable data);
-typedef CGSize (^_Nullable JobsReturnCGSizeByVoidBlock)(void);
-typedef CGSize(^_Nullable JobsReturnCGSizeByIDBlock)(id _Nullable data);
+typedef CGPoint (^_Nonnull JobsReturnCGPointByVoidBlock)(void);
+typedef CGPoint (^_Nonnull JobsReturnCGPointByIDBlock)(id _Nullable data);
+typedef CGSize (^_Nonnull JobsReturnCGSizeByVoidBlock)(void);
+typedef CGSize(^_Nonnull JobsReturnCGSizeByIDBlock)(id _Nullable data);
 
 typedef CGRect (^JobsReturnCGRectByVoidBlock)(void);
-typedef CGRect (^ _Nullable JobsReturnCGRectByIDBlock)(id _Nullable data);
-typedef CGRect (^_Nullable JobsReturnCGRectByCGPointBlock)(CGPoint data);
-typedef CGRect (^_Nullable JobsReturnCGRectByCGSizeBlock)(CGSize data);
-typedef CGRect (^_Nullable JobsReturnCGRectByCGFloatBlock)(CGFloat data);
+typedef CGRect (^ _Nonnull JobsReturnCGRectByIDBlock)(id _Nullable data);
+typedef CGRect (^_Nonnull JobsReturnCGRectByCGPointBlock)(CGPoint data);
+typedef CGRect (^_Nonnull JobsReturnCGRectByCGSizeBlock)(CGSize data);
+typedef CGRect (^_Nonnull JobsReturnCGRectByCGFloatBlock)(CGFloat data);
 
-typedef UIEdgeInsets(^_Nullable JobsReturnUIEdgeInsetsByVoidBlock)(void);
-typedef UIEdgeInsets(^_Nullable JobsReturnUIEdgeInsetsByIDBlock)(id _Nullable data);
+typedef UIEdgeInsets(^_Nonnull JobsReturnUIEdgeInsetsByVoidBlock)(void);
+typedef UIEdgeInsets(^_Nonnull JobsReturnUIEdgeInsetsByIDBlock)(id _Nullable data);
 
 typedef UIButtonConfiguration *_Nullable(^JobsReturnButtonConfigurationByBackgroundBlock)(UIBackgroundConfiguration *_Nullable data);
 typedef UIButtonConfiguration *_Nullable(^JobsReturnButtonConfigurationByCornerStyleBlock)(UIButtonConfigurationCornerStyle data);
