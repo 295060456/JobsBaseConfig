@@ -253,166 +253,301 @@
  3、要修改通过UIButtonConfiguration创建的UIButton的各属性值，只有通过下列方式方可以
  */
 #pragma mark —— UIButton.configuration的各项属性值的修改
--(void)setBtnConfigBackground:(UIBackgroundConfiguration *)background{
-    UIButtonConfiguration *btnConfig = self.configuration;
-    btnConfig.background = background;
-    self.configuration = btnConfig;
+-(JobsReturnButtonConfigurationByBackgroundBlock _Nonnull)jobsResetBackground{
+    @jobs_weakify(self)
+    return ^(UIBackgroundConfiguration *data) {
+        @jobs_strongify(self)
+        UIButtonConfiguration *config = self.configuration;
+        config.background = data;
+        self.configuration = config;
+        return self.configuration;
+    };
 }
 
--(void)setBtnConfigCornerStyle:(UIButtonConfigurationCornerStyle)cornerStyle{
-    UIButtonConfiguration *btnConfig = self.configuration;
-    btnConfig.cornerStyle = cornerStyle;
-    self.configuration = btnConfig;
+-(JobsReturnButtonConfigurationByCornerStyleBlock _Nonnull)jobsResetCornerStyle{
+    @jobs_weakify(self)
+    return ^(UIButtonConfigurationCornerStyle data) {
+        @jobs_strongify(self)
+        UIButtonConfiguration *config = self.configuration;
+        config.cornerStyle = data;
+        self.configuration = config;
+        return self.configuration;
+    };
 }
 
--(void)setBtnConfigButtonSize:(UIButtonConfigurationSize)buttonSize{
-    UIButtonConfiguration *btnConfig = self.configuration;
-    btnConfig.buttonSize = buttonSize;
-    self.configuration = btnConfig;
+-(JobsReturnButtonConfigurationBySizeBlock _Nonnull)jobsResetButtonSize{
+    @jobs_weakify(self)
+    return ^(UIButtonConfigurationSize data) {
+        @jobs_strongify(self)
+        UIButtonConfiguration *config = self.configuration;
+        config.buttonSize = data;
+        self.configuration = config;
+        return self.configuration;
+    };
 }
 
--(void)setBtnConfigMacIdiomStyle:(UIButtonConfigurationMacIdiomStyle)macIdiomStyle{
-    UIButtonConfiguration *btnConfig = self.configuration;
-    btnConfig.macIdiomStyle = macIdiomStyle;
-    self.configuration = btnConfig;
+-(JobsReturnButtonConfigurationByMacIdiomStyleBlock _Nonnull)jobsResetMacIdiomStyle{
+    @jobs_weakify(self)
+    return ^(UIButtonConfigurationMacIdiomStyle data) {
+        @jobs_strongify(self)
+        UIButtonConfiguration *config = self.configuration;
+        config.macIdiomStyle = data;
+        self.configuration = config;
+        return self.configuration;
+    };
 }
 
--(void)setBtnConfigBaseForegroundColor:(UIColor *)baseForegroundColor{
-    UIButtonConfiguration *btnConfig = self.configuration;
-    btnConfig.baseForegroundColor = baseForegroundColor;
-    self.configuration = btnConfig;
+-(JobsReturnButtonConfigurationByBaseForegroundColorBlock _Nonnull)jobsResetBaseForegroundColor{
+    @jobs_weakify(self)
+    return ^(UIColor *data) {
+        @jobs_strongify(self)
+        UIButtonConfiguration *config = self.configuration;
+        config.baseForegroundColor = data;
+        self.configuration = config;
+        return self.configuration;
+    };
 }
 
--(void)setBtnConfigBaseBackgroundColor:(UIColor *)baseBackgroundColor{
-    UIButtonConfiguration *btnConfig = self.configuration;
-    btnConfig.baseBackgroundColor = baseBackgroundColor;
-    self.configuration = btnConfig;
+-(JobsReturnButtonConfigurationByBaseBackgroundColorBlock _Nonnull)jobsResetBaseBackgroundColor{
+    @jobs_weakify(self)
+    return ^(UIColor *data) {
+        @jobs_strongify(self)
+        UIButtonConfiguration *config = self.configuration;
+        config.baseBackgroundColor = data;
+        self.configuration = config;
+        return self.configuration;
+    };
 }
 
--(void)setBtnConfigImage:(UIImage *)image{
-    UIButtonConfiguration *btnConfig = self.configuration;
-    btnConfig.image = image;
-    self.configuration = btnConfig;
+-(JobsReturnButtonConfigurationByImageBlock _Nonnull)jobsResetImage{
+    @jobs_weakify(self)
+    return ^(UIImage *data) {
+        @jobs_strongify(self)
+        UIButtonConfiguration *config = self.configuration;
+        config.image = data;
+        self.configuration = config;
+        return self.configuration;
+    };
 }
 
--(void)setBtnConfigImageColorTransformer:(UIConfigurationColorTransformer)imageColorTransformer{
-    UIButtonConfiguration *btnConfig = self.configuration;
-    btnConfig.imageColorTransformer = imageColorTransformer;
-    self.configuration = btnConfig;
+-(JobsReturnButtonConfigurationByImageColorTransformerBlock _Nonnull)jobsResetImageColorTransformer{
+    @jobs_weakify(self)
+    return ^(UIConfigurationColorTransformer data) {
+        @jobs_strongify(self)
+        UIButtonConfiguration *config = self.configuration;
+        config.imageColorTransformer = data;
+        self.configuration = config;
+        return self.configuration;
+    };
 }
 
--(void)setBtnConfigPreferredSymbolConfigurationForImage:(UIImageSymbolConfiguration *)preferredSymbolConfigurationForImage{
-    UIButtonConfiguration *btnConfig = self.configuration;
-    btnConfig.preferredSymbolConfigurationForImage = preferredSymbolConfigurationForImage;
-    self.configuration = btnConfig;
+-(JobsReturnButtonConfigurationByPreferredSymbolConfigurationForImageBlock _Nonnull)jobsResetPreferredSymbolConfigurationForImage{
+    @jobs_weakify(self)
+    return ^(UIImageSymbolConfiguration *data) {
+        @jobs_strongify(self)
+        UIButtonConfiguration *config = self.configuration;
+        config.preferredSymbolConfigurationForImage = data;
+        self.configuration = config;
+        return self.configuration;
+    };
 }
 
--(void)setBtnConfigShowsActivityIndicator:(BOOL)showsActivityIndicator{
-    UIButtonConfiguration *btnConfig = self.configuration;
-    btnConfig.showsActivityIndicator = showsActivityIndicator;
-    self.configuration = btnConfig;
+-(JobsReturnButtonConfigurationByShowsActivityIndicatorBlock _Nonnull)jobsResetShowsActivityIndicator{
+    @jobs_weakify(self)
+    return ^(BOOL data) {
+        @jobs_strongify(self)
+        UIButtonConfiguration *config = self.configuration;
+        config.showsActivityIndicator = data;
+        self.configuration = config;
+        return self.configuration;
+    };
 }
 
--(void)setBtnConfigActivityIndicatorColorTransformer:(UIConfigurationColorTransformer)activityIndicatorColorTransformer{
-    UIButtonConfiguration *btnConfig = self.configuration;
-    btnConfig.activityIndicatorColorTransformer = activityIndicatorColorTransformer;
-    self.configuration = btnConfig;
+-(JobsReturnButtonConfigurationByActivityIndicatorColorTransformerBlock _Nonnull)jobsResetActivityIndicatorColorTransformer{
+    @jobs_weakify(self)
+    return ^(UIConfigurationColorTransformer data) {
+        @jobs_strongify(self)
+        UIButtonConfiguration *config = self.configuration;
+        config.activityIndicatorColorTransformer = data;
+        self.configuration = config;
+        return self.configuration;
+    };
 }
 
--(void)setBtnConfigTitle:(NSString *)title{
-    UIButtonConfiguration *btnConfig = self.configuration;
-    btnConfig.title = title;
-    self.configuration = btnConfig;
+-(JobsReturnButtonConfigurationByTitleBlock _Nonnull)jobsResetTitle{
+    @jobs_weakify(self)
+    return ^(NSString *data) {
+        @jobs_strongify(self)
+        UIButtonConfiguration *config = self.configuration;
+        config.title = data;
+        self.configuration = config;
+        return self.configuration;
+    };
 }
 
--(void)setBtnConfigAttributedTitle:(NSAttributedString *)attributedTitle{
-    UIButtonConfiguration *btnConfig = self.configuration;
-    btnConfig.attributedTitle = attributedTitle;
-    self.configuration = btnConfig;
+-(JobsReturnButtonConfigurationByAttributedTitleBlock _Nonnull)jobsResetAttributedTitle{
+    @jobs_weakify(self)
+    return ^(NSAttributedString *data) {
+        @jobs_strongify(self)
+        UIButtonConfiguration *config = self.configuration;
+        config.attributedTitle = data;
+        self.configuration = config;
+        return self.configuration;
+    };
 }
 
--(void)setBtnConfigTitleTextAttributesTransformer:(UIConfigurationTextAttributesTransformer)titleTextAttributesTransformer{
-    UIButtonConfiguration *btnConfig = self.configuration;
-    btnConfig.titleTextAttributesTransformer = titleTextAttributesTransformer;
-    self.configuration = btnConfig;
+-(JobsReturnButtonConfigurationByTitleTextAttributesTransformerBlock _Nonnull)jobsResetTitleTextAttributesTransformer{
+    @jobs_weakify(self)
+    return ^(UIConfigurationTextAttributesTransformer data) {
+        @jobs_strongify(self)
+        UIButtonConfiguration *config = self.configuration;
+        config.titleTextAttributesTransformer = data;
+        self.configuration = config;
+        return self.configuration;
+    };
 }
 
--(void)setBtnConfigTitleLineBreakMode:(NSLineBreakMode)titleLineBreakMode{
-    UIButtonConfiguration *btnConfig = self.configuration;
-    btnConfig.titleLineBreakMode = titleLineBreakMode;
-    self.configuration = btnConfig;
+-(JobsReturnButtonConfigurationByTitleLineBreakModeBlock _Nonnull)jobsResetTitleLineBreakMode{
+    @jobs_weakify(self)
+    return ^(NSLineBreakMode data) {
+        @jobs_strongify(self)
+        UIButtonConfiguration *config = self.configuration;
+        config.titleLineBreakMode = data;
+        self.configuration = config;
+        return self.configuration;
+    };
 }
 
--(void)setBtnConfigSubtitle:(NSString *)subtitle{
-    UIButtonConfiguration *btnConfig = self.configuration;
-    btnConfig.subtitle = subtitle;
-    self.configuration = btnConfig;
+-(JobsReturnButtonConfigurationBySubtitleBlock _Nonnull)jobsResetSubtitle{
+    @jobs_weakify(self)
+    return ^(NSString *data) {
+        @jobs_strongify(self)
+        UIButtonConfiguration *config = self.configuration;
+        config.subtitle = data;
+        self.configuration = config;
+        return self.configuration;
+    };
 }
 
--(void)setBtnConfigAttributedSubtitle:(NSAttributedString *)attributedSubtitle{
-    UIButtonConfiguration *btnConfig = self.configuration;
-    btnConfig.attributedSubtitle = attributedSubtitle;
-    self.configuration = btnConfig;
+-(JobsReturnButtonConfigurationByAttributedSubtitleBlock _Nonnull)jobsResetAttributedSubtitle{
+    @jobs_weakify(self)
+    return ^(NSAttributedString *data) {
+        @jobs_strongify(self)
+        UIButtonConfiguration *config = self.configuration;
+        config.attributedSubtitle = data;
+        self.configuration = config;
+        return self.configuration;
+    };
 }
 
--(void)setBtnConfigSubtitleTextAttributesTransformer:(UIConfigurationTextAttributesTransformer)subtitleTextAttributesTransformer{
-    UIButtonConfiguration *btnConfig = self.configuration;
-    btnConfig.subtitleTextAttributesTransformer = subtitleTextAttributesTransformer;
-    self.configuration = btnConfig;
+-(JobsReturnButtonConfigurationBySubtitleTextAttributesTransformerBlock _Nonnull)jobsResetSubtitleTextAttributesTransformer{
+    @jobs_weakify(self)
+    return ^(UIConfigurationTextAttributesTransformer data) {
+        @jobs_strongify(self)
+        UIButtonConfiguration *config = self.configuration;
+        config.subtitleTextAttributesTransformer = data;
+        self.configuration = config;
+        return self.configuration;
+    };
 }
 
--(void)setBtnConfigSubtitleLineBreakMode:(NSLineBreakMode)subtitleLineBreakMode{
-    UIButtonConfiguration *btnConfig = self.configuration;
-    btnConfig.subtitleLineBreakMode = subtitleLineBreakMode;
-    self.configuration = btnConfig;
+-(JobsReturnButtonConfigurationBySubtitleLineBreakModeBlock _Nonnull)jobsResetSubtitleLineBreakMode{
+    @jobs_weakify(self)
+    return ^(NSLineBreakMode data) {
+        @jobs_strongify(self)
+        UIButtonConfiguration *config = self.configuration;
+        config.subtitleLineBreakMode = data;
+        self.configuration = config;
+        return self.configuration;
+    };
 }
 
--(void)setBtnConfigIndicator:(UIButtonConfigurationIndicator)indicator{
-    UIButtonConfiguration *btnConfig = self.configuration;
-    btnConfig.indicator = indicator;
-    self.configuration = btnConfig;
+-(JobsReturnButtonConfigurationByIndicatorBlock _Nonnull)jobsResetIndicator{
+    @jobs_weakify(self)
+    return ^(UIButtonConfigurationIndicator data) {
+        @jobs_strongify(self)
+        UIButtonConfiguration *config = self.configuration;
+        config.indicator = data;
+        self.configuration = config;
+        return self.configuration;
+    };
 }
 
--(void)setBtnConfigIndicatorColorTransformer:(UIConfigurationColorTransformer)indicatorColorTransformer{
-    UIButtonConfiguration *btnConfig = self.configuration;
-    btnConfig.indicatorColorTransformer = indicatorColorTransformer;
-    self.configuration = btnConfig;
+-(JobsReturnButtonConfigurationByIndicatorColorTransformerBlock _Nonnull)jobsResetIndicatorColorTransformer{
+    @jobs_weakify(self)
+    return ^(UIConfigurationColorTransformer data) {
+        @jobs_strongify(self)
+        UIButtonConfiguration *config = self.configuration;
+        config.indicatorColorTransformer = data;
+        self.configuration = config;
+        return self.configuration;
+    };
 }
 
--(void)setBtnConfigContentInsets:(NSDirectionalEdgeInsets)contentInsets{
-    UIButtonConfiguration *btnConfig = self.configuration;
-    btnConfig.contentInsets = contentInsets;
-    self.configuration = btnConfig;
+-(JobsReturnButtonConfigurationByContentInsetsBlock _Nonnull)jobsResetContentInsets{
+    @jobs_weakify(self)
+    return ^(NSDirectionalEdgeInsets data) {
+        @jobs_strongify(self)
+        UIButtonConfiguration *config = self.configuration;
+        config.contentInsets = data;
+        self.configuration = config;
+        return self.configuration;
+    };
 }
 
--(void)setBtnConfigImagePlacement:(NSDirectionalRectEdge)imagePlacement{
-    UIButtonConfiguration *btnConfig = self.configuration;
-    btnConfig.imagePlacement = imagePlacement;
-    self.configuration = btnConfig;
+-(JobsReturnButtonConfigurationByImagePlacementBlock _Nonnull)jobsResetImagePlacement{
+    @jobs_weakify(self)
+    return ^(NSDirectionalRectEdge data) {
+        @jobs_strongify(self)
+        UIButtonConfiguration *config = self.configuration;
+        config.imagePlacement = data;
+        self.configuration = config;
+        return self.configuration;
+    };
 }
 
--(void)setBtnConfigImagePadding:(CGFloat)imagePadding{
-    UIButtonConfiguration *btnConfig = self.configuration;
-    btnConfig.imagePadding = imagePadding;
-    self.configuration = btnConfig;
+-(JobsReturnButtonConfigurationByImagePaddingBlock _Nonnull)jobsResetImagePadding{
+    @jobs_weakify(self)
+    return ^(CGFloat data) {
+        @jobs_strongify(self)
+        UIButtonConfiguration *config = self.configuration;
+        config.imagePadding = data;
+        self.configuration = config;
+        return self.configuration;
+    };
 }
 
--(void)setBtnConfigTitlePadding:(CGFloat)titlePadding{
-    UIButtonConfiguration *btnConfig = self.configuration;
-    btnConfig.titlePadding = titlePadding;
-    self.configuration = btnConfig;
+-(JobsReturnButtonConfigurationByTitlePaddingBlock _Nonnull)jobsResetTitlePadding{
+    @jobs_weakify(self)
+    return ^(CGFloat data) {
+        @jobs_strongify(self)
+        UIButtonConfiguration *config = self.configuration;
+        config.titlePadding = data;
+        self.configuration = config;
+        return self.configuration;
+    };
 }
 
--(void)setBtnConfigTitleAlignment:(UIButtonConfigurationTitleAlignment)titleAlignment{
-    UIButtonConfiguration *btnConfig = self.configuration;
-    btnConfig.titleAlignment = titleAlignment;
-    self.configuration = btnConfig;
+-(JobsReturnButtonConfigurationByTitleAlignmentBlock _Nonnull)jobsResetTitleAlignment{
+    @jobs_weakify(self)
+    return ^(UIButtonConfigurationTitleAlignment data) {
+        @jobs_strongify(self)
+        UIButtonConfiguration *config = self.configuration;
+        config.titleAlignment = data;
+        self.configuration = config;
+        return self.configuration;
+    };
 }
 
--(void)setBtnConfigAutomaticallyUpdateForSelection:(BOOL)automaticallyUpdateForSelection{
-    UIButtonConfiguration *btnConfig = self.configuration;
-    btnConfig.automaticallyUpdateForSelection = automaticallyUpdateForSelection;
-    self.configuration = btnConfig;
+-(JobsReturnButtonConfigurationByAutomaticallyUpdateForSelectionBlock _Nonnull)jobsResetAutomaticallyUpdateForSelection{
+    @jobs_weakify(self)
+    return ^(BOOL data) {
+        @jobs_strongify(self)
+        UIButtonConfiguration *config = self.configuration;
+        config.automaticallyUpdateForSelection = data;
+        self.configuration = config;
+        return self.configuration;
+    };
 }
 #pragma mark —— UIButton普通文本的通用设置
 /// 代码触发点击调用

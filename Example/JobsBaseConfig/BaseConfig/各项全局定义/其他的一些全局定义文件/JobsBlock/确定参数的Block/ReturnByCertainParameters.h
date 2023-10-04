@@ -10,39 +10,70 @@
 ///【 确定入参个数 并且 有返回值的Block定义】
 #pragma mark —— 单形参
 /// 1、无入参、且返回ID类型的Block定义
-typedef id(^JobsReturnIDByVoidBlock)(void);
+typedef id _Nullable(^JobsReturnIDByVoidBlock)(void);
 /// 2、入参的个数为1、且入参和返回值的类型不定的Block定义
-typedef id(^JobsReturnIDBySELBlock)(SEL data);
-typedef id(^JobsReturnIDByIDBlock)(id data);
-typedef id(^JobsReturnIDByStringBlock)(NSString *data);
-typedef id(^JobsReturnIDByGestureRecognizerBlock)(UIGestureRecognizer *data);
-typedef CGPoint(^JobsReturnCGPointByVoidBlock)(void);
-typedef CGPoint(^JobsReturnCGPointByIDBlock)(id data);
-typedef CGSize(^JobsReturnCGSizeByVoidBlock)(void);
-typedef CGSize(^JobsReturnCGSizeByIDBlock)(id data);
-typedef UIEdgeInsets(^JobsReturnUIEdgeInsetsByVoidBlock)(void);
-typedef UIEdgeInsets(^JobsReturnUIEdgeInsetsByIDBlock)(id data);
-typedef CGRect(^JobsReturnCGRectByVoidBlock)(void);
-typedef CGRect(^JobsReturnCGRectByIDBlock)(id data);
-typedef CGRect(^JobsReturnCGRectByCGPointBlock)(CGPoint data);
-typedef CGRect(^JobsReturnCGRectByCGSizeBlock)(CGSize data);
-typedef CGRect(^JobsReturnCGRectByCGFloatBlock)(CGFloat data);
+typedef id _Nullable(^JobsReturnIDBySELBlock)(SEL _Nullable data);
+typedef id _Nullable(^JobsReturnIDByIDBlock)(id _Nullable data);
+typedef id _Nullable(^JobsReturnIDByStringBlock)(NSString * _Nullable data);
+typedef id _Nullable(^JobsReturnIDByGestureRecognizerBlock)(UIGestureRecognizer * _Nullable data);
+
+typedef CGPoint (^_Nullable JobsReturnCGPointByVoidBlock)(void);
+typedef CGPoint (^_Nullable JobsReturnCGPointByIDBlock)(id _Nullable data);
+typedef CGSize (^_Nullable JobsReturnCGSizeByVoidBlock)(void);
+typedef CGSize(^_Nullable JobsReturnCGSizeByIDBlock)(id _Nullable data);
+
+typedef CGRect (^JobsReturnCGRectByVoidBlock)(void);
+typedef CGRect (^ _Nullable JobsReturnCGRectByIDBlock)(id _Nullable data);
+typedef CGRect (^_Nullable JobsReturnCGRectByCGPointBlock)(CGPoint data);
+typedef CGRect (^_Nullable JobsReturnCGRectByCGSizeBlock)(CGSize data);
+typedef CGRect (^_Nullable JobsReturnCGRectByCGFloatBlock)(CGFloat data);
+
+typedef UIEdgeInsets(^_Nullable JobsReturnUIEdgeInsetsByVoidBlock)(void);
+typedef UIEdgeInsets(^_Nullable JobsReturnUIEdgeInsetsByIDBlock)(id _Nullable data);
+
+typedef UIButtonConfiguration *_Nullable(^JobsReturnButtonConfigurationByBackgroundBlock)(UIBackgroundConfiguration *_Nullable data);
+typedef UIButtonConfiguration *_Nullable(^JobsReturnButtonConfigurationByCornerStyleBlock)(UIButtonConfigurationCornerStyle data);
+typedef UIButtonConfiguration *_Nullable(^JobsReturnButtonConfigurationBySizeBlock)(UIButtonConfigurationSize data);
+typedef UIButtonConfiguration *_Nullable(^JobsReturnButtonConfigurationByMacIdiomStyleBlock)(UIButtonConfigurationMacIdiomStyle data);
+typedef UIButtonConfiguration *_Nullable(^JobsReturnButtonConfigurationByBaseForegroundColorBlock)(UIColor *_Nullable data);
+typedef UIButtonConfiguration *_Nullable(^JobsReturnButtonConfigurationByBaseBackgroundColorBlock)(UIColor *_Nullable data);
+typedef UIButtonConfiguration *_Nullable(^JobsReturnButtonConfigurationByImageBlock)(UIImage *_Nullable data);
+typedef UIButtonConfiguration *_Nullable(^JobsReturnButtonConfigurationByImageColorTransformerBlock)(UIConfigurationColorTransformer _Nullable data);
+typedef UIButtonConfiguration *_Nullable(^JobsReturnButtonConfigurationByPreferredSymbolConfigurationForImageBlock)(UIImageSymbolConfiguration *_Nullable data);
+typedef UIButtonConfiguration *_Nullable(^JobsReturnButtonConfigurationByShowsActivityIndicatorBlock)(BOOL data);
+typedef UIButtonConfiguration *_Nullable(^JobsReturnButtonConfigurationByActivityIndicatorColorTransformerBlock)(UIConfigurationColorTransformer _Nullable data);
+typedef UIButtonConfiguration *_Nullable(^JobsReturnButtonConfigurationByTitleBlock)(NSString *_Nullable data);
+typedef UIButtonConfiguration *_Nullable(^JobsReturnButtonConfigurationByAttributedTitleBlock)(NSAttributedString *_Nullable data);
+typedef UIButtonConfiguration *_Nullable(^JobsReturnButtonConfigurationByTitleTextAttributesTransformerBlock)(UIConfigurationTextAttributesTransformer _Nullable data);
+typedef UIButtonConfiguration *_Nullable(^JobsReturnButtonConfigurationByTitleLineBreakModeBlock)(NSLineBreakMode data);
+typedef UIButtonConfiguration *_Nullable(^JobsReturnButtonConfigurationBySubtitleBlock)(NSString *_Nullable data);
+typedef UIButtonConfiguration *_Nullable(^JobsReturnButtonConfigurationByAttributedSubtitleBlock)(NSAttributedString *_Nullable data);
+typedef UIButtonConfiguration *_Nullable(^JobsReturnButtonConfigurationBySubtitleTextAttributesTransformerBlock)(UIConfigurationTextAttributesTransformer _Nullable data);
+typedef UIButtonConfiguration *_Nullable(^JobsReturnButtonConfigurationBySubtitleLineBreakModeBlock)(NSLineBreakMode data);
+typedef UIButtonConfiguration *_Nullable(^JobsReturnButtonConfigurationByIndicatorBlock)(UIButtonConfigurationIndicator data);
+typedef UIButtonConfiguration *_Nullable(^JobsReturnButtonConfigurationByIndicatorColorTransformerBlock)(UIConfigurationColorTransformer _Nullable data);
+typedef UIButtonConfiguration *_Nullable(^JobsReturnButtonConfigurationByContentInsetsBlock)(NSDirectionalEdgeInsets data);
+typedef UIButtonConfiguration *_Nullable(^JobsReturnButtonConfigurationByImagePlacementBlock)(NSDirectionalRectEdge data);
+typedef UIButtonConfiguration *_Nullable(^JobsReturnButtonConfigurationByImagePaddingBlock)(CGFloat data);
+typedef UIButtonConfiguration *_Nullable(^JobsReturnButtonConfigurationByTitlePaddingBlock)(CGFloat data);
+typedef UIButtonConfiguration *_Nullable(^JobsReturnButtonConfigurationByTitleAlignmentBlock)(UIButtonConfigurationTitleAlignment data);
+typedef UIButtonConfiguration *_Nullable(^JobsReturnButtonConfigurationByAutomaticallyUpdateForSelectionBlock)(BOOL data);
 /// 3、入参为基本数据类型、且统一返回ID类型的Block定义
-typedef id(^JobsReturnIDByNSIntegerBlock)(NSInteger data);
-typedef id(^JobsReturnIDByUIntegerBlock)(NSUInteger data);
-typedef id(^JobsReturnIDByCGFloatBlock)(CGFloat data);
-typedef id(^JobsReturnIDByBOOLBlock)(BOOL data);
-typedef id(^JobsReturnIDByIntBlock)(int data);
-typedef id(^JobsReturnIDByUnsignedIntBlock)(unsigned int data);
-typedef id(^JobsReturnIDByFloatBlock)(float data);
-typedef id(^JobsReturnIDByDoubleBlock)(double data);
-typedef id(^JobsReturnIDByCharBlock)(char data);
-typedef id(^JobsReturnIDByUnsignedCharBlock)(unsigned char data);
-typedef id(^JobsReturnIDByShortBlock)(short data);
-typedef id(^JobsReturnIDByUnsignedShortBlock)(unsigned short data);
-typedef id(^JobsReturnIDByLongBlock)(long data);
-typedef id(^JobsReturnIDByUnsignedLongBlock)(unsigned long data);
-typedef id(^JobsReturnIDByUnsignedLongLongBlock)(unsigned long long data);
+typedef id _Nullable(^JobsReturnIDByNSIntegerBlock)(NSInteger data);
+typedef id _Nullable(^JobsReturnIDByUIntegerBlock)(NSUInteger data);
+typedef id _Nullable(^JobsReturnIDByCGFloatBlock)(CGFloat data);
+typedef id _Nullable(^JobsReturnIDByBOOLBlock)(BOOL data);
+typedef id _Nullable(^JobsReturnIDByIntBlock)(int data);
+typedef id _Nullable(^JobsReturnIDByUnsignedIntBlock)(unsigned int data);
+typedef id _Nullable(^JobsReturnIDByFloatBlock)(float data);
+typedef id _Nullable(^JobsReturnIDByDoubleBlock)(double data);
+typedef id _Nullable(^JobsReturnIDByCharBlock)(char data);
+typedef id _Nullable(^JobsReturnIDByUnsignedCharBlock)(unsigned char data);
+typedef id _Nullable(^JobsReturnIDByShortBlock)(short data);
+typedef id _Nullable(^JobsReturnIDByUnsignedShortBlock)(unsigned short data);
+typedef id _Nullable(^JobsReturnIDByLongBlock)(long data);
+typedef id _Nullable(^JobsReturnIDByUnsignedLongBlock)(unsigned long data);
+typedef id _Nullable(^JobsReturnIDByUnsignedLongLongBlock)(unsigned long long data);
 /// 4、入参为基本数据类型、且返回入参类型的Block定义
 typedef NSInteger(^JobsReturnByNSIntegerBlock)(NSInteger data);
 typedef NSUInteger(^JobsReturnByNSUIntegerBlock)(NSUInteger data);
@@ -60,21 +91,21 @@ typedef long(^JobsReturnByLongBlock)(long data);
 typedef unsigned long(^JobsReturnByUnsignedLongBlock)(unsigned long data);
 typedef unsigned long long(^JobsReturnByUnsignedLongLongBlock)(unsigned long long data);
 /// 5、入参为ID类型、且返回基本数据类型的Block定义
-typedef NSInteger(^JobsReturnNSIntegerByIDBlock)(id data);
-typedef NSUInteger(^JobsReturnNSUIntegerByIDBlock)(id data);
+typedef NSInteger(^JobsReturnNSIntegerByIDBlock)(id _Nullable data);
+typedef NSUInteger(^JobsReturnNSUIntegerByIDBlock)(id _Nullable data);
 typedef CGFloat(^JobsReturnCGFloatByIDBlock)(CGFloat data);
-typedef BOOL(^JobsReturnBOOLByIDBlock)(id data);
-typedef int(^JobsReturnIntByIDBlock)(id data);
-typedef unsigned int(^JobsReturnUnsignedIntByIDBlock)(id data);
-typedef float(^JobsReturnFloatByIDBlock)(id data);
-typedef double(^JobsReturnDoubleByIDBlock)(id data);
-typedef char(^JobsReturnCharByIDBlock)(id data);
-typedef unsigned char(^JobsReturnUnsignedCharByIDBlock)(id data);
-typedef short(^JobsReturnShortByIDBlock)(id data);
-typedef unsigned short(^JobsReturnUnsignedShortByIDBlock)(id data);
-typedef long(^JobsReturnLongByIDBlock)(id data);
-typedef unsigned long(^JobsReturnUnsignedLongByIDBlock)(id data);
-typedef unsigned long long(^JobsReturnUnsignedLongLongByIDBlock)(id data);
+typedef BOOL(^JobsReturnBOOLByIDBlock)(id _Nullable data);
+typedef int(^JobsReturnIntByIDBlock)(id _Nullable data);
+typedef unsigned int(^JobsReturnUnsignedIntByIDBlock)(id _Nullable data);
+typedef float(^JobsReturnFloatByIDBlock)(id _Nullable data);
+typedef double(^JobsReturnDoubleByIDBlock)(id _Nullable data);
+typedef char(^JobsReturnCharByIDBlock)(id _Nullable data);
+typedef unsigned char(^JobsReturnUnsignedCharByIDBlock)(id _Nullable data);
+typedef short(^JobsReturnShortByIDBlock)(id _Nullable data);
+typedef unsigned short(^JobsReturnUnsignedShortByIDBlock)(id _Nullable data);
+typedef long(^JobsReturnLongByIDBlock)(id _Nullable data);
+typedef unsigned long(^JobsReturnUnsignedLongByIDBlock)(id _Nullable data);
+typedef unsigned long long(^JobsReturnUnsignedLongLongByIDBlock)(id _Nullable data);
 /// 6、入参为ID类型、且返回基本数据类型的Block定义
 typedef NSInteger(^JobsReturnNSIntegerByVoidBlock)(void);
 typedef NSUInteger(^JobsReturnNSUIntegerByVoidBlock)(void);
@@ -140,45 +171,54 @@ typedef CGPoint(^JobsReturnCGPointByLongBlock)(long data);
 typedef CGPoint(^JobsReturnCGPointByUnsignedLongBlock)(unsigned long data);
 typedef CGPoint(^JobsReturnCGPointByUnsignedLongLongBlock)(unsigned long long data);
 #pragma mark —— 多形参
+#define Jobs_2_Arguments (id _Nullable data,id _Nullable data2)
+#define Jobs_3_Arguments (id _Nullable data,id _Nullable data2,id _Nullable data3)
+#define Jobs_4_Arguments (id _Nullable data,id _Nullable data2,id _Nullable data3,id _Nullable data4)
+#define Jobs_5_Arguments (id _Nullable data,id _Nullable data2,id _Nullable data3,id _Nullable data4,id _Nullable data5)
+#define Jobs_6_Arguments (id _Nullable data,id _Nullable data2,id _Nullable data3,id _Nullable data4,id _Nullable data5,id _Nullable data6)
+#define Jobs_7_Arguments (id _Nullable data,id _Nullable data2,id _Nullable data3,id _Nullable data4,id _Nullable data5,id _Nullable data6,id _Nullable data7)
+#define Jobs_8_Arguments (id _Nullable data,id _Nullable data2,id _Nullable data3,id _Nullable data4,id _Nullable data5,id _Nullable data6,id _Nullable data7,id _Nullable data8)
+#define Jobs_9_Arguments (id _Nullable data,id _Nullable data2,id _Nullable data3,id _Nullable data4,id _Nullable data5,id _Nullable data6,id _Nullable data7,id _Nullable data8,id _Nullable data9)
+#define Jobs_10_Arguments (id _Nullable data,id _Nullable data2,id _Nullable data3,id _Nullable data4,id _Nullable data5,id _Nullable data6,id _Nullable data7,id _Nullable data8,id _Nullable data9,id _Nullable data10)
 /// 10、返回ID类型
-typedef id(^JobsReturnIDByTwoIDBlock)(id data,id data2);
-typedef id(^JobsReturnIDByThreeIDBlock)(id data,id data2,id data3);
-typedef id(^JobsReturnIDByFourIDBlock)(id data,id data2,id data3,id data4);
-typedef id(^JobsReturnIDByFiveIDBlock)(id data,id data2,id data3,id data4,id data5);
-typedef id(^JobsReturnIDBySixIDBlock)(id data,id data2,id data3,id data4,id data5,id data6);
-typedef id(^JobsReturnIDBySevenIDBlock)(id data,id data2,id data3,id data4,id data5,id data7);
-typedef id(^JobsReturnIDByEightIDBlock)(id data,id data2,id data3,id data4,id data5,id data7,id data8);
-typedef id(^JobsReturnIDByNineIDBlock)(id data,id data2,id data3,id data4,id data5,id data7,id data8,id data9);
-typedef id(^JobsReturnIDByTenIDBlock)(id data,id data2,id data3,id data4,id data5,id data7,id data8,id data9,id data10);
+typedef id _Nullable(^JobsReturnIDByTwoIDBlock)Jobs_2_Arguments;
+typedef id _Nullable(^JobsReturnIDByThreeIDBlock)Jobs_3_Arguments;
+typedef id _Nullable(^JobsReturnIDByFourIDBlock)Jobs_4_Arguments;
+typedef id _Nullable(^JobsReturnIDByFiveIDBlock)Jobs_5_Arguments;
+typedef id _Nullable(^JobsReturnIDBySixIDBlock)Jobs_6_Arguments;
+typedef id _Nullable(^JobsReturnIDBySevenIDBlock)Jobs_7_Arguments;
+typedef id _Nullable(^JobsReturnIDByEightIDBlock)Jobs_8_Arguments;
+typedef id _Nullable(^JobsReturnIDByNineIDBlock)Jobs_9_Arguments;
+typedef id _Nullable(^JobsReturnIDByTenIDBlock)Jobs_10_Arguments;
 /// 11、返回CGSize类型
-typedef CGSize(^JobsReturnCGSizeByTwoIDBlock)(id data,id data2);
-typedef CGSize(^JobsReturnCGSizeByThreeIDBlock)(id data,id data2,id data3);
-typedef CGSize(^JobsReturnCGSizeByFourIDBlock)(id data,id data2,id data3,id data4);
-typedef CGSize(^JobsReturnCGSizeByFiveIDBlock)(id data,id data2,id data3,id data4,id data5);
-typedef CGSize(^JobsReturnCGSizeBySixIDBlock)(id data,id data2,id data3,id data4,id data5,id data6);
-typedef CGSize(^JobsReturnCGSizeBySevenIDBlock)(id data,id data2,id data3,id data4,id data5,id data7);
-typedef CGSize(^JobsReturnCGSizeByEightIDBlock)(id data,id data2,id data3,id data4,id data5,id data7,id data8);
-typedef CGSize(^JobsReturnCGSizeByNineIDBlock)(id data,id data2,id data3,id data4,id data5,id data7,id data8,id data9);
-typedef CGSize(^JobsReturnCGSizeByTenIDBlock)(id data,id data2,id data3,id data4,id data5,id data7,id data8,id data9,id data10);
+typedef CGSize(^JobsReturnCGSizeByTwoIDBlock)Jobs_2_Arguments;
+typedef CGSize(^JobsReturnCGSizeByThreeIDBlock)Jobs_3_Arguments;
+typedef CGSize(^JobsReturnCGSizeByFourIDBlock)Jobs_4_Arguments;
+typedef CGSize(^JobsReturnCGSizeByFiveIDBlock)Jobs_5_Arguments;
+typedef CGSize(^JobsReturnCGSizeBySixIDBlock)Jobs_6_Arguments;
+typedef CGSize(^JobsReturnCGSizeBySevenIDBlock)Jobs_7_Arguments;
+typedef CGSize(^JobsReturnCGSizeByEightIDBlock)Jobs_8_Arguments;
+typedef CGSize(^JobsReturnCGSizeByNineIDBlock)Jobs_9_Arguments;
+typedef CGSize(^JobsReturnCGSizeByTenIDBlock)Jobs_10_Arguments;
 /// 12、返回CGRect类型
-typedef CGRect(^JobsReturnCGRectByTwoIDBlock)(id data,id data2);
-typedef CGRect(^JobsReturnCGRectByThreeIDBlock)(id data,id data2,id data3);
-typedef CGRect(^JobsReturnCGRectByFourIDBlock)(id data,id data2,id data3,id data4);
-typedef CGRect(^JobsReturnCGRectByFiveIDBlock)(id data,id data2,id data3,id data4,id data5);
-typedef CGRect(^JobsReturnCGRectBySixIDBlock)(id data,id data2,id data3,id data4,id data5,id data6);
-typedef CGRect(^JobsReturnCGRectBySevenIDBlock)(id data,id data2,id data3,id data4,id data5,id data7);
-typedef CGRect(^JobsReturnCGRectByEightIDBlock)(id data,id data2,id data3,id data4,id data5,id data7,id data8);
-typedef CGRect(^JobsReturnCGRectByNineIDBlock)(id data,id data2,id data3,id data4,id data5,id data7,id data8,id data9);
-typedef CGRect(^JobsReturnCGRectByTenIDBlock)(id data,id data2,id data3,id data4,id data5,id data7,id data8,id data9,id data10);
+typedef CGRect(^JobsReturnCGRectByTwoIDBlock)Jobs_2_Arguments;
+typedef CGRect(^JobsReturnCGRectByThreeIDBlock)Jobs_3_Arguments;
+typedef CGRect(^JobsReturnCGRectByFourIDBlock)Jobs_4_Arguments;
+typedef CGRect(^JobsReturnCGRectByFiveIDBlock)Jobs_5_Arguments;
+typedef CGRect(^JobsReturnCGRectBySixIDBlock)Jobs_6_Arguments;
+typedef CGRect(^JobsReturnCGRectBySevenIDBlock)Jobs_7_Arguments;
+typedef CGRect(^JobsReturnCGRectByEightIDBlock)Jobs_8_Arguments;
+typedef CGRect(^JobsReturnCGRectByNineIDBlock)Jobs_9_Arguments;
+typedef CGRect(^JobsReturnCGRectByTenIDBlock)Jobs_10_Arguments;
 /// 13、返回CGPoint类型
-typedef CGPoint(^JobsReturnCGPointByTwoIDBlock)(id data,id data2);
-typedef CGPoint(^JobsReturnCGPointByThreeIDBlock)(id data,id data2,id data3);
-typedef CGPoint(^JobsReturnCGPointByFourIDBlock)(id data,id data2,id data3,id data4);
-typedef CGPoint(^JobsReturnCGPointByFiveIDBlock)(id data,id data2,id data3,id data4,id data5);
-typedef CGPoint(^JobsReturnCGPointBySixIDBlock)(id data,id data2,id data3,id data4,id data5,id data6);
-typedef CGPoint(^JobsReturnCGPointBySevenIDBlock)(id data,id data2,id data3,id data4,id data5,id data7);
-typedef CGPoint(^JobsReturnCGPointByEightIDBlock)(id data,id data2,id data3,id data4,id data5,id data7,id data8);
-typedef CGPoint(^JobsReturnCGPointByNineIDBlock)(id data,id data2,id data3,id data4,id data5,id data7,id data8,id data9);
-typedef CGPoint(^JobsReturnCGPointByTenIDBlock)(id data,id data2,id data3,id data4,id data5,id data7,id data8,id data9,id data10);
+typedef CGPoint(^JobsReturnCGPointByTwoIDBlock)Jobs_2_Arguments;
+typedef CGPoint(^JobsReturnCGPointByThreeIDBlock)Jobs_3_Arguments;
+typedef CGPoint(^JobsReturnCGPointByFourIDBlock)Jobs_4_Arguments;
+typedef CGPoint(^JobsReturnCGPointByFiveIDBlock)Jobs_5_Arguments;
+typedef CGPoint(^JobsReturnCGPointBySixIDBlock)Jobs_6_Arguments;
+typedef CGPoint(^JobsReturnCGPointBySevenIDBlock)Jobs_7_Arguments;
+typedef CGPoint(^JobsReturnCGPointByEightIDBlock)Jobs_8_Arguments;
+typedef CGPoint(^JobsReturnCGPointByNineIDBlock)Jobs_9_Arguments;
+typedef CGPoint(^JobsReturnCGPointByTenIDBlock)Jobs_10_Arguments;
 
 #endif /* ReturnByCertainParameters_h */
