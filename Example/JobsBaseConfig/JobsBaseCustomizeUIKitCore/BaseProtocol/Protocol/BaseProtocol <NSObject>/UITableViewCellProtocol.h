@@ -62,7 +62,54 @@ NS_ASSUME_NONNULL_BEGIN
 +(instancetype)cellStyleSubtitleWithTableView:(UITableView *)tableView;
 /// UITableViewCell的一些默认样式设置
 +(void)settingForTableViewCell:(UITableViewCell *)tableViewCell;
-
+/// 获取这个UITableViewCell所承载的UITableView
+-(UITableView *)jobsGetCurrentTableView;
+/// 获取当前的UITableViewCell对应的indexPath
+-(NSIndexPath *)jobsGetCurrentIndexPath;
+/// 获取当前的UITableViewCell对应的section个数
+-(NSInteger)jobsGetCurrentNumberOfSections;
+/// 获取当前的UITableViewCell对应的section的的row个数
+-(NSInteger)jobsGetCurrentNumberOfRowsInSection;
+/// 以section为单位，每个section的第一行和最后一行的cell圆角化处理【cell之间没有分割线】
+/// - Parameters:
+///   - cellBgCor: UITableViewCell 的背景色
+///   - bottomLineCor: UITableViewCell 的底部线颜色
+///   - cellOutLineCor: UITableViewCell 的外线颜色
+///   - cornerRadiusSize: 切角弧度
+///   - borderWidth: 线宽
+///   - dx: 内有介绍
+///   - dy: 内有介绍
+-(void)cutFirstAndLastTableViewCellWithBackgroundCor:(UIColor *_Nullable)cellBgCor
+                                       bottomLineCor:(UIColor *_Nullable)bottomLineCor
+                                      cellOutLineCor:(UIColor *_Nullable)cellOutLineCor
+                                    cornerRadiusSize:(CGSize)cornerRadiusSize
+                                         borderWidth:(CGFloat)borderWidth
+                                                  dx:(CGFloat)dx
+                                                  dy:(CGFloat)dy;
+/// 除了最后一行以外，所有的cell的最下面的线的颜色为bottomLineCor
+/// - Parameters:
+///   - indexPath: indexPath
+///   - bounds: bounds
+///   - numberOfRowsInSection: 当前的UITableViewCell对应的section的的row个数
+///   - borderWidth: 线宽
+///   - bottomLineCor: cell 底部线条颜色
+-(void)tableViewMakesLastRowCellAtIndexPath:(NSIndexPath *_Nonnull)indexPath
+                                     bounds:(CGRect)bounds
+                      numberOfRowsInSection:(NSInteger)numberOfRowsInSection
+                                borderWidth:(CGFloat)borderWidth
+                              bottomLineCor:(UIColor *_Nullable)bottomLineCor;
+/// 除了第一行以外，所有的cell的最上面的线为bottomLineCor
+/// - Parameters:
+///   - indexPath: indexPath
+///   - bounds: bounds
+///   - numberOfRowsInSection: 当前的UITableViewCell对应的section的的row个数
+///   - borderWidth: 线宽
+///   - bottomLineCor: cell 底部线条颜色
+-(void)tableViewMakesFirstRowCellAtIndexPath:(NSIndexPath *_Nonnull)indexPath
+                                      bounds:(CGRect)bounds
+                       numberOfRowsInSection:(NSInteger)numberOfRowsInSection
+                               bottomLineCor:(UIColor *_Nullable)bottomLineCor
+                                 borderWidth:(CGFloat)borderWidth;
 @end
 
 NS_ASSUME_NONNULL_END

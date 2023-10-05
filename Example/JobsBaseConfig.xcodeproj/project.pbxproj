@@ -605,7 +605,7 @@
 		C593DF172AC897FC00F875B5 /* UILabel+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DC302AC897FB00F875B5 /* UILabel+Extra.m */; };
 		C593DF182AC897FC00F875B5 /* UILabel+Gesture.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DC322AC897FB00F875B5 /* UILabel+Gesture.m */; };
 		C593DF192AC897FC00F875B5 /* UILabel+Measure.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DC362AC897FB00F875B5 /* UILabel+Measure.m */; };
-		C593DF1A2AC897FC00F875B5 /* UITableViewCell+BaseCellProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DC3C2AC897FB00F875B5 /* UITableViewCell+BaseCellProtocol.m */; };
+		C593DF1A2AC897FC00F875B5 /* UITableViewCell+UITableViewCellProtocoll.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DC3C2AC897FB00F875B5 /* UITableViewCell+UITableViewCellProtocoll.m */; };
 		C593DF1B2AC897FC00F875B5 /* WhiteRightArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C593DC402AC897FB00F875B5 /* WhiteRightArrow@2x.png */; };
 		C593DF1C2AC897FC00F875B5 /* WhiteRightArrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C593DC412AC897FB00F875B5 /* WhiteRightArrow@3x.png */; };
 		C593DF1D2AC897FC00F875B5 /* UITableViewCell+WhiteArrows.md in Resources */ = {isa = PBXBuildFile; fileRef = C593DC422AC897FB00F875B5 /* UITableViewCell+WhiteArrows.md */; };
@@ -674,7 +674,7 @@
 		C593DF5C2AC897FC00F875B5 /* UICollectionView+RegisterClass.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DCFB2AC897FB00F875B5 /* UICollectionView+RegisterClass.m */; };
 		C593DF5D2AC897FC00F875B5 /* BaseCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DCFE2AC897FB00F875B5 /* BaseCollectionView.m */; };
 		C593DF5E2AC897FC00F875B5 /* UICollectionViewCell+ShakeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DD042AC897FB00F875B5 /* UICollectionViewCell+ShakeAnimation.m */; };
-		C593DF5F2AC897FC00F875B5 /* UICollectionViewCell+Default.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DD072AC897FB00F875B5 /* UICollectionViewCell+Default.m */; };
+		C593DF5F2AC897FC00F875B5 /* UICollectionViewCell+UICollectionViewCellProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DD072AC897FB00F875B5 /* UICollectionViewCell+UICollectionViewCellProtocol.m */; };
 		C593DF602AC897FC00F875B5 /* JobsImageViewStyleCVCell.md in Resources */ = {isa = PBXBuildFile; fileRef = C593DD0B2AC897FB00F875B5 /* JobsImageViewStyleCVCell.md */; };
 		C593DF612AC897FC00F875B5 /* JobsImageViewStyleCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DD0C2AC897FB00F875B5 /* JobsImageViewStyleCVCell.m */; };
 		C593DF622AC897FC00F875B5 /* JobsBtnStyleCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DD0E2AC897FB00F875B5 /* JobsBtnStyleCVCell.m */; };
@@ -2126,8 +2126,8 @@
 		C593DC362AC897FB00F875B5 /* UILabel+Measure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Measure.m"; sourceTree = "<group>"; };
 		C593DC372AC897FB00F875B5 /* JobsLabelDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsLabelDef.h; sourceTree = "<group>"; };
 		C593DC392AC897FB00F875B5 /* JobsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsTableViewCell.h; sourceTree = "<group>"; };
-		C593DC3C2AC897FB00F875B5 /* UITableViewCell+BaseCellProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+BaseCellProtocol.m"; sourceTree = "<group>"; };
-		C593DC3D2AC897FB00F875B5 /* UITableViewCell+BaseCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+BaseCellProtocol.h"; sourceTree = "<group>"; };
+		C593DC3C2AC897FB00F875B5 /* UITableViewCell+UITableViewCellProtocoll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+UITableViewCellProtocoll.m"; sourceTree = "<group>"; };
+		C593DC3D2AC897FB00F875B5 /* UITableViewCell+UITableViewCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+UITableViewCellProtocol.h"; sourceTree = "<group>"; };
 		C593DC3F2AC897FB00F875B5 /* UITableViewCell+WhiteArrows.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+WhiteArrows.h"; sourceTree = "<group>"; };
 		C593DC402AC897FB00F875B5 /* WhiteRightArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WhiteRightArrow@2x.png"; sourceTree = "<group>"; };
 		C593DC412AC897FB00F875B5 /* WhiteRightArrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WhiteRightArrow@3x.png"; sourceTree = "<group>"; };
@@ -2257,8 +2257,8 @@
 		C593DD002AC897FB00F875B5 /* JobsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsCollectionViewCell.h; sourceTree = "<group>"; };
 		C593DD032AC897FB00F875B5 /* UICollectionViewCell+ShakeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewCell+ShakeAnimation.h"; sourceTree = "<group>"; };
 		C593DD042AC897FB00F875B5 /* UICollectionViewCell+ShakeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+ShakeAnimation.m"; sourceTree = "<group>"; };
-		C593DD062AC897FB00F875B5 /* UICollectionViewCell+Default.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewCell+Default.h"; sourceTree = "<group>"; };
-		C593DD072AC897FB00F875B5 /* UICollectionViewCell+Default.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+Default.m"; sourceTree = "<group>"; };
+		C593DD062AC897FB00F875B5 /* UICollectionViewCell+UICollectionViewCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewCell+UICollectionViewCellProtocol.h"; sourceTree = "<group>"; };
+		C593DD072AC897FB00F875B5 /* UICollectionViewCell+UICollectionViewCellProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+UICollectionViewCellProtocol.m"; sourceTree = "<group>"; };
 		C593DD0A2AC897FB00F875B5 /* JobsImageViewStyleCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsImageViewStyleCVCell.h; sourceTree = "<group>"; };
 		C593DD0B2AC897FB00F875B5 /* JobsImageViewStyleCVCell.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = JobsImageViewStyleCVCell.md; sourceTree = "<group>"; };
 		C593DD0C2AC897FB00F875B5 /* JobsImageViewStyleCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsImageViewStyleCVCell.m; sourceTree = "<group>"; };
@@ -7644,20 +7644,20 @@
 		C593DC3A2AC897FB00F875B5 /* UITableViewCell+Category */ = {
 			isa = PBXGroup;
 			children = (
-				C593DC3B2AC897FB00F875B5 /* UITableViewCell+BaseCellProtocol */,
+				C593DC3B2AC897FB00F875B5 /* UITableViewCell+UITableViewCellProtocol */,
 				C593DC3E2AC897FB00F875B5 /* UITableViewCell+WhiteArrows */,
 				C593DC442AC897FB00F875B5 /* UITableViewCell+Margin */,
 			);
 			path = "UITableViewCell+Category";
 			sourceTree = "<group>";
 		};
-		C593DC3B2AC897FB00F875B5 /* UITableViewCell+BaseCellProtocol */ = {
+		C593DC3B2AC897FB00F875B5 /* UITableViewCell+UITableViewCellProtocol */ = {
 			isa = PBXGroup;
 			children = (
-				C593DC3C2AC897FB00F875B5 /* UITableViewCell+BaseCellProtocol.m */,
-				C593DC3D2AC897FB00F875B5 /* UITableViewCell+BaseCellProtocol.h */,
+				C593DC3C2AC897FB00F875B5 /* UITableViewCell+UITableViewCellProtocoll.m */,
+				C593DC3D2AC897FB00F875B5 /* UITableViewCell+UITableViewCellProtocol.h */,
 			);
-			path = "UITableViewCell+BaseCellProtocol";
+			path = "UITableViewCell+UITableViewCellProtocol";
 			sourceTree = "<group>";
 		};
 		C593DC3E2AC897FB00F875B5 /* UITableViewCell+WhiteArrows */ = {
@@ -8321,7 +8321,7 @@
 			isa = PBXGroup;
 			children = (
 				C593DD022AC897FB00F875B5 /* UICollectionViewCell+ShakeAnimation */,
-				C593DD052AC897FB00F875B5 /* UICollectionViewCell+Default */,
+				C593DD052AC897FB00F875B5 /* UICollectionViewCell+UICollectionViewCellProtocol */,
 			);
 			path = "UICollectionViewCell+Category";
 			sourceTree = "<group>";
@@ -8335,13 +8335,13 @@
 			path = "UICollectionViewCell+ShakeAnimation";
 			sourceTree = "<group>";
 		};
-		C593DD052AC897FB00F875B5 /* UICollectionViewCell+Default */ = {
+		C593DD052AC897FB00F875B5 /* UICollectionViewCell+UICollectionViewCellProtocol */ = {
 			isa = PBXGroup;
 			children = (
-				C593DD062AC897FB00F875B5 /* UICollectionViewCell+Default.h */,
-				C593DD072AC897FB00F875B5 /* UICollectionViewCell+Default.m */,
+				C593DD062AC897FB00F875B5 /* UICollectionViewCell+UICollectionViewCellProtocol.h */,
+				C593DD072AC897FB00F875B5 /* UICollectionViewCell+UICollectionViewCellProtocol.m */,
 			);
-			path = "UICollectionViewCell+Default";
+			path = "UICollectionViewCell+UICollectionViewCellProtocol";
 			sourceTree = "<group>";
 		};
 		C593DD082AC897FB00F875B5 /* BaseCollectionViewCell */ = {
@@ -11976,7 +11976,7 @@
 				C59D78D028646420004C97A1 /* JobsHotLabelWithMultiLineHeaderFooterView.m in Sources */,
 				C593DF922AC897FC00F875B5 /* UITableView+Expand.m in Sources */,
 				84868F19277ADF690098BE7A /* JobsDropDownListView.m in Sources */,
-				C593DF5F2AC897FC00F875B5 /* UICollectionViewCell+Default.m in Sources */,
+				C593DF5F2AC897FC00F875B5 /* UICollectionViewCell+UICollectionViewCellProtocol.m in Sources */,
 				844B02182764C8EE00B0513D /* ViewController.m in Sources */,
 				C5432D772ACB1CF6008F92B0 /* MSCommentTableHeaderFooterView.m in Sources */,
 				C52E5C942AC07E9800FE5494 /* KTVHCURLTool.m in Sources */,
@@ -12026,7 +12026,7 @@
 				C52E5CE92AC07EE500FE5494 /* DDNumber.m in Sources */,
 				C5B3AEAC2853799F0052A4A9 /* BaiShaETProjChoiceStadiumView.m in Sources */,
 				C536CF0F2AC258BB005D1FCD /* JobsPostDelView.m in Sources */,
-				C593DF1A2AC897FC00F875B5 /* UITableViewCell+BaseCellProtocol.m in Sources */,
+				C593DF1A2AC897FC00F875B5 /* UITableViewCell+UITableViewCellProtocoll.m in Sources */,
 				840F960627736427004979E9 /* TLTabBarAnimation.m in Sources */,
 				C520F8912AB3A12100142DCC /* AFNetworkActivityIndicatorManager.m in Sources */,
 				844B087F2764CF4800B0513D /* XHLaunchAdDownloader.m in Sources */,

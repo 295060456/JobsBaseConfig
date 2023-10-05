@@ -34,7 +34,7 @@
 @end
 
 @implementation NSObject (RichText)
-/// 示例代码：对外输出 NSMutableArray <RichTextConfig *>*
+/// 调用示例：对外输出 NSMutableArray <RichTextConfig *>*
 -(NSMutableArray <RichTextConfig *>*)makeRichTextConfigMutArr{
     UIColor *color = [UIColor gradientCorDataMutArr:[NSMutableArray arrayWithArray:@[RGB_COLOR(247, 131, 97),RGB_COLOR(245, 75, 100)]]
                                          startPoint:CGPointZero

@@ -1,5 +1,5 @@
 //
-//  UITableViewCell+BaseCellProtocol.h
+//  UITableViewCell+UITableViewCellProtocol.h
 //  DouDong-II
 //
 //  Created by Jobs on 2021/11/19.
@@ -9,13 +9,13 @@
 #import "MacroDef_Func.h"
 #import "UIViewModel.h"
 #import "MacroDef_Size.h"
-#import "BaseCellProtocol.h"
+#import "UITableViewCellProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UITableViewCell (BaseCellProtocol)
+@interface UITableViewCell (UITableViewCellProtocol)
 <
-BaseCellProtocol
+UITableViewCellProtocol
 ,UITableViewCellProtocol
 >
 

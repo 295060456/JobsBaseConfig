@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 NS_ASSUME_NONNULL_END
 
 /**
- 示例代码：
+ 调用示例：
  -(JobsAppDoorInputViewBaseStyle_9 *)获取并输入手机验证码{
      if (!_获取并输入手机验证码) {
          _获取并输入手机验证码 = [JobsAppDoorInputViewBaseStyle_9.alloc initWithSize:inputSize()];

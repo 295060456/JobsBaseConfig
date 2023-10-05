@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 /**
- 示例代码：
+ 调用示例：
  -(JobsAppDoorInputViewBaseStyle_8 *)inputView{
      if (!_inputView) {
          _inputView = [JobsAppDoorInputViewBaseStyle_8.alloc initWithSize:self.inputViewSize];

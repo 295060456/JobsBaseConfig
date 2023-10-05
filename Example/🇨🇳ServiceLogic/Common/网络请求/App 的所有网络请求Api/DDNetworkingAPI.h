@@ -56,7 +56,7 @@ uploadVideosParamArr:(NSArray *_Nullable)uploadVideosParamArr
 NS_ASSUME_NONNULL_END
 
 /**
- 示例代码：【一般的网络请求，只带body参数，最多也就是自定义header】
+ 调用示例：【一般的网络请求，只带body参数，最多也就是自定义header】
  -(void)networking_messageSecondClassListGET{
      NSLog(@"当前是否有网：%d 状态：%ld",[ZBRequestManager isNetworkReachable],(long)[ZBRequestManager networkReachability]);
      DataManager.sharedInstance.tag = [ReuseIdentifier stringByAppendingString:NSStringFromSelector(_cmd)];
@@ -123,7 +123,7 @@ NS_ASSUME_NONNULL_END
  **/
 
 /**
-示例代码：【特殊的网络请求：可以body里面携带参数，也可以自定义header，并且表单模式post传输data数据】
+调用示例：【特殊的网络请求：可以body里面携带参数，也可以自定义header，并且表单模式post传输data数据】
 /// 帖子图片上传 POST
 -(void)networking_postUploadImagePOST{
  NSLog(@"当前是否有网：%d 状态：%ld",[ZBRequestManager isNetworkReachable],(long)[ZBRequestManager networkReachability]);
@@ -195,7 +195,7 @@ NS_ASSUME_NONNULL_END
  **/
 
 /**
-示例代码：【特殊的网络请求：可以body里面携带参数，也可以自定义header，并且表单模式post传输data数据】
+调用示例：【特殊的网络请求：可以body里面携带参数，也可以自定义header，并且表单模式post传输data数据】
 /// 帖子视频上传 POST
 -(void)networking_postuploadVideoPOST{
  NSLog(@"当前是否有网：%d 状态：%ld",[ZBRequestManager isNetworkReachable],(long)[ZBRequestManager networkReachability]);

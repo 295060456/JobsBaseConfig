@@ -101,7 +101,7 @@ NS_ASSUME_NONNULL_END
 
 
 /**
- 示例代码：设置长按手势和点击手势
+ 调用示例：设置长按手势和点击手势
  {
      _collectionView.numberOfTouchesRequired = 1;
      _collectionView.numberOfTapsRequired = 1;/// ⚠️注意：如果要设置长按手势，此属性必须设置为0⚠️

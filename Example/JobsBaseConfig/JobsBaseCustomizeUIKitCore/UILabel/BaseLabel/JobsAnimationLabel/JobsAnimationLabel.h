@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_END
 
 /**
  
- 示例代码：
+ 调用示例：
  -(JobsAnimationLabel *)animationLab{
      if (!_animationLab) {
          _animationLab = JobsAnimationLabel.new;

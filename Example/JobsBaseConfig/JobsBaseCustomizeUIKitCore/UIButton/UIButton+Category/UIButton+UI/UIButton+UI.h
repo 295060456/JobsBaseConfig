@@ -187,7 +187,7 @@ NS_ASSUME_NONNULL_END
  这些对齐方式可用于控制按钮内部文本和图像在按钮内的水平位置。
  例如，你可以将按钮的内容水平居中对齐，以确保文本或图像在按钮的中心位置。
  
- 示例代码：
+ 调用示例：
  UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
  // 设置内容水平居中对齐
  button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;

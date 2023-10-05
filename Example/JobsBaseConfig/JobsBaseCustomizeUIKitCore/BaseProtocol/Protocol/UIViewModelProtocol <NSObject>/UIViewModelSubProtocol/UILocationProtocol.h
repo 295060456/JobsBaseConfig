@@ -42,21 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)CGSize __block tableFooterViewSize;
 @property(nonatomic,assign)BOOL __block usesTableViewHeaderView;/// 默认不使用
 @property(nonatomic,assign)BOOL __block usesTableViewFooterView;/// 默认不使用
-/**
- 控件之间的左右距离 offsetXForEach 和 offsetYForEach
- ❤️对单个cell的偏移，需要在cell的子类里面复写父类方法-(void)setFrame:(CGRect)frame；详见@implementation UITableViewCell (Margin)
- ❤️但是对于以section为单位基准的圆角处理，参见
- 
- +(void)tableView:(UITableView *_Nonnull)tableView
- makeSectionFirstAndLastCell:(UITableViewCell *_Nonnull)cell
-      atIndexPath:(NSIndexPath *_Nonnull)indexPath
-        cellBgCor:(UIColor *_Nullable)cellBgCor
-    bottomLineCor:(UIColor *_Nullable)bottomLineCor
-   cellOutLineCor:(UIColor *_Nullable)cellOutLineCor
-      roundCorner:(CGFloat)radius
-               dx:(CGFloat)dx
-               dy:(CGFloat)dy
- */
+/// 更多，参见： 关于UITableViewCell和UICollectionViewCell圆切角+Cell的偏移量.md
 @property(nonatomic,assign)CGFloat __block offsetXForEach;
 @property(nonatomic,assign)CGFloat __block offsetYForEach;
 @property(nonatomic,assign)CGFloat __block offsetHeight;

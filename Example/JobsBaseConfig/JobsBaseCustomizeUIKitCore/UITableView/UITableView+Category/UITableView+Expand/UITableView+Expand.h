@@ -10,17 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UITableView (Expand)
-/**
- 隐藏每个分区最后一个cell的分割线:系统分割线,移到屏幕外
- 在此方法内调用：
- - (void)tableView:(UITableView *)tableView
-   willDisplayCell:(UITableViewCell *)cell
- forRowAtIndexPath:(NSIndexPath *)indexPath；
- 
- _tableView.separatorColor = HEXCOLOR(0xeeeeee);//改变分割线颜色
- cell.separatorInset = UIEdgeInsetsMake(0, 15, 0, 15);//改变分割线长度
-
- */
+/// 更多，参见： 关于UITableViewCell和UICollectionViewCell圆切角+Cell的偏移量.md
 -(void)hideSeparatorLineAtLast:(NSIndexPath *)indexPath
                           cell:(UITableViewCell *)cell;
 -(UITableViewCell *)didSelectRowAtIndexPath:(NSIndexPath *)indexPath

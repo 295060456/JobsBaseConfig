@@ -1,5 +1,5 @@
 //
-//  UICollectionViewCell+Default.h
+//  UICollectionViewCell+UICollectionViewCellProtocol.h
 //  DouDong-II
 //
 //  Created by Jobs on 2021/3/11.
@@ -17,13 +17,13 @@ NS_ASSUME_NONNULL_BEGIN
                                     cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath
     里面返回的UICollectionViewCell具体子类是需要在系统进行注册的，而不能直接返回 UICollectionViewCell.new;否则会崩
  
-    那么现在就可以运用此类直接返回，示例代码：
+    那么现在就可以运用此类直接返回，调用示例：
     return [UICollectionViewCell defaultCellWithCollectionView:collectionView
                                                forIndexPath:indexPath];
 
  */
 
-@interface UICollectionViewCell (Default)<UICollectionViewCellProtocol>
+@interface UICollectionViewCell (UICollectionViewCellProtocol)<UICollectionViewCellProtocol>
 
 @end
 

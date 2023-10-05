@@ -392,7 +392,7 @@ BaseProtocol
 
 @end
 /**
- 通知的写法：示例代码
+ 通知的写法：调用示例
  
  接受通知：
          @jobs_weakify(self)
@@ -415,7 +415,7 @@ BaseProtocol
  */
 
 /**
- NSInvocation的使用，方法多参数传递 示例代码
+ NSInvocation的使用，方法多参数传递 调用示例
  
  -(void)touchesBegan:(NSSet<UITouch *> *)touches
            withEvent:(UIEvent *)event{

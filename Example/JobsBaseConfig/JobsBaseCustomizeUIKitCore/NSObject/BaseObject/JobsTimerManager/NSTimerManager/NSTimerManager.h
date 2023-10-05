@@ -75,7 +75,7 @@ NS_ASSUME_NONNULL_END
 
 /**
  
- 示例代码：
+ 调用示例：
  
  -(NSTimerManager *)nsTimerManager{
      if (!_nsTimerManager) {

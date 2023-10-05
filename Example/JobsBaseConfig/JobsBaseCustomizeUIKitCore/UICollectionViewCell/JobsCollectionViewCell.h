@@ -10,7 +10,7 @@
 
 #pragma mark —— Category
 #import "UICollectionViewCell+ShakeAnimation.h"
-#import "UICollectionViewCell+Default.h"
+#import "UICollectionViewCell+UICollectionViewCellProtocol.h"
 #pragma mark —— Base
 #import "BaseCollectionViewCell.h"
 #import "JobsBtnStyleCVCell.h"

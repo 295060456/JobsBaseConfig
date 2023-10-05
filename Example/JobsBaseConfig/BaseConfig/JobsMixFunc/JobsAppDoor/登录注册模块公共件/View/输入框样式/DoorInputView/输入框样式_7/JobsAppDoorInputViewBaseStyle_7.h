@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 /**
- 示例代码：
+ 调用示例：
  -(JobsAppDoorInputViewBaseStyle_7 *)选择区号并输入手机号{
      if (!_选择区号并输入手机号) {
          _选择区号并输入手机号 = JobsAppDoorInputViewBaseStyle_7.new;

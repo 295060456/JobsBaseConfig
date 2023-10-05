@@ -12,7 +12,7 @@
 #import "JobsBaseConfigNotificationManager.h"
 #import "NSObject+AppTools.h"
 #import "UIViewController+BackBtn.h"
-#import "UITableViewCell+BaseCellProtocol.h"
+#import "UITableViewCell+UITableViewCellProtocol.h"
 #import "UITableViewHeaderFooterView+BaseTableViewHeaderFooterViewProtocol.h"
 
 //#if __has_include(<XYColorOC/XYColorOC.h>)

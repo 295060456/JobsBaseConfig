@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 NS_ASSUME_NONNULL_END
 /**
  
- 示例代码：
+ 调用示例：
  
  @property(nonatomic,strong)UIButton *filterBtn;
  @property(nonatomic,strong)UIButton *customBtn;

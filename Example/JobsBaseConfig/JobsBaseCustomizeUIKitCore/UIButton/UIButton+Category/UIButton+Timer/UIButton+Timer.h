@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 
-/** 示例代码
+/** 调用示例
  
  -(UIButton *)countDownBtn{
      if (!_countDownBtn) {

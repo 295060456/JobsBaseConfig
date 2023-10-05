@@ -45,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 NS_ASSUME_NONNULL_END
 /**
  
- 示例代码：渐变色
+ 调用示例：渐变色
  
  CGRect viewRect = CGRectMake(0, 0, 320, 480);
  UIColor *gradientColor = [YourClassName gradientCorDataMutArr:nil
