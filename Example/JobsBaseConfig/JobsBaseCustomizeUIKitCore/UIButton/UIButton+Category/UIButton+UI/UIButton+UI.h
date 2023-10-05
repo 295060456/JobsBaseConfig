@@ -88,6 +88,12 @@ NS_ASSUME_NONNULL_BEGIN
                               borderWidth:(CGFloat)borderWidth
                             primaryAction:(UIAction *_Nullable)primaryAction
                           clickEventBlock:(JobsReturnIDByIDBlock _Nullable)clickEventBlock;
+/// UIButtonConfiguration 创建的UIbutton修改字体以及颜色的方法
+/// 注意⚠️因为UIConfigurationTextAttributesTransformer是没有办法直接获取到里面的字体的，只能从外面生成以后直接赋值，也就是每次修改需要给一个完整的UIConfigurationTextAttributesTransformer对象进UIButtonConfiguration
+-(void)jobsSetBtntitleFont:(UIFont *_Nullable)titleFont btnTitleCor:(UIColor *_Nullable)titleCor;
+/// @property (nonatomic, readwrite, assign) UIButtonConfigurationSize buttonSize; 这个属性，不是我们想要的UIFont。设置UIFont必须在富文本里面进行设置
+-(UIConfigurationTextAttributesTransformer)jobsSetConfigTextAttributesTransformerByTitleFont:(UIFont *_Nullable)titleFont
+                                                                                 btnTitleCor:(UIColor *_Nullable)titleCor;
 /// RAC 点击事件2次封装
 -(RACDisposable *)jobsBtnClickEventBlock:(JobsReturnIDByIDBlock)subscribeNextBlock;
 /// 方法名字符串（带参数、参数之间用"："隔开）、作用对象、参数

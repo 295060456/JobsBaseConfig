@@ -87,7 +87,7 @@
         btnConfiguration.title = title;
         btnConfiguration.titlePadding = titlePadding;
         btnConfiguration.subtitle = subTitle;
-        btnConfiguration.baseForegroundColor = titleCor;
+        btnConfiguration.baseForegroundColor = titleCor;/// 文本颜色
         btnConfiguration.titleAlignment = titleAlignment;/// 文本的对齐方式
         btnConfiguration.titleLineBreakMode = titleLineBreakMode;/// 主标题的提行方式
         btnConfiguration.subtitleLineBreakMode = subtitleLineBreakMode;/// 副标题的提行方式
@@ -99,31 +99,28 @@
             btnConfiguration.attributedTitle = attributedTitle;
         }else{
             if(titleFont && titleCor){
-                btnConfiguration.titleTextAttributesTransformer = ^NSDictionary<NSAttributedStringKey, id> *(NSDictionary<NSAttributedStringKey, id> *textAttributes) {
-                    NSMutableDictionary<NSAttributedStringKey, id> *newTextAttributes = textAttributes.mutableCopy;
-                    [newTextAttributes addEntriesFromDictionary:@{
-                        NSFontAttributeName:titleFont, /// 替换为你想要的字体和大小
-                        NSForegroundColorAttributeName:titleCor /// 替换为你想要的文本颜色
-                    }];return newTextAttributes;
-                };
+                btnConfiguration.titleTextAttributesTransformer = [self jobsSetConfigTextAttributesTransformerByTitleFont:titleFont
+                                                                                                              btnTitleCor:titleCor];
+                if(title){
+                    btnConfiguration.attributedTitle = [NSAttributedString.alloc initWithString:title
+                                                                                     attributes:@{NSForegroundColorAttributeName:titleCor,
+                                                                                                  NSFontAttributeName:titleFont}];
+                }
             }
-            if(titleCor && title) btnConfiguration.attributedTitle = [NSAttributedString.alloc initWithString:title attributes:@{NSForegroundColorAttributeName:titleCor}];
         }
         /// 设置按钮副标题的文本属性
         if(attributedSubtitle){
             btnConfiguration.attributedSubtitle = attributedSubtitle;
         }else{
             if(subTitleFont && subTitleCor){
-                btnConfiguration.subtitleTextAttributesTransformer = ^NSDictionary<NSAttributedStringKey, id> *(NSDictionary<NSAttributedStringKey, id> *textAttributes) {
-                    NSMutableDictionary<NSAttributedStringKey, id> *newTextAttributes = textAttributes.mutableCopy;
-                    [newTextAttributes addEntriesFromDictionary:@{
-                        NSFontAttributeName: subTitleFont, // 替换为你想要的副标题字体和大小
-                        NSForegroundColorAttributeName: subTitleCor // 替换为你想要的副标题文本颜色
-                    }];return newTextAttributes;
-                };
+                btnConfiguration.subtitleTextAttributesTransformer = [self jobsSetConfigTextAttributesTransformerByTitleFont:subTitleFont
+                                                                                                                 btnTitleCor:subTitleCor];
+                if(subTitle){
+                    btnConfiguration.attributedTitle = [NSAttributedString.alloc initWithString:subTitle
+                                                                                     attributes:@{NSForegroundColorAttributeName:subTitleCor,
+                                                                                                  NSFontAttributeName:subTitleFont}];
+                }
             }
-            
-            if(subTitleCor && subTitle) btnConfiguration.attributedSubtitle = [NSAttributedString.alloc initWithString:subTitle attributes:@{NSForegroundColorAttributeName:subTitleCor}];
         }
     }
     /// 其他
@@ -193,6 +190,31 @@
         /// 点击事件
         [btn jobsBtnClickEventBlock:clickEventBlock];
     }return btn;
+}
+/// UIButtonConfiguration 创建的UIbutton修改字体以及颜色的方法
+/// 注意⚠️因为UIConfigurationTextAttributesTransformer是没有办法直接获取到里面的字体的，只能从外面生成以后直接赋值，也就是每次修改需要给一个完整的UIConfigurationTextAttributesTransformer对象进UIButtonConfiguration
+-(void)jobsSetBtntitleFont:(UIFont *_Nullable)titleFont
+               btnTitleCor:(UIColor *_Nullable)titleCor{
+    self.jobsResetTitleTextAttributesTransformer([self jobsSetConfigTextAttributesTransformerByTitleFont:titleFont
+                                                                                             btnTitleCor:titleCor]);
+}
+/// @property (nonatomic, readwrite, assign) UIButtonConfigurationSize buttonSize; 这个属性，不是我们想要的UIFont。设置UIFont必须在富文本里面进行设置
+-(UIConfigurationTextAttributesTransformer)jobsSetConfigTextAttributesTransformerByTitleFont:(UIFont *_Nullable)titleFont
+                                                                                 btnTitleCor:(UIColor *_Nullable)titleCor{
+    return ^NSDictionary<NSAttributedStringKey, id> *(NSDictionary<NSAttributedStringKey, id> *textAttributes) {
+        NSMutableDictionary<NSAttributedStringKey, id> *newTextAttributes = textAttributes.mutableCopy;
+        if(titleFont){
+            [newTextAttributes addEntriesFromDictionary:@{
+                NSFontAttributeName:titleFont, /// 替换为你想要的字体和大小
+            }];
+        }
+        
+        if(titleCor){
+            [newTextAttributes addEntriesFromDictionary:@{
+                NSForegroundColorAttributeName:titleCor /// 替换为你想要的文本颜色
+            }];
+        }return newTextAttributes;
+    };
 }
 /// RAC 点击事件2次封装
 -(RACDisposable *)jobsBtnClickEventBlock:(JobsReturnIDByIDBlock)subscribeNextBlock{
@@ -304,6 +326,8 @@
         UIButtonConfiguration *config = self.configuration;
         config.baseForegroundColor = data;
         self.configuration = config;
+#warning  config.titleTextAttributesTransformer 拿不到字体。想一想该怎么去做
+//        [self jobsSetBtntitleFont:nil btnTitleCor:data];
         return self.configuration;
     };
 }
