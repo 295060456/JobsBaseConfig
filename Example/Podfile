@@ -61,6 +61,32 @@ def gk
 def jx
   pod 'JXCategoryView' # https://github.com/pujiaxin33/JXCategoryView NO_SMP
   pod 'JXPagingView/Pager' # https://github.com/pujiaxin33/JXPagingView NO_SMP
+  
+  pod 'JXCategoryViewExt' # https://github.com/QuintGao/JXCategoryViewExt 来自于另外一个作者的优化
+  # 分类
+  pod 'JXCategoryViewExt' # 基础库
+  pod 'JXCategoryViewExt/Title'# 文字
+  pod 'JXCategoryViewExt/SubTitle'# 文字+副标题
+  pod 'JXCategoryViewExt/Image'# 图片
+  pod 'JXCategoryViewExt/TitleImage'# 文字+图片
+  pod 'JXCategoryViewExt/TitleAttribute'# 富文本
+  pod 'JXCategoryViewExt/Dot'# title+小红点
+  pod 'JXCategoryViewExt/DotZoom'# title+小红点缩放
+  pod 'JXCategoryViewExt/Number'# title+数字
+  pod 'JXCategoryViewExt/Badge'# title+(文字、数字、红点混合)
+  pod 'JXCategoryViewExt/VerticalZoomTitle'# title垂直滚动缩放
+  # 指示器
+  pod 'JXCategoryViewExt/Background' # 背景
+  pod 'JXCategoryViewExt/Indicator/Line'# 线
+  pod 'JXCategoryViewExt/Indicator/AlignmentLine'# 线+对齐
+  pod 'JXCategoryViewExt/Indicator/RainbowLine'# 线+彩虹效果
+  pod 'JXCategoryViewExt/Indicator/Image'# 图片
+  pod 'JXCategoryViewExt/Indicator/Ball'# 球
+  pod 'JXCategoryViewExt/Indicator/Triangle'# 三角形
+  pod 'JXCategoryViewExt/Indicator/DotLine'# 点线
+  # RTL
+  pod 'JXCategoryViewExt/RTL'
+
   end
 ## 提示框
 def alert
