@@ -6,7 +6,6 @@
 //
 
 #import "BaseView.h"
-#import "JobsContainerView.h"
 #import "MacroDef_String.h"
 #import "UIButton+UI.h"
 #import "UIView+BackgroundImage.h"

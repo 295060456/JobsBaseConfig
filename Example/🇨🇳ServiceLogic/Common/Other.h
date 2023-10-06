@@ -74,7 +74,6 @@
 #import "GXCardViewDemoVC.h"
 #import "JobsWalletVC.h"
 #import "JobsScrollViewVC.h"
-#import "JobsContainerViewDemoVC.h"
 #import "JobsPresentingVC.h"
 #import "JobsPostVC.h"
 #import "JobsShootingVC.h"

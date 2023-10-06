@@ -533,13 +533,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
         }
         
         {
-            UIViewModel *viewModel = [self configViewModelWithTitle:Internationalization(@"JobsContainerViewDemoVC")
-                                                           subTitle:Internationalization(@"测试JobsContainerViewDemo")];
-            viewModel.cls = JobsContainerViewDemoVC.class;
-            [_dataMutArr addObject:viewModel];
-        }
-        
-        {
             UIViewModel *viewModel = [self configViewModelWithTitle:Internationalization(@"转场动画探究")
                                                            subTitle:Internationalization(@"UIPresentationController的使用")];
             viewModel.cls = JobsPresentingVC.class;

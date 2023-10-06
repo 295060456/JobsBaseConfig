@@ -9,10 +9,9 @@
 
 @interface JobsBaseConfigTestPopupView ()
 /// UI
-@property(nonatomic,strong)JobsContainerView *containerView;
+@property(nonatomic,strong)BaseButton *containerView;
 @property(nonatomic,strong)UIButton *testPopupViewSureBtn;
 /// Data
-@property(nonatomic,strong)NSMutableArray <JobsBtnModel *>*btnModelMutArr;
 
 @end
 
@@ -56,58 +55,51 @@ static dispatch_once_t static_testPopupViewOnceToken;
     return CGSizeMake(JobsWidth(327), JobsWidth(226));
 }
 #pragma mark —— lazyLoad
--(JobsContainerView *)containerView{
+-(BaseButton *)containerView{
     if(!_containerView){
-        _containerView = [JobsContainerView.alloc initWithWidth:JobsWidth(200)
-                                                     buttonModels:self.btnModelMutArr];
-        _containerView.backgroundColor = UIColor.purpleColor;
+        @jobs_weakify(self)
+        _containerView = [BaseButton.alloc jobsInitBtnByConfiguration:nil
+                                                           background:nil
+                                                       titleAlignment:UIButtonConfigurationTitleAlignmentAutomatic
+                                                        textAlignment:NSTextAlignmentCenter
+                                                          normalImage:nil
+                                                       highlightImage:nil
+                                                      attributedTitle:nil
+                                              selectedAttributedTitle:nil
+                                                   attributedSubtitle:nil
+                                                                title:self.viewModel.textModel.text.nullString ? Internationalization(@"测试弹窗"): self.viewModel.textModel.text
+                                                             subTitle:self.viewModel.subTextModel.text.nullString ? Internationalization(@"相关信息"): self.viewModel.textModel.text
+                                                            titleFont:UIFontWeightBoldSize(20)
+                                                         subTitleFont:nil
+                                                             titleCor:UIColor.redColor
+                                                          subTitleCor:nil
+                                                   titleLineBreakMode:NSLineBreakByWordWrapping
+                                                subtitleLineBreakMode:NSLineBreakByWordWrapping
+                                                  baseBackgroundColor:UIColor.whiteColor
+                                                         imagePadding:JobsWidth(0)
+                                                            titlePadding:JobsWidth(8)
+                                                       imagePlacement:NSDirectionalRectEdgeNone
+                                           contentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter
+                                             contentVerticalAlignment:UIControlContentVerticalAlignmentCenter
+                                                        contentInsets:jobsSameDirectionalEdgeInsets(0)
+                                                    cornerRadiusValue:JobsWidth(0)
+                                                      roundingCorners:UIRectCornerAllCorners
+                                                 roundingCornersRadii:CGSizeZero
+                                                       layerBorderCor:nil
+                                                          borderWidth:JobsWidth(0)
+                                                        primaryAction:nil
+                                                      clickEventBlock:^id(BaseButton *x) {
+            @jobs_strongify(self)
+            x.selected = !x.selected;
+            if (self.objectBlock) self.objectBlock(x);
+            return nil;
+        }];
         [self addSubview:_containerView];
         [_containerView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(_containerView.jobsSize);
             make.center.equalTo(self);
         }];
     }return _containerView;
-}
-
--(NSMutableArray<JobsBtnModel *> *)btnModelMutArr{
-    if(!_btnModelMutArr){
-        _btnModelMutArr = NSMutableArray.array;
-        
-        {
-            JobsBtnModel *model = JobsBtnModel.new;
-            model.backgroundColor = UIColor.grayColor;
-//            model.backgroundImage = JobsIMG(@"手机号码");
-            model.normalTitle = self.viewModel.textModel.text.nullString ? Internationalization(@"测试弹窗"): self.viewModel.textModel.text;
-            model.titleFont = UIFontWeightBoldSize(20);
-            model.normalTitleColor = UIColor.redColor;
-            model.image = JobsIMG(@"手机号码");
-            model.imageSize = CGSizeMake(JobsWidth(50), JobsWidth(80));
-            model.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-            model.contentSpacing = JobsWidth(2);
-            model.lineBreakMode = NSLineBreakByWordWrapping;
-            model.btnWidth = JobsWidth(200);
-
-            [_btnModelMutArr addObject:model];
-        }
-        
-        {
-            JobsBtnModel *model = JobsBtnModel.new;
-            model.backgroundColor = UIColor.yellowColor;
-//            model.backgroundImage = JobsIMG(@"手机号码");
-            model.normalTitle = self.viewModel.subTextModel.text.nullString ? Internationalization(@"相关信息"): self.viewModel.textModel.text;
-            model.titleFont = UIFontWeightRegularSize(16);
-            model.normalTitleColor = UIColor.greenColor;
-            model.image = JobsIMG(@"手机号码");
-            model.imageSize = CGSizeMake(JobsWidth(50), JobsWidth(80));
-            model.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-            model.contentSpacing = JobsWidth(8);
-            model.lineBreakMode = NSLineBreakByWordWrapping;
-            model.btnWidth = JobsWidth(200);
-
-            [_btnModelMutArr addObject:model];
-        }
-        
-    }return _btnModelMutArr;
 }
 
 -(UIButton *)testPopupViewSureBtn{

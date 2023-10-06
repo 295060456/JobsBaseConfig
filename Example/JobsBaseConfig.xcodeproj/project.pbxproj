@@ -514,9 +514,6 @@
 		C52E5CEA2AC07EE500FE5494 /* DDData.m in Sources */ = {isa = PBXBuildFile; fileRef = C52E5CD42AC07EE500FE5494 /* DDData.m */; };
 		C52E5CEB2AC07EE500FE5494 /* DDRange.m in Sources */ = {isa = PBXBuildFile; fileRef = C52E5CD72AC07EE500FE5494 /* DDRange.m */; };
 		C52E5CEC2AC07EE500FE5494 /* HTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = C52E5CD92AC07EE500FE5494 /* HTTPServer.m */; };
-		C532940D2ABCC86D004294E0 /* JobsBtnModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C53294062ABCC86D004294E0 /* JobsBtnModel.m */; };
-		C532940E2ABCC86D004294E0 /* JobsContainerViewDemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C53294092ABCC86D004294E0 /* JobsContainerViewDemoVC.m */; };
-		C532940F2ABCC86D004294E0 /* JobsContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C532940C2ABCC86D004294E0 /* JobsContainerView.m */; };
 		C533BBBC2837D095006FB231 /* JobsUserHeaderDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = C533BBB32837D095006FB231 /* JobsUserHeaderDataView.m */; };
 		C533BBBD2837D095006FB231 /* JobsUserHeaderDataViewTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C533BBB52837D095006FB231 /* JobsUserHeaderDataViewTBVCell.m */; };
 		C533BBBF2837D095006FB231 /* JobsUserHeaderDataViewForHeaderInSection.m in Sources */ = {isa = PBXBuildFile; fileRef = C533BBBB2837D095006FB231 /* JobsUserHeaderDataViewForHeaderInSection.m */; };
@@ -1911,12 +1908,6 @@
 		C52F313B2AC0382500BB5549 /* For_Douyin_ZFPlayerVC_2.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = For_Douyin_ZFPlayerVC_2.md; sourceTree = "<group>"; };
 		C52F313C2AC0383600BB5549 /* For_Douyin_ZFPlayerVC_2.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = For_Douyin_ZFPlayerVC_2.md; sourceTree = "<group>"; };
 		C52F313D2AC0387600BB5549 /* For_Douyin_ZFPlayerVC_1.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = For_Douyin_ZFPlayerVC_1.md; sourceTree = "<group>"; };
-		C53294052ABCC86D004294E0 /* JobsBtnModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBtnModel.h; sourceTree = "<group>"; };
-		C53294062ABCC86D004294E0 /* JobsBtnModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsBtnModel.m; sourceTree = "<group>"; };
-		C53294082ABCC86D004294E0 /* JobsContainerViewDemoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsContainerViewDemoVC.h; sourceTree = "<group>"; };
-		C53294092ABCC86D004294E0 /* JobsContainerViewDemoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsContainerViewDemoVC.m; sourceTree = "<group>"; };
-		C532940B2ABCC86D004294E0 /* JobsContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsContainerView.h; sourceTree = "<group>"; };
-		C532940C2ABCC86D004294E0 /* JobsContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsContainerView.m; sourceTree = "<group>"; };
 		C533BBB22837D095006FB231 /* JobsUserHeaderDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsUserHeaderDataView.h; sourceTree = "<group>"; };
 		C533BBB32837D095006FB231 /* JobsUserHeaderDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsUserHeaderDataView.m; sourceTree = "<group>"; };
 		C533BBB52837D095006FB231 /* JobsUserHeaderDataViewTBVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsUserHeaderDataViewTBVCell.m; sourceTree = "<group>"; };
@@ -5662,7 +5653,6 @@
 				C536CF8C2AC27822005D1FCD /* 相册选取图片和视频 */,
 				C536CE822AC2428C005D1FCD /* 发帖功能 */,
 				C5FBD0F32AC19DFC0043B932 /* UIPresentationController的使用 */,
-				C53294032ABCC86D004294E0 /* JobsContainerViewDemo */,
 				C53683442875713B00DD7AA7 /* UICollectionView实现重叠的卡包效果 */,
 				C57FAEE1287562E600E72F91 /* GXCardViewDemo */,
 				C5A21B982872D90D00CD6ED3 /* UIButton子控件的排布 */,
@@ -6460,43 +6450,6 @@
 				C52E5C552AC07E8300FE5494 /* KTVHTTPCache */,
 			);
 			path = KTV;
-			sourceTree = "<group>";
-		};
-		C53294032ABCC86D004294E0 /* JobsContainerViewDemo */ = {
-			isa = PBXGroup;
-			children = (
-				C53294042ABCC86D004294E0 /* JobsBtnModel */,
-				C53294072ABCC86D004294E0 /* JobsContainerViewDemoVC */,
-				C532940A2ABCC86D004294E0 /* JobsContainerView */,
-			);
-			path = JobsContainerViewDemo;
-			sourceTree = "<group>";
-		};
-		C53294042ABCC86D004294E0 /* JobsBtnModel */ = {
-			isa = PBXGroup;
-			children = (
-				C53294052ABCC86D004294E0 /* JobsBtnModel.h */,
-				C53294062ABCC86D004294E0 /* JobsBtnModel.m */,
-			);
-			path = JobsBtnModel;
-			sourceTree = "<group>";
-		};
-		C53294072ABCC86D004294E0 /* JobsContainerViewDemoVC */ = {
-			isa = PBXGroup;
-			children = (
-				C53294082ABCC86D004294E0 /* JobsContainerViewDemoVC.h */,
-				C53294092ABCC86D004294E0 /* JobsContainerViewDemoVC.m */,
-			);
-			path = JobsContainerViewDemoVC;
-			sourceTree = "<group>";
-		};
-		C532940A2ABCC86D004294E0 /* JobsContainerView */ = {
-			isa = PBXGroup;
-			children = (
-				C532940B2ABCC86D004294E0 /* JobsContainerView.h */,
-				C532940C2ABCC86D004294E0 /* JobsContainerView.m */,
-			);
-			path = JobsContainerView;
 			sourceTree = "<group>";
 		};
 		C533BBB02837D095006FB231 /* JobsUserHeaderDataChoice */ = {
@@ -11759,7 +11712,6 @@
 				C593DFB52AC897FC00F875B5 /* NSTimerManager.m in Sources */,
 				842477A527C114BE00831270 /* NotifiViewFactory.m in Sources */,
 				C5C4809F284E246D007916B3 /* JobsAppDoorInputViewBaseStyle_10.m in Sources */,
-				C532940E2ABCC86D004294E0 /* JobsContainerViewDemoVC.m in Sources */,
 				C593DF7D2AC897FC00F875B5 /* UIViewController+Lottie.m in Sources */,
 				84D764AF2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel.m in Sources */,
 				C52E5CE32AC07EE500FE5494 /* HTTPConnection.m in Sources */,
@@ -11875,7 +11827,6 @@
 				C593DF692AC897FC00F875B5 /* NSString+Conversion.m in Sources */,
 				C520F8972AB3A12100142DCC /* AFImageDownloader.m in Sources */,
 				C5B3AE9A285378FA0052A4A9 /* BaiShaETProjVIPSubCVCell_03.m in Sources */,
-				C532940F2ABCC86D004294E0 /* JobsContainerView.m in Sources */,
 				844B02262764C8F000B0513D /* main.m in Sources */,
 				C536CF0C2AC2588B005D1FCD /* JobsTextView.m in Sources */,
 				C520F88A2AB3A12100142DCC /* WMZBannerParam.m in Sources */,
@@ -12117,7 +12068,6 @@
 				C5AA8B83282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_3.m in Sources */,
 				C52E5C952AC07E9800FE5494 /* KTVHCHTTPConnection.m in Sources */,
 				84CA5F9627897AFB00E46E71 /* NSData+Base64.m in Sources */,
-				C532940D2ABCC86D004294E0 /* JobsBtnModel.m in Sources */,
 				C5B3AEA1285378FA0052A4A9 /* BaiShaETProjVIPSubCVCell_02.m in Sources */,
 				840F964027736427004979E9 /* JobsSuspendView.m in Sources */,
 				84A491F327904A970002A837 /* JobsIMInputview.m in Sources */,

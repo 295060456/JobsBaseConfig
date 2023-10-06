@@ -377,6 +377,10 @@ static inline CGSize jobsSameSize(CGFloat x){
 static inline CGPoint jobsSamePoint(CGFloat x){
     return CGPointMake(JobsWidth(x), JobsWidth(x));
 }
+/// 构建一个内边距相等的 NSDirectionalEdgeInsets
+static inline NSDirectionalEdgeInsets jobsSameDirectionalEdgeInsets(CGFloat x){
+    return NSDirectionalEdgeInsetsMake(x, x, x, x);
+}
 
 static inline BOOL jobsEqualToZeroRect(CGRect x){
     return CGRectEqualToRect(x, CGRectZero);
