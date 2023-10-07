@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "MacroDef_SysWarning.h"
 #import "NSNumber+Extra.h"
+#import "JobsBlock.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,6 +21,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// 每隔num个字符添加一个空格的字符串算法
 /// @param num 默认值是4
 -(NSString *)dealWithString:(NSInteger)num;
+/// 在字符串前面和后面拼接一个字符串
+-(JobsReturnStringByStringStringBlock _Nonnull)resetStringByfontAndTailStrings;
+/// 在字符串前面和后面拼接一个相同的字符串
+-(JobsReturnStringByStringBlock _Nonnull)resetStringByfontAndTailString;
 /// 服务器请求的数据为空值的时候进行替换本地默认值
 /// 因为json传输是通过对象包装来进行，所以其实归结起来就是2类，一类是基本数据类型被包装成Number、其他包装成String
 /// @param nullableString 进行检查的资源

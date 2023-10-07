@@ -17,6 +17,11 @@ typedef id _Nullable(^JobsReturnIDByIDBlock)(id _Nullable data);
 typedef id _Nullable(^JobsReturnIDByStringBlock)(NSString * _Nullable data);
 typedef id _Nullable(^JobsReturnIDByGestureRecognizerBlock)(UIGestureRecognizer * _Nullable data);
 
+typedef NSMutableAttributedString *_Nullable(^JobsReturnAttributedStringByStringBlock)(NSString * _Nullable data);
+typedef NSString *_Nullable(^JobsReturnStringByStringBlock)(NSString * _Nullable data);
+typedef NSString *_Nullable(^JobsReturnStringByStringStringBlock)(NSString * _Nullable fontString,
+                                                                  NSString * _Nullable tailString);
+
 typedef CGPoint (^_Nonnull JobsReturnCGPointByVoidBlock)(void);
 typedef CGPoint (^_Nonnull JobsReturnCGPointByIDBlock)(id _Nullable data);
 typedef CGSize (^_Nonnull JobsReturnCGSizeByVoidBlock)(void);

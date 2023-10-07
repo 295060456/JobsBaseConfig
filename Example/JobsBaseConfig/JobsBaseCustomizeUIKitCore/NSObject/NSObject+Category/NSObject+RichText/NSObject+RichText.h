@@ -9,7 +9,7 @@
 #import "MacroDef_Font.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
+/// 富文本4要素：文字信息、文字颜色、段落、字体
 @interface RichTextConfig : NSObject
 
 @property(nonatomic,strong)NSString *targetString;/// 作用文字
@@ -32,6 +32,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// 利用 NSArray <RichTextConfig *>* 形成富文本
 /// @param richTextDataConfigMutArr 富文本的配置集合,对该纯文本字符串的释义
 -(NSMutableAttributedString *_Nullable)richTextWithDataConfigMutArr:(NSArray <RichTextConfig *>*_Nonnull)richTextDataConfigMutArr;
+/// 字符串中划线
+-(JobsReturnAttributedStringByStringBlock _Nonnull)jobsHorizontalCentralLineation;
+/// 字符串下划线
+-(JobsReturnAttributedStringByStringBlock _Nonnull)jobsHorizontalBottomLineation;
 
 @end
 
