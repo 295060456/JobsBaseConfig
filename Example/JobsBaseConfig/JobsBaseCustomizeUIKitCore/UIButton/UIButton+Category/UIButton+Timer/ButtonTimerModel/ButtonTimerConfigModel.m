@@ -12,6 +12,42 @@ UIPictureAndBackGroundCorProtocol_synthesize
 UITextModelProtocol_synthesize
 UIViewModelOthersProtocol_synthesize
 
+//-(UIColor *)layerBorderCor{
+//    if(!_layerBorderCor){
+//        _layerBorderCor = JobsWhiteColor;
+//    }return _layerBorderCor;
+//}
+//
+//-(UIColor *)textCor{
+//    if(!_textCor){
+//        _textCor = JobsWhiteColor;
+//    }return _textCor;
+//}
+//
+//-(UIFont *)font{
+//    if(!_font){
+//        _font = UIFontWeightRegularSize(12);
+//    }return _font;
+//}
+//
+//-(UIColor *)bgCor{
+//    if(!_bgCor){
+//        _bgCor = JobsLightGrayColor;
+//    }return _bgCor;
+//}
+//
+//-(CGFloat)layerCornerRadius{
+//    if(!_layerCornerRadius){
+//        _layerCornerRadius = JobsWidth(8);
+//    }return _layerCornerRadius;
+//}
+//
+//-(CGFloat)layerBorderWidth{
+//    if(!_layerBorderWidth){
+//        _layerBorderWidth = 0.5f;
+//    }return _layerBorderWidth;
+//}
+
 @end
 
 @interface ButtonTimerConfigModel ()
@@ -42,6 +78,7 @@ UILocationProtocol_synthesize
         [_timerManager actionObjectBlock:^(TimerProcessModel *data) {
             @jobs_strongify(self)
             NSLog(@"正在倒计时...");
+            NSLog(@"SSS = %@",self.objectBlock);
             if (self.objectBlock) self.objectBlock(data);
         }];
 
@@ -64,22 +101,19 @@ UILocationProtocol_synthesize
     if (!_readyPlayValue) {
         _readyPlayValue = ButtonTimerProcessValueModel.new;
         
-        _readyPlayValue.layerBorderCor = JobsWhiteColor;
-        _readyPlayValue.textCor = JobsWhiteColor;
-        _readyPlayValue.font = UIFontWeightRegularSize(12);
-        _readyPlayValue.bgCor = JobsLightGrayColor;
-        _readyPlayValue.layerCornerRadius = JobsWidth(8);
-        _readyPlayValue.layerBorderWidth = 0.5f;
+//        _readyPlayValue.layerBorderCor = JobsWhiteColor;
+//        _readyPlayValue.textCor = JobsWhiteColor;
+//        _readyPlayValue.font = UIFontWeightRegularSize(12);
+//        _readyPlayValue.bgCor = JobsLightGrayColor;
+//        _readyPlayValue.layerCornerRadius = JobsWidth(8);
+//        _readyPlayValue.layerBorderWidth = 0.5f;
 
         _readyPlayValue.labelShowingType = UILabelShowingType_01;
         /// 普通文本
         _readyPlayValue.text = Internationalization(@"准备开始");
         /// 富文本相关
-        // _readyPlayValue.titleAttributedDataMutArr =
         if (_readyPlayValue.titleAttributedDataMutArr.count) {
             _readyPlayValue.attributedText = [self richTextWithDataConfigMutArr:_readyPlayValue.titleAttributedDataMutArr];
-        }else{
-            //_readyPlayValue.titleAttributedStr =
         }
         
     }return _readyPlayValue;
@@ -89,12 +123,12 @@ UILocationProtocol_synthesize
     if (!_runningValue) {
         _runningValue = ButtonTimerProcessValueModel.new;
         
-        _runningValue.layerBorderCor = JobsRedColor;
-        _runningValue.textCor = JobsGreenColor;
-        _runningValue.font = UIFontWeightRegularSize(15);
-        _runningValue.bgCor = JobsCyanColor;
-        _runningValue.layerCornerRadius = JobsWidth(12);
-        _runningValue.layerBorderWidth = 1;
+//        _runningValue.layerBorderCor = JobsRedColor;
+//        _runningValue.textCor = JobsGreenColor;
+//        _runningValue.font = UIFontWeightRegularSize(15);
+//        _runningValue.bgCor = JobsCyanColor;
+//        _runningValue.layerCornerRadius = JobsWidth(12);
+//        _runningValue.layerBorderWidth = 1;
         _runningValue.labelShowingType = UILabelShowingType_01;
         /// 普通文本
         _runningValue.text = Internationalization(@"    重新开始    ");
@@ -118,7 +152,7 @@ UILocationProtocol_synthesize
         
         _endValue.labelShowingType = UILabelShowingType_01;
         /// 普通文本
-        _endValue.text = Internationalization(@"    重新开始    ");
+        _endValue.text = Internationalization(@"重新开始");
         /// 富文本相关
         if (_endValue.titleAttributedDataMutArr.count) {
             _endValue.attributedText = [self richTextWithDataConfigMutArr:_endValue.titleAttributedDataMutArr];

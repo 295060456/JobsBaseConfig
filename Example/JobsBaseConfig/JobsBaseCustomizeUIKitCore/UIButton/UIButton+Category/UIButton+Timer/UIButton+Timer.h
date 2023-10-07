@@ -55,17 +55,19 @@ NS_ASSUME_NONNULL_END
  -(UIButton *)countDownBtn{
      if (!_countDownBtn) {
          _countDownBtn = [UIButton.alloc initWithConfig:self.btnTimerConfigModel];
-         [self.view addSubview:_countDownBtn];
+         [self addSubview:_countDownBtn];
          [_countDownBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-             make.height.mas_equalTo(JobsWidth(25));
-             make.center.equalTo(self.view);
+             make.height.mas_equalTo(JobsWidth(14));
+             make.centerY.equalTo(self);
+             make.right.equalTo(self).offset(JobsWidth(-10));
          }];
          [_countDownBtn makeBtnLabelByShowingType:UILabelShowingType_03];
          
-         BtnClickEvent(_countDownBtn, {
+         [_countDownBtn jobsBtnClickEventBlock:^id(UIButton *x) {
              [x startTimer];//选择时机、触发启动
              NSLog(@"🪓🪓🪓🪓🪓 = 获取验证码");
-         })
+             return nil;
+         }];
          
          [_countDownBtn actionObjectBlock:^(id data) {
  //            @jobs_strongify(self)
@@ -80,32 +82,39 @@ NS_ASSUME_NONNULL_END
  -(ButtonTimerConfigModel *)btnTimerConfigModel{
      if (!_btnTimerConfigModel) {
          _btnTimerConfigModel = ButtonTimerConfigModel.new;
-         
          /// 一些通用的设置
-         _btnTimerConfigModel.jobsSize = CGSizeMake(JobsWidth(100), JobsWidth(25));
-         _btnTimerConfigModel.count = 5;
+         _btnTimerConfigModel.jobsSize = CGSizeMake(JobsWidth(108), JobsWidth(14));
+         _btnTimerConfigModel.count = 60;
          _btnTimerConfigModel.showTimeType = ShowTimeType_SS;//时间显示风格
          _btnTimerConfigModel.countDownBtnType = TimerStyle_anticlockwise;/// 逆时针模式（倒计时模式）
          _btnTimerConfigModel.cequenceForShowTitleRuningStrType = CequenceForShowTitleRuningStrType_tail;
          _btnTimerConfigModel.labelShowingType = UILabelShowingType_03;/// 一行显示。不定宽、定高、定字体。宽度自适应 【单行：ByFont】
+         _btnTimerConfigModel.secondStr = Internationalization(@"秒后重新发送");
          /// 计时器未开始【静态值】
-         _btnTimerConfigModel.readyPlayValue.layerBorderWidth = 0.1;
-         _btnTimerConfigModel.readyPlayValue.layerCornerRadius = JobsWidth(8);
-         _btnTimerConfigModel.readyPlayValue.bgCor = JobsYellowColor;
-         _btnTimerConfigModel.readyPlayValue.layerBorderCor = JobsBrownColor;
-         _btnTimerConfigModel.readyPlayValue.textCor = JobsBlueColor;
-         _btnTimerConfigModel.readyPlayValue.text = Internationalization(@"      获取验证码       ");
-         _btnTimerConfigModel.readyPlayValue.font = UIFontWeightMediumSize(13);
+         _btnTimerConfigModel.readyPlayValue.layerBorderWidth = 0;
+         _btnTimerConfigModel.readyPlayValue.layerCornerRadius = JobsWidth(0);
+         _btnTimerConfigModel.readyPlayValue.bgCor = JobsClearColor;
+         _btnTimerConfigModel.readyPlayValue.layerBorderCor = JobsClearColor;
+         _btnTimerConfigModel.readyPlayValue.textCor = JobsCor(@"#333333");
+         _btnTimerConfigModel.readyPlayValue.text = Internationalization(@"获取验证码");
+         _btnTimerConfigModel.readyPlayValue.font = UIFontWeightRegularSize(14);
          /// 计时器进行中【动态值】
-         _btnTimerConfigModel.runningValue.bgCor = JobsCyanColor;
-         _btnTimerConfigModel.runningValue.text = Internationalization(Title12);
-         _btnTimerConfigModel.runningValue.layerBorderCor = JobsRedColor;
-         _btnTimerConfigModel.runningValue.textCor = JobsBlackColor;
+         _btnTimerConfigModel.runningValue.layerBorderWidth = 0;
+         _btnTimerConfigModel.runningValue.layerCornerRadius = JobsWidth(0);
+         _btnTimerConfigModel.runningValue.bgCor = JobsClearColor;
+         _btnTimerConfigModel.runningValue.layerBorderCor = JobsClearColor;
+         _btnTimerConfigModel.runningValue.textCor = JobsCor(@"#333333");
+         _btnTimerConfigModel.runningValue.text = Internationalization(@"");
+         _btnTimerConfigModel.runningValue.font = UIFontWeightRegularSize(14);
+
          /// 计时器结束【静态值】
-         _btnTimerConfigModel.endValue.bgCor = JobsYellowColor;
-         _btnTimerConfigModel.endValue.text = Internationalization(@"    哈哈哈哈    ");
-         _btnTimerConfigModel.endValue.layerBorderCor = JobsPurpleColor;
-         _btnTimerConfigModel.endValue.textCor = JobsBlackColor;
+         _btnTimerConfigModel.endValue.layerBorderWidth = 0;
+         _btnTimerConfigModel.endValue.layerCornerRadius = JobsWidth(0);
+         _btnTimerConfigModel.endValue.bgCor = JobsClearColor;
+         _btnTimerConfigModel.endValue.layerBorderCor = JobsClearColor;
+         _btnTimerConfigModel.endValue.textCor = JobsCor(@"#333333");
+         _btnTimerConfigModel.endValue.text = Internationalization(@"重新获取");
+         _btnTimerConfigModel.endValue.font = UIFontWeightRegularSize(14);
          
      }return _btnTimerConfigModel;
  }

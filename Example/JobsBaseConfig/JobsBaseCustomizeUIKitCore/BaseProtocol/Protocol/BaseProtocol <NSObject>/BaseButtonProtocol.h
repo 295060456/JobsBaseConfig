@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSAttributedString *selectedAttributedTitle;// 富文本
 @property(nonatomic,strong)NSAttributedString *selectedAttributedSubTitle;// 富文本
 #pragma mark —— JobsBtnModel
-@property(nonatomic,strong)UIColor *backgroundColor;
+@property(nonatomic,strong)UIColor *btnBackgroundColor;
 @property(nonatomic,assign)CGSize imageSize;
 /// 结合下列属性来实现改变Button文字位置
 @property(nonatomic,assign)UIControlContentHorizontalAlignment contentHorizontalAlignment;
@@ -119,7 +119,7 @@ NS_ASSUME_NONNULL_END
 @synthesize selectedSubTitleColor = _selectedSubTitleColor;\
 @synthesize selectedAttributedTitle = _selectedAttributedTitle;\
 @synthesize selectedAttributedSubTitle = _selectedAttributedSubTitle;\
-@synthesize backgroundColor = _backgroundColor;\
+@synthesize btnBackgroundColor = _btnBackgroundColor;\
 @synthesize imageSize = imageSize;\
 @synthesize contentHorizontalAlignment = contentHorizontalAlignment;\
 @synthesize contentVerticalAlignment = contentVerticalAlignment;\
@@ -170,7 +170,7 @@ NS_ASSUME_NONNULL_END
 @dynamic selectedTitleColor;\
 @dynamic selectedAttributedTitle;\
 @dynamic selectedAttributedSubTitle;\
-@dynamic backgroundColor;\
+@dynamic btnBackgroundColor;\
 @dynamic imageSize;\
 @dynamic contentHorizontalAlignment;\
 @dynamic contentVerticalAlignment;\

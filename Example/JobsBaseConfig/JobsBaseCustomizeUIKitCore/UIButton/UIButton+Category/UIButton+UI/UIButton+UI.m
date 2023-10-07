@@ -67,7 +67,7 @@
                       baseBackgroundColor:(UIColor *_Nullable)baseBackgroundColor
                              imagePadding:(CGFloat)imagePadding
                              titlePadding:(CGFloat)titlePadding
-                           imagePlacement:(NSDirectionalRectEdge)imagePlacement
+                           imagePlacement:(NSDirectionalRectEdge)imagePlacement/// 定义图文关系
                contentHorizontalAlignment:(UIControlContentHorizontalAlignment)contentHorizontalAlignment /// 针对内容
                  contentVerticalAlignment:(UIControlContentVerticalAlignment)contentVerticalAlignment /// 针对内容
                             contentInsets:(NSDirectionalEdgeInsets)contentInsets/// 对应老Api中的：UIButton.contentEdgeInsets
@@ -88,6 +88,14 @@
         btnConfiguration.titleAlignment = titleAlignment;/// 文本的对齐方式
         btnConfiguration.titleLineBreakMode = titleLineBreakMode;/// 主标题的提行方式
         btnConfiguration.subtitleLineBreakMode = subtitleLineBreakMode;/// 副标题的提行方式
+        if(titleFont && titleCor){
+            btnConfiguration.titleTextAttributesTransformer = [self jobsSetConfigTextAttributesTransformerByTitleFont:titleFont
+                                                                                                          btnTitleCor:titleCor];
+        }
+        if(subTitleFont && subTitleCor){
+            btnConfiguration.subtitleTextAttributesTransformer = [self jobsSetConfigTextAttributesTransformerByTitleFont:subTitleFont
+                                                                                                             btnTitleCor:subTitleCor];
+        }
     }
     /// 图片
     {
@@ -102,30 +110,22 @@
         if (attributedTitle) {
             btnConfiguration.attributedTitle = attributedTitle;
         }else{
-            if(titleFont && titleCor){
-                btnConfiguration.titleTextAttributesTransformer = [self jobsSetConfigTextAttributesTransformerByTitleFont:titleFont
-                                                                                                              btnTitleCor:titleCor];
-                if(title){
-                    btnConfiguration.attributedTitle = [NSAttributedString.alloc initWithString:title
-                                                                                     attributes:@{NSForegroundColorAttributeName:titleCor,
-                                                                                                  NSFontAttributeName:titleFont,
-                                                                                                  NSParagraphStyleAttributeName:[self jobsparagraphStyleByTextAlignment:textAlignment]}];
-                }
+            if(titleFont && titleCor && title){
+                btnConfiguration.attributedTitle = [NSAttributedString.alloc initWithString:title
+                                                                                 attributes:@{NSForegroundColorAttributeName:titleCor,
+                                                                                              NSFontAttributeName:titleFont,
+                                                                                              NSParagraphStyleAttributeName:[self jobsparagraphStyleByTextAlignment:textAlignment]}];
             }
         }
         /// 设置按钮副标题的文本属性
         if(attributedSubtitle){
             btnConfiguration.attributedSubtitle = attributedSubtitle;
         }else{
-            if(subTitleFont && subTitleCor){
-                btnConfiguration.subtitleTextAttributesTransformer = [self jobsSetConfigTextAttributesTransformerByTitleFont:subTitleFont
-                                                                                                                 btnTitleCor:subTitleCor];
-                if(subTitle){
-                    btnConfiguration.attributedTitle = [NSAttributedString.alloc initWithString:subTitle
-                                                                                     attributes:@{NSForegroundColorAttributeName:subTitleCor,
-                                                                                                  NSFontAttributeName:subTitleFont,
-                                                                                                  NSParagraphStyleAttributeName:[self jobsparagraphStyleByTextAlignment:subTextAlignment]}];
-                }
+            if(subTitleFont && subTitleCor && subTitle){
+                btnConfiguration.attributedTitle = [NSAttributedString.alloc initWithString:subTitle
+                                                                                 attributes:@{NSForegroundColorAttributeName:subTitleCor,
+                                                                                              NSFontAttributeName:subTitleFont,
+                                                                                              NSParagraphStyleAttributeName:[self jobsparagraphStyleByTextAlignment:subTextAlignment]}];
             }
         }
     }
@@ -152,31 +152,35 @@
      }];
      */
     }else{
-        btn = UIButton.new;
-        /// 公共设置
-        btn.normalImage = normalImage;
-        btn.titleFont = titleFont;
-        
-        if(attributedTitle){
-            btn.normalAttributedTitle = attributedTitle;
+        if(self == [super init]){
+            btn = self;
+            /// 公共设置
+            self.normalImage = normalImage;
+            self.titleFont = titleFont;
+            
+            if(attributedTitle){
+                self.normalAttributedTitle = attributedTitle;
+            }else{
+                self.normalTitle = title;
+                self.normalTitleColor = titleCor;
+            }
+            SuppressWdeprecatedDeclarationsWarning(btn.contentEdgeInsets = UIEdgeInsetsMake(contentInsets.top,
+                                                                                            contentInsets.leading,
+                                                                                            contentInsets.bottom,
+                                                                                            contentInsets.trailing););
+            if(selectedAttributedTitle) self.selectedAttributedTitle = selectedAttributedTitle;
+            
+            /// 在按钮高亮状态变化时，使用 configurationUpdateHandler 来自定义图像样式
+            self.configurationUpdateHandler = ^(UIButton * _Nonnull updatedButton) {
+                updatedButton.configuration.image = updatedButton.isHighlighted ? highlightImage : normalImage;
+            };
+            self.titleLabel.textAlignment = textAlignment;
+            [self layoutButtonWithEdgeInsetsStyle:imagePlacement
+                                     imagePadding:imagePadding];
         }else{
-            btn.normalTitle = title;
-            btn.normalTitleColor = titleCor;
+            NSLog(@"初始化UIButton失败");
+            NSAssert(0, @"初始化失败");
         }
-        SuppressWdeprecatedDeclarationsWarning(btn.contentEdgeInsets = UIEdgeInsetsMake(contentInsets.top,
-                                                                                        contentInsets.leading,
-                                                                                        contentInsets.bottom,
-                                                                                        contentInsets.trailing););
-        if(selectedAttributedTitle) btn.selectedAttributedTitle = selectedAttributedTitle;
-        
-        /// 在按钮高亮状态变化时，使用 configurationUpdateHandler 来自定义图像样式
-        btn.configurationUpdateHandler = ^(UIButton * _Nonnull updatedButton) {
-            updatedButton.configuration.image = updatedButton.isHighlighted ? highlightImage : normalImage;
-        };
-        btn.titleLabel.textAlignment = textAlignment;
-        
-        [btn layoutButtonWithEdgeInsetsStyle:imagePlacement
-                                imagePadding:imagePadding];
     }
     /// 公共设置
     {
