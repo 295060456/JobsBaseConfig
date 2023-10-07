@@ -11,6 +11,7 @@
 #import "MacroDef_Cor.h"
 #import "BaseButtonProtocol.h"
 #import "UIView+Extras.h"
+#import "NSObject+NSMutableParagraphStyle.h"
 
 #if __has_include(<ReactiveObjC/ReactiveObjC.h>)
 #import <ReactiveObjC/ReactiveObjC.h>
@@ -23,25 +24,27 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIButton (UI)<BaseProtocol,BaseButtonProtocol>
 #pragma mark —— 一些功能性
 /// 为了兼容新的Api，批量设定UIButton
+///  新Api较老的Api，增加了subTitle
 /// 资料来源：https://www.jianshu.com/p/12426709420e
 /// - Parameters:
 ///   - btnConfiguration: 来自新Api的配置文件。UIButtonConfiguration.filledButtonConfiguration;
 ///   - background: 自定义按钮背景的配置
 ///   - titleAlignment: 针对文本的对齐方式 UIButtonConfiguration.titleAlignment 【新Api】
-///   - textAlignment: 针对文本的对齐方式 UIButton.titleLabel.titleAlignment【老Api】
+///   - textAlignment: 针对文本的对齐方式 UIButton.titleLabel.titleAlignment【老Api】。也对应新Api里面的title的对齐方式
+///   - subTextAlignment:也对应新Api里面的subTitle的对齐方式
 ///   - normalImage: 正常情况下的image
 ///   - highlightImage: 高亮情况下的image
-///   - attributedTitle: 主标题的富文本（优先级高于普通文本）
-///   - selectedAttributedTitle: UIControlStateSelected状态下的标题富文本
-///   - attributedSubtitle: 副标题的富文本（优先级高于普通文本）
+///   - attributedTitle: 主标题的富文本（优先级高于普通文本）。设置富文本，请关注：#import "NSObject+RichText.h"
+///   - selectedAttributedTitle:（只限于老Api，新Api里面没有）UIControlStateSelected状态下的标题富文本。设置富文本，请关注：#import "NSObject+RichText.h"
+///   - attributedSubtitle:（新Api才有的）副标题的富文本（优先级高于普通文本）。设置富文本，请关注：#import "NSObject+RichText.h"
 ///   - title: 主标题
-///   - subTitle: 副标题（新Api才有的）
+///   - subTitle:（新Api才有的）副标题
 ///   - titleFont: 主标题字体
-///   - subTitleFont: 副标题字体
+///   - subTitleFont:（新Api才有的）副标题字体
 ///   - titleCor: 主标题文字颜色
 ///   - subTitleCor: 副标题文字颜色
 ///   - titleLineBreakMode: 主标题换行模式
-///   - subtitleLineBreakMode: 副标题换行模式
+///   - subtitleLineBreakMode:（新Api才有的）副标题换行模式
 ///   - baseBackgroundColor: 背景颜色
 ///   - imagePadding: 图像与标题之间的间距
 ///   - titlePadding: 标题和副标题标签之间的距离
@@ -61,6 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
                                background:(UIBackgroundConfiguration *_Nullable)background
                            titleAlignment:(UIButtonConfigurationTitleAlignment)titleAlignment/// 针对文本的对齐方式 UIButtonConfiguration.titleAlignment 【新Api】
                             textAlignment:(NSTextAlignment)textAlignment/// 针对文本的对齐方式 UIButton.titleLabel.titleAlignment【老Api】
+                         subTextAlignment:(NSTextAlignment)subTextAlignment
                               normalImage:(UIImage *_Nullable)normalImage
                            highlightImage:(UIImage *_Nullable)highlightImage
                           attributedTitle:(NSAttributedString *_Nullable)attributedTitle
@@ -112,33 +116,33 @@ NS_ASSUME_NONNULL_BEGIN
  3、要修改通过UIButtonConfiguration创建的UIButton的各属性值，只有通过下列方式方可以
  */
 #pragma mark —— UIButton.configuration的各项属性值的修改
--(JobsReturnButtonConfigurationByBackgroundBlock _Nonnull)jobsResetBackground;
--(JobsReturnButtonConfigurationByCornerStyleBlock _Nonnull)jobsResetCornerStyle;
--(JobsReturnButtonConfigurationBySizeBlock _Nonnull)jobsResetButtonSize;
--(JobsReturnButtonConfigurationByMacIdiomStyleBlock _Nonnull)jobsResetMacIdiomStyle;
--(JobsReturnButtonConfigurationByBaseForegroundColorBlock _Nonnull)jobsResetBaseForegroundColor;
--(JobsReturnButtonConfigurationByBaseBackgroundColorBlock _Nonnull)jobsResetBaseBackgroundColor;
--(JobsReturnButtonConfigurationByImageBlock _Nonnull)jobsResetImage;
--(JobsReturnButtonConfigurationByImageColorTransformerBlock _Nonnull)jobsResetImageColorTransformer;
--(JobsReturnButtonConfigurationByPreferredSymbolConfigurationForImageBlock _Nonnull)jobsResetPreferredSymbolConfigurationForImage;
--(JobsReturnButtonConfigurationByShowsActivityIndicatorBlock _Nonnull)jobsResetShowsActivityIndicator;
--(JobsReturnButtonConfigurationByActivityIndicatorColorTransformerBlock _Nonnull)jobsResetActivityIndicatorColorTransformer;
--(JobsReturnButtonConfigurationByTitleBlock _Nonnull)jobsResetTitle;
--(JobsReturnButtonConfigurationByAttributedTitleBlock _Nonnull)jobsResetAttributedTitle;
--(JobsReturnButtonConfigurationByTitleTextAttributesTransformerBlock _Nonnull)jobsResetTitleTextAttributesTransformer;
--(JobsReturnButtonConfigurationByTitleLineBreakModeBlock _Nonnull)jobsResetTitleLineBreakMode;
--(JobsReturnButtonConfigurationBySubtitleBlock _Nonnull)jobsResetSubtitle;
--(JobsReturnButtonConfigurationByAttributedSubtitleBlock _Nonnull)jobsResetAttributedSubtitle;
--(JobsReturnButtonConfigurationBySubtitleTextAttributesTransformerBlock _Nonnull)jobsResetSubtitleTextAttributesTransformer;
--(JobsReturnButtonConfigurationBySubtitleLineBreakModeBlock _Nonnull)jobsResetSubtitleLineBreakMode;
--(JobsReturnButtonConfigurationByIndicatorBlock _Nonnull)jobsResetIndicator;
--(JobsReturnButtonConfigurationByIndicatorColorTransformerBlock _Nonnull)jobsResetIndicatorColorTransformer;
--(JobsReturnButtonConfigurationByContentInsetsBlock _Nonnull)jobsResetContentInsets;
--(JobsReturnButtonConfigurationByImagePlacementBlock _Nonnull)jobsResetImagePlacement;
--(JobsReturnButtonConfigurationByImagePaddingBlock _Nonnull)jobsResetImagePadding;
--(JobsReturnButtonConfigurationByTitlePaddingBlock _Nonnull)jobsResetTitlePadding;
--(JobsReturnButtonConfigurationByTitleAlignmentBlock _Nonnull)jobsResetTitleAlignment;
--(JobsReturnButtonConfigurationByAutomaticallyUpdateForSelectionBlock _Nonnull)jobsResetAutomaticallyUpdateForSelection;
+-(JobsReturnButtonConfigurationByBackgroundBlock _Nonnull)jobsResetBackground API_AVAILABLE(ios(16.0));
+-(JobsReturnButtonConfigurationByCornerStyleBlock _Nonnull)jobsResetCornerStyle API_AVAILABLE(ios(16.0));
+-(JobsReturnButtonConfigurationBySizeBlock _Nonnull)jobsResetButtonSize API_AVAILABLE(ios(16.0));
+-(JobsReturnButtonConfigurationByMacIdiomStyleBlock _Nonnull)jobsResetMacIdiomStyle API_AVAILABLE(ios(16.0));
+-(JobsReturnButtonConfigurationByBaseForegroundColorBlock _Nonnull)jobsResetBaseForegroundColor API_AVAILABLE(ios(16.0));
+-(JobsReturnButtonConfigurationByBaseBackgroundColorBlock _Nonnull)jobsResetBaseBackgroundColor API_AVAILABLE(ios(16.0));
+-(JobsReturnButtonConfigurationByImageBlock _Nonnull)jobsResetImage API_AVAILABLE(ios(16.0));
+-(JobsReturnButtonConfigurationByImageColorTransformerBlock _Nonnull)jobsResetImageColorTransformer API_AVAILABLE(ios(16.0));
+-(JobsReturnButtonConfigurationByPreferredSymbolConfigurationForImageBlock _Nonnull)jobsResetPreferredSymbolConfigurationForImage API_AVAILABLE(ios(16.0));
+-(JobsReturnButtonConfigurationByShowsActivityIndicatorBlock _Nonnull)jobsResetShowsActivityIndicator API_AVAILABLE(ios(16.0));
+-(JobsReturnButtonConfigurationByActivityIndicatorColorTransformerBlock _Nonnull)jobsResetActivityIndicatorColorTransformer API_AVAILABLE(ios(16.0));
+-(JobsReturnButtonConfigurationByTitleBlock _Nonnull)jobsResetTitle API_AVAILABLE(ios(16.0));
+-(JobsReturnButtonConfigurationByAttributedTitleBlock _Nonnull)jobsResetAttributedTitle API_AVAILABLE(ios(16.0));
+-(JobsReturnButtonConfigurationByTitleTextAttributesTransformerBlock _Nonnull)jobsResetTitleTextAttributesTransformer API_AVAILABLE(ios(16.0));
+-(JobsReturnButtonConfigurationByTitleLineBreakModeBlock _Nonnull)jobsResetTitleLineBreakMode API_AVAILABLE(ios(16.0));
+-(JobsReturnButtonConfigurationBySubtitleBlock _Nonnull)jobsResetSubtitle API_AVAILABLE(ios(16.0));
+-(JobsReturnButtonConfigurationByAttributedSubtitleBlock _Nonnull)jobsResetAttributedSubtitle API_AVAILABLE(ios(16.0));
+-(JobsReturnButtonConfigurationBySubtitleTextAttributesTransformerBlock _Nonnull)jobsResetSubtitleTextAttributesTransformer API_AVAILABLE(ios(16.0));
+-(JobsReturnButtonConfigurationBySubtitleLineBreakModeBlock _Nonnull)jobsResetSubtitleLineBreakMode API_AVAILABLE(ios(16.0));
+-(JobsReturnButtonConfigurationByIndicatorBlock _Nonnull)jobsResetIndicator API_AVAILABLE(ios(16.0));
+-(JobsReturnButtonConfigurationByIndicatorColorTransformerBlock _Nonnull)jobsResetIndicatorColorTransformer API_AVAILABLE(ios(16.0));
+-(JobsReturnButtonConfigurationByContentInsetsBlock _Nonnull)jobsResetContentInsets API_AVAILABLE(ios(16.0));
+-(JobsReturnButtonConfigurationByImagePlacementBlock _Nonnull)jobsResetImagePlacement API_AVAILABLE(ios(16.0));
+-(JobsReturnButtonConfigurationByImagePaddingBlock _Nonnull)jobsResetImagePadding API_AVAILABLE(ios(16.0));
+-(JobsReturnButtonConfigurationByTitlePaddingBlock _Nonnull)jobsResetTitlePadding API_AVAILABLE(ios(16.0));
+-(JobsReturnButtonConfigurationByTitleAlignmentBlock _Nonnull)jobsResetTitleAlignment API_AVAILABLE(ios(16.0));
+-(JobsReturnButtonConfigurationByAutomaticallyUpdateForSelectionBlock _Nonnull)jobsResetAutomaticallyUpdateForSelection API_AVAILABLE(ios(16.0));
 #pragma mark —— UIButton普通文本的通用设置
 /// 代码触发点击调用
 -(void)titleFont:(UIFont *)font;
@@ -192,79 +196,101 @@ NS_ASSUME_NONNULL_END
  // 设置内容水平居中对齐
  button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
  */
-
 /**
- 利用 UIButtonConfiguration 来解决问题，示例：
- -(UIButtonConfiguration *)btnConfig{
-     if(!_btnConfig){
-         _btnConfig = UIButtonConfiguration.filledButtonConfiguration;
-         {// 图片
-             _btnConfig.image = JobsIMG(@"入职Mata"); // 替换为你的图像名称
-             _btnConfig.imagePlacement = NSDirectionalRectEdgeLeading;// 这里将图像放置在标题的前面
-             _btnConfig.imagePadding = 10;// 设置图像与标题之间的间距
-         }
-         
-         {// 一般的文字
-             _btnConfig.title = Internationalization(@"入职Mata");
-             _btnConfig.subtitle = @"";
-             _btnConfig.baseForegroundColor = UIColor.blackColor;// 前景颜色（= 文字颜色）
-         }
-         
-         {// 富文本
-             // 设置按钮标题的文本属性
-             _btnConfig.titleTextAttributesTransformer = ^NSDictionary<NSAttributedStringKey, id> *(NSDictionary<NSAttributedStringKey, id> *textAttributes) {
-                 NSMutableDictionary<NSAttributedStringKey, id> *newTextAttributes = textAttributes.mutableCopy;
-                 [newTextAttributes addEntriesFromDictionary:@{
-                     NSFontAttributeName:UIFontWeightRegularSize(14), // 替换为你想要的字体和大小
-                     NSForegroundColorAttributeName: UIColor.blackColor // 替换为你想要的文本颜色
-                 }];
-                 return newTextAttributes.copy;
-             };
-             _btnConfig.attributedTitle = [NSAttributedString.alloc initWithString:Internationalization(@"入职Mata") attributes:@{NSForegroundColorAttributeName:UIColor.blackColor}];
-         }
-         
-         {// 其他
-             _btnConfig.baseBackgroundColor = UIColor.whiteColor;// 背景颜色
-             _btnConfig.contentInsets = NSDirectionalEdgeInsetsMake(0, 0, 0, 0); // 内边距
-         }
-     }return _btnConfig;
+ @property(nonatomic,strong)BaseButton *titleBtn;
+ 
+ @property(nonatomic,strong)NSMutableArray <NSString *>*richTextMutArr;
+ 
+ @property(nonatomic,strong)NSMutableArray <RichTextConfig *>*richTextConfigMutArr;
+ 
+ -(BaseButton *)titleBtn{
+     if(!_titleBtn){
+         @jobs_weakify(self)
+         _titleBtn = [BaseButton.alloc jobsInitBtnByConfiguration:nil
+                                                        background:nil
+                                                    titleAlignment:UIButtonConfigurationTitleAlignmentCenter
+                                                     textAlignment:NSTextAlignmentCenter
+                                                  subTextAlignment:NSTextAlignmentCenter
+                                                       normalImage:nil
+                                                    highlightImage:nil
+                                                   attributedTitle:nil
+                                           selectedAttributedTitle:nil
+                                                attributedSubtitle:[self richTextWithDataConfigMutArr:self.richTextConfigMutArr]
+                                                             title:Internationalization(@"请支付")
+                                                          subTitle:nil//Internationalization(@"观看完整教学视频需支付99Mata值")
+                                                         titleFont:UIFontWeightBoldSize(18)
+                                                      subTitleFont:nil
+                                                          titleCor:JobsCor(@"#333333")
+                                                       subTitleCor:nil
+                                                titleLineBreakMode:NSLineBreakByWordWrapping
+                                             subtitleLineBreakMode:NSLineBreakByWordWrapping
+                                               baseBackgroundColor:UIColor.whiteColor
+                                                      imagePadding:JobsWidth(0)
+                                                      titlePadding:JobsWidth(10)
+                                                    imagePlacement:NSDirectionalRectEdgeNone
+                                        contentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter
+                                          contentVerticalAlignment:UIControlContentVerticalAlignmentCenter
+                                                     contentInsets:jobsSameDirectionalEdgeInsets(0)
+                                                 cornerRadiusValue:JobsWidth(0)
+                                                   roundingCorners:UIRectCornerAllCorners
+                                              roundingCornersRadii:CGSizeZero
+                                                    layerBorderCor:nil
+                                                       borderWidth:JobsWidth(0)
+                                                     primaryAction:nil
+                                                   clickEventBlock:^id(BaseButton *x) {
+             @jobs_strongify(self)
+             x.selected = !x.selected;
+             if (self.objectBlock) self.objectBlock(x);
+             return nil;
+         }];
+         [self addSubview:_titleBtn];
+         [_titleBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+             make.height.mas_equalTo(JobsWidth(72));
+             make.top.equalTo(self).offset(JobsWidth(20));
+             make.centerX.equalTo(self);
+         }];
+         [_titleBtn makeBtnLabelByShowingType:UILabelShowingType_03];
+     }return _titleBtn;
  }
 
- -(UIButton *)btn1{
-     if(!_btn1){
-         if(self.deviceSystemVersion.floatValue >= 15.0){
-             _btn1 = [UIButton buttonWithConfiguration:self.btnConfig primaryAction:nil];
-         }else{
-             _btn1 = UIButton.new;
-             _btn1.normalImage = JobsIMG(@"入职Mata");
-             _btn1.titleFont = UIFontWeightRegularSize(14);
-             _btn1.normalTitle = Internationalization(@"入职Mata");
-             _btn1.normalTitleColor = JobsBlackColor;
- 
-         // 在按钮高亮状态变化时，使用 configurationUpdateHandler 来自定义图像样式
-         // 关于UIButtonConfiguration 和 configurationUpdateHandler 的使用
-         button.configurationUpdateHandler = ^(UIButton * _Nonnull updatedButton) {
-             if (updatedButton.isHighlighted) {
-                 // 按钮处于高亮状态，切换到高亮状态的图像样式
-                 UIImage *highlightedImage = [UIImage imageNamed:@"highlighted_image"];
-                 updatedButton.configuration.image = highlightedImage;
-             } else {
-                 // 按钮处于正常状态，切换到正常状态的图像样式
-                 UIImage *normalImage = [UIImage imageNamed:@"normal_image"];
-                 updatedButton.configuration.image = normalImage;
-             }
-         };
+ -(NSMutableArray<NSString *> *)richTextMutArr{
+     if (!_richTextMutArr) {
+         _richTextMutArr = NSMutableArray.array;
+         [_richTextMutArr addObject:Internationalization(@"观看完整教学视频需支付")];
+         [_richTextMutArr addObject:Internationalization(@"99")];
+         [_richTextMutArr addObject:Internationalization(@"Mata值")];
+     }return _richTextMutArr;
+ }
+
+ -(NSMutableArray<RichTextConfig *> *)richTextConfigMutArr{
+     if (!_richTextConfigMutArr) {
+         _richTextConfigMutArr = NSMutableArray.array;
+         {
+             RichTextConfig *config_01 = RichTextConfig.new;
+             config_01.font = UIFontWeightRegularSize(14);
+             config_01.textCor = JobsCor(@"#666666");
+             config_01.targetString = self.richTextMutArr[0];
+             config_01.paragraphStyle = self.jobsParagraphStyleCenter;
+             [_richTextConfigMutArr addObject:config_01];
          }
-         // 添加按钮到视图中
-         [self addSubview:_btn1];
-         [_btn1 mas_makeConstraints:^(MASConstraintMaker *make) {
-             make.size.mas_equalTo(CGSizeMake(JobsWidth(85), JobsWidth(16)));
-             make.centerY.equalTo(self);
-             make.left.equalTo(self).offset(JobsWidth(6));
-         }];
-         if(self.deviceSystemVersion.floatValue < 15.0){
-             [_btn1 layoutButtonWithEdgeInsetsStyle:NSDirectionalRectEdgeLeading imagePadding:JobsWidth(8)];
+         
+         {
+             RichTextConfig *config_02 = RichTextConfig.new;
+             config_02.font = UIFontWeightRegularSize(14);
+             config_02.textCor = JobsCor(@"#BA9B77");
+             config_02.targetString = self.richTextMutArr[1];
+             config_02.paragraphStyle = self.jobsParagraphStyleCenter;
+             [_richTextConfigMutArr addObject:config_02];
          }
-     }return _btn1;
+         
+         {
+             RichTextConfig *config_03 = RichTextConfig.new;
+             config_03.font = UIFontWeightRegularSize(14);
+             config_03.textCor = JobsCor(@"#666666");
+             config_03.targetString = self.richTextMutArr[2];
+             config_03.paragraphStyle = self.jobsParagraphStyleCenter;
+             [_richTextConfigMutArr addObject:config_03];
+         }
+     }return _richTextConfigMutArr;
  }
  */

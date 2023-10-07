@@ -529,6 +529,7 @@
 		C536CF022AC248C6005D1FCD /* 相册选取图片和视频.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C536CF012AC248C6005D1FCD /* 相册选取图片和视频.xcassets */; };
 		C536CF0C2AC2588B005D1FCD /* JobsTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C536CF0B2AC2588B005D1FCD /* JobsTextView.m */; };
 		C536CF0F2AC258BB005D1FCD /* JobsPostDelView.m in Sources */ = {isa = PBXBuildFile; fileRef = C536CF0D2AC258BB005D1FCD /* JobsPostDelView.m */; };
+		C53F69912AD0E5A600B51391 /* NSObject+NSMutableParagraphStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F698F2AD0E5A600B51391 /* NSObject+NSMutableParagraphStyle.m */; };
 		C5432D662ACB1C9F008F92B0 /* UITBVCellFoldVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5432D652ACB1C9F008F92B0 /* UITBVCellFoldVC.m */; };
 		C5432D742ACB1CF6008F92B0 /* MSCommentTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5432D6C2ACB1CF6008F92B0 /* MSCommentTBVCell.m */; };
 		C5432D752ACB1CF6008F92B0 /* MSCommentView.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C5432D6E2ACB1CF6008F92B0 /* MSCommentView.jpg */; };
@@ -1942,6 +1943,8 @@
 		C536CF0B2AC2588B005D1FCD /* JobsTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsTextView.m; sourceTree = "<group>"; };
 		C536CF0D2AC258BB005D1FCD /* JobsPostDelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsPostDelView.m; sourceTree = "<group>"; };
 		C536CF0E2AC258BB005D1FCD /* JobsPostDelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsPostDelView.h; sourceTree = "<group>"; };
+		C53F698F2AD0E5A600B51391 /* NSObject+NSMutableParagraphStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NSMutableParagraphStyle.m"; sourceTree = "<group>"; };
+		C53F69902AD0E5A600B51391 /* NSObject+NSMutableParagraphStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+NSMutableParagraphStyle.h"; sourceTree = "<group>"; };
 		C5432D642ACB1C9F008F92B0 /* UITBVCellFoldVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITBVCellFoldVC.h; sourceTree = "<group>"; };
 		C5432D652ACB1C9F008F92B0 /* UITBVCellFoldVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITBVCellFoldVC.m; sourceTree = "<group>"; };
 		C5432D6B2ACB1CF6008F92B0 /* MSCommentTBVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCommentTBVCell.h; sourceTree = "<group>"; };
@@ -6656,6 +6659,15 @@
 			path = "相册选取图片和视频";
 			sourceTree = "<group>";
 		};
+		C53F698E2AD0E5A600B51391 /* NSObject+NSMutableParagraphStyle */ = {
+			isa = PBXGroup;
+			children = (
+				C53F69902AD0E5A600B51391 /* NSObject+NSMutableParagraphStyle.h */,
+				C53F698F2AD0E5A600B51391 /* NSObject+NSMutableParagraphStyle.m */,
+			);
+			path = "NSObject+NSMutableParagraphStyle";
+			sourceTree = "<group>";
+		};
 		C5432D632ACB1C5A008F92B0 /* UITableViewCell的折叠效果 */ = {
 			isa = PBXGroup;
 			children = (
@@ -9454,6 +9466,7 @@
 		C593DE4E2AC897FB00F875B5 /* NSObject+Category */ = {
 			isa = PBXGroup;
 			children = (
+				C53F698E2AD0E5A600B51391 /* NSObject+NSMutableParagraphStyle */,
 				C55224242AC8994D00668516 /* NSObject+AppTools */,
 				C55224202AC898EE00668516 /* NSObject+UserInfo */,
 				C593DE4F2AC897FB00F875B5 /* NSObject+Swizzling */,
@@ -11568,6 +11581,7 @@
 				C5B3AE9D285378FA0052A4A9 /* BaiShaETProjVIPSubCVCell_05.m in Sources */,
 				C593DFC32AC897FC00F875B5 /* JobsTimeModel.m in Sources */,
 				C593DF3D2AC897FC00F875B5 /* BaseView.m in Sources */,
+				C53F69912AD0E5A600B51391 /* NSObject+NSMutableParagraphStyle.m in Sources */,
 				84CA5FB127897AFB00E46E71 /* HAHandleDemoView.m in Sources */,
 				C593DFDC2AC897FC00F875B5 /* NSObject+Sound.m in Sources */,
 				C593DFF22AC897FC00F875B5 /* UITextField+Animation.m in Sources */,

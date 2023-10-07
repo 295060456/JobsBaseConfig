@@ -10,25 +10,27 @@
 @implementation UIButton (UI)
 #pragma mark —— 一些功能性
 /// 为了兼容新的Api，批量设定UIButton
+///  新Api较老的Api，增加了subTitle
 /// 资料来源：https://www.jianshu.com/p/12426709420e
 /// - Parameters:
 ///   - btnConfiguration: 来自新Api的配置文件。UIButtonConfiguration.filledButtonConfiguration;
 ///   - background: 自定义按钮背景的配置
 ///   - titleAlignment: 针对文本的对齐方式 UIButtonConfiguration.titleAlignment 【新Api】
-///   - textAlignment: 针对文本的对齐方式 UIButton.titleLabel.titleAlignment【老Api】
+///   - textAlignment: 针对文本的对齐方式 UIButton.titleLabel.titleAlignment【老Api】。也对应新Api里面的title的对齐方式
+///   - subTextAlignment:也对应新Api里面的subTitle的对齐方式
 ///   - normalImage: 正常情况下的image
 ///   - highlightImage: 高亮情况下的image
-///   - attributedTitle: 主标题的富文本（优先级高于普通文本）
-///   - selectedAttributedTitle: UIControlStateSelected状态下的标题富文本
-///   - attributedSubtitle: 副标题的富文本（优先级高于普通文本）
+///   - attributedTitle: 主标题的富文本（优先级高于普通文本）。设置富文本，请关注：#import "NSObject+RichText.h"
+///   - selectedAttributedTitle:（只限于老Api，新Api里面没有）UIControlStateSelected状态下的标题富文本。设置富文本，请关注：#import "NSObject+RichText.h"
+///   - attributedSubtitle:（新Api才有的）副标题的富文本（优先级高于普通文本）。设置富文本，请关注：#import "NSObject+RichText.h"
 ///   - title: 主标题
-///   - subTitle: 副标题（新Api才有的）
+///   - subTitle:（新Api才有的）副标题
 ///   - titleFont: 主标题字体
-///   - subTitleFont: 副标题字体
+///   - subTitleFont:（新Api才有的）副标题字体
 ///   - titleCor: 主标题文字颜色
 ///   - subTitleCor: 副标题文字颜色
 ///   - titleLineBreakMode: 主标题换行模式
-///   - subtitleLineBreakMode: 副标题换行模式
+///   - subtitleLineBreakMode:（新Api才有的）副标题换行模式
 ///   - baseBackgroundColor: 背景颜色
 ///   - imagePadding: 图像与标题之间的间距
 ///   - titlePadding: 标题和副标题标签之间的距离
@@ -48,6 +50,7 @@
                                background:(UIBackgroundConfiguration *_Nullable)background
                            titleAlignment:(UIButtonConfigurationTitleAlignment)titleAlignment/// 针对文本的对齐方式 UIButtonConfiguration.titleAlignment 【新Api】
                             textAlignment:(NSTextAlignment)textAlignment/// 针对文本的对齐方式 UIButton.titleLabel.titleAlignment【老Api】
+                         subTextAlignment:(NSTextAlignment)subTextAlignment
                               normalImage:(UIImage *_Nullable)normalImage
                            highlightImage:(UIImage *_Nullable)highlightImage
                           attributedTitle:(NSAttributedString *_Nullable)attributedTitle
@@ -76,12 +79,6 @@
                             primaryAction:(UIAction *_Nullable)primaryAction
                           clickEventBlock:(JobsReturnIDByIDBlock _Nullable)clickEventBlock{
     if(!btnConfiguration) btnConfiguration = UIButtonConfiguration.filledButtonConfiguration;
-    /// 图片
-    {
-        btnConfiguration.image = normalImage;
-        btnConfiguration.imagePlacement = imagePlacement;
-        btnConfiguration.imagePadding = imagePadding;/// 设置图像与标题之间的间距
-    }
     /// 一般的文字
     {
         btnConfiguration.title = title;
@@ -92,7 +89,14 @@
         btnConfiguration.titleLineBreakMode = titleLineBreakMode;/// 主标题的提行方式
         btnConfiguration.subtitleLineBreakMode = subtitleLineBreakMode;/// 副标题的提行方式
     }
+    /// 图片
+    {
+        btnConfiguration.image = normalImage;
+        btnConfiguration.imagePlacement = imagePlacement;
+        btnConfiguration.imagePadding = imagePadding;/// 设置图像与标题之间的间距
+    }
     /// 富文本 优先级高于普通文本
+#warning 这个方法，同时设置了普通文本和富文本，其实是走富文本的创建路线。富文本4要素：文字信息、文字颜色、段落、字体
     {
         /// 设置按钮标题的文本属性
         if (attributedTitle) {
@@ -104,7 +108,8 @@
                 if(title){
                     btnConfiguration.attributedTitle = [NSAttributedString.alloc initWithString:title
                                                                                      attributes:@{NSForegroundColorAttributeName:titleCor,
-                                                                                                  NSFontAttributeName:titleFont}];
+                                                                                                  NSFontAttributeName:titleFont,
+                                                                                                  NSParagraphStyleAttributeName:[self jobsparagraphStyleByTextAlignment:textAlignment]}];
                 }
             }
         }
@@ -118,7 +123,8 @@
                 if(subTitle){
                     btnConfiguration.attributedTitle = [NSAttributedString.alloc initWithString:subTitle
                                                                                      attributes:@{NSForegroundColorAttributeName:subTitleCor,
-                                                                                                  NSFontAttributeName:subTitleFont}];
+                                                                                                  NSFontAttributeName:subTitleFont,
+                                                                                                  NSParagraphStyleAttributeName:[self jobsparagraphStyleByTextAlignment:subTextAlignment]}];
                 }
             }
         }
@@ -275,7 +281,7 @@
  3、要修改通过UIButtonConfiguration创建的UIButton的各属性值，只有通过下列方式方可以
  */
 #pragma mark —— UIButton.configuration的各项属性值的修改
--(JobsReturnButtonConfigurationByBackgroundBlock _Nonnull)jobsResetBackground{
+-(JobsReturnButtonConfigurationByBackgroundBlock _Nonnull)jobsResetBackground API_AVAILABLE(ios(16.0)){
     @jobs_weakify(self)
     return ^(UIBackgroundConfiguration *data) {
         @jobs_strongify(self)
@@ -286,7 +292,7 @@
     };
 }
 
--(JobsReturnButtonConfigurationByCornerStyleBlock _Nonnull)jobsResetCornerStyle{
+-(JobsReturnButtonConfigurationByCornerStyleBlock _Nonnull)jobsResetCornerStyle API_AVAILABLE(ios(16.0)){
     @jobs_weakify(self)
     return ^(UIButtonConfigurationCornerStyle data) {
         @jobs_strongify(self)
@@ -297,7 +303,7 @@
     };
 }
 
--(JobsReturnButtonConfigurationBySizeBlock _Nonnull)jobsResetButtonSize{
+-(JobsReturnButtonConfigurationBySizeBlock _Nonnull)jobsResetButtonSize API_AVAILABLE(ios(16.0)){
     @jobs_weakify(self)
     return ^(UIButtonConfigurationSize data) {
         @jobs_strongify(self)
@@ -308,7 +314,7 @@
     };
 }
 
--(JobsReturnButtonConfigurationByMacIdiomStyleBlock _Nonnull)jobsResetMacIdiomStyle{
+-(JobsReturnButtonConfigurationByMacIdiomStyleBlock _Nonnull)jobsResetMacIdiomStyle API_AVAILABLE(ios(16.0)){
     @jobs_weakify(self)
     return ^(UIButtonConfigurationMacIdiomStyle data) {
         @jobs_strongify(self)
@@ -319,7 +325,7 @@
     };
 }
 
--(JobsReturnButtonConfigurationByBaseForegroundColorBlock _Nonnull)jobsResetBaseForegroundColor{
+-(JobsReturnButtonConfigurationByBaseForegroundColorBlock _Nonnull)jobsResetBaseForegroundColor API_AVAILABLE(ios(16.0)){
     @jobs_weakify(self)
     return ^(UIColor *data) {
         @jobs_strongify(self)
@@ -332,7 +338,7 @@
     };
 }
 
--(JobsReturnButtonConfigurationByBaseBackgroundColorBlock _Nonnull)jobsResetBaseBackgroundColor{
+-(JobsReturnButtonConfigurationByBaseBackgroundColorBlock _Nonnull)jobsResetBaseBackgroundColor API_AVAILABLE(ios(16.0)){
     @jobs_weakify(self)
     return ^(UIColor *data) {
         @jobs_strongify(self)
@@ -343,7 +349,7 @@
     };
 }
 
--(JobsReturnButtonConfigurationByImageBlock _Nonnull)jobsResetImage{
+-(JobsReturnButtonConfigurationByImageBlock _Nonnull)jobsResetImage API_AVAILABLE(ios(16.0)){
     @jobs_weakify(self)
     return ^(UIImage *data) {
         @jobs_strongify(self)
@@ -354,7 +360,7 @@
     };
 }
 
--(JobsReturnButtonConfigurationByImageColorTransformerBlock _Nonnull)jobsResetImageColorTransformer{
+-(JobsReturnButtonConfigurationByImageColorTransformerBlock _Nonnull)jobsResetImageColorTransformer API_AVAILABLE(ios(16.0)){
     @jobs_weakify(self)
     return ^(UIConfigurationColorTransformer data) {
         @jobs_strongify(self)
@@ -365,7 +371,7 @@
     };
 }
 
--(JobsReturnButtonConfigurationByPreferredSymbolConfigurationForImageBlock _Nonnull)jobsResetPreferredSymbolConfigurationForImage{
+-(JobsReturnButtonConfigurationByPreferredSymbolConfigurationForImageBlock _Nonnull)jobsResetPreferredSymbolConfigurationForImage API_AVAILABLE(ios(16.0)){
     @jobs_weakify(self)
     return ^(UIImageSymbolConfiguration *data) {
         @jobs_strongify(self)
@@ -376,7 +382,7 @@
     };
 }
 
--(JobsReturnButtonConfigurationByShowsActivityIndicatorBlock _Nonnull)jobsResetShowsActivityIndicator{
+-(JobsReturnButtonConfigurationByShowsActivityIndicatorBlock _Nonnull)jobsResetShowsActivityIndicator API_AVAILABLE(ios(16.0)){
     @jobs_weakify(self)
     return ^(BOOL data) {
         @jobs_strongify(self)
@@ -387,7 +393,7 @@
     };
 }
 
--(JobsReturnButtonConfigurationByActivityIndicatorColorTransformerBlock _Nonnull)jobsResetActivityIndicatorColorTransformer{
+-(JobsReturnButtonConfigurationByActivityIndicatorColorTransformerBlock _Nonnull)jobsResetActivityIndicatorColorTransformer API_AVAILABLE(ios(16.0)){
     @jobs_weakify(self)
     return ^(UIConfigurationColorTransformer data) {
         @jobs_strongify(self)
@@ -398,7 +404,7 @@
     };
 }
 
--(JobsReturnButtonConfigurationByTitleBlock _Nonnull)jobsResetTitle{
+-(JobsReturnButtonConfigurationByTitleBlock _Nonnull)jobsResetTitle API_AVAILABLE(ios(16.0)){
     @jobs_weakify(self)
     return ^(NSString *data) {
         @jobs_strongify(self)
@@ -409,7 +415,7 @@
     };
 }
 
--(JobsReturnButtonConfigurationByAttributedTitleBlock _Nonnull)jobsResetAttributedTitle{
+-(JobsReturnButtonConfigurationByAttributedTitleBlock _Nonnull)jobsResetAttributedTitle API_AVAILABLE(ios(16.0)){
     @jobs_weakify(self)
     return ^(NSAttributedString *data) {
         @jobs_strongify(self)
@@ -420,7 +426,7 @@
     };
 }
 
--(JobsReturnButtonConfigurationByTitleTextAttributesTransformerBlock _Nonnull)jobsResetTitleTextAttributesTransformer{
+-(JobsReturnButtonConfigurationByTitleTextAttributesTransformerBlock _Nonnull)jobsResetTitleTextAttributesTransformer API_AVAILABLE(ios(16.0)){
     @jobs_weakify(self)
     return ^(UIConfigurationTextAttributesTransformer data) {
         @jobs_strongify(self)
@@ -431,7 +437,7 @@
     };
 }
 
--(JobsReturnButtonConfigurationByTitleLineBreakModeBlock _Nonnull)jobsResetTitleLineBreakMode{
+-(JobsReturnButtonConfigurationByTitleLineBreakModeBlock _Nonnull)jobsResetTitleLineBreakMode API_AVAILABLE(ios(16.0)){
     @jobs_weakify(self)
     return ^(NSLineBreakMode data) {
         @jobs_strongify(self)
@@ -442,7 +448,7 @@
     };
 }
 
--(JobsReturnButtonConfigurationBySubtitleBlock _Nonnull)jobsResetSubtitle{
+-(JobsReturnButtonConfigurationBySubtitleBlock _Nonnull)jobsResetSubtitle API_AVAILABLE(ios(16.0)){
     @jobs_weakify(self)
     return ^(NSString *data) {
         @jobs_strongify(self)
@@ -453,7 +459,7 @@
     };
 }
 
--(JobsReturnButtonConfigurationByAttributedSubtitleBlock _Nonnull)jobsResetAttributedSubtitle{
+-(JobsReturnButtonConfigurationByAttributedSubtitleBlock _Nonnull)jobsResetAttributedSubtitle API_AVAILABLE(ios(16.0)){
     @jobs_weakify(self)
     return ^(NSAttributedString *data) {
         @jobs_strongify(self)
@@ -464,7 +470,7 @@
     };
 }
 
--(JobsReturnButtonConfigurationBySubtitleTextAttributesTransformerBlock _Nonnull)jobsResetSubtitleTextAttributesTransformer{
+-(JobsReturnButtonConfigurationBySubtitleTextAttributesTransformerBlock _Nonnull)jobsResetSubtitleTextAttributesTransformer API_AVAILABLE(ios(16.0)){
     @jobs_weakify(self)
     return ^(UIConfigurationTextAttributesTransformer data) {
         @jobs_strongify(self)
@@ -475,7 +481,7 @@
     };
 }
 
--(JobsReturnButtonConfigurationBySubtitleLineBreakModeBlock _Nonnull)jobsResetSubtitleLineBreakMode{
+-(JobsReturnButtonConfigurationBySubtitleLineBreakModeBlock _Nonnull)jobsResetSubtitleLineBreakMode API_AVAILABLE(ios(16.0)){
     @jobs_weakify(self)
     return ^(NSLineBreakMode data) {
         @jobs_strongify(self)
@@ -486,7 +492,7 @@
     };
 }
 
--(JobsReturnButtonConfigurationByIndicatorBlock _Nonnull)jobsResetIndicator{
+-(JobsReturnButtonConfigurationByIndicatorBlock _Nonnull)jobsResetIndicator API_AVAILABLE(ios(16.0)){
     @jobs_weakify(self)
     return ^(UIButtonConfigurationIndicator data) {
         @jobs_strongify(self)
@@ -497,7 +503,7 @@
     };
 }
 
--(JobsReturnButtonConfigurationByIndicatorColorTransformerBlock _Nonnull)jobsResetIndicatorColorTransformer{
+-(JobsReturnButtonConfigurationByIndicatorColorTransformerBlock _Nonnull)jobsResetIndicatorColorTransformer API_AVAILABLE(ios(16.0)){
     @jobs_weakify(self)
     return ^(UIConfigurationColorTransformer data) {
         @jobs_strongify(self)
@@ -508,7 +514,7 @@
     };
 }
 
--(JobsReturnButtonConfigurationByContentInsetsBlock _Nonnull)jobsResetContentInsets{
+-(JobsReturnButtonConfigurationByContentInsetsBlock _Nonnull)jobsResetContentInsets API_AVAILABLE(ios(16.0)){
     @jobs_weakify(self)
     return ^(NSDirectionalEdgeInsets data) {
         @jobs_strongify(self)
@@ -519,7 +525,7 @@
     };
 }
 
--(JobsReturnButtonConfigurationByImagePlacementBlock _Nonnull)jobsResetImagePlacement{
+-(JobsReturnButtonConfigurationByImagePlacementBlock _Nonnull)jobsResetImagePlacement API_AVAILABLE(ios(16.0)){
     @jobs_weakify(self)
     return ^(NSDirectionalRectEdge data) {
         @jobs_strongify(self)
@@ -530,7 +536,7 @@
     };
 }
 
--(JobsReturnButtonConfigurationByImagePaddingBlock _Nonnull)jobsResetImagePadding{
+-(JobsReturnButtonConfigurationByImagePaddingBlock _Nonnull)jobsResetImagePadding API_AVAILABLE(ios(16.0)){
     @jobs_weakify(self)
     return ^(CGFloat data) {
         @jobs_strongify(self)
@@ -541,7 +547,7 @@
     };
 }
 
--(JobsReturnButtonConfigurationByTitlePaddingBlock _Nonnull)jobsResetTitlePadding{
+-(JobsReturnButtonConfigurationByTitlePaddingBlock _Nonnull)jobsResetTitlePadding API_AVAILABLE(ios(16.0)){
     @jobs_weakify(self)
     return ^(CGFloat data) {
         @jobs_strongify(self)
@@ -552,7 +558,7 @@
     };
 }
 
--(JobsReturnButtonConfigurationByTitleAlignmentBlock _Nonnull)jobsResetTitleAlignment{
+-(JobsReturnButtonConfigurationByTitleAlignmentBlock _Nonnull)jobsResetTitleAlignment API_AVAILABLE(ios(16.0)){
     @jobs_weakify(self)
     return ^(UIButtonConfigurationTitleAlignment data) {
         @jobs_strongify(self)
@@ -563,7 +569,7 @@
     };
 }
 
--(JobsReturnButtonConfigurationByAutomaticallyUpdateForSelectionBlock _Nonnull)jobsResetAutomaticallyUpdateForSelection{
+-(JobsReturnButtonConfigurationByAutomaticallyUpdateForSelectionBlock _Nonnull)jobsResetAutomaticallyUpdateForSelection API_AVAILABLE(ios(16.0)){
     @jobs_weakify(self)
     return ^(BOOL data) {
         @jobs_strongify(self)

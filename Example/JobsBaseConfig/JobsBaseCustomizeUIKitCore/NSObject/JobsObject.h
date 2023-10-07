@@ -103,5 +103,7 @@
 #import "NSObject+UserInfo.h"
 /// 常用设定
 #import "NSObject+AppTools.h"
+/// 文本对齐
+#import "NSObject+NSMutableParagraphStyle.h"
 
 #endif /* JobsObject_h */
