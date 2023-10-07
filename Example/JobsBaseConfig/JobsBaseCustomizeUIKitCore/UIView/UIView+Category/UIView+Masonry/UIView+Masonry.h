@@ -20,6 +20,12 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)uninstall:(NSLayoutAttribute)layoutAttribute;
 /// 卸载当前view上的全部约束
 -(void)uninstallAllLayoutAttribute;
+/// Masonry约束动画
+/// - Parameters:
+///   - masonryBeforeBlock: 最初的约束
+///   - masonryAfterBlock: 希望变到的最后的约束
+-(void)jobsMasonryBeforeBlock:(void(^)(MASConstraintMaker *make))masonryBeforeBlock
+            masonryAfterBlock:(void(^)(MASConstraintMaker *make))masonryAfterBlock;
 
 @end
 
