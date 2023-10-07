@@ -30,7 +30,7 @@
 @property(nonatomic,assign)CGRect leftViewRectForBounds;/// leftView位置 【键盘弹起会调用此方法，但是键盘落下去不会调用】❤️
 @property(nonatomic,assign)CGRect rightViewRectForBounds;/// rightView位置 【键盘弹起会调用此方法，但是键盘落下去不会调用】❤️
 @property(nonatomic,assign)CGRect placeholderRectForBounds;/// Placeholder区域 【键盘弹起会调用此方法，但是键盘落下去不会调用】❤️ UITextFieldLabel的高度，即承载placeholder的控件的高度
-@property(nonatomic,assign)CGRect textRectForBounds;/// 重置文字区域 【未编辑状态下光标的起始位置】【键盘弹起+落下会调用此方法】❤️❤️这个属性决定承载text的控件UITextLayoutFragmentView的父控件UITextLayoutCanvasView和UITouchPassthroughView的Fram。图层结构由上至下是：UITextLayoutFragmentView—>UITextLayoutCanvasView—>UITouchPassthroughView。其x和y都是0，文本超过这个size会以...的形式出现。textRectForBounds的高度过于小就会导致UITextLayoutFragmentView加载不到图层。一般这里的最后一个参数（高度，固定写死100，不要有任何比例尺）
+@property(nonatomic,assign)CGRect textRectForBounds;/// 重置文字区域 ，这也是结束编辑的时候的文字区域 【未编辑状态下光标的起始位置】【键盘弹起+落下会调用此方法】❤️❤️这个属性决定承载text的控件UITextLayoutFragmentView的父控件UITextLayoutCanvasView和UITouchPassthroughView的Fram。图层结构由上至下是：UITextLayoutFragmentView—>UITextLayoutCanvasView—>UITouchPassthroughView。其x和y都是0，文本超过这个size会以...的形式出现。textRectForBounds的高度过于小就会导致UITextLayoutFragmentView加载不到图层。一般这里的最后一个参数（高度，固定写死100，不要有任何比例尺）
 @property(nonatomic,assign)CGRect editingRectForBounds;/// 重置编辑区域【编辑状态下的起始位置】、UIFieldEditor的位置大小【键盘弹起+落下会调用此方法】❤️❤️这个值，一般 == textRectForBounds。当超过输入距离的时候，新输入的字符会将之前的字符往左边顶
 
 @end
@@ -50,8 +50,7 @@
  }];
 */
 
-/**
- 
+/** rightView
  -(ZYTextField *)textField{
      if (!_textField) {
          _textField = ZYTextField.new;
@@ -92,5 +91,83 @@
          }];
      }return _textField;
  }
- 
+ */
+
+/** leftView
+ /// 右边啥也没有
+ -(ZYTextField *)textField{
+     if (!_textField) {
+         _textField = ZYTextField.new;
+         _textField.delegate = self;
+         _textField.textColor = JobsBlackColor;
+         _textField.backgroundColor = JobsCor(@"#F9F9F9");
+         _textField.returnKeyType = UIReturnKeyDefault;
+         _textField.keyboardAppearance = UIKeyboardAppearanceDefault;
+         _textField.keyboardType = UIKeyboardTypeDefault;
+         _textField.leftView = [UIImageView.alloc initWithImage:self.viewModel.image];
+         _textField.leftViewMode = UITextFieldViewModeAlways;
+         _textField.placeholder = self.viewModel.textModel.text;
+         _textField.font = UIFontWeightRegularSize(14);
+         _textField.placeholderFont = _textField.font;
+         _textField.placeholderColor = JobsGrayColor;
+         CGFloat placeholderHeight = [self jobsGetLabelWidthWithTitle:_textField.placeholder font:_textField.placeholderFont].height;
+         CGFloat placeholderY = (JobsWidth(28) - placeholderHeight) / 2;
+         _textField.drawPlaceholderInRect = CGRectMake(JobsWidth(52), placeholderY, [MSInputStyle1View viewSizeWithModel:nil].width - JobsWidth(32), JobsWidth(28));// OK
+         _textField.editingRectForBounds = CGRectMake(JobsWidth(52), 0, [MSInputStyle1View viewSizeWithModel:nil].width - JobsWidth(32 + 12), JobsWidth(28));
+         _textField.textRectForBounds = CGRectMake(JobsWidth(52), 0, [MSInputStyle3View viewSizeWithModel:nil].width - JobsWidth(32 + 12 + 100), 100);
+         @jobs_weakify(self)
+         [_textField jobsTextFieldEventFilterBlock:^BOOL(id data) {
+ //            @jobs_strongify(self)
+             return YES;
+         } subscribeNextBlock:^(NSString * _Nullable x) {
+             @jobs_strongify(self)
+             [self textFieldBlock:self->_textField
+                   textFieldValue:x];
+         }];
+         [self addSubview:_textField];
+         [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
+             make.size.mas_equalTo(CGSizeMake([MSInputStyle1View viewSizeWithModel:nil].width - JobsWidth(32 + 12), JobsWidth(28)));
+             make.centerY.equalTo(self);
+             make.left.equalTo(self).offset(JobsWidth(12));
+         }];
+     }return _textField;
+ }
+ /// 右边有个获取验证码
+ -(ZYTextField *)textField{
+     if (!_textField) {
+         _textField = ZYTextField.new;
+         _textField.delegate = self;
+         _textField.textColor = JobsBlackColor;
+         _textField.backgroundColor = JobsCor(@"#F9F9F9");
+         _textField.returnKeyType = UIReturnKeyDefault;
+         _textField.keyboardAppearance = UIKeyboardAppearanceDefault;
+         _textField.keyboardType = UIKeyboardTypeDefault;
+         _textField.leftView = [UIImageView.alloc initWithImage:self.viewModel.image];
+         _textField.leftViewMode = UITextFieldViewModeAlways;
+         _textField.placeholder = self.viewModel.textModel.text;
+         _textField.font = UIFontWeightRegularSize(14);
+         _textField.placeholderFont = _textField.font;
+         _textField.placeholderColor = JobsGrayColor;
+         CGFloat placeholderHeight = [self jobsGetLabelWidthWithTitle:_textField.placeholder font:_textField.placeholderFont].height;
+         CGFloat placeholderY = (JobsWidth(28) - placeholderHeight) / 2;
+         _textField.drawPlaceholderInRect = CGRectMake(JobsWidth(52), placeholderY, [MSInputStyle3View viewSizeWithModel:nil].width - JobsWidth(32 + 100), JobsWidth(28));// OK
+         _textField.editingRectForBounds = CGRectMake(JobsWidth(52), 0, [MSInputStyle3View viewSizeWithModel:nil].width - JobsWidth(32 + 12 + 100), JobsWidth(28));
+         _textField.textRectForBounds = CGRectMake(JobsWidth(52), 0, [MSInputStyle3View viewSizeWithModel:nil].width - JobsWidth(32 + 12 + 100), 100);
+         @jobs_weakify(self)
+         [_textField jobsTextFieldEventFilterBlock:^BOOL(id data) {
+ //            @jobs_strongify(self)
+             return YES;
+         } subscribeNextBlock:^(NSString * _Nullable x) {
+             @jobs_strongify(self)
+             [self textFieldBlock:self->_textField
+                   textFieldValue:x];
+         }];
+         [self addSubview:_textField];
+         [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
+             make.size.mas_equalTo(CGSizeMake([MSInputStyle3View viewSizeWithModel:nil].width - JobsWidth(32 + 12 + 100), JobsWidth(28)));
+             make.centerY.equalTo(self);
+             make.left.equalTo(self).offset(JobsWidth(12));
+         }];
+     }return _textField;
+ }
  */
