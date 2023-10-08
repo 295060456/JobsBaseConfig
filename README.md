@@ -7,7 +7,7 @@
 
 
 
-</details>
+
 
 <details id="目的">
  <summary><strong>目的</strong></summary>
@@ -22,7 +22,7 @@ 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
 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
 ```
 
-</details>
+
 
 </details>
 
