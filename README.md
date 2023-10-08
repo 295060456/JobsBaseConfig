@@ -3,13 +3,18 @@
     <img src="https://img.shields.io/badge/OC-orange" alt="OC" title="OC"/>
     <img src="https://img.shields.io/badge/xcode-13.1-blue" alt="xcode" title="xcode"/>
 </p>
-## 基础的配置
+# 基础的配置说明
 
 </details>
 
 <details id="目的">
  <summary><strong>目的</strong></summary>
 ```objective-c
+1、所有的项目根据这个根来进行统一配置和调用。做到全局的一致和统一
+2、千万要保证这个工程的编译通过，以后项目直接进行引用
+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
+```
+```
 1、所有的项目根据这个根来进行统一配置和调用。做到全局的一致和统一
 2、千万要保证这个工程的编译通过，以后项目直接进行引用
 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
@@ -34,10 +39,10 @@ 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
 
 ## 几点重要说明
 
+</details>
+
 <details id="iOS Xcode 代码块">
  <summary><strong>iOS Xcode 代码块</strong></summary>
-
-
 * 要想快，用快捷键调取代码块。集成方式：
 
 
@@ -51,8 +56,6 @@ https://github.com/JobsKit/JobsCodeSnippets
 
 <details id="UIButton">
  <summary><strong>UIButton</strong></summary>
-
-
 * 兼容新Api，如果还是按照以前的方式创建，你会发现UIButton不正常出现（请看下面的示例代码）
 
 
@@ -77,8 +80,6 @@ https://www.jianshu.com/p/12426709420e
 
 <details id="示例代码">
  <summary><strong>示例代码</strong></summary>
-
-
 * Masonry约束动画
 
 ```objective-c
@@ -210,8 +211,6 @@ https://www.jianshu.com/p/12426709420e
 
 <details id="一些文档和资料">
  <summary><strong>一些文档和资料</strong></summary>
-
-
 - [关于响应链的一些研究成果](文档和资料/关于响应链的一些研究成果/关于响应链的一些研究成果.md)
 - [模型解析](文档和资料/模型解析/模型解析.md)
 - [iOS状态栏颜色的修改](文档和资料/iOS状态栏颜色的修改.md)
