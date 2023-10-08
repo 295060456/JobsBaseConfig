@@ -52,7 +52,7 @@
     return [UITableView.alloc initWithFrame:CGRectZero style:UITableViewStyleGrouped];
 }
 
-+(instancetype)initWithStyleInsetGrouped{
++(instancetype)initWithStyleInsetGrouped API_AVAILABLE(ios(13.0)) API_UNAVAILABLE(tvos){
     return [UITableView.alloc initWithFrame:CGRectZero style:UITableViewStyleInsetGrouped];
 }
 

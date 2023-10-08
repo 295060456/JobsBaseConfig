@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)CGFloat detailTextLabelHeight;
 @property(nonatomic,assign)CGFloat imageViewWidth;
 @property(nonatomic,assign)CGFloat imageViewHeight;
-///【组 4】UITableViewCell单独自定义设置系统自带控件的偏移量
+///【组 4】UITableViewCell单独自定义设置系统自带控件的偏移量 在外层设置（也就是在定义TableView的这一层）
 @property(nonatomic,assign)CGFloat textLabelFrameOffsetX;
 @property(nonatomic,assign)CGFloat textLabelFrameOffsetY;
 @property(nonatomic,assign)CGFloat textLabelFrameOffsetWidth;

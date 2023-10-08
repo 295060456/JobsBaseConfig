@@ -44,6 +44,7 @@
 //#endif
 
 #import "XYColorOC-umbrella.h"
+#import "UITextView+Placeholder.h"
 
 #if __has_include(<YTKNetwork/YTKNetwork.h>)
 #import <YTKNetwork/YTKNetwork.h>

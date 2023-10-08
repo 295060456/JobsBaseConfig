@@ -67,6 +67,7 @@ UITableViewCellProtocol_synthesize
     }return self;
 }
 #pragma mark —— 一些私有方法
+/// 值打印
 -(void)printValue{
     NSLog(@"self.textLabelFrame = %@",NSStringFromCGRect(self.textLabelFrame));
     NSLog(@"self.detailTextLabelFrame = %@",NSStringFromCGRect(self.detailTextLabelFrame));
@@ -98,43 +99,8 @@ UITableViewCellProtocol_synthesize
     NSLog(@"self.imageViewFrameOffsetWidth = %f",self.imageViewFrameOffsetWidth);
     NSLog(@"self.imageViewFrameOffsetHeight = %f",self.imageViewFrameOffsetHeight);
 }
-#pragma mark —— 子类重写父类方法
-- (void)setSelected:(BOOL)selected
-           animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-}
-/// 程肖斌所言 全局只有在cellForRowAtIndexPath里面才能设置真正的selected值。而didSelectRowAtIndexPath不行
--(void)setSelected:(BOOL)selected{
-    [super setSelected:selected];
-    NSLog(@"%d",self.selected);
-}
-//@synthesize selected = _selected;
-//-(void)setSelected:(BOOL)selected{
-//    selected = _selected;
-//}
-
--(void)setEditing:(BOOL)editing
-         animated:(BOOL)animated{
-    [super setEditing:editing animated:animated];
-}
- 
--(void)layoutSubviews{
-    [super layoutSubviews];
-    [self printValue];
-    /// 取内部类UITableViewCellEditControl,对编辑状态的Cell的点击按钮进行替换成自定义的
-    for (UIControl *control in self.subviews){
-        if ([control isMemberOfClass:NSClassFromString(@"UITableViewCellEditControl")]){
-            for (UIView *view in control.subviews){
-                if ([view isKindOfClass:UIImageView.class]) {
-                    UIImageView *img = (UIImageView *)view;
-                    if (JobsIMG(@"按钮已选中") && JobsIMG(@"按钮未选中")) {
-                        img.image = self.selected ? JobsIMG(@"按钮已选中") : JobsIMG(@"按钮未选中");
-                    }
-                }
-            }
-        }
-    }
-    /// 修改 UITableViewCell 中默认子控件的frame
+/// 修改 UITableViewCell 中默认子控件的frame 【方法一】
+-(void)modifySysChildViewFrame1{
     {///【组 1】 UITableViewCell单独自定义设置系统自带控件的Frame 【形成Frame后直接return，避免被其他中间过程修改】❤️与组2、3属性互斥❤️
         if (!jobsZeroRectValue(self.textLabelFrame)) {
             self.textLabel.frame = self.textLabelFrame;
@@ -271,6 +237,63 @@ UITableViewCellProtocol_synthesize
         }
     }
 }
+/// 修改 UITableViewCell 中默认子控件的frame 【方法二】
+-(void)modifySysChildViewFrame2{
+    self.textLabelFrameOffsetX = JobsWidth(0);// 等价于用这个 self.textLabel.resetByOffsetOriginX(JobsWidth(0));
+    self.textLabelFrameOffsetY = JobsWidth(0);// 等价于用这个 self.textLabel.resetByOffsetOriginY(JobsWidth(0));
+    self.textLabelFrameOffsetWidth = JobsWidth(0);// 等价于用这个 self.textLabel.resetByOffsetWidth(JobsWidth(0));
+    self.textLabelFrameOffsetHeight = JobsWidth(0);// 等价于用这个 self.textLabel.resetByOffsetHeight(JobsWidth(0));
+    
+    self.detailTextLabelOffsetX = JobsWidth(0);// 等价于用这个 self.detailTextLabel.resetByOffsetOriginX(JobsWidth(0));
+    self.detailTextLabelOffsetY = JobsWidth(0);// 等价于用这个 self.detailTextLabel.resetByOffsetOriginY(JobsWidth(0));
+    self.detailTextLabelOffsetWidth = JobsWidth(0);// 等价于用这个 self.detailTextLabel.resetByOffsetWidth(JobsWidth(0));
+    self.detailTextLabelOffsetHeight = JobsWidth(0);// 等价于用这个 self.detailTextLabel.resetByOffsetHeight(JobsWidth(0));
+    
+    self.imageViewFrameOffsetX = JobsWidth(0);// 等价于用这个 self.imageView.resetByOffsetOriginX(JobsWidth(0));
+    self.imageViewFrameOffsetY = JobsWidth(0);// 等价于用这个 self.imageView.resetByOffsetOriginY(JobsWidth(0));
+    self.imageViewFrameOffsetWidth = JobsWidth(0);// 等价于用这个 self.imageView.resetByOffsetWidth(JobsWidth(0));
+    self.imageViewFrameOffsetHeight = JobsWidth(0);// 等价于用这个 self.imageView.resetByOffsetHeight(JobsWidth(0));
+}
+#pragma mark —— 子类重写父类方法
+- (void)setSelected:(BOOL)selected
+           animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+}
+/// 程肖斌所言 全局只有在cellForRowAtIndexPath里面才能设置真正的selected值。而didSelectRowAtIndexPath不行
+-(void)setSelected:(BOOL)selected{
+    [super setSelected:selected];
+    NSLog(@"%d",self.selected);
+}
+//@synthesize selected = _selected;
+//-(void)setSelected:(BOOL)selected{
+//    selected = _selected;
+//}
+
+-(void)setEditing:(BOOL)editing
+         animated:(BOOL)animated{
+    [super setEditing:editing animated:animated];
+}
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    [self printValue];
+    /// 取内部类UITableViewCellEditControl,对编辑状态的Cell的点击按钮进行替换成自定义的
+    for (UIControl *control in self.subviews){
+        if ([control isMemberOfClass:NSClassFromString(@"UITableViewCellEditControl")]){
+            for (UIView *view in control.subviews){
+                if ([view isKindOfClass:UIImageView.class]) {
+                    UIImageView *img = (UIImageView *)view;
+                    if (JobsIMG(@"按钮已选中") && JobsIMG(@"按钮未选中")) {
+                        img.image = self.selected ? JobsIMG(@"按钮已选中") : JobsIMG(@"按钮未选中");
+                    }
+                }
+            }
+        }
+    }
+    [self modifySysChildViewFrame1];
+    // 或者
+    [self modifySysChildViewFrame2];
+}
 /**
  1、-(void)setFrame:(CGRect)frame 此方法仅限于具体的 UITableViewCell子类使用
  2、如果在 BaseTableViewCell 实现此方法，那么一单相关子类集成 BaseTableViewCell 则会对-(void)setFrame:(CGRect)frame进行反复调用，因为[super setFrame:frame];
@@ -335,38 +358,14 @@ UITableViewCellProtocol_synthesize
 }
 
 +(CGFloat)cellHeightWithModel:(UIViewModel *_Nullable)model{
-    /**
-     换行策略：
-     1、如果text的实际长度小于整个屏幕的一半，那么不提行，正常显示
-     2、如果text的实际长度大于整个屏幕的一半，那么提行，且计算在这种情况下的高
-     */
     UIViewModel *vm = UIViewModel.new;
     vm.textModel.font = UIFontWeightRegularSize(14);
     vm.textModel.text = model.subTextModel.text;
     vm.textModel.textLineSpacing = 0;
     vm.jobsWidth = JobsMainScreen_WIDTH() - JobsWidth(50);
-    
-    CGFloat s = JobsMainScreen_WIDTH() / 2;
-    /// 文字 vm.textModel.text 在宽度 = vm.jobsWidth 的时候的高度
-    CGFloat height1 = [vm.textModel.text jobsTextHeightWithFont:vm.textModel.font
-                                                     lineHeight:vm.textModel.textLineSpacing
-                                                   controlWidth:vm.jobsWidth].jobsHeight;
-    /// 文字 vm.textModel.text 在宽度 s = JobsMainScreen_WIDTH() / 2 的情况下的高度
-    CGFloat height2 = [vm.textModel.text jobsTextWidthWithFont:vm.textModel.font
-                                                   lineHeight:vm.textModel.textLineSpacing
-                                                controlHeight:s].jobsHeight;
-    /// 单行文本 vm.textModel.text 的高度
-    CGFloat singleLineHeight = [vm.textModel.text jobsSingleLineHeightWithfont:vm.textModel.font];
-    /// 文字 vm.textModel.text 在高度 = singleLineHeight 的时候的宽度
-    CGFloat width1 = [vm.textModel.text jobsTextWidthWithFont:vm.textModel.font
-                                                   lineHeight:vm.textModel.textLineSpacing
-                                                controlHeight:singleLineHeight].jobsWidth;
-    
-    if(width1 <= s){/// 正常显示
-        return height1;
-    }else{/// 提行显示，宽度为 s = JobsMainScreen_WIDTH() / 2
-        return height2;
-    }
+    return [vm.textModel.text jobsTextHeightWithFont:vm.textModel.font
+                                          lineHeight:vm.textModel.textLineSpacing
+                                        controlWidth:vm.jobsWidth].jobsHeight;
 }
 #pragma mark —— 协议属性合成set & get方法
 /// UIViewModelProtocol
