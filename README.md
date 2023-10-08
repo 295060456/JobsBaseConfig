@@ -1,66 +1,42 @@
+# 基础的配置说明
+
 <p align="center">
     <img src="https://img.shields.io/badge/pod-1.9.3-brightgreen" alt="cocoapods" title="cocoapods"/>
     <img src="https://img.shields.io/badge/OC-orange" alt="OC" title="OC"/>
     <img src="https://img.shields.io/badge/xcode-13.1-blue" alt="xcode" title="xcode"/>
 </p>
-# 基础的配置说明
-
-
-
-
 
 <details id="目的">
- <summary><strong>目的</strong></summary>
-```objective-c
-1、所有的项目根据这个根来进行统一配置和调用。做到全局的一致和统一
-2、千万要保证这个工程的编译通过，以后项目直接进行引用
-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
-```
-```
-1、所有的项目根据这个根来进行统一配置和调用。做到全局的一致和统一
-2、千万要保证这个工程的编译通过，以后项目直接进行引用
-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
-```
-
-
-
+  <summary><strong>目的</strong></summary>
+- 所有的项目根据这个根来进行统一配置和调用。做到全局的一致和统一<br>
+- 千万要保证这个工程的编译通过，以后项目直接进行引用<br>
+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<br>
 </details>
 
 <details id="特色">
  <summary><strong>特色</strong></summary>
-
-- [x] 网络模块Api
-- [x] Toast
-- [x] 系统、UI配置
-- [x] UI组件库
-- [x] 语言本地化
-- [x] 数据存储UserDefaults
-- [ ] 统一的WebView
-
+- [x] 网络模块Api<br>
+- [x] Toast<br>
+- [x] 系统、UI配置<br>
+- [x] UI组件库<br>
+- [x] 语言本地化<br>
+- [x] 数据存储UserDefaults<br>
+- [ ] 统一的WebView<br>
 </details>
 
 ## 几点重要说明
 
-</details>
-
 <details id="iOS Xcode 代码块">
  <summary><strong>iOS Xcode 代码块</strong></summary>
 * 要想快，用快捷键调取代码块。集成方式：
-
-
 ```javascript
 https://github.com/JobsKit/JobsCodeSnippets
 ```
-
-</details>
-
 </details>
 
 <details id="UIButton">
  <summary><strong>UIButton</strong></summary>
 * 兼容新Api，如果还是按照以前的方式创建，你会发现UIButton不正常出现（请看下面的示例代码）
-
-
 ```javascript
 苹果在后续的Api中推出了 UIButtonConfiguration 来设置UIButton，但是这个新Api会存在几大问题
 1、大多数开发者对这个Api不熟悉
@@ -75,9 +51,6 @@ https://github.com/JobsKit/JobsCodeSnippets
 Chat GPT 3.5 
 https://www.jianshu.com/p/12426709420e
 ```
-
-</details>
-
 </details>
 
 <details id="示例代码">
@@ -206,9 +179,6 @@ https://www.jianshu.com/p/12426709420e
      }return _richTextConfigMutArr;
  }
 ```
-
-</details>
-
 </details>
 
 <details id="一些文档和资料">
@@ -227,6 +197,5 @@ https://www.jianshu.com/p/12426709420e
 </details>
 
 ## 打开苹果的反馈助理
-
 * 浏览器打开并输入 
 
