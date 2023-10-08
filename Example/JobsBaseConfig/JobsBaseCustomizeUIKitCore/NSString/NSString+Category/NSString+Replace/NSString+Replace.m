@@ -39,7 +39,7 @@
     return doneTitle;
 }
 /// 在字符串前面和后面拼接一个字符串
--(JobsReturnStringByStringStringBlock _Nonnull)resetStringByfontAndTailStrings{
+-(JobsReturnStringByStringStringBlock _Nonnull)resetStringByFontAndTailStrings{
     @jobs_weakify(self)
     return ^(NSString *fontString,NSString *tailString) {
         @jobs_strongify(self)
@@ -47,11 +47,27 @@
     };
 }
 /// 在字符串前面和后面拼接一个相同的字符串
--(JobsReturnStringByStringBlock _Nonnull)resetStringByfontAndTailString{
+-(JobsReturnStringByStringBlock _Nonnull)resetStringByFontAndTailString{
     @jobs_weakify(self)
     return ^(NSString *data) {
         @jobs_strongify(self)
         return [NSString stringWithFormat:@"%@%@%@",data,self,data];
+    };
+}
+/// 在字符串前面拼接一个字符串
+-(JobsReturnStringByStringBlock _Nonnull)resetStringByFontString{
+    @jobs_weakify(self)
+    return ^(NSString *data) {
+        @jobs_strongify(self)
+        return [NSString stringWithFormat:@"%@%@",data,self];
+    };
+}
+/// 在字符串后面拼接一个字符串
+-(JobsReturnStringByStringBlock _Nonnull)resetStringByTailString{
+    @jobs_weakify(self)
+    return ^(NSString *data) {
+        @jobs_strongify(self)
+        return [NSString stringWithFormat:@"%@%@",self,data];
     };
 }
 /// 服务器请求的数据为空值的时候进行替换本地默认值
