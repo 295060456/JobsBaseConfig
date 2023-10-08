@@ -25,10 +25,9 @@ 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<br>
 </details>
 
 ## 几点重要说明
-
 <details id="iOS Xcode 代码块">
  <summary><strong>iOS Xcode 代码块</strong></summary>
-* 要想快，用快捷键调取代码块。集成方式：
+* 要想快，用快捷键调取代码块。集成方式：<br>
 ```javascript
 https://github.com/JobsKit/JobsCodeSnippets
 ```
@@ -36,7 +35,8 @@ https://github.com/JobsKit/JobsCodeSnippets
 
 <details id="UIButton">
  <summary><strong>UIButton</strong></summary>
-* 兼容新Api，如果还是按照以前的方式创建，你会发现UIButton不正常出现（请看下面的示例代码）
+* 兼容新Api，如果还是按照以前的方式创建，你会发现UIButton不正常出现（请看下面的示例代码）<br>
+
 ```javascript
 苹果在后续的Api中推出了 UIButtonConfiguration 来设置UIButton，但是这个新Api会存在几大问题
 1、大多数开发者对这个Api不熟悉
@@ -55,7 +55,7 @@ https://www.jianshu.com/p/12426709420e
 
 <details id="示例代码">
  <summary><strong>示例代码</strong></summary>
-* Masonry约束动画
+* Masonry约束动画<br>
 
 ```objective-c
 -(MSMineView2 *)view2{
@@ -183,16 +183,16 @@ https://www.jianshu.com/p/12426709420e
 
 <details id="一些文档和资料">
  <summary><strong>一些文档和资料</strong></summary>
-- [关于响应链的一些研究成果](文档和资料/关于响应链的一些研究成果/关于响应链的一些研究成果.md)
-- [模型解析](文档和资料/模型解析/模型解析.md)
-- [iOS状态栏颜色的修改](文档和资料/iOS状态栏颜色的修改.md)
-- [UICollectionView点击事件](文档和资料/UICollectionView点击事件.md)
-- [路由](文档和资料/路由.md)
+- [关于响应链的一些研究成果](文档和资料/关于响应链的一些研究成果/关于响应链的一些研究成果.md)<br>
+- [模型解析](文档和资料/模型解析/模型解析.md)<br>
+- [iOS状态栏颜色的修改](文档和资料/iOS状态栏颜色的修改.md)<br>
+- [UICollectionView点击事件](文档和资料/UICollectionView点击事件.md)<br>
+- [路由](文档和资料/路由.md)<br>
 
-- [其他-关于系统Nav](文档和资料/其他/关于系统Nav.md)
-- [其他-键盘方法生命周期](文档和资料/其他/键盘方法生命周期.md)
-- [其他-精确度量iOS-App的启动时间](文档和资料/其他/精确度量iOS-App的启动时间.md)
-- [其他-谁说HTTP和GET就不能通过Body来发送数据呢？](文档和资料/其他/谁说HTTP和GET就不能通过Body来发送数据呢？.md)
+- [其他-关于系统Nav](文档和资料/其他/关于系统Nav.md)<br>
+- [其他-键盘方法生命周期](文档和资料/其他/键盘方法生命周期.md)<br>
+- [其他-精确度量iOS-App的启动时间](文档和资料/其他/精确度量iOS-App的启动时间.md)<br>
+- [其他-谁说HTTP和GET就不能通过Body来发送数据呢？](文档和资料/其他/谁说HTTP和GET就不能通过Body来发送数据呢？.md)<br>
 
 </details>
 
