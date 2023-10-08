@@ -5,7 +5,6 @@
 #import "UITextField+Extend.h"
 #import "LoadingImage.h"
 #import "MacroDef_Cor.h"
-#import "TextFieldDefine.h"
 
 @interface ZYTextField : UITextField
 #pragma mark —— 自定义属性
@@ -14,7 +13,7 @@
 @property(nonatomic,assign)CGFloat leftViewOffsetX; /// leftView 距离控件最左边的差值
 @property(nonatomic,assign)CGFloat rightViewOffsetX; /// TextField的删除按钮距离控件最右边的差值
 @property(nonatomic,assign)CGFloat fieldEditorOffset; /// 因为设置了leftView后fieldEditor所需的偏移量
-@property(nonatomic,assign)PlaceHolderAlignment placeHolderAlignment; /// PlaceHolder的位置（左/中/右）
+@property(nonatomic,assign)NSTextAlignment placeHolderAlignment; /// PlaceHolder的位置（左/中/右）
 @property(nonatomic,assign)CGFloat placeHolderOffset; /// 左/右/居中 对齐的时候的偏移量 传正值
 @property(nonatomic,assign)CGFloat ZYTextFieldCornerRadius;
 @property(nonatomic,assign)CGFloat ZYTextFieldBorderWidth;

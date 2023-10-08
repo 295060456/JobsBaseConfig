@@ -62,7 +62,7 @@
     _textField.placeholderFont = self.doorInputViewBaseStyleModel.placeholderFont;
     _textField.objBindingParams = self.textFieldInputModel;
     _textField.animationColor = self.doorInputViewBaseStyleModel.animationColor ? : Cor4;
-    _textField.placeHolderAlignment = self.doorInputViewBaseStyleModel.placeHolderAlignment ? : PlaceHolderAlignmentLeft;
+    _textField.placeHolderAlignment = self.doorInputViewBaseStyleModel.placeHolderAlignment ? : NSTextAlignmentLeft;
     _textField.placeHolderOffset = self.doorInputViewBaseStyleModel.placeHolderOffset ? : JobsWidth(20);
     _textField.moveDistance = self.doorInputViewBaseStyleModel.moveDistance ? : JobsWidth(40);
     _textField.fieldEditorOffset = self.doorInputViewBaseStyleModel.fieldEditorOffset ? : JobsWidth(50);

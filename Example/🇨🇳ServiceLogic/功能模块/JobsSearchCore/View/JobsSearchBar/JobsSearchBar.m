@@ -55,7 +55,7 @@
         _textField.backgroundColor = HEXCOLOR(0xFFFFFF);
         _textField.keyboardAppearance = UIKeyboardAppearanceAlert;
         _textField.returnKeyType = UIReturnKeySearch;
-        _textField.placeHolderAlignment = PlaceHolderAlignmentCenter;
+        _textField.placeHolderAlignment = NSTextAlignmentCenter;
         _textField.leftViewOffsetX = JobsWidth(5);
         _textField.offset = JobsWidth(3);
         [self addSubview:_textField];

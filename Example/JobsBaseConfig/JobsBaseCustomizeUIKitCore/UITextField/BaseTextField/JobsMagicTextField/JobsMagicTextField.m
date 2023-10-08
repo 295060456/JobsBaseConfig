@@ -23,7 +23,7 @@
 - (instancetype)init{
     if (self = [super init]) {
         self.placeholdAnimationable = YES;
-        self.placeHolderAlignment = PlaceHolderAlignmentLeft;
+        self.placeHolderAlignment = NSTextAlignmentLeft;
         self.clipsToBounds = NO;
         [NSNotificationCenter.defaultCenter addObserver:self
                                                selector:@selector(changeEditing)

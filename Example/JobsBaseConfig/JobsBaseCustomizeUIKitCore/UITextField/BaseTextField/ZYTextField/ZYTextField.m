@@ -8,7 +8,7 @@
 
 -(instancetype)init{
     if (self = [super init]) {
-        self.placeHolderAlignment = PlaceHolderAlignmentLeft;
+        self.placeHolderAlignment = NSTextAlignmentLeft;
         self.textAlignment = NSTextAlignmentLeft;
     }return self;
 }
@@ -96,15 +96,15 @@
     CGSize size = [self.placeholder sizeWithAttributes:@{NSFontAttributeName:self.placeholderFont}];
     
     switch (self.placeHolderAlignment) {
-        case PlaceHolderAlignmentLeft:{
+        case NSTextAlignmentLeft:{
             newbounds.origin.x += self.placeHolderOffset + self.leftViewOffsetX;
         }break;
-        case PlaceHolderAlignmentCenter:{
+        case NSTextAlignmentCenter:{
             CGFloat width = bounds.size.width - size.width;
             newbounds.origin.x = width / 2 + self.placeHolderOffset + self.leftViewOffsetX;
             newbounds.size.width = size.width;
         }break;
-        case PlaceHolderAlignmentRight:{
+        case NSTextAlignmentRight:{
             CGFloat width = bounds.size.width - size.width;
             newbounds.origin.x = width - (self.placeHolderOffset + self.leftViewOffsetX);
             newbounds.size.width = size.width;

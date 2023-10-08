@@ -49,7 +49,7 @@
     _textField.placeholder = self.doorInputViewBaseStyleModel.placeHolderStr;
     _textField.placeholderColor = self.doorInputViewBaseStyleModel.placeholderColor;
     _textField.placeholderFont = self.doorInputViewBaseStyleModel.placeholderFont;
-    _textField.placeHolderAlignment = self.doorInputViewBaseStyleModel.placeHolderAlignment ? : PlaceHolderAlignmentLeft;
+    _textField.placeHolderAlignment = self.doorInputViewBaseStyleModel.placeHolderAlignment ? : NSTextAlignmentLeft;
     _textField.placeHolderOffset = self.doorInputViewBaseStyleModel.placeHolderOffset ? : JobsWidth(20);
     _textField.keyboardType = self.doorInputViewBaseStyleModel.keyboardType;
     _textField.keyboardAppearance = self.doorInputViewBaseStyleModel.keyboardAppearance;

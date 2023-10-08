@@ -67,7 +67,7 @@ NS_ASSUME_NONNULL_END
          _inputViewStyleModel = JobsAppDoorInputViewBaseStyleModel.new;
          _inputViewStyleModel.placeHolderStr = self.viewModel.subTextModel.text;
          _inputViewStyleModel.titleLabStr = self.viewModel.textModel.text;
-         _inputViewStyleModel.placeHolderAlignment = PlaceHolderAlignmentLeft;
+         _inputViewStyleModel.placeHolderAlignment = NSTextAlignmentLeft;
          _inputViewStyleModel.leftViewOffsetX = 0.1;
          _inputViewStyleModel.offset = 0.1;
          _inputViewStyleModel.titleStrCor = self.viewModel.textModel.textCor;

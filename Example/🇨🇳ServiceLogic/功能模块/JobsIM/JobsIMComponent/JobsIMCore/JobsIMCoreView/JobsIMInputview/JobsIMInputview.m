@@ -95,7 +95,7 @@
 -(ZYTextField *)inputTextField{
     if (!_inputTextField) {
         _inputTextField = ZYTextField.new;
-        _inputTextField.placeHolderAlignment = PlaceHolderAlignmentCenter;
+        _inputTextField.placeHolderAlignment = NSTextAlignmentCenter;
         _inputTextField.placeholder = @"在此输入需要发送的信息";
         _inputTextField.delegate = self;
         _inputTextField.leftView = self.imgView;

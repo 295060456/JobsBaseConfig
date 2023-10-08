@@ -55,7 +55,7 @@
     _textField.useCustomClearButton = self.doorInputViewBaseStyleModel.useCustomClearButton;
     _textField.isShowDelBtn = self.doorInputViewBaseStyleModel.isShowDelBtn;
     _textField.rightViewOffsetX = self.doorInputViewBaseStyleModel.rightViewOffsetX ? : JobsWidth(8);// 删除按钮的偏移量
-    _textField.placeHolderAlignment = self.doorInputViewBaseStyleModel.placeHolderAlignment ? : PlaceHolderAlignmentLeft;
+    _textField.placeHolderAlignment = self.doorInputViewBaseStyleModel.placeHolderAlignment ? : NSTextAlignmentLeft;
     _textField.placeHolderOffset = self.doorInputViewBaseStyleModel.placeHolderOffset ? : JobsWidth(20);
     _textField.placeholderColor = self.doorInputViewBaseStyleModel.placeholderColor;
     _textField.placeholderFont = self.doorInputViewBaseStyleModel.placeholderFont;
