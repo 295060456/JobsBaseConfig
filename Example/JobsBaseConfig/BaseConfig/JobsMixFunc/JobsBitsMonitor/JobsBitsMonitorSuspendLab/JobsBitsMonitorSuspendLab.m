@@ -7,7 +7,7 @@
 
 #import "JobsBitsMonitorSuspendLab.h"
 
-extern NetworkingEnvir networkingEnvir;
+extern JobsNetworkingEnvir networkingEnvir;
 
 @interface JobsBitsMonitorSuspendLab ()
 /// Data

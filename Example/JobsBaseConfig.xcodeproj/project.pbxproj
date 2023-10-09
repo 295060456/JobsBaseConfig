@@ -2050,7 +2050,6 @@
 		C5932EC6282D26E500B3B053 /* JobsBaseConfigTestPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBaseConfigTestPopupView.h; sourceTree = "<group>"; };
 		C5932ECC282D271E00B3B053 /* JobsBaseConfigPopupViewHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsBaseConfigPopupViewHeader.h; sourceTree = "<group>"; };
 		C5932ECD282D27F400B3B053 /* JobsAppDoorInputViewHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputViewHeader.h; sourceTree = "<group>"; };
-		C593DBCA2AC897A900F875B5 /* DefineStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefineStructure.h; sourceTree = "<group>"; };
 		C593DBCB2AC897A900F875B5 /* APIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIKey.h; sourceTree = "<group>"; };
 		C593DBCD2AC897A900F875B5 /* JobsBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBlock.h; sourceTree = "<group>"; };
 		C593DBCF2AC897A900F875B5 /* ReturnByUnCertainParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReturnByUnCertainParameters.h; sourceTree = "<group>"; };
@@ -2659,6 +2658,7 @@
 		C5AA8B64282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsAppDoorInputViewBaseStyle_3.h; sourceTree = "<group>"; };
 		C5ACF8562AD3BBB200316387 /* NSObject+BRPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+BRPickerView.m"; sourceTree = "<group>"; };
 		C5ACF8572AD3BBB200316387 /* NSObject+BRPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BRPickerView.h"; sourceTree = "<group>"; };
+		C5ACF9B32AD4A81300316387 /* JobsDefineAllEnumHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsDefineAllEnumHeader.h; sourceTree = "<group>"; };
 		C5B3AE7F285378A70052A4A9 /* JXCategoryViewWithHeaderViewSubVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JXCategoryViewWithHeaderViewSubVC.h; sourceTree = "<group>"; };
 		C5B3AE80285378A70052A4A9 /* JXCategoryViewWithHeaderViewSubVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JXCategoryViewWithHeaderViewSubVC.m; sourceTree = "<group>"; };
 		C5B3AE85285378FA0052A4A9 /* BaiShaETProjVIPSubCVCell_03.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaiShaETProjVIPSubCVCell_03.h; sourceTree = "<group>"; };
@@ -7192,7 +7192,7 @@
 		C593DBC92AC897A900F875B5 /* 其他的一些全局定义文件 */ = {
 			isa = PBXGroup;
 			children = (
-				C593DBCA2AC897A900F875B5 /* DefineStructure.h */,
+				C5ACF9B32AD4A81300316387 /* JobsDefineAllEnumHeader.h */,
 				C593DBCB2AC897A900F875B5 /* APIKey.h */,
 				C593DBCC2AC897A900F875B5 /* JobsBlock */,
 			);

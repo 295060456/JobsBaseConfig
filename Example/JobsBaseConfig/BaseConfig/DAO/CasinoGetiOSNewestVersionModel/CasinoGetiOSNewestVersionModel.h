@@ -15,10 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy)NSString *createTime;
 @property(nonatomic,copy)NSString *downloadUrl;// 下载地址
 @property(nonatomic,strong)NSNumber *ID;
-@property(nonatomic,assign)ForcedUpdateType isForced;// 强制更新：1、是 ; 2、否
+@property(nonatomic,assign)JobsUpdateType isForced;// 强制更新：1、是 ; 2、否
 @property(nonatomic,copy)NSString *name;// 版本名称
 @property(nonatomic,copy)NSString *remark;// 备注
-@property(nonatomic,assign)ForcedUpdateType terminalType;// 终端类型 : 1、Android ; 2、iOS
+@property(nonatomic,assign)JobsTerminalType terminalType;// 终端类型 : 1、Android ; 2、iOS
 @property(nonatomic,strong)NSNumber *updateBy;
 @property(nonatomic,copy)NSString *updateTime;
 @property(nonatomic,copy)NSString *versionNumber;// 版本号

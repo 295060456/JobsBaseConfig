@@ -15,7 +15,7 @@
 
 #import "JobsBitsMonitorCore.h"
 #import "NSObject+WHToast.h"//提示
-#import "DefineStructure.h"
+#import "JobsDefineAllEnumHeader.h"
 #import "UILabel+Extra.h"
 #import "BaseViewProtocol.h"
 

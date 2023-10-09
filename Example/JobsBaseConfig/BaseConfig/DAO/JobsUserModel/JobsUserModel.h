@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DefineStructure.h"
+#import "JobsDefineAllEnumHeader.h"
 #import "BaseProtocol.h"
 #import "JobsObject.h"
 #import "NSObject+Class.h"

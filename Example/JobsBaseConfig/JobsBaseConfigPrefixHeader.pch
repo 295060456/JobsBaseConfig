@@ -49,7 +49,7 @@
 ///  其他的一些全局定义文件
 #import "JobsBlock.h"
 #import "APIKey.h"
-#import "DefineStructure.h"
+#import "JobsDefineAllEnumHeader.h"
 #pragma mark —— JobsBaseCustomizeUIKitCore
 #import "JobsBaseCustomizeUIKitCoreHeader.h"
 #pragma mark —— JobsMixFunc

@@ -39,9 +39,9 @@
     self.iOSNewestVersionModel = model;
     self.titleLab.alpha = 1;
     
-    if (self.iOSNewestVersionModel.isForced == ForcedUpdate_NO) {
+    if (self.iOSNewestVersionModel.isForced == JobsUpdateByUser) {
         self.cancelBtn.alpha = 1;
-    }else if (self.iOSNewestVersionModel.isForced == ForcedUpdate_YES){
+    }else if (self.iOSNewestVersionModel.isForced == JobsUpdateBySys){
         self.cancelBtn.alpha = 0;
     }
     
@@ -111,7 +111,7 @@
             make.size.mas_equalTo(CGSizeMake(JobsWidth(110), JobsWidth(44)));
             make.bottom.equalTo(self).offset(-JobsWidth(20));
             if (self.iOSNewestVersionModel &&
-                self.iOSNewestVersionModel.isForced == ForcedUpdate_YES) {
+                self.iOSNewestVersionModel.isForced == JobsUpdateBySys) {
                 make.centerX.equalTo(self);
             }else{
                 make.right.equalTo(self).offset(JobsWidth(-20));

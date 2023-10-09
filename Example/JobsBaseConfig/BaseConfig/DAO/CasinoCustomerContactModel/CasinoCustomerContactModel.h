@@ -16,10 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy)NSString *createTime;
 @property(nonatomic,copy)NSString *customer; // 客服平台
 @property(nonatomic,copy)NSString *customerAccount; // 客服账号
-@property(nonatomic,assign)CustomerContactStyle customerMark; // 客服平台标识
+@property(nonatomic,assign)JobsCustomerContactStyle customerMark; // 客服平台标识
 @property(nonatomic,copy)NSString *ID;
 @property(nonatomic,copy)NSString *pcIconUrl; // PC端图标
-@property(nonatomic,assign)CustomerContactStateStyle state;// 客服平台状态
+@property(nonatomic,assign)JobsCustomerContactType state;// 客服平台状态
 @property(nonatomic,copy)NSString *updateBy;
 @property(nonatomic,copy)NSString *updateTime;
 

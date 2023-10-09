@@ -334,10 +334,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
         _dataMutArr = NSMutableArray.array;
         {
             JobsMsgDataModel *viewModel = JobsMsgDataModel.new;
-            viewModel.msgStyle = MsgStyle_Notify;/// 通知
-//            viewModel.msgStyle = MsgStyle_Activity;/// 活动
-//            viewModel.msgStyle = MsgStyle_Notice;/// 公告
-//            viewModel.msgStyle = MsgStyle_Bonus;/// 红利
+            viewModel.msgStyle = JobsMsgType_Notify;/// 通知
             viewModel.textModel.text = Internationalization(@"6月1日13:00點整，英超焦點賽月1日13:00點整，英超焦點賽");
             viewModel.subTextModel.text = Internationalization(@"夏季聯賽火熱來襲，全體會員虛擬幣存...夏季聯賽火熱來襲，全體會員虛擬幣存");
             viewModel.time = Internationalization(@"05-13 18:20");
@@ -348,10 +345,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
         
         {
             JobsMsgDataModel *viewModel = JobsMsgDataModel.new;
-//            viewModel.msgStyle = MsgStyle_Notify;/// 通知
-            viewModel.msgStyle = MsgStyle_Activity;/// 活动
-//            viewModel.msgStyle = MsgStyle_Notice;/// 公告
-//            viewModel.msgStyle = MsgStyle_Bonus;/// 红利
+            viewModel.msgStyle = JobsMsgType_Activity;/// 活动
             viewModel.textModel.text = Internationalization(@"6月1日13:00點");
             viewModel.subTextModel.text = Internationalization(@"夏季聯賽火熱來襲，全體會員虛擬幣存...");
             viewModel.time = Internationalization(@"05-13 18:20");
@@ -362,10 +356,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
         
         {
             JobsMsgDataModel *viewModel = JobsMsgDataModel.new;
-//            viewModel.msgStyle = MsgStyle_Notify;/// 通知
-//            viewModel.msgStyle = MsgStyle_Activity;/// 活动
-            viewModel.msgStyle = MsgStyle_Notice;/// 公告
-//            viewModel.msgStyle = MsgStyle_Bonus;/// 红利
+            viewModel.msgStyle = JobsMsgType_Notice;/// 公告
             viewModel.textModel.text = Internationalization(@"6月1日");
             viewModel.subTextModel.text = Internationalization(@"夏季聯賽火熱來襲，全體會員虛擬幣存...");
             viewModel.time = Internationalization(@"05-13 18:20");
@@ -376,10 +367,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
         
         {
             JobsMsgDataModel *viewModel = JobsMsgDataModel.new;
-//            viewModel.msgStyle = MsgStyle_Notify;/// 通知
-//            viewModel.msgStyle = MsgStyle_Activity;/// 活动
-//            viewModel.msgStyle = MsgStyle_Notice;/// 公告
-            viewModel.msgStyle = MsgStyle_Bonus;/// 红利
+            viewModel.msgStyle = JobsMsgType_Bonus;/// 红利
             viewModel.textModel.text = Internationalization(@"wowowowowo");
             viewModel.subTextModel.text = Internationalization(@"夏季聯賽火熱來襲，全體會員虛擬幣存...");
             viewModel.time = Internationalization(@"05-13 18:20");
