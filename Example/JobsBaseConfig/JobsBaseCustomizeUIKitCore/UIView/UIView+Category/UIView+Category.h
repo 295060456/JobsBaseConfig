@@ -24,7 +24,6 @@
 #import "UIView+ZFPlayer.h"
 #import "UIView+UIBackgroundConfig.h"
 #import "UIView+Masonry.h"
-#import "UIView+BRPickerView.h"
 
 #import "UIView+Gesture.h"
 #import "UIView+JHGestureBlock.h"

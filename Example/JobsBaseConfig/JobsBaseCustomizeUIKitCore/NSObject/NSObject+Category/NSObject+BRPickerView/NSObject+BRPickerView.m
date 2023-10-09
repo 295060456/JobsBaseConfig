@@ -5,11 +5,11 @@
 //  Created by Jobs on 2020/10/12.
 //
 
-#import "UIView+BRPickerView.h"
+#import "NSObject+BRPickerView.h"
 /// https://github.com/91renb/BRPickerView
-@implementation UIView (BRPickerView)
+@implementation NSObject (BRPickerView)
 #pragma mark 一些公有方法
-+(BRPickerStyle *)makeCustomStyle{
+-(BRPickerStyle *)makeCustomStyle{
     BRPickerStyle *pickerStyle = BRPickerStyle.new;
     pickerStyle.pickerColor = UIColor.whiteColor;
     pickerStyle.pickerTextColor = HEXCOLOR(0x3D4A58);
@@ -19,7 +19,7 @@
     return pickerStyle;
 }
 
-+(BRAddressPickerView *)makeAddressPickerView:(BRPickerStyle *_Nullable)pickerStyle{
+-(BRAddressPickerView *)makeAddressPickerView:(BRPickerStyle *_Nullable)pickerStyle{
     BRAddressPickerView *addressPickerView = BRAddressPickerView.new;
     /**
      BRAddressPickerModeArea,/// 显示【省市区】（默认）
@@ -36,11 +36,11 @@
     return addressPickerView;
 }
 
-+(BRStringPickerView *)makeStringPickerView:(BRStringPickerMode)stringPickerMode{
+-(BRStringPickerView *)makeStringPickerView:(BRStringPickerMode)stringPickerMode{
     return [BRStringPickerView.alloc initWithPickerMode:stringPickerMode];
 }
 
-+(BRDatePickerView *)makeDatePickerView:(BRPickerStyle *_Nullable)customStyle{
+-(BRDatePickerView *)makeDatePickerView:(BRPickerStyle *_Nullable)customStyle{
     if (!customStyle) {
         customStyle = self.makeCustomStyle;
     }
@@ -232,6 +232,6 @@ JobsKey(_BRStringPickerViewDataMutArr)
 
 @end
 
-@implementation BRStringPickerViewModel 
+@implementation BRStringPickerViewModel
 
 @end

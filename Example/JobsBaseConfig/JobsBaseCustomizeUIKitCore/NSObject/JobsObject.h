@@ -105,5 +105,7 @@
 #import "NSObject+AppTools.h"
 /// 文本对齐
 #import "NSObject+NSMutableParagraphStyle.h"
+/// 平替UIPickerView
+#import "NSObject+BRPickerView.h"
 
 #endif /* JobsObject_h */

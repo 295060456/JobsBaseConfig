@@ -21,7 +21,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 /// https://github.com/91renb/BRPickerView
-@interface UIView (BRPickerView)
+@interface NSObject (BRPickerView)
 #pragma mark —— BaseVC+BRStringPickerView
 /// UI
 @property(nonatomic,strong)BRStringPickerView *stringPickerView;/// 自定义字符串选择器
@@ -44,10 +44,10 @@ NS_ASSUME_NONNULL_BEGIN
                          resultBlock:(jobsByIDBlock)clickResultBlock;
 /// 以应对一个视图上面多个 BRStringPickerView的情况
 /// 关键代码：[self.pickerView1 addPickerToView:承接的视图1];只能一对一承接
-+(BRPickerStyle *)makeCustomStyle;
-+(BRAddressPickerView *)makeAddressPickerView:(BRPickerStyle *_Nullable)pickerStyle;
-+(BRStringPickerView *)makeStringPickerView:(BRStringPickerMode)stringPickerMode;
-+(BRDatePickerView *)makeDatePickerView:(BRPickerStyle *_Nullable)customStyle;
+-(BRPickerStyle *)makeCustomStyle;
+-(BRAddressPickerView *)makeAddressPickerView:(BRPickerStyle *_Nullable)pickerStyle;
+-(BRStringPickerView *)makeStringPickerView:(BRStringPickerMode)stringPickerMode;
+-(BRDatePickerView *)makeDatePickerView:(BRPickerStyle *_Nullable)customStyle;
 
 @end
 
