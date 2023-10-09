@@ -172,8 +172,8 @@ BaseViewControllerProtocol_synthesize
 - (void)updateStatusBarCor:(UIColor *_Nullable)cor{
     if(!cor)cor = JobsRedColor;
     if (@available(iOS 13.0, *)) {
-        if (![jobsGetMainWindow().subviews containsObject:self.statusBar]) {
-            [jobsGetMainWindow() addSubview:self.statusBar];
+        if (![self.view.subviews containsObject:self.statusBar]) {
+            [self.view addSubview:self.statusBar];
         }
         self.statusBar.backgroundColor = cor;
     } else {

@@ -181,7 +181,7 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
     }
     return viewModel;
 }
-///// Debug模式下的弹出框 及其相关的数据封装。在外层进行调用，[ 需要被展现的视图 popupWithView:popupView];
+///// Debug模式下的弹出框 及其相关的数据封装。在外层进行调用，[ 需要被展现的视图 popupShowScaleWithView:popupView];
 //-(JobsBaseConfigTestPopupView *)JobsTestPopView:(NSString *)string{
 //    UIViewModel *viewModel = UIViewModel.new;
 //    UITextModel *textModel = UITextModel.new;
@@ -189,15 +189,16 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
 //    viewModel.textModel = textModel;
 //    return [self jobsTestPopView:viewModel];
 //}
-///// 在外层进行调用，[ 需要被展现的视图 popupWithView:popupView];
+///// 在外层进行调用，[ 需要被展现的视图 popupShowScaleWithView:popupView];
 //-(JobsBaseConfigTestPopupView *)jobsTestPopView:(UIViewModel *_Nullable)viewModel{
 //    
 //#ifdef DEBUG
 //    JobsBaseConfigTestPopupView *testPopupView = JobsBaseConfigTestPopupView.sharedInstance;
 //    testPopupView.size = [CasinoUpgradePopupView viewSizeWithModel:nil];
 //    [testPopupView richElementsInViewWithModel:viewModel ? : self.testPopViewData];
-//    
+//    @jobs_weakify(popupView)
 //    [testPopupView actionObjectBlock:^(UIButton *data) {
+//        @jobs_strongify(popupView)
 //        if ([[data titleForNormalState] isEqualToString:Internationalization(@"Cancel")]) {
 //            
 //        }else if ([[data titleForNormalState] isEqualToString:Internationalization(@"Sure")]){
@@ -218,7 +219,9 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
     // 这里设置弹出框的尺寸（最好在View内部layoutSubviews里面进行设置，外界设置的话，在某些情况下会出现异常）
     // popupView.size = [popViewClass viewSizeWithModel:nil];
     [popupView richElementsInViewWithModel:viewModel ? : self.testPopViewData];
+    @jobs_weakify(popupView)
     [popupView actionObjectBlock:^(UIButton *data) {
+        @jobs_strongify(popupView)
         if([data.titleForNormalState isKindOfClass:NSString.class]){
             if (data.titleForNormalState.isEqualToString(Internationalization(@"取消"))) {
 

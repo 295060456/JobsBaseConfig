@@ -90,8 +90,8 @@
                 collectionViewLayout:layout];
 }
 /// 一种用字符串取UICollectionViewCell及其子类的方法❤️复用字符串是目标类的类名❤️
--(UICollectionViewCell *)collectionViewCellClass:(Class)cls
-                                    forIndexPath:(NSIndexPath *)indexPath{
+-(__kindof UICollectionViewCell *)collectionViewCellClass:(Class)cls
+                                             forIndexPath:(NSIndexPath *)indexPath{
     return [self dequeueReusableCellWithReuseIdentifier:cls.description
                                            forIndexPath:indexPath];
 }

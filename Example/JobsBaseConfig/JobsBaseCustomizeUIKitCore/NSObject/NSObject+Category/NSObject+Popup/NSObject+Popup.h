@@ -21,11 +21,23 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)JobsNoticePopupView *popupView;
 /// Data
 @property(nonatomic,strong)TFPopupParam *popupParameter;
-/// 没有自定义 popupParam
--(void)popupWithView:(UIView *_Nullable)view;
-/// 有自定义popupParam
--(void)popupWithView:(UIView *_Nullable)view
-          popupParam:(TFPopupParam *_Nullable)popupParam;
+#pragma mark —— 创建缩放模式的View
+/// 没有自定义 popupParam（缩放模式）
+-(void)popupShowScaleWithView:(UIView *_Nullable)view;
+/// 有自定义popupParam（缩放模式）
+-(void)popupShowScaleWithView:(UIView *_Nullable)view
+               popupParameter:(TFPopupParam *_Nullable)popupParam;
+#pragma mark —— 创建滑动模式的View
+/// 没有自定义 popupParam（滑动模式）
+-(void)popupshowSlideWithView:(UIView *_Nullable)view;
+/// 有自定义popupParam（滑动模式）
+-(void)popupshowSlideWithView:(UIView *_Nullable)view
+               popupParameter:(TFPopupParam *_Nullable)popupParam;
+#pragma mark —— 创建数据源
+/// 一般的数据源
+-(TFPopupParam *)makeNormalPopupParameter;
+-(TFPopupParam *)makeSlidePopupParameterByViewHeight:(CGFloat)viewHeight;
+-(TFPopupParam *)makeSlidePopupParameterByViewSize:(CGSize)viewSize;
 
 @end
 
