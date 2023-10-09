@@ -84,7 +84,8 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
 }
 /// 触发退出登录模块之前，弹窗提示二次确认，确认以后再删除本地用户数据
 -(void)popUpViewToLogout{
-    [self popupWithView:self.logOutPopupView popupParam:self.popupParameter];
+    [self popupShowScaleWithView:self.logOutPopupView
+                  popupParameter:self.popupParameter];
 }
 #pragma mark —— <AppToolsProtocol> 关于 TabBar
 /// TabBar
