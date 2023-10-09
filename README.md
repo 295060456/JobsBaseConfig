@@ -5,16 +5,21 @@
     <img src="https://img.shields.io/badge/OC-orange" alt="OC" title="OC"/>
     <img src="https://img.shields.io/badge/xcode-13.1-blue" alt="xcode" title="xcode"/>
 </p>
-
 <details id="目的">
   <summary><strong>目的</strong></summary>
-- 所有的项目根据这个根来进行统一配置和调用。做到全局的一致和统一<br>
-- 千万要保证这个工程的编译通过，以后项目直接进行引用<br>
-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<br>
+```
+- 所有的项目根据这个根来进行统一配置和调用。做到全局的一致和统一
+- 千万要保证这个工程的编译通过，以后项目直接进行引用
+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
+```
+
 </details>
 
 <details id="特色">
  <summary><strong>特色</strong></summary>
+</details>
+
+```
 - [x] 网络模块Api<br>
 - [x] Toast<br>
 - [x] 系统、UI配置<br>
@@ -22,12 +27,13 @@ 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<br>
 - [x] 语言本地化<br>
 - [x] 数据存储UserDefaults<br>
 - [ ] 统一的WebView<br>
-</details>
+```
 
 ## 几点重要说明
+
 <details id="iOS Xcode 代码块">
  <summary><strong>iOS Xcode 代码块</strong></summary>
- 
+
 * 要想快，用快捷键调取代码块。集成方式：<br>
 ```javascript
 https://github.com/JobsKit/JobsCodeSnippets
@@ -36,7 +42,7 @@ https://github.com/JobsKit/JobsCodeSnippets
 
 <details id="UIButton">
  <summary><strong>UIButton</strong></summary>
- 
+
 * 兼容新Api，如果还是按照以前的方式创建，你会发现UIButton不正常出现（请看下面的示例代码）<br>
 
 ```javascript
@@ -57,7 +63,7 @@ https://www.jianshu.com/p/12426709420e
 
 <details id="示例代码">
  <summary><strong>示例代码</strong></summary>
- 
+
 * Masonry约束动画<br>
 
 ```objective-c
