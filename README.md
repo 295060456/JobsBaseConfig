@@ -7,7 +7,7 @@
 </p>
 <details id="目的">
   <summary><strong>目的</strong></summary>
-  
+
 ```
 - 所有的项目根据这个根来进行统一配置和调用。做到全局的一致和统一
 - 千万要保证这个工程的编译通过，以后项目直接进行引用
@@ -17,7 +17,7 @@ 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
 
 <details id="特色">
  <summary><strong>特色</strong></summary>
- 
+
  ```
 - [x] 网络模块Api<br>
 - [x] Toast<br>
@@ -26,7 +26,7 @@ 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
 - [x] 语言本地化<br>
 - [x] 数据存储UserDefaults<br>
 - [ ] 统一的WebView<br>
-```
+ ```
 </details>
 
 ## 几点重要说明
@@ -192,17 +192,16 @@ https://www.jianshu.com/p/12426709420e
 
 <details id="一些文档和资料">
  <summary><strong>一些文档和资料</strong></summary>
+ 
 - [关于响应链的一些研究成果](文档和资料/关于响应链的一些研究成果/关于响应链的一些研究成果.md)<br>
 - [模型解析](文档和资料/模型解析/模型解析.md)<br>
 - [iOS状态栏颜色的修改](文档和资料/iOS状态栏颜色的修改.md)<br>
 - [UICollectionView点击事件](文档和资料/UICollectionView点击事件.md)<br>
 - [路由](文档和资料/路由.md)<br>
-
 - [其他-关于系统Nav](文档和资料/其他/关于系统Nav.md)<br>
 - [其他-键盘方法生命周期](文档和资料/其他/键盘方法生命周期.md)<br>
 - [其他-精确度量iOS-App的启动时间](文档和资料/其他/精确度量iOS-App的启动时间.md)<br>
 - [其他-谁说HTTP和GET就不能通过Body来发送数据呢？](文档和资料/其他/谁说HTTP和GET就不能通过Body来发送数据呢？.md)<br>
-
 </details>
 
 ## 打开苹果的反馈助理
