@@ -7,19 +7,18 @@
 </p>
 <details id="目的">
   <summary><strong>目的</strong></summary>
+  
 ```
 - 所有的项目根据这个根来进行统一配置和调用。做到全局的一致和统一
 - 千万要保证这个工程的编译通过，以后项目直接进行引用
 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
 ```
-
 </details>
 
 <details id="特色">
  <summary><strong>特色</strong></summary>
-</details>
-
-```
+ 
+ ```
 - [x] 网络模块Api<br>
 - [x] Toast<br>
 - [x] 系统、UI配置<br>
@@ -28,7 +27,7 @@ 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
 - [x] 数据存储UserDefaults<br>
 - [ ] 统一的WebView<br>
 ```
-
+</details>
 ## 几点重要说明
 
 <details id="iOS Xcode 代码块">
