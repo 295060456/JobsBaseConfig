@@ -34,15 +34,15 @@
     }else{
         if (model.userName.nullString &&
             model.password.nullString) {
-            [WHToast toastErrMsg:Internationalization(@"Please complete the login information")];
+            [WHToast jobsToastErrMsg:Internationalization(@"Please complete the login information")];
         }else if (!model.userName.nullString &&
                   model.password.nullString){
-            [WHToast toastErrMsg:Internationalization(@"Please enter your password")];
+            [WHToast jobsToastErrMsg:Internationalization(@"Please enter your password")];
         }else if (model.userName.nullString &&
                   !model.password.nullString){
-            [WHToast toastErrMsg:Internationalization(@"Please enter a user name")];
+            [WHToast jobsToastErrMsg:Internationalization(@"Please enter a user name")];
         }else{
-            [WHToast toastErrMsg:Internationalization(@"The password consists of 6 to 15 characters and can only be letters and numbers")];
+            [WHToast jobsToastErrMsg:Internationalization(@"The password consists of 6 to 15 characters and can only be letters and numbers")];
         }return NO;
     }
 }
@@ -60,37 +60,37 @@
                   !model.confirmPassword.nullString &&
                   !model.tel.nullString &&
                   !model.verificationCode.nullString){
-            [WHToast toastErrMsg:Internationalization(@"Please enter a user name")];
+            [WHToast jobsToastErrMsg:Internationalization(@"Please enter a user name")];
         }else if (!model.userName.nullString &&
                   model.password.nullString &&
                   !model.confirmPassword.nullString &&
                   !model.tel.nullString &&
                   !model.verificationCode.nullString){
-            [WHToast toastErrMsg:Internationalization(@"Please enter your password")];
+            [WHToast jobsToastErrMsg:Internationalization(@"Please enter your password")];
         }else if (!model.userName.nullString &&
                   !model.password.nullString &&
                   model.confirmPassword.nullString &&
                   !model.tel.nullString &&
                   !model.verificationCode.nullString){
-            [WHToast toastErrMsg:Internationalization(@"Please confirm your password")];
+            [WHToast jobsToastErrMsg:Internationalization(@"Please confirm your password")];
         }else if (!model.userName.nullString &&
                   !model.password.nullString &&
                   !model.confirmPassword.nullString &&
                   model.tel.nullString &&
                   !model.verificationCode.nullString){
-            [WHToast toastErrMsg:Internationalization(@"Please enter your mobile phone number")];
+            [WHToast jobsToastErrMsg:Internationalization(@"Please enter your mobile phone number")];
         }else if (!model.userName.nullString &&
                   !model.password.nullString &&
                   !model.confirmPassword.nullString &&
                   !model.tel.nullString &&
                   model.verificationCode.nullString){
-            [WHToast toastErrMsg:Internationalization(@"Please enter the verification code")];
+            [WHToast jobsToastErrMsg:Internationalization(@"Please enter the verification code")];
         }else if ([self checkUserName:model.userName] ||
                   [self checkUserPassword:model.password] ||
                   [self checkUserPassword:model.confirmPassword]){
-            [WHToast toastErrMsg:Internationalization(@"The password consists of 6 to 15 characters and can only be letters and numbers")];
+            [WHToast jobsToastErrMsg:Internationalization(@"The password consists of 6 to 15 characters and can only be letters and numbers")];
         }else{
-            [WHToast toastErrMsg:Internationalization(@"Please complete the registration information")];
+            [WHToast jobsToastErrMsg:Internationalization(@"Please complete the registration information")];
         }
     }return NO;
 }

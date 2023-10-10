@@ -15,7 +15,7 @@
 
 -(void)dealloc{
     NSLog(@"%@",JobsLocalFunc);
-    [WHToast toastMsg:@"检查者出栈"];
+    [WHToast jobsToastMsg:@"检查者出栈"];
 }
 
 -(void)loadView{
@@ -24,7 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [WHToast toastMsg:@"检查者进栈"];
+    [WHToast jobsToastMsg:@"检查者进栈"];
     self.view.backgroundColor = JobsRandomColor;
     NSLog(@"%@",JobsLocalFunc);
 }

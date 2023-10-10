@@ -119,7 +119,7 @@ atIndexPath:(NSIndexPath *)indexPath {
             make.top.equalTo(self.titleLab.mas_bottom);
             make.height.mas_equalTo(JobsWidth(20));
         }];return headerView;
-    }else ReturnBaseCollectionReusableView;
+    }else ReturnBaseCollectionReusableHeaderView;
 }
 #pragma mark —— UICollectionViewDelegate
 /// 允许选中时，高亮

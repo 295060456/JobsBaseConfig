@@ -58,7 +58,7 @@ callingMethodWithName:(nullable NSString *)methodName{
     if (!signature) {
         // 处理方式一：
         {
-            [WHToast toastErrMsg:@"方法不存在,请检查参数"];
+            [WHToast jobsToastErrMsg:@"方法不存在,请检查参数"];
             return nil;
         }
         // 处理方式二：【经常崩溃损伤硬件】

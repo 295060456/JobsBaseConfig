@@ -473,7 +473,27 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
 }
 ```
 
-## 3、其他
+## 3、指定对某个View的某个角进行圆切角
+
+* 在这个View的具体子类里面，复写系统方法-(**void**)layoutSubviews;
+
+```objective-c
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    /// 内部指定圆切角
+    [self layoutSubviewsCutCnrByRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight
+                                    cornerRadii:CGSizeMake(JobsWidth(8), JobsWidth(8))];
+}
+```
+
+## 4、对某个View的4个角无差别进行圆切角
+
+```objective-c
+[View cornerCutToCircleWithCornerRadius:JobsWidth(8)];
+[View layerBorderCor:RGBA_COLOR(255, 225, 144, 1) andBorderWidth:JobsWidth(0.5f)];
+```
+
+## 5、其他
 
 * 隐藏每个分区最后一个cell的分割线:系统分割线,移到屏幕外
 

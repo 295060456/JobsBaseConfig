@@ -82,7 +82,7 @@
                          requestParams:requestParams];
     }else{
         NSLog(@"%@强制展现页面%@失败,携带的参数%@",viewController,toPushVC,requestParams);
-        [WHToast toastErrMsg:@"强制展现页面失败,请检查控制台"];
+        [WHToast jobsToastErrMsg:@"强制展现页面失败,请检查控制台"];
     }
 }
 /// 强制以Present的方式展现页面

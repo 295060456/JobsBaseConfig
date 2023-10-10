@@ -15,7 +15,7 @@
     if (MFMailComposeViewController.canSendMail) {
         [self.jobsGetCurrentViewController forceComingToPresentVC:mailComposeVC requestParams:nil completion:completion];
     }else{
-        [WHToast toastMsg:Internationalization(@"打开邮件失败,请确保设备上至少启用了一个电子邮件帐户！")];
+        [WHToast jobsToastMsg:Internationalization(@"打开邮件失败,请确保设备上至少启用了一个电子邮件帐户！")];
     }
 }
 #pragma mark —— MFMessageComposeViewControllerDelegate
@@ -109,16 +109,16 @@ completionOpenSuccessHandler:(jobsByVoidBlock _Nullable)openSuccessBlock
 completionOpenFailHandler:(jobsByVoidBlock _Nullable)openFailBlock{
     /// URLStr不是字符串、为空、不能打开均不走以下逻辑判断
     if (![URLStr isKindOfClass:NSString.class]) {
-        [WHToast toastMsg:Internationalization(@"URL类型不匹配，请检查")];
+        [WHToast jobsToastMsg:Internationalization(@"URL类型不匹配，请检查")];
         return NO;
     }
     if ([NSString isNullString:URLStr]) {
-        [WHToast toastMsg:Internationalization(@"URL为空，请检查！")];
+        [WHToast jobsToastMsg:Internationalization(@"URL为空，请检查！")];
         return NO;
     }
     BOOL canOpen = [UIApplication.sharedApplication canOpenURL:URLStr.jobsUrl];
     if (!canOpen) {
-        [WHToast toastMsg:[NSString stringWithFormat:Internationalization(@"打开%@失败，请检查"),URLStr]];
+        [WHToast jobsToastMsg:[NSString stringWithFormat:Internationalization(@"打开%@失败，请检查"),URLStr]];
         return NO;
     }
 

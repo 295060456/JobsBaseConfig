@@ -180,14 +180,14 @@ static inline void toast(NSString *_Nullable msg){
     if(!msg || ![msg isKindOfClass:NSString.class]){
         msg = Internationalization(@"数据错误");
     }
-    [WHToast toastMsg:Internationalization(msg)];
+    [WHToast jobsToastMsg:Internationalization(msg)];
 }
 
 static inline void toastErr(NSString *_Nullable msg){
     if(!msg || ![msg isKindOfClass:NSString.class]){
         msg = Internationalization(@"数据错误");
     }
-    [WHToast toastErrMsg:Internationalization(msg)];
+    [WHToast jobsToastErrMsg:Internationalization(msg)];
 }
 #pragma mark —— 定义一些默认值
 #ifndef listContainerViewDefaultOffset

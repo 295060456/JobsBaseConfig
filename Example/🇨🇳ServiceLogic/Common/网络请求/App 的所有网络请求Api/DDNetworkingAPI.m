@@ -149,19 +149,19 @@ uploadVideosParamArr:(NSArray *_Nullable)uploadVideosParamArr
     if ([error isKindOfClass:NSError.class]) {
         NSError *err = (NSError *)error;
         NSLog(@"%@",err.description);
-        [WHToast toastErrMsg:err.description];
+        [WHToast jobsToastErrMsg:err.description];
     }else if ([error isKindOfClass:DDResponseModel.class]){
         DDResponseModel *responseModel = (DDResponseModel *)error;
         NSLog(@"code = %lu",(unsigned long)responseModel.code);
         extern BOOL xhLaunchAdShowFinish;
         switch (responseModel.code) {
             case HTTPResponseCodeServeError:{// 服务器异常
-                [WHToast toastErrMsg:Internationalization(@"Server Exception")];
+                [WHToast jobsToastErrMsg:Internationalization(@"Server Exception")];
             }break;
             case HTTPResponseCodeLoginDate:{// 登录已过期，请重新登录 DDResponseModel
                 if (xhLaunchAdShowFinish) {
                     if (self.isLogin) {
-                        [WHToast toastErrMsg:Internationalization(@"Login has expired. Please log in again")];
+                        [WHToast jobsToastErrMsg:Internationalization(@"Login has expired. Please log in again")];
                         [self logOut];
                     }[self forcedLogin];
                 }
@@ -169,20 +169,20 @@ uploadVideosParamArr:(NSArray *_Nullable)uploadVideosParamArr
                 [NSNotificationCenter.defaultCenter postNotificationName:退出登录 object:@(NO)];
             }break;
             case HTTPResponseCodeAuthorizationFailure:{// 授权失败
-                [WHToast toastErrMsg:Internationalization(@"Authorization failure")];
+                [WHToast jobsToastErrMsg:Internationalization(@"Authorization failure")];
             }break;
             case HTTPResponseCodeLeakTime:{// 限定时间内超过请求次数
-                [WHToast toastErrMsg:Internationalization(@"The requests exceeded within a specified time")];
+                [WHToast jobsToastErrMsg:Internationalization(@"The requests exceeded within a specified time")];
             }break;
             case HTTPResponseCodeRiskOperation:{// 风险操作
-                [WHToast toastErrMsg:Internationalization(@"Risk operation")];
+                [WHToast jobsToastErrMsg:Internationalization(@"Risk operation")];
             }break;
             case HTTPResponseCodeNoSettingTransactionPassword:{// 未设置交易密码
-                [WHToast toastErrMsg:Internationalization(@"No transaction password is set")];
+                [WHToast jobsToastErrMsg:Internationalization(@"No transaction password is set")];
             }break;
             case HTTPResponseCodeOffline:{// 帐号已在其他设备登录
                 if (xhLaunchAdShowFinish) {
-                    [WHToast toastErrMsg:Internationalization(@"The account has been logged in to another device")];
+                    [WHToast jobsToastErrMsg:Internationalization(@"The account has been logged in to another device")];
                     if (self.isLogin) {
                         /// 清除本地的用户数据，并转向登录页面
                         [self logOut];
@@ -194,7 +194,7 @@ uploadVideosParamArr:(NSArray *_Nullable)uploadVideosParamArr
             default:{
                 if ([error isKindOfClass:DDResponseModel.class]) {
                     DDResponseModel *model = (DDResponseModel *)error;
-                    [WHToast toastErrMsg:model.msg];
+                    [WHToast jobsToastErrMsg:model.msg];
                 }
             }break;
         }

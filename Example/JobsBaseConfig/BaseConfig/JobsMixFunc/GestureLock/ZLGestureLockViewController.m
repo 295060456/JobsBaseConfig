@@ -44,7 +44,7 @@
     [NSNotificationCenter.defaultCenter removeObserver:self];
     [self.view endEditing:YES];
     if (JobsDebug) {
-        [WHToast toastMsg:[NSString stringWithFormat:@"成功销毁了控制器:%@",NSStringFromClass(self.class)]];
+        [WHToast jobsToastMsg:[NSString stringWithFormat:@"成功销毁了控制器:%@",NSStringFromClass(self.class)]];
         NSLog(@"%@",JobsLocalFunc);
         PrintRetainCount(self)
     }

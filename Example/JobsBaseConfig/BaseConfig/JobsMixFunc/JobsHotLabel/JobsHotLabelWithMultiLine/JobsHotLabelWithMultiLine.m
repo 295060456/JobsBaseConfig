@@ -115,7 +115,7 @@ static dispatch_once_t static_hotLabelWithMultiLineOnceToken;
                                                                                                        forIndexPath:indexPath];
         [footerView richElementsInViewWithModel:self.dataModel.footerViewModel];
         return footerView;
-    }else ReturnBaseCollectionReusableView;
+    }else ReturnBaseCollectionReusableHeaderView;
 }
 #pragma mark —— UICollectionViewDelegate
 /// 允许选中时，高亮
@@ -151,7 +151,7 @@ shouldDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
 didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"%s", __FUNCTION__);
     JobsHotLabelWithMultiLineCVCell *_cell = (JobsHotLabelWithMultiLineCVCell *)[collectionView cellForItemAtIndexPath:indexPath];
-//    [WHToast toastSuccessMsg:_cell.getViewModel.textModel.text];
+//    [WHToast jobsToastSuccessMsg:_cell.getViewModel.textModel.text];
     
     for (JobsHotLabelWithMultiLineCVCell *cell in collectionView.visibleCells) {
         cell.getTextLab.backgroundColor = HEXCOLOR(0xF3F3F3);

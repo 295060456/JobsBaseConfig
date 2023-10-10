@@ -129,7 +129,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
         [self comingToPushVC:self.dataMutArr[indexPath.row].cls.new
                requestParams:self.dataMutArr[indexPath.row]];
     }else{
-        [WHToast toastMsg:Internationalization(@"尚未接入此功能")];
+        [WHToast jobsToastMsg:Internationalization(@"尚未接入此功能")];
     }
 }
 

@@ -276,11 +276,11 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
 //                }break;
 //                case CustomerContactStyle_手机号码:{
 ////                            [NSObject openURL:@""];
-//                    [WHToast toastMsg:@"打开手机号码未配置"];
+//                    [WHToast jobsToastMsg:@"打开手机号码未配置"];
 //                }break;
 //                case CustomerContactStyle_onlineURL:{
 ////                            [NSObject openURL:@""];
-//                    [WHToast toastMsg:@"打开onlineURL未配置"];
+//                    [WHToast jobsToastMsg:@"打开onlineURL未配置"];
 //                }break;
 //
 //                default:

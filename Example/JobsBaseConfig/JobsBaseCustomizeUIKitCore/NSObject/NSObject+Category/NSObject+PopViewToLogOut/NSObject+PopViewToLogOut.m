@@ -43,7 +43,7 @@ JobsKey(_logOutPopupView)
                 NSLog(@"手滑了");
             }else if (data.tag == 999){// 确定退出
                 [self logOut];
-                [WHToast toastSuccessMsg:Internationalization(@"Logout succeeded")];
+                [WHToast jobsToastSuccessMsg:Internationalization(@"Logout succeeded")];
                 extern BOOL ISLogin;
                 ISLogin = NO;
                 [NSNotificationCenter.defaultCenter postNotificationName:退出登录 object:@(NO)];

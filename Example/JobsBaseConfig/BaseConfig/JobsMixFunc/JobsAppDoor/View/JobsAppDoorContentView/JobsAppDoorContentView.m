@@ -71,14 +71,14 @@
 //                         parameters:parameters
 //                       successBlock:^(DDResponseModel *data) {
 //            NSLog(@"用户获取短信验证码成功");
-//            [WHToast toastSuccessMsg:Internationalization(@"Verification send success")];
+//            [WHToast jobsToastSuccessMsg:Internationalization(@"Verification send success")];
 //        } failureBlock:^(id data) {
 //            [DDNetworkingAPI handleError:data];
 //            JobsAppDoorInputViewBaseStyle_1 *手机验证码 = (JobsAppDoorInputViewBaseStyle_1 *)self.registerDoorInputViewBaseStyleMutArr[4];
 //            [手机验证码.getCountDownBtn timerDestroy];
 //        }];
 //    }else{
-//        [WHToast toastErrMsg:Internationalization(@"TelePhone Number Error")];
+//        [WHToast jobsToastErrMsg:Internationalization(@"TelePhone Number Error")];
 //        JobsAppDoorInputViewBaseStyle_1 *手机验证码 = (JobsAppDoorInputViewBaseStyle_1 *)self.registerDoorInputViewBaseStyleMutArr[4];
 //        [手机验证码.getCountDownBtn timerDestroy];
 //    }

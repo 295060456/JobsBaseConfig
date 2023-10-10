@@ -22,18 +22,24 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (WHToast)
-/// 仅文字，展示在屏幕中间
-+(void)toastMsg:(NSString *)msg;
-/// 失败图标和文字，展示在屏幕中间
-+(void)toastErrMsg:(NSString *)errMsg;
-/// 成功图标和文字，展示在屏幕中间
-+(void)toastSuccessMsg:(NSString *)successMsg;
-/// 延时操作
-+(void)toastLoadingMsg:(NSString *)errMsg;
-/// 手动关闭WHToast，在主线程
-+(void)toastHide;
-/// 当前进度
-+(void)loadSchedule:(CGFloat)Schedule;
+#pragma mark —— 仅文字，展示在屏幕中间
+-(void)jobsToastMsg:(NSString *)msg;
++(void)jobsToastMsg:(NSString *)msg;
+#pragma mark —— 成功图标和文字，展示在屏幕中间
+-(void)jobsToastSuccessMsg:(NSString *)successMsg;
++(void)jobsToastSuccessMsg:(NSString *)successMsg;
+#pragma mark —— 失败图标和文字，展示在屏幕中间
+-(void)jobsToastErrMsg:(NSString *)errMsg;
++(void)jobsToastErrMsg:(NSString *)errMsg;
+#pragma mark —— 延时操作
+-(void)jobsToastLoadingMsg:(NSString *)errMsg;
++(void)jobsToastLoadingMsg:(NSString *)errMsg;
+#pragma mark —— 手动关闭WHToast，在主线程
+-(void)jobsToastHide;
++(void)jobsToastHide;
+#pragma mark —— 当前进度
+-(void)jobsToastLoadSchedule:(CGFloat)Schedule;
++(void)jobsToastLoadSchedule:(CGFloat)Schedule;
 
 @end
 

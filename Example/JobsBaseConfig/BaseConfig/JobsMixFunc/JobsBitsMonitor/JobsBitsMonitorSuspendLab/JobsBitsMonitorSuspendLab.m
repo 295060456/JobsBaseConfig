@@ -79,9 +79,9 @@ extern JobsNetworkingEnvir networkingEnvir;
         NSLog(@"action----->%ld",(long)menuRow);
         networkingEnvir = menuRow;
         if (menuRow + 1 <= self.operationEnvironMutArr.count) {
-            [WHToast toastMsg:[Internationalization(@"当前环境") stringByAppendingString:self.operationEnvironMutArr[menuRow]]];
+            [WHToast jobsToastMsg:[Internationalization(@"当前环境") stringByAppendingString:self.operationEnvironMutArr[menuRow]]];
         }else{
-            [WHToast toastErrMsg:Internationalization(@"切换环境出现错误")];
+            [WHToast jobsToastErrMsg:Internationalization(@"切换环境出现错误")];
         }
     };
 }

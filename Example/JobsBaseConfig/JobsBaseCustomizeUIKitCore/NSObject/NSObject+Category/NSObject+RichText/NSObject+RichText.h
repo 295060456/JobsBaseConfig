@@ -127,7 +127,7 @@ NS_ASSUME_NONNULL_END
  shouldInteractWithURL:(NSURL *)URL
           inRange:(NSRange)characterRange
       interaction:(UITextItemInteraction)interaction{
-     [WHToast toastMsg:Internationalization(@"专属客服")];
+     [WHToast jobsToastMsg:Internationalization(@"专属客服")];
      return YES;
  }
  

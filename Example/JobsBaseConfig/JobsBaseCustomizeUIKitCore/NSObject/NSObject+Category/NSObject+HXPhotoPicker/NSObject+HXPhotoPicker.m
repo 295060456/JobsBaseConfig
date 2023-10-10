@@ -44,7 +44,7 @@
                 }];
             }
         }else{
-            [WHToast toastMsg:@"保存图片需要过去您的相册权限,请前往设置打开"];
+            [WHToast jobsToastMsg:@"保存图片需要过去您的相册权限,请前往设置打开"];
         }
     }];
 }
@@ -76,11 +76,11 @@
                     }];
                 }
             }else{
-                [WHToast toastMsg:Internationalization(@"授权失败,无法使用相机.请在设置-隐私-相机中允许访问相机")];
+                [WHToast jobsToastMsg:Internationalization(@"授权失败,无法使用相机.请在设置-隐私-相机中允许访问相机")];
             }
         }];
     }else{
-        [WHToast toastMsg:Internationalization(@"此设备不支持相机!")];
+        [WHToast jobsToastMsg:Internationalization(@"此设备不支持相机!")];
     }
 }
 #pragma mark —— @property(nonatomic,strong)HXPhotoManager *photoManager;//选取图片的数据管理类

@@ -56,7 +56,7 @@
             [alertController addAction:okAction];
         }
     }else{
-        [WHToast toastMsg:Internationalization(@"参数配置错误，请检查")];
+        [WHToast jobsToastMsg:Internationalization(@"参数配置错误，请检查")];
     }
     if (alertVCBlock) {
         alertVCBlock(alertController);
@@ -109,7 +109,7 @@
             [alertController addAction:okAction];
         }
     }else{
-        [WHToast toastMsg:Internationalization(@"参数配置错误，请检查")];
+        [WHToast jobsToastMsg:Internationalization(@"参数配置错误，请检查")];
     }
 
     if (alertVCBlock) {
