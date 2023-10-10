@@ -9,6 +9,8 @@
 #import "BaseTableViewCell.h"
 
 @interface BaseTableViewCell ()
+/// Data
+@property(nonatomic,assign)BOOL isSetTBVCellOffset;
 
 @end
 
@@ -114,10 +116,13 @@ UITableViewCellProtocol_synthesize
      dy:0];
      }
      */
-    frame.origin.x += offsetX;
-    frame.origin.y += offsetY;
-    frame.size.height -= offsetY * 2;
-    frame.size.width -= offsetX * 2;
+    if(!self.isSetTBVCellOffset){
+        frame.origin.x += offsetX;
+        frame.origin.y += offsetY;
+        frame.size.height -= offsetY * 2;
+        frame.size.width -= offsetX * 2;
+        self.isSetTBVCellOffset = !self.isSetTBVCellOffset;
+    }
     [super setFrame:frame];
 }
 // 在具体的子类，去覆盖-(void)setFrame:(CGRect)frame方法
