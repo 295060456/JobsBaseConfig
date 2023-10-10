@@ -66,6 +66,66 @@ UITableViewCellProtocol_synthesize
         self.textLabel.textColor = JobsBlackColor;
     }return self;
 }
+/// UITableViewCell 的横向和纵向的缩进
+/// 在具体的子类，去覆盖-(void)setFrame:(CGRect)frame方法
+/// - Parameters:
+///   - frame: 最原始的Cell的Frame
+///   - offsetX: X轴的偏移量
+///   - offsetY: Y轴的偏移量
+-(void)jobsResetTableViewCellFrame:(CGRect)frame
+                       cellOffsetX:(CGFloat)offsetX
+                       cellOffsetY:(CGFloat)offsetY{
+    /**
+     参见：关于UITableViewCell和UICollectionViewCell圆切角+Cell的偏移量
+     ❤️如果单独的对每一个row对应的UITableViewCell的边距有缩进则使用下列方法❤️
+     如果这个TableViewCell是BaseTableViewCell则不需要复写-(void)setFrame:(CGRect)frame；否则是需要：
+     
+     UILocationProtocol_synthesize
+     直接影响:
+     cell.offsetXForEach = JobsWidth(8);
+     cell.offsetYForEach = JobsWidth(6);
+     
+     // 在具体的子类去实现,分类调用异常
+     #pragma mark —— 复写父类方法
+     -(void)setFrame:(CGRect)frame{
+     NSLog(@"self.offsetXForEach = %f",self.offsetXForEach);
+     NSLog(@"self.offsetYForEach = %f",self.offsetYForEach);
+     frame.origin.x += self.offsetXForEach;
+     frame.origin.y += self.offsetYForEach;
+     frame.size.height -= self.offsetYForEach * 2;
+     frame.size.width -= self.offsetXForEach * 2;
+     [super setFrame:frame];
+     }
+     
+     ❤️ 如果对每一section的cell进行缩进，则在外层协议：❤️
+     - (void)tableView:(UITableView *)tableView
+     willDisplayCell:(UITableViewCell *)cell
+     forRowAtIndexPath:(NSIndexPath *)indexPath{
+     
+     [UITableViewCell tableView:tableView
+     makeSectionFirstAndLastCell:cell
+     atIndexPath:indexPath
+     cellBgCor:UIColor.whiteColor
+     bottomLineCor:UIColor.whiteColor
+     cellOutLineCor:HEXCOLOR(0xEEE2C8)
+     roundCorner:JobsWidth(8)
+     borderWidth:JobsWidth(1)
+     dx:JobsWidth(0)
+     dy:0];
+     }
+     */
+    frame.origin.x += offsetX;
+    frame.origin.y += offsetY;
+    frame.size.height -= offsetY * 2;
+    frame.size.width -= offsetX * 2;
+    [super setFrame:frame];
+}
+// 在具体的子类，去覆盖-(void)setFrame:(CGRect)frame方法
+//-(void)setFrame:(CGRect)frame{
+//    [self jobsResetTableViewCellFrame:frame
+//                          cellOffsetX:self.offsetXForEach
+//                          cellOffsetY:self.offsetYForEach];
+//}
 #pragma mark —— 一些私有方法
 /// 值打印
 -(void)printValue{

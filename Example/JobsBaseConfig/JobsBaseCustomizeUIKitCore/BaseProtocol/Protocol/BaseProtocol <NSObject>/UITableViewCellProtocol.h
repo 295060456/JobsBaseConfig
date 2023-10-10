@@ -60,6 +60,15 @@ NS_ASSUME_NONNULL_BEGIN
 +(instancetype)cellStyleValue2WithTableView:(UITableView *)tableView;
 /// UITableViewCellStyleSubtitle = 左边：textLabel字体偏小；右边：detailTextLabel。imageView可选（显示在最左边）
 +(instancetype)cellStyleSubtitleWithTableView:(UITableView *)tableView;
+/// UITableViewCell 的横向和纵向的缩进
+/// 在具体的子类，去覆盖-(void)setFrame:(CGRect)frame方法
+/// - Parameters:
+///   - frame: 最原始的Cell的Frame
+///   - offsetX: X轴的偏移量
+///   - offsetY: Y轴的偏移量
+-(void)jobsResetTableViewCellFrame:(CGRect)frame
+                       cellOffsetX:(CGFloat)offsetX
+                       cellOffsetY:(CGFloat)offsetY;
 /// UITableViewCell的一些默认样式设置
 +(void)settingForTableViewCell:(UITableViewCell *)tableViewCell;
 /// 获取这个UITableViewCell所承载的UITableView

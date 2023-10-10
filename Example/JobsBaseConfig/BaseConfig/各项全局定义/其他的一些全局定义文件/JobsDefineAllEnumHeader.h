@@ -63,8 +63,8 @@ typedef NS_ENUM(NSInteger,JobsPayType) {
     JobsPayType_数字货币,
     JobsPayType_人工后台操作上下分,
     JobsPayType_AppBalance,/// App余额支付
-    JobsPayType_MataValue = 1,/// Mata值支付
-    JobsPayType_MataCreditScore = 2,/// 信用分支付
+    JobsPayType_MataValue,/// Mata值支付
+    JobsPayType_MataCreditScore,/// 信用分支付
     JobsPayType_All
 };
 /// 默认支付类型
@@ -76,17 +76,25 @@ typedef NS_ENUM(NSInteger,JobsPayDefaultType) {
 };
 /// 订单类型
 typedef NS_ENUM(NSInteger, JobsOrderType) {
-    JobsOrderType_Undefined,///
-    JobsOrderType_Due,/// 待付款订单
-    JobsOrderType_WaitSent,/// 已付款.待发货订单
-    JobsOrderType_WaitReceived,/// 已发货.待收货订单
-    JobsOrderType_Evaluate,/// 已完成收货的订单，并且待评价
-    JobsOrderType_Finished,/// 已完成收货的订单，并且已经评价
-    JobsOrderType_待审核订单,
-    JobsOrderType_已审核订单,
-    JobsOrderType_订单出款错误,
-    JobsOrderType_订单已经被删除,
-    JobsOrderType_All/// 全部订单
+    JobsOrderType_Undefined,
+    JobsOrderType_商城订单,
+    JobsOrderType_信用分订单,
+    JobsOrderType_课程订单,
+    JobsOrderType_All
+};
+/// 订单5大状态：待付款、待发货（已付款）、已发货（在途）、已收货（待评价）、完成订单（已评价）
+typedef NS_ENUM(NSInteger, JobsOrderState) {
+    JobsOrderState_Undefined,///
+    JobsOrderState_Due,/// 待付款订单
+    JobsOrderState_WaitSent,/// 已付款.待发货订单
+    JobsOrderState_WaitReceived,/// 已发货.待收货订单
+    JobsOrderState_Evaluate,/// 已完成收货的订单，并且待评价
+    JobsOrderState_Finished,/// 已完成收货的订单，并且已经评价
+    JobsOrderState_待审核订单,
+    JobsOrderState_已审核订单,
+    JobsOrderState_订单出款错误,
+    JobsOrderState_订单已经被删除,
+    JobsOrderState_All/// 全部订单
 };
 #pragma mark —— 会员相关
 /// 更新用户信息
