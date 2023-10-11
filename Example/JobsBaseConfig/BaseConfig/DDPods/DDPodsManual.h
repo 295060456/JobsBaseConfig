@@ -13,7 +13,7 @@
 #import "EmptyView.h"
 #import "ZMJCell+CustomView.h"
 #import "FMDatabase+Manager.h"
-#import "ECPrivacyCheckTools.h"
+#import "TKPermissionKit.h"
 /// JXCategoryView
 #import "JXCategoryTimelineView.h"
 #import "JXCategoryTitleBackgroundView.h"

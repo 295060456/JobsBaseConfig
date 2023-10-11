@@ -21,6 +21,7 @@
 			</array>
 		</dict>
 	</dict>
+    
 	<key>NSFaceIDUsageDescription</key>
 	<string>App需要您的同意，才能访问您的面容识别功能，用于安全验证</string>
 	<key>NSAppleMusicUsageDescription</key>
@@ -63,6 +64,7 @@
 	<string>我们需要获取你的语音识别功能已完成键盘语音识别输入功能</string>
 	<key>NSVideoSubscriberAccountUsageDescription</key>
 	<string>我们需要获取你的TV权限</string>
+    
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
 	<key>UIAppFonts</key>

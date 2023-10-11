@@ -14,7 +14,9 @@
                              failBlock:(jobsByIDBlock _Nullable)failBlock{
     /// 请求相册权限
     @jobs_weakify(self)
-    [ECPrivacyCheckGatherTool requestPhotosAuthorizationWithCompletionHandler:^(BOOL granted) {
+    [TKPermissionPhoto authWithAlert:YES
+                               level:TKPhotoAccessLevelReadWrite
+                          completion:^(BOOL granted) {
         @jobs_strongify(self)
         if (granted) {
             if ([self isKindOfClass:UIViewController.class]) {
@@ -44,7 +46,7 @@
                 }];
             }
         }else{
-            [WHToast jobsToastMsg:@"保存图片需要过去您的相册权限,请前往设置打开"];
+            [self jobsToastMsg:@"保存图片需要过去您的相册权限,请前往设置打开"];
         }
     }];
 }
@@ -54,7 +56,8 @@
     if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         /// 请求相机📷权限
         @jobs_weakify(self)
-        [ECPrivacyCheckGatherTool requestCameraAuthorizationWithCompletionHandler:^(BOOL granted) {
+        [TKPermissionCamera authWithAlert:YES
+                               completion:^(BOOL granted) {
             @jobs_strongify(self)
             if (granted) {
                 if ([self isKindOfClass:UIViewController.class]) {
@@ -76,11 +79,11 @@
                     }];
                 }
             }else{
-                [WHToast jobsToastMsg:Internationalization(@"授权失败,无法使用相机.请在设置-隐私-相机中允许访问相机")];
+                [self jobsToastMsg:Internationalization(@"授权失败,无法使用相机.请在设置-隐私-相机中允许访问相机")];
             }
         }];
     }else{
-        [WHToast jobsToastMsg:Internationalization(@"此设备不支持相机!")];
+        [self jobsToastMsg:Internationalization(@"此设备不支持相机!")];
     }
 }
 #pragma mark —— @property(nonatomic,strong)HXPhotoManager *photoManager;//选取图片的数据管理类

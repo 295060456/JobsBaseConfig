@@ -161,53 +161,6 @@
 		844B08432764CF4800B0513D /* ZWPullMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B07CD2764CF4700B0513D /* ZWPullMenuCell.m */; };
 		844B08442764CF4800B0513D /* FMDatabase+Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B07CF2764CF4700B0513D /* FMDatabase+Manager.m */; };
 		844B08452764CF4800B0513D /* EmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B07D32764CF4700B0513D /* EmptyView.m */; };
-		844B08462764CF4800B0513D /* ECPrivacyCheckMicrophone.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B07D72764CF4700B0513D /* ECPrivacyCheckMicrophone.m */; };
-		844B08472764CF4800B0513D /* ECPrivacyCheckHomeKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B07D92764CF4700B0513D /* ECPrivacyCheckHomeKit.m */; };
-		844B08482764CF4800B0513D /* ECPrivacyCheckBluetooth.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B07DB2764CF4700B0513D /* ECPrivacyCheckBluetooth.m */; };
-		844B08492764CF4800B0513D /* ECPrivacyCheckCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B07DC2764CF4700B0513D /* ECPrivacyCheckCamera.m */; };
-		844B084A2764CF4800B0513D /* ECPrivacyCheckLocationServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B07DD2764CF4700B0513D /* ECPrivacyCheckLocationServices.m */; };
-		844B084B2764CF4800B0513D /* ECPrivacyCheckFilesAndFolders.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B07E12764CF4700B0513D /* ECPrivacyCheckFilesAndFolders.m */; };
-		844B084C2764CF4800B0513D /* ECPrivacyCheckCalendars.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B07E52764CF4700B0513D /* ECPrivacyCheckCalendars.m */; };
-		844B084D2764CF4800B0513D /* ECPrivacyCheckSpeechRecognition.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B07E72764CF4700B0513D /* ECPrivacyCheckSpeechRecognition.m */; };
-		844B084E2764CF4800B0513D /* ECPrivacyCheckMotionAndFitness.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B07E92764CF4700B0513D /* ECPrivacyCheckMotionAndFitness.m */; };
-		844B084F2764CF4800B0513D /* ECPrivacyCheckMediaAndAppleMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B07EA2764CF4700B0513D /* ECPrivacyCheckMediaAndAppleMusic.m */; };
-		844B08502764CF4800B0513D /* ECPrivacyCheckPhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B07ED2764CF4700B0513D /* ECPrivacyCheckPhotos.m */; };
-		844B08512764CF4800B0513D /* ECPrivacyCheckContacts.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B07EF2764CF4700B0513D /* ECPrivacyCheckContacts.m */; };
-		844B08522764CF4800B0513D /* ECPrivacyCheckHealth.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B07F02764CF4700B0513D /* ECPrivacyCheckHealth.m */; };
-		844B08532764CF4800B0513D /* ECPrivacyCheckReminders.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B07F12764CF4700B0513D /* ECPrivacyCheckReminders.m */; };
-		844B08542764CF4800B0513D /* 健康@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B07F32764CF4700B0513D /* 健康@3x.png */; };
-		844B08552764CF4800B0513D /* 媒体与AppleMusic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B07F42764CF4700B0513D /* 媒体与AppleMusic@2x.png */; };
-		844B08562764CF4800B0513D /* 运动与健身@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B07F52764CF4700B0513D /* 运动与健身@2x.png */; };
-		844B08572764CF4800B0513D /* 媒体与AppleMusic@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B07F62764CF4700B0513D /* 媒体与AppleMusic@3x.png */; };
-		844B08582764CF4800B0513D /* 运动与健身@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B07F72764CF4700B0513D /* 运动与健身@3x.png */; };
-		844B08592764CF4800B0513D /* 健康@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B07F82764CF4700B0513D /* 健康@2x.png */; };
-		844B085A2764CF4800B0513D /* 提醒事项@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B07F92764CF4700B0513D /* 提醒事项@3x.png */; };
-		844B085B2764CF4800B0513D /* 01.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 844B07FA2764CF4700B0513D /* 01.PNG */; };
-		844B085C2764CF4800B0513D /* 麦克风@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B07FB2764CF4700B0513D /* 麦克风@2x.png */; };
-		844B085D2764CF4800B0513D /* 02.PNG in Resources */ = {isa = PBXBuildFile; fileRef = 844B07FC2764CF4700B0513D /* 02.PNG */; };
-		844B085E2764CF4800B0513D /* 麦克风@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B07FD2764CF4700B0513D /* 麦克风@3x.png */; };
-		844B085F2764CF4800B0513D /* 提醒事项@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B07FE2764CF4700B0513D /* 提醒事项@2x.png */; };
-		844B08602764CF4800B0513D /* 通讯录@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B07FF2764CF4700B0513D /* 通讯录@2x.png */; };
-		844B08612764CF4800B0513D /* 日历@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B08002764CF4700B0513D /* 日历@3x.png */; };
-		844B08622764CF4800B0513D /* 语音识别@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B08012764CF4700B0513D /* 语音识别@2x.png */; };
-		844B08632764CF4800B0513D /* 蓝牙@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B08022764CF4700B0513D /* 蓝牙@2x.png */; };
-		844B08642764CF4800B0513D /* 蓝牙@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B08032764CF4700B0513D /* 蓝牙@3x.png */; };
-		844B08652764CF4800B0513D /* 语音识别@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B08042764CF4700B0513D /* 语音识别@3x.png */; };
-		844B08662764CF4800B0513D /* 日历@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B08052764CF4700B0513D /* 日历@2x.png */; };
-		844B08672764CF4800B0513D /* 通讯录@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B08062764CF4700B0513D /* 通讯录@3x.png */; };
-		844B08682764CF4800B0513D /* 定位服务@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B08072764CF4700B0513D /* 定位服务@2x.png */; };
-		844B08692764CF4800B0513D /* 文件和文件夹@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B08082764CF4700B0513D /* 文件和文件夹@2x.png */; };
-		844B086A2764CF4800B0513D /* HomeKit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B08092764CF4700B0513D /* HomeKit@2x.png */; };
-		844B086B2764CF4800B0513D /* 相机@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B080A2764CF4700B0513D /* 相机@2x.png */; };
-		844B086C2764CF4800B0513D /* 照片@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B080B2764CF4700B0513D /* 照片@2x.png */; };
-		844B086D2764CF4800B0513D /* 照片@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B080C2764CF4700B0513D /* 照片@3x.png */; };
-		844B086E2764CF4800B0513D /* 相机@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B080D2764CF4700B0513D /* 相机@3x.png */; };
-		844B086F2764CF4800B0513D /* HomeKit@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B080E2764CF4700B0513D /* HomeKit@3x.png */; };
-		844B08702764CF4800B0513D /* 文件和文件夹@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B080F2764CF4700B0513D /* 文件和文件夹@3x.png */; };
-		844B08712764CF4800B0513D /* 定位服务@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 844B08102764CF4700B0513D /* 定位服务@3x.png */; };
-		844B08722764CF4800B0513D /* ECPrivacyCheckGatherTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B08132764CF4800B0513D /* ECPrivacyCheckGatherTool.m */; };
-		844B08732764CF4800B0513D /* ECPrivacyCheckTools不用pod管理的情况说明.md in Resources */ = {isa = PBXBuildFile; fileRef = 844B08182764CF4800B0513D /* ECPrivacyCheckTools不用pod管理的情况说明.md */; };
-		844B08742764CF4800B0513D /* ECAuthorizationTools.md in Resources */ = {isa = PBXBuildFile; fileRef = 844B08192764CF4800B0513D /* ECAuthorizationTools.md */; };
 		844B08752764CF4800B0513D /* ZMJCell+CustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 844B081B2764CF4800B0513D /* ZMJCell+CustomView.m */; };
 		844B08762764CF4800B0513D /* CasinoFlowDetailsVC_h in Resources */ = {isa = PBXBuildFile; fileRef = 844B081D2764CF4800B0513D /* CasinoFlowDetailsVC_h */; };
 		844B08772764CF4800B0513D /* CasinoFlowDetailsVC_m in Resources */ = {isa = PBXBuildFile; fileRef = 844B081E2764CF4800B0513D /* CasinoFlowDetailsVC_m */; };
@@ -529,6 +482,27 @@
 		C536CF022AC248C6005D1FCD /* 相册选取图片和视频.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C536CF012AC248C6005D1FCD /* 相册选取图片和视频.xcassets */; };
 		C536CF0C2AC2588B005D1FCD /* JobsTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C536CF0B2AC2588B005D1FCD /* JobsTextView.m */; };
 		C536CF0F2AC258BB005D1FCD /* JobsPostDelView.m in Sources */ = {isa = PBXBuildFile; fileRef = C536CF0D2AC258BB005D1FCD /* JobsPostDelView.m */; };
+		C539A0332AD69BCF00C8A5E3 /* TKPermissionHome.m in Sources */ = {isa = PBXBuildFile; fileRef = C5399FF62AD69BCE00C8A5E3 /* TKPermissionHome.m */; };
+		C539A0342AD69BCF00C8A5E3 /* TKPermissionFolders.m in Sources */ = {isa = PBXBuildFile; fileRef = C5399FFA2AD69BCE00C8A5E3 /* TKPermissionFolders.m */; };
+		C539A0352AD69BCF00C8A5E3 /* TKPermissionLocationAlways.m in Sources */ = {isa = PBXBuildFile; fileRef = C5399FFD2AD69BCE00C8A5E3 /* TKPermissionLocationAlways.m */; };
+		C539A0362AD69BCF00C8A5E3 /* TKPermissionCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = C539A0002AD69BCE00C8A5E3 /* TKPermissionCalendar.m */; };
+		C539A0372AD69BCF00C8A5E3 /* TKPermissionMicrophone.m in Sources */ = {isa = PBXBuildFile; fileRef = C539A0022AD69BCE00C8A5E3 /* TKPermissionMicrophone.m */; };
+		C539A0382AD69BCF00C8A5E3 /* TKPermissionLocationWhen.m in Sources */ = {isa = PBXBuildFile; fileRef = C539A0062AD69BCE00C8A5E3 /* TKPermissionLocationWhen.m */; };
+		C539A0392AD69BCF00C8A5E3 /* TKPermissionNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = C539A00A2AD69BCE00C8A5E3 /* TKPermissionNotification.m */; };
+		C539A03A2AD69BCF00C8A5E3 /* TKPermissionCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = C539A00C2AD69BCF00C8A5E3 /* TKPermissionCamera.m */; };
+		C539A03B2AD69BCF00C8A5E3 /* TKPermissionHealth.m in Sources */ = {isa = PBXBuildFile; fileRef = C539A0102AD69BCF00C8A5E3 /* TKPermissionHealth.m */; };
+		C539A03C2AD69BCF00C8A5E3 /* TKPermissionContacts.m in Sources */ = {isa = PBXBuildFile; fileRef = C539A0122AD69BCF00C8A5E3 /* TKPermissionContacts.m */; };
+		C539A03D2AD69BCF00C8A5E3 /* TKPermissionReminder.m in Sources */ = {isa = PBXBuildFile; fileRef = C539A0162AD69BCF00C8A5E3 /* TKPermissionReminder.m */; };
+		C539A03E2AD69BCF00C8A5E3 /* TKPermissionNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = C539A0182AD69BCF00C8A5E3 /* TKPermissionNetWork.m */; };
+		C539A03F2AD69BCF00C8A5E3 /* TKPermissionMotion.m in Sources */ = {isa = PBXBuildFile; fileRef = C539A01C2AD69BCF00C8A5E3 /* TKPermissionMotion.m */; };
+		C539A0402AD69BCF00C8A5E3 /* TKPermissionSpeech.m in Sources */ = {isa = PBXBuildFile; fileRef = C539A01F2AD69BCF00C8A5E3 /* TKPermissionSpeech.m */; };
+		C539A0412AD69BCF00C8A5E3 /* TKPermissionKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C539A0212AD69BCF00C8A5E3 /* TKPermissionKit.bundle */; };
+		C539A0422AD69BCF00C8A5E3 /* TKPermissionPublic.m in Sources */ = {isa = PBXBuildFile; fileRef = C539A0222AD69BCF00C8A5E3 /* TKPermissionPublic.m */; };
+		C539A0432AD69BCF00C8A5E3 /* TKPermissionBluetooth.m in Sources */ = {isa = PBXBuildFile; fileRef = C539A0252AD69BCF00C8A5E3 /* TKPermissionBluetooth.m */; };
+		C539A0442AD69BCF00C8A5E3 /* TKPermissionSiri.m in Sources */ = {isa = PBXBuildFile; fileRef = C539A0292AD69BCF00C8A5E3 /* TKPermissionSiri.m */; };
+		C539A0452AD69BCF00C8A5E3 /* TKPermissionTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = C539A02B2AD69BCF00C8A5E3 /* TKPermissionTracking.m */; };
+		C539A0462AD69BCF00C8A5E3 /* TKPermissionPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = C539A02F2AD69BCF00C8A5E3 /* TKPermissionPhoto.m */; };
+		C539A0472AD69BCF00C8A5E3 /* TKPermissionMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = C539A0312AD69BCF00C8A5E3 /* TKPermissionMedia.m */; };
 		C53F69912AD0E5A600B51391 /* NSObject+NSMutableParagraphStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F698F2AD0E5A600B51391 /* NSObject+NSMutableParagraphStyle.m */; };
 		C5432D662ACB1C9F008F92B0 /* UITBVCellFoldVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5432D652ACB1C9F008F92B0 /* UITBVCellFoldVC.m */; };
 		C5432D742ACB1CF6008F92B0 /* MSCommentTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5432D6C2ACB1CF6008F92B0 /* MSCommentTBVCell.m */; };
@@ -1271,71 +1245,6 @@
 		844B07D02764CF4700B0513D /* FMDatabase+Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+Manager.h"; sourceTree = "<group>"; };
 		844B07D22764CF4700B0513D /* EmptyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyView.h; sourceTree = "<group>"; };
 		844B07D32764CF4700B0513D /* EmptyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyView.m; sourceTree = "<group>"; };
-		844B07D62764CF4700B0513D /* ECPrivacyCheckCalendars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPrivacyCheckCalendars.h; sourceTree = "<group>"; };
-		844B07D72764CF4700B0513D /* ECPrivacyCheckMicrophone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECPrivacyCheckMicrophone.m; sourceTree = "<group>"; };
-		844B07D82764CF4700B0513D /* ECPrivacyCheckMotionAndFitness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPrivacyCheckMotionAndFitness.h; sourceTree = "<group>"; };
-		844B07D92764CF4700B0513D /* ECPrivacyCheckHomeKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECPrivacyCheckHomeKit.m; sourceTree = "<group>"; };
-		844B07DA2764CF4700B0513D /* ECPrivacyCheckSpeechRecognition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPrivacyCheckSpeechRecognition.h; sourceTree = "<group>"; };
-		844B07DB2764CF4700B0513D /* ECPrivacyCheckBluetooth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECPrivacyCheckBluetooth.m; sourceTree = "<group>"; };
-		844B07DC2764CF4700B0513D /* ECPrivacyCheckCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECPrivacyCheckCamera.m; sourceTree = "<group>"; };
-		844B07DD2764CF4700B0513D /* ECPrivacyCheckLocationServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECPrivacyCheckLocationServices.m; sourceTree = "<group>"; };
-		844B07DE2764CF4700B0513D /* ECPrivacyCheckMediaAndAppleMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPrivacyCheckMediaAndAppleMusic.h; sourceTree = "<group>"; };
-		844B07DF2764CF4700B0513D /* ECPrivacyCheckReminders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPrivacyCheckReminders.h; sourceTree = "<group>"; };
-		844B07E02764CF4700B0513D /* ECPrivacyCheckHealth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPrivacyCheckHealth.h; sourceTree = "<group>"; };
-		844B07E12764CF4700B0513D /* ECPrivacyCheckFilesAndFolders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECPrivacyCheckFilesAndFolders.m; sourceTree = "<group>"; };
-		844B07E22764CF4700B0513D /* ECPrivacyCheckContacts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPrivacyCheckContacts.h; sourceTree = "<group>"; };
-		844B07E32764CF4700B0513D /* ECPrivacyCheckPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPrivacyCheckPhotos.h; sourceTree = "<group>"; };
-		844B07E42764CF4700B0513D /* ECPrivacyCheckMicrophone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPrivacyCheckMicrophone.h; sourceTree = "<group>"; };
-		844B07E52764CF4700B0513D /* ECPrivacyCheckCalendars.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECPrivacyCheckCalendars.m; sourceTree = "<group>"; };
-		844B07E62764CF4700B0513D /* ECPrivacyCheckBluetooth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPrivacyCheckBluetooth.h; sourceTree = "<group>"; };
-		844B07E72764CF4700B0513D /* ECPrivacyCheckSpeechRecognition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECPrivacyCheckSpeechRecognition.m; sourceTree = "<group>"; };
-		844B07E82764CF4700B0513D /* ECPrivacyCheckHomeKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPrivacyCheckHomeKit.h; sourceTree = "<group>"; };
-		844B07E92764CF4700B0513D /* ECPrivacyCheckMotionAndFitness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECPrivacyCheckMotionAndFitness.m; sourceTree = "<group>"; };
-		844B07EA2764CF4700B0513D /* ECPrivacyCheckMediaAndAppleMusic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECPrivacyCheckMediaAndAppleMusic.m; sourceTree = "<group>"; };
-		844B07EB2764CF4700B0513D /* ECPrivacyCheckCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPrivacyCheckCamera.h; sourceTree = "<group>"; };
-		844B07EC2764CF4700B0513D /* ECPrivacyCheckLocationServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPrivacyCheckLocationServices.h; sourceTree = "<group>"; };
-		844B07ED2764CF4700B0513D /* ECPrivacyCheckPhotos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECPrivacyCheckPhotos.m; sourceTree = "<group>"; };
-		844B07EE2764CF4700B0513D /* ECPrivacyCheckFilesAndFolders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPrivacyCheckFilesAndFolders.h; sourceTree = "<group>"; };
-		844B07EF2764CF4700B0513D /* ECPrivacyCheckContacts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECPrivacyCheckContacts.m; sourceTree = "<group>"; };
-		844B07F02764CF4700B0513D /* ECPrivacyCheckHealth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECPrivacyCheckHealth.m; sourceTree = "<group>"; };
-		844B07F12764CF4700B0513D /* ECPrivacyCheckReminders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECPrivacyCheckReminders.m; sourceTree = "<group>"; };
-		844B07F32764CF4700B0513D /* 健康@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "健康@3x.png"; sourceTree = "<group>"; };
-		844B07F42764CF4700B0513D /* 媒体与AppleMusic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "媒体与AppleMusic@2x.png"; sourceTree = "<group>"; };
-		844B07F52764CF4700B0513D /* 运动与健身@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "运动与健身@2x.png"; sourceTree = "<group>"; };
-		844B07F62764CF4700B0513D /* 媒体与AppleMusic@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "媒体与AppleMusic@3x.png"; sourceTree = "<group>"; };
-		844B07F72764CF4700B0513D /* 运动与健身@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "运动与健身@3x.png"; sourceTree = "<group>"; };
-		844B07F82764CF4700B0513D /* 健康@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "健康@2x.png"; sourceTree = "<group>"; };
-		844B07F92764CF4700B0513D /* 提醒事项@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "提醒事项@3x.png"; sourceTree = "<group>"; };
-		844B07FA2764CF4700B0513D /* 01.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 01.PNG; sourceTree = "<group>"; };
-		844B07FB2764CF4700B0513D /* 麦克风@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "麦克风@2x.png"; sourceTree = "<group>"; };
-		844B07FC2764CF4700B0513D /* 02.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 02.PNG; sourceTree = "<group>"; };
-		844B07FD2764CF4700B0513D /* 麦克风@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "麦克风@3x.png"; sourceTree = "<group>"; };
-		844B07FE2764CF4700B0513D /* 提醒事项@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "提醒事项@2x.png"; sourceTree = "<group>"; };
-		844B07FF2764CF4700B0513D /* 通讯录@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "通讯录@2x.png"; sourceTree = "<group>"; };
-		844B08002764CF4700B0513D /* 日历@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "日历@3x.png"; sourceTree = "<group>"; };
-		844B08012764CF4700B0513D /* 语音识别@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "语音识别@2x.png"; sourceTree = "<group>"; };
-		844B08022764CF4700B0513D /* 蓝牙@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "蓝牙@2x.png"; sourceTree = "<group>"; };
-		844B08032764CF4700B0513D /* 蓝牙@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "蓝牙@3x.png"; sourceTree = "<group>"; };
-		844B08042764CF4700B0513D /* 语音识别@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "语音识别@3x.png"; sourceTree = "<group>"; };
-		844B08052764CF4700B0513D /* 日历@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "日历@2x.png"; sourceTree = "<group>"; };
-		844B08062764CF4700B0513D /* 通讯录@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "通讯录@3x.png"; sourceTree = "<group>"; };
-		844B08072764CF4700B0513D /* 定位服务@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "定位服务@2x.png"; sourceTree = "<group>"; };
-		844B08082764CF4700B0513D /* 文件和文件夹@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "文件和文件夹@2x.png"; sourceTree = "<group>"; };
-		844B08092764CF4700B0513D /* HomeKit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HomeKit@2x.png"; sourceTree = "<group>"; };
-		844B080A2764CF4700B0513D /* 相机@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "相机@2x.png"; sourceTree = "<group>"; };
-		844B080B2764CF4700B0513D /* 照片@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "照片@2x.png"; sourceTree = "<group>"; };
-		844B080C2764CF4700B0513D /* 照片@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "照片@3x.png"; sourceTree = "<group>"; };
-		844B080D2764CF4700B0513D /* 相机@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "相机@3x.png"; sourceTree = "<group>"; };
-		844B080E2764CF4700B0513D /* HomeKit@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HomeKit@3x.png"; sourceTree = "<group>"; };
-		844B080F2764CF4700B0513D /* 文件和文件夹@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "文件和文件夹@3x.png"; sourceTree = "<group>"; };
-		844B08102764CF4700B0513D /* 定位服务@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "定位服务@3x.png"; sourceTree = "<group>"; };
-		844B08122764CF4700B0513D /* ECPrivacyCheckHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPrivacyCheckHelp.h; sourceTree = "<group>"; };
-		844B08132764CF4800B0513D /* ECPrivacyCheckGatherTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECPrivacyCheckGatherTool.m; sourceTree = "<group>"; };
-		844B08142764CF4800B0513D /* ECMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECMacros.h; sourceTree = "<group>"; };
-		844B08152764CF4800B0513D /* ECPrivacyCheckGatherTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPrivacyCheckGatherTool.h; sourceTree = "<group>"; };
-		844B08162764CF4800B0513D /* ECPrivacyCheckTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPrivacyCheckTools.h; sourceTree = "<group>"; };
-		844B08182764CF4800B0513D /* ECPrivacyCheckTools不用pod管理的情况说明.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "ECPrivacyCheckTools不用pod管理的情况说明.md"; sourceTree = "<group>"; };
-		844B08192764CF4800B0513D /* ECAuthorizationTools.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ECAuthorizationTools.md; sourceTree = "<group>"; };
 		844B081B2764CF4800B0513D /* ZMJCell+CustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ZMJCell+CustomView.m"; sourceTree = "<group>"; };
 		844B081D2764CF4800B0513D /* CasinoFlowDetailsVC_h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CasinoFlowDetailsVC_h; sourceTree = "<group>"; };
 		844B081E2764CF4800B0513D /* CasinoFlowDetailsVC_m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CasinoFlowDetailsVC_m; sourceTree = "<group>"; };
@@ -1943,6 +1852,48 @@
 		C536CF0B2AC2588B005D1FCD /* JobsTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsTextView.m; sourceTree = "<group>"; };
 		C536CF0D2AC258BB005D1FCD /* JobsPostDelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsPostDelView.m; sourceTree = "<group>"; };
 		C536CF0E2AC258BB005D1FCD /* JobsPostDelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsPostDelView.h; sourceTree = "<group>"; };
+		C5399FF62AD69BCE00C8A5E3 /* TKPermissionHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPermissionHome.m; sourceTree = "<group>"; };
+		C5399FF72AD69BCE00C8A5E3 /* TKPermissionHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPermissionHome.h; sourceTree = "<group>"; };
+		C5399FF92AD69BCE00C8A5E3 /* TKPermissionFolders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPermissionFolders.h; sourceTree = "<group>"; };
+		C5399FFA2AD69BCE00C8A5E3 /* TKPermissionFolders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPermissionFolders.m; sourceTree = "<group>"; };
+		C5399FFC2AD69BCE00C8A5E3 /* TKPermissionLocationAlways.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPermissionLocationAlways.h; sourceTree = "<group>"; };
+		C5399FFD2AD69BCE00C8A5E3 /* TKPermissionLocationAlways.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPermissionLocationAlways.m; sourceTree = "<group>"; };
+		C5399FFF2AD69BCE00C8A5E3 /* TKPermissionCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPermissionCalendar.h; sourceTree = "<group>"; };
+		C539A0002AD69BCE00C8A5E3 /* TKPermissionCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPermissionCalendar.m; sourceTree = "<group>"; };
+		C539A0022AD69BCE00C8A5E3 /* TKPermissionMicrophone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPermissionMicrophone.m; sourceTree = "<group>"; };
+		C539A0032AD69BCE00C8A5E3 /* TKPermissionMicrophone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPermissionMicrophone.h; sourceTree = "<group>"; };
+		C539A0042AD69BCE00C8A5E3 /* TKPermissionKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPermissionKit.h; sourceTree = "<group>"; };
+		C539A0062AD69BCE00C8A5E3 /* TKPermissionLocationWhen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPermissionLocationWhen.m; sourceTree = "<group>"; };
+		C539A0072AD69BCE00C8A5E3 /* TKPermissionLocationWhen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPermissionLocationWhen.h; sourceTree = "<group>"; };
+		C539A0092AD69BCE00C8A5E3 /* TKPermissionNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPermissionNotification.h; sourceTree = "<group>"; };
+		C539A00A2AD69BCE00C8A5E3 /* TKPermissionNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPermissionNotification.m; sourceTree = "<group>"; };
+		C539A00C2AD69BCF00C8A5E3 /* TKPermissionCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPermissionCamera.m; sourceTree = "<group>"; };
+		C539A00D2AD69BCF00C8A5E3 /* TKPermissionCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPermissionCamera.h; sourceTree = "<group>"; };
+		C539A00F2AD69BCF00C8A5E3 /* TKPermissionHealth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPermissionHealth.h; sourceTree = "<group>"; };
+		C539A0102AD69BCF00C8A5E3 /* TKPermissionHealth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPermissionHealth.m; sourceTree = "<group>"; };
+		C539A0122AD69BCF00C8A5E3 /* TKPermissionContacts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPermissionContacts.m; sourceTree = "<group>"; };
+		C539A0132AD69BCF00C8A5E3 /* TKPermissionContacts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPermissionContacts.h; sourceTree = "<group>"; };
+		C539A0152AD69BCF00C8A5E3 /* TKPermissionReminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPermissionReminder.h; sourceTree = "<group>"; };
+		C539A0162AD69BCF00C8A5E3 /* TKPermissionReminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPermissionReminder.m; sourceTree = "<group>"; };
+		C539A0182AD69BCF00C8A5E3 /* TKPermissionNetWork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPermissionNetWork.m; sourceTree = "<group>"; };
+		C539A0192AD69BCF00C8A5E3 /* TKPermissionNetWork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPermissionNetWork.h; sourceTree = "<group>"; };
+		C539A01B2AD69BCF00C8A5E3 /* TKPermissionMotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPermissionMotion.h; sourceTree = "<group>"; };
+		C539A01C2AD69BCF00C8A5E3 /* TKPermissionMotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPermissionMotion.m; sourceTree = "<group>"; };
+		C539A01E2AD69BCF00C8A5E3 /* TKPermissionSpeech.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPermissionSpeech.h; sourceTree = "<group>"; };
+		C539A01F2AD69BCF00C8A5E3 /* TKPermissionSpeech.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPermissionSpeech.m; sourceTree = "<group>"; };
+		C539A0212AD69BCF00C8A5E3 /* TKPermissionKit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TKPermissionKit.bundle; sourceTree = "<group>"; };
+		C539A0222AD69BCF00C8A5E3 /* TKPermissionPublic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPermissionPublic.m; sourceTree = "<group>"; };
+		C539A0232AD69BCF00C8A5E3 /* TKPermissionPublic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPermissionPublic.h; sourceTree = "<group>"; };
+		C539A0252AD69BCF00C8A5E3 /* TKPermissionBluetooth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPermissionBluetooth.m; sourceTree = "<group>"; };
+		C539A0262AD69BCF00C8A5E3 /* TKPermissionBluetooth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPermissionBluetooth.h; sourceTree = "<group>"; };
+		C539A0282AD69BCF00C8A5E3 /* TKPermissionSiri.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPermissionSiri.h; sourceTree = "<group>"; };
+		C539A0292AD69BCF00C8A5E3 /* TKPermissionSiri.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPermissionSiri.m; sourceTree = "<group>"; };
+		C539A02B2AD69BCF00C8A5E3 /* TKPermissionTracking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPermissionTracking.m; sourceTree = "<group>"; };
+		C539A02C2AD69BCF00C8A5E3 /* TKPermissionTracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPermissionTracking.h; sourceTree = "<group>"; };
+		C539A02E2AD69BCF00C8A5E3 /* TKPermissionPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPermissionPhoto.h; sourceTree = "<group>"; };
+		C539A02F2AD69BCF00C8A5E3 /* TKPermissionPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPermissionPhoto.m; sourceTree = "<group>"; };
+		C539A0312AD69BCF00C8A5E3 /* TKPermissionMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKPermissionMedia.m; sourceTree = "<group>"; };
+		C539A0322AD69BCF00C8A5E3 /* TKPermissionMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPermissionMedia.h; sourceTree = "<group>"; };
 		C53F698F2AD0E5A600B51391 /* NSObject+NSMutableParagraphStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NSMutableParagraphStyle.m"; sourceTree = "<group>"; };
 		C53F69902AD0E5A600B51391 /* NSObject+NSMutableParagraphStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+NSMutableParagraphStyle.h"; sourceTree = "<group>"; };
 		C5432D642ACB1C9F008F92B0 /* UITBVCellFoldVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITBVCellFoldVC.h; sourceTree = "<group>"; };
@@ -3949,11 +3900,11 @@
 		844B07AC2764CF4700B0513D /* PodsManual */ = {
 			isa = PBXGroup;
 			children = (
+				C5399FF42AD69BCE00C8A5E3 /* TKPermissionKit */,
 				C52E5CED2AC0802700FE5494 /* KTV */,
 				C520F8652AB3A12100142DCC /* AFNetworking */,
 				C520F8572AB3A12000142DCC /* WMZBanner */,
 				C59483272879846400EC655B /* WMZCodeView */,
-				844B07D42764CF4700B0513D /* ECPrivacyCheckTools */,
 				844B07CE2764CF4700B0513D /* FMDatabase+Manager */,
 				844B07B42764CF4700B0513D /* JXCategoryView */,
 				8458D273278DBDD40063A76E /* LMJDropdownMenu */,
@@ -4061,110 +4012,6 @@
 				844B07D32764CF4700B0513D /* EmptyView.m */,
 			);
 			path = LYEmptyView;
-			sourceTree = "<group>";
-		};
-		844B07D42764CF4700B0513D /* ECPrivacyCheckTools */ = {
-			isa = PBXGroup;
-			children = (
-				844B07D52764CF4700B0513D /* Core */,
-				844B07F22764CF4700B0513D /* Resources */,
-				844B08112764CF4700B0513D /* Others */,
-				844B08172764CF4800B0513D /* ReadMe */,
-			);
-			path = ECPrivacyCheckTools;
-			sourceTree = "<group>";
-		};
-		844B07D52764CF4700B0513D /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				844B07E62764CF4700B0513D /* ECPrivacyCheckBluetooth.h */,
-				844B07DB2764CF4700B0513D /* ECPrivacyCheckBluetooth.m */,
-				844B07D62764CF4700B0513D /* ECPrivacyCheckCalendars.h */,
-				844B07E52764CF4700B0513D /* ECPrivacyCheckCalendars.m */,
-				844B07EB2764CF4700B0513D /* ECPrivacyCheckCamera.h */,
-				844B07DC2764CF4700B0513D /* ECPrivacyCheckCamera.m */,
-				844B07E22764CF4700B0513D /* ECPrivacyCheckContacts.h */,
-				844B07EF2764CF4700B0513D /* ECPrivacyCheckContacts.m */,
-				844B07EE2764CF4700B0513D /* ECPrivacyCheckFilesAndFolders.h */,
-				844B07E12764CF4700B0513D /* ECPrivacyCheckFilesAndFolders.m */,
-				844B07E02764CF4700B0513D /* ECPrivacyCheckHealth.h */,
-				844B07F02764CF4700B0513D /* ECPrivacyCheckHealth.m */,
-				844B07E82764CF4700B0513D /* ECPrivacyCheckHomeKit.h */,
-				844B07D92764CF4700B0513D /* ECPrivacyCheckHomeKit.m */,
-				844B07EC2764CF4700B0513D /* ECPrivacyCheckLocationServices.h */,
-				844B07DD2764CF4700B0513D /* ECPrivacyCheckLocationServices.m */,
-				844B07DE2764CF4700B0513D /* ECPrivacyCheckMediaAndAppleMusic.h */,
-				844B07EA2764CF4700B0513D /* ECPrivacyCheckMediaAndAppleMusic.m */,
-				844B07E42764CF4700B0513D /* ECPrivacyCheckMicrophone.h */,
-				844B07D72764CF4700B0513D /* ECPrivacyCheckMicrophone.m */,
-				844B07D82764CF4700B0513D /* ECPrivacyCheckMotionAndFitness.h */,
-				844B07E92764CF4700B0513D /* ECPrivacyCheckMotionAndFitness.m */,
-				844B07E32764CF4700B0513D /* ECPrivacyCheckPhotos.h */,
-				844B07ED2764CF4700B0513D /* ECPrivacyCheckPhotos.m */,
-				844B07DF2764CF4700B0513D /* ECPrivacyCheckReminders.h */,
-				844B07F12764CF4700B0513D /* ECPrivacyCheckReminders.m */,
-				844B07DA2764CF4700B0513D /* ECPrivacyCheckSpeechRecognition.h */,
-				844B07E72764CF4700B0513D /* ECPrivacyCheckSpeechRecognition.m */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
-		844B07F22764CF4700B0513D /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				844B07F32764CF4700B0513D /* 健康@3x.png */,
-				844B07F42764CF4700B0513D /* 媒体与AppleMusic@2x.png */,
-				844B07F52764CF4700B0513D /* 运动与健身@2x.png */,
-				844B07F62764CF4700B0513D /* 媒体与AppleMusic@3x.png */,
-				844B07F72764CF4700B0513D /* 运动与健身@3x.png */,
-				844B07F82764CF4700B0513D /* 健康@2x.png */,
-				844B07F92764CF4700B0513D /* 提醒事项@3x.png */,
-				844B07FA2764CF4700B0513D /* 01.PNG */,
-				844B07FB2764CF4700B0513D /* 麦克风@2x.png */,
-				844B07FC2764CF4700B0513D /* 02.PNG */,
-				844B07FD2764CF4700B0513D /* 麦克风@3x.png */,
-				844B07FE2764CF4700B0513D /* 提醒事项@2x.png */,
-				844B07FF2764CF4700B0513D /* 通讯录@2x.png */,
-				844B08002764CF4700B0513D /* 日历@3x.png */,
-				844B08012764CF4700B0513D /* 语音识别@2x.png */,
-				844B08022764CF4700B0513D /* 蓝牙@2x.png */,
-				844B08032764CF4700B0513D /* 蓝牙@3x.png */,
-				844B08042764CF4700B0513D /* 语音识别@3x.png */,
-				844B08052764CF4700B0513D /* 日历@2x.png */,
-				844B08062764CF4700B0513D /* 通讯录@3x.png */,
-				844B08072764CF4700B0513D /* 定位服务@2x.png */,
-				844B08082764CF4700B0513D /* 文件和文件夹@2x.png */,
-				844B08092764CF4700B0513D /* HomeKit@2x.png */,
-				844B080A2764CF4700B0513D /* 相机@2x.png */,
-				844B080B2764CF4700B0513D /* 照片@2x.png */,
-				844B080C2764CF4700B0513D /* 照片@3x.png */,
-				844B080D2764CF4700B0513D /* 相机@3x.png */,
-				844B080E2764CF4700B0513D /* HomeKit@3x.png */,
-				844B080F2764CF4700B0513D /* 文件和文件夹@3x.png */,
-				844B08102764CF4700B0513D /* 定位服务@3x.png */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		844B08112764CF4700B0513D /* Others */ = {
-			isa = PBXGroup;
-			children = (
-				844B08142764CF4800B0513D /* ECMacros.h */,
-				844B08152764CF4800B0513D /* ECPrivacyCheckGatherTool.h */,
-				844B08132764CF4800B0513D /* ECPrivacyCheckGatherTool.m */,
-				844B08122764CF4700B0513D /* ECPrivacyCheckHelp.h */,
-				844B08162764CF4800B0513D /* ECPrivacyCheckTools.h */,
-			);
-			path = Others;
-			sourceTree = "<group>";
-		};
-		844B08172764CF4800B0513D /* ReadMe */ = {
-			isa = PBXGroup;
-			children = (
-				844B08182764CF4800B0513D /* ECPrivacyCheckTools不用pod管理的情况说明.md */,
-				844B08192764CF4800B0513D /* ECAuthorizationTools.md */,
-			);
-			path = ReadMe;
 			sourceTree = "<group>";
 		};
 		844B081A2764CF4800B0513D /* ZMJCell+CustomView */ = {
@@ -6656,6 +6503,215 @@
 				C5BDB3D82AC278F6009583D7 /* ViewController */,
 			);
 			path = "相册选取图片和视频";
+			sourceTree = "<group>";
+		};
+		C5399FF42AD69BCE00C8A5E3 /* TKPermissionKit */ = {
+			isa = PBXGroup;
+			children = (
+				C5399FF52AD69BCE00C8A5E3 /* Home */,
+				C5399FF82AD69BCE00C8A5E3 /* FileAndFolders */,
+				C5399FFB2AD69BCE00C8A5E3 /* LocationAlways */,
+				C5399FFE2AD69BCE00C8A5E3 /* Calendar */,
+				C539A0012AD69BCE00C8A5E3 /* Microphone */,
+				C539A0042AD69BCE00C8A5E3 /* TKPermissionKit.h */,
+				C539A0052AD69BCE00C8A5E3 /* LocationWhen */,
+				C539A0082AD69BCE00C8A5E3 /* Notification */,
+				C539A00B2AD69BCF00C8A5E3 /* Camera */,
+				C539A00E2AD69BCF00C8A5E3 /* Health */,
+				C539A0112AD69BCF00C8A5E3 /* Contacts */,
+				C539A0142AD69BCF00C8A5E3 /* Reminder */,
+				C539A0172AD69BCF00C8A5E3 /* NetWork */,
+				C539A01A2AD69BCF00C8A5E3 /* Motion */,
+				C539A01D2AD69BCF00C8A5E3 /* Speech */,
+				C539A0202AD69BCF00C8A5E3 /* Public */,
+				C539A0242AD69BCF00C8A5E3 /* Bluetooth */,
+				C539A0272AD69BCF00C8A5E3 /* Siri */,
+				C539A02A2AD69BCF00C8A5E3 /* Tracking */,
+				C539A02D2AD69BCF00C8A5E3 /* Photo */,
+				C539A0302AD69BCF00C8A5E3 /* Media */,
+			);
+			path = TKPermissionKit;
+			sourceTree = "<group>";
+		};
+		C5399FF52AD69BCE00C8A5E3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C5399FF62AD69BCE00C8A5E3 /* TKPermissionHome.m */,
+				C5399FF72AD69BCE00C8A5E3 /* TKPermissionHome.h */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		C5399FF82AD69BCE00C8A5E3 /* FileAndFolders */ = {
+			isa = PBXGroup;
+			children = (
+				C5399FF92AD69BCE00C8A5E3 /* TKPermissionFolders.h */,
+				C5399FFA2AD69BCE00C8A5E3 /* TKPermissionFolders.m */,
+			);
+			path = FileAndFolders;
+			sourceTree = "<group>";
+		};
+		C5399FFB2AD69BCE00C8A5E3 /* LocationAlways */ = {
+			isa = PBXGroup;
+			children = (
+				C5399FFC2AD69BCE00C8A5E3 /* TKPermissionLocationAlways.h */,
+				C5399FFD2AD69BCE00C8A5E3 /* TKPermissionLocationAlways.m */,
+			);
+			path = LocationAlways;
+			sourceTree = "<group>";
+		};
+		C5399FFE2AD69BCE00C8A5E3 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				C5399FFF2AD69BCE00C8A5E3 /* TKPermissionCalendar.h */,
+				C539A0002AD69BCE00C8A5E3 /* TKPermissionCalendar.m */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		C539A0012AD69BCE00C8A5E3 /* Microphone */ = {
+			isa = PBXGroup;
+			children = (
+				C539A0022AD69BCE00C8A5E3 /* TKPermissionMicrophone.m */,
+				C539A0032AD69BCE00C8A5E3 /* TKPermissionMicrophone.h */,
+			);
+			path = Microphone;
+			sourceTree = "<group>";
+		};
+		C539A0052AD69BCE00C8A5E3 /* LocationWhen */ = {
+			isa = PBXGroup;
+			children = (
+				C539A0062AD69BCE00C8A5E3 /* TKPermissionLocationWhen.m */,
+				C539A0072AD69BCE00C8A5E3 /* TKPermissionLocationWhen.h */,
+			);
+			path = LocationWhen;
+			sourceTree = "<group>";
+		};
+		C539A0082AD69BCE00C8A5E3 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				C539A0092AD69BCE00C8A5E3 /* TKPermissionNotification.h */,
+				C539A00A2AD69BCE00C8A5E3 /* TKPermissionNotification.m */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		C539A00B2AD69BCF00C8A5E3 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				C539A00C2AD69BCF00C8A5E3 /* TKPermissionCamera.m */,
+				C539A00D2AD69BCF00C8A5E3 /* TKPermissionCamera.h */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		C539A00E2AD69BCF00C8A5E3 /* Health */ = {
+			isa = PBXGroup;
+			children = (
+				C539A00F2AD69BCF00C8A5E3 /* TKPermissionHealth.h */,
+				C539A0102AD69BCF00C8A5E3 /* TKPermissionHealth.m */,
+			);
+			path = Health;
+			sourceTree = "<group>";
+		};
+		C539A0112AD69BCF00C8A5E3 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				C539A0122AD69BCF00C8A5E3 /* TKPermissionContacts.m */,
+				C539A0132AD69BCF00C8A5E3 /* TKPermissionContacts.h */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		C539A0142AD69BCF00C8A5E3 /* Reminder */ = {
+			isa = PBXGroup;
+			children = (
+				C539A0152AD69BCF00C8A5E3 /* TKPermissionReminder.h */,
+				C539A0162AD69BCF00C8A5E3 /* TKPermissionReminder.m */,
+			);
+			path = Reminder;
+			sourceTree = "<group>";
+		};
+		C539A0172AD69BCF00C8A5E3 /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				C539A0182AD69BCF00C8A5E3 /* TKPermissionNetWork.m */,
+				C539A0192AD69BCF00C8A5E3 /* TKPermissionNetWork.h */,
+			);
+			path = NetWork;
+			sourceTree = "<group>";
+		};
+		C539A01A2AD69BCF00C8A5E3 /* Motion */ = {
+			isa = PBXGroup;
+			children = (
+				C539A01B2AD69BCF00C8A5E3 /* TKPermissionMotion.h */,
+				C539A01C2AD69BCF00C8A5E3 /* TKPermissionMotion.m */,
+			);
+			path = Motion;
+			sourceTree = "<group>";
+		};
+		C539A01D2AD69BCF00C8A5E3 /* Speech */ = {
+			isa = PBXGroup;
+			children = (
+				C539A01E2AD69BCF00C8A5E3 /* TKPermissionSpeech.h */,
+				C539A01F2AD69BCF00C8A5E3 /* TKPermissionSpeech.m */,
+			);
+			path = Speech;
+			sourceTree = "<group>";
+		};
+		C539A0202AD69BCF00C8A5E3 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				C539A0212AD69BCF00C8A5E3 /* TKPermissionKit.bundle */,
+				C539A0222AD69BCF00C8A5E3 /* TKPermissionPublic.m */,
+				C539A0232AD69BCF00C8A5E3 /* TKPermissionPublic.h */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		C539A0242AD69BCF00C8A5E3 /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				C539A0252AD69BCF00C8A5E3 /* TKPermissionBluetooth.m */,
+				C539A0262AD69BCF00C8A5E3 /* TKPermissionBluetooth.h */,
+			);
+			path = Bluetooth;
+			sourceTree = "<group>";
+		};
+		C539A0272AD69BCF00C8A5E3 /* Siri */ = {
+			isa = PBXGroup;
+			children = (
+				C539A0282AD69BCF00C8A5E3 /* TKPermissionSiri.h */,
+				C539A0292AD69BCF00C8A5E3 /* TKPermissionSiri.m */,
+			);
+			path = Siri;
+			sourceTree = "<group>";
+		};
+		C539A02A2AD69BCF00C8A5E3 /* Tracking */ = {
+			isa = PBXGroup;
+			children = (
+				C539A02B2AD69BCF00C8A5E3 /* TKPermissionTracking.m */,
+				C539A02C2AD69BCF00C8A5E3 /* TKPermissionTracking.h */,
+			);
+			path = Tracking;
+			sourceTree = "<group>";
+		};
+		C539A02D2AD69BCF00C8A5E3 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				C539A02E2AD69BCF00C8A5E3 /* TKPermissionPhoto.h */,
+				C539A02F2AD69BCF00C8A5E3 /* TKPermissionPhoto.m */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
+		C539A0302AD69BCF00C8A5E3 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				C539A0312AD69BCF00C8A5E3 /* TKPermissionMedia.m */,
+				C539A0322AD69BCF00C8A5E3 /* TKPermissionMedia.h */,
+			);
+			path = Media;
 			sourceTree = "<group>";
 		};
 		C53F698E2AD0E5A600B51391 /* NSObject+NSMutableParagraphStyle */ = {
@@ -11070,7 +11126,6 @@
 				C593DF3A2AC897FC00F875B5 /* SoundBtn.md in Resources */,
 				C5C48071284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-LightItalic.ttf in Resources */,
 				C5C4805C284E21E5007916B3 /* NotoSansDisplay_Condensed-Italic.ttf in Resources */,
-				844B08712764CF4800B0513D /* 定位服务@3x.png in Resources */,
 				C59483362879846400EC655B /* refresh.png in Resources */,
 				84CA5E8027895BA400E46E71 /* Tabbar.xcassets in Resources */,
 				C593DF952AC897FC00F875B5 /* UIControl+XY.md in Resources */,
@@ -11081,24 +11136,21 @@
 				C5C48045284E21E5007916B3 /* NotoSansDisplay-LightItalic.ttf in Resources */,
 				84CA5FB527897AFB00E46E71 /* 上传中....md in Resources */,
 				C593DF322AC897FC00F875B5 /* del_Photo@3x.png in Resources */,
-				844B08612764CF4800B0513D /* 日历@3x.png in Resources */,
 				84CA5E0827895B4700E46E71 /* iph_X.mp4 in Resources */,
 				840F962A27736427004979E9 /* 6@3x.png in Resources */,
 				840F95F027736427004979E9 /* 我的.json in Resources */,
 				C536CF022AC248C6005D1FCD /* 相册选取图片和视频.xcassets in Resources */,
 				C520F8312AB39EDD00142DCC /* 1179x2556.png in Resources */,
-				844B08562764CF4800B0513D /* 运动与健身@2x.png in Resources */,
 				844B02232764C8F000B0513D /* LaunchScreen.storyboard in Resources */,
 				C57A2039282CB59F0032156B /* gesture_selected@2x.png in Resources */,
 				C5C48049284E21E5007916B3 /* NotoSansDisplay-SemiBoldItalic.ttf in Resources */,
-				844B08632764CF4800B0513D /* 蓝牙@2x.png in Resources */,
 				84CA5EBB27895C0A00E46E71 /* 非iph_X.mp4 in Resources */,
 				C5C4806F284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-SemiBoldItalic.ttf in Resources */,
-				844B08542764CF4800B0513D /* 健康@3x.png in Resources */,
 				C5C48059284E21E5007916B3 /* NotoSansDisplay_Condensed-ExtraBoldItalic.ttf in Resources */,
 				C593DFA12AC897FC00F875B5 /* HQCollectionViewFlowLayout.md in Resources */,
 				84A494D227906CC90002A837 /* 动态头像_2 尺寸126.gif in Resources */,
 				C593DFEA2AC897FC00F875B5 /* toastLoading.gif in Resources */,
+				C539A0412AD69BCF00C8A5E3 /* TKPermissionKit.bundle in Resources */,
 				C5C48062284E21E5007916B3 /* NotoSansDisplay_Condensed-Medium.ttf in Resources */,
 				84A4920F27904A970002A837 /* JobsIMListView.md in Resources */,
 				C5C48046284E21E5007916B3 /* NotoSansDisplay-Thin.ttf in Resources */,
@@ -11119,7 +11171,6 @@
 				C5C48096284E22C4007916B3 /* JobsShowNum@3x.png in Resources */,
 				C593DF1C2AC897FC00F875B5 /* WhiteRightArrow@3x.png in Resources */,
 				C5C4805F284E21E5007916B3 /* NotoSansDisplay_Condensed-ExtraLight.ttf in Resources */,
-				844B086E2764CF4800B0513D /* 相机@3x.png in Resources */,
 				8459CE1F2776DCCF00125782 /* 启动页_05.png in Resources */,
 				84A494CF27906CC90002A837 /* 动态头像_2 尺寸84.gif in Resources */,
 				84562573278BF1FB0067ABB9 /* JobsComment【OutLines 05】.png in Resources */,
@@ -11147,7 +11198,6 @@
 				84CA5FE527897AFB00E46E71 /* Q弹 in Resources */,
 				C5C4803E284E21E5007916B3 /* NotoSans-BlackItalic.ttf in Resources */,
 				84A4920327904A970002A837 /* 输入框无值@2x.png in Resources */,
-				844B08682764CF4800B0513D /* 定位服务@2x.png in Resources */,
 				84CA5E0627895B4700E46E71 /* InfoPlist.strings in Resources */,
 				C5C4808A284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-ThinItalic.ttf in Resources */,
 				84A494D427906D050002A837 /* 头像.bundle in Resources */,
@@ -11155,16 +11205,12 @@
 				C593DFA62AC897FC00F875B5 /* UICollectionViewFlowLayout.md in Resources */,
 				C5C48080284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-ExtraLightItalic.ttf in Resources */,
 				84A491FE27904A970002A837 /* Check@3x.png in Resources */,
-				844B08552764CF4800B0513D /* 媒体与AppleMusic@2x.png in Resources */,
-				844B08702764CF4800B0513D /* 文件和文件夹@3x.png in Resources */,
-				844B086A2764CF4800B0513D /* HomeKit@2x.png in Resources */,
 				84CA5E0027895B4700E46E71 /* 空白图.png in Resources */,
 				840F961D27736427004979E9 /* 5@3x.png in Resources */,
 				84CA5FA127897AFB00E46E71 /* SHA-512 in Resources */,
 				840F962F27736427004979E9 /* 2@2x.png in Resources */,
 				84CA5FD727897AFB00E46E71 /* sortedNameEN.plist in Resources */,
 				840F962D27736427004979E9 /* 0@2x.png in Resources */,
-				844B086C2764CF4800B0513D /* 照片@2x.png in Resources */,
 				840F962427736427004979E9 /* 1@2x.png in Resources */,
 				840F95E827736427004979E9 /* TabbaritemImage.bundle in Resources */,
 				C52E59F82AC04B8900FE5494 /* 视频模块.xcassets in Resources */,
@@ -11175,7 +11221,6 @@
 				C520F82D2AB39EDD00142DCC /* 1284x2778.png in Resources */,
 				C5C4804B284E21E5007916B3 /* NotoSansDisplay-BoldItalic.ttf in Resources */,
 				840F95F427736427004979E9 /* 社区.json in Resources */,
-				844B086B2764CF4800B0513D /* 相机@2x.png in Resources */,
 				C593DF2B2AC897FC00F875B5 /* UIButton+ImageTitleSpacing.md in Resources */,
 				C5C48077284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-Bold.ttf in Resources */,
 				C593DF542AC897FC00F875B5 /* 字典有序化.md in Resources */,
@@ -11246,18 +11291,15 @@
 				84CA621B27899E2700E46E71 /* 2.jpeg in Resources */,
 				C5C48033284E21E5007916B3 /* NotoSans-MediumItalic.ttf in Resources */,
 				84CA5E0127895B4700E46E71 /* 刷新.bundle in Resources */,
-				844B08662764CF4800B0513D /* 日历@2x.png in Resources */,
 				C593DF1F2AC897FC00F875B5 /* UITableViewCell+Margin.md in Resources */,
 				C5C48072284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-ExtraLight.ttf in Resources */,
 				840F962E27736427004979E9 /* 2@3x.png in Resources */,
 				C5932EC9282D26E500B3B053 /* 测试弹窗的背景图@2x.png in Resources */,
 				C5C48060284E21E5007916B3 /* NotoSansDisplay_Condensed-ExtraBold.ttf in Resources */,
 				84432C10278C45C40028A27D /* 热度.gif in Resources */,
-				844B08742764CF4800B0513D /* ECAuthorizationTools.md in Resources */,
 				C5C48089284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-ExtraLight.ttf in Resources */,
 				84CA5FB227897AFB00E46E71 /* 高仿Uber取消叫车按钮效果(按住放大) in Resources */,
 				84A491FF27904A970002A837 /* Menu@2x.png in Resources */,
-				844B08622764CF4800B0513D /* 语音识别@2x.png in Resources */,
 				840F962727736427004979E9 /* 4@3x.png in Resources */,
 				84A491FC27904A970002A837 /* Header@3x.png in Resources */,
 				C5932ECA282D26E500B3B053 /* 测试弹窗的确定按钮@3x.png in Resources */,
@@ -11273,7 +11315,6 @@
 				C57A2037282CB59F0032156B /* gesture_indicator_selected@2x.png in Resources */,
 				C5C48055284E21E5007916B3 /* NotoSansDisplay-Italic.ttf in Resources */,
 				C5C4807C284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-ExtraBoldItalic.ttf in Resources */,
-				844B085D2764CF4800B0513D /* 02.PNG in Resources */,
 				C520F8292AB39EDD00142DCC /* 1125x2436.png in Resources */,
 				840F961927736427004979E9 /* JobsImageNumberView.md in Resources */,
 				C593DF912AC897FC00F875B5 /* UITableView+WWFoldableTableView.md in Resources */,
@@ -11282,7 +11323,6 @@
 				C5C4804C284E21E5007916B3 /* NotoSansDisplay-ThinItalic.ttf in Resources */,
 				C5C4807F284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-Italic.ttf in Resources */,
 				84CA5F9327897AFB00E46E71 /* 凯撒加密解密 in Resources */,
-				844B086F2764CF4800B0513D /* HomeKit@3x.png in Resources */,
 				C5C48044284E21E5007916B3 /* NotoSans-Italic.ttf in Resources */,
 				840F960527736427004979E9 /* Tabbaritem点击动效.md in Resources */,
 				C5C48097284E22C4007916B3 /* JobsShowNum@2x.png in Resources */,
@@ -11290,21 +11330,17 @@
 				C5C4806A284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-ExtraBoldItalic.ttf in Resources */,
 				C5C4807A284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-Medium.ttf in Resources */,
 				840F962627736427004979E9 /* 3@2x.png in Resources */,
-				844B086D2764CF4800B0513D /* 照片@3x.png in Resources */,
 				C5932ECB282D26E500B3B053 /* 测试弹窗的确定按钮@2x.png in Resources */,
 				C520F8282AB39EDD00142DCC /* 1290x2796.png in Resources */,
 				8459CE1C2776DCCF00125782 /* 启动页_02.png in Resources */,
 				846DF03C27806D230050468A /* 尝试高仿蜜柚.md in Resources */,
 				C5C48056284E21E5007916B3 /* NotoSansDisplay-Light.ttf in Resources */,
 				C5C48054284E21E5007916B3 /* NotoSansDisplay-ExtraLightItalic.ttf in Resources */,
-				844B08582764CF4800B0513D /* 运动与健身@3x.png in Resources */,
 				840F960327736427004979E9 /* 功能性动效：手势横向滚动子VC联动Tabbar切换.md in Resources */,
 				C593DFBE2AC897FC00F875B5 /* DeleteSystemUITabBarButton.md in Resources */,
-				844B08642764CF4800B0513D /* 蓝牙@3x.png in Resources */,
 				8459D6182779A6CC00125782 /* CasinoCustomerServiceView.png in Resources */,
 				C593DF582AC897FC00F875B5 /* iOS 获取手机型号、系统版本.png in Resources */,
 				84CA5FDA27897AFB00E46E71 /* 手势解锁 in Resources */,
-				844B08652764CF4800B0513D /* 语音识别@3x.png in Resources */,
 				C5C48068284E21E5007916B3 /* NotoSansDisplay_Condensed-MediumItalic.ttf in Resources */,
 				84CA5FE327897AFB00E46E71 /* App图标更换 in Resources */,
 				C5C48057284E21E5007916B3 /* NotoSansDisplay_Condensed-SemiBold.ttf in Resources */,
@@ -11325,11 +11361,9 @@
 				84A4920927904A970002A837 /* 右气泡@3x.png in Resources */,
 				C5C48040284E21E5007916B3 /* NotoSans-ExtraLight.ttf in Resources */,
 				C5C48065284E21E5007916B3 /* NotoSansDisplay_Condensed-Thin.ttf in Resources */,
-				844B08572764CF4800B0513D /* 媒体与AppleMusic@3x.png in Resources */,
 				84A4920427904A970002A837 /* 输入框有值@2x.png in Resources */,
 				840F962327736427004979E9 /* 3@3x.png in Resources */,
 				8440A12927A03B4B0089EE40 /* 扫描.png in Resources */,
-				844B085E2764CF4800B0513D /* 麦克风@3x.png in Resources */,
 				C5C4807B284E21E5007916B3 /* NotoSansDisplay_SemiCondensed-Bold.ttf in Resources */,
 				C520F82C2AB39EDD00142DCC /* 1170x2532.png in Resources */,
 				C5C4803C284E21E5007916B3 /* NotoSans-BoldItalic.ttf in Resources */,
@@ -11337,7 +11371,6 @@
 				840F95EA27736427004979E9 /* 主页.json in Resources */,
 				84CA5E0527895B4700E46E71 /* Localizable.strings in Resources */,
 				84A491FD27904A970002A837 /* Check@2x.png in Resources */,
-				844B085C2764CF4800B0513D /* 麦克风@2x.png in Resources */,
 				C593DF252AC897FC00F875B5 /* UITableViewCellStyleDefault.png in Resources */,
 				844B08772764CF4800B0513D /* CasinoFlowDetailsVC_m in Resources */,
 				84CA5FB427897AFB00E46E71 /* 音律跳动.bundle in Resources */,
@@ -11362,13 +11395,9 @@
 				84CA5E7F27895BA400E46E71 /* Assets.xcassets in Resources */,
 				84CA5FA027897AFB00E46E71 /* SHA in Resources */,
 				840F95ED27736427004979E9 /* green_lottie_tab_news.json in Resources */,
-				844B085B2764CF4800B0513D /* 01.PNG in Resources */,
-				844B08672764CF4800B0513D /* 通讯录@3x.png in Resources */,
-				844B085F2764CF4800B0513D /* 提醒事项@2x.png in Resources */,
 				844B02202764C8F000B0513D /* Assets.xcassets in Resources */,
 				840F95F727736427004979E9 /* music_animation.json in Resources */,
 				C520F8252AB39EDD00142DCC /* 480x762.png in Resources */,
-				844B08732764CF4800B0513D /* ECPrivacyCheckTools不用pod管理的情况说明.md in Resources */,
 				840F95FD27736427004979E9 /* tab_message_animate.json in Resources */,
 				C5432D752ACB1CF6008F92B0 /* MSCommentView.jpg in Resources */,
 				C59483342879846400EC655B /* B.png in Resources */,
@@ -11376,7 +11405,6 @@
 				84CA5F9E27897AFB00E46E71 /* SHA-256 in Resources */,
 				84CA5F8F27897AFB00E46E71 /* 牛逼标签效果 - SphereView👍 in Resources */,
 				C5C48078284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-ExtraLightItalic.ttf in Resources */,
-				844B08592764CF4800B0513D /* 健康@2x.png in Resources */,
 				C5C4804F284E21E5007916B3 /* NotoSansDisplay-ExtraLight.ttf in Resources */,
 				C5786EE2285DD04100AD9FF1 /* 弹框样式_10.png in Resources */,
 				84562576278BF1FB0067ABB9 /* JobsComment【OutLines 02】.png in Resources */,
@@ -11401,16 +11429,13 @@
 				84A4920527904A970002A837 /* 输入框有值@3x.png in Resources */,
 				C57A2035282CB59F0032156B /* gesture_headIcon@2x.png in Resources */,
 				C520F82A2AB39EDD00142DCC /* 1080x1882.png in Resources */,
-				844B08602764CF4800B0513D /* 通讯录@2x.png in Resources */,
 				C57A2036282CB59F0032156B /* gesture_indicator_normal@2x.png in Resources */,
 				C5A7C2DC285B290F00F0F2BB /* 临时的占位图.xcassets in Resources */,
 				C59483352879846400EC655B /* A.png in Resources */,
 				C593DFC52AC897FC00F875B5 /* 如何理解iOS的Runtime？ - 掘金.mht in Resources */,
-				844B08692764CF4800B0513D /* 文件和文件夹@2x.png in Resources */,
 				C5C48074284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-MediumItalic.ttf in Resources */,
 				8459CE1B2776DCCF00125782 /* 启动页_01.png in Resources */,
 				C593DF602AC897FC00F875B5 /* JobsImageViewStyleCVCell.md in Resources */,
-				844B085A2764CF4800B0513D /* 提醒事项@3x.png in Resources */,
 				C57A203C282CB59F0032156B /* 橙色椭圆.png in Resources */,
 				84CA5F9B27897AFB00E46E71 /* RSA in Resources */,
 				84CA5E0427895B4700E46E71 /* GIF大图.gif in Resources */,
@@ -11585,7 +11610,6 @@
 				C593DF642AC897FC00F875B5 /* BaseCollectionViewCell.m in Sources */,
 				C521807A2860B22000ACA6D9 /* RandomTestVC.m in Sources */,
 				84CA66102789D4CD00E46E71 /* ForgetCodeStep_01View.m in Sources */,
-				844B084F2764CF4800B0513D /* ECPrivacyCheckMediaAndAppleMusic.m in Sources */,
 				845625A5278BF2BB0067ABB9 /* JobsCommentVC.m in Sources */,
 				84CA5FCA27897AFB00E46E71 /* TBCityIconFont.m in Sources */,
 				C593DF672AC897FC00F875B5 /* UIImageView+GIF.m in Sources */,
@@ -11598,6 +11622,7 @@
 				C593DFB72AC897FC00F875B5 /* CADisplayLink_TimerManager.m in Sources */,
 				C52E5CA12AC07E9800FE5494 /* KTVHCDataNetworkSource.m in Sources */,
 				C593DF412AC897FC00F875B5 /* UIView+Measure.m in Sources */,
+				C539A0472AD69BCF00C8A5E3 /* TKPermissionMedia.m in Sources */,
 				C593DFAE2AC897FC00F875B5 /* AppDelegate+Extra.m in Sources */,
 				C593DFF02AC897FC00F875B5 /* UISlider+Extra.m in Sources */,
 				C57A2034282CB59F0032156B /* ZLGestureLockView.m in Sources */,
@@ -11620,6 +11645,7 @@
 				84401A8B27919E3B0038FF6F /* JobsSearchVC.m in Sources */,
 				840F95E427736427004979E9 /* JobsBitsMonitorCore.m in Sources */,
 				C593DF1E2AC897FC00F875B5 /* UITableViewCell+WhiteArrows.m in Sources */,
+				C539A03A2AD69BCF00C8A5E3 /* TKPermissionCamera.m in Sources */,
 				C593DF482AC897FC00F875B5 /* UIView+ViewController.m in Sources */,
 				C593DFCC2AC897FC00F875B5 /* NSObject+HXPhotoPicker.m in Sources */,
 				C5B3AEB628537D590052A4A9 /* BaiShaETProjMembersSubsBaseVC.m in Sources */,
@@ -11633,24 +11659,31 @@
 				C5AA8B7D282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle.m in Sources */,
 				C5C48124284E254B007916B3 /* JobsMembersSubsBaseVC.m in Sources */,
 				C50E8A462AC375F1000D3F4E /* MasonryVC.m in Sources */,
+				C539A0452AD69BCF00C8A5E3 /* TKPermissionTracking.m in Sources */,
 				84CA5FB327897AFB00E46E71 /* GifLoopPlayView.m in Sources */,
 				84CA5FAF27897AFB00E46E71 /* XLChannelView.m in Sources */,
+				C539A0392AD69BCF00C8A5E3 /* TKPermissionNotification.m in Sources */,
 				C593DF8D2AC897FC00F875B5 /* UINavigationController+SafeTransition.m in Sources */,
 				84CA5FBD27897AFB00E46E71 /* XXTools.m in Sources */,
 				84A160F12789567D00DACA3C /* ViewController@1.m in Sources */,
 				C593DFD22AC897FC00F875B5 /* NSObject+Shake.m in Sources */,
 				844B08782764CF4800B0513D /* XHLaunchAdView.m in Sources */,
 				C593DF6C2AC897FC00F875B5 /* NSString+Statistics.m in Sources */,
+				C539A0402AD69BCF00C8A5E3 /* TKPermissionSpeech.m in Sources */,
 				846DF03927806D230050468A /* BaseContentView.m in Sources */,
+				C539A03F2AD69BCF00C8A5E3 /* TKPermissionMotion.m in Sources */,
 				C593DFBC2AC897FC00F875B5 /* JobsHeaderFooterViewModel.m in Sources */,
 				C572088E2852F68A004BF695 /* ProtocolKitVC.m in Sources */,
 				C593DFEB2AC897FC00F875B5 /* NSObject+WHToast.m in Sources */,
+				C539A0372AD69BCF00C8A5E3 /* TKPermissionMicrophone.m in Sources */,
 				C5733A7B2859C7C200D13A43 /* JobsVerticalMenuVC.m in Sources */,
+				C539A0422AD69BCF00C8A5E3 /* TKPermissionPublic.m in Sources */,
 				C520F8952AB3A12100142DCC /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				84CA5FE227897AFB00E46E71 /* FSAppIconManager.m in Sources */,
 				84CA63D12789B3CC00E46E71 /* TestIrregularViewTestVC.m in Sources */,
 				842477A627C114BE00831270 /* NotifiManager.m in Sources */,
 				C593DFA02AC897FC00F875B5 /* HQCollectionViewFlowLayout.m in Sources */,
+				C539A0342AD69BCF00C8A5E3 /* TKPermissionFolders.m in Sources */,
 				C5AA8B6F282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_1.m in Sources */,
 				842475AB27C0D67000831270 /* YTKChainRequest+AnimatingAccessory.m in Sources */,
 				C593DF682AC897FC00F875B5 /* BaseNavigationBar.m in Sources */,
@@ -11686,6 +11719,7 @@
 				844B0E552764DE1A00B0513D /* JobsUserModel.m in Sources */,
 				844B08812764CF4800B0513D /* XHLaunchAdConfiguration.m in Sources */,
 				C52E5CA62AC07E9800FE5494 /* KTVHCDataCallback.m in Sources */,
+				C539A03D2AD69BCF00C8A5E3 /* TKPermissionReminder.m in Sources */,
 				C593DFD62AC897FC00F875B5 /* NSObject+CurrentDevice.m in Sources */,
 				C52E5CEA2AC07EE500FE5494 /* DDData.m in Sources */,
 				C520F89B2AB3A12100142DCC /* AFURLRequestSerialization.m in Sources */,
@@ -11700,7 +11734,6 @@
 				C593DF982AC897FC00F875B5 /* UIProgressView+Extra.m in Sources */,
 				84A491F127904A970002A837 /* JobsIMChatInfoModel.m in Sources */,
 				844B083B2764CF4800B0513D /* JXCategoryTitleBackgroundCell.m in Sources */,
-				844B08502764CF4800B0513D /* ECPrivacyCheckPhotos.m in Sources */,
 				C593DFED2AC897FC00F875B5 /* NSObject+UNUserNotificationCenterDelegate.m in Sources */,
 				840F960B27736427004979E9 /* BWShareView.m in Sources */,
 				8424779227C1141900831270 /* CoreTextLearningVC.m in Sources */,
@@ -11725,13 +11758,13 @@
 				C5C4809F284E246D007916B3 /* JobsAppDoorInputViewBaseStyle_10.m in Sources */,
 				C593DF7D2AC897FC00F875B5 /* UIViewController+Lottie.m in Sources */,
 				84D764AF2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel.m in Sources */,
+				C539A0432AD69BCF00C8A5E3 /* TKPermissionBluetooth.m in Sources */,
 				C52E5CE32AC07EE500FE5494 /* HTTPConnection.m in Sources */,
 				C593DF282AC897FC00F875B5 /* UIButton+Animation.m in Sources */,
 				C593DFDA2AC897FC00F875B5 /* NSObject+Notification.m in Sources */,
 				C5BF3F32286952DF0047F591 /* JobsCountdownView.m in Sources */,
 				C520F8932AB3A12100142DCC /* UIImageView+AFNetworking.m in Sources */,
 				84CA61972789852600E46E71 /* B_VC.m in Sources */,
-				844B084D2764CF4800B0513D /* ECPrivacyCheckSpeechRecognition.m in Sources */,
 				C593DF532AC897FC00F875B5 /* NSMutableDictionary+Ordered.m in Sources */,
 				C593DF0A2AC897FC00F875B5 /* UIImage+SYS.m in Sources */,
 				C52E5CE62AC07EE500FE5494 /* MultipartFormDataParser.m in Sources */,
@@ -11765,7 +11798,6 @@
 				84401A8627919E3B0038FF6F /* JobsSearchShowHistoryDataTBVCell.m in Sources */,
 				C593DFA92AC897FC00F875B5 /* NSUserDefaults+Manager.m in Sources */,
 				C593DF152AC897FC00F875B5 /* BaseLabel.m in Sources */,
-				844B08482764CF4800B0513D /* ECPrivacyCheckBluetooth.m in Sources */,
 				844B0E542764DE1A00B0513D /* BaseModel.m in Sources */,
 				C593DF5C2AC897FC00F875B5 /* UICollectionView+RegisterClass.m in Sources */,
 				C5B3AEA2285378FA0052A4A9 /* BaiShaETProjVIPSubCVCell_01.m in Sources */,
@@ -11823,8 +11855,6 @@
 				C55C895628437190005295B1 /* JXCategoryPopupVC.m in Sources */,
 				C593DF992AC897FC00F875B5 /* NSArray+Safety.m in Sources */,
 				C59478D62851E2D7009D040A /* OCDynamic.m in Sources */,
-				844B084E2764CF4800B0513D /* ECPrivacyCheckMotionAndFitness.m in Sources */,
-				844B08512764CF4800B0513D /* ECPrivacyCheckContacts.m in Sources */,
 				C593DF0D2AC897FC00F875B5 /* UIImage+Overlay.m in Sources */,
 				C54BC43628325BA80010EF20 /* JobsTitleView01.m in Sources */,
 				84401A8727919E3B0038FF6F /* JobsSearchTableViewHeaderView.m in Sources */,
@@ -11835,8 +11865,10 @@
 				C593DF9D2AC897FC00F875B5 /* JobsTBVHeaderFooterView.m in Sources */,
 				C5432D742ACB1CF6008F92B0 /* MSCommentTBVCell.m in Sources */,
 				C593DF162AC897FC00F875B5 /* UILabel+AutoScroll.m in Sources */,
+				C539A0382AD69BCF00C8A5E3 /* TKPermissionLocationWhen.m in Sources */,
 				C593DF692AC897FC00F875B5 /* NSString+Conversion.m in Sources */,
 				C520F8972AB3A12100142DCC /* AFImageDownloader.m in Sources */,
+				C539A03E2AD69BCF00C8A5E3 /* TKPermissionNetWork.m in Sources */,
 				C5B3AE9A285378FA0052A4A9 /* BaiShaETProjVIPSubCVCell_03.m in Sources */,
 				844B02262764C8F000B0513D /* main.m in Sources */,
 				C536CF0C2AC2588B005D1FCD /* JobsTextView.m in Sources */,
@@ -11858,6 +11890,7 @@
 				84CA5FA627897AFB00E46E71 /* NSData+CommonCrypto.m in Sources */,
 				84CA5FA827897AFB00E46E71 /* MovieCountDown.m in Sources */,
 				C52E5CA32AC07E9800FE5494 /* KTVHCDataCacheItem.m in Sources */,
+				C539A0462AD69BCF00C8A5E3 /* TKPermissionPhoto.m in Sources */,
 				C5432DF32ACB1E09008F92B0 /* MSCommentModel.m in Sources */,
 				84B9A8CE279680C80070DD20 /* TestLabelVC.m in Sources */,
 				C593DF962AC897FC00F875B5 /* UIControl+XY.m in Sources */,
@@ -11929,7 +11962,6 @@
 				84A16102278956D000DACA3C /* ViewController@5.m in Sources */,
 				C593DF662AC897FC00F875B5 /* BaseImageView.m in Sources */,
 				C55226642AC89EF100668516 /* RequestTool.m in Sources */,
-				844B084B2764CF4800B0513D /* ECPrivacyCheckFilesAndFolders.m in Sources */,
 				840F95E627736427004979E9 /* UITabBarItem+TLAnimation.m in Sources */,
 				C593DF822AC897FC00F875B5 /* UIViewController+GifImageView.m in Sources */,
 				842475AD27C0D67000831270 /* YTKAnimatingRequestAccessory.m in Sources */,
@@ -11944,7 +11976,7 @@
 				C52E5C942AC07E9800FE5494 /* KTVHCURLTool.m in Sources */,
 				C593DFE82AC897FC00F875B5 /* NSObject+DeviceIP.m in Sources */,
 				84A4921427904B000002A837 /* JobsIMShowVC.m in Sources */,
-				844B08492764CF4800B0513D /* ECPrivacyCheckCamera.m in Sources */,
+				C539A0442AD69BCF00C8A5E3 /* TKPermissionSiri.m in Sources */,
 				C52E5CE82AC07EE500FE5494 /* HTTPAuthenticationRequest.m in Sources */,
 				8459D6172779A6CC00125782 /* CasinoCustomerServiceView.m in Sources */,
 				844B087A2764CF4800B0513D /* XHLaunchImageView.m in Sources */,
@@ -11975,20 +12007,19 @@
 				84CA5FC727897AFB00E46E71 /* JhtBannerCardView.m in Sources */,
 				C593DF702AC897FC00F875B5 /* NSString+FilteringSpecialCharacters.m in Sources */,
 				C5C47D61284E1DF9007916B3 /* CasinoUpgradePopupView.m in Sources */,
-				844B08462764CF4800B0513D /* ECPrivacyCheckMicrophone.m in Sources */,
 				844B08452764CF4800B0513D /* EmptyView.m in Sources */,
 				C57FAEDF287562C600E72F91 /* GXCardItemDemoCell.m in Sources */,
 				C593DF4C2AC897FC00F875B5 /* UIView+AutoSelfAdaptionSize.m in Sources */,
 				84CA5FCB27897AFB00E46E71 /* TBCityIconInfo.m in Sources */,
 				84CA61A32789859900E46E71 /* BackAnimation.m in Sources */,
 				84CA5F9A27897AFB00E46E71 /* RSAUtil.m in Sources */,
-				844B08532764CF4800B0513D /* ECPrivacyCheckReminders.m in Sources */,
 				C5AA8B7F282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_4.m in Sources */,
 				84CA64A92789C24600E46E71 /* VideoModel.m in Sources */,
 				C52E5CE92AC07EE500FE5494 /* DDNumber.m in Sources */,
 				C5B3AEAC2853799F0052A4A9 /* BaiShaETProjChoiceStadiumView.m in Sources */,
 				C536CF0F2AC258BB005D1FCD /* JobsPostDelView.m in Sources */,
 				C593DF1A2AC897FC00F875B5 /* UITableViewCell+UITableViewCellProtocoll.m in Sources */,
+				C539A0352AD69BCF00C8A5E3 /* TKPermissionLocationAlways.m in Sources */,
 				840F960627736427004979E9 /* TLTabBarAnimation.m in Sources */,
 				C520F8912AB3A12100142DCC /* AFNetworkActivityIndicatorManager.m in Sources */,
 				844B087F2764CF4800B0513D /* XHLaunchAdDownloader.m in Sources */,
@@ -12016,7 +12047,6 @@
 				846DF03727806D230050468A /* JobsAppDoorModel.m in Sources */,
 				C593DFD32AC897FC00F875B5 /* NSObject+RegularExpression.m in Sources */,
 				C593DF932AC897FC00F875B5 /* BaseTableView.m in Sources */,
-				844B084C2764CF4800B0513D /* ECPrivacyCheckCalendars.m in Sources */,
 				C52E5CE12AC07EE500FE5494 /* HTTPMessage.m in Sources */,
 				C593DF7E2AC897FC00F875B5 /* UIViewController+BackBtn.m in Sources */,
 				C520F8902AB3A12100142DCC /* UIRefreshControl+AFNetworking.m in Sources */,
@@ -12033,6 +12063,7 @@
 				C593DF5A2AC897FC00F875B5 /* UICollectionView+Func.m in Sources */,
 				C593DFE92AC897FC00F875B5 /* NSObject+ChangeAppicon.m in Sources */,
 				C593DF472AC897FC00F875B5 /* UIView+BackgroundImage.m in Sources */,
+				C539A03B2AD69BCF00C8A5E3 /* TKPermissionHealth.m in Sources */,
 				C593DF2C2AC897FC00F875B5 /* UIButton+Timer.m in Sources */,
 				C593DF342AC897FC00F875B5 /* LGiOSBtn.m in Sources */,
 				842475AE27C0D67000831270 /* YTKBaseRequest+AnimatingAccessory.m in Sources */,
@@ -12041,7 +12072,6 @@
 				84CA64A42789C1F100E46E71 /* Douyin_ZFPlayerVC@1.m in Sources */,
 				C593DFEF2AC897FC00F875B5 /* NSObject+CallBackInfoByBlock.m in Sources */,
 				C596B7A3283F6F7900C13619 /* JobsHotLabelWithSingleLine.m in Sources */,
-				844B084A2764CF4800B0513D /* ECPrivacyCheckLocationServices.m in Sources */,
 				8424743F27C0CAEB00831270 /* GetImageApi.m in Sources */,
 				C593DF292AC897FC00F875B5 /* UIButton+UI.m in Sources */,
 				C52E5C932AC07E9800FE5494 /* KTVHCPathTool.m in Sources */,
@@ -12052,7 +12082,6 @@
 				C593DF852AC897FC00F875B5 /* UIViewController+SuspendBtn.m in Sources */,
 				C520F8892AB3A12100142DCC /* WMZBannerFlowLayout.m in Sources */,
 				84CA660F2789D4CD00E46E71 /* FindCodeFlowChartView.m in Sources */,
-				844B08472764CF4800B0513D /* ECPrivacyCheckHomeKit.m in Sources */,
 				C593DF9F2AC897FC00F875B5 /* NSMutableArray+Extra.m in Sources */,
 				C593DFAF2AC897FC00F875B5 /* NSNumber+Extra.m in Sources */,
 				C593DFF62AC897FC00F875B5 /* HQTextField.m in Sources */,
@@ -12080,8 +12109,10 @@
 				C52E5C952AC07E9800FE5494 /* KTVHCHTTPConnection.m in Sources */,
 				84CA5F9627897AFB00E46E71 /* NSData+Base64.m in Sources */,
 				C5B3AEA1285378FA0052A4A9 /* BaiShaETProjVIPSubCVCell_02.m in Sources */,
+				C539A0332AD69BCF00C8A5E3 /* TKPermissionHome.m in Sources */,
 				840F964027736427004979E9 /* JobsSuspendView.m in Sources */,
 				84A491F327904A970002A837 /* JobsIMInputview.m in Sources */,
+				C539A03C2AD69BCF00C8A5E3 /* TKPermissionContacts.m in Sources */,
 				C593DFB32AC897FC00F875B5 /* UITextModel.m in Sources */,
 				C552266D2AC89F9000668516 /* NSObject+URLManager.m in Sources */,
 				C5B3AE81285378A70052A4A9 /* JXCategoryViewWithHeaderViewSubVC.m in Sources */,
@@ -12102,7 +12133,6 @@
 				844B021E2764C8EE00B0513D /* JobsBaseConfig.xcdatamodeld in Sources */,
 				C52E5C9B2AC07E9800FE5494 /* KTVHCDataReader.m in Sources */,
 				C52E5CB02AC07ECB00FE5494 /* GCDAsyncSocket.m in Sources */,
-				844B08522764CF4800B0513D /* ECPrivacyCheckHealth.m in Sources */,
 				840F95E727736427004979E9 /* JobsTabBarControllerConfig.m in Sources */,
 				C593DF202AC897FC00F875B5 /* UITableViewCell+Margin.m in Sources */,
 				C593DFAA2AC897FC00F875B5 /* NSCache+Extra.m in Sources */,
@@ -12133,6 +12163,7 @@
 				C593DF5D2AC897FC00F875B5 /* BaseCollectionView.m in Sources */,
 				C593DF122AC897FC00F875B5 /* UIWindow+Extra.m in Sources */,
 				C55226712AC89F9E00668516 /* DataManager.m in Sources */,
+				C539A0362AD69BCF00C8A5E3 /* TKPermissionCalendar.m in Sources */,
 				C563415A2849DFE90047CA49 /* JobsTestVC.m in Sources */,
 				C593DF372AC897FC00F875B5 /* IrregularBtn.m in Sources */,
 				842475B527C0DE6100831270 /* YTKRequest+Custom.m in Sources */,
@@ -12151,7 +12182,6 @@
 				C593DFE62AC897FC00F875B5 /* NSObject+RichText.m in Sources */,
 				84CA5FC527897AFB00E46E71 /* JhtBannerView.m in Sources */,
 				C593DF892AC897FC00F875B5 /* UIViewController+MJRefresh.m in Sources */,
-				844B08722764CF4800B0513D /* ECPrivacyCheckGatherTool.m in Sources */,
 				C593DF2D2AC897FC00F875B5 /* ButtonTimerConfigModel.m in Sources */,
 				8424744027C0CAEB00831270 /* YTKUrlArgumentsFilter.m in Sources */,
 				84868DA32779DDA50098BE7A /* ZMJCells.m in Sources */,

@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ECPrivacyCheckGatherTool.h"
+#import "TKPermissionKit.h"
 #import "MacroDef_Strong@Weak.h"
 #import "NSObject+WHToast.h"
 #import "NSObject+CurrentDevice.h"
