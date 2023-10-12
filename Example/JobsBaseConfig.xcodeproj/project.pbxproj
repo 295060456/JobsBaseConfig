@@ -2016,7 +2016,6 @@
 		C593DBDC2AC897A900F875B5 /* MacroDef_QUEUE.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDef_QUEUE.h; sourceTree = "<group>"; };
 		C593DBDD2AC897A900F875B5 /* MacroDef_UserDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDef_UserDefault.h; sourceTree = "<group>"; };
 		C593DBDE2AC897A900F875B5 /* MacroDef_Strong@Weak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MacroDef_Strong@Weak.h"; sourceTree = "<group>"; };
-		C593DBDF2AC897A900F875B5 /* MacroDef_Print.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDef_Print.h; sourceTree = "<group>"; };
 		C593DBE02AC897A900F875B5 /* MacroDef_Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDef_Notification.h; sourceTree = "<group>"; };
 		C593DBE22AC897A900F875B5 /* MacroDef_Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDef_Size.h; sourceTree = "<group>"; };
 		C593DBE42AC897A900F875B5 /* 安全区域.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "安全区域.png"; sourceTree = "<group>"; };
@@ -7306,7 +7305,6 @@
 				C593DBDC2AC897A900F875B5 /* MacroDef_QUEUE.h */,
 				C593DBDD2AC897A900F875B5 /* MacroDef_UserDefault.h */,
 				C593DBDE2AC897A900F875B5 /* MacroDef_Strong@Weak.h */,
-				C593DBDF2AC897A900F875B5 /* MacroDef_Print.h */,
 				C593DBE02AC897A900F875B5 /* MacroDef_Notification.h */,
 			);
 			path = MacroDef_Func;

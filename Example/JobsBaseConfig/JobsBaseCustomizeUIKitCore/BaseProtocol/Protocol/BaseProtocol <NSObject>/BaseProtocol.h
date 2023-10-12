@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol BaseProtocol <NSObject>
 
 @optional
+@property(nonatomic,assign)BOOL isLock;
 @property(nonatomic,strong)RACDisposable *racDisposable;
 @property(nonatomic,copy)JobsReturnIDByIDBlock keyboardUpNotificationBlock;
 @property(nonatomic,copy)JobsReturnIDByIDBlock keyboardDownNotificationBlock;
@@ -55,10 +56,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_ASSUME_NONNULL_END
 
-#pragma mark —— @synthesize BaseProtocol
+#pragma mark —— @synthesize BaseProtocol isLock
 #ifndef BaseProtocol_synthesize
 #define BaseProtocol_synthesize \
 \
+@synthesize isLock = isLock;\
+@synthesize racDisposable = racDisposable;\
 @synthesize keyboardUpNotificationBlock = _keyboardUpNotificationBlock;\
 @synthesize keyboardDownNotificationBlock = _keyboardDownNotificationBlock;\
 
@@ -68,6 +71,8 @@ NS_ASSUME_NONNULL_END
 #ifndef BaseProtocol_dynamic
 #define BaseProtocol_dynamic \
 \
+@dynamic isLock;\
+@dynamic racDisposable;\
 @dynamic keyboardUpNotificationBlock;\
 @dynamic keyboardDownNotificationBlock;\
 

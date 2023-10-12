@@ -61,7 +61,7 @@
 -(UIButton *)btn{
     if(!_btn){
         @jobs_weakify(self)
-        _btn = [BaseButton.alloc jobsInitBtnByConfiguration:nil
+        _btn = [BaseButton.alloc jobsInitBtnByConfiguration:UIButtonConfiguration.plainButtonConfiguration
                                                  background:nil
                                              titleAlignment:UIButtonConfigurationTitleAlignmentAutomatic
                                               textAlignment:NSTextAlignmentCenter
@@ -105,13 +105,37 @@
         }];
     }
     _btn.selected = self.viewModel.jobsSelected;
-    _btn.jobsResetTitle(self.viewModel.textModel.text);
-    _btn.jobsResetImage( self.viewModel.image);
-    _btn.jobsResetBaseForegroundColor(self.viewModel.textModel.textCor ? : JobsBlueColor);
-    _btn.jobsResetBaseBackgroundColor(_btn.selected ? (self.viewModel.bgSelectedCor ? : JobsYellowColor) : (self.viewModel.bgCor ? : JobsCyanColor));
+    if (@available(iOS 16.0, *)) {
+        _btn.jobsResetTitle(self.viewModel.textModel.text);
+    } else {
+        // Fallback on earlier versions
+    }
+    if (@available(iOS 16.0, *)) {
+        _btn.jobsResetImage( self.viewModel.image);
+    } else {
+        // Fallback on earlier versions
+    }
+    if (@available(iOS 16.0, *)) {
+        _btn.jobsResetBaseForegroundColor(self.viewModel.textModel.textCor ? : JobsBlueColor);
+    } else {
+        // Fallback on earlier versions
+    }
+    if (@available(iOS 16.0, *)) {
+        _btn.jobsResetBaseBackgroundColor(_btn.selected ? (self.viewModel.bgSelectedCor ? : JobsYellowColor) : (self.viewModel.bgCor ? : JobsCyanColor));
+    } else {
+        // Fallback on earlier versions
+    }
     [_btn jobsSetBtnTitleFont:self.viewModel.textModel.font ? : UIFontWeightSemiboldSize(12) btnTitleCor: self.viewModel.textModel.textCor ? : JobsBlueColor];
-    _btn.jobsResetImagePadding(self.viewModel.imageTitleSpace);
-    _btn.jobsResetImagePlacement(self.viewModel.buttonEdgeInsetsStyle);
+    if (@available(iOS 16.0, *)) {
+        _btn.jobsResetImagePadding(self.viewModel.imageTitleSpace);
+    } else {
+        // Fallback on earlier versions
+    }
+    if (@available(iOS 16.0, *)) {
+        _btn.jobsResetImagePlacement(self.viewModel.buttonEdgeInsetsStyle);
+    } else {
+        // Fallback on earlier versions
+    }
     
     [_btn cornerCutToCircleWithCornerRadius:self.viewModel.layerCornerRadius ? : JobsWidth(8)];
     return _btn;

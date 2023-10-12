@@ -39,17 +39,20 @@ static dispatch_once_t static_userModelOnceToken;
 #pragma mark —— NSCoding
 /// 解档
 - (instancetype)initWithCoder:(NSCoder *)decoder {
+    
+//    _img = [coder decodeObjectOfClass:UIImage.class forKey:@"img"];
     if (self = [super initWithCoder:decoder]) {
         for (NSString *key in printPropertyListByClass(JobsUserModel.class)) {
             if ([self respondsToSelector:NSSelectorFromString(key)]) {
-                id value = [decoder decodeObjectForKey:key];
-                if (value) {
-                    if ([value isKindOfClass:[NSData class]]) {
-                        UIImage *image = [UIImage imageWithData:value];
-                        [self setValue:image forKey:key];
-                    } else{
-                        [self setValue:value forKey:key];
-                    }
+
+                id d = [decoder decodeObjectOfClass:UIImage.class forKey:key];
+                id e = [decoder decodeObjectOfClass:NSString.class forKey:key];
+                if(d){
+                    [self setValue:d forKey:key];
+                }
+                
+                if (e) {
+                    [self setValue:e forKey:key];
                 }
             }
         }
@@ -66,15 +69,7 @@ static dispatch_once_t static_userModelOnceToken;
         NSLog(@"key = %@",key);
         if ([self respondsToSelector:NSSelectorFromString([NSString stringWithFormat:@"set%@:", key.jobsCapitalCaseString])]) {
             id value = [self valueForKey:key];
-            if([value isKindOfClass:UIImage.class]){
-                NSLog(@"");
-//                [encoder encodeObject:value forKey:key];
-//                [encoder encodeObject:UIImagePNGRepresentation(value) forKey:key];
-                NSData *imageData = UIImagePNGRepresentation(value);
-                [encoder encodeObject:imageData forKey:key];
-            }else{
-                [encoder encodeObject:value forKey:key];
-            }
+            [encoder encodeObject:value forKey:key];
         }
     }
 }

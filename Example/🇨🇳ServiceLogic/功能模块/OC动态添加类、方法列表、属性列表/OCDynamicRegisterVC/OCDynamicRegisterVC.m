@@ -227,8 +227,8 @@ NSString *jobsName(){
                                           0);
     }
     id intanceOfClass = [newClass.alloc init];
-    id PropertyList = printPropertyList(intanceOfClass);
-    id MethodList = printMethodList(intanceOfClass);
+    id PropertyList = printPropertyListByObj(intanceOfClass);
+    id MethodList = printMethodListByObj(intanceOfClass);
     NSLog(@"PropertyList = %@",PropertyList);
     NSLog(@"MethodList = %@",MethodList);
     [intanceOfClass performSelector:@selector(test)];
