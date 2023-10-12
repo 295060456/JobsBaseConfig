@@ -16,7 +16,7 @@
             // 步骤1: 将NSObject对象归档为二进制数据
             NSError *error = nil;
             NSData *archivedData = [NSKeyedArchiver archivedDataWithRootObject:userDefaultModel.obj
-                                                         requiringSecureCoding:NO
+                                                         requiringSecureCoding:YES
                                                                          error:&error];
             if (error) {
                 NSLog(@"归档失败: %@", error.localizedDescription);

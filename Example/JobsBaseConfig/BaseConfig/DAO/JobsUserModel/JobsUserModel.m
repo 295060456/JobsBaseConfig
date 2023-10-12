@@ -37,32 +37,59 @@ static dispatch_once_t static_userModelOnceToken;
     });return static_userModel;
 }
 #pragma mark —— NSCoding
+/// 解档
 - (instancetype)initWithCoder:(NSCoder *)decoder {
-    if (self = [super init]) {
-        for (NSString *key in printPropertyList(self)) {
+    if (self = [super initWithCoder:decoder]) {
+        for (NSString *key in printPropertyListByClass(JobsUserModel.class)) {
             if ([self respondsToSelector:NSSelectorFromString(key)]) {
-                NSString * value = [decoder decodeObjectForKey:key];
+                id value = [decoder decodeObjectForKey:key];
                 if (value) {
-                    [self setValue:value forKey:key];
+                    if ([value isKindOfClass:[NSData class]]) {
+                        UIImage *image = [UIImage imageWithData:value];
+                        [self setValue:image forKey:key];
+                    } else{
+                        [self setValue:value forKey:key];
+                    }
                 }
             }
         }
     }return self;
 }
-
+/// 归档
 -(void)encodeWithCoder:(NSCoder *)encoder{
+    [super encodeWithCoder:encoder];
     // 获取对象的属性列表
-    NSArray *propertyKeys = printPropertyList(self);
-    for (NSString *key in propertyKeys) {
+    NSLog(@"printPropertyListByClass = %@",printPropertyListByClass(JobsUserModel.class));
+    for (NSString *key in printPropertyListByClass(JobsUserModel.class)) {
         // 检查是否实现了协议中的属性对应的setter方法
-        NSLog(@"SSS = %@",[NSString stringWithFormat:@"set%@:", key.capitalizedString]);
-        NSLog(@"AAA = %@",key);
-        if ([self respondsToSelector:NSSelectorFromString([NSString stringWithFormat:@"set%@:", key.capitalizedString])]) {
+        NSLog(@"key.jobsCapitalCaseString = %@",[NSString stringWithFormat:@"set%@:", key.jobsCapitalCaseString]);
+        NSLog(@"key = %@",key);
+        if ([self respondsToSelector:NSSelectorFromString([NSString stringWithFormat:@"set%@:", key.jobsCapitalCaseString])]) {
             id value = [self valueForKey:key];
-            [encoder encodeObject:value forKey:key];
+            if([value isKindOfClass:UIImage.class]){
+                NSLog(@"");
+//                [encoder encodeObject:value forKey:key];
+//                [encoder encodeObject:UIImagePNGRepresentation(value) forKey:key];
+                NSData *imageData = UIImagePNGRepresentation(value);
+                [encoder encodeObject:imageData forKey:key];
+            }else{
+                [encoder encodeObject:value forKey:key];
+            }
         }
     }
 }
+
+//-(void)encodeWithCoder:(NSCoder *)encoder {
+//    [encoder encodeObject:self.userName forKey:@"userName"];
+//    // 继续为其他属性编码
+//}
+
+//-(instancetype)initWithCoder:(NSCoder *)decoder {
+//    if (self = [super init]) {
+//        self.userName = [decoder decodeObjectForKey:@"userName"];
+//        // 继续为其他属性解码
+//    }return self;
+//}
 #pragma mark —— NSSecureCoding
 /**
  方法的目的是告诉系统该类是否支持安全编码（NSSecureCoding）。
@@ -72,28 +99,28 @@ static dispatch_once_t static_userModelOnceToken;
     return YES;
 }
 #pragma mark —— 默认值设置
--(NSString *)userName{
-    if (!_userName) {
-        _userName = @"暂时没有值";
-    }return _userName;
-}
-
--(NSString *)token{
-    if (!_token) {
-        _token = @"暂时没有值";
-    }return _token;
-}
-
--(NSString *)uid{
-    if (!_uid) {
-        _uid = @"暂时没有值";
-    }return _uid;
-}
-
--(UIImage *)userHeaderIMG{
-    if (!_userHeaderIMG) {
-        _userHeaderIMG = JobsIMG(@"默认头像");
-    }return _userHeaderIMG;
-}
+//-(NSString *)userName{
+//    if (!_userName) {
+//        _userName = @"暂时没有值.张山";
+//    }return _userName;
+//}
+//
+//-(NSString *)token{
+//    if (!_token) {
+//        _token = @"暂时没有值";
+//    }return _token;
+//}
+//
+//-(NSString *)uid{
+//    if (!_uid) {
+//        _uid = @"暂时没有值";
+//    }return _uid;
+//}
+//
+//-(UIImage *)userHeaderIMG{
+//    if (!_userHeaderIMG) {
+//        _userHeaderIMG = JobsIMG(@"用户默认头像");
+//    }return _userHeaderIMG;
+//}
 
 @end

@@ -22,7 +22,7 @@
 #pragma mark —— NSCoding
 - (instancetype)initWithCoder:(NSCoder *)decoder {
     if (self = [super init]) {
-        for (NSString *key in printPropertyList(self)) {
+        for (NSString *key in printPropertyListByObj(self)) {
             if ([self respondsToSelector:NSSelectorFromString(key)]) {
                 NSString * value = [decoder decodeObjectForKey:key];
                 if (value) {
@@ -35,7 +35,7 @@
 
 -(void)encodeWithCoder:(NSCoder *)encoder{
     // 获取对象的属性列表
-    NSArray *propertyKeys = printPropertyList(self);
+    NSArray *propertyKeys = printPropertyListByObj(self);
     for (NSString *key in propertyKeys) {
         // 检查是否实现了协议中的属性对应的setter方法
         NSLog(@"SSS = %@",[NSString stringWithFormat:@"set%@:", key.capitalizedString]);

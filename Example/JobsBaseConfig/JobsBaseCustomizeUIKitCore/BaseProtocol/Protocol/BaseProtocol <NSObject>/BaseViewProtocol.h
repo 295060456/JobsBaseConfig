@@ -16,10 +16,10 @@
 
 @class UIViewModel;
 
-typedef enum : NSInteger {
+typedef NS_ENUM(NSInteger, JobsHeaderFooterViewStyle) {
     JobsHeaderViewStyle = 0,
     JobsFooterViewStyle
-} JobsHeaderFooterViewStyle;
+};
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -130,4 +130,3 @@ NS_ASSUME_NONNULL_END
 @dynamic headerFooterViewStyle;\
 
 #endif
-

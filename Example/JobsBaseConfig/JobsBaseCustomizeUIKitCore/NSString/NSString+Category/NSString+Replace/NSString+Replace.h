@@ -29,6 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(JobsReturnStringByStringBlock _Nonnull)resetStringByFontString;
 /// 在字符串后面拼接一个字符串
 -(JobsReturnStringByStringBlock _Nonnull)resetStringByTailString;
+/// 单词首字母转换为大写
+-(NSString *)jobsCapitalCaseString;
 /// 服务器请求的数据为空值的时候进行替换本地默认值
 /// 因为json传输是通过对象包装来进行，所以其实归结起来就是2类，一类是基本数据类型被包装成Number、其他包装成String
 /// @param nullableString 进行检查的资源

@@ -22,7 +22,7 @@ BaseProtocol
 
 @property(nonatomic,copy)NSString *userName;
 @property(nonatomic,copy)NSString *userHeader;/// 用户头像URL
-@property(nonatomic,strong)UIImage *userHeaderIMG;/// 用户头像图像
+@property(nonatomic,strong)UIImage *userHeaderIMG;/// 用户头像图像 ⚠️ 直接归档存不进去，要做特殊的处理
 @property(nonatomic,copy)NSString *userRacnkClass;/// 用户等级
 @property(nonatomic,copy)NSString *password;
 @property(nonatomic,copy)NSString *token;

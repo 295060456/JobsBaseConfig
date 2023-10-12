@@ -15,11 +15,13 @@
 #endif
 
 NS_ASSUME_NONNULL_BEGIN
+
+#pragma mark —— 打印某个类：可以精确的打印具体的类，包括父类
 /// 返回并打印成员变量列表
-static inline NSMutableArray <NSString *>* printIvarList(id instanceObj){
+static inline NSMutableArray <NSString *>* printIvarListByClass(Class cls){
     unsigned int count;
     NSMutableArray *tempDataMutArr = NSMutableArray.array;
-    Ivar *ivarList = class_copyIvarList([instanceObj class], &count);
+    Ivar *ivarList = class_copyIvarList([cls class], &count);
     for (unsigned int i = 0; i < count; i++) {
         Ivar myIvar = ivarList[i];
         const char *ivarName = ivar_getName(myIvar);
@@ -29,10 +31,10 @@ static inline NSMutableArray <NSString *>* printIvarList(id instanceObj){
     return tempDataMutArr;
 }
 /// 返回并打印属性列表
-static inline NSMutableArray <NSString *>* printPropertyList(id instanceObj){
+static inline NSMutableArray <NSString *>* printPropertyListByClass(Class cls){
     unsigned int count;
     NSMutableArray *tempDataMutArr = NSMutableArray.array;
-    objc_property_t *propertyList = class_copyPropertyList([instanceObj class], &count);
+    objc_property_t *propertyList = class_copyPropertyList([cls class], &count);
     for (unsigned int i = 0; i < count; i++) {
         const char *propertyName = property_getName(propertyList[i]);
         NSLog(@"propertyName(%d) : %@", i, [NSString stringWithUTF8String:propertyName]);
@@ -41,10 +43,10 @@ static inline NSMutableArray <NSString *>* printPropertyList(id instanceObj){
     return tempDataMutArr;
 }
 /// 返回并打印方法列表
-static inline NSMutableArray <NSString *>* printMethodList(id instanceObj){
+static inline NSMutableArray <NSString *>* printMethodListByClass(Class cls){
     unsigned int count;
     NSMutableArray *tempDataMutArr = NSMutableArray.array;
-    Method *methodList = class_copyMethodList([instanceObj class], &count);
+    Method *methodList = class_copyMethodList([cls class], &count);
     for (unsigned int i = 0; i < count; i++) {
         Method method = methodList[i];
         NSLog(@"method(%d) : %@", i, NSStringFromSelector(method_getName(method)));
@@ -53,10 +55,10 @@ static inline NSMutableArray <NSString *>* printMethodList(id instanceObj){
     return tempDataMutArr;
 }
 /// 返回并打印协议列表
-static inline NSMutableArray <NSString *>* printProtocolList(id instanceObj){
+static inline NSMutableArray <NSString *>* printProtocolListByClass(Class cls){
     unsigned int count;
     NSMutableArray *tempDataMutArr = NSMutableArray.array;
-    __unsafe_unretained Protocol **protocolList = class_copyProtocolList([instanceObj class], &count);
+    __unsafe_unretained Protocol **protocolList = class_copyProtocolList([cls class], &count);
     for (unsigned int i = 0; i < count; i++) {
         Protocol *myProtocal = protocolList[i];
         const char *protocolName = protocol_getName(myProtocal);
@@ -64,6 +66,23 @@ static inline NSMutableArray <NSString *>* printProtocolList(id instanceObj){
         [tempDataMutArr addObject:[NSString stringWithUTF8String:protocolName]];
     }free(protocolList);
     return tempDataMutArr;
+}
+#pragma mark —— 打印某个实例:如果打印其父类，最终还是实际类
+/// 返回并打印成员变量列表
+static inline NSMutableArray <NSString *>* printIvarListByObj(id instanceObj){
+    return printIvarListByClass([instanceObj class]);
+}
+/// 返回并打印属性列表
+static inline NSMutableArray <NSString *>* printPropertyListByObj(id instanceObj){
+    return printPropertyListByClass([instanceObj class]);
+}
+/// 返回并打印方法列表
+static inline NSMutableArray <NSString *>* printMethodListByObj(id instanceObj){
+    return printMethodListByClass([instanceObj class]);
+}
+/// 返回并打印协议列表
+static inline NSMutableArray <NSString *>* printProtocolListByObj(id instanceObj){
+    return printIvarListByClass([instanceObj class]);
 }
 
 @interface NSObject (Class)
