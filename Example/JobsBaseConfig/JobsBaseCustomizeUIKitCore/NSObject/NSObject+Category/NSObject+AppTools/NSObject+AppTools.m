@@ -258,8 +258,8 @@ languageSwitchNotificationWithSelector:(SEL)aSelector{
 //    @jobs_weakify(self)
 //    [hl actionObjectBlock:^(UIButton *btn) {
 ////        @jobs_strongify(self)
-//        if([btn.objBindingParams isKindOfClass:CasinoCustomerContactElementModel.class]){
-//            CasinoCustomerContactElementModel *customerContactElementModel = (CasinoCustomerContactElementModel *)btn.objBindingParams;
+//        if([btn.requestParams isKindOfClass:CasinoCustomerContactElementModel.class]){
+//            CasinoCustomerContactElementModel *customerContactElementModel = (CasinoCustomerContactElementModel *)btn.requestParams;
 //
 //            switch (customerContactElementModel.customerMark) {
 //                case CustomerContactStyle_QQ:{
@@ -505,7 +505,7 @@ JobsKey(_hotLabelDataMutArr)
 //        for (CasinoCustomerContactElementModel *element in self.customerContactModel.customerList) {
 //            UIViewModel *vm = UIViewModel.new;
 //
-//            vm.objBindingParams = element;
+//            vm.requestParams = element;
 //            vm.bgImageURLString = @"";//[self.BaseUrl stringByAppendingString:element.appIconUrl];
 //            vm.textModel.text = @"";
 //            vm.jobsSize = CGSizeMake(JobsWidth(46), JobsWidth(46));

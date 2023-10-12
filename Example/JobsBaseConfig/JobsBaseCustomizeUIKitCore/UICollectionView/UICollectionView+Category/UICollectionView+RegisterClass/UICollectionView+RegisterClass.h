@@ -7,7 +7,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "JobsHotLabelWithMultiLineHeaderFooterView.h"
+#import "JobsHeaderFooterView.h"
 
 #import "BaseCollectionViewCell.h"
 #import "JobsSearchDataCVCell.h"

@@ -1,5 +1,5 @@
 //
-//  JobsHotLabelWithMultiLineCollectionReusableView.h
+//  JobsHeaderFooterView.h
 //  BaiShaEntertainmentProj
 //
 //  Created by Jobs on 2022/5/25.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JobsHotLabelWithMultiLineHeaderFooterView : BaseCollectionReusableView
+@interface JobsHeaderFooterView : BaseCollectionReusableView
 
 -(UILabel *)getTitleLab;
 -(BaseButton *)getSubTitleBtn;

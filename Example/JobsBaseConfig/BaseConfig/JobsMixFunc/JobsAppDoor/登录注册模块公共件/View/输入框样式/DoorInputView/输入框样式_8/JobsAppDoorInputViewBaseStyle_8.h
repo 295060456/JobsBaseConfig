@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_END
          _inputView.backgroundColor = HEXCOLOR(0xFFFCF7);
          @jobs_weakify(self)
          [_inputView actionObjectBlock:^(UITextField *data) {
- //            JobsAppDoorInputViewTFModel *textFieldInputModel = (JobsAppDoorInputViewTFModel *)data.objBindingParams;
+ //            JobsAppDoorInputViewTFModel *textFieldInputModel = (JobsAppDoorInputViewTFModel *)data.requestParams;
              @jobs_strongify(self)
          }];
          

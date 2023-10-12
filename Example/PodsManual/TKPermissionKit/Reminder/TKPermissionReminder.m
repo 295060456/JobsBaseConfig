@@ -19,7 +19,7 @@ static bool safeLock = NO;/// 防止连续请求lock
 requestFullAccessToEventsWithCompletion:(JobsEKEventStoreRequestAccessCompletionHandler)requestFullAccessToEventsWithCompletion
 requestWriteOnlyAccessToEventsWithCompletion:(JobsEKEventStoreRequestAccessCompletionHandler)requestWriteOnlyAccessToEventsWithCompletion
 requestFullAccessToRemindersWithCompletion:(JobsEKEventStoreRequestAccessCompletionHandler)requestFullAccessToRemindersWithCompletion
-           completion:(void(^)(BOOL isAuth))completion{
+           completion:(void(^ _Nullable)(BOOL isAuth))completion{
     if (safeLock) return;
     safeLock = YES;
     EKEventStore *eventStore = EKEventStore.new;

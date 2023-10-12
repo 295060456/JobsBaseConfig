@@ -82,8 +82,8 @@
     /// 一般的文字
     {
         btnConfiguration.title = title;
-        btnConfiguration.titlePadding = titlePadding;
         btnConfiguration.subtitle = subTitle;
+        btnConfiguration.titlePadding = titlePadding;
         btnConfiguration.baseForegroundColor = titleCor;/// 文本颜色
         btnConfiguration.titleAlignment = titleAlignment;/// 文本的对齐方式
         btnConfiguration.titleLineBreakMode = titleLineBreakMode;/// 主标题的提行方式
@@ -111,6 +111,7 @@
             btnConfiguration.attributedTitle = attributedTitle;
         }else{
             if(titleFont && titleCor && title){
+#warning 这三个想办法去重置:titleCor、titleFont、textAlignment
                 btnConfiguration.attributedTitle = [NSAttributedString.alloc initWithString:title
                                                                                  attributes:@{NSForegroundColorAttributeName:titleCor,
                                                                                               NSFontAttributeName:titleFont,
@@ -122,7 +123,8 @@
             btnConfiguration.attributedSubtitle = attributedSubtitle;
         }else{
             if(subTitleFont && subTitleCor && subTitle){
-                btnConfiguration.attributedTitle = [NSAttributedString.alloc initWithString:subTitle
+#warning 这三个想办法去重置:subTitleCor、subTitleFont、subTextAlignment
+                btnConfiguration.attributedSubtitle = [NSAttributedString.alloc initWithString:subTitle
                                                                                  attributes:@{NSForegroundColorAttributeName:subTitleCor,
                                                                                               NSFontAttributeName:subTitleFont,
                                                                                               NSParagraphStyleAttributeName:[self jobsparagraphStyleByTextAlignment:subTextAlignment]}];
@@ -203,10 +205,16 @@
 }
 /// UIButtonConfiguration 创建的UIbutton修改字体以及颜色的方法
 /// 注意⚠️因为UIConfigurationTextAttributesTransformer是没有办法直接获取到里面的字体的，只能从外面生成以后直接赋值，也就是每次修改需要给一个完整的UIConfigurationTextAttributesTransformer对象进UIButtonConfiguration
--(void)jobsSetBtntitleFont:(UIFont *_Nullable)titleFont
+-(void)jobsSetBtnTitleFont:(UIFont *_Nullable)titleFont
                btnTitleCor:(UIColor *_Nullable)titleCor{
     self.jobsResetTitleTextAttributesTransformer([self jobsSetConfigTextAttributesTransformerByTitleFont:titleFont
                                                                                              btnTitleCor:titleCor]);
+}
+
+-(void)jobsSetBtnSubTitleFont:(UIFont *_Nullable)subTitleFont
+               btnSubTitleCor:(UIColor *_Nullable)subTitleCor{
+    self.jobsResetSubtitleTextAttributesTransformer([self jobsSetConfigTextAttributesTransformerByTitleFont:subTitleFont
+                                                                                                btnTitleCor:subTitleCor]);
 }
 /// @property (nonatomic, readwrite, assign) UIButtonConfigurationSize buttonSize; 这个属性，不是我们想要的UIFont。设置UIFont必须在富文本里面进行设置
 -(UIConfigurationTextAttributesTransformer)jobsSetConfigTextAttributesTransformerByTitleFont:(UIFont *_Nullable)titleFont
@@ -337,7 +345,7 @@
         config.baseForegroundColor = data;
         self.configuration = config;
 #warning  config.titleTextAttributesTransformer 拿不到字体。想一想该怎么去做
-//        [self jobsSetBtntitleFont:nil btnTitleCor:data];
+//        [self jobsSetBtnTitleFont:nil btnTitleCor:data];
         return self.configuration;
     };
 }
@@ -447,6 +455,17 @@
         @jobs_strongify(self)
         UIButtonConfiguration *config = self.configuration;
         config.titleLineBreakMode = data;
+        self.configuration = config;
+        return self.configuration;
+    };
+}
+
+-(JobsReturnButtonConfigurationByTitleLineBreakModeBlock _Nonnull)jobsResetSubTitleLineBreakMode API_AVAILABLE(ios(16.0)){
+    @jobs_weakify(self)
+    return ^(NSLineBreakMode data) {
+        @jobs_strongify(self)
+        UIButtonConfiguration *config = self.configuration;
+        config.subtitleLineBreakMode = data;
         self.configuration = config;
         return self.configuration;
     };

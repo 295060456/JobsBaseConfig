@@ -59,8 +59,45 @@
 }
 #pragma mark —— lazyLoad
 -(UIButton *)btn{
-    if (!_btn) {
-        _btn = UIButton.new;
+    if(!_btn){
+        @jobs_weakify(self)
+        _btn = [BaseButton.alloc jobsInitBtnByConfiguration:nil
+                                                 background:nil
+                                             titleAlignment:UIButtonConfigurationTitleAlignmentAutomatic
+                                              textAlignment:NSTextAlignmentCenter
+                                           subTextAlignment:NSTextAlignmentCenter
+                                                normalImage:nil
+                                             highlightImage:nil
+                                            attributedTitle:nil
+                                    selectedAttributedTitle:nil
+                                         attributedSubtitle:nil
+                                                      title:nil
+                                                   subTitle:nil
+                                                  titleFont:nil
+                                               subTitleFont:nil
+                                                   titleCor:nil
+                                                subTitleCor:nil
+                                         titleLineBreakMode:NSLineBreakByWordWrapping
+                                      subtitleLineBreakMode:NSLineBreakByWordWrapping
+                                        baseBackgroundColor:nil
+                                               imagePadding:JobsWidth(0)
+                                               titlePadding:JobsWidth(0)
+                                             imagePlacement:NSDirectionalRectEdgeTop
+                                 contentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter
+                                   contentVerticalAlignment:UIControlContentVerticalAlignmentCenter
+                                              contentInsets:jobsSameDirectionalEdgeInsets(0)
+                                          cornerRadiusValue:JobsWidth(0)
+                                            roundingCorners:UIRectCornerAllCorners
+                                       roundingCornersRadii:CGSizeZero
+                                             layerBorderCor:nil
+                                                borderWidth:JobsWidth(0)
+                                              primaryAction:nil
+                                            clickEventBlock:^id(BaseButton *x) {
+            @jobs_strongify(self)
+            x.selected = !x.selected;
+            if (self.objectBlock) self.objectBlock(x);
+            return nil;
+        }];
         _btn.enabled = NO;
         [self.contentView addSubview:_btn];
         [_btn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -68,13 +105,14 @@
         }];
     }
     _btn.selected = self.viewModel.jobsSelected;
-    _btn.normalImage = self.viewModel.image;
-    _btn.normalTitleColor = self.viewModel.textModel.textCor ? : JobsBlueColor;
-    _btn.backgroundColor = _btn.selected ? (self.viewModel.bgSelectedCor ? : JobsYellowColor) : (self.viewModel.bgCor ? : JobsCyanColor);
-    _btn.normalTitle = self.viewModel.textModel.text;
-    _btn.titleFont = self.viewModel.textModel.font ? : notoSansRegular(12);
-    [_btn layoutButtonWithEdgeInsetsStyle:self.viewModel.buttonEdgeInsetsStyle
-                             imagePadding:self.viewModel.imageTitleSpace];
+    _btn.jobsResetTitle(self.viewModel.textModel.text);
+    _btn.jobsResetImage( self.viewModel.image);
+    _btn.jobsResetBaseForegroundColor(self.viewModel.textModel.textCor ? : JobsBlueColor);
+    _btn.jobsResetBaseBackgroundColor(_btn.selected ? (self.viewModel.bgSelectedCor ? : JobsYellowColor) : (self.viewModel.bgCor ? : JobsCyanColor));
+    [_btn jobsSetBtnTitleFont:self.viewModel.textModel.font ? : UIFontWeightSemiboldSize(12) btnTitleCor: self.viewModel.textModel.textCor ? : JobsBlueColor];
+    _btn.jobsResetImagePadding(self.viewModel.imageTitleSpace);
+    _btn.jobsResetImagePlacement(self.viewModel.buttonEdgeInsetsStyle);
+    
     [_btn cornerCutToCircleWithCornerRadius:self.viewModel.layerCornerRadius ? : JobsWidth(8)];
     return _btn;
 }

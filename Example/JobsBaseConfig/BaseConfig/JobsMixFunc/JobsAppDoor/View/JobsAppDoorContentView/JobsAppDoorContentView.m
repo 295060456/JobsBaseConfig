@@ -143,7 +143,7 @@
         //【用户名 & 密码 输入回调，共享注册与登录两个界面】
         [inputView actionObjectBlock:^(UITextField *data) {
             @jobs_strongify(self)
-            JobsAppDoorInputViewTFModel *textFieldInputModel = (JobsAppDoorInputViewTFModel *)data.objBindingParams;
+            JobsAppDoorInputViewTFModel *textFieldInputModel = (JobsAppDoorInputViewTFModel *)data.requestParams;
             if ([textFieldInputModel.PlaceHolder isEqualToString:Internationalization(@"User")]) {
                 self.appDoorModel.userName = data.text;
             }else if ([textFieldInputModel.PlaceHolder isEqualToString:Internationalization(@"Code")]){
@@ -459,7 +459,7 @@
         [_sendBtn jobsBtnClickEventBlock:^id(UIButton *x) {
             @jobs_strongify(self)
             [self endEditing:YES];
-            x.objBindingParams = self.appDoorModel;
+            x.requestParams = self.appDoorModel;
             if (self.objectBlock) self.objectBlock(x);
             return nil;
         }];

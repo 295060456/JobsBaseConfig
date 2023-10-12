@@ -22,21 +22,6 @@
 @class UIViewModel;
 @class UITextModel;
 
-typedef enum : NSInteger {
-    /// 以头部为对齐基准
-    JobsAlignByTop = 0,
-    /// 以左边为对齐基准
-    JobsAlignByLeft,
-    /// 以底部为对齐基准
-    JobsAlignByBottom,
-    /// 以右边为对齐基准
-    JobsAlignByRight,
-    /// 以水平中心线为对齐基准
-    JobsAlignByCenterX,
-    /// 以垂直中心线为对齐基准
-    JobsAlignByCenterY
-} JobsAlign;// 对齐基准
-
 NS_ASSUME_NONNULL_BEGIN
 /// 全局的共用的属性
 @protocol UIViewModelProtocol
@@ -102,6 +87,7 @@ NS_ASSUME_NONNULL_END
 @synthesize alignment = _alignment;\
 @synthesize buttonEdgeInsetsStyle;\
 @synthesize imageTitleSpace;\
+@synthesize titleSpace;\
 @synthesize cellHeight = _cellHeight;\
 @synthesize heightForHeaderInSection = _heightForHeaderInSection;\
 @synthesize cellSize = _cellSize;\
@@ -187,6 +173,7 @@ NS_ASSUME_NONNULL_END
 @dynamic alignment;\
 @dynamic buttonEdgeInsetsStyle;\
 @dynamic imageTitleSpace;\
+@dynamic titleSpace;\
 @dynamic cellHeight;\
 @dynamic heightForHeaderInSection;\
 @dynamic cellSize;\

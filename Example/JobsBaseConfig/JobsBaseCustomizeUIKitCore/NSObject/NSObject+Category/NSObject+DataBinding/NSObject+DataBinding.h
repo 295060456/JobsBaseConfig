@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import <objc/runtime.h>
+#import "UIViewModelOthersProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 /**
@@ -18,9 +19,8 @@ UITableViewDelegate
 ,UITableViewDataSource
 ,UICollectionViewDelegate
 ,UICollectionViewDataSource
+,UIViewModelOthersProtocol
 >
-
-@property(nonatomic,strong)id objBindingParams;
 
 -(void)dataLinkByTableView:(UITableView *)tableView;
 -(void)dataLinkByCollectionView:(UICollectionView *)collectionView;

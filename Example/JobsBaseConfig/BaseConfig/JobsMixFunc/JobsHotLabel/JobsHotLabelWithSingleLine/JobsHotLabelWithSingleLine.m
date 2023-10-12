@@ -94,9 +94,9 @@
 -(UIButton *)configBtn:(UIViewModel *)vm{
     UIButton *btn = UIButton.new;
     btn.selected = self.viewModel.jobsSelected;
-    btn.objBindingParams = vm.objBindingParams;
-//    if ([btn.objBindingParams isKindOfClass:CasinoCustomerContactElementModel.class]) {
-//        CasinoCustomerContactElementModel *customerContactElementModel = (CasinoCustomerContactElementModel *)btn.objBindingParams;
+    btn.requestParams = vm.requestParams;
+//    if ([btn.requestParams isKindOfClass:CasinoCustomerContactElementModel.class]) {
+//        CasinoCustomerContactElementModel *customerContactElementModel = (CasinoCustomerContactElementModel *)btn.requestParams;
 //
 //        UIImage *bgImg = nil;
 //        switch (customerContactElementModel.customerMark) {

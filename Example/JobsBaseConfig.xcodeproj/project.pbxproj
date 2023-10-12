@@ -811,7 +811,7 @@
 		C596B7A3283F6F7900C13619 /* JobsHotLabelWithSingleLine.m in Sources */ = {isa = PBXBuildFile; fileRef = C596B799283F6F7800C13619 /* JobsHotLabelWithSingleLine.m */; };
 		C596B7A4283F6F7900C13619 /* JobsHotLabelWithMultiLineCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C596B79C283F6F7800C13619 /* JobsHotLabelWithMultiLineCVCell.m */; };
 		C596B7A5283F6F7900C13619 /* JobsHotLabelWithMultiLine.m in Sources */ = {isa = PBXBuildFile; fileRef = C596B79F283F6F7800C13619 /* JobsHotLabelWithMultiLine.m */; };
-		C59D78D028646420004C97A1 /* JobsHotLabelWithMultiLineHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C59D78CF28646420004C97A1 /* JobsHotLabelWithMultiLineHeaderFooterView.m */; };
+		C59D78D028646420004C97A1 /* JobsHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C59D78CF28646420004C97A1 /* JobsHeaderFooterView.m */; };
 		C5A21B9B2872D94A00CD6ED3 /* CustomBtnVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A21B9A2872D94A00CD6ED3 /* CustomBtnVC.m */; };
 		C5A7C2DC285B290F00F0F2BB /* 临时的占位图.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5A7C2DB285B290400F0F2BB /* 临时的占位图.xcassets */; };
 		C5A7C2E6285B5E8700F0F2BB /* ThreeClassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A7C2DE285B5E8600F0F2BB /* ThreeClassCell.m */; };
@@ -2552,8 +2552,8 @@
 		C596B79E283F6F7800C13619 /* JobsHotLabelWithMultiLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsHotLabelWithMultiLine.h; sourceTree = "<group>"; };
 		C596B79F283F6F7800C13619 /* JobsHotLabelWithMultiLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsHotLabelWithMultiLine.m; sourceTree = "<group>"; };
 		C596B7A0283F6F7800C13619 /* JobsHotLabelConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsHotLabelConfig.h; sourceTree = "<group>"; };
-		C59D78CE28646420004C97A1 /* JobsHotLabelWithMultiLineHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsHotLabelWithMultiLineHeaderFooterView.h; sourceTree = "<group>"; };
-		C59D78CF28646420004C97A1 /* JobsHotLabelWithMultiLineHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsHotLabelWithMultiLineHeaderFooterView.m; sourceTree = "<group>"; };
+		C59D78CE28646420004C97A1 /* JobsHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsHeaderFooterView.h; sourceTree = "<group>"; };
+		C59D78CF28646420004C97A1 /* JobsHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsHeaderFooterView.m; sourceTree = "<group>"; };
 		C5A21B992872D94A00CD6ED3 /* CustomBtnVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomBtnVC.h; sourceTree = "<group>"; };
 		C5A21B9A2872D94A00CD6ED3 /* CustomBtnVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomBtnVC.m; sourceTree = "<group>"; };
 		C5A7C2DB285B290400F0F2BB /* 临时的占位图.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "临时的占位图.xcassets"; sourceTree = "<group>"; };
@@ -3101,7 +3101,7 @@
 			isa = PBXGroup;
 			children = (
 				C596B7A0283F6F7800C13619 /* JobsHotLabelConfig.h */,
-				C59D78CD28646420004C97A1 /* JobsHotLabelWithMultiLineHeaderView */,
+				C59D78CD28646420004C97A1 /* JobsHeaderFooterView */,
 				C596B79D283F6F7800C13619 /* JobsHotLabelWithMultiLine */,
 				C596B79A283F6F7800C13619 /* JobsHotLabelWithMultiLineCVCell */,
 				C596B797283F6F7800C13619 /* JobsHotLabelWithSingleLine */,
@@ -10204,13 +10204,13 @@
 			path = JobsHotLabelWithMultiLine;
 			sourceTree = "<group>";
 		};
-		C59D78CD28646420004C97A1 /* JobsHotLabelWithMultiLineHeaderView */ = {
+		C59D78CD28646420004C97A1 /* JobsHeaderFooterView */ = {
 			isa = PBXGroup;
 			children = (
-				C59D78CE28646420004C97A1 /* JobsHotLabelWithMultiLineHeaderFooterView.h */,
-				C59D78CF28646420004C97A1 /* JobsHotLabelWithMultiLineHeaderFooterView.m */,
+				C59D78CE28646420004C97A1 /* JobsHeaderFooterView.h */,
+				C59D78CF28646420004C97A1 /* JobsHeaderFooterView.m */,
 			);
-			path = JobsHotLabelWithMultiLineHeaderView;
+			path = JobsHeaderFooterView;
 			sourceTree = "<group>";
 		};
 		C5A21B982872D90D00CD6ED3 /* UIButton子控件的排布 */ = {
@@ -11967,7 +11967,7 @@
 				842475AD27C0D67000831270 /* YTKAnimatingRequestAccessory.m in Sources */,
 				84562598278BF2780067ABB9 /* JobsPopUpVC.m in Sources */,
 				C52809E128608BE100654584 /* TestBaseLabelVC.m in Sources */,
-				C59D78D028646420004C97A1 /* JobsHotLabelWithMultiLineHeaderFooterView.m in Sources */,
+				C59D78D028646420004C97A1 /* JobsHeaderFooterView.m in Sources */,
 				C593DF922AC897FC00F875B5 /* UITableView+Expand.m in Sources */,
 				84868F19277ADF690098BE7A /* JobsDropDownListView.m in Sources */,
 				C593DF5F2AC897FC00F875B5 /* UICollectionViewCell+UICollectionViewCellProtocol.m in Sources */,

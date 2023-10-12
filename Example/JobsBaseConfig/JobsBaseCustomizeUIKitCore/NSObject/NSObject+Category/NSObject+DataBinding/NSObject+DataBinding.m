@@ -21,15 +21,26 @@
     collectionView.delegate = self;
     collectionView.dataSource = self;
 }
-#pragma mark —— @property(nonatomic,strong)id objBindingParams;
-JobsKey(_objBindingParams)
-@dynamic objBindingParams;
--(id)objBindingParams{
-    return Jobs_getAssociatedObject(_objBindingParams);
+#pragma mark —— UIViewModelOthersProtocol// requestParams
+#pragma mark —— @property(nonatomic,strong,nullable)id __block data;/// 绑定的数据源，数据类型id
+JobsKey(_data)
+@dynamic data;
+-(id)data{
+    return Jobs_getAssociatedObject(_data);
 }
 
--(void)setObjBindingParams:(id)objBindingParams{
-    Jobs_setAssociatedRETAIN_NONATOMIC(_objBindingParams, objBindingParams)
+-(void)setData:(id)data{
+    Jobs_setAssociatedRETAIN_NONATOMIC(_data, data)
+}
+#pragma mark —— id __block requestParams;/// 绑定的数据源，数据类型id
+JobsKey(_requestParams)
+@dynamic requestParams;
+-(id)requestParams{
+    return Jobs_getAssociatedObject(_requestParams);
+}
+
+-(void)setRequestParams:(id)requestParams{
+    Jobs_setAssociatedRETAIN_NONATOMIC(_requestParams, requestParams)
 }
 
 @end

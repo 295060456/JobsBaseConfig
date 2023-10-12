@@ -53,7 +53,7 @@
     _textField.rightViewOffsetX = self.doorInputViewBaseStyleModel.rightViewOffsetX ? : JobsWidth(8);// 删除按钮的偏移量
     _textField.placeholderColor = self.doorInputViewBaseStyleModel.placeholderColor;
     _textField.placeholderFont = self.doorInputViewBaseStyleModel.placeholderFont;
-    _textField.objBindingParams = self.textFieldInputModel;
+    _textField.requestParams = self.textFieldInputModel;
     _textField.leftViewOffsetX = self.doorInputViewBaseStyleModel.leftViewOffsetX ? : JobsWidth(17);
     _textField.animationColor = self.doorInputViewBaseStyleModel.animationColor ? : Cor4;
     _textField.moveDistance = self.doorInputViewBaseStyleModel.moveDistance ? : JobsWidth(35);
@@ -68,7 +68,7 @@
     self.textFieldInputModel.resString = value;
     self.textFieldInputModel.PlaceHolder = self.doorInputViewBaseStyleModel.placeHolderStr;
 
-    textField.objBindingParams = self.textFieldInputModel;
+    textField.requestParams = self.textFieldInputModel;
     
     if (self.objectBlock) self.objectBlock(textField);// 对外统一传出TF
 }

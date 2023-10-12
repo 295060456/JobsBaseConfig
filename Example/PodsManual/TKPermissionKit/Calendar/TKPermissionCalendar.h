@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 requestFullAccessToEventsWithCompletion:(JobsEKEventStoreRequestAccessCompletionHandler)requestFullAccessToEventsWithCompletion
 requestWriteOnlyAccessToEventsWithCompletion:(JobsEKEventStoreRequestAccessCompletionHandler)requestWriteOnlyAccessToEventsWithCompletion
 requestFullAccessToRemindersWithCompletion:(JobsEKEventStoreRequestAccessCompletionHandler)requestFullAccessToRemindersWithCompletion
-          completion:(void(^)(BOOL isAuth))completion;
+          completion:(void(^ _Nullable)(BOOL isAuth))completion;
 /// 查询是否获取了 日历 权限
 +(BOOL)checkAuth;
 

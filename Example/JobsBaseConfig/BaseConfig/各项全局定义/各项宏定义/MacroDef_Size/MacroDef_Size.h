@@ -240,11 +240,11 @@ static inline CGFloat SCREEN_MIN_LENGTH(void){
     return MIN(JobsMainScreen_WIDTH(), JobsMainScreen_HEIGHT());
 }
 #pragma mark —— 屏幕像素标准转化：输入原型图上的宽和高，对外输出App对应的移动设备的真实宽高
-/// 宽转化
+/// 宽转化 JobsWidth(1) == 0.85333333333...9
 static inline CGFloat JobsWidth(CGFloat width){
     return (MIN(JobsMainScreen_WIDTH(), JobsMainScreen_HEIGHT()) / 375) * width; //375 对应原型图的宽 在iph 12 pro max 此系数 = 1.1413333333333333
 }
-/// 高转化
+/// 高转化 JobsHeight(1) == 0.93270524899057872
 static inline CGFloat JobsHeight(CGFloat height){
     return (JobsMainScreen_HEIGHT() / 743) * height; //743 对应原型图的高
 }

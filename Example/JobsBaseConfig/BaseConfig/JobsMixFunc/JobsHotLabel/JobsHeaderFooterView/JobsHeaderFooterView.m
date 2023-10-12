@@ -1,20 +1,20 @@
 //
-//  JobsHotLabelWithMultiLineCollectionReusableView.m
+//  JobsHeaderFooterView.m
 //  BaiShaEntertainmentProj
 //
 //  Created by Jobs on 2022/5/25.
 //
 
-#import "JobsHotLabelWithMultiLineHeaderFooterView.h"
+#import "JobsHeaderFooterView.h"
 
-@interface JobsHotLabelWithMultiLineHeaderFooterView ()
+@interface JobsHeaderFooterView ()
 /// UI
 @property(nonatomic,strong)UILabel *titleLab;
 @property(nonatomic,strong)BaseButton *subTitleBtn;
 
 @end
 
-@implementation JobsHotLabelWithMultiLineHeaderFooterView
+@implementation JobsHeaderFooterView
 
 @synthesize viewModel = _viewModel;
 

@@ -13,12 +13,12 @@
     // CollectionReusableView-Header
     [self registerCollectionElementKindSectionHeaderClass:UICollectionReusableView.class];
     [self registerCollectionElementKindSectionHeaderClass:BaseCollectionReusableView.class];
-    [self registerCollectionElementKindSectionHeaderClass:JobsHotLabelWithMultiLineHeaderFooterView.class];
+    [self registerCollectionElementKindSectionHeaderClass:JobsHeaderFooterView.class];
     // CollectionReusableView—Footer
     [self registerCollectionElementKindSectionFooterClass:UICollectionReusableView.class];
     [self registerCollectionElementKindSectionFooterClass:BaseCollectionReusableView.class];
     [self registerCollectionElementKindSectionFooterClass:BaseCollectionReusableView.class];
-    [self registerCollectionElementKindSectionFooterClass:JobsHotLabelWithMultiLineHeaderFooterView.class];
+    [self registerCollectionElementKindSectionFooterClass:JobsHeaderFooterView.class];
     [self registerCollectionElementKindSectionFooterClass:BaiShaETProjVIPSubCVFooterView.class];
     // CollectionViewCell
     [self registerCollectionViewCellClass:UICollectionViewCell.class];

@@ -176,7 +176,7 @@
 //        for (CasinoCustomerContactElementModel *element in self.customerContactModel.customerList) {
 //            UIViewModel *vm = UIViewModel.new;
 //
-//            vm.objBindingParams = element;
+//            vm.requestParams = element;
 //            vm.bgImageURLString = [self.BaseUrl stringByAppendingString:element.appIconUrl];
 //            vm.text = @"";
 //            vm.size = CGSizeMake(JobsWidth(46), JobsWidth(46));

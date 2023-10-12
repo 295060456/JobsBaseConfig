@@ -36,7 +36,7 @@
 //#endif
 
 NS_ASSUME_NONNULL_BEGIN
-/// 更多自定义，移步 JobsHotLabelWithMultiLineHeaderFooterView
+/// 更多自定义，移步 JobsHeaderFooterView
 @interface BaseCollectionReusableView : UICollectionReusableView
 <
 BaseViewProtocol

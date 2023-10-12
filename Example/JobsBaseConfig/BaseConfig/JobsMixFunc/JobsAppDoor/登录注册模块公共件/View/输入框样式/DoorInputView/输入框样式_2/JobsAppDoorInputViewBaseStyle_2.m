@@ -60,7 +60,7 @@
     _textField.placeholderColor = self.doorInputViewBaseStyleModel.placeholderColor;
     _textField.leftViewOffsetX = self.doorInputViewBaseStyleModel.leftViewOffsetX ? : JobsWidth(17);
     _textField.placeholderFont = self.doorInputViewBaseStyleModel.placeholderFont;
-    _textField.objBindingParams = self.textFieldInputModel;
+    _textField.requestParams = self.textFieldInputModel;
     _textField.animationColor = self.doorInputViewBaseStyleModel.animationColor ? : Cor4;
     _textField.placeHolderAlignment = self.doorInputViewBaseStyleModel.placeHolderAlignment ? : NSTextAlignmentLeft;
     _textField.placeHolderOffset = self.doorInputViewBaseStyleModel.placeHolderOffset ? : JobsWidth(20);
@@ -74,7 +74,7 @@
     self.textFieldInputModel.resString = value;
     self.textFieldInputModel.PlaceHolder = self.doorInputViewBaseStyleModel.placeHolderStr;
 
-    textField.objBindingParams = self.textFieldInputModel;
+    textField.requestParams = self.textFieldInputModel;
     
     if (self.objectBlock) self.objectBlock(textField);// 对外统一传出TF
 }

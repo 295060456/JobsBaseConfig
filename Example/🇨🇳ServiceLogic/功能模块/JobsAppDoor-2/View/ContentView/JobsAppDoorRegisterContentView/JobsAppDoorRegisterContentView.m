@@ -37,7 +37,7 @@
             
             NSNotification *notification = (NSNotification *)arg;
             UITextField *b = notification.object;
-            NSLog(@"木头 = %@",b.objBindingParams);
+            NSLog(@"木头 = %@",b.requestParams);
 
         }, self),@"textFieldTag",nil);
         

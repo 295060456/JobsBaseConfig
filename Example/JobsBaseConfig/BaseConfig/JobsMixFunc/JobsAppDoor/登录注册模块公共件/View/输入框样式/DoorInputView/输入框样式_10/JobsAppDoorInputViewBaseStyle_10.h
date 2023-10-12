@@ -43,8 +43,8 @@ NS_ASSUME_NONNULL_END
              NSLog(@"%@",data);
              if ([data isKindOfClass:UITextField.class]) {
                  UITextField *textField = (UITextField *)data;
-                 if ([textField.objBindingParams isKindOfClass:JobsAppDoorInputViewTFModel.class]) {
-                     JobsAppDoorInputViewTFModel *inputViewTFModel = textField.objBindingParams;
+                 if ([textField.requestParams isKindOfClass:JobsAppDoorInputViewTFModel.class]) {
+                     JobsAppDoorInputViewTFModel *inputViewTFModel = textField.requestParams;
                      ///【单次最高取款额度 和 今日可用提款额度 的最小值】同 【输入值】进行比较
                      self->OK = inputViewTFModel.resString.floatValue > MIN(self.viewModel.withdrawalsLines.floatValue, self.viewModel.withdrawalsLinesPerTime.floatValue);
                      

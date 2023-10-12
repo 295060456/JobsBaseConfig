@@ -80,12 +80,4 @@ AppToolsProtocol
 
 @end
 
-static inline UIFont *notoSansBold(CGFloat fontSize){
-    return fontName(@"NotoSans-Bold", JobsWidth(fontSize));
-}
-
-static inline UIFont *notoSansRegular(CGFloat fontSize){
-    return fontName(@"NotoSans-Regular", JobsWidth(fontSize));
-}
-
 NS_ASSUME_NONNULL_END

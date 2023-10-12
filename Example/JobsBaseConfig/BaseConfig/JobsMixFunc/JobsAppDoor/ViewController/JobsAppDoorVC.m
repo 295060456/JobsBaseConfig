@@ -109,7 +109,7 @@ static dispatch_once_t static_jobsAppDoorOnceToken;
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    if ([self.objBindingParams integerValue] == CurrentPage_register) {
+    if ([self.requestParams integerValue] == CurrentPage_register) {
 //        [self.jobsAppDoorContentView animationToLogin];
         [self.jobsAppDoorContentView animationToRegister];
     }

@@ -34,6 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark —— UIButton 专用属性 — 图文的相对位置
 @property(nonatomic,assign)NSDirectionalRectEdge __block buttonEdgeInsetsStyle;
 @property(nonatomic,assign)CGFloat __block imageTitleSpace;
+@property(nonatomic,assign)CGFloat __block titleSpace;
 #pragma mark —— 关于 UITableViewCell 和 UICollectionViewCell
 @property(nonatomic,assign)CGFloat __block cellHeight;
 @property(nonatomic,assign)CGFloat __block heightForHeaderInSection;
@@ -79,6 +80,7 @@ NS_ASSUME_NONNULL_END
 @synthesize alignment = _alignment;\
 @synthesize buttonEdgeInsetsStyle;\
 @synthesize imageTitleSpace;\
+@synthesize titleSpace;\
 @synthesize cellHeight = _cellHeight;\
 @synthesize heightForHeaderInSection = _heightForHeaderInSection;\
 @synthesize cellSize = _cellSize;\
@@ -116,6 +118,7 @@ NS_ASSUME_NONNULL_END
 @dynamic alignment;\
 @dynamic buttonEdgeInsetsStyle;\
 @dynamic imageTitleSpace;\
+@dynamic titleSpace;\
 @dynamic cellHeight;\
 @dynamic heightForHeaderInSection;\
 @dynamic cellSize;\
@@ -125,4 +128,3 @@ NS_ASSUME_NONNULL_END
 @dynamic usesTableViewFooterView;\
 
 #endif
-
