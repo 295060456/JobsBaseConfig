@@ -79,6 +79,7 @@
                             primaryAction:(UIAction *_Nullable)primaryAction
                           clickEventBlock:(JobsReturnIDByIDBlock _Nullable)clickEventBlock{
     if(!btnConfiguration) btnConfiguration = UIButtonConfiguration.filledButtonConfiguration;
+    if(!background) background = UIBackgroundConfiguration.clearConfiguration;
     /// 一般的文字
     {
         btnConfiguration.title = title;
@@ -99,9 +100,10 @@
     }
     /// 图片
     {
+        btnConfiguration.imagePadding = imagePadding;/// 设置图像与标题之间的间距
         btnConfiguration.image = normalImage;
         btnConfiguration.imagePlacement = imagePlacement;
-        btnConfiguration.imagePadding = imagePadding;/// 设置图像与标题之间的间距
+        background.edgesAddingLayoutMarginsToBackgroundInsets = imagePlacement;
     }
     /// 富文本 优先级高于普通文本
 #warning 这个方法，同时设置了普通文本和富文本，其实是走富文本的创建路线。富文本4要素：文字信息、文字颜色、段落、字体
@@ -133,10 +135,22 @@
     }
     /// 其他
     {
-        btnConfiguration.baseBackgroundColor = baseBackgroundColor;// 背景颜色
-        btnConfiguration.contentInsets = contentInsets; // 内边距
+        /// 内边距
+        btnConfiguration.contentInsets = contentInsets;
+        background.backgroundInsets = contentInsets;
+        /// 背景颜色
+        background.backgroundColor = baseBackgroundColor;
+        btnConfiguration.baseBackgroundColor = baseBackgroundColor;
+        /// 圆切角
+        background.cornerRadius = cornerRadiusValue;
+        /// 描边的颜色和线宽
+        background.strokeColor = layerBorderCor;
+        background.strokeWidth = borderWidth;
     }
+    
+    btnConfiguration.background = background;
     UIButton *btn = nil;
+    
     if(self.deviceSystemVersion.floatValue >= 15.0){
         btn = [UIButton buttonWithConfiguration:btnConfiguration
                                   primaryAction:primaryAction];
@@ -186,15 +200,14 @@
     }
     /// 公共设置
     {
-        /// 描边
-        [btn layerBorderCor:layerBorderCor andBorderWidth:borderWidth];
+        if(self.deviceSystemVersion.floatValue < 15.0){
+            [btn layerBorderCor:layerBorderCor andBorderWidth:borderWidth];/// 描边
+        }
         
         if(roundingCorners == UIRectCornerAllCorners && jobsZeroSizeValue(roundingCornersRadii)){
-            /// 圆切角（四个角全部按照统一的标准切）
-            [btn cornerCutToCircleWithCornerRadius:cornerRadiusValue];
+            [btn cornerCutToCircleWithCornerRadius:cornerRadiusValue];/// 圆切角（四个角全部按照统一的标准切）
         }else{
-            /// 圆切角（指定某个角按照统一的标准Size切）
-            [btn appointCornerCutToCircleByRoundingCorners:roundingCorners cornerRadii:roundingCornersRadii];
+            [btn appointCornerCutToCircleByRoundingCorners:roundingCorners cornerRadii:roundingCornersRadii];/// 圆切角（指定某个角按照统一的标准Size切）
         }
         /// 内容的对齐方式
         btn.contentVerticalAlignment = contentVerticalAlignment;
@@ -288,6 +301,52 @@
     };
 }
 #pragma mark —— 一些通用修改（已做Api向下兼容）
+/// 重设Btn的描边：线宽和线段的颜色
+-(jobsByColor_FloatBlock)jobsResetBtnlayerBorderCorAndWidth{
+    @jobs_weakify(self)
+    return ^(UIColor *_Nullable layerBorderCor,float borderWidth) {
+        @jobs_strongify(self)
+        self.jobsResetBtnlayerBorderCor(layerBorderCor);
+        self.jobsResetBtnlayerBorderWidth(borderWidth);
+    };
+}
+/// 重设Btn的描边线段的颜色
+-(jobsByCorBlock)jobsResetBtnlayerBorderCor{
+    @jobs_weakify(self)
+    return ^(UIColor *_Nullable layerBorderCor) {
+        @jobs_strongify(self)
+        if(self.deviceSystemVersion.floatValue < 15.0){
+            self.layer.borderColor = layerBorderCor.CGColor;
+        }else{
+            self.configuration.background.strokeColor = layerBorderCor;
+        }
+    };
+}
+/// 重设Btn的描边线段的宽度
+-(jobsByFloatBlock)jobsResetBtnlayerBorderWidth{
+    @jobs_weakify(self)
+    return ^(float borderWidth) {
+        @jobs_strongify(self)
+        if(self.deviceSystemVersion.floatValue < 15.0){
+            self.layer.borderWidth = borderWidth;
+        }else{
+            self.configuration.background.strokeWidth = borderWidth;
+        }
+    };
+}
+/// 重设Btn的圆切角
+-(jobsByCGFloatBlock)jobsResetBtnCornerRadiusValue{
+    @jobs_weakify(self)
+    return ^(CGFloat cornerRadiusValue) {
+        @jobs_strongify(self)
+        if(self.deviceSystemVersion.floatValue < 15.0){
+            [self cornerCutToCircleWithCornerRadius:cornerRadiusValue];
+        }else{
+            self.configuration.background.cornerRadius = cornerRadiusValue;
+        }
+    };
+}
+/// 重设Btn主标题的文字内容
 -(jobsByStringBlock)jobsResetBtnTitle{
     @jobs_weakify(self)
     return ^(NSString *data) {
@@ -299,7 +358,7 @@
         }
     };
 }
-
+/// 重设Btn.Image
 -(jobsByImageBlock)jobsResetBtnImage{
     @jobs_weakify(self)
     return ^(UIImage *data) {
@@ -311,7 +370,7 @@
         }
     };
 }
-
+/// 重设Btn主标题的文字颜色
 -(jobsByCorBlock)jobsResetBtnTitleCor{
     @jobs_weakify(self)
     return ^(UIColor *data) {
@@ -323,7 +382,7 @@
         }
     };
 }
-
+/// 重设Btn主标题的背景颜色
 -(jobsByCorBlock)jobsResetBtnBgCor{
     @jobs_weakify(self)
     return ^(UIColor *data) {
@@ -403,7 +462,11 @@
     return ^(UIColor *data) {
         @jobs_strongify(self)
         UIButtonConfiguration *config = self.configuration;
+        UIBackgroundConfiguration *bgConfig = config.background;
+        
         config.baseBackgroundColor = data;
+        bgConfig.backgroundColor = data;
+        
         self.configuration = config;
         return self.configuration;
     };

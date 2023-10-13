@@ -112,9 +112,21 @@ NS_ASSUME_NONNULL_BEGIN
 /// 当Button不可用的时候，需要做些什么
 -(jobsByBOOLBlock _Nonnull)enabledBlock;
 #pragma mark —— 一些通用修改（已做Api向下兼容）
+/// 重设Btn的描边：线宽和线段的颜色
+-(jobsByColor_FloatBlock)jobsResetBtnlayerBorderCorAndWidth;
+/// 重设Btn的描边线段的颜色
+-(jobsByCorBlock)jobsResetBtnlayerBorderCor;
+/// 重设Btn的描边线段的宽度
+-(jobsByFloatBlock)jobsResetBtnlayerBorderWidth;
+/// 重设Btn的圆切角
+-(jobsByCGFloatBlock)jobsResetBtnCornerRadiusValue;
+/// 重设Btn主标题的文字内容
 -(jobsByStringBlock)jobsResetBtnTitle;
+/// 重设Btn.Image
 -(jobsByImageBlock)jobsResetBtnImage;
+/// 重设Btn主标题的文字颜色
 -(jobsByCorBlock)jobsResetBtnTitleCor;
+/// 重设Btn主标题的背景颜色
 -(jobsByCorBlock)jobsResetBtnBgCor;
 /**
  1、一一对应UIButtonConfiguration.h文件里面的属性

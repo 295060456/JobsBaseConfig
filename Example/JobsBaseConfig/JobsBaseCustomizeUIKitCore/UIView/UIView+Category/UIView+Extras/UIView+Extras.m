@@ -125,7 +125,7 @@
 /// @param color 作用颜色
 /// @param borderWidth 线宽
 /// @param borderType 作用方向
--(void)setBorderWithColor:(UIColor *__nonnull)color
+-(void)setBorderWithColor:(UIColor *_Nullable)color
               borderWidth:(CGFloat)borderWidth
                borderType:(UIBorderSideType)borderType{
     [self.superview layoutIfNeeded];
@@ -173,7 +173,7 @@
 /// 描边
 /// @param layerBorderCor 颜色
 /// @param borderWidth 边线宽度
--(void)layerBorderCor:(UIColor *__nonnull)layerBorderCor
+-(void)layerBorderCor:(UIColor *_Nullable)layerBorderCor
        andBorderWidth:(CGFloat)borderWidth{
     self.layer.borderColor = layerBorderCor.CGColor;
     self.layer.borderWidth = borderWidth;

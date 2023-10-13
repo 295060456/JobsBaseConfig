@@ -9,15 +9,15 @@
 
 @interface JobsHeaderFooterView ()
 /// UI
-@property(nonatomic,strong)UILabel *titleLab;
+@property(nonatomic,strong)BaseButton *titleBtn;
 @property(nonatomic,strong)BaseButton *subTitleBtn;
+/// Data
+@property(nonatomic,strong)UIViewModel *titleModel;
+@property(nonatomic,strong)UIViewModel *subTitleModel;
 
 @end
 
 @implementation JobsHeaderFooterView
-
-@synthesize viewModel = _viewModel;
-
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
         
@@ -29,45 +29,138 @@
     return CGSizeZero;
 }
 /// 由具体的子类进行覆写
--(void)richElementsInViewWithModel:(UIViewModel *_Nullable)model{
-    self.viewModel = model ? : UIViewModel.new;
-    self.backgroundColor = self.viewModel.bgCor;
-    self.titleLab.alpha = 1;
-    self.subTitleBtn.alpha = 1;
+-(void)richElementsInViewWithModel:(NSMutableArray <UIViewModel *>*_Nullable)model{
+    if(model.count){
+        self.titleModel = model[0];
+    }
+    
+    if(model.count >= 2){
+        self.subTitleModel = model[1];
+    }
+    
+    if(self.titleModel) self.titleBtn.alpha = 1;
+    if(self.subTitleModel) self.subTitleBtn.alpha = 1;
 }
 #pragma mark —— 一些公共方法
--(UILabel *)getTitleLab{
-    return self.titleLab;
+-(BaseButton *)getTitleBtn{
+    return self.titleBtn;
 }
 
 -(BaseButton *)getSubTitleBtn{
     return self.subTitleBtn;
 }
 #pragma mark —— lazyLoad
--(UILabel *)titleLab{
-    if (!_titleLab) {
-        _titleLab = UILabel.new;
-        [self addSubview:_titleLab];
-        [_titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
+-(BaseButton *)titleBtn{
+    if (!_titleBtn) {
+        @jobs_weakify(self)
+        _titleBtn = [BaseButton.alloc jobsInitBtnByConfiguration:nil
+                                                      background:nil
+                                                  titleAlignment:UIButtonConfigurationTitleAlignmentAutomatic
+                                                   textAlignment:NSTextAlignmentCenter
+                                                subTextAlignment:NSTextAlignmentCenter
+                                                     normalImage:nil
+                                                  highlightImage:nil
+                                                 attributedTitle:nil
+                                         selectedAttributedTitle:nil
+                                              attributedSubtitle:nil
+                                                           title:nil
+                                                        subTitle:nil
+                                                       titleFont:nil
+                                                    subTitleFont:nil
+                                                        titleCor:nil
+                                                     subTitleCor:nil
+                                              titleLineBreakMode:NSLineBreakByWordWrapping
+                                           subtitleLineBreakMode:NSLineBreakByWordWrapping
+                                             baseBackgroundColor:nil
+                                                    imagePadding:JobsWidth(0)
+                                                    titlePadding:JobsWidth(0)
+                                                  imagePlacement:NSDirectionalRectEdgeNone
+                                      contentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter
+                                        contentVerticalAlignment:UIControlContentVerticalAlignmentCenter
+                                                   contentInsets:jobsSameDirectionalEdgeInsets(0)
+                                               cornerRadiusValue:JobsWidth(0)
+                                                 roundingCorners:UIRectCornerAllCorners
+                                            roundingCornersRadii:CGSizeZero
+                                                  layerBorderCor:nil
+                                                     borderWidth:JobsWidth(0)
+                                                   primaryAction:nil
+                                                 clickEventBlock:^id(BaseButton *x) {
+            @jobs_strongify(self)
+            x.selected = !x.selected;
+            if (self.objectBlock) self.objectBlock(x);
+            return nil;
+        }];
+        [self addSubview:_titleBtn];
+        [_titleBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self).offset(self.viewModel.textModel.offsetXForEach);
             make.top.bottom.equalTo(self);
         }];
     }
     
-    if (self.viewModel.textModel.attributedText) {
-        _titleLab.attributedText = self.viewModel.textModel.attributedText;
-    }else{
-        _titleLab.text = self.viewModel.textModel.text;
-        _titleLab.font = self.viewModel.textModel.font;
-        _titleLab.textColor = self.viewModel.textModel.textCor;
-        _titleLab.textAlignment = self.viewModel.textModel.textAlignment;
-        [_titleLab makeLabelByShowingType:self.viewModel.textModel.labelShowingType];/// 一行显示。不定宽、定高、定字体。宽度自适应 【单行：ByFont】
-    }return _titleLab;
+    _titleBtn.jobsResetBtnTitle(self.titleModel.textModel.text);
+    _titleBtn.jobsResetSubtitle((self.titleModel.subTextModel.text));
+    _titleBtn.jobsResetImagePadding(self.titleModel.imageTitleSpace);
+    _titleBtn.jobsResetTitlePadding(self.titleModel.titleSpace);
+    _titleBtn.jobsResetBtnImage(self.titleModel.image);
+    _titleBtn.jobsResetTitleLineBreakMode(self.titleModel.subTextModel.lineBreakMode);
+    _titleBtn.jobsResetSubTitleLineBreakMode(self.titleModel.subTextModel.lineBreakMode);
+    _titleBtn.jobsResetImagePlacement(self.titleModel.buttonEdgeInsetsStyle);
+    _titleBtn.jobsResetBaseForegroundColor(self.titleModel.textModel.textCor);
+    _titleBtn.jobsResetBtnBgCor((self.titleModel.bgCor));
+    [_titleBtn jobsSetBtnTitleFont:self.titleModel.textModel.font btnTitleCor:self.titleModel.textModel.textCor];
+    [_titleBtn makeBtnLabelByShowingType:self.titleModel.textModel.labelShowingType];
+
+    /// 富文本的优先级最高，不括起来上述的设置无效
+    if(self.titleModel.textModel.attributedText){
+        _titleBtn.jobsResetAttributedTitle(self.titleModel.textModel.attributedText);
+    }
+    
+    if(self.titleModel.subTextModel.attributedText){
+        _titleBtn.jobsResetAttributedSubtitle(self.titleModel.subTextModel.attributedText);
+    }return _titleBtn;
 }
 
 -(BaseButton *)subTitleBtn{
     if (!_subTitleBtn) {
         _subTitleBtn = BaseButton.new;
+        @jobs_weakify(self)
+        _subTitleBtn = [BaseButton.alloc jobsInitBtnByConfiguration:nil
+                                                    background:nil
+                                                titleAlignment:UIButtonConfigurationTitleAlignmentAutomatic
+                                                 textAlignment:NSTextAlignmentCenter
+                                              subTextAlignment:NSTextAlignmentCenter
+                                                   normalImage:nil
+                                                highlightImage:nil
+                                               attributedTitle:nil
+                                       selectedAttributedTitle:nil
+                                            attributedSubtitle:nil
+                                                         title:nil
+                                                      subTitle:nil
+                                                     titleFont:nil
+                                                  subTitleFont:nil
+                                                      titleCor:nil
+                                                   subTitleCor:nil
+                                            titleLineBreakMode:NSLineBreakByWordWrapping
+                                         subtitleLineBreakMode:NSLineBreakByWordWrapping
+                                                baseBackgroundColor:nil
+                                                  imagePadding:JobsWidth(0)
+                                                  titlePadding:JobsWidth(0)
+                                                imagePlacement:NSDirectionalRectEdgeNone
+                                    contentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter
+                                      contentVerticalAlignment:UIControlContentVerticalAlignmentCenter
+                                                 contentInsets:jobsSameDirectionalEdgeInsets(0)
+                                             cornerRadiusValue:JobsWidth(0)
+                                               roundingCorners:UIRectCornerAllCorners
+                                          roundingCornersRadii:CGSizeZero
+                                                layerBorderCor:nil
+                                                   borderWidth:JobsWidth(0)
+                                                 primaryAction:nil
+                                               clickEventBlock:^id(BaseButton *x) {
+            @jobs_strongify(self)
+            x.selected = !x.selected;
+            if (self.objectBlock) self.objectBlock(x);
+            return nil;
+        }];
         [self addSubview:_subTitleBtn];
         [_subTitleBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(self).offset(self.viewModel.subTextModel.offsetXForEach);
@@ -75,26 +168,27 @@
         }];
     }
     
-    _subTitleBtn.normalImage = self.viewModel.image;
-    _subTitleBtn.normalBackgroundImage = self.viewModel.bgImage;
-    _subTitleBtn.normalTitle = self.viewModel.subTextModel.text;
-    _subTitleBtn.normalTitleColor = self.viewModel.subTextModel.textCor;
-    _subTitleBtn.normalAttributedTitle = self.viewModel.subTextModel.attributedText;
+    _subTitleBtn.jobsResetBtnTitle(self.subTitleModel.textModel.text);
+    _subTitleBtn.jobsResetSubtitle((self.subTitleModel.subTextModel.text));
+    _subTitleBtn.jobsResetImagePadding(self.subTitleModel.imageTitleSpace);
+    _subTitleBtn.jobsResetTitlePadding(self.subTitleModel.titleSpace);
+    _subTitleBtn.jobsResetBtnImage(self.subTitleModel.image);
+    _subTitleBtn.jobsResetTitleLineBreakMode(self.subTitleModel.subTextModel.lineBreakMode);
+    _subTitleBtn.jobsResetSubTitleLineBreakMode(self.subTitleModel.subTextModel.lineBreakMode);
+    _subTitleBtn.jobsResetImagePlacement(self.subTitleModel.buttonEdgeInsetsStyle);
+    _subTitleBtn.jobsResetBaseForegroundColor(self.subTitleModel.textModel.textCor);
+    _subTitleBtn.jobsResetBtnBgCor((self.subTitleModel.bgCor));
+    [_subTitleBtn jobsSetBtnTitleFont:self.subTitleModel.textModel.font btnTitleCor:self.subTitleModel.textModel.textCor];
+    [_subTitleBtn makeBtnLabelByShowingType:self.subTitleModel.textModel.labelShowingType];
+
+    /// 富文本的优先级最高，不括起来上述的设置无效
+    if(self.subTitleModel.textModel.attributedText){
+        _subTitleBtn.jobsResetAttributedTitle(self.subTitleModel.textModel.attributedText);
+    }
     
-    _subTitleBtn.selectedImage = self.viewModel.selectedImage;
-    _subTitleBtn.selectedBackgroundImage = self.viewModel.bgSelectedImage;
-    _subTitleBtn.selectedTitle = self.viewModel.subTextModel.text;
-    _subTitleBtn.selectedTitleColor = self.viewModel.subTextModel.textCor;
-    _subTitleBtn.selectedAttributedTitle = self.viewModel.subTextModel.attributedText;
-    
-    _subTitleBtn.titleFont = self.viewModel.subTextModel.font;
-    _subTitleBtn.titleAlignment = self.viewModel.subTextModel.textAlignment;
-    _subTitleBtn.lineBreakMode = self.viewModel.subTextModel.lineBreakMode;
-    
-    [_subTitleBtn makeBtnLabelByShowingType:self.viewModel.labelShowingType];
-    [_subTitleBtn layoutButtonWithEdgeInsetsStyle:self.viewModel.buttonEdgeInsetsStyle
-                                     imagePadding:self.viewModel.imageTitleSpace];
-    return _subTitleBtn;
+    if(self.subTitleModel.subTextModel.attributedText){
+        _subTitleBtn.jobsResetAttributedSubtitle(self.subTitleModel.subTextModel.attributedText);
+    }return _subTitleBtn;
 }
 
 @end

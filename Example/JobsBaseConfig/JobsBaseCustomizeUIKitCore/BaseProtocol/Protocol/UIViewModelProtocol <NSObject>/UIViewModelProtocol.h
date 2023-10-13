@@ -50,12 +50,6 @@ NS_ASSUME_NONNULL_END
 @synthesize subTextModel = _subTextModel;\
 @synthesize backBtnTitleModel = _backBtnTitleModel;\
 \
-@synthesize selectedImage = _selectedimage;\
-@synthesize bgSelectedImage = _bgSelectedImage;\
-@synthesize selectedImageURLString = _selectedImageURLString;\
-@synthesize bgSelectedImageURLString = _bgSelectedImageURLString;\
-@synthesize bgSelectedCor = _bgSelectedCor;\
-@synthesize backBtnSelectedIMG = _backBtnSelectedIMG;\
 @synthesize image = _image;\
 @synthesize bgImage = _bgImage;\
 @synthesize imageURLString = _imageURLString;\
@@ -63,6 +57,13 @@ NS_ASSUME_NONNULL_END
 @synthesize bgCor = _bgCor;\
 @synthesize backBtnIMG = _backBtnIMG;\
 @synthesize bgImageView = _bgImageView;\
+@synthesize selectedImage = _selectedimage;\
+@synthesize bgSelectedImage = _bgSelectedImage;\
+@synthesize selectedImageURLString = _selectedImageURLString;\
+@synthesize bgSelectedImageURLString = _bgSelectedImageURLString;\
+@synthesize bgSelectedCor = _bgSelectedCor;\
+@synthesize backBtnSelectedIMG = _backBtnSelectedIMG;\
+@synthesize bgSelectedConfig = _bgSelectedConfig;\
 \
 @synthesize cornerRadius = _cornerRadius;\
 @synthesize rectCorner = _rectCorner;\
@@ -136,12 +137,6 @@ NS_ASSUME_NONNULL_END
 @dynamic subTextModel;\
 @dynamic backBtnTitleModel;\
 \
-@dynamic selectedImage;\
-@dynamic bgSelectedImage;\
-@dynamic selectedImageURLString;\
-@dynamic bgSelectedImageURLString;\
-@dynamic bgSelectedCor;\
-@dynamic backBtnSelectedIMG;\
 @dynamic image;\
 @dynamic bgImage;\
 @dynamic imageURLString;\
@@ -149,6 +144,13 @@ NS_ASSUME_NONNULL_END
 @dynamic bgCor;\
 @dynamic backBtnIMG;\
 @dynamic bgImageView;\
+@dynamic selectedImage;\
+@dynamic bgSelectedImage;\
+@dynamic selectedImageURLString;\
+@dynamic bgSelectedImageURLString;\
+@dynamic bgSelectedCor;\
+@dynamic backBtnSelectedIMG;\
+@dynamic bgSelectedConfig;\
 \
 @dynamic cornerRadius;\
 @dynamic rectCorner;\

@@ -114,7 +114,7 @@ atIndexPath:(NSIndexPath *)indexPath {
         [headerView richElementsInViewWithModel:viewModel];
         headerView.backgroundColor = HEXCOLOR(0xFFFCF7);
         
-        [headerView.getTitleLab mas_remakeConstraints:^(MASConstraintMaker *make) {
+        [headerView.getTitleBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.center.equalTo(headerView);
             make.top.equalTo(self.titleLab.mas_bottom);
             make.height.mas_equalTo(JobsWidth(20));

@@ -61,13 +61,13 @@ typedef NS_OPTIONS(NSUInteger, UIBorderSideType) {
 /// @param color 作用颜色
 /// @param borderWidth 线宽
 /// @param borderType 作用方向
--(void)setBorderWithColor:(UIColor *__nonnull)color
+-(void)setBorderWithColor:(UIColor *_Nullable)color
               borderWidth:(CGFloat)borderWidth
                borderType:(UIBorderSideType)borderType;
 /// 描边
 /// @param layerBorderCor 颜色
 /// @param borderWidth 边线宽度
--(void)layerBorderCor:(UIColor *__nonnull)layerBorderCor
+-(void)layerBorderCor:(UIColor *_Nullable)layerBorderCor
        andBorderWidth:(CGFloat)borderWidth;
 #pragma mark —— 切角
 /// 切整个View的4个角为统一
