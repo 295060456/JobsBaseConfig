@@ -176,15 +176,6 @@ typedef CGPoint(^JobsReturnCGPointByLongBlock)(long data);
 typedef CGPoint(^JobsReturnCGPointByUnsignedLongBlock)(unsigned long data);
 typedef CGPoint(^JobsReturnCGPointByUnsignedLongLongBlock)(unsigned long long data);
 #pragma mark —— 多形参
-#define Jobs_2_Arguments (id _Nullable data,id _Nullable data2)
-#define Jobs_3_Arguments (id _Nullable data,id _Nullable data2,id _Nullable data3)
-#define Jobs_4_Arguments (id _Nullable data,id _Nullable data2,id _Nullable data3,id _Nullable data4)
-#define Jobs_5_Arguments (id _Nullable data,id _Nullable data2,id _Nullable data3,id _Nullable data4,id _Nullable data5)
-#define Jobs_6_Arguments (id _Nullable data,id _Nullable data2,id _Nullable data3,id _Nullable data4,id _Nullable data5,id _Nullable data6)
-#define Jobs_7_Arguments (id _Nullable data,id _Nullable data2,id _Nullable data3,id _Nullable data4,id _Nullable data5,id _Nullable data6,id _Nullable data7)
-#define Jobs_8_Arguments (id _Nullable data,id _Nullable data2,id _Nullable data3,id _Nullable data4,id _Nullable data5,id _Nullable data6,id _Nullable data7,id _Nullable data8)
-#define Jobs_9_Arguments (id _Nullable data,id _Nullable data2,id _Nullable data3,id _Nullable data4,id _Nullable data5,id _Nullable data6,id _Nullable data7,id _Nullable data8,id _Nullable data9)
-#define Jobs_10_Arguments (id _Nullable data,id _Nullable data2,id _Nullable data3,id _Nullable data4,id _Nullable data5,id _Nullable data6,id _Nullable data7,id _Nullable data8,id _Nullable data9,id _Nullable data10)
 /// 10、返回ID类型
 typedef id _Nullable(^JobsReturnIDByTwoIDBlock)Jobs_2_Arguments;
 typedef id _Nullable(^JobsReturnIDByThreeIDBlock)Jobs_3_Arguments;

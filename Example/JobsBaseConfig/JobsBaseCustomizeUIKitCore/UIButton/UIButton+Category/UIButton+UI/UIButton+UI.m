@@ -287,6 +287,54 @@
         self.normalTitleColor = self.enabled ? self.normalTitleColor : HEXCOLOR(0xB0B0B0);
     };
 }
+#pragma mark —— 一些通用修改（已做Api向下兼容）
+-(jobsByStringBlock)jobsResetBtnTitle{
+    @jobs_weakify(self)
+    return ^(NSString *data) {
+        @jobs_strongify(self)
+        if (@available(iOS 16.0, *)) {
+            self.jobsResetTitle(data ? : Internationalization(@"暂无数据"));
+        } else {
+            self.normalTitle = data;
+        }
+    };
+}
+
+-(jobsByImageBlock)jobsResetBtnImage{
+    @jobs_weakify(self)
+    return ^(UIImage *data) {
+        @jobs_strongify(self)
+        if (@available(iOS 16.0, *)) {
+            self.jobsResetImage(data);
+        } else {
+            self.normalImage = data;
+        }
+    };
+}
+
+-(jobsByCorBlock)jobsResetBtnTitleCor{
+    @jobs_weakify(self)
+    return ^(UIColor *data) {
+        @jobs_strongify(self)
+        if (@available(iOS 16.0, *)) {
+            self.jobsResetBaseForegroundColor(data ? : JobsBlueColor);
+        } else {
+            self.normalTitleColor = data;
+        }
+    };
+}
+
+-(jobsByCorBlock)jobsResetBtnBgCor{
+    @jobs_weakify(self)
+    return ^(UIColor *data) {
+        @jobs_strongify(self)
+        if (@available(iOS 16.0, *)) {
+            self.jobsResetBaseBackgroundColor(data ? : JobsYellowColor);
+        } else {
+            self.backgroundColor = data;
+        }
+    };
+}
 /**
  1、一一对应UIButtonConfiguration.h文件里面的属性
  2、只有通过UIButtonConfiguration创建的UIButton，这个UIbutton的configuration属性才不为空

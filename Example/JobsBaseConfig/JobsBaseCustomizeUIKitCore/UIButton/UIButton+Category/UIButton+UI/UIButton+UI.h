@@ -111,6 +111,11 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)changeAction:(CGFloat)angle;
 /// 当Button不可用的时候，需要做些什么
 -(jobsByBOOLBlock _Nonnull)enabledBlock;
+#pragma mark —— 一些通用修改（已做Api向下兼容）
+-(jobsByStringBlock)jobsResetBtnTitle;
+-(jobsByImageBlock)jobsResetBtnImage;
+-(jobsByCorBlock)jobsResetBtnTitleCor;
+-(jobsByCorBlock)jobsResetBtnBgCor;
 /**
  1、一一对应UIButtonConfiguration.h文件里面的属性
  2、只有通过UIButtonConfiguration创建的UIButton，这个UIbutton的configuration属性才不为空
