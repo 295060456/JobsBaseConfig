@@ -8,7 +8,7 @@
 #ifndef MacroDef_QUEUE_h
 #define MacroDef_QUEUE_h
 
-#pragma mark ======================================== 队列相关 ==============================================
+#pragma mark —— 队列相关
 /// 异步获取某个队列
 #ifndef GET_QUEUE_ASYNC
 #define GET_QUEUE_ASYNC(queue, block)\

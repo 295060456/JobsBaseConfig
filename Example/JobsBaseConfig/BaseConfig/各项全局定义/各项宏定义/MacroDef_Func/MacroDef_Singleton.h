@@ -7,7 +7,6 @@
 
 #ifndef MacroDef_Singleton_h
 #define MacroDef_Singleton_h
-
 /**
     【对单例的宏定义】
     【资料来源】

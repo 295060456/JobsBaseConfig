@@ -191,7 +191,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
     if (!_tableView) {
         _tableView = UITableView.new;
         [self dataLinkByTableView:_tableView];
-        _tableView.backgroundColor = AppMainCor_02;
+        _tableView.backgroundColor = JobsWhiteColor;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.tableHeaderView = UIView.new;/// 这里接入的就是一个UIView的派生类

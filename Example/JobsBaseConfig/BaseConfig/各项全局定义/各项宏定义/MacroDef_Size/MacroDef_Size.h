@@ -12,9 +12,7 @@
 #import "MacroDef_SysWarning.h"
 #import "MacroDef_AppDeviceScreenSize.h"
 #import "UIDevice+XMUtils.h"
-/**
- 资料来源：https://tommygirl.cn/2022/09/15/iPhone_dev_size/
- */
+/// 资料来源：https://tommygirl.cn/2022/09/15/iPhone_dev_size/
 #pragma mark —— 屏幕尺寸/启动图作图大小 (从 iPhone 4 开始统计)
 /**
       型号                                 屏幕尺寸(inch)      屏幕密度(ppi)      屏幕宽高(pt)      屏幕分辨率(px)      倍图

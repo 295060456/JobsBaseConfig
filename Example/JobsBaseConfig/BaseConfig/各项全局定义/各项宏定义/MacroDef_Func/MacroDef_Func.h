@@ -179,18 +179,18 @@ static inline void toast(NSString *_Nullable msg){
     if(!msg || ![msg isKindOfClass:NSString.class]){
         msg = Internationalization(@"数据错误");
     }
-    [WHToast jobsToastMsg:Internationalization(msg)];
+    [NSObject jobsToastMsg:Internationalization(msg)];
 }
 
 static inline void toastErr(NSString *_Nullable msg){
     if(!msg || ![msg isKindOfClass:NSString.class]){
         msg = Internationalization(@"数据错误");
     }
-    [WHToast jobsToastErrMsg:Internationalization(msg)];
+    [NSObject jobsToastErrMsg:Internationalization(msg)];
 }
 #pragma mark —— 定义一些默认值
 #ifndef listContainerViewDefaultOffset
-#define listContainerViewDefaultOffset JobsWidth(50)
+#define listContainerViewDefaultOffset JobsWidth(46)
 #endif
 
 #ifndef JobsDefaultValue
@@ -205,6 +205,10 @@ static inline void toastErr(NSString *_Nullable msg){
 #define JobsDefaultSize CGSizeZero
 #endif
 /// 其他
+#ifndef PrintRetainCount
+#define PrintRetainCount(obj) printf("Retain Count = %ld\n",CFGetRetainCount((__bridge CFTypeRef)(obj)));//打印引用计数器
+#endif
+
 #ifndef ReuseIdentifier
 #define ReuseIdentifier self.class.description
 #endif

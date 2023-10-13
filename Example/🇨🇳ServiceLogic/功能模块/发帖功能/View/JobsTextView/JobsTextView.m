@@ -116,7 +116,7 @@ static dispatch_once_t static_textViewOnceToken;
 - (UILabel *)countLabel{
     if (!_countLabel) {
         _countLabel = UILabel.new;
-        _countLabel.textColor = AppMainCor_04;
+        _countLabel.textColor = JobsWhiteColor;
         _countLabel.textAlignment = NSTextAlignmentCenter;
         _countLabel.font = UIFontWeightBoldSize(12);
         [self addSubview:_countLabel];

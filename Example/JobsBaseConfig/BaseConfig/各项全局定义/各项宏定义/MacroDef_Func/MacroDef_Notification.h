@@ -7,7 +7,6 @@
 
 #ifndef MacroDef_Notification_h
 #define MacroDef_Notification_h
-
 /**
     在多线程应用中，Notification在哪个线程中post，就在哪个线程中被转发，而不一定是在注册观察者的那个线程中
     也就是说Notification的发送与接收处理都是在同一个线程中
@@ -15,7 +14,6 @@
     1、对于全局性的通知，不建议在BaseView中监听，而是建议在具体的VC里面，哪怕是BaseVC里面去监听他。因为在BaseView上会崩溃
     2、如果在分类或者父类去实现监听方法，具体的子类就收不到消息
  */
-
 /// 系统通知宏定义
 #pragma mark —— 1、定义通知中心
 #ifndef JobsNotificationCenter

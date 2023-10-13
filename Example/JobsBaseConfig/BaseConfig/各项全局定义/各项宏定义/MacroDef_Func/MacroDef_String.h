@@ -61,7 +61,7 @@ static inline UIFont *_Nonnull JobsFontBlack(NSInteger fontSize){
 #endif
 
 #ifndef JobsLocalFunc
-#define JobsLocalFunc   [NSStringFromClass(self.class) stringByAppendingFormat:@"-%@",NSStringFromSelector(_cmd)]
+#define JobsLocalFunc [NSStringFromClass(self.class) stringByAppendingFormat:@"-%@",NSStringFromSelector(_cmd)]
 #endif
 
 #endif /* MacroDef_String_h */

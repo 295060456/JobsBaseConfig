@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UIButton+UI.h"
+#import "MacroDef_Func.h"
 #import "MacroDef_String.h"
 #import "ZLGestureLockView.h"
 #import "ZLGestureLockIndicator.h"

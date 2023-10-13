@@ -226,7 +226,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 -(UITableView *)tableView{
     if (!_tableView) {
         _tableView = UITableView.initWithStyleGrouped;
-        _tableView.backgroundColor = AppMainCor_02;
+        _tableView.backgroundColor = JobsWhiteColor;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         _tableView.scrollEnabled = NO;
         _tableView.showsVerticalScrollIndicator = NO;
