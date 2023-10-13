@@ -27,6 +27,7 @@
     [self registerCollectionViewCellClass:JobsSearchDataCVCell.class];
     [self registerCollectionViewCellClass:JobsBtnStyleCVCell.class];
     [self registerCollectionViewCellClass:JobsImageViewStyleCVCell.class];
+    [self registerCollectionViewCellClass:JobsTextFieldStyleCVCell.class];
     
     [self registerCollectionViewCellClass:BaiShaETProjOrderDetailsCVCell.class];
     [self registerCollectionViewCellClass:BaiShaETProjVIPSubCVCell_01.class];

@@ -8,7 +8,7 @@
 #import "BaseCollectionViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
+/// 只在BaseCollectionViewCell完整的盖一个ImageView
 @interface JobsImageViewStyleCVCell : BaseCollectionViewCell
 
 #pragma mark —— 一些公有方法

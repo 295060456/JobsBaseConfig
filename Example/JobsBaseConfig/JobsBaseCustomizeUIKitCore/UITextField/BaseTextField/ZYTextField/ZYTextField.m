@@ -16,6 +16,10 @@
 -(void)drawRect:(CGRect)rect{
     [super drawRect:rect];
 }
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
+}
 #pragma mark —— 一些私有方法
 -(void)setIsShowDelBtn:(BOOL)isShowDelBtn{
     _isShowDelBtn = isShowDelBtn;

@@ -1,2 +1,0 @@
-#  JobsImageViewStyleCVCell
-只在BaseCollectionViewCell完整的盖一个ImageView
