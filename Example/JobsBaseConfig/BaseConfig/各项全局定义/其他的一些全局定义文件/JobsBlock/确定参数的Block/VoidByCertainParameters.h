@@ -18,6 +18,7 @@ typedef void(^jobsBySELBlock)(SEL _Nullable data);
 typedef void(^jobsByStringBlock)(NSString *_Nullable data);
 typedef void(^jobsByImageBlock)(UIImage *_Nullable data);
 typedef void(^jobsByCorBlock)(UIColor *_Nullable data);
+typedef void(^jobsByFontBlock)(UIFont *_Nullable data);
 /// 3、入参为基本数据类型、 且没有返回值的Block定义
 typedef void(^jobsByNSIntegerBlock)(NSInteger data);
 typedef void(^jobsByNSUIntegerBlock)(NSUInteger data);
@@ -37,7 +38,7 @@ typedef void(^jobsByUnsignedLongLongBlock)(unsigned long long data);
 /// 4、入参为多类型、不定个数的形参
 typedef void(^jobsByColor_FloatBlock)(UIColor *_Nullable,float borderWidth);
 #pragma mark —— 多形参
-/// 4、入参个数为2~10的ID类型、且没有返回值的Block定义
+/// 5、入参个数为2~10的ID类型、且没有返回值的Block定义
 typedef void(^jobsByTwoIDBlock)Jobs_2_Arguments;
 typedef void(^jobsByThreeIDBlock)Jobs_3_Arguments;
 typedef void(^jobsByFourIDBlock)Jobs_4_Arguments;

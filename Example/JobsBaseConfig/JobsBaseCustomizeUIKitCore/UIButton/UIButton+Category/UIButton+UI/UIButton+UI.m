@@ -113,7 +113,7 @@
             btnConfiguration.attributedTitle = attributedTitle;
         }else{
             if(titleFont && titleCor && title){
-#warning 这三个想办法去重置:titleCor、titleFont、textAlignment
+#warning 想办法去重置:textAlignment
                 btnConfiguration.attributedTitle = [NSAttributedString.alloc initWithString:title
                                                                                  attributes:@{NSForegroundColorAttributeName:titleCor,
                                                                                               NSFontAttributeName:titleFont,
@@ -125,7 +125,7 @@
             btnConfiguration.attributedSubtitle = attributedSubtitle;
         }else{
             if(subTitleFont && subTitleCor && subTitle){
-#warning 这三个想办法去重置:subTitleCor、subTitleFont、subTextAlignment
+#warning 想办法去重置:subTextAlignment
                 btnConfiguration.attributedSubtitle = [NSAttributedString.alloc initWithString:subTitle
                                                                                  attributes:@{NSForegroundColorAttributeName:subTitleCor,
                                                                                               NSFontAttributeName:subTitleFont,
@@ -376,7 +376,7 @@
     return ^(UIColor *data) {
         @jobs_strongify(self)
         if (@available(iOS 16.0, *)) {
-            self.jobsResetBaseForegroundColor(data ? : JobsBlueColor);
+            self.jobsResetTitleBaseForegroundColor(data ? : JobsBlueColor);
         } else {
             self.normalTitleColor = data;
         }
@@ -440,19 +440,6 @@
         UIButtonConfiguration *config = self.configuration;
         config.macIdiomStyle = data;
         self.configuration = config;
-        return self.configuration;
-    };
-}
-
--(JobsReturnButtonConfigurationByBaseForegroundColorBlock _Nonnull)jobsResetBaseForegroundColor API_AVAILABLE(ios(16.0)){
-    @jobs_weakify(self)
-    return ^(UIColor *data) {
-        @jobs_strongify(self)
-        UIButtonConfiguration *config = self.configuration;
-        config.baseForegroundColor = data;
-        self.configuration = config;
-#warning  config.titleTextAttributesTransformer 拿不到字体。想一想该怎么去做
-//        [self jobsSetBtnTitleFont:nil btnTitleCor:data];
         return self.configuration;
     };
 }
@@ -711,6 +698,47 @@
         config.automaticallyUpdateForSelection = data;
         self.configuration = config;
         return self.configuration;
+    };
+}
+
+-(JobsReturnButtonConfigurationByBaseForegroundColorBlock _Nonnull)jobsResetTitleBaseForegroundColor API_AVAILABLE(ios(16.0)){
+    @jobs_weakify(self)
+    return ^(UIColor *data) {
+        @jobs_strongify(self)
+        UIButtonConfiguration *config = self.configuration;
+        config.baseForegroundColor = data;
+        self.configuration = config;
+        [self jobsSetBtnTitleFont:nil btnTitleCor:data];
+        return self.configuration;
+    };
+}
+
+-(JobsReturnButtonConfigurationByBaseForegroundColorBlock _Nonnull)jobsResetSubTitleBaseForegroundColor API_AVAILABLE(ios(16.0)){
+    @jobs_weakify(self)
+    return ^(UIColor *data) {
+        @jobs_strongify(self)
+        UIButtonConfiguration *config = self.configuration;
+#warning UIButtonConfiguration 没有对subTitle字体颜色的描述
+//        config.baseForegroundColor = data;
+        self.configuration = config;
+        [self jobsSetBtnSubTitleFont:nil btnSubTitleCor:data];
+        return self.configuration;
+    };
+}
+
+-(jobsByFontBlock _Nonnull)jobsResetTitleFont API_AVAILABLE(ios(16.0)){
+    @jobs_weakify(self)
+    return ^(UIFont *data) {
+        @jobs_strongify(self)
+        [self jobsSetBtnTitleFont:data btnTitleCor:nil];
+    };
+}
+
+-(jobsByFontBlock _Nonnull)jobsResetSubTitleFont API_AVAILABLE(ios(16.0)){
+    @jobs_weakify(self)
+    return ^(UIFont *data) {
+        @jobs_strongify(self)
+        [self jobsSetBtnSubTitleFont:data btnSubTitleCor:nil];
     };
 }
 #pragma mark —— UIButton普通文本的通用设置

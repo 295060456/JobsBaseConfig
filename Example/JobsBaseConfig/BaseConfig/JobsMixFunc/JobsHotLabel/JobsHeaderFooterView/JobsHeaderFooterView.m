@@ -105,7 +105,7 @@
     _titleBtn.jobsResetTitleLineBreakMode(self.titleModel.subTextModel.lineBreakMode);
     _titleBtn.jobsResetSubTitleLineBreakMode(self.titleModel.subTextModel.lineBreakMode);
     _titleBtn.jobsResetImagePlacement(self.titleModel.buttonEdgeInsetsStyle);
-    _titleBtn.jobsResetBaseForegroundColor(self.titleModel.textModel.textCor);
+    _titleBtn.jobsResetTitleBaseForegroundColor(self.titleModel.textModel.textCor);
     _titleBtn.jobsResetBtnBgCor((self.titleModel.bgCor));
     [_titleBtn jobsSetBtnTitleFont:self.titleModel.textModel.font btnTitleCor:self.titleModel.textModel.textCor];
     [_titleBtn makeBtnLabelByShowingType:self.titleModel.textModel.labelShowingType];
@@ -176,7 +176,7 @@
     _subTitleBtn.jobsResetTitleLineBreakMode(self.subTitleModel.subTextModel.lineBreakMode);
     _subTitleBtn.jobsResetSubTitleLineBreakMode(self.subTitleModel.subTextModel.lineBreakMode);
     _subTitleBtn.jobsResetImagePlacement(self.subTitleModel.buttonEdgeInsetsStyle);
-    _subTitleBtn.jobsResetBaseForegroundColor(self.subTitleModel.textModel.textCor);
+    _subTitleBtn.jobsResetTitleBaseForegroundColor(self.subTitleModel.textModel.textCor);
     _subTitleBtn.jobsResetBtnBgCor((self.subTitleModel.bgCor));
     [_subTitleBtn jobsSetBtnTitleFont:self.subTitleModel.textModel.font btnTitleCor:self.subTitleModel.textModel.textCor];
     [_subTitleBtn makeBtnLabelByShowingType:self.subTitleModel.textModel.labelShowingType];

@@ -71,7 +71,7 @@
     self.layer.borderColor = self.btnTimerConfig.readyPlayValue.layerBorderCor.CGColor;
     self.layer.cornerRadius = self.btnTimerConfig.readyPlayValue.layerCornerRadius;
     self.layer.borderWidth = self.btnTimerConfig.readyPlayValue.layerBorderWidth;
-    if(self.deviceSystemVersion.floatValue >= 15.0){
+    if(@available(iOS 16.0, *)){
         self.jobsResetBaseBackgroundColor(self.btnTimerConfig.readyPlayValue.bgCor);
     }else{
         self.backgroundColor = self.btnTimerConfig.readyPlayValue.bgCor;
@@ -79,8 +79,8 @@
 }
 #pragma mark —— UI配置 1.2、【计时器未开始】设置普通文字的对齐方式、文字颜色、文字字体、UILabel的显示样式
 -(void)setTitleLabelConfigReadyPlay{
-    if(self.deviceSystemVersion.floatValue >= 15.0){
-        self.jobsResetBaseForegroundColor(self.btnTimerConfig.readyPlayValue.textCor);
+    if(@available(iOS 16.0, *)){
+        self.jobsResetTitleBaseForegroundColor(self.btnTimerConfig.readyPlayValue.textCor);
         self.jobsResetTitleTextAttributesTransformer([self jobsSetConfigTextAttributesTransformerByTitleFont:self.btnTimerConfig.readyPlayValue.font
                                                                                                  btnTitleCor:self.btnTimerConfig.readyPlayValue.textCor]);
     }else{
@@ -96,7 +96,7 @@
     self.layer.borderColor = self.btnTimerConfig.runningValue.layerBorderCor.CGColor;//可以加一个方法
     self.layer.cornerRadius = self.btnTimerConfig.runningValue.layerCornerRadius;
     self.layer.borderWidth = self.btnTimerConfig.runningValue.layerBorderWidth;
-    if(self.deviceSystemVersion.floatValue >= 15.0){
+    if(@available(iOS 16.0, *)){
         self.jobsResetBaseBackgroundColor(self.btnTimerConfig.runningValue.bgCor);
     }else{
         self.backgroundColor = self.btnTimerConfig.runningValue.bgCor;
@@ -104,8 +104,8 @@
 }
 #pragma mark —— UI配置 2.2、【计时器进行中】设置普通文字的对齐方式、文字颜色、文字字体、UILabel的显示样式
 -(void)setTitleLabelConfigRunning{
-    if(self.deviceSystemVersion.floatValue >= 15.0){
-        self.jobsResetBaseForegroundColor(self.btnTimerConfig.runningValue.textCor);
+    if(@available(iOS 16.0, *)){
+        self.jobsResetTitleBaseForegroundColor(self.btnTimerConfig.runningValue.textCor);
         self.jobsResetTitleTextAttributesTransformer([self jobsSetConfigTextAttributesTransformerByTitleFont:self.btnTimerConfig.runningValue.font
                                                                                                  btnTitleCor:self.btnTimerConfig.runningValue.textCor]);
     }else{
@@ -121,7 +121,7 @@
     self.layer.borderColor = self.btnTimerConfig.endValue.layerBorderCor.CGColor;
     self.layer.cornerRadius = self.btnTimerConfig.endValue.layerCornerRadius;
     self.layer.borderWidth = self.btnTimerConfig.endValue.layerBorderWidth;
-    if(self.deviceSystemVersion.floatValue >= 15.0){
+    if(@available(iOS 16.0, *)){
         self.jobsResetBaseBackgroundColor(self.btnTimerConfig.endValue.bgCor);
     }else{
         self.backgroundColor = self.btnTimerConfig.endValue.bgCor;
@@ -129,8 +129,8 @@
 }
 #pragma mark —— UI配置 3.2、【计时器结束】设置普通文字的对齐方式、文字颜色、文字字体、UILabel的显示样式
 -(void)setTitleLabelConfigEnd{
-    if(self.deviceSystemVersion.floatValue >= 15.0){
-        self.jobsResetBaseForegroundColor(self.btnTimerConfig.endValue.textCor);
+    if(@available(iOS 16.0, *)){
+        self.jobsResetTitleBaseForegroundColor(self.btnTimerConfig.endValue.textCor);
         self.jobsResetTitleTextAttributesTransformer([self jobsSetConfigTextAttributesTransformerByTitleFont:self.btnTimerConfig.endValue.font
                                                                                                  btnTitleCor:self.btnTimerConfig.endValue.textCor]);
     }else{
@@ -146,13 +146,13 @@
 -(void)setTitleReadyPlay{
     if (self.btnTimerConfig.readyPlayValue.titleAttributedDataMutArr.count ||
         self.btnTimerConfig.readyPlayValue.attributedText) {/// 富文本存在
-        if (self.deviceSystemVersion.floatValue >= 15.0) {
+        if (@available(iOS 16.0, *)) {
             self.jobsResetAttributedTitle(self.normalAttributedTitle);
         }else{
             self.normalAttributedTitle = self.btnTimerConfig.readyPlayValue.attributedText;
         }
     }else{
-        if (self.deviceSystemVersion.floatValue >= 15.0) {
+        if (@available(iOS 16.0, *)) {
             /// 拼凑组装
             self.jobsResetAttributedTitle([NSAttributedString.alloc initWithString:self.btnTimerConfig.readyPlayValue.text
                                                                         attributes:@{NSForegroundColorAttributeName:self.btnTimerConfig.readyPlayValue.textCor,
@@ -167,13 +167,13 @@
 -(void)setTitleRunning{
     if (self.btnTimerConfig.runningValue.titleAttributedDataMutArr.count ||
         self.btnTimerConfig.runningValue.attributedText) {/// 富文本存在
-        if (self.deviceSystemVersion.floatValue >= 15.0) {
+        if (@available(iOS 16.0, *)) {
             self.jobsResetAttributedTitle(self.normalAttributedTitle);
         }else{
             self.normalAttributedTitle = self.btnTimerConfig.runningValue.attributedText;
         }
     }else{
-        if (self.deviceSystemVersion.floatValue >= 15.0) {
+        if (@available(iOS 16.0, *)) {
             
             NSLog(@"%@",self.btnTimerConfig.runningValue.text);
             NSLog(@"%@",self.btnTimerConfig.runningValue.textCor);
@@ -193,13 +193,13 @@
 -(void)setTitleEnd{
     if (self.btnTimerConfig.endValue.titleAttributedDataMutArr.count ||
         self.btnTimerConfig.endValue.attributedText) {/// 富文本存在
-        if (self.deviceSystemVersion.floatValue >= 15.0) {
+        if (@available(iOS 16.0, *)) {
             self.jobsResetAttributedTitle(self.normalAttributedTitle);
         }else{
             self.normalAttributedTitle = self.btnTimerConfig.endValue.attributedText;
         }
     }else{
-        if (self.deviceSystemVersion.floatValue >= 15.0) {
+        if (@available(iOS 16.0, *)) {
             /// 拼凑组装
             self.jobsResetAttributedTitle([NSAttributedString.alloc initWithString:self.btnTimerConfig.endValue.text
                                                                         attributes:@{NSForegroundColorAttributeName:self.btnTimerConfig.endValue.textCor,
@@ -236,7 +236,7 @@
     // 其他一些基础设置
     {
         self.enabled = self.btnTimerConfig.isCanBeClickWhenTimerCycle;//倒计时期间，默认不接受任何的点击事件
-        if(self.deviceSystemVersion.floatValue >= 15.0){
+        if(@available(iOS 16.0, *)){
             self.jobsResetBaseBackgroundColor(self.btnTimerConfig.runningValue.bgCor);
         }else{
             self.backgroundColor = self.btnTimerConfig.runningValue.bgCor;
@@ -317,7 +317,7 @@
     [self setTitleLabelConfigEnd];
     [self setLayerConfigEnd];
 
-    if(self.deviceSystemVersion.floatValue >= 15.0){
+    if(@available(iOS 16.0, *)){
         self.jobsResetBaseBackgroundColor(self.btnTimerConfig.endValue.bgCor);
     }else{
         self.backgroundColor = self.btnTimerConfig.endValue.bgCor;
