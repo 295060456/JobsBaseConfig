@@ -595,10 +595,9 @@
 		C593DF2D2AC897FC00F875B5 /* ButtonTimerConfigModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DC6B2AC897FB00F875B5 /* ButtonTimerConfigModel.m */; };
 		C593DF2F2AC897FC00F875B5 /* RBCLikeButton.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C593DC712AC897FB00F875B5 /* RBCLikeButton.bundle */; };
 		C593DF302AC897FC00F875B5 /* RBCLikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DC722AC897FB00F875B5 /* RBCLikeButton.m */; };
-		C593DF312AC897FC00F875B5 /* LGiOSBtn.md in Resources */ = {isa = PBXBuildFile; fileRef = C593DC752AC897FB00F875B5 /* LGiOSBtn.md */; };
 		C593DF322AC897FC00F875B5 /* del_Photo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C593DC762AC897FB00F875B5 /* del_Photo@3x.png */; };
 		C593DF332AC897FC00F875B5 /* del_Photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C593DC772AC897FB00F875B5 /* del_Photo@2x.png */; };
-		C593DF342AC897FC00F875B5 /* LGiOSBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DC782AC897FB00F875B5 /* LGiOSBtn.m */; };
+		C593DF342AC897FC00F875B5 /* JobsShakeBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DC782AC897FB00F875B5 /* JobsShakeBtn.m */; };
 		C593DF352AC897FC00F875B5 /* BaseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DC7B2AC897FB00F875B5 /* BaseButton.m */; };
 		C593DF372AC897FC00F875B5 /* IrregularBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DC7E2AC897FB00F875B5 /* IrregularBtn.m */; };
 		C593DF382AC897FC00F875B5 /* Sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = C593DC812AC897FB00F875B5 /* Sound.wav */; };
@@ -2099,11 +2098,10 @@
 		C593DC6F2AC897FB00F875B5 /* RBCLikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBCLikeButton.h; sourceTree = "<group>"; };
 		C593DC712AC897FB00F875B5 /* RBCLikeButton.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RBCLikeButton.bundle; sourceTree = "<group>"; };
 		C593DC722AC897FB00F875B5 /* RBCLikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBCLikeButton.m; sourceTree = "<group>"; };
-		C593DC742AC897FB00F875B5 /* LGiOSBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGiOSBtn.h; sourceTree = "<group>"; };
-		C593DC752AC897FB00F875B5 /* LGiOSBtn.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LGiOSBtn.md; sourceTree = "<group>"; };
+		C593DC742AC897FB00F875B5 /* JobsShakeBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsShakeBtn.h; sourceTree = "<group>"; };
 		C593DC762AC897FB00F875B5 /* del_Photo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "del_Photo@3x.png"; sourceTree = "<group>"; };
 		C593DC772AC897FB00F875B5 /* del_Photo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "del_Photo@2x.png"; sourceTree = "<group>"; };
-		C593DC782AC897FB00F875B5 /* LGiOSBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGiOSBtn.m; sourceTree = "<group>"; };
+		C593DC782AC897FB00F875B5 /* JobsShakeBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsShakeBtn.m; sourceTree = "<group>"; };
 		C593DC7A2AC897FB00F875B5 /* BaseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseButton.h; sourceTree = "<group>"; };
 		C593DC7B2AC897FB00F875B5 /* BaseButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseButton.m; sourceTree = "<group>"; };
 		C593DC7E2AC897FB00F875B5 /* IrregularBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IrregularBtn.m; sourceTree = "<group>"; };
@@ -7842,7 +7840,7 @@
 			isa = PBXGroup;
 			children = (
 				C593DC6E2AC897FB00F875B5 /* RBCLikeButton */,
-				C593DC732AC897FB00F875B5 /* LGiOSBtn */,
+				C593DC732AC897FB00F875B5 /* JobsShakeBtn */,
 				C593DC792AC897FB00F875B5 /* BaseButton */,
 				C593DC7C2AC897FB00F875B5 /* IrregularBtn */,
 				C593DC802AC897FB00F875B5 /* SoundBtn */,
@@ -7860,16 +7858,15 @@
 			path = RBCLikeButton;
 			sourceTree = "<group>";
 		};
-		C593DC732AC897FB00F875B5 /* LGiOSBtn */ = {
+		C593DC732AC897FB00F875B5 /* JobsShakeBtn */ = {
 			isa = PBXGroup;
 			children = (
-				C593DC742AC897FB00F875B5 /* LGiOSBtn.h */,
-				C593DC752AC897FB00F875B5 /* LGiOSBtn.md */,
+				C593DC742AC897FB00F875B5 /* JobsShakeBtn.h */,
 				C593DC762AC897FB00F875B5 /* del_Photo@3x.png */,
 				C593DC772AC897FB00F875B5 /* del_Photo@2x.png */,
-				C593DC782AC897FB00F875B5 /* LGiOSBtn.m */,
+				C593DC782AC897FB00F875B5 /* JobsShakeBtn.m */,
 			);
-			path = LGiOSBtn;
+			path = JobsShakeBtn;
 			sourceTree = "<group>";
 		};
 		C593DC792AC897FB00F875B5 /* BaseButton */ = {
@@ -11438,7 +11435,6 @@
 				840F961E27736427004979E9 /* 9@3x.png in Resources */,
 				C5C4806E284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-Regular.ttf in Resources */,
 				8459CE1D2776DCCF00125782 /* 启动页_03.png in Resources */,
-				C593DF312AC897FC00F875B5 /* LGiOSBtn.md in Resources */,
 				C520F82F2AB39EDD00142DCC /* 828x1792.png in Resources */,
 				C5C48043284E21E5007916B3 /* NotoSans-ExtraBold.ttf in Resources */,
 				84432C14278C45C40028A27D /* Bt9h.gif in Resources */,
@@ -12063,7 +12059,7 @@
 				C593DF472AC897FC00F875B5 /* UIView+BackgroundImage.m in Sources */,
 				C539A03B2AD69BCF00C8A5E3 /* TKPermissionHealth.m in Sources */,
 				C593DF2C2AC897FC00F875B5 /* UIButton+Timer.m in Sources */,
-				C593DF342AC897FC00F875B5 /* LGiOSBtn.m in Sources */,
+				C593DF342AC897FC00F875B5 /* JobsShakeBtn.m in Sources */,
 				842475AE27C0D67000831270 /* YTKBaseRequest+AnimatingAccessory.m in Sources */,
 				C593DF612AC897FC00F875B5 /* JobsImageViewStyleCVCell.m in Sources */,
 				840F960127736427004979E9 /* JobsPullListAutoSizeView.m in Sources */,

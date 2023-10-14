@@ -28,7 +28,7 @@
 /// 按键音按钮
 #import "SoundBtn.h"
 /// 高仿iOS长按删除+抖动
-#import "LGiOSBtn.h"
+#import "JobsShakeBtn.h"
 /// BaseButton
 #import "BaseButton.h"
 
