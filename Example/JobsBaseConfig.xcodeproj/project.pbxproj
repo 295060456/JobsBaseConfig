@@ -504,6 +504,7 @@
 		C539A0462AD69BCF00C8A5E3 /* TKPermissionPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = C539A02F2AD69BCF00C8A5E3 /* TKPermissionPhoto.m */; };
 		C539A0472AD69BCF00C8A5E3 /* TKPermissionMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = C539A0312AD69BCF00C8A5E3 /* TKPermissionMedia.m */; };
 		C53F69912AD0E5A600B51391 /* NSObject+NSMutableParagraphStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = C53F698F2AD0E5A600B51391 /* NSObject+NSMutableParagraphStyle.m */; };
+		C54014D82ADB38370059DE6A /* JobsBtnStyleTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C54014D62ADB38370059DE6A /* JobsBtnStyleTBVCell.m */; };
 		C5432D662ACB1C9F008F92B0 /* UITBVCellFoldVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5432D652ACB1C9F008F92B0 /* UITBVCellFoldVC.m */; };
 		C5432D742ACB1CF6008F92B0 /* MSCommentTBVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5432D6C2ACB1CF6008F92B0 /* MSCommentTBVCell.m */; };
 		C5432D752ACB1CF6008F92B0 /* MSCommentView.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C5432D6E2ACB1CF6008F92B0 /* MSCommentView.jpg */; };
@@ -1886,6 +1887,8 @@
 		C539A0322AD69BCF00C8A5E3 /* TKPermissionMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKPermissionMedia.h; sourceTree = "<group>"; };
 		C53F698F2AD0E5A600B51391 /* NSObject+NSMutableParagraphStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NSMutableParagraphStyle.m"; sourceTree = "<group>"; };
 		C53F69902AD0E5A600B51391 /* NSObject+NSMutableParagraphStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+NSMutableParagraphStyle.h"; sourceTree = "<group>"; };
+		C54014D62ADB38370059DE6A /* JobsBtnStyleTBVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsBtnStyleTBVCell.m; sourceTree = "<group>"; };
+		C54014D72ADB38370059DE6A /* JobsBtnStyleTBVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBtnStyleTBVCell.h; sourceTree = "<group>"; };
 		C5432D642ACB1C9F008F92B0 /* UITBVCellFoldVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITBVCellFoldVC.h; sourceTree = "<group>"; };
 		C5432D652ACB1C9F008F92B0 /* UITBVCellFoldVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITBVCellFoldVC.m; sourceTree = "<group>"; };
 		C5432D6B2ACB1CF6008F92B0 /* MSCommentTBVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCommentTBVCell.h; sourceTree = "<group>"; };
@@ -6708,6 +6711,15 @@
 			path = "NSObject+NSMutableParagraphStyle";
 			sourceTree = "<group>";
 		};
+		C54014D52ADB38370059DE6A /* JobsBtnStyleTBVCell */ = {
+			isa = PBXGroup;
+			children = (
+				C54014D62ADB38370059DE6A /* JobsBtnStyleTBVCell.m */,
+				C54014D72ADB38370059DE6A /* JobsBtnStyleTBVCell.h */,
+			);
+			path = JobsBtnStyleTBVCell;
+			sourceTree = "<group>";
+		};
 		C5432D632ACB1C5A008F92B0 /* UITableViewCell的折叠效果 */ = {
 			isa = PBXGroup;
 			children = (
@@ -7714,6 +7726,7 @@
 		C593DC482AC897FB00F875B5 /* BaseTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				C54014D52ADB38370059DE6A /* JobsBtnStyleTBVCell */,
 				C54AF4BB2ADAA1A80014B335 /* JobsBaseTableViewCell */,
 				C593DC4A2AC897FB00F875B5 /* iOS UITableView中Cell的自带样式 */,
 			);
@@ -11592,6 +11605,7 @@
 				C593DFA72AC897FC00F875B5 /* UserDefaultModel.m in Sources */,
 				8424752D27C0D30700831270 /* UploadImageApi.m in Sources */,
 				C5AA8B67282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_8.m in Sources */,
+				C54014D82ADB38370059DE6A /* JobsBtnStyleTBVCell.m in Sources */,
 				C5B3AE9D285378FA0052A4A9 /* BaiShaETProjVIPSubCVCell_05.m in Sources */,
 				C593DFC32AC897FC00F875B5 /* JobsTimeModel.m in Sources */,
 				C593DF3D2AC897FC00F875B5 /* BaseView.m in Sources */,

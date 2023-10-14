@@ -10,6 +10,7 @@
 
 #pragma mark —— Base
 #import "JobsBaseTableViewCell.h"
+#import "JobsBtnStyleTBVCell.h"
 #pragma mark —— Category
 #import "UITableViewCell+UITableViewCellProtocol.h"
 #import "UITableViewCell+Margin.h"// 重设边距

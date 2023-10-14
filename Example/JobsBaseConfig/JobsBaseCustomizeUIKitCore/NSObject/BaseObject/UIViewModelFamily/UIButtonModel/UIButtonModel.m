@@ -8,5 +8,5 @@
 #import "UIButtonModel.h"
 
 @implementation UIButtonModel
-
+UIViewModelProtocol_synthesize
 @end
