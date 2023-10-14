@@ -7,42 +7,40 @@
 //
 
 #import "RBCLikeButton.h"
-
 #define leftTime 0.5
-
 @interface RBCLikeButton()
-
+/// UI
 @property(nonatomic,strong)CAEmitterLayer * explosionLayer;
 @property(nonatomic,strong)UIImageView *backImageView;
 @property(nonatomic,strong)UILabel *incLabel;
-@property(nonatomic,assign)BOOL isNeedAnimation;/// 选中/取消时是否需要动画
 @property(nonatomic,strong)UILabel *countLabel;/// 点赞数量Label
+/// Data
+@property(nonatomic,assign)BOOL isNeedAnimation;/// 选中/取消时是否需要动画
+@property(nonatomic,strong)UIViewModel *viewModel;
 
 @end
 
 @implementation RBCLikeButton {
     //记录初始"上升数字"label的Y值
     CGFloat _incOrginY;
-    RBCLikeButtonType _type;
-}
-
-- (instancetype)initWithFrame:(CGRect)frame
-                         type:(RBCLikeButtonType)type{
-    if (self = [super initWithFrame:frame]) {
-        _type = type;
-        _isNeedAnimation = YES;
-        [self setupExplosion];//初始化粒子动画
-        [self setupBackWithFrame:frame];//初始化其他控件
-    }return self;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        _type = RBCLikeButtonTypeImageleft;
-        _isNeedAnimation = YES;
-        [self setupExplosion];/// 初始化粒子动画
-        [self setupBackWithFrame:frame];/// 初始化其他控件
     }return self;
+}
+
++ (instancetype)buttonWithConfiguration:(UIButtonConfiguration *)configuration
+                          primaryAction:(nullable UIAction *)primaryAction{
+    return [super buttonWithConfiguration:configuration primaryAction:primaryAction];
+}
+#pragma mark —— BaseButtonProtocol
+/// 具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
+-(void)richElementsInButtonWithModel:(UIViewModel *_Nullable)model{
+    self.viewModel = model;
+    _isNeedAnimation = YES;
+    [self setupExplosion];/// 初始化粒子动画
+    [self setupBackWithFrame: model.jobsRect];/// 初始化其他控件
 }
 
 - (void)setupBackWithFrame:(CGRect)frame {
@@ -68,11 +66,21 @@
     UILabel *countLabel = UILabel.new;
     countLabel.font = UIFontWeightRegularSize(12);
     countLabel.textColor = HEXCOLOR(0xCFD2D6);
-    if (_type == RBCLikeButtonTypeImageleft) {
-        countLabel.textAlignment = NSTextAlignmentLeft;
+    
+    if(@available(iOS 16.0, *)){
+        if (self.configuration.imagePlacement == NSDirectionalRectEdgeLeading) {
+            countLabel.textAlignment = NSTextAlignmentLeft;
+        }else{
+            countLabel.textAlignment = NSTextAlignmentCenter;
+        }
     }else{
-        countLabel.textAlignment = NSTextAlignmentCenter;
+        if(self.buttonEdgeInsetsStyle == NSDirectionalRectEdgeLeading){
+            countLabel.textAlignment = NSTextAlignmentLeft;
+        }else{
+            countLabel.textAlignment = NSTextAlignmentCenter;
+        }
     }
+
     countLabel.text = @"0";
     countLabel.numberOfLines = 1;
     [self addSubview:countLabel];
@@ -93,16 +101,31 @@
     self.backImageView.frame = self.imageView.frame;
     /// 2.确定总赞数label的frame
     CGFloat countLabelWidth = 30;
-    if (_type == RBCLikeButtonTypeImageleft) {
-        self.countLabel.frame = CGRectMake(CGRectGetMaxX(self.imageView.frame)+5,
-                                           self.imageView.top + (self.imageView.height - 15)/2 + 0.5,
-                                           countLabelWidth,
-                                           15);
+    
+    if(@available(iOS 16.0, *)){
+        if (self.configuration.imagePlacement == NSDirectionalRectEdgeLeading) {
+            self.countLabel.frame = CGRectMake(CGRectGetMaxX(self.imageView.frame)+5,
+                                               self.imageView.top + (self.imageView.height - 15)/2 + 0.5,
+                                               countLabelWidth,
+                                               15);
+        }else{
+            self.countLabel.frame = CGRectMake((self.width - countLabelWidth)/2,
+                                               self.height,
+                                               countLabelWidth,
+                                               15);
+        }
     }else{
-        self.countLabel.frame = CGRectMake((self.width - countLabelWidth)/2,
-                                           self.height,
-                                           countLabelWidth,
-                                           15);
+        if(self.buttonEdgeInsetsStyle == NSDirectionalRectEdgeLeading){
+            self.countLabel.frame = CGRectMake(CGRectGetMaxX(self.imageView.frame)+5,
+                                               self.imageView.top + (self.imageView.height - 15)/2 + 0.5,
+                                               countLabelWidth,
+                                               15);
+        }else{
+            self.countLabel.frame = CGRectMake((self.width - countLabelWidth)/2,
+                                               self.height,
+                                               countLabelWidth,
+                                               15);
+        }
     }
 }
 /// 设置粒子动画

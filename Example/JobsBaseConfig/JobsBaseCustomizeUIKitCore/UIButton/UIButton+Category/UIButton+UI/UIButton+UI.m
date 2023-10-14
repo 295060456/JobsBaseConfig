@@ -152,8 +152,8 @@
     UIButton *btn = nil;
     
     if(self.deviceSystemVersion.floatValue >= 15.0){
-        btn = [UIButton buttonWithConfiguration:btnConfiguration
-                                  primaryAction:primaryAction];
+        btn = [self.class buttonWithConfiguration:btnConfiguration
+                                    primaryAction:primaryAction];
         
         NSLog(@"%@",btnConfiguration);
         NSLog(@"%@",btn.configuration);

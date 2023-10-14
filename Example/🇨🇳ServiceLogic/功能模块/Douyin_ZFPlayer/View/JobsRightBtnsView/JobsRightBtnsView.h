@@ -7,6 +7,8 @@
 //
 
 #import "BaseView.h"
+#import "UIButton+UI.h"
+#import "RBCLikeButton.h"
 
 typedef NS_ENUM(NSUInteger, MKRightBtnViewBtnType) {
     MKRightBtnViewBtnType_loveBtn,///点赞
@@ -17,6 +19,8 @@ typedef NS_ENUM(NSUInteger, MKRightBtnViewBtnType) {
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JobsRightBtnsView : BaseView
+
+-(NSMutableArray <UIButton *>*)getButtonArr;
 
 @end
 

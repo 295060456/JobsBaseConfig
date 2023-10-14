@@ -16,14 +16,19 @@
 BaseButtonProtocol_synthesize
 -(instancetype)init{
     if (self = [super init]) {
-        
+        NSLog(@"");
     }return self;
 }
 
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        
+        NSLog(@"");
     }return self;
+}
+
++ (instancetype)buttonWithConfiguration:(UIButtonConfiguration *)configuration
+                          primaryAction:(nullable UIAction *)primaryAction{
+    return [super buttonWithConfiguration:configuration primaryAction:primaryAction];
 }
 
 - (void)drawRect:(CGRect)rect{
@@ -163,7 +168,9 @@ BaseButtonProtocol_synthesize
 }
 #pragma mark —— BaseButtonProtocol
 /// 具体由子类进行复写【数据定UI】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
--(void)richElementsInButtonWithModel:(id _Nullable)model{}
+-(void)richElementsInButtonWithModel:(id _Nullable)model{
+    NSLog(@"");
+}
 /// 具体由子类进行复写【数据定宽】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 +(CGFloat)buttonWidthWithModel:(id _Nullable)model{
     return 0;
