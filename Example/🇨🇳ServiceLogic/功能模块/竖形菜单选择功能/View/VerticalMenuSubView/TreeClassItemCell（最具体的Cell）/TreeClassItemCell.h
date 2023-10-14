@@ -8,11 +8,11 @@
 #import <UIKit/UIKit.h>
 #import "JobsVerticalMenuDefineHeader.h"
 #import "UILocationProtocol.h"
-#import "BaseCollectionViewCell.h"
+#import "JobsBaseCollectionViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TreeClassItemCell : BaseCollectionViewCell
+@interface TreeClassItemCell : JobsBaseCollectionViewCell
 
 @end
 

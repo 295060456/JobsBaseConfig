@@ -12,6 +12,8 @@
 #import "UILocationProtocol.h"
 #import "UIMarkProtocol.h"
 #import "UIViewModelOthersProtocol.h"
+#import "BaseButtonProtocol.h"
+#import "UITextModelProtocol.h"
 
 #import "MacroDef_App.h"
 #import "MacroDef_Cor.h"
@@ -21,15 +23,18 @@
 
 @class UIViewModel;
 @class UITextModel;
+@class UIButtonModel;
 
 NS_ASSUME_NONNULL_BEGIN
-/// 全局的共用的属性
+/// 全局的共用的属性。所有属性的大集合
 @protocol UIViewModelProtocol
 <
 UIPictureAndBackGroundCorProtocol
 ,UILocationProtocol
 ,UIMarkProtocol
 ,UIViewModelOthersProtocol
+,BaseButtonProtocol
+,UITextModelProtocol
 >
 
 @optional
@@ -37,6 +42,8 @@ UIPictureAndBackGroundCorProtocol
 @property(nonatomic,strong,nullable)UITextModel *textModel;
 @property(nonatomic,strong,nullable)UITextModel *subTextModel;
 @property(nonatomic,strong,nullable)UITextModel *backBtnTitleModel;
+@property(nonatomic,strong,nullable)UIButtonModel *buttonModel;
+@property(nonatomic,strong,nullable)UIButtonModel *subButtonModel;
 
 @end
 
@@ -49,6 +56,8 @@ NS_ASSUME_NONNULL_END
 @synthesize textModel = _textModel;\
 @synthesize subTextModel = _subTextModel;\
 @synthesize backBtnTitleModel = _backBtnTitleModel;\
+@synthesize buttonModel = _buttonModel;\
+@synthesize subButtonModel = _subButtonModel;\
 \
 @synthesize image = _image;\
 @synthesize bgImage = _bgImage;\
@@ -127,6 +136,66 @@ NS_ASSUME_NONNULL_END
 @synthesize jobsDataMutSet = _jobsDataMutSet;\
 @synthesize jobsDataMutArr = _jobsDataMutArr;\
 @synthesize jobsDataMutDic = _jobsDataMutDic;\
+\
+@synthesize titleFont = _titleFont;\
+@synthesize titleAlignment = _titleAlignment;\
+@synthesize normalImage = _normalImage;\
+@synthesize normalBackgroundImage = _normalBackgroundImage;\
+@synthesize normalTitle = _normalTitle;\
+@synthesize normalSubTitle = _normalSubTitle;\
+@synthesize normalTitleColor = _normalTitleColor;\
+@synthesize normalSubTitleColor = _normalSubTitleColor;\
+@synthesize normalAttributedTitle = _normalAttributedTitle;\
+@synthesize normalAttributedSubTitle = _normalAttributedSubTitle;\
+@synthesize selectedBackgroundImage = _selectedBackgroundImage;\
+@synthesize selectedTitle = _selectedTitle;\
+@synthesize selectedSubTitle = _selectedSubTitle;\
+@synthesize selectedTitleColor = _selectedTitleColor;\
+@synthesize selectedSubTitleColor = _selectedSubTitleColor;\
+@synthesize selectedAttributedTitle = _selectedAttributedTitle;\
+@synthesize selectedAttributedSubTitle = _selectedAttributedSubTitle;\
+@synthesize btnBackgroundColor = _btnBackgroundColor;\
+@synthesize imageSize = _imageSize;\
+@synthesize contentHorizontalAlignment = _contentHorizontalAlignment;\
+@synthesize contentVerticalAlignment = _contentVerticalAlignment;\
+@synthesize contentEdgeInsets = _contentEdgeInsets;\
+@synthesize contentInsets = _contentInsets;\
+@synthesize contentSpacing = _contentSpacing;\
+@synthesize btnWidth = _btnWidth;\
+@synthesize textLabelFrame = _textLabelFrame;\
+@synthesize imageViewFrame = _imageViewFrame;\
+@synthesize textLabelSize = _textLabelSize;\
+@synthesize imageViewSize = _imageViewSize;\
+@synthesize textLabelWidth = _textLabelWidth;\
+@synthesize imageViewWidth = _imageViewWidth;\
+@synthesize textLabelHeight = _textLabelHeight;\
+@synthesize imageViewHeight = _imageViewHeight;\
+@synthesize textLabelFrameOffsetX = _textLabelFrameOffsetX;\
+@synthesize textLabelFrameOffsetY = _textLabelFrameOffsetY;\
+@synthesize textLabelFrameOffsetWidth = _textLabelFrameOffsetWidth;\
+@synthesize textLabelFrameOffsetHeight = _textLabelFrameOffsetHeight;\
+@synthesize imageViewFrameOffsetX = _imageViewFrameOffsetX;\
+@synthesize imageViewFrameOffsetY = _imageViewFrameOffsetY;\
+@synthesize imageViewFrameOffsetWidth = _imageViewFrameOffsetWidth;\
+@synthesize imageViewFrameOffsetHeight = _imageViewFrameOffsetHeight;\
+\
+@synthesize textAlignment = _textAlignment;\
+@synthesize lineBreakMode = _lineBreakMode;\
+@synthesize textLineSpacing = _textLineSpacing;\
+@synthesize placeholder = _placeholder;\
+@synthesize placeholderColor = _placeholderColor;\
+@synthesize curWordCount = _curWordCount;\
+@synthesize maxWordCount = _maxWordCount;\
+@synthesize text = _text;\
+@synthesize font = _font;\
+@synthesize textCor = _textCor;\
+@synthesize attributedText = _attributedText;\
+@synthesize titleAttributedDataMutArr = _titleAttributedDataMutArr;\
+@synthesize selectedText = _selectedText;\
+@synthesize selectedFont = _selectedFont;\
+@synthesize selectedTextCor = _selectedTextCor;\
+@synthesize selectedAttributedText = _selectedAttributedText;\
+@synthesize selectedTitleAttributedDataMutArr = _selectedTitleAttributedDataMutArr;\
 
 #endif
 
@@ -136,6 +205,8 @@ NS_ASSUME_NONNULL_END
 @dynamic textModel;\
 @dynamic subTextModel;\
 @dynamic backBtnTitleModel;\
+@dynamic buttonModel;\
+@dynamic subButtonModel;\
 \
 @dynamic image;\
 @dynamic bgImage;\
@@ -214,5 +285,65 @@ NS_ASSUME_NONNULL_END
 @dynamic jobsDataMutSet;\
 @dynamic jobsDdataMutArr;\
 @dynamic jobsDataMutDic;\
+\
+@dynamic titleFont;\
+@dynamic titleAlignment;\
+@dynamic normalImage;\
+@dynamic normalBackgroundImage;\
+@dynamic normalTitle;\
+@dynamic normalSubTitle;\
+@dynamic normalTitleColor;\
+@dynamic normalSubTitleColor;\
+@dynamic normalAttributedTitle;\
+@dynamic normalAttributedSubTitle;\
+@dynamic selectedBackgroundImage;\
+@dynamic selectedTitle;\
+@dynamic selectedSubTitle;\
+@dynamic selectedTitleColor;\
+@dynamic selectedSubTitleColor;\
+@dynamic selectedAttributedTitle;\
+@dynamic selectedAttributedSubTitle;\
+@dynamic btnBackgroundColor;\
+@dynamic imageSize;\
+@dynamic contentHorizontalAlignment;\
+@dynamic contentVerticalAlignment;\
+@dynamic contentEdgeInsets;\
+@dynamic contentInsets;\
+@dynamic contentSpacing;\
+@dynamic lineBreakMode;\
+@dynamic btnWidth;\
+@dynamic textLabelFrame;\
+@dynamic imageViewFrame;\
+@dynamic textLabelSize;\
+@dynamic imageViewSize;\
+@dynamic textLabelWidth;\
+@dynamic imageViewWidth;\
+@dynamic textLabelHeight;\
+@dynamic imageViewHeight;\
+@dynamic textLabelFrameOffsetX;\
+@dynamic textLabelFrameOffsetY;\
+@dynamic textLabelFrameOffsetWidth;\
+@dynamic textLabelFrameOffsetHeight;\
+@dynamic imageViewFrameOffsetX;\
+@dynamic imageViewFrameOffsetY;\
+@dynamic imageViewFrameOffsetWidth;\
+@dynamic imageViewFrameOffsetHeight;\
+\
+@dynamic textAlignment;\
+@dynamic textLineSpacing;\
+@dynamic placeholder;\
+@dynamic placeholderColor;\
+@dynamic curWordCount;\
+@dynamic maxWordCount;\
+@dynamic text;\
+@dynamic font;\
+@dynamic textCor;\
+@dynamic attributedText;\
+@dynamic titleAttributedDataMutArr;\
+@dynamic selectedText;\
+@dynamic selectedFont;\
+@dynamic selectedTextCor;\
+@dynamic selectedAttributedText;\
+@dynamic selectedTitleAttributedDataMutArr;\
 
 #endif

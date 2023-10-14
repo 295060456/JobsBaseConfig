@@ -96,7 +96,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    BaseTableViewCell *cell = (BaseTableViewCell *)self.tbvCellMutArr[indexPath.row];
+    JobsBaseTableViewCell *cell = (JobsBaseTableViewCell *)self.tbvCellMutArr[indexPath.row];
     [cell richElementsInCellWithModel:self.dataMutArr[indexPath.row]];
     return cell;
 }

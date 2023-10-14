@@ -113,7 +113,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    BaseTableViewCell *cell = (BaseTableViewCell *)[BaseTableViewCell cellStyleValue1WithTableView:tableView];
+    JobsBaseTableViewCell *cell = (JobsBaseTableViewCell *)[JobsBaseTableViewCell cellStyleValue1WithTableView:tableView];
     
     cell.textLabelFrameOffsetY -= JobsWidth(2);
     cell.detailTextLabelOffsetY -= JobsWidth(2);

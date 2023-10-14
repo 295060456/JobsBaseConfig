@@ -7,6 +7,7 @@
 
 #import "BaseViewController.h"
 #import "BaiShaETProjOrderDetailsCVCell.h"
+#import "NSObject+JobsDeployCellConfig.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

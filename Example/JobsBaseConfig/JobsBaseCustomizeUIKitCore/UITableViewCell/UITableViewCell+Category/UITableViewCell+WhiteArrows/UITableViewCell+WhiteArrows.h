@@ -22,7 +22,7 @@
 #endif
 
 NS_ASSUME_NONNULL_BEGIN
-
+/// 自定义右侧小箭头图标
 @interface UITableViewCell (WhiteArrows)
 
 @property(nonatomic,strong)UIImage *img;
@@ -56,13 +56,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
  - (void)tableView:(UITableView *)tableView
  didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
      /// 模型全部归0 + 点选的模型为1
-     [tableView didSelectRowAtIndexPath:indexPath tableViewCellClass:BaseTableViewCell.class];
+     [tableView didSelectRowAtIndexPath:indexPath tableViewCellClass:JobsBaseTableViewCell.class];
      [tableView reloadData];
  }
  2、在这个协议里面打开 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
  - (UITableViewCell *)tableView:(UITableView *)tableView
  cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-     BaseTableViewCell *cell = [BaseTableViewCell cellStyleValue1WithTableView:tableView];
+     JobsBaseTableViewCell *cell = [JobsBaseTableViewCell cellStyleValue1WithTableView:tableView];
      cell.detailTextLabelOffsetX = JobsWidth(-165);/// 这里需要设置一个偏移量去抵消有一个莫名出现的偏移量
      [cell richElementsInCellWithModel:self.dataMutArr[indexPath.row]];
 

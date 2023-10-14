@@ -120,9 +120,9 @@ NS_ASSUME_NONNULL_END
 @synthesize selectedAttributedTitle = _selectedAttributedTitle;\
 @synthesize selectedAttributedSubTitle = _selectedAttributedSubTitle;\
 @synthesize btnBackgroundColor = _btnBackgroundColor;\
-@synthesize imageSize = imageSize;\
-@synthesize contentHorizontalAlignment = contentHorizontalAlignment;\
-@synthesize contentVerticalAlignment = contentVerticalAlignment;\
+@synthesize imageSize = _imageSize;\
+@synthesize contentHorizontalAlignment = _contentHorizontalAlignment;\
+@synthesize contentVerticalAlignment = _contentVerticalAlignment;\
 @synthesize contentEdgeInsets = _contentEdgeInsets;\
 @synthesize contentInsets = _contentInsets;\
 @synthesize contentSpacing = _contentSpacing;\
@@ -161,13 +161,17 @@ NS_ASSUME_NONNULL_END
 @dynamic normalImage;\
 @dynamic normalBackgroundImage;\
 @dynamic normalTitle;\
+@dynamic normalSubTitle;\
 @dynamic normalTitleColor;\
+@dynamic normalSubTitleColor;\
 @dynamic normalAttributedTitle;\
 @dynamic normalAttributedSubTitle;\
 @dynamic selectedImage;\
 @dynamic selectedBackgroundImage;\
 @dynamic selectedTitle;\
+@dynamic selectedSubTitle;\
 @dynamic selectedTitleColor;\
+@dynamic selectedSubTitleColor;\
 @dynamic selectedAttributedTitle;\
 @dynamic selectedAttributedSubTitle;\
 @dynamic btnBackgroundColor;\

@@ -9,11 +9,11 @@
 #import "JobsVerticalMenuDefineHeader.h"
 #import "TreeClassItemCell.h"
 #import "GoodsClassModel.h"
-#import "BaseCollectionViewCell.h"
+#import "JobsBaseCollectionViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ThreeClassCell : BaseCollectionViewCell
+@interface ThreeClassCell : JobsBaseCollectionViewCell
 <
 UICollectionViewDelegate
 ,UICollectionViewDataSource

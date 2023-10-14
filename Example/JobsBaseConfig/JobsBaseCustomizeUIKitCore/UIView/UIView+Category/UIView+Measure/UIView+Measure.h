@@ -33,21 +33,21 @@ typedef void(^EqualToView)(UIView *view);
 @property(nonatomic,assign)CGPoint origin;
 #pragma mark —— 一些工具方法
 /// 重设Frame
--(JobsReturnCGRectByCGFloatBlock _Nonnull)resetOriginX;
--(JobsReturnCGRectByCGFloatBlock _Nonnull)resetOriginY;
--(JobsReturnCGRectByCGFloatBlock _Nonnull)resetWidth;
--(JobsReturnCGRectByCGFloatBlock _Nonnull)resetHeight;
--(JobsReturnCGRectByCGPointBlock _Nonnull)resetOrigin;
--(JobsReturnCGRectByCGSizeBlock _Nonnull)resetSize;
+-(JobsReturnCGRectByCGFloatBlock _Nullable)resetOriginX;
+-(JobsReturnCGRectByCGFloatBlock _Nullable)resetOriginY;
+-(JobsReturnCGRectByCGFloatBlock _Nullable)resetWidth;
+-(JobsReturnCGRectByCGFloatBlock _Nullable)resetHeight;
+-(JobsReturnCGRectByCGPointBlock _Nullable)resetOrigin;
+-(JobsReturnCGRectByCGSizeBlock _Nullable)resetSize;
 /// 依据偏移量重设Frame
--(JobsReturnCGRectByCGFloatBlock _Nonnull)resetByOffsetOriginX;
--(JobsReturnCGRectByCGFloatBlock _Nonnull)resetByOffsetOriginY;
--(JobsReturnCGRectByCGFloatBlock _Nonnull)resetCenterX;
--(JobsReturnCGRectByCGFloatBlock _Nonnull)resetCenterY;
--(JobsReturnCGRectByCGFloatBlock _Nonnull)resetByOffsetWidth;
--(JobsReturnCGRectByCGFloatBlock _Nonnull)resetByOffsetHeight;
--(JobsReturnCGRectByCGPointBlock _Nonnull)resetByOffsetOrigin;
--(JobsReturnCGRectByCGSizeBlock _Nonnull)resetByOffsetSize;
+-(JobsReturnCGRectByCGFloatBlock _Nullable)resetByOffsetOriginX;
+-(JobsReturnCGRectByCGFloatBlock _Nullable)resetByOffsetOriginY;
+-(JobsReturnCGRectByCGFloatBlock _Nullable)resetCenterX;
+-(JobsReturnCGRectByCGFloatBlock _Nullable)resetCenterY;
+-(JobsReturnCGRectByCGFloatBlock _Nullable)resetByOffsetWidth;
+-(JobsReturnCGRectByCGFloatBlock _Nullable)resetByOffsetHeight;
+-(JobsReturnCGRectByCGPointBlock _Nullable)resetByOffsetOrigin;
+-(JobsReturnCGRectByCGSizeBlock _Nullable)resetByOffsetSize;
 /// 依据偏移量重塑Frame
 -(void)offsetForView:(UIViewModel *)viewModel;
 #pragma mark ——【UIView对齐方法扩充】 https://github.com/MisterZhouZhou/ZWUIViewExtension

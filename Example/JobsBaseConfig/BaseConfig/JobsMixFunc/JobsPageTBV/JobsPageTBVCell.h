@@ -5,12 +5,12 @@
 //  Created by Jobs on 2021/11/24.
 //
 
-#import "BaseTableViewCell.h"
+#import "JobsBaseTableViewCell.h"
 #import "UIViewModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JobsPageTBVCell : BaseTableViewCell
+@interface JobsPageTBVCell : JobsBaseTableViewCell
 
 @end
 

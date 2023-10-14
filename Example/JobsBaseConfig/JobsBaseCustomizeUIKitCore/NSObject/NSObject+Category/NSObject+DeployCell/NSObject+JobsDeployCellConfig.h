@@ -7,55 +7,84 @@
 
 #import <Foundation/Foundation.h>
 #import "JobsDeployDataForCellHeader.h"
+#import "UICollectionViewCellProtocol.h"
+#import "UITableViewCellProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
+/// UITableView
+#ifndef ReturnJobsBaseTableViewCell
+#define ReturnJobsBaseTableViewCell \
+    return [JobsBaseTableViewCell cellStyleDefaultWithTableView:tableView];
+#endif
+/// UICollectionView
+#ifndef ReturnRichJobsBaseCollectionViewCell
+#define ReturnRichJobsBaseCollectionViewCell \
+    JobsBaseCollectionViewCell *cell = [JobsBaseCollectionViewCell cellWithCollectionView:collectionView forIndexPath:indexPath];\
+    [cell richElementsInCellWithModel:nil];\
+    return cell;
+#endif
 
-#define ReturnRichBaseCollectionViewCell BaseCollectionViewCell *cell = [BaseCollectionViewCell cellWithCollectionView:collectionView forIndexPath:indexPath];\
-[cell richElementsInCellWithModel:nil];\
-return cell;\
+#ifndef ReturnJobsBaseCollectionViewCell
+#define ReturnJobsBaseCollectionViewCell \
+    return [JobsBaseCollectionViewCell cellWithCollectionView:collectionView forIndexPath:indexPath];
+#endif
 
-#define ReturnBaseCollectionViewCell return [BaseCollectionViewCell cellWithCollectionView:collectionView forIndexPath:indexPath];
-#define ReturnBaseCollectionReusableHeaderView return [collectionView UICollectionElementKindSectionHeaderClass:BaseCollectionReusableView.class forIndexPath:indexPath];
-#define ReturnBaseCollectionReusableFooterView return [collectionView UICollectionElementKindSectionFooterClass:BaseCollectionReusableView.class forIndexPath:indexPath];
+#ifndef ReturnBaseCollectionReusableHeaderView
+#define ReturnBaseCollectionReusableHeaderView \
+    return [collectionView UICollectionElementKindSectionHeaderClass:BaseCollectionReusableView.class forIndexPath:indexPath];
+#endif
+
+#ifndef ReturnBaseCollectionReusableFooterView
+#define ReturnBaseCollectionReusableFooterView \
+    return [collectionView UICollectionElementKindSectionFooterClass:BaseCollectionReusableView.class forIndexPath:indexPath];
+#endif
 
 @interface NSObject (JobsDeployCellConfig)
-#pragma mark —— Cell 部署策略
-/// 4 个 Cell
-/// block5 为保留位，处理异常
--(UICollectionViewCell *)planAtIndexPath:(nonnull NSIndexPath *)indexPath
-                                  block1:(JobsReturnIDByVoidBlock)block1
-                                  block2:(JobsReturnIDByVoidBlock)block2
-                                  block3:(JobsReturnIDByVoidBlock)block3
-                                  block4:(JobsReturnIDByVoidBlock)block4
-                                  block5:(JobsReturnIDByVoidBlock)block5;
-/// block5 为保留位，处理异常
--(CGSize)planSizeAtIndexPath:(nonnull NSIndexPath *)indexPath
-                      block1:(JobsReturnCGSizeByVoidBlock)block1
-                      block2:(JobsReturnCGSizeByVoidBlock)block2
-                      block3:(JobsReturnCGSizeByVoidBlock)block3
-                      block4:(JobsReturnCGSizeByVoidBlock)block4
-                      block5:(JobsReturnCGSizeByVoidBlock)block5;
+#pragma mark —— UICollectionViewCell 和 UITableViewCell 的部署策略
+-(UICollectionViewCell *_Nullable)jobsCollectionViewCellPlanAtIndexPath:(NSIndexPath *_Nonnull)indexPath
+                                                         collectionView:(UICollectionView *_Nonnull)collectionView
+                                               collectionViewCellBlock0:(JobsReturnCollectionViewCellByVoidBlock _Nullable)collectionViewCellBlock0
+                                               collectionViewCellBlock1:(JobsReturnCollectionViewCellByVoidBlock _Nullable)collectionViewCellBlock1
+                                               collectionViewCellBlock2:(JobsReturnCollectionViewCellByVoidBlock _Nullable)collectionViewCellBlock2
+                                               collectionViewCellBlock3:(JobsReturnCollectionViewCellByVoidBlock _Nullable)collectionViewCellBlock3
+                                               collectionViewCellBlock4:(JobsReturnCollectionViewCellByVoidBlock _Nullable)collectionViewCellBlock4;
 
--(CGSize)planSizeForSectionAtIndexPath:(NSInteger)section
-                                block1:(JobsReturnCGSizeByVoidBlock)block1
-                                block2:(JobsReturnCGSizeByVoidBlock)block2
-                                block3:(JobsReturnCGSizeByVoidBlock)block3
-                                block4:(JobsReturnCGSizeByVoidBlock)block4
-                                block5:(JobsReturnCGSizeByVoidBlock)block5;
+-(UITableViewCell *_Nullable)jobsTableViewCellPlanAtIndexPath:(NSIndexPath *_Nonnull)indexPath
+                                                    tableView:(UITableView *_Nonnull)tableView
+                                          tableViewCellBlock0:(JobsReturnTableViewCellByVoidBlock _Nullable)tableViewCellBlock0
+                                          tableViewCellBlock1:(JobsReturnTableViewCellByVoidBlock _Nullable)tableViewCellBlock1
+                                          tableViewCellBlock2:(JobsReturnTableViewCellByVoidBlock _Nullable)tableViewCellBlock2
+                                          tableViewCellBlock3:(JobsReturnTableViewCellByVoidBlock _Nullable)tableViewCellBlock3
+                                          tableViewCellBlock4:(JobsReturnTableViewCellByVoidBlock _Nullable)tableViewCellBlock4;
+
+-(CGSize)jobsCellplanSizeAtIndexPath:(NSIndexPath *_Nonnull)indexPath
+                          cellBlock0:(JobsReturnCGSizeByVoidBlock _Nullable)cellBlock0
+                          cellBlock1:(JobsReturnCGSizeByVoidBlock _Nullable)cellBlock1
+                          cellBlock2:(JobsReturnCGSizeByVoidBlock _Nullable)cellBlock2
+                          cellBlock3:(JobsReturnCGSizeByVoidBlock _Nullable)cellBlock3
+                          cellBlock4:(JobsReturnCGSizeByVoidBlock _Nullable)cellBlock4;
+//
+-(CGSize)jobsCellPlanSizeForSectionAtIndexPath:(NSInteger)section
+                                    cellBlock0:(JobsReturnCGSizeByVoidBlock _Nullable)cellBlock0
+                                    cellBlock1:(JobsReturnCGSizeByVoidBlock _Nullable)cellBlock1
+                                    cellBlock2:(JobsReturnCGSizeByVoidBlock _Nullable)cellBlock2
+                                    cellBlock3:(JobsReturnCGSizeByVoidBlock _Nullable)cellBlock3
+                                    cellBlock4:(JobsReturnCGSizeByVoidBlock _Nullable)cellBlock4;
 /// minimumInteritemSpacingForSectionAtIndex & minimumLineSpacingForSectionAtIndex
--(CGFloat)planSpacingForSectionAtIndex:(NSInteger)section
-                                block1:(JobsReturnCGFloatByVoidBlock)block1
-                                block2:(JobsReturnCGFloatByVoidBlock)block2
-                                block3:(JobsReturnCGFloatByVoidBlock)block3
-                                block4:(JobsReturnCGFloatByVoidBlock)block4
-                                block5:(JobsReturnCGFloatByVoidBlock)block5;
+-(CGFloat)jobsCellPlanSpacingForSectionAtIndex:(NSInteger)section
+                                    cellBlock0:(JobsReturnCGFloatByVoidBlock _Nullable)cellBlock0
+                                    cellBlock1:(JobsReturnCGFloatByVoidBlock _Nullable)cellBlock1
+                                    cellBlock2:(JobsReturnCGFloatByVoidBlock _Nullable)cellBlock2
+                                    cellBlock3:(JobsReturnCGFloatByVoidBlock _Nullable)cellBlock3
+                                    cellBlock4:(JobsReturnCGFloatByVoidBlock _Nullable)cellBlock4;
 /// insetForSectionAtIndex
--(UIEdgeInsets)planinsetForSectionAtIndex:(NSInteger)section
-                                   block1:(JobsReturnUIEdgeInsetsByVoidBlock)block1
-                                   block2:(JobsReturnUIEdgeInsetsByVoidBlock)block2
-                                   block3:(JobsReturnUIEdgeInsetsByVoidBlock)block3
-                                   block4:(JobsReturnUIEdgeInsetsByVoidBlock)block4
-                                   block5:(JobsReturnUIEdgeInsetsByVoidBlock)block5;
+-(UIEdgeInsets)jobsCellplaninsetForSectionAtIndex:(NSInteger)section
+                                       cellBlock0:(JobsReturnUIEdgeInsetsByVoidBlock _Nullable)cellBlock0
+                                       cellBlock1:(JobsReturnUIEdgeInsetsByVoidBlock _Nullable)cellBlock1
+                                       cellBlock2:(JobsReturnUIEdgeInsetsByVoidBlock _Nullable)cellBlock2
+                                       cellBlock3:(JobsReturnUIEdgeInsetsByVoidBlock _Nullable)cellBlock3
+                                       cellBlock4:(JobsReturnUIEdgeInsetsByVoidBlock _Nullable)cellBlock4;
+
 
 @end
 

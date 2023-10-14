@@ -9,7 +9,7 @@
 
 #import "JobsHeaderFooterView.h"
 
-#import "BaseCollectionViewCell.h"
+#import "JobsBaseCollectionViewCell.h"
 #import "JobsSearchDataCVCell.h"
 #import "JobsHotLabelWithMultiLineCVCell.h"
 #import "JobsBtnStyleCVCell.h"

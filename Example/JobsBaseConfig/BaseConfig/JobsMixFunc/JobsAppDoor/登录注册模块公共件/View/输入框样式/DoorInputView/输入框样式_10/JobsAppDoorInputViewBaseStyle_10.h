@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_END
                      ///【单次最高取款额度 和 今日可用提款额度 的最小值】同 【输入值】进行比较
                      self->OK = inputViewTFModel.resString.floatValue > MIN(self.viewModel.withdrawalsLines.floatValue, self.viewModel.withdrawalsLinesPerTime.floatValue);
                      
-                     BaseTableViewCell *cell00 = [self.tableView cellForRowAtIndexPath:[self myIndexPath:(JobsIndexPath){0,0}]];
+                     JobsBaseTableViewCell *cell00 = [self.tableView cellForRowAtIndexPath:[self myIndexPath:(JobsIndexPath){0,0}]];
                      if (self->OK) {
                          cell00.textLabel.text = Internationalization(@"输入金额已超过可取款金额");
                          cell00.detailTextLabel.text = @"";

@@ -6,11 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseTableViewCell.h"
+#import "JobsBaseTableViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JobsPullListTBVCell : BaseTableViewCell
+@interface JobsPullListTBVCell : JobsBaseTableViewCell
 
 @end
 

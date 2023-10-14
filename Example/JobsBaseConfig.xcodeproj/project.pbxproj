@@ -511,6 +511,7 @@
 		C5432D772ACB1CF6008F92B0 /* MSCommentTableHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C5432D732ACB1CF6008F92B0 /* MSCommentTableHeaderFooterView.m */; };
 		C5432DF32ACB1E09008F92B0 /* MSCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5432DF22ACB1E09008F92B0 /* MSCommentModel.m */; };
 		C54AF27E2AD98A660014B335 /* JobsTextFieldStyleCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C54AF27D2AD98A660014B335 /* JobsTextFieldStyleCVCell.m */; };
+		C54AF4C72ADADF570014B335 /* UIButtonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C54AF4C62ADADF570014B335 /* UIButtonModel.m */; };
 		C54BC43628325BA80010EF20 /* JobsTitleView01.m in Sources */ = {isa = PBXBuildFile; fileRef = C54BC43428325BA80010EF20 /* JobsTitleView01.m */; };
 		C55224232AC898EE00668516 /* NSObject+UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C55224222AC898EE00668516 /* NSObject+UserInfo.m */; };
 		C55224282AC8994D00668516 /* NSObject+AppTools.m in Sources */ = {isa = PBXBuildFile; fileRef = C55224252AC8994D00668516 /* NSObject+AppTools.m */; };
@@ -581,15 +582,9 @@
 		C593DF1A2AC897FC00F875B5 /* UITableViewCell+UITableViewCellProtocoll.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DC3C2AC897FB00F875B5 /* UITableViewCell+UITableViewCellProtocoll.m */; };
 		C593DF1B2AC897FC00F875B5 /* WhiteRightArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C593DC402AC897FB00F875B5 /* WhiteRightArrow@2x.png */; };
 		C593DF1C2AC897FC00F875B5 /* WhiteRightArrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C593DC412AC897FB00F875B5 /* WhiteRightArrow@3x.png */; };
-		C593DF1D2AC897FC00F875B5 /* UITableViewCell+WhiteArrows.md in Resources */ = {isa = PBXBuildFile; fileRef = C593DC422AC897FB00F875B5 /* UITableViewCell+WhiteArrows.md */; };
 		C593DF1E2AC897FC00F875B5 /* UITableViewCell+WhiteArrows.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DC432AC897FB00F875B5 /* UITableViewCell+WhiteArrows.m */; };
-		C593DF1F2AC897FC00F875B5 /* UITableViewCell+Margin.md in Resources */ = {isa = PBXBuildFile; fileRef = C593DC462AC897FB00F875B5 /* UITableViewCell+Margin.md */; };
 		C593DF202AC897FC00F875B5 /* UITableViewCell+Margin.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DC472AC897FB00F875B5 /* UITableViewCell+Margin.m */; };
-		C593DF212AC897FC00F875B5 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DC492AC897FB00F875B5 /* BaseTableViewCell.m */; };
-		C593DF222AC897FC00F875B5 /* UITableViewCellStyleSubtitle.png in Resources */ = {isa = PBXBuildFile; fileRef = C593DC4B2AC897FB00F875B5 /* UITableViewCellStyleSubtitle.png */; };
-		C593DF232AC897FC00F875B5 /* UITableViewCellStyleValue2.png in Resources */ = {isa = PBXBuildFile; fileRef = C593DC4C2AC897FB00F875B5 /* UITableViewCellStyleValue2.png */; };
-		C593DF242AC897FC00F875B5 /* UITableViewCellStyleValue1.png in Resources */ = {isa = PBXBuildFile; fileRef = C593DC4D2AC897FB00F875B5 /* UITableViewCellStyleValue1.png */; };
-		C593DF252AC897FC00F875B5 /* UITableViewCellStyleDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = C593DC4E2AC897FB00F875B5 /* UITableViewCellStyleDefault.png */; };
+		C593DF212AC897FC00F875B5 /* JobsBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DC492AC897FB00F875B5 /* JobsBaseTableViewCell.m */; };
 		C593DF262AC897FC00F875B5 /* NSBundle+CLLanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DC542AC897FB00F875B5 /* NSBundle+CLLanguage.m */; };
 		C593DF272AC897FC00F875B5 /* UIButton+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DC5A2AC897FB00F875B5 /* UIButton+Extra.m */; };
 		C593DF282AC897FC00F875B5 /* UIButton+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DC5D2AC897FB00F875B5 /* UIButton+Animation.m */; };
@@ -598,7 +593,6 @@
 		C593DF2B2AC897FC00F875B5 /* UIButton+ImageTitleSpacing.md in Resources */ = {isa = PBXBuildFile; fileRef = C593DC652AC897FB00F875B5 /* UIButton+ImageTitleSpacing.md */; };
 		C593DF2C2AC897FC00F875B5 /* UIButton+Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DC682AC897FB00F875B5 /* UIButton+Timer.m */; };
 		C593DF2D2AC897FC00F875B5 /* ButtonTimerConfigModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DC6B2AC897FB00F875B5 /* ButtonTimerConfigModel.m */; };
-		C593DF2E2AC897FC00F875B5 /* RBCLikeButton.md in Resources */ = {isa = PBXBuildFile; fileRef = C593DC702AC897FB00F875B5 /* RBCLikeButton.md */; };
 		C593DF2F2AC897FC00F875B5 /* RBCLikeButton.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C593DC712AC897FB00F875B5 /* RBCLikeButton.bundle */; };
 		C593DF302AC897FC00F875B5 /* RBCLikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DC722AC897FB00F875B5 /* RBCLikeButton.m */; };
 		C593DF312AC897FC00F875B5 /* LGiOSBtn.md in Resources */ = {isa = PBXBuildFile; fileRef = C593DC752AC897FB00F875B5 /* LGiOSBtn.md */; };
@@ -606,11 +600,9 @@
 		C593DF332AC897FC00F875B5 /* del_Photo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C593DC772AC897FB00F875B5 /* del_Photo@2x.png */; };
 		C593DF342AC897FC00F875B5 /* LGiOSBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DC782AC897FB00F875B5 /* LGiOSBtn.m */; };
 		C593DF352AC897FC00F875B5 /* BaseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DC7B2AC897FB00F875B5 /* BaseButton.m */; };
-		C593DF362AC897FC00F875B5 /* IrregularBtn.md in Resources */ = {isa = PBXBuildFile; fileRef = C593DC7D2AC897FB00F875B5 /* IrregularBtn.md */; };
 		C593DF372AC897FC00F875B5 /* IrregularBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DC7E2AC897FB00F875B5 /* IrregularBtn.m */; };
 		C593DF382AC897FC00F875B5 /* Sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = C593DC812AC897FB00F875B5 /* Sound.wav */; };
 		C593DF392AC897FC00F875B5 /* SoundBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DC822AC897FB00F875B5 /* SoundBtn.m */; };
-		C593DF3A2AC897FC00F875B5 /* SoundBtn.md in Resources */ = {isa = PBXBuildFile; fileRef = C593DC832AC897FB00F875B5 /* SoundBtn.md */; };
 		C593DF3B2AC897FC00F875B5 /* UIColor+Other.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DC882AC897FB00F875B5 /* UIColor+Other.m */; };
 		C593DF3C2AC897FC00F875B5 /* NSNotificationCenter+JobsBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DC8D2AC897FB00F875B5 /* NSNotificationCenter+JobsBlock.m */; };
 		C593DF3D2AC897FC00F875B5 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DC922AC897FB00F875B5 /* BaseView.m */; };
@@ -649,7 +641,7 @@
 		C593DF5F2AC897FC00F875B5 /* UICollectionViewCell+UICollectionViewCellProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DD072AC897FB00F875B5 /* UICollectionViewCell+UICollectionViewCellProtocol.m */; };
 		C593DF612AC897FC00F875B5 /* JobsImageViewStyleCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DD0C2AC897FB00F875B5 /* JobsImageViewStyleCVCell.m */; };
 		C593DF622AC897FC00F875B5 /* JobsBtnStyleCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DD0E2AC897FB00F875B5 /* JobsBtnStyleCVCell.m */; };
-		C593DF642AC897FC00F875B5 /* BaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DD132AC897FB00F875B5 /* BaseCollectionViewCell.m */; };
+		C593DF642AC897FC00F875B5 /* JobsBaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DD132AC897FB00F875B5 /* JobsBaseCollectionViewCell.m */; };
 		C593DF652AC897FC00F875B5 /* UIBezierPath+TextPath.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DD182AC897FB00F875B5 /* UIBezierPath+TextPath.m */; };
 		C593DF662AC897FC00F875B5 /* BaseImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DD1D2AC897FB00F875B5 /* BaseImageView.m */; };
 		C593DF672AC897FC00F875B5 /* UIImageView+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DD202AC897FB00F875B5 /* UIImageView+GIF.m */; };
@@ -1909,6 +1901,8 @@
 		C546E1EC287ACD6200074386 /* NetworkingConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkingConstant.h; sourceTree = "<group>"; };
 		C54AF27C2AD98A660014B335 /* JobsTextFieldStyleCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsTextFieldStyleCVCell.h; sourceTree = "<group>"; };
 		C54AF27D2AD98A660014B335 /* JobsTextFieldStyleCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsTextFieldStyleCVCell.m; sourceTree = "<group>"; };
+		C54AF4C52ADADF570014B335 /* UIButtonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIButtonModel.h; sourceTree = "<group>"; };
+		C54AF4C62ADADF570014B335 /* UIButtonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIButtonModel.m; sourceTree = "<group>"; };
 		C54BC43228325BA80010EF20 /* JobsTitleView01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsTitleView01.h; sourceTree = "<group>"; };
 		C54BC43328325BA80010EF20 /* JobsTitleView01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobsTitleView01.png; sourceTree = "<group>"; };
 		C54BC43428325BA80010EF20 /* JobsTitleView01.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsTitleView01.m; sourceTree = "<group>"; };
@@ -2075,17 +2069,15 @@
 		C593DC3F2AC897FB00F875B5 /* UITableViewCell+WhiteArrows.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+WhiteArrows.h"; sourceTree = "<group>"; };
 		C593DC402AC897FB00F875B5 /* WhiteRightArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WhiteRightArrow@2x.png"; sourceTree = "<group>"; };
 		C593DC412AC897FB00F875B5 /* WhiteRightArrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WhiteRightArrow@3x.png"; sourceTree = "<group>"; };
-		C593DC422AC897FB00F875B5 /* UITableViewCell+WhiteArrows.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "UITableViewCell+WhiteArrows.md"; sourceTree = "<group>"; };
 		C593DC432AC897FB00F875B5 /* UITableViewCell+WhiteArrows.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+WhiteArrows.m"; sourceTree = "<group>"; };
 		C593DC452AC897FB00F875B5 /* UITableViewCell+Margin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Margin.h"; sourceTree = "<group>"; };
-		C593DC462AC897FB00F875B5 /* UITableViewCell+Margin.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "UITableViewCell+Margin.md"; sourceTree = "<group>"; };
 		C593DC472AC897FB00F875B5 /* UITableViewCell+Margin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+Margin.m"; sourceTree = "<group>"; };
-		C593DC492AC897FB00F875B5 /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
+		C593DC492AC897FB00F875B5 /* JobsBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsBaseTableViewCell.m; sourceTree = "<group>"; };
 		C593DC4B2AC897FB00F875B5 /* UITableViewCellStyleSubtitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UITableViewCellStyleSubtitle.png; sourceTree = "<group>"; };
 		C593DC4C2AC897FB00F875B5 /* UITableViewCellStyleValue2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UITableViewCellStyleValue2.png; sourceTree = "<group>"; };
 		C593DC4D2AC897FB00F875B5 /* UITableViewCellStyleValue1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UITableViewCellStyleValue1.png; sourceTree = "<group>"; };
 		C593DC4E2AC897FB00F875B5 /* UITableViewCellStyleDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UITableViewCellStyleDefault.png; sourceTree = "<group>"; };
-		C593DC4F2AC897FB00F875B5 /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
+		C593DC4F2AC897FB00F875B5 /* JobsBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBaseTableViewCell.h; sourceTree = "<group>"; };
 		C593DC512AC897FB00F875B5 /* JobsBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBundle.h; sourceTree = "<group>"; };
 		C593DC542AC897FB00F875B5 /* NSBundle+CLLanguage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+CLLanguage.m"; sourceTree = "<group>"; };
 		C593DC552AC897FB00F875B5 /* NSBundle+CLLanguage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+CLLanguage.h"; sourceTree = "<group>"; };
@@ -2105,7 +2097,6 @@
 		C593DC6B2AC897FB00F875B5 /* ButtonTimerConfigModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonTimerConfigModel.m; sourceTree = "<group>"; };
 		C593DC6C2AC897FB00F875B5 /* UIButton+Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Timer.h"; sourceTree = "<group>"; };
 		C593DC6F2AC897FB00F875B5 /* RBCLikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBCLikeButton.h; sourceTree = "<group>"; };
-		C593DC702AC897FB00F875B5 /* RBCLikeButton.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = RBCLikeButton.md; sourceTree = "<group>"; };
 		C593DC712AC897FB00F875B5 /* RBCLikeButton.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RBCLikeButton.bundle; sourceTree = "<group>"; };
 		C593DC722AC897FB00F875B5 /* RBCLikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBCLikeButton.m; sourceTree = "<group>"; };
 		C593DC742AC897FB00F875B5 /* LGiOSBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGiOSBtn.h; sourceTree = "<group>"; };
@@ -2115,12 +2106,10 @@
 		C593DC782AC897FB00F875B5 /* LGiOSBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGiOSBtn.m; sourceTree = "<group>"; };
 		C593DC7A2AC897FB00F875B5 /* BaseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseButton.h; sourceTree = "<group>"; };
 		C593DC7B2AC897FB00F875B5 /* BaseButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseButton.m; sourceTree = "<group>"; };
-		C593DC7D2AC897FB00F875B5 /* IrregularBtn.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = IrregularBtn.md; sourceTree = "<group>"; };
 		C593DC7E2AC897FB00F875B5 /* IrregularBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IrregularBtn.m; sourceTree = "<group>"; };
 		C593DC7F2AC897FB00F875B5 /* IrregularBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IrregularBtn.h; sourceTree = "<group>"; };
 		C593DC812AC897FB00F875B5 /* Sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Sound.wav; sourceTree = "<group>"; };
 		C593DC822AC897FB00F875B5 /* SoundBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundBtn.m; sourceTree = "<group>"; };
-		C593DC832AC897FB00F875B5 /* SoundBtn.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = SoundBtn.md; sourceTree = "<group>"; };
 		C593DC842AC897FB00F875B5 /* SoundBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundBtn.h; sourceTree = "<group>"; };
 		C593DC882AC897FB00F875B5 /* UIColor+Other.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Other.m"; sourceTree = "<group>"; };
 		C593DC892AC897FB00F875B5 /* UIColor+Other.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Other.h"; sourceTree = "<group>"; };
@@ -2205,8 +2194,8 @@
 		C593DD0C2AC897FB00F875B5 /* JobsImageViewStyleCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsImageViewStyleCVCell.m; sourceTree = "<group>"; };
 		C593DD0E2AC897FB00F875B5 /* JobsBtnStyleCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsBtnStyleCVCell.m; sourceTree = "<group>"; };
 		C593DD102AC897FB00F875B5 /* JobsBtnStyleCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBtnStyleCVCell.h; sourceTree = "<group>"; };
-		C593DD122AC897FB00F875B5 /* BaseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCollectionViewCell.h; sourceTree = "<group>"; };
-		C593DD132AC897FB00F875B5 /* BaseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCollectionViewCell.m; sourceTree = "<group>"; };
+		C593DD122AC897FB00F875B5 /* JobsBaseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBaseCollectionViewCell.h; sourceTree = "<group>"; };
+		C593DD132AC897FB00F875B5 /* JobsBaseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsBaseCollectionViewCell.m; sourceTree = "<group>"; };
 		C593DD152AC897FB00F875B5 /* JobsBezierPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBezierPath.h; sourceTree = "<group>"; };
 		C593DD182AC897FB00F875B5 /* UIBezierPath+TextPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+TextPath.m"; sourceTree = "<group>"; };
 		C593DD192AC897FB00F875B5 /* UIBezierPath+TextPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+TextPath.h"; sourceTree = "<group>"; };
@@ -6812,6 +6801,24 @@
 			path = JobsTextFieldStyleCVCell;
 			sourceTree = "<group>";
 		};
+		C54AF4BB2ADAA1A80014B335 /* JobsBaseTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				C593DC4F2AC897FB00F875B5 /* JobsBaseTableViewCell.h */,
+				C593DC492AC897FB00F875B5 /* JobsBaseTableViewCell.m */,
+			);
+			path = JobsBaseTableViewCell;
+			sourceTree = "<group>";
+		};
+		C54AF4C42ADADF570014B335 /* UIButtonModel */ = {
+			isa = PBXGroup;
+			children = (
+				C54AF4C52ADADF570014B335 /* UIButtonModel.h */,
+				C54AF4C62ADADF570014B335 /* UIButtonModel.m */,
+			);
+			path = UIButtonModel;
+			sourceTree = "<group>";
+		};
 		C54BC43128325BA80010EF20 /* JobsTitleView01 */ = {
 			isa = PBXGroup;
 			children = (
@@ -7680,8 +7687,8 @@
 		C593DC3B2AC897FB00F875B5 /* UITableViewCell+UITableViewCellProtocol */ = {
 			isa = PBXGroup;
 			children = (
-				C593DC3C2AC897FB00F875B5 /* UITableViewCell+UITableViewCellProtocoll.m */,
 				C593DC3D2AC897FB00F875B5 /* UITableViewCell+UITableViewCellProtocol.h */,
+				C593DC3C2AC897FB00F875B5 /* UITableViewCell+UITableViewCellProtocoll.m */,
 			);
 			path = "UITableViewCell+UITableViewCellProtocol";
 			sourceTree = "<group>";
@@ -7689,10 +7696,9 @@
 		C593DC3E2AC897FB00F875B5 /* UITableViewCell+WhiteArrows */ = {
 			isa = PBXGroup;
 			children = (
-				C593DC3F2AC897FB00F875B5 /* UITableViewCell+WhiteArrows.h */,
 				C593DC402AC897FB00F875B5 /* WhiteRightArrow@2x.png */,
 				C593DC412AC897FB00F875B5 /* WhiteRightArrow@3x.png */,
-				C593DC422AC897FB00F875B5 /* UITableViewCell+WhiteArrows.md */,
+				C593DC3F2AC897FB00F875B5 /* UITableViewCell+WhiteArrows.h */,
 				C593DC432AC897FB00F875B5 /* UITableViewCell+WhiteArrows.m */,
 			);
 			path = "UITableViewCell+WhiteArrows";
@@ -7702,7 +7708,6 @@
 			isa = PBXGroup;
 			children = (
 				C593DC452AC897FB00F875B5 /* UITableViewCell+Margin.h */,
-				C593DC462AC897FB00F875B5 /* UITableViewCell+Margin.md */,
 				C593DC472AC897FB00F875B5 /* UITableViewCell+Margin.m */,
 			);
 			path = "UITableViewCell+Margin";
@@ -7711,9 +7716,8 @@
 		C593DC482AC897FB00F875B5 /* BaseTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				C593DC492AC897FB00F875B5 /* BaseTableViewCell.m */,
+				C54AF4BB2ADAA1A80014B335 /* JobsBaseTableViewCell */,
 				C593DC4A2AC897FB00F875B5 /* iOS UITableView中Cell的自带样式 */,
-				C593DC4F2AC897FB00F875B5 /* BaseTableViewCell.h */,
 			);
 			path = BaseTableViewCell;
 			sourceTree = "<group>";
@@ -7850,7 +7854,6 @@
 			isa = PBXGroup;
 			children = (
 				C593DC6F2AC897FB00F875B5 /* RBCLikeButton.h */,
-				C593DC702AC897FB00F875B5 /* RBCLikeButton.md */,
 				C593DC712AC897FB00F875B5 /* RBCLikeButton.bundle */,
 				C593DC722AC897FB00F875B5 /* RBCLikeButton.m */,
 			);
@@ -7881,9 +7884,8 @@
 		C593DC7C2AC897FB00F875B5 /* IrregularBtn */ = {
 			isa = PBXGroup;
 			children = (
-				C593DC7D2AC897FB00F875B5 /* IrregularBtn.md */,
-				C593DC7E2AC897FB00F875B5 /* IrregularBtn.m */,
 				C593DC7F2AC897FB00F875B5 /* IrregularBtn.h */,
+				C593DC7E2AC897FB00F875B5 /* IrregularBtn.m */,
 			);
 			path = IrregularBtn;
 			sourceTree = "<group>";
@@ -7893,7 +7895,6 @@
 			children = (
 				C593DC812AC897FB00F875B5 /* Sound.wav */,
 				C593DC822AC897FB00F875B5 /* SoundBtn.m */,
-				C593DC832AC897FB00F875B5 /* SoundBtn.md */,
 				C593DC842AC897FB00F875B5 /* SoundBtn.h */,
 			);
 			path = SoundBtn;
@@ -7946,6 +7947,7 @@
 		C593DC902AC897FB00F875B5 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				C593DCBC2AC897FB00F875B5 /* JobsView.h */,
 				C593DC912AC897FB00F875B5 /* BaseView */,
 				C593DC942AC897FB00F875B5 /* UIView+Category */,
 			);
@@ -7964,6 +7966,7 @@
 		C593DC942AC897FB00F875B5 /* UIView+Category */ = {
 			isa = PBXGroup;
 			children = (
+				C593DCBD2AC897FB00F875B5 /* UIView+Category.h */,
 				C593DC952AC897FB00F875B5 /* UIView+SuspendView */,
 				C593DC982AC897FB00F875B5 /* UIView+ZFPlayer */,
 				C593DC9B2AC897FB00F875B5 /* UIView+Gesture */,
@@ -7976,8 +7979,6 @@
 				C593DCB32AC897FB00F875B5 /* UIView+ViewController */,
 				C593DCB62AC897FB00F875B5 /* UIView+UIBackgroundConfig */,
 				C593DCB92AC897FB00F875B5 /* UIView+JHGestureBlock */,
-				C593DCBC2AC897FB00F875B5 /* JobsView.h */,
-				C593DCBD2AC897FB00F875B5 /* UIView+Category.h */,
 				C593DCBE2AC897FB00F875B5 /* UIView+Animation */,
 				C593DCC12AC897FB00F875B5 /* UIView+AutoSelfAdaptionSize */,
 				C593DCC42AC897FB00F875B5 /* UIView+Masonry */,
@@ -8366,7 +8367,7 @@
 				C54AF27B2AD98A660014B335 /* JobsTextFieldStyleCVCell */,
 				C593DD092AC897FB00F875B5 /* JobsImageViewStyleCVCell */,
 				C593DD0D2AC897FB00F875B5 /* JobsBtnStyleCVCell */,
-				C593DD112AC897FB00F875B5 /* BaseCollectionViewCell */,
+				C593DD112AC897FB00F875B5 /* JobsBaseCollectionViewCell */,
 			);
 			path = BaseCollectionViewCell;
 			sourceTree = "<group>";
@@ -8389,13 +8390,13 @@
 			path = JobsBtnStyleCVCell;
 			sourceTree = "<group>";
 		};
-		C593DD112AC897FB00F875B5 /* BaseCollectionViewCell */ = {
+		C593DD112AC897FB00F875B5 /* JobsBaseCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				C593DD122AC897FB00F875B5 /* BaseCollectionViewCell.h */,
-				C593DD132AC897FB00F875B5 /* BaseCollectionViewCell.m */,
+				C593DD122AC897FB00F875B5 /* JobsBaseCollectionViewCell.h */,
+				C593DD132AC897FB00F875B5 /* JobsBaseCollectionViewCell.m */,
 			);
-			path = BaseCollectionViewCell;
+			path = JobsBaseCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		C593DD142AC897FB00F875B5 /* UIBezierPath */ = {
@@ -9316,9 +9317,9 @@
 		C593DE132AC897FB00F875B5 /* NSObject */ = {
 			isa = PBXGroup;
 			children = (
+				C593DECC2AC897FB00F875B5 /* JobsObject.h */,
 				C593DE142AC897FB00F875B5 /* BaseObject */,
 				C593DE4E2AC897FB00F875B5 /* NSObject+Category */,
-				C593DECC2AC897FB00F875B5 /* JobsObject.h */,
 			);
 			path = NSObject;
 			sourceTree = "<group>";
@@ -9327,18 +9328,17 @@
 			isa = PBXGroup;
 			children = (
 				C593DE152AC897FB00F875B5 /* BaseObject.md */,
-				C593DE162AC897FB00F875B5 /* FileFolderHandleTool */,
-				C593DE1A2AC897FB00F875B5 /* UITextModel */,
-				C593DE1D2AC897FB00F875B5 /* JobsTimerManager */,
-				C593DE2C2AC897FB00F875B5 /* JobsFormatTime */,
-				C593DE2F2AC897FB00F875B5 /* JobsTuple */,
-				C593DE322AC897FB00F875B5 /* JobsSEL_IMP */,
-				C593DE352AC897FB00F875B5 /* UIViewModelFamily */,
-				C593DE3C2AC897FB00F875B5 /* DeleteSystemUITabBarButton */,
-				C593DE402AC897FB00F875B5 /* TouchID */,
-				C593DE442AC897FB00F875B5 /* JobsMonitorNetwoking */,
-				C593DE482AC897FB00F875B5 /* JobsTimeModel+JobsTimeFormatterModel */,
 				C593DE4B2AC897FB00F875B5 /* CLLanguageManager */,
+				C593DE3C2AC897FB00F875B5 /* DeleteSystemUITabBarButton */,
+				C593DE162AC897FB00F875B5 /* FileFolderHandleTool */,
+				C593DE2C2AC897FB00F875B5 /* JobsFormatTime */,
+				C593DE442AC897FB00F875B5 /* JobsMonitorNetwoking */,
+				C593DE322AC897FB00F875B5 /* JobsSEL_IMP */,
+				C593DE482AC897FB00F875B5 /* JobsTimeModel+JobsTimeFormatterModel */,
+				C593DE1D2AC897FB00F875B5 /* JobsTimerManager */,
+				C593DE2F2AC897FB00F875B5 /* JobsTuple */,
+				C593DE402AC897FB00F875B5 /* TouchID */,
+				C593DE352AC897FB00F875B5 /* UIViewModelFamily */,
 			);
 			path = BaseObject;
 			sourceTree = "<group>";
@@ -9441,6 +9441,8 @@
 		C593DE352AC897FB00F875B5 /* UIViewModelFamily */ = {
 			isa = PBXGroup;
 			children = (
+				C54AF4C42ADADF570014B335 /* UIButtonModel */,
+				C593DE1A2AC897FB00F875B5 /* UITextModel */,
 				C593DE362AC897FB00F875B5 /* UIViewModel */,
 				C593DE392AC897FB00F875B5 /* JobsHeaderFooterViewModel */,
 			);
@@ -9450,8 +9452,8 @@
 		C593DE362AC897FB00F875B5 /* UIViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				C593DE372AC897FB00F875B5 /* UIViewModel.m */,
 				C593DE382AC897FB00F875B5 /* UIViewModel.h */,
+				C593DE372AC897FB00F875B5 /* UIViewModel.m */,
 			);
 			path = UIViewModel;
 			sourceTree = "<group>";
@@ -9459,8 +9461,8 @@
 		C593DE392AC897FB00F875B5 /* JobsHeaderFooterViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				C593DE3A2AC897FB00F875B5 /* JobsHeaderFooterViewModel.m */,
 				C593DE3B2AC897FB00F875B5 /* JobsHeaderFooterViewModel.h */,
+				C593DE3A2AC897FB00F875B5 /* JobsHeaderFooterViewModel.m */,
 			);
 			path = JobsHeaderFooterViewModel;
 			sourceTree = "<group>";
@@ -9715,9 +9717,9 @@
 		C593DE832AC897FB00F875B5 /* NSObject+DeployCell */ = {
 			isa = PBXGroup;
 			children = (
-				C593DE842AC897FB00F875B5 /* NSObject+JobsDeployCellConfig.m */,
 				C593DE852AC897FB00F875B5 /* JobsDeployDataForCellHeader.h */,
 				C593DE862AC897FB00F875B5 /* NSObject+JobsDeployCellConfig.h */,
+				C593DE842AC897FB00F875B5 /* NSObject+JobsDeployCellConfig.m */,
 			);
 			path = "NSObject+DeployCell";
 			sourceTree = "<group>";
@@ -11128,7 +11130,6 @@
 				840F95EE27736427004979E9 /* dingdan.json in Resources */,
 				84A491FA27904A970002A837 /* Drop@2x.png in Resources */,
 				C5C48067284E21E5007916B3 /* NotoSansDisplay_Condensed-Bold.ttf in Resources */,
-				C593DF3A2AC897FC00F875B5 /* SoundBtn.md in Resources */,
 				C5C48071284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-LightItalic.ttf in Resources */,
 				C5C4805C284E21E5007916B3 /* NotoSansDisplay_Condensed-Italic.ttf in Resources */,
 				C59483362879846400EC655B /* refresh.png in Resources */,
@@ -11190,7 +11191,6 @@
 				84409F1827A007170089EE40 /* 放大镜.png in Resources */,
 				84A4920827904A970002A837 /* 右气泡@2x.png in Resources */,
 				C5C48058284E21E5007916B3 /* NotoSansDisplay_Condensed-Black.ttf in Resources */,
-				C593DF362AC897FC00F875B5 /* IrregularBtn.md in Resources */,
 				84CA5DFF27895B4700E46E71 /* 开屏页面.bundle in Resources */,
 				C5C4805B284E21E5007916B3 /* NotoSansDisplay_Condensed-ExtraLightItalic.ttf in Resources */,
 				C520F8322AB39EDD00142DCC /* 320x480.png in Resources */,
@@ -11276,7 +11276,6 @@
 				C593DFB02AC897FC00F875B5 /* BaseObject.md in Resources */,
 				84CA5FA327897AFB00E46E71 /* AESCipher in Resources */,
 				840F964327736427004979E9 /* README.md in Resources */,
-				C593DF232AC897FC00F875B5 /* UITableViewCellStyleValue2.png in Resources */,
 				C5C48075284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-Thin.ttf in Resources */,
 				84CA5FDF27897AFB00E46E71 /* GDFadeView.md in Resources */,
 				C5C4803D284E21E5007916B3 /* NotoSansDisplay-Italic-VariableFont_wdth,wght.ttf in Resources */,
@@ -11287,7 +11286,6 @@
 				84CA5F9127897AFB00E46E71 /* File in Resources */,
 				84CA642B2789C00300E46E71 /* data.json in Resources */,
 				C593DBF32AC897AA00F875B5 /* iPad尺寸.png in Resources */,
-				C593DF242AC897FC00F875B5 /* UITableViewCellStyleValue1.png in Resources */,
 				C5C4803A284E21E5007916B3 /* NotoSans-LightItalic.ttf in Resources */,
 				840F961C27736427004979E9 /* 小数点@2x.png in Resources */,
 				C5C48036284E21E5007916B3 /* NotoSans-Thin.ttf in Resources */,
@@ -11295,7 +11293,6 @@
 				84CA621B27899E2700E46E71 /* 2.jpeg in Resources */,
 				C5C48033284E21E5007916B3 /* NotoSans-MediumItalic.ttf in Resources */,
 				84CA5E0127895B4700E46E71 /* 刷新.bundle in Resources */,
-				C593DF1F2AC897FC00F875B5 /* UITableViewCell+Margin.md in Resources */,
 				C5C48072284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-ExtraLight.ttf in Resources */,
 				840F962E27736427004979E9 /* 2@3x.png in Resources */,
 				C5932EC9282D26E500B3B053 /* 测试弹窗的背景图@2x.png in Resources */,
@@ -11310,7 +11307,6 @@
 				840F962B27736427004979E9 /* 8@2x.png in Resources */,
 				84CA5E0327895B4700E46E71 /* Others.bundle in Resources */,
 				84CA5FA527897AFB00E46E71 /* MD5 in Resources */,
-				C593DF1D2AC897FC00F875B5 /* UITableViewCell+WhiteArrows.md in Resources */,
 				C5C48052284E21E5007916B3 /* NotoSansDisplay-BlackItalic.ttf in Resources */,
 				84CA5E0227895B4700E46E71 /* 登录 * 注册 * 密码找回.bundle in Resources */,
 				84432C13278C45C40028A27D /* 钱袋.gif in Resources */,
@@ -11375,7 +11371,6 @@
 				840F95EA27736427004979E9 /* 主页.json in Resources */,
 				84CA5E0527895B4700E46E71 /* Localizable.strings in Resources */,
 				84A491FD27904A970002A837 /* Check@2x.png in Resources */,
-				C593DF252AC897FC00F875B5 /* UITableViewCellStyleDefault.png in Resources */,
 				844B08772764CF4800B0513D /* CasinoFlowDetailsVC_m in Resources */,
 				84CA5FB427897AFB00E46E71 /* 音律跳动.bundle in Resources */,
 				C5C48034284E21E5007916B3 /* NotoSans-Black.ttf in Resources */,
@@ -11384,7 +11379,6 @@
 				C520F8232AB39EDD00142DCC /* 启动页SLOGAN.png in Resources */,
 				C5C48041284E21E5007916B3 /* NotoSans-ThinItalic.ttf in Resources */,
 				C5C4803F284E21E5007916B3 /* NotoSans-ExtraBoldItalic.ttf in Resources */,
-				C593DF2E2AC897FC00F875B5 /* RBCLikeButton.md in Resources */,
 				84A491FB27904A970002A837 /* Header@2x.png in Resources */,
 				840F95E927736427004979E9 /* home_priase_animation.json in Resources */,
 				840F963027736427004979E9 /* 0@3x.png in Resources */,
@@ -11429,7 +11423,6 @@
 				C593DFA42AC897FC00F875B5 /* KFZShopCatoryFlowLayput.md in Resources */,
 				840F962227736427004979E9 /* 7@3x.png in Resources */,
 				C5C48063284E21E5007916B3 /* NotoSansDisplay_Condensed-LightItalic.ttf in Resources */,
-				C593DF222AC897FC00F875B5 /* UITableViewCellStyleSubtitle.png in Resources */,
 				84A4920527904A970002A837 /* 输入框有值@3x.png in Resources */,
 				C57A2035282CB59F0032156B /* gesture_headIcon@2x.png in Resources */,
 				C520F82A2AB39EDD00142DCC /* 1080x1882.png in Resources */,
@@ -11611,7 +11604,7 @@
 				84CA5FB127897AFB00E46E71 /* HAHandleDemoView.m in Sources */,
 				C593DFDC2AC897FC00F875B5 /* NSObject+Sound.m in Sources */,
 				C593DFF22AC897FC00F875B5 /* UITextField+Animation.m in Sources */,
-				C593DF642AC897FC00F875B5 /* BaseCollectionViewCell.m in Sources */,
+				C593DF642AC897FC00F875B5 /* JobsBaseCollectionViewCell.m in Sources */,
 				C521807A2860B22000ACA6D9 /* RandomTestVC.m in Sources */,
 				84CA66102789D4CD00E46E71 /* ForgetCodeStep_01View.m in Sources */,
 				845625A5278BF2BB0067ABB9 /* JobsCommentVC.m in Sources */,
@@ -11682,6 +11675,7 @@
 				C539A0372AD69BCF00C8A5E3 /* TKPermissionMicrophone.m in Sources */,
 				C5733A7B2859C7C200D13A43 /* JobsVerticalMenuVC.m in Sources */,
 				C539A0422AD69BCF00C8A5E3 /* TKPermissionPublic.m in Sources */,
+				C54AF4C72ADADF570014B335 /* UIButtonModel.m in Sources */,
 				C520F8952AB3A12100142DCC /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				84CA5FE227897AFB00E46E71 /* FSAppIconManager.m in Sources */,
 				84CA63D12789B3CC00E46E71 /* TestIrregularViewTestVC.m in Sources */,
@@ -12004,7 +11998,7 @@
 				C5BFA2FA285992BE009681C0 /* JXCategoryViewVerticalShowVC.m in Sources */,
 				844B08442764CF4800B0513D /* FMDatabase+Manager.m in Sources */,
 				C593DF6A2AC897FC00F875B5 /* NSString+Others.m in Sources */,
-				C593DF212AC897FC00F875B5 /* BaseTableViewCell.m in Sources */,
+				C593DF212AC897FC00F875B5 /* JobsBaseTableViewCell.m in Sources */,
 				C52E5C972AC07E9800FE5494 /* KTVHCHTTPServer.m in Sources */,
 				846DEE0327804C340050468A /* JobsBasePopupView.m in Sources */,
 				84A4920A27904A970002A837 /* JobsIMChatInfoTBVCell.m in Sources */,

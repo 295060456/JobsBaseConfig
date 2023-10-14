@@ -10,7 +10,7 @@
 #import "BaseCellProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
+/// 重设边距
 @interface UITableViewCell (Margin)
 <
 BaseCellProtocol

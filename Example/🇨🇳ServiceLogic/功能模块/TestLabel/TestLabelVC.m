@@ -12,7 +12,6 @@
 @property(nonatomic,strong)UIScrollView *scrollView;
 /// 富文本
 @property(nonatomic,strong)NSMutableArray <RichTextConfig *>*richLabelDataStringsMutArr;
-@property(nonatomic,strong,nullable)NSAttributedString __block *attributedText API_AVAILABLE(ios(6.0));
 @property(nonatomic,strong)NSMutableParagraphStyle *paragtaphStyle;
 
 /// UILabel
@@ -176,7 +175,7 @@
         
     }return _paragtaphStyle;
 }
-
+@synthesize attributedText = _attributedText;
 -(NSAttributedString *)attributedText{
     if (!_attributedText) {
         _attributedText = [self richTextWithDataConfigMutArr:self.richLabelDataStringsMutArr];

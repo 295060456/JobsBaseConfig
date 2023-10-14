@@ -11,7 +11,7 @@
 @implementation UIView (Measure)
 #pragma mark —— 一些工具方法
 /// 重设Frame
--(JobsReturnCGRectByCGFloatBlock _Nonnull)resetOriginX{
+-(JobsReturnCGRectByCGFloatBlock _Nullable)resetOriginX{
     @jobs_weakify(self)
     return ^(CGFloat data) {
         @jobs_strongify(self)
@@ -22,7 +22,7 @@
     };
 }
 
--(JobsReturnCGRectByCGFloatBlock _Nonnull)resetOriginY{
+-(JobsReturnCGRectByCGFloatBlock _Nullable)resetOriginY{
     @jobs_weakify(self)
     return ^(CGFloat data) {
         @jobs_strongify(self)
@@ -33,7 +33,7 @@
     };
 }
 
--(JobsReturnCGRectByCGFloatBlock _Nonnull)resetWidth{
+-(JobsReturnCGRectByCGFloatBlock _Nullable)resetWidth{
     @jobs_weakify(self)
     return ^(CGFloat data) {
         @jobs_strongify(self)
@@ -44,7 +44,7 @@
     };
 }
 
--(JobsReturnCGRectByCGFloatBlock _Nonnull)resetHeight{
+-(JobsReturnCGRectByCGFloatBlock _Nullable)resetHeight{
     @jobs_weakify(self)
     return ^(CGFloat data) {
         @jobs_strongify(self)
@@ -55,7 +55,7 @@
     };
 }
 
--(JobsReturnCGRectByCGPointBlock _Nonnull)resetOrigin{
+-(JobsReturnCGRectByCGPointBlock _Nullable)resetOrigin{
     @jobs_weakify(self)
     return ^(CGPoint data) {
         @jobs_strongify(self)
@@ -67,7 +67,7 @@
     };
 }
 
--(JobsReturnCGRectByCGSizeBlock _Nonnull)resetSize{
+-(JobsReturnCGRectByCGSizeBlock _Nullable)resetSize{
     @jobs_weakify(self)
     return ^(CGSize data) {
         @jobs_strongify(self)
@@ -78,7 +78,7 @@
     };
 }
 /// 依据偏移量重设Frame
--(JobsReturnCGRectByCGFloatBlock _Nonnull)resetByOffsetOriginX{
+-(JobsReturnCGRectByCGFloatBlock _Nullable)resetByOffsetOriginX{
     @jobs_weakify(self)
     return ^(CGFloat data) {
         @jobs_strongify(self)
@@ -89,7 +89,7 @@
     };
 }
 
--(JobsReturnCGRectByCGFloatBlock _Nonnull)resetByOffsetOriginY{
+-(JobsReturnCGRectByCGFloatBlock _Nullable)resetByOffsetOriginY{
     @jobs_weakify(self)
     return ^(CGFloat data) {
         @jobs_strongify(self)
@@ -100,7 +100,7 @@
     };
 }
 
--(JobsReturnCGRectByCGFloatBlock _Nonnull)resetCenterX{
+-(JobsReturnCGRectByCGFloatBlock _Nullable)resetCenterX{
     @jobs_weakify(self)
     return ^(CGFloat data) {
         @jobs_strongify(self)
@@ -111,7 +111,7 @@
     };
 }
 
--(JobsReturnCGRectByCGFloatBlock _Nonnull)resetCenterY{
+-(JobsReturnCGRectByCGFloatBlock _Nullable)resetCenterY{
     @jobs_weakify(self)
     return ^(CGFloat data) {
         @jobs_strongify(self)
@@ -122,7 +122,7 @@
     };
 }
 
--(JobsReturnCGRectByCGFloatBlock _Nonnull)resetByOffsetWidth{
+-(JobsReturnCGRectByCGFloatBlock _Nullable)resetByOffsetWidth{
     @jobs_weakify(self)
     return ^(CGFloat data) {
         @jobs_strongify(self)
@@ -133,7 +133,7 @@
     };
 }
 
--(JobsReturnCGRectByCGFloatBlock _Nonnull)resetByOffsetHeight{
+-(JobsReturnCGRectByCGFloatBlock _Nullable)resetByOffsetHeight{
     @jobs_weakify(self)
     return ^(CGFloat data) {
         @jobs_strongify(self)
@@ -144,7 +144,7 @@
     };
 }
 
--(JobsReturnCGRectByCGPointBlock _Nonnull)resetByOffsetOrigin{
+-(JobsReturnCGRectByCGPointBlock _Nullable)resetByOffsetOrigin{
     @jobs_weakify(self)
     return ^(CGPoint data) {
         @jobs_strongify(self)
@@ -156,7 +156,7 @@
     };
 }
 
--(JobsReturnCGRectByCGSizeBlock _Nonnull)resetByOffsetSize{
+-(JobsReturnCGRectByCGSizeBlock _Nullable)resetByOffsetSize{
     @jobs_weakify(self)
     return ^(CGSize data) {
         @jobs_strongify(self)

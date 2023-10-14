@@ -14,6 +14,7 @@
 @implementation JobsDropDownListTBVCell
 #pragma mark —— @synthesize UITableViewCellProtocol
 UITableViewCellProtocol_synthesize
+UITableViewCell_UIViewModelProtocolSynthesize
 #pragma mark —— UITableViewCellProtocol
 +(instancetype)cellStyleValue1WithTableView:(UITableView *)tableView{
     JobsDropDownListTBVCell *cell = (JobsDropDownListTBVCell *)[tableView tableViewCellClass:JobsDropDownListTBVCell.class];
@@ -50,9 +51,7 @@ UITableViewCellProtocol_synthesize
     vm.textModel.text = vm.subTextModel.text;
     vm.textModel.textLineSpacing = 0;
     
-#warning 这里需要被修改
-//    return [UIView heightByData:model ? : vm] + JobsWidth(20);
-    return 0;
+    return [UIView heightByData:model ? : vm] + JobsWidth(20);
 }
 
 @end

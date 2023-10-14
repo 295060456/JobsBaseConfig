@@ -1,27 +1,27 @@
 //
-//  BaseTableViewCell.m
+//  JobsBaseTableViewCell.m
 //  MonkeyKingVideo
 //
 //  Created by Jobs on 2021/1/20.
 //  Copyright © 2021 MonkeyKingVideo. All rights reserved.
 //
 
-#import "BaseTableViewCell.h"
+#import "JobsBaseTableViewCell.h"
 
-@interface BaseTableViewCell ()
+@interface JobsBaseTableViewCell ()
 /// Data
 @property(nonatomic,assign)BOOL isSetTBVCellOffset;
 
 @end
 
-@implementation BaseTableViewCell
+@implementation JobsBaseTableViewCell
 #pragma mark —— @synthesize UITableViewCellProtocol
 UITableViewCellProtocol_synthesize
 #pragma mark —— UITableViewCellProtocol
 /// 4种UITableViewCell系统样式类型
 /// UITableViewCellStyleDefault ：左边有一个显示图片的imageView和一个标题textLabel。
 +(instancetype)cellStyleDefaultWithTableView:(UITableView *)tableView{
-    BaseTableViewCell *cell = (BaseTableViewCell *)[tableView tableViewCellClass:BaseTableViewCell.class];
+    JobsBaseTableViewCell *cell = (JobsBaseTableViewCell *)[tableView tableViewCellClass:JobsBaseTableViewCell.class];
     if (!cell) {
         cell = [self initTableViewCell:self
                              withStyle:UITableViewCellStyleDefault];
@@ -30,7 +30,7 @@ UITableViewCellProtocol_synthesize
 }
 /// UITableViewCellStyleValue1 ：左边显示图片的imageView和一个主标题textLabel，右边一个副标题detailTextLabel。
 +(instancetype)cellStyleValue1WithTableView:(UITableView *)tableView{
-    BaseTableViewCell *cell = (BaseTableViewCell *)[tableView tableViewCellClass:BaseTableViewCell.class];
+    JobsBaseTableViewCell *cell = (JobsBaseTableViewCell *)[tableView tableViewCellClass:JobsBaseTableViewCell.class];
     if (!cell) {
         cell = [self initTableViewCell:self
                              withStyle:UITableViewCellStyleValue1];
@@ -39,7 +39,7 @@ UITableViewCellProtocol_synthesize
 }
 /// UITableViewCellStyleValue2 ：左边一个主标题textLabel字体偏小，右边一个副标题detailTextLabel。
 +(instancetype)cellStyleValue2WithTableView:(UITableView *)tableView{
-    BaseTableViewCell *cell = (BaseTableViewCell *)[tableView tableViewCellClass:BaseTableViewCell.class];
+    JobsBaseTableViewCell *cell = (JobsBaseTableViewCell *)[tableView tableViewCellClass:JobsBaseTableViewCell.class];
     if (!cell) {
         cell = [self initTableViewCell:self
                              withStyle:UITableViewCellStyleValue2];
@@ -48,7 +48,7 @@ UITableViewCellProtocol_synthesize
 }
 /// UITableViewCellStyleSubtitle ：左边还是一个显示图片的imageView，不同的是上边有一个主标题textLabel和一个副标题detailTextLabel。主标题字体大且加黑，副标题字体小在主标题下边。
 +(instancetype)cellStyleSubtitleWithTableView:(UITableView *)tableView{
-    BaseTableViewCell *cell = (BaseTableViewCell *)[tableView tableViewCellClass:BaseTableViewCell.class];
+    JobsBaseTableViewCell *cell = (JobsBaseTableViewCell *)[tableView tableViewCellClass:JobsBaseTableViewCell.class];
     if (!cell) {
         cell = [self initTableViewCell:self
                              withStyle:UITableViewCellStyleSubtitle];
@@ -80,7 +80,7 @@ UITableViewCellProtocol_synthesize
     /**
      参见：关于UITableViewCell和UICollectionViewCell圆切角+Cell的偏移量
      ❤️如果单独的对每一个row对应的UITableViewCell的边距有缩进则使用下列方法❤️
-     如果这个TableViewCell是BaseTableViewCell则不需要复写-(void)setFrame:(CGRect)frame；否则是需要：
+     如果这个TableViewCell是JobsBaseTableViewCell则不需要复写-(void)setFrame:(CGRect)frame；否则是需要：
      
      UILocationProtocol_synthesize
      直接影响:
@@ -361,11 +361,11 @@ UITableViewCellProtocol_synthesize
 }
 /**
  1、-(void)setFrame:(CGRect)frame 此方法仅限于具体的 UITableViewCell子类使用
- 2、如果在 BaseTableViewCell 实现此方法，那么一单相关子类集成 BaseTableViewCell 则会对-(void)setFrame:(CGRect)frame进行反复调用，因为[super setFrame:frame];
+ 2、如果在 JobsBaseTableViewCell 实现此方法，那么一单相关子类集成 JobsBaseTableViewCell 则会对-(void)setFrame:(CGRect)frame进行反复调用，因为[super setFrame:frame];
  3、禁止分类去调用，否则引起异常
  */
 -(void)setFrame:(CGRect)frame{
-    if (self.class == BaseTableViewCell.class) {
+    if (self.class == JobsBaseTableViewCell.class) {
         NSLog(@"self.offsetXForEach = %f",self.offsetXForEach);
         NSLog(@"self.offsetYForEach = %f",self.offsetYForEach);
         frame.origin.x += self.offsetXForEach;
@@ -423,17 +423,19 @@ UITableViewCellProtocol_synthesize
 }
 
 +(CGFloat)cellHeightWithModel:(UIViewModel *_Nullable)model{
-    UIViewModel *vm = UIViewModel.new;
-    vm.textModel.font = UIFontWeightRegularSize(14);
-    vm.textModel.text = model.subTextModel.text;
-    vm.textModel.textLineSpacing = 0;
-    vm.jobsWidth = JobsMainScreen_WIDTH() - JobsWidth(50);
-    return [vm.textModel.text jobsTextHeightWithFont:vm.textModel.font
-                                          lineHeight:vm.textModel.textLineSpacing
-                                        controlWidth:vm.jobsWidth].jobsHeight;
+    if(model){
+        UIViewModel *vm = UIViewModel.new;
+        vm.textModel.font = UIFontWeightRegularSize(14);
+        vm.textModel.text = model.subTextModel.text;
+        vm.textModel.textLineSpacing = 0;
+        vm.jobsWidth = JobsMainScreen_WIDTH() - JobsWidth(50);
+        return [vm.textModel.text jobsTextHeightWithFont:vm.textModel.font
+                                              lineHeight:vm.textModel.textLineSpacing
+                                            controlWidth:vm.jobsWidth].jobsHeight;
+    }return JobsWidth(50);
+
 }
-#pragma mark —— 协议属性合成set & get方法
-/// UIViewModelProtocol
+#pragma mark —— @synthesize UIViewModelProtocol
 UIViewModelProtocol_synthesize
 -(void)setIndexPath:(NSIndexPath *)indexPath{
     _indexPath = indexPath;

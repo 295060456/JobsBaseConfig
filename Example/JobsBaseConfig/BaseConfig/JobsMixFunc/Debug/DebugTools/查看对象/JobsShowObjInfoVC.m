@@ -123,7 +123,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [BaseTableViewCell cellHeightWithModel:self.dataMutArr[indexPath.row]];
+    return [JobsBaseTableViewCell cellHeightWithModel:self.dataMutArr[indexPath.row]];
 }
 
 - (void)tableView:(UITableView *)tableView
@@ -139,7 +139,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    BaseTableViewCell *cell = [BaseTableViewCell cellStyleValue1WithTableView:tableView];
+    JobsBaseTableViewCell *cell = [JobsBaseTableViewCell cellStyleValue1WithTableView:tableView];
     cell.detailTextLabel.numberOfLines = 0;
     cell.detailTextLabel.textColor = UIColor.brownColor;
     cell.textLabel.textColor = UIColor.blackColor;

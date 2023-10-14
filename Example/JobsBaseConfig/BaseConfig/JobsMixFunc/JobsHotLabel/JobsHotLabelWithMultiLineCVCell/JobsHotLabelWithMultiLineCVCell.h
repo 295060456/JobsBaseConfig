@@ -5,12 +5,12 @@
 //  Created by Jobs on 2022/1/15.
 //
 
-#import "BaseCollectionViewCell.h"
+#import "JobsBaseCollectionViewCell.h"
 #import "JobsDoorInputViewProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JobsHotLabelWithMultiLineCVCell : BaseCollectionViewCell
+@interface JobsHotLabelWithMultiLineCVCell : JobsBaseCollectionViewCell
 <
 JobsDoorInputViewProtocol
 >

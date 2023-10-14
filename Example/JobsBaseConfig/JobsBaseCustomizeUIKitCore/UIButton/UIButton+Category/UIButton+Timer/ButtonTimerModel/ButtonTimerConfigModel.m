@@ -10,6 +10,7 @@
 @implementation ButtonTimerProcessValueModel
 UIPictureAndBackGroundCorProtocol_synthesize
 UITextModelProtocol_synthesize
+UITextModelProtocol_UIViewModelSynthesize
 UIViewModelOthersProtocol_synthesize
 
 //-(UIColor *)layerBorderCor{

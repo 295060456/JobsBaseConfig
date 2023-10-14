@@ -124,38 +124,38 @@ NS_ASSUME_NONNULL_BEGIN
 NS_ASSUME_NONNULL_END
 
 #pragma mark —— @synthesize UITableViewCellProtocol
-#ifndef UITableViewCellProtocol_synthesize
-#define UITableViewCellProtocol_synthesize \
-\
-@synthesize textLabelFrame = _textLabelFrame;\
-@synthesize detailTextLabelFrame = _detailTextLabelFrame;\
+/// 和UIViewModelProtocol里面重复定义的部分
+#ifndef UITableViewCell_UIViewModelProtocolSynthesize
+#define UITableViewCell_UIViewModelProtocolSynthesize \
 @synthesize imageViewFrame = _imageViewFrame;\
-\
-@synthesize textLabelSize = _textLabelSize;\
-@synthesize detailTextLabelSize = _detailTextLabelSize;\
-@synthesize imageViewSize = _imageViewSize;\
-\
-@synthesize textLabelWidth = _textLabelWidth;\
-@synthesize textLabelHeight = _textLabelHeight;\
-@synthesize detailTextLabelWidth = _detailTextLabelWidth;\
-@synthesize detailTextLabelHeight = _detailTextLabelHeight;\
 @synthesize imageViewWidth = _imageViewWidth;\
+@synthesize textLabelHeight = _textLabelHeight;\
 @synthesize imageViewHeight = _imageViewHeight;\
-\
-@synthesize textLabelFrameOffsetX = _textLabelFrameOffsetX;\
-@synthesize textLabelFrameOffsetY = _textLabelFrameOffsetY;\
+@synthesize imageViewSize = _imageViewSize;\
+@synthesize textLabelFrame = _textLabelFrame;\
 @synthesize textLabelFrameOffsetWidth = _textLabelFrameOffsetWidth;\
 @synthesize textLabelFrameOffsetHeight = _textLabelFrameOffsetHeight;\
-\
-@synthesize detailTextLabelOffsetX = _detailTextLabelOffsetX;\
-@synthesize detailTextLabelOffsetY = _detailTextLabelOffsetY;\
-@synthesize detailTextLabelOffsetWidth = _detailTextLabelOffsetWidth;\
-@synthesize detailTextLabelOffsetHeight = _detailTextLabelOffsetHeight;\
-\
 @synthesize imageViewFrameOffsetX = _imageViewFrameOffsetX;\
 @synthesize imageViewFrameOffsetY = _imageViewFrameOffsetY;\
 @synthesize imageViewFrameOffsetWidth = _imageViewFrameOffsetWidth;\
 @synthesize imageViewFrameOffsetHeight = _imageViewFrameOffsetHeight;\
+@synthesize textLabelFrameOffsetX = _textLabelFrameOffsetX;\
+@synthesize textLabelFrameOffsetY = _textLabelFrameOffsetY;\
+@synthesize textLabelSize = _textLabelSize;\
+@synthesize textLabelWidth = _textLabelWidth;\
+
+#endif
+
+#ifndef UITableViewCellProtocol_synthesize
+#define UITableViewCellProtocol_synthesize \
+@synthesize detailTextLabelFrame = _detailTextLabelFrame;\
+@synthesize detailTextLabelSize = _detailTextLabelSize;\
+@synthesize detailTextLabelWidth = _detailTextLabelWidth;\
+@synthesize detailTextLabelHeight = _detailTextLabelHeight;\
+@synthesize detailTextLabelOffsetX = _detailTextLabelOffsetX;\
+@synthesize detailTextLabelOffsetY = _detailTextLabelOffsetY;\
+@synthesize detailTextLabelOffsetWidth = _detailTextLabelOffsetWidth;\
+@synthesize detailTextLabelOffsetHeight = _detailTextLabelOffsetHeight;\
 
 #endif
 //

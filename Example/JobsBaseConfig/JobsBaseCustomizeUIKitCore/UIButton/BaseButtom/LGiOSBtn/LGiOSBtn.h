@@ -26,20 +26,17 @@
 @class LGiOSBtn;
 
 @protocol DZDeleteButtonDelegate <NSObject>
-
 @optional
-
-- (void)deleteButtonRemoveSelf:(LGiOSBtn *_Nonnull)button;
-
+-(void)deleteButtonRemoveSelf:(LGiOSBtn *_Nonnull)button;
 @end
 
-NS_ASSUME_NONNULL_BEGIN
 // hidden 的 权限优先级 > alpha
+NS_ASSUME_NONNULL_BEGIN
+/// 高仿iOS长按删除+抖动
 @interface LGiOSBtn : UIButton
-// 是否抖动
-@property(nonatomic,assign,getter=isShaking)BOOL shaking;
-// 右上角的按钮，
-@property(nonatomic,strong)UIImageView *iconBtn;
+
+@property(nonatomic,assign,getter=isShaking)BOOL shaking;// 是否抖动
+@property(nonatomic,strong)UIImageView *iconBtn;// 右上角的按钮
 @property(nonatomic,weak)id<DZDeleteButtonDelegate> delegate;
 
 @end

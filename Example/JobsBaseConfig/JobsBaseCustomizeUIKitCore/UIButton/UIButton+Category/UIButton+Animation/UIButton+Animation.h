@@ -12,10 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIButton (Animation)
 /// 点击按钮，按钮的imageView旋转360°
 -(CABasicAnimation *)revolution;
-/// 停止旋转360
--(void)stopRevolution;
-/// 点击时旋转180°，再点击时再转回来
--(void)rotateHalfCycle;
+-(void)stopRevolution;/// 停止旋转360
+-(void)rotateHalfCycle;/// 点击时旋转180°，再点击时再转回来
 
 @end
 

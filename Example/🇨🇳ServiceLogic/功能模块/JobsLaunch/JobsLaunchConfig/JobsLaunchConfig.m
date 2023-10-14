@@ -10,7 +10,6 @@
 @implementation JobsLaunchConfig
 
 #pragma mark —— 关于跳过按钮的配置
-UITextModelProtocol_synthesize
 UIViewModelProtocol_synthesize
 
 #pragma mark —— 单例化和销毁

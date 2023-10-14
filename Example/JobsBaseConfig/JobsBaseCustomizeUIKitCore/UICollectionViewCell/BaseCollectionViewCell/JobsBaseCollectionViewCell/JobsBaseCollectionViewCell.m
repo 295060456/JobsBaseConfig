@@ -5,16 +5,16 @@
 //  Created by Jobs on 2020/10/18.
 //
 
-#import "BaseCollectionViewCell.h"
+#import "JobsBaseCollectionViewCell.h"
 
-@interface BaseCollectionViewCell ()
+@interface JobsBaseCollectionViewCell ()
 /// UI
 @property(nonatomic,strong)UITextView *textView;
 @property(nonatomic,strong)UIButton *bgBtn;
 
 @end
 
-@implementation BaseCollectionViewCell
+@implementation JobsBaseCollectionViewCell
 
 @synthesize viewModel = _viewModel;
 
@@ -30,10 +30,10 @@
 #pragma mark —— UICollectionViewCellProtocol
 +(instancetype)cellWithCollectionView:(nonnull UICollectionView *)collectionView
                          forIndexPath:(nonnull NSIndexPath *)indexPath{
-    BaseCollectionViewCell *cell = (BaseCollectionViewCell *)[collectionView collectionViewCellClass:BaseCollectionViewCell.class forIndexPath:indexPath];
+    JobsBaseCollectionViewCell *cell = (JobsBaseCollectionViewCell *)[collectionView collectionViewCellClass:JobsBaseCollectionViewCell.class forIndexPath:indexPath];
     if (!cell) {
-        [collectionView registerCollectionViewCellClass:BaseCollectionViewCell.class];
-        cell = (BaseCollectionViewCell *)[collectionView collectionViewCellClass:BaseCollectionViewCell.class forIndexPath:indexPath];
+        [collectionView registerCollectionViewCellClass:JobsBaseCollectionViewCell.class];
+        cell = (JobsBaseCollectionViewCell *)[collectionView collectionViewCellClass:JobsBaseCollectionViewCell.class forIndexPath:indexPath];
     }
     
     // UICollectionViewCell圆切角

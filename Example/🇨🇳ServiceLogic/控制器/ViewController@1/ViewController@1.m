@@ -120,7 +120,7 @@ BOOL ISLogin;
 - (CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 #warning 要解决DetailText提行的问题
-    return [BaseTableViewCell cellHeightWithModel:self.dataMutArr[indexPath.row]] * 2;
+    return [JobsBaseTableViewCell cellHeightWithModel:self.dataMutArr[indexPath.row]] * 2;
 }
 
 - (void)tableView:(UITableView *)tableView
@@ -140,7 +140,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    BaseTableViewCell *cell = (BaseTableViewCell *)self.tbvCellMutArr[indexPath.row];
+    JobsBaseTableViewCell *cell = (JobsBaseTableViewCell *)self.tbvCellMutArr[indexPath.row];
     [cell richElementsInCellWithModel:self.dataMutArr[indexPath.row]];
     return cell;
 }
@@ -254,7 +254,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
     if (!_tbvCellMutArr) {
         _tbvCellMutArr = NSMutableArray.array;
         for (UIViewModel *viewModel in self.dataMutArr) {
-            [_tbvCellMutArr addObject:[BaseTableViewCell cellStyleValue1WithTableView:self.tableView]];
+            [_tbvCellMutArr addObject:[JobsBaseTableViewCell cellStyleValue1WithTableView:self.tableView]];
         }
     }return _tbvCellMutArr;
 }

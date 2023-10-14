@@ -5,11 +5,11 @@
 //  Created by Jobs Hi on 10/13/23.
 //
 
-#import "BaseCollectionViewCell.h"
+#import "JobsBaseCollectionViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 /// 只在BaseCollectionViewCell完整的盖一个TextField
-@interface JobsTextFieldStyleCVCell : BaseCollectionViewCell<UITextFieldDelegate>
+@interface JobsTextFieldStyleCVCell : JobsBaseCollectionViewCell<UITextFieldDelegate>
 
 -(ZYTextField *)getTextField;
 

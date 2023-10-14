@@ -63,7 +63,7 @@
 @property(nonatomic,strong)BaiShaETProjChoiceStadiumTBVHeaderView *tbvHeaderView;
 /// Data
 @property(nonatomic,strong)NSMutableArray <UIViewModel *>*dataMutArr;
-@property(nonatomic,strong)NSMutableArray <BaseTableViewCell *>*tbvCellMutArr;
+@property(nonatomic,strong)NSMutableArray <JobsBaseTableViewCell *>*tbvCellMutArr;
 
 @end
 
@@ -183,11 +183,11 @@ static dispatch_once_t static_choiceStadiumViewOnceToken;
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    for (BaseTableViewCell *cell in self.tbvCellMutArr) {
+    for (JobsBaseTableViewCell *cell in self.tbvCellMutArr) {
         cell.imageView.jobsVisible = NO;
     }
     
-    BaseTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    JobsBaseTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.imageView.jobsVisible = !cell.imageView.jobsVisible;
     
     if (self.objectBlock) self.objectBlock(self.dataMutArr[indexPath.row]);
@@ -210,7 +210,7 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    BaseTableViewCell *cell = self.tbvCellMutArr[indexPath.row];
+    JobsBaseTableViewCell *cell = self.tbvCellMutArr[indexPath.row];
     [cell richElementsInCellWithModel:self.dataMutArr[indexPath.row]];
     cell.textLabel.textColor = HEXCOLOR(0x757575);
     cell.textLabel.font = notoSansRegular(16);
@@ -265,11 +265,11 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     }return _dataMutArr;
 }
 
--(NSMutableArray<BaseTableViewCell *> *)tbvCellMutArr{
+-(NSMutableArray<JobsBaseTableViewCell *> *)tbvCellMutArr{
     if (!_tbvCellMutArr) {
         _tbvCellMutArr = NSMutableArray.array;
         for (UIViewModel *viewModel in self.dataMutArr) {
-            [_tbvCellMutArr addObject:[BaseTableViewCell cellStyleValue1WithTableView:self.tableView]];
+            [_tbvCellMutArr addObject:[JobsBaseTableViewCell cellStyleValue1WithTableView:self.tableView]];
         }
     }return _tbvCellMutArr;
 }

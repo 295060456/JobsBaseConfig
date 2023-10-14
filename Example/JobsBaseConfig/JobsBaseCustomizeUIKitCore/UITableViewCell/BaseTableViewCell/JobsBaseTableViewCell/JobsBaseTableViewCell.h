@@ -1,5 +1,5 @@
 //
-//  BaseTableViewCell.h
+//  JobsBaseTableViewCell.h
 //  MonkeyKingVideo
 //
 //  Created by Jobs on 2021/1/20.
@@ -18,7 +18,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BaseTableViewCell : UITableViewCell
+@interface JobsBaseTableViewCell : UITableViewCell
 <
 BaseCellProtocol
 ,UITableViewCellProtocol

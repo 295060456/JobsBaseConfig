@@ -5,11 +5,11 @@
 //  Created by Jobs on 2022/5/19.
 //
 
-#import "BaseTableViewCell.h"
+#import "JobsBaseTableViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JobsUserHeaderDataViewTBVCell : BaseTableViewCell
+@interface JobsUserHeaderDataViewTBVCell : JobsBaseTableViewCell
 
 -(NSString *)getTitleValue;
 

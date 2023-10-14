@@ -99,13 +99,12 @@
 #import "NSObject+UIScrollViewDelegate.h"
 /// Cell 部署策略
 #import "NSObject+JobsDeployCellConfig.h"
-/// 用户信息
-#import "NSObject+UserInfo.h"
-/// 常用设定
-#import "NSObject+AppTools.h"
 /// 文本对齐
 #import "NSObject+NSMutableParagraphStyle.h"
 /// 平替UIPickerView
 #import "NSObject+BRPickerView.h"
+
+#import "UIButtonModel.h"
+#import "UITextModel.h"
 
 #endif /* JobsObject_h */

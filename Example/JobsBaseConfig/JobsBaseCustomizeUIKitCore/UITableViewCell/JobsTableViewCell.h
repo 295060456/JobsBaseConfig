@@ -9,7 +9,7 @@
 #define JobsTableViewCell_h
 
 #pragma mark —— Base
-#import "BaseTableViewCell.h"
+#import "JobsBaseTableViewCell.h"
 #pragma mark —— Category
 #import "UITableViewCell+UITableViewCellProtocol.h"
 #import "UITableViewCell+Margin.h"// 重设边距

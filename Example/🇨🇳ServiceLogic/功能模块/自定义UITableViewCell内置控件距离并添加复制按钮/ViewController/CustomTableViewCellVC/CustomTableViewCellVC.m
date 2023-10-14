@@ -60,22 +60,19 @@
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView
                                    cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    @jobs_weakify(self)
-    return [self planAtIndexPath:indexPath
-                          block1:^{
+    @jobs_weakify(self)    
+    return [self jobsCollectionViewCellPlanAtIndexPath:indexPath
+                                        collectionView:collectionView
+                              collectionViewCellBlock0:^UICollectionViewCell * _Nullable{
         @jobs_strongify(self)
         BaiShaETProjOrderDetailsCVCell *cell = [BaiShaETProjOrderDetailsCVCell cellWithCollectionView:collectionView forIndexPath:indexPath];
         [cell richElementsInCellWithModel:self.dataMutArr[indexPath.section]];
         return cell;
-    }block2:^{
-        ReturnBaseCollectionViewCell
-    }block3:^{
-        ReturnBaseCollectionViewCell;
-    }block4:^{
-        ReturnBaseCollectionViewCell;
-    }block5:^id{
-        ReturnBaseCollectionViewCell;
-    }];
+    } 
+                              collectionViewCellBlock1:nil
+                              collectionViewCellBlock2:nil
+                              collectionViewCellBlock3:nil
+                              collectionViewCellBlock4:nil];
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView
@@ -86,18 +83,14 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return [self planSizeAtIndexPath:indexPath
-                              block1:^CGSize{
+    return [self jobsCellPlanSizeForSectionAtIndexPath:indexPath
+                                            cellBlock0:^CGSize{
         return [BaiShaETProjOrderDetailsCVCell cellSizeWithModel:self.dataMutArr[indexPath.section]];
-    } block2:^CGSize{
-        return CGSizeZero;
-    } block3:^CGSize{
-        return CGSizeZero;
-    } block4:^CGSize{
-        return CGSizeZero;
-    } block5:^CGSize{
-        return CGSizeZero;
-    }];
+    } 
+                                            cellBlock1:nil
+                                            cellBlock2:nil 
+                                            cellBlock3:nil
+                                            cellBlock4:nil];
 }
 /// 定义的是元素垂直之间的间距
 - (CGFloat)collectionView:(UICollectionView *)collectionView

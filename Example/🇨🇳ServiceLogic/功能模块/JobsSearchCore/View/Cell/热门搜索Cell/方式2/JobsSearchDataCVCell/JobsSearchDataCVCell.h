@@ -7,11 +7,11 @@
 
 #import "BaseCellProtocol.h"
 #import "UIViewModelProtocol.h"
-#import "BaseCollectionViewCell.h"
+#import "JobsBaseCollectionViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JobsSearchDataCVCell : BaseCollectionViewCell
+@interface JobsSearchDataCVCell : JobsBaseCollectionViewCell
 <
 BaseCellProtocol
 ,UIViewModelProtocol

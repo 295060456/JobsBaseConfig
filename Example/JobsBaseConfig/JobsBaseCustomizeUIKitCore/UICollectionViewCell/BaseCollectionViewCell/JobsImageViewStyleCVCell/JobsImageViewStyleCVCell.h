@@ -5,11 +5,11 @@
 //  Created by Jobs Hi on 9/23/23.
 //
 
-#import "BaseCollectionViewCell.h"
+#import "JobsBaseCollectionViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 /// 只在BaseCollectionViewCell完整的盖一个ImageView
-@interface JobsImageViewStyleCVCell : BaseCollectionViewCell
+@interface JobsImageViewStyleCVCell : JobsBaseCollectionViewCell
 
 #pragma mark —— 一些公有方法
 -(UIImageView *)getImageView;

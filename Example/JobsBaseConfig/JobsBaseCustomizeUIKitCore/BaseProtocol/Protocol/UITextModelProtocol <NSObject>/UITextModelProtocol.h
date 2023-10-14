@@ -40,11 +40,17 @@ NS_ASSUME_NONNULL_BEGIN
 NS_ASSUME_NONNULL_END
 
 #pragma mark —— @synthesize UITextModelProtocol
+/// 和 UIViewModel 重复定义的部分
+#ifndef UITextModelProtocol_UIViewModelSynthesize
+#define UITextModelProtocol_UIViewModelSynthesize \
+@synthesize lineBreakMode = _lineBreakMode;\
+
+#endif
+
 #ifndef UITextModelProtocol_synthesize
 #define UITextModelProtocol_synthesize \
 \
 @synthesize textAlignment = _textAlignment;\
-@synthesize lineBreakMode = _lineBreakMode;\
 @synthesize textLineSpacing = _textLineSpacing;\
 @synthesize placeholder = _placeholder;\
 @synthesize placeholderColor = _placeholderColor;\

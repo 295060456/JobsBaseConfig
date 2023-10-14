@@ -10,27 +10,26 @@
 #import "UIView+Measure.h"
 #import "LoadingImage.h"
 
-typedef enum : NSUInteger {
-    RBCLikeButtonTypeImageleft,/// 图片在左,label在右
-    RBCLikeButtonTypeImageTop/// 图片在上,label在下
-} RBCLikeButtonType;
-
-typedef enum : NSUInteger {
+typedef NS_ENUM(NSInteger, RBCLikeButtonStatus) {
     RBCLikeButtonStatusHadThumbs,/// 已点赞
     RBCLikeButtonStatusNoneThumbs,/// 未点赞
     RBCLikeButtonStatusThumbsing,/// 正在点赞
     RBCLikeButtonStatusCancelThumbsing /// 正在取消点赞
-} RBCLikeButtonStatus;
+};
 
+typedef NS_ENUM(NSInteger, RBCLikeButtonType) {
+    RBCLikeButtonTypeImageleft,/// 图片在左,label在右
+    RBCLikeButtonTypeImageTop/// 图片在上,label在下
+};
+
+/// 高仿抖音点赞动画
 @interface RBCLikeButton : UIButton
-/// 点赞数
-@property (nonatomic,assign)NSInteger thumpNum;
-/// 按钮状态
-@property (nonatomic,assign)RBCLikeButtonStatus thumbStatus;
-/// 恢复点赞
--(void)recoverLike;
-/// 取消点赞
--(void)cancelLike;
+
+@property(nonatomic,assign)NSInteger thumpNum;/// 点赞数
+@property(nonatomic,assign)RBCLikeButtonStatus thumbStatus;/// 按钮状态
+
+-(void)recoverLike;/// 恢复点赞
+-(void)cancelLike;/// 取消点赞
 /**
  初始化likeButton
 

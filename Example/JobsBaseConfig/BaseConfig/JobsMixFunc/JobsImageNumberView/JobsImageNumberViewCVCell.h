@@ -5,11 +5,11 @@
 //  Created by Jobs on 2021/11/29.
 //
 
-#import "BaseCollectionViewCell.h"
+#import "JobsBaseCollectionViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JobsImageNumberViewCVCell : BaseCollectionViewCell
+@interface JobsImageNumberViewCVCell : JobsBaseCollectionViewCell
 
 @end
 

@@ -5,11 +5,11 @@
 //  Created by Jobs on 2021/12/28.
 //
 
-#import "BaseTableViewCell.h"
+#import "JobsBaseTableViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface JobsDropDownListTBVCell : BaseTableViewCell
+@interface JobsDropDownListTBVCell : JobsBaseTableViewCell
 
 @end
 

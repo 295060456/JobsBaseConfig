@@ -38,10 +38,10 @@
     }return _placeholderFont;
 }
 
--(UIColor *)placeholderColor{
-    if (!_placeholderColor) {
-        _placeholderColor = HEXCOLOR(0x524740);
-    }return _placeholderColor;
+-(UIColor *)placeholderCor{
+    if (!_placeholderCor) {
+        _placeholderCor = HEXCOLOR(0x524740);
+    }return _placeholderCor;
 }
 
 @end
