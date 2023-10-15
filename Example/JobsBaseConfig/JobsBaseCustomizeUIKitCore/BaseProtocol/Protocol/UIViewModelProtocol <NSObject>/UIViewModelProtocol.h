@@ -139,6 +139,7 @@ NS_ASSUME_NONNULL_END
 \
 @synthesize titleFont = _titleFont;\
 @synthesize titleAlignment = _titleAlignment;\
+@synthesize selected = _selected;\
 @synthesize normalImage = _normalImage;\
 @synthesize normalBackgroundImage = _normalBackgroundImage;\
 @synthesize normalTitle = _normalTitle;\
@@ -288,6 +289,7 @@ NS_ASSUME_NONNULL_END
 \
 @dynamic titleFont;\
 @dynamic titleAlignment;\
+@dynamic selected;\
 @dynamic normalImage;\
 @dynamic normalBackgroundImage;\
 @dynamic normalTitle;\

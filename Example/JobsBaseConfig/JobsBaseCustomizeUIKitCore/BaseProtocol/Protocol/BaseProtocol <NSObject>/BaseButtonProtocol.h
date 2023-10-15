@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// Common
 @property(nonatomic,strong)UIFont *titleFont;
 @property(nonatomic,assign)NSTextAlignment titleAlignment;
+@property(nonatomic,assign)BOOL selected;
 /// Normal
 @property(nonatomic,strong)UIImage *normalImage;
 @property(nonatomic,strong)UIImage *normalBackgroundImage;
@@ -103,6 +104,7 @@ NS_ASSUME_NONNULL_END
 \
 @synthesize titleFont = _titleFont;\
 @synthesize titleAlignment = _titleAlignment;\
+@synthesize selected = _selected;\
 @synthesize normalImage = _normalImage;\
 @synthesize normalBackgroundImage = _normalBackgroundImage;\
 @synthesize normalTitle = _normalTitle;\
@@ -158,6 +160,7 @@ NS_ASSUME_NONNULL_END
 \
 @dynamic titleFont;\
 @dynamic titleAlignment;\
+@dynamic selected;\
 @dynamic normalImage;\
 @dynamic normalBackgroundImage;\
 @dynamic normalTitle;\

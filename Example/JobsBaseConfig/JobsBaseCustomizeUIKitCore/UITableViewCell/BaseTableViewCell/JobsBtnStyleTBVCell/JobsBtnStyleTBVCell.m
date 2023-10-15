@@ -40,6 +40,14 @@ UIViewModelProtocol_synthesize
 +(CGFloat)cellHeightWithModel:(UIViewModel *_Nullable)model{
     return JobsWidth(55);
 }
+
+-(UIButton *)getLeftBtn{
+    return self.leftBtn;
+}
+
+-(UIButton *)getRightBtn{
+    return self.rightBtn;
+}
 #pragma mark —— BaseViewProtocol
 /// 获取绑定的数据源
 -(UIViewModel *)getViewModel{
@@ -82,10 +90,10 @@ UIViewModelProtocol_synthesize
                                                   primaryAction:nil
                                                 clickEventBlock:^id(BaseButton *x) {
             @jobs_strongify(self)
-            x.selected = !x.selected;
             if (self.objectBlock) self.objectBlock(x);
             return nil;
         }];
+        _leftBtn.tag = 1;
         [self.contentView addSubview:_leftBtn];
         [_leftBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self.contentView);
@@ -93,12 +101,14 @@ UIViewModelProtocol_synthesize
             make.height.mas_equalTo(JobsWidth(50));
         }];
     }
-    _leftBtn.jobsResetBtnTitle(self.viewModel.textModel.text);
-    _leftBtn.jobsResetBtnImage(self.viewModel.image);
+    _leftBtn.data = self.viewModel;
+    _leftBtn.jobsResetBtnTitle(self.viewModel.buttonModel.normalTitle);
+    _leftBtn.selected = self.viewModel.buttonModel.selected;
+    _leftBtn.jobsResetBtnImage(_rightBtn.selected ? self.viewModel.buttonModel.selectedImage : self.viewModel.buttonModel.normalImage);
     _leftBtn.jobsResetImagePlacement(NSDirectionalRectEdgeLeading);
     _leftBtn.jobsResetImagePadding(JobsWidth(5));
-    _leftBtn.jobsResetTitleFont(self.viewModel.textModel.font);
-    _leftBtn.jobsResetBtnTitleCor(self.viewModel.textModel.textCor);
+    _leftBtn.jobsResetTitleFont(self.viewModel.buttonModel.titleFont);
+    _leftBtn.jobsResetBtnTitleCor(self.viewModel.buttonModel.normalTitleColor);
     [_leftBtn makeBtnLabelByShowingType:UILabelShowingType_03];
     return _leftBtn;
 }
@@ -139,11 +149,10 @@ UIViewModelProtocol_synthesize
                                                    primaryAction:nil
                                                  clickEventBlock:^id(BaseButton *x) {
             @jobs_strongify(self)
-            x.selected = !x.selected;
-            x.jobsResetBtnImage(x.selected ? self.viewModel.subButtonModel.selectedImage : self.viewModel.subButtonModel.normalImage);
             if (self.objectBlock) self.objectBlock(x);
             return nil;
         }];
+        _rightBtn.tag = 2;
         [self.contentView addSubview:_rightBtn];
         [_rightBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self.contentView);
@@ -151,7 +160,9 @@ UIViewModelProtocol_synthesize
             make.height.mas_equalTo(JobsWidth(50));
         }];
     }
+    _rightBtn.data = self.viewModel;
     _rightBtn.jobsResetBtnTitle(self.viewModel.subButtonModel.normalTitle);
+    _rightBtn.selected = self.viewModel.subButtonModel.selected;
     _rightBtn.jobsResetBtnImage(_rightBtn.selected ? self.viewModel.subButtonModel.selectedImage : self.viewModel.subButtonModel.normalImage);
     _rightBtn.jobsResetImagePlacement(NSDirectionalRectEdgeLeading);
     _rightBtn.jobsResetImagePadding(JobsWidth(5));

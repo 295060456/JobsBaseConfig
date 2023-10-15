@@ -1889,6 +1889,7 @@
 		C53F69902AD0E5A600B51391 /* NSObject+NSMutableParagraphStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+NSMutableParagraphStyle.h"; sourceTree = "<group>"; };
 		C54014D62ADB38370059DE6A /* JobsBtnStyleTBVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsBtnStyleTBVCell.m; sourceTree = "<group>"; };
 		C54014D72ADB38370059DE6A /* JobsBtnStyleTBVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBtnStyleTBVCell.h; sourceTree = "<group>"; };
+		C54015462ADBC8380059DE6A /* JobsBtnStyleTBVCell.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = JobsBtnStyleTBVCell.jpg; sourceTree = "<group>"; };
 		C5432D642ACB1C9F008F92B0 /* UITBVCellFoldVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITBVCellFoldVC.h; sourceTree = "<group>"; };
 		C5432D652ACB1C9F008F92B0 /* UITBVCellFoldVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITBVCellFoldVC.m; sourceTree = "<group>"; };
 		C5432D6B2ACB1CF6008F92B0 /* MSCommentTBVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCommentTBVCell.h; sourceTree = "<group>"; };
@@ -6714,6 +6715,7 @@
 		C54014D52ADB38370059DE6A /* JobsBtnStyleTBVCell */ = {
 			isa = PBXGroup;
 			children = (
+				C54015462ADBC8380059DE6A /* JobsBtnStyleTBVCell.jpg */,
 				C54014D62ADB38370059DE6A /* JobsBtnStyleTBVCell.m */,
 				C54014D72ADB38370059DE6A /* JobsBtnStyleTBVCell.h */,
 			);

@@ -22,6 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 设置Cell的背景图片
 -(void)setCellBgImage:(UIImage *)bgImage;
 
+-(UIButton *)getLeftBtn;
+-(UIButton *)getRightBtn;
+
 @end
 
 NS_ASSUME_NONNULL_END
