@@ -84,7 +84,21 @@ static inline NSMutableArray <NSString *>* printMethodListByObj(id instanceObj){
 static inline NSMutableArray <NSString *>* printProtocolListByObj(id instanceObj){
     return printIvarListByClass([instanceObj class]);
 }
-
+#pragma mark —— 其他
+/// 判断一个父类是否包含某个方法（包含私有方法）
+static inline BOOL jobsClassisContainsSuperMethod(Class cls,NSString *methodName){
+    unsigned int outCount = 0;
+    Method *methods = class_copyMethodList(cls, &outCount);
+    for (int i = 0; i < outCount; i ++) {
+        Method method = methods[i];
+        SEL methodNameSEL = method_getName(method);
+        if ([methodName isEqualToString:NSStringFromSelector(methodNameSEL)]) {
+            free(methods);
+            return YES;
+        }
+    }free(methods);
+    return NO;
+}
 @interface NSObject (Class)
 /// 返回并打印成员变量列表
 -(NSMutableArray <NSString *>*)printIvarList;

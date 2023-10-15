@@ -8,7 +8,10 @@
 
 #import "RBCLikeButton.h"
 #define leftTime 0.5
-@interface RBCLikeButton()
+@interface RBCLikeButton(){
+    //记录初始"上升数字"label的Y值
+    CGFloat _incOrginY;
+}
 /// UI
 @property(nonatomic,strong)CAEmitterLayer * explosionLayer;
 @property(nonatomic,strong)UIImageView *backImageView;
@@ -20,11 +23,8 @@
 
 @end
 
-@implementation RBCLikeButton {
-    //记录初始"上升数字"label的Y值
-    CGFloat _incOrginY;
-}
-
+@implementation RBCLikeButton
+BaseButtonProtocol_synthesize
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
     }return self;

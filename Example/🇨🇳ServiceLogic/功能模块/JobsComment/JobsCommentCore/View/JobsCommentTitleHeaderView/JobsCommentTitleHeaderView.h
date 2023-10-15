@@ -7,6 +7,8 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseView.h"
+#import "UIButton+UI.h"
+#import "UIView+AutoSelfAdaptionSize.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

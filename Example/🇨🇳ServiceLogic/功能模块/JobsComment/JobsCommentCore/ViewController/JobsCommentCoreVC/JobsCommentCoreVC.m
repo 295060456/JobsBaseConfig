@@ -12,6 +12,8 @@
 @property(nonatomic,strong)JobsCommentTitleHeaderView *titleHeaderView;
 @property(nonatomic,strong)UITableView *tableView;
 /// Data
+@property(nonatomic,strong)JobsCommentModel *mjModel;
+@property(nonatomic,strong)JobsCommentModel *yyModel;
 
 @end
 
@@ -41,9 +43,13 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = UIColor.orangeColor;
+//    [self setGKNav];
+//    [self setGKNavBackBtn];
+//    self.gk_navRightBarButtonItem = [UIBarButtonItem.alloc initWithCustomView:self.aboutBtn];
+//    self.gk_navLeftBarButtonItem = [UIBarButtonItem.alloc initWithCustomView:self.aboutBtn];
     self.isHiddenNavigationBar = YES;//禁用系统的导航栏
     self.gk_statusBarHidden = YES;
-    self.gk_navigationBar.hidden = YES;
+    self.gk_navigationBar.jobsVisible = YES;
     
     self.titleHeaderView.alpha = 1;
     self.tableView.alpha = 1;
@@ -65,6 +71,22 @@
 -(void)touchesBegan:(NSSet<UITouch *> *)touches
           withEvent:(UIEvent *)event{
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+#pragma mark —— 一些公有方法
+-(void)setMJModel:(JobsCommentModel *)mjModel{
+    self.mjModel = mjModel;
+}
+
+-(void)setYYModel:(JobsCommentModel *)yyModel{
+    self.yyModel = yyModel;
+}
+
+-(JobsCommentTitleHeaderView *)getJobsCommentTitleHeaderView{
+    return self.titleHeaderView;
+}
+
+-(UITableView *)getTableView{
+    return self.tableView;
 }
 #pragma mark —— 一些私有方法
 /// 装载本地假数据
@@ -203,7 +225,7 @@ heightForHeaderInSection:(NSInteger)section{///  👌
 /// 一级评论数据 展示在viewForHeaderInSection
 /// 这里涉及到复用机制，return出去的是UITableViewHeaderFooterView的派生类
 - (nullable UIView *)tableView:(UITableView *)tableView
-viewForHeaderInSection:(NSInteger)section{
+        viewForHeaderInSection:(NSInteger)section{
     JobsCommentPopUpView_viewForHeaderInSection *header = JobsCommentPopUpView_viewForHeaderInSection.new;
     [header richElementsInViewWithModel:self.mjModel.listDataArr[section]];//一级评论数据 展示在viewForHeaderInSection
     @jobs_weakify(self)
@@ -217,6 +239,7 @@ viewForHeaderInSection:(NSInteger)section{
 -(JobsCommentTitleHeaderView *)titleHeaderView{
     if (!_titleHeaderView) {
         _titleHeaderView = JobsCommentTitleHeaderView.new;
+        [_titleHeaderView richElementsInViewWithModel:nil];
         @jobs_weakify(self)
         [_titleHeaderView actionObjectBlock:^(id data) {
             @jobs_strongify(self)
@@ -226,7 +249,7 @@ viewForHeaderInSection:(NSInteger)section{
         [self.view addSubview:_titleHeaderView];
         [_titleHeaderView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.left.right.equalTo(self.view);
-            make.height.mas_equalTo(50);
+            make.height.mas_equalTo(JobsWidth(50));
         }];
     }return _titleHeaderView;
 }
@@ -250,8 +273,8 @@ viewForHeaderInSection:(NSInteger)section{
         _tableView.contentInset = UIEdgeInsetsMake(0, 0, self.popUpHeight, 0);
         [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         _tableView.ly_emptyView = [EmptyView emptyViewWithImageStr:@"Indeterminate Spinner - Small"
-                                                          titleStr:@"没有评论"
-                                                         detailStr:@"来发布第一条吧"];
+                                                          titleStr:Internationalization(@"没有评论")
+                                                         detailStr:Internationalization(@"来发布第一条吧")];
 
         @jobs_weakify(self)
         _tableView.mj_header = [LOTAnimationMJRefreshHeader headerWithRefreshingBlock:^{
@@ -266,8 +289,8 @@ viewForHeaderInSection:(NSInteger)section{
         
         [self.view addSubview:_tableView];
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.left.right.equalTo(self.view);
             make.top.equalTo(self.titleHeaderView.mas_bottom);
+            make.bottom.left.right.equalTo(self.view);
         }];
     }return _tableView;
 }

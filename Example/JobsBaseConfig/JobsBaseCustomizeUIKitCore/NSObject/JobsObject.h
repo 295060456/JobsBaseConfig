@@ -34,6 +34,10 @@
 #import "JobsSEL_IMP.h"
 /// 用Objective-C仿写Swift中的元祖
 #import "JobsTuple.h"
+/// 按钮数据源
+#import "UIButtonModel.h"
+/// 文本数据源
+#import "UITextModel.h"
 
 #pragma mark —— Category
 /// 【二次封装HXPhotoPicker】弹出系统相册选择页面 + 调取系统相机进行拍摄
@@ -103,8 +107,7 @@
 #import "NSObject+NSMutableParagraphStyle.h"
 /// 平替UIPickerView
 #import "NSObject+BRPickerView.h"
-
-#import "UIButtonModel.h"
-#import "UITextModel.h"
+/// 图片查看器
+#import "NSObject+GKPhotoBrowser.h"
 
 #endif /* JobsObject_h */

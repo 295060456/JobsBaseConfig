@@ -11,11 +11,13 @@
 #import "MacroDef_Size.h"
 #import "MacroDef_Cor.h"
 #import "MacroDef_Func.h"
+#import "MacroDef_Sys.h"
 #import "UIButton+UI.h"
 #import "UIView+Measure.h"
 #import "NSObject+Extras.h"
+#import "NSObject+GKPhotoBrowser.h"
 
-typedef enum : NSUInteger {
+typedef NS_OPTIONS(NSUInteger, ShadowDirection) {
     ShadowDirection_top = 0,
     ShadowDirection_down,
     ShadowDirection_left,
@@ -25,7 +27,7 @@ typedef enum : NSUInteger {
     ShadowDirection_rightTop,
     ShadowDirection_rightDown,
     ShadowDirection_All
-} ShadowDirection;
+};
 
 typedef NS_OPTIONS(NSUInteger, UIBorderSideType) {
     UIBorderSideTypeAll  = 0,
@@ -91,6 +93,19 @@ typedef NS_OPTIONS(NSUInteger, UIBorderSideType) {
 /// 判断是否需要滚动
 -(BOOL)shouldAutoScroll;
 #pragma mark —— 其他
+/// 针对数据源是UIImage  *的GKPhotoBrowser
+-(void)viewTapGRSavePicsWithImageDataMutArr:(NSMutableArray <UIImage *>* _Nonnull)imageDataMutArr
+                                atIndexPath:(NSIndexPath *_Nonnull)indexPath
+                                   byTarget:(id _Nonnull)target;
+/// 针对数据源是NSURL  *的GKPhotoBrowser
+-(void)viewTapGRSavePicsWithImageUrlMutArr:(NSMutableArray <NSURL *>* _Nonnull)imageUrlMutArr
+                               atIndexPath:(NSIndexPath * _Nonnull)indexPath
+                                  byTarget:(id _Nonnull)target;
+/// 针对数据源是NSString  *的GKPhotoBrowser
+-(void)viewTapGRSavePicsWithImageUrlStrMutArr:(NSMutableArray <NSString *>* _Nonnull)imageUrlStrMutArr
+                                  atIndexPath:(NSIndexPath * _Nonnull)indexPath
+                                     byTarget:(id _Nonnull)target;
+-(void)viewTapGRSavePicsBaseConfigByTarget:(id _Nonnull)target;
 -(BOOL)jobsVisible;
 -(void)setJobsVisible:(BOOL)jobsVisible;
 /// popView取消按钮常规处理方法

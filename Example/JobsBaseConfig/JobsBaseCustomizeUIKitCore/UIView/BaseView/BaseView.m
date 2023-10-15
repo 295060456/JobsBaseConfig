@@ -57,6 +57,9 @@ BaseViewProtocol_synthesize
     [super layoutIfNeeded];
 }
 #pragma mark —— BaseViewProtocol
+-(void)richElementsInViewWithModel:(id _Nullable)model{
+    
+}
 #pragma mark —— 用类方法定义
 /// 具体由子类进行复写【数据定宽】【如果所传参数为基本数据类型，那么包装成对象NSNumber进行转化承接】
 +(CGFloat)viewWidthWithModel:(id _Nullable)model{

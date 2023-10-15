@@ -209,7 +209,8 @@ static dispatch_once_t static_rightBtnsViewOnceToken;
                 
                 JobsCommentCoreVC *jobsCommentCoreVC = JobsCommentCoreVC.new;
                 JobsPresentationCtrl *presentationController NS_VALID_UNTIL_END_OF_SCOPE;
-                presentationController = [JobsPresentationCtrl.alloc initWithPresentedViewController:jobsCommentCoreVC presentingViewController:self.jobsGetCurrentViewController];
+                presentationController = [JobsPresentationCtrl.alloc initWithPresentedViewController:jobsCommentCoreVC
+                                                                            presentingViewController:self.jobsGetCurrentViewController];
                 jobsCommentCoreVC.presentUpHeight = JobsWidth(800);
                 /// jobsCommentCoreVC.view.backgroundColor = JobsRedColor;
                 jobsCommentCoreVC.transitioningDelegate = presentationController;

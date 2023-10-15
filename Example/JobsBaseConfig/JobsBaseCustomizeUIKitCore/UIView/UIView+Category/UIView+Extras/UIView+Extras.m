@@ -342,6 +342,55 @@
     return shouldScroll;
 }
 #pragma mark —— 其他
+/// 针对数据源是UIImage  *的GKPhotoBrowser
+-(void)viewTapGRSavePicsWithImageDataMutArr:(NSMutableArray <UIImage *>* _Nonnull)imageDataMutArr
+                                atIndexPath:(NSIndexPath * _Nonnull)indexPath
+                                   byTarget:(id _Nonnull)target{
+    [self viewTapGRSavePicsBaseConfigByTarget:target];
+    @jobs_weakify(self)
+    self.tapGR_SelImp.selector = [target jobsSelectorBlock:^(id target,
+                                                           UITapGestureRecognizer *arg) {
+        @jobs_strongify(self)
+        GKPhotoBrowser *browser = [target tapImageWithIndexPath:indexPath imageDataMutArr:imageDataMutArr];
+        [browser showFromVC:self.currentController];
+    }];self.tapGR.enabled = YES;/// 必须在设置完Target和selector以后方可开启执行
+}
+/// 针对数据源是NSURL  *的GKPhotoBrowser
+-(void)viewTapGRSavePicsWithImageUrlMutArr:(NSMutableArray <NSURL *>* _Nonnull)imageUrlMutArr
+                               atIndexPath:(NSIndexPath * _Nonnull)indexPath
+                                  byTarget:(id _Nonnull)target{
+    [self viewTapGRSavePicsBaseConfigByTarget:target];
+    @jobs_weakify(self)
+    self.tapGR_SelImp.selector = [target jobsSelectorBlock:^(id target,
+                                                           UITapGestureRecognizer *arg) {
+        @jobs_strongify(self)
+        GKPhotoBrowser *browser = [target tapImageWithIndexPath:indexPath imageUrlMutArr:imageUrlMutArr];
+        [browser showFromVC:self.currentController];
+    }];self.tapGR.enabled = YES;/// 必须在设置完Target和selector以后方可开启执行
+}
+/// 针对数据源是NSString  *的GKPhotoBrowser
+-(void)viewTapGRSavePicsWithImageUrlStrMutArr:(NSMutableArray <NSString *>* _Nonnull)imageUrlStrMutArr
+                                  atIndexPath:(NSIndexPath * _Nonnull)indexPath
+                                     byTarget:(id _Nonnull)target{
+    [self viewTapGRSavePicsBaseConfigByTarget:target];
+    @jobs_weakify(self)
+    self.tapGR_SelImp.selector = [target jobsSelectorBlock:^(id target,
+                                                           UITapGestureRecognizer *arg) {
+        @jobs_strongify(self)
+        GKPhotoBrowser *browser = [target tapImageWithIndexPath:indexPath imageUrlStrMutArr:imageUrlStrMutArr];
+        [browser showFromVC:self.currentController];
+    }];self.tapGR.enabled = YES;/// 必须在设置完Target和selector以后方可开启执行
+}
+/// 对GKPhotoBrowser保存图片的基础设置
+-(void)viewTapGRSavePicsBaseConfigByTarget:(id _Nonnull)target{
+    self.numberOfTouchesRequired = 1;
+    self.numberOfTapsRequired = 1;/// ⚠️注意：如果要设置长按手势，此属性必须设置为0⚠️
+    self.minimumPressDuration = 0.1;
+    self.numberOfTouchesRequired = 1;
+    self.allowableMovement = 1;
+    self.userInteractionEnabled = YES;
+    self.target = target;
+}
 /// popView取消按钮常规处理方法
 -(void)cancelBtnActionForPopView:(id _Nullable)object{
     [self tf_hide];
@@ -468,18 +517,16 @@
 }
 /// 设置控件是否可见，对影响可视化的hidden 和 alpha属性进行操作
 /// 需要特别注意的是：这个地方的jobsVisible不能属性化，否则在某些情况下会出现异常（只会走子类方法不会走分类方法）
+JobsKey(_jobsVisible)
 -(BOOL)jobsVisible{
-    BOOL JobsVisible = [objc_getAssociatedObject(self, _cmd) boolValue];
+    BOOL JobsVisible = [Jobs_getAssociatedObject(_jobsVisible) boolValue];
     return JobsVisible;
 }
 
 -(void)setJobsVisible:(BOOL)jobsVisible{
     self.hidden = !jobsVisible;
     self.alpha = jobsVisible;
-    objc_setAssociatedObject(self,
-                             _cmd,
-                             [NSNumber numberWithBool:jobsVisible],
-                             OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    Jobs_setAssociatedRETAIN_NONATOMIC(_jobsVisible, @(jobsVisible))
 }
 
 @end
