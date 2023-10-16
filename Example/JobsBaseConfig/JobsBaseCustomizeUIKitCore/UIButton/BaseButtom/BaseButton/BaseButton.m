@@ -56,8 +56,11 @@
     if (self.subtitleLabel.labelShowingType == UILabelShowingType_02) {
         [self.subtitleLabel setTextLayerScroll];
     }
-    if(self.titleLabel.labelShowingType != UILabelShowingType_02 &&
+    
+    if(self.titleLabel.labelShowingType == UILabelShowingType_02 ||
        self.subtitleLabel.labelShowingType == UILabelShowingType_02){
+        return;
+    }else{
         [super setFrame:frame];
     }
 }

@@ -44,6 +44,35 @@ typedef NS_ENUM(NSInteger,JobsUpdateType) {
     JobsUpdateByUser,/// 用户手动更新
     JobsUpdate_All,/// 系统自动更新
 };
+
+typedef struct{
+    NSInteger section;
+    NSInteger rowOrItem;
+}JobsIndexPath;/// 这样写的话，外面可以JobsIndexPath.section 进行调用
+
+typedef NS_ENUM(NSInteger, CompareRes) {
+    CompareRes_Error,
+    CompareRes_MoreThan, /// >
+    CompareRes_Equal,/// ==
+    CompareRes_LessThan /// <
+};
+
+typedef NS_ENUM(NSInteger, JobsSearchStrategy) {
+    JobsSearchStrategy_Accurate = 0,/// 精确查询
+    JobsSearchStrategy_Fuzzy/// 模糊查询
+};
+
+typedef NS_ENUM(NSInteger, ScrollDirection) {
+    ScrollDirectionNone = 0,
+    ScrollDirectionRight,/// 右👉🏻
+    ScrollDirectionLeft,/// 左👈🏻
+    ScrollDirectionUp,/// 上面👆🏻
+    ScrollDirectionDown,/// 下面👇🏻
+    ScrollDirectionRight_UP,/// 右上👉🏻👆🏻
+    ScrollDirectionLeft_UP,/// 左上👈🏻👆🏻
+    ScrollDirectionRight_Down,/// 右下👉🏻👇🏻
+    ScrollDirectionLeft_Down,/// 左下👈🏻👇🏻
+};
 #pragma mark —— 订单相关
 /// 时间定义
 typedef NS_ENUM(NSInteger,JobsOrderDate) {

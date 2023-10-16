@@ -19,8 +19,8 @@
 #import "MacroDef_Func.h"
 #import "MacroDef_SysWarning.h"
 #import "FileFolderHandleTool.h"
+#import "JobsDefineAllEnumHeader.h"
 #import "NSObject+Class.h"
-#import "NSObject.h"
 
 #if __has_include(<WHToast/WHToast.h>)
 #import <WHToast/WHToast.h>

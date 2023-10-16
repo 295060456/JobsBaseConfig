@@ -25,6 +25,7 @@
 #import "ZFCustomControlView.h"
 #import "CustomZFPlayerControlView.h"
 #import "UINavigationController+FDFullscreenPopGesture.h"/// 手势滑动返回
+#import "JobsShareView.h"
 /// FOR TEST
 #import "JobsShowObjInfoVC.h"
 

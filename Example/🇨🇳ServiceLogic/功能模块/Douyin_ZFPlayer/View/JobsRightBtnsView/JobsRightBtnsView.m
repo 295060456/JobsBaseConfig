@@ -270,6 +270,11 @@ static dispatch_once_t static_rightBtnsViewOnceToken;
             [x.imageView addViewAnimationWithCompletionBlock:^(id data) {
                 @jobs_strongify(self)
                 self->_shareBtn.tag = MKRightBtnViewBtnType_shareBtn;//写在block外部，此值异常
+                
+                JobsShareView *shareView = JobsShareView.new;
+                [shareView richElementsInViewWithModel:nil];
+                [self popupshowSlideWithView:shareView];
+                
                 if (self.objectBlock) self.objectBlock(self->_shareBtn);
             }];return nil;
         }];

@@ -9,6 +9,7 @@
 #import "BaseView.h"
 #import "UIButton+UI.h"
 #import "RBCLikeButton.h"
+#import "JobsShareView.h"
 
 typedef NS_ENUM(NSUInteger, MKRightBtnViewBtnType) {
     MKRightBtnViewBtnType_loveBtn,///点赞

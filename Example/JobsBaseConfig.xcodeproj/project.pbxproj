@@ -48,10 +48,6 @@
 		840F960727736427004979E9 /* UITabBar+TLAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F92B527736425004979E9 /* UITabBar+TLAnimation.m */; };
 		840F960827736427004979E9 /* UITabBar+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F92B627736425004979E9 /* UITabBar+Ex.m */; };
 		840F960927736427004979E9 /* JobsTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F92BB27736425004979E9 /* JobsTabBar.m */; };
-		840F960A27736427004979E9 /* BWItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F92BE27736425004979E9 /* BWItemModel.m */; };
-		840F960B27736427004979E9 /* BWShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F92BF27736425004979E9 /* BWShareView.m */; };
-		840F960C27736427004979E9 /* BWItemCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F92C027736425004979E9 /* BWItemCollectionViewCell.m */; };
-		840F960D27736427004979E9 /* 分享控件的用法.md in Resources */ = {isa = PBXBuildFile; fileRef = 840F92C327736425004979E9 /* 分享控件的用法.md */; };
 		840F960F27736427004979E9 /* ZBURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F92CC27736425004979E9 /* ZBURLRequest.m */; };
 		840F961027736427004979E9 /* ZBRequestEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F92CE27736425004979E9 /* ZBRequestEngine.m */; };
 		840F961127736427004979E9 /* ZBRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 840F92CF27736425004979E9 /* ZBRequestManager.m */; };
@@ -522,6 +518,8 @@
 		C552266C2AC89F9000668516 /* URLManagerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C55226672AC89F9000668516 /* URLManagerModel.m */; };
 		C552266D2AC89F9000668516 /* NSObject+URLManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C552266A2AC89F9000668516 /* NSObject+URLManager.m */; };
 		C55226712AC89F9E00668516 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C55226702AC89F9E00668516 /* DataManager.m */; };
+		C55BE0D22ADDEEF9005B63C4 /* JobsShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = C55BE0CF2ADDEEF9005B63C4 /* JobsShareView.m */; };
+		C55BE1532ADDEF8C005B63C4 /* MSMineView6CVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C55BE1512ADDEF8C005B63C4 /* MSMineView6CVCell.m */; };
 		C55C895628437190005295B1 /* JXCategoryPopupVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C55C895528437190005295B1 /* JXCategoryPopupVC.m */; };
 		C55C8959284371A9005295B1 /* JXCategoryPopupSubVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C55C8958284371A9005295B1 /* JXCategoryPopupSubVC.m */; };
 		C55E6B5428436F8100ABA84A /* JobsCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = C55E6B4E28436F8100ABA84A /* JobsCustomView.m */; };
@@ -664,7 +662,6 @@
 		C593DF772AC897FC00F875B5 /* UIViewController+XLBubbleTransition.md in Resources */ = {isa = PBXBuildFile; fileRef = C593DD562AC897FB00F875B5 /* UIViewController+XLBubbleTransition.md */; };
 		C593DF782AC897FC00F875B5 /* XLBubbleTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DD582AC897FB00F875B5 /* XLBubbleTransition.m */; };
 		C593DF792AC897FC00F875B5 /* UIViewController+XLBubbleTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DD592AC897FB00F875B5 /* UIViewController+XLBubbleTransition.m */; };
-		C593DF7A2AC897FC00F875B5 /* UIViewController+BWShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DD5C2AC897FB00F875B5 /* UIViewController+BWShareView.m */; };
 		C593DF7B2AC897FC00F875B5 /* UIViewController+SafeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DD5F2AC897FB00F875B5 /* UIViewController+SafeTransition.m */; };
 		C593DF7C2AC897FC00F875B5 /* UIViewController+JPImageresizerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DD622AC897FB00F875B5 /* UIViewController+JPImageresizerView.m */; };
 		C593DF7D2AC897FC00F875B5 /* UIViewController+Lottie.m in Sources */ = {isa = PBXBuildFile; fileRef = C593DD652AC897FB00F875B5 /* UIViewController+Lottie.m */; };
@@ -1033,13 +1030,6 @@
 		840F92BA27736425004979E9 /* JobsTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsTabBar.h; sourceTree = "<group>"; };
 		840F92BB27736425004979E9 /* JobsTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsTabBar.m; sourceTree = "<group>"; };
 		840F92BC27736425004979E9 /* JobsTabbarControllerSysEx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsTabbarControllerSysEx.h; sourceTree = "<group>"; };
-		840F92BE27736425004979E9 /* BWItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWItemModel.m; sourceTree = "<group>"; };
-		840F92BF27736425004979E9 /* BWShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWShareView.m; sourceTree = "<group>"; };
-		840F92C027736425004979E9 /* BWItemCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWItemCollectionViewCell.m; sourceTree = "<group>"; };
-		840F92C127736425004979E9 /* BWItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWItemModel.h; sourceTree = "<group>"; };
-		840F92C227736425004979E9 /* BWItemCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWItemCollectionViewCell.h; sourceTree = "<group>"; };
-		840F92C327736425004979E9 /* 分享控件的用法.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "分享控件的用法.md"; sourceTree = "<group>"; };
-		840F92C427736425004979E9 /* BWShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWShareView.h; sourceTree = "<group>"; };
 		840F92C527736425004979E9 /* JobsMixFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsMixFunc.h; sourceTree = "<group>"; };
 		840F92CB27736425004979E9 /* ZBRequestConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBRequestConst.h; sourceTree = "<group>"; };
 		840F92CC27736425004979E9 /* ZBURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBURLRequest.m; sourceTree = "<group>"; };
@@ -1923,6 +1913,12 @@
 		C552266B2AC89F9000668516 /* NSObject+URLManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+URLManager.h"; sourceTree = "<group>"; };
 		C552266F2AC89F9E00668516 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		C55226702AC89F9E00668516 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		C55BE0CE2ADDEEF9005B63C4 /* 分享弹窗.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "分享弹窗.jpg"; sourceTree = "<group>"; };
+		C55BE0CF2ADDEEF9005B63C4 /* JobsShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsShareView.m; sourceTree = "<group>"; };
+		C55BE0D02ADDEEF9005B63C4 /* JobsShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsShareView.h; sourceTree = "<group>"; };
+		C55BE14F2ADDEF8C005B63C4 /* MSMineView6CVCell.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = MSMineView6CVCell.jpg; sourceTree = "<group>"; };
+		C55BE1502ADDEF8C005B63C4 /* MSMineView6CVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSMineView6CVCell.h; sourceTree = "<group>"; };
+		C55BE1512ADDEF8C005B63C4 /* MSMineView6CVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSMineView6CVCell.m; sourceTree = "<group>"; };
 		C55C895428437190005295B1 /* JXCategoryPopupVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JXCategoryPopupVC.h; sourceTree = "<group>"; };
 		C55C895528437190005295B1 /* JXCategoryPopupVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JXCategoryPopupVC.m; sourceTree = "<group>"; };
 		C55C8957284371A9005295B1 /* JXCategoryPopupSubVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JXCategoryPopupSubVC.h; sourceTree = "<group>"; };
@@ -2243,8 +2239,6 @@
 		C593DD572AC897FB00F875B5 /* UIViewController+XLBubbleTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+XLBubbleTransition.h"; sourceTree = "<group>"; };
 		C593DD582AC897FB00F875B5 /* XLBubbleTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLBubbleTransition.m; sourceTree = "<group>"; };
 		C593DD592AC897FB00F875B5 /* UIViewController+XLBubbleTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+XLBubbleTransition.m"; sourceTree = "<group>"; };
-		C593DD5C2AC897FB00F875B5 /* UIViewController+BWShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BWShareView.m"; sourceTree = "<group>"; };
-		C593DD5D2AC897FB00F875B5 /* UIViewController+BWShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BWShareView.h"; sourceTree = "<group>"; };
 		C593DD5F2AC897FB00F875B5 /* UIViewController+SafeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SafeTransition.m"; sourceTree = "<group>"; };
 		C593DD602AC897FB00F875B5 /* UIViewController+SafeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SafeTransition.h"; sourceTree = "<group>"; };
 		C593DD622AC897FB00F875B5 /* UIViewController+JPImageresizerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JPImageresizerView.m"; sourceTree = "<group>"; };
@@ -2812,10 +2806,10 @@
 			isa = PBXGroup;
 			children = (
 				840F92C527736425004979E9 /* JobsMixFunc.h */,
+				C55BE0CD2ADDEEF9005B63C4 /* 分享弹窗 */,
 				C5366D6B2ABA3F4E00BA9C3C /* 在指定的y区间内滑动视图 */,
 				C5C4808D284E22C4007916B3 /* JobsShowNumView */,
 				840F92D827736425004979E9 /* 播放器控制层 */,
-				840F92BD27736425004979E9 /* 分享控件 */,
 				840F92DF27736425004979E9 /* 广告或者公示弹出框 */,
 				840F927727736425004979E9 /* 深度拓展系统UITabBar全家桶 */,
 				840F932F27736426004979E9 /* 手势滑动返回 */,
@@ -3071,20 +3065,6 @@
 				840F92BB27736425004979E9 /* JobsTabBar.m */,
 			);
 			path = BaseTabBar;
-			sourceTree = "<group>";
-		};
-		840F92BD27736425004979E9 /* 分享控件 */ = {
-			isa = PBXGroup;
-			children = (
-				840F92C327736425004979E9 /* 分享控件的用法.md */,
-				840F92C227736425004979E9 /* BWItemCollectionViewCell.h */,
-				840F92C027736425004979E9 /* BWItemCollectionViewCell.m */,
-				840F92C127736425004979E9 /* BWItemModel.h */,
-				840F92BE27736425004979E9 /* BWItemModel.m */,
-				840F92C427736425004979E9 /* BWShareView.h */,
-				840F92BF27736425004979E9 /* BWShareView.m */,
-			);
-			path = "分享控件";
 			sourceTree = "<group>";
 		};
 		840F92C627736425004979E9 /* JobsHotLabel */ = {
@@ -6923,6 +6903,35 @@
 			path = "存取页面数据";
 			sourceTree = "<group>";
 		};
+		C55BE0CD2ADDEEF9005B63C4 /* 分享弹窗 */ = {
+			isa = PBXGroup;
+			children = (
+				C55BE0CE2ADDEEF9005B63C4 /* 分享弹窗.jpg */,
+				C55BE14E2ADDEF8C005B63C4 /* MSMineView6CVCell */,
+				C55BE14D2ADDEF7F005B63C4 /* JobsShareView */,
+			);
+			path = "分享弹窗";
+			sourceTree = "<group>";
+		};
+		C55BE14D2ADDEF7F005B63C4 /* JobsShareView */ = {
+			isa = PBXGroup;
+			children = (
+				C55BE0D02ADDEEF9005B63C4 /* JobsShareView.h */,
+				C55BE0CF2ADDEEF9005B63C4 /* JobsShareView.m */,
+			);
+			path = JobsShareView;
+			sourceTree = "<group>";
+		};
+		C55BE14E2ADDEF8C005B63C4 /* MSMineView6CVCell */ = {
+			isa = PBXGroup;
+			children = (
+				C55BE14F2ADDEF8C005B63C4 /* MSMineView6CVCell.jpg */,
+				C55BE1502ADDEF8C005B63C4 /* MSMineView6CVCell.h */,
+				C55BE1512ADDEF8C005B63C4 /* MSMineView6CVCell.m */,
+			);
+			path = MSMineView6CVCell;
+			sourceTree = "<group>";
+		};
 		C55C895A284371B2005295B1 /* JXCategoryPopupVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -8673,7 +8682,6 @@
 		C593DD5A2AC897FB00F875B5 /* UIViewController+Others */ = {
 			isa = PBXGroup;
 			children = (
-				C593DD5B2AC897FB00F875B5 /* UIViewController+BWShareView */,
 				C593DD5E2AC897FB00F875B5 /* UIViewController+SafeTransition */,
 				C593DD612AC897FB00F875B5 /* UIViewController+JPImageresizerView */,
 				C593DD642AC897FB00F875B5 /* UIViewController+Lottie */,
@@ -8686,15 +8694,6 @@
 				C593DD792AC897FB00F875B5 /* UIViewController+SuspendBtn */,
 			);
 			path = "UIViewController+Others";
-			sourceTree = "<group>";
-		};
-		C593DD5B2AC897FB00F875B5 /* UIViewController+BWShareView */ = {
-			isa = PBXGroup;
-			children = (
-				C593DD5C2AC897FB00F875B5 /* UIViewController+BWShareView.m */,
-				C593DD5D2AC897FB00F875B5 /* UIViewController+BWShareView.h */,
-			);
-			path = "UIViewController+BWShareView";
 			sourceTree = "<group>";
 		};
 		C593DD5E2AC897FB00F875B5 /* UIViewController+SafeTransition */ = {
@@ -11144,7 +11143,6 @@
 				C593DBF12AC897AA00F875B5 /* 安全区域.png in Resources */,
 				84CA5F9D27897AFB00E46E71 /* SHA-384 in Resources */,
 				C593DFF12AC897FC00F875B5 /* BaseProtocol.md in Resources */,
-				840F960D27736427004979E9 /* 分享控件的用法.md in Resources */,
 				C5368A272AC3D54D00A6AF05 /* MSMineView2.jpg in Resources */,
 				C55224292AC8994D00668516 /* 此类主要封装一些本App常用的、可以替换资源的函数调用或者是鉴权机制.md in Resources */,
 				C5C4806C284E21E5007916B3 /* NotoSansDisplay_ExtraCondensed-Italic.ttf in Resources */,
@@ -11717,7 +11715,6 @@
 				C593DF132AC897FC00F875B5 /* JobsAnimationLabel.m in Sources */,
 				C54016322ADBEA190059DE6A /* NSObject+GKPhotoBrowser.m in Sources */,
 				C593DF432AC897FC00F875B5 /* UIView+Gradient.m in Sources */,
-				840F960A27736427004979E9 /* BWItemModel.m in Sources */,
 				C593DFBB2AC897FC00F875B5 /* UIViewModel.m in Sources */,
 				C593DF862AC897FC00F875B5 /* MJRefreshConfigModel.m in Sources */,
 				84CA611C278981BD00E46E71 /* JobsProgressVC.m in Sources */,
@@ -11755,7 +11752,6 @@
 				84A491F127904A970002A837 /* JobsIMChatInfoModel.m in Sources */,
 				844B083B2764CF4800B0513D /* JXCategoryTitleBackgroundCell.m in Sources */,
 				C593DFED2AC897FC00F875B5 /* NSObject+UNUserNotificationCenterDelegate.m in Sources */,
-				840F960B27736427004979E9 /* BWShareView.m in Sources */,
 				8424779227C1141900831270 /* CoreTextLearningVC.m in Sources */,
 				C593DF8B2AC897FC00F875B5 /* BaseViewController.m in Sources */,
 				C5432D762ACB1CF6008F92B0 /* MSCommentView.m in Sources */,
@@ -11790,11 +11786,9 @@
 				C52E5CE62AC07EE500FE5494 /* MultipartFormDataParser.m in Sources */,
 				84A491F427904A970002A837 /* JobsAdNoticeView.m in Sources */,
 				840F961027736427004979E9 /* ZBRequestEngine.m in Sources */,
-				840F960C27736427004979E9 /* BWItemCollectionViewCell.m in Sources */,
 				C5932EC7282D26E500B3B053 /* JobsBaseConfigTestPopupView.m in Sources */,
 				C52E5C992AC07E9800FE5494 /* KTVHCDataUnitPool.m in Sources */,
 				C593DFCE2AC897FC00F875B5 /* NSObject+UserNotifications.m in Sources */,
-				C593DF7A2AC897FC00F875B5 /* UIViewController+BWShareView.m in Sources */,
 				C56C217C2AC1F912000BA232 /* JobsPresentingVC.m in Sources */,
 				84CA5FAC27897AFB00E46E71 /* XLChannelControl.m in Sources */,
 				C520F88F2AB3A12100142DCC /* UIProgressView+AFNetworking.m in Sources */,
@@ -11808,6 +11802,7 @@
 				8424744127C0CAEB00831270 /* RegisterApi.m in Sources */,
 				840F960027736427004979E9 /* JobsPullListTBVCell.m in Sources */,
 				C593DF902AC897FC00F875B5 /* UITableView+WWFoldableTableView.m in Sources */,
+				C55BE0D22ADDEEF9005B63C4 /* JobsShareView.m in Sources */,
 				C593DFC42AC897FC00F875B5 /* CLLanguageManager.m in Sources */,
 				C593DF262AC897FC00F875B5 /* NSBundle+CLLanguage.m in Sources */,
 				84401A7F27919E3B0038FF6F /* JobsSearchBar.m in Sources */,
@@ -11840,6 +11835,7 @@
 				C52E5CDD2AC07EE500FE5494 /* HTTPDynamicFileResponse.m in Sources */,
 				8440A1A227A1053C0089EE40 /* JobsDropDownListVC.m in Sources */,
 				84A160FA278956AF00DACA3C /* ViewController@3.m in Sources */,
+				C55BE1532ADDEF8C005B63C4 /* MSMineView6CVCell.m in Sources */,
 				C5B3AE9C285378FA0052A4A9 /* BaiShaETProjVIPSubCVCell_04.m in Sources */,
 				C5AA8B71282CE2F00057EB84 /* JobsAppDoorInputViewBaseStyle_7.m in Sources */,
 				C57A8ED62851A8E600DD089E /* OCDynamicRegisterVC.m in Sources */,

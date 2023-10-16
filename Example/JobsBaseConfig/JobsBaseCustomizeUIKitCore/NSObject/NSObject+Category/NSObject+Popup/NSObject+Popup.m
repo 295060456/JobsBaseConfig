@@ -35,7 +35,7 @@
 /// 没有自定义 popupParam（滑动模式）
 -(void)popupshowSlideWithView:(UIView *_Nullable)view{
     if (!view) view = self.popupView;
-    TFPopupParam *popupParameter = [self makeSlidePopupParameterByViewHeight:view.height];
+    TFPopupParam *popupParameter = [self makeSlidePopupParameterByViewHeight:view.size.height];
     extern AppDelegate *appDelegate;
     if(appDelegate.tabBarVC){
         [view tf_showSlide:appDelegate.tabBarVC.view

@@ -234,7 +234,7 @@ static inline void toastErr(NSString *_Nullable msg){
 #endif
 
 #ifndef JobsIndexPathForItem
-#define JobsIndexPathForItem(section,item) [NSIndexPath indexPathForRow:item inSection:section]
+#define JobsIndexPathForItem(section,item) [NSIndexPath indexPathForItem:item inSection:section]
 #endif
 
 #ifndef JobsIndexPathForRow
