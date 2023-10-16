@@ -75,10 +75,14 @@
 #pragma mark —— 一些公有方法
 -(void)setMJModel:(JobsCommentModel *)mjModel{
     self.mjModel = mjModel;
+    [self dataSource:self.mjModel.listDataArr contentView:self.tableView];
+    [self endRefreshing:self.tableView];
 }
 
 -(void)setYYModel:(JobsCommentModel *)yyModel{
     self.yyModel = yyModel;
+    [self dataSource:self.yyModel.listDataArr contentView:self.tableView];
+    [self endRefreshing:self.tableView];
 }
 
 -(JobsCommentTitleHeaderView *)getJobsCommentTitleHeaderView{
@@ -107,33 +111,11 @@
 }
 
 -(void)一级标题点击事件{
-    SYSAlertControllerConfig *config = SYSAlertControllerConfig.new;
-    config.title = @"牛逼";
-    config.message = @"哈哈哈";
-    config.isSeparateStyle = NO;
-    config.btnTitleArr = @[@"好的"];
-    config.alertBtnActionArr = @[@""];
-    config.targetVC = self;
-    config.funcInWhere = self;
-    config.animated = YES;
-    
-    [NSObject showSYSAlertViewConfig:config
-                        alertVCBlock:nil
-                     completionBlock:nil];
+    [self jobsToastMsg:Internationalization(@"一级标题点击事件")];
 }
 
 -(void)二级标题点击事件{
-    SYSAlertControllerConfig *config = SYSAlertControllerConfig.new;
-    config.isSeparateStyle = YES;
-    config.btnTitleArr = @[@"回复",@"复制",@"举报",@"取消"];
-    config.alertBtnActionArr = @[@"reply",@"copyIt",@"report",@"cancel"];
-    config.targetVC = self;
-    config.funcInWhere = self;
-    config.animated = YES;
-    
-    [NSObject showSYSActionSheetConfig:config
-                          alertVCBlock:nil
-                       completionBlock:nil];
+    [self jobsToastMsg:Internationalization(@"二级标题点击事件")];
 }
 #pragma mark —— BaseViewProtocol
 /// 下拉刷新 （子类要进行覆写）
@@ -151,29 +133,28 @@
     }];
 }
 #pragma mark —————————— UITableViewDelegate,UITableViewDataSource ——————————
-- (CGFloat)tableView:(UITableView *)tableView
+-(CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return [JobsLoadMoreTBVCell cellHeightWithModel:nil];//isFullShow
 }
 
-- (CGFloat)tableView:(UITableView *)tableView
+-(CGFloat)tableView:(UITableView *)tableView
 heightForFooterInSection:(NSInteger)section{
-    return 0.01;
+    return 0.0f;
 }
 
-- (nullable UIView *)tableView:(UITableView *)tableView
+-(nullable UIView *)tableView:(UITableView *)tableView
         viewForFooterInSection:(NSInteger)section{
     return nil;
 }
 
-- (void)tableView:(UITableView *)tableView
+-(void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self 二级标题点击事件];
 }
 /// 二级评论
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section{
-    
     JobsFirstCommentModel *firstCommentModel = (JobsFirstCommentModel *)self.mjModel.listDataArr[section];
     JobsFirstCommentCustomCofigModel *customCofigModel = JobsFirstCommentCustomCofigModel.new;
     customCofigModel.childDataArr = firstCommentModel.childDataArr;
@@ -184,7 +165,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     JobsFirstCommentModel *firstCommentModel = (JobsFirstCommentModel *)self.mjModel.listDataArr[indexPath.section];//一级评论数据 展示在viewForHeaderInSection
     JobsChildCommentModel *childCommentModel = firstCommentModel.childDataArr[indexPath.row];//二级评论数据 展示在cellForRowAtIndexPath
-
     JobsFirstCommentCustomCofigModel *customCofigModel = JobsFirstCommentCustomCofigModel.new;
     customCofigModel.childDataArr = firstCommentModel.childDataArr;
 
@@ -257,25 +237,24 @@ heightForHeaderInSection:(NSInteger)section{///  👌
 -(UITableView *)tableView{
     if (!_tableView) {
         // UITableViewStyleGrouped 取消悬停效果
-        _tableView = [UITableView.alloc initWithFrame:CGRectZero
-                                                style:UITableViewStyleGrouped];
+        _tableView = UITableView.initWithStylePlain;
         _tableView.backgroundColor = HEXCOLOR(0x242A37);
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
-        _tableView.mj_header = self.mjRefreshGifHeader;
-        _tableView.mj_footer = self.mjRefreshBackNormalFooter;
+        [self dataLinkByTableView:_tableView];
         _tableView.showsVerticalScrollIndicator = NO;
         _tableView.showsHorizontalScrollIndicator = NO;
         _tableView.estimatedSectionFooterHeight = 0;
         _tableView.estimatedSectionHeaderHeight = 0;
+        _tableView.mj_header = self.mjRefreshGifHeader;
+        _tableView.mj_footer = self.mjRefreshBackNormalFooter;
         _tableView.mj_footer.hidden = NO;
+        _tableView.tableHeaderView = UIView.new;/// 这里接入的就是一个UIView的派生类
         _tableView.tableFooterView = UIView.new;/// 这里接入的就是一个UIView的派生类
         _tableView.contentInset = UIEdgeInsetsMake(0, 0, self.popUpHeight, 0);
-        [_tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.separatorColor = JobsWhiteColor;
         _tableView.ly_emptyView = [EmptyView emptyViewWithImageStr:@"Indeterminate Spinner - Small"
                                                           titleStr:Internationalization(@"没有评论")
                                                          detailStr:Internationalization(@"来发布第一条吧")];
-
         @jobs_weakify(self)
         _tableView.mj_header = [LOTAnimationMJRefreshHeader headerWithRefreshingBlock:^{
             @jobs_strongify(self)

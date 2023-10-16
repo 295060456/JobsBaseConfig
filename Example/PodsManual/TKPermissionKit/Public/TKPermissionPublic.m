@@ -39,14 +39,14 @@
                                                   style:UIAlertActionStyleDefault
                                                 handler:^(UIAlertAction * _Nonnull action) {
             @jobs_strongify(self)
-            [self openURL:UIApplicationOpenSettingsURLString
-             successBlock:^(id data) {
+            [self jobsOpenURL:UIApplicationOpenSettingsURLString
+successCompletionHandlerBlock:^(id data) {
                 
-            } failBlock:^(id data) {
+            } failCompletionHandlerBlock:^(id data) {
                 
             }];
         }]];
-        [alert addAction:[UIAlertAction actionWithTitle:rightTitle 
+        [alert addAction:[UIAlertAction actionWithTitle:rightTitle
                                                   style:UIAlertActionStyleDefault
                                                 handler:^(UIAlertAction * _Nonnull action) {
 
@@ -58,7 +58,7 @@
 /// @param title 标题
 /// @param msg 内容
 /// @param actionTitle  按钮文字
-+(void)alertActionTitle:(NSString *)title 
++(void)alertActionTitle:(NSString *)title
                     msg:(NSString *)msg
             actionTitle:(NSString *)actionTitle;{
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -66,10 +66,10 @@
             TKPermissionPublic.shared.blockCustomMsg(title, msg, actionTitle, nil);
             return;
         }
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:title 
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
                                                                        message:msg
                                                                 preferredStyle:UIAlertControllerStyleAlert];
-        [alert addAction:[UIAlertAction actionWithTitle:actionTitle 
+        [alert addAction:[UIAlertAction actionWithTitle:actionTitle
                                                   style:UIAlertActionStyleDefault
                                                 handler:^(UIAlertAction * _Nonnull action) {
 

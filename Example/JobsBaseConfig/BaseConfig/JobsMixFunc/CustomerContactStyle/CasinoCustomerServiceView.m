@@ -102,7 +102,7 @@ static CasinoCustomerServiceView *static_customerServiceView = nil;
             if (self.customerContactModel.onlineUrl.customerAccount.nullString) {
                 [self customerContact];/// 获取客服联系方式
             }else{
-                [NSObject openURL:self.customerContactModel.onlineUrl.customerAccount];
+                [self jobsOpenURL:self.customerContactModel.onlineUrl.customerAccount];
             }
             [self endEditing:YES];
             if (self.objectBlock) self.objectBlock(x);

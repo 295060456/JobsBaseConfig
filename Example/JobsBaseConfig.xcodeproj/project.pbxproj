@@ -1317,7 +1317,6 @@
 		8459D61B2779A88900125782 /* CasinoCustomerContactModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasinoCustomerContactModel.m; sourceTree = "<group>"; };
 		845A0B1B276DAC99008E75A5 /* JobsBaseConfigPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobsBaseConfigPrefixHeader.pch; sourceTree = "<group>"; };
 		8465454D2769A53A003EC0B5 /* 配置info.plist.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "配置info.plist.md"; sourceTree = "<group>"; };
-		846B8335278C05A3005BCF91 /* 一级标题.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "一级标题.md"; sourceTree = "<group>"; };
 		846DEE0027804C340050468A /* JobsBasePopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsBasePopupView.m; sourceTree = "<group>"; };
 		846DEE0127804C340050468A /* JobsBasePopupView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobsBasePopupView.png; sourceTree = "<group>"; };
 		846DEE0227804C340050468A /* JobsBasePopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsBasePopupView.h; sourceTree = "<group>"; };
@@ -1639,7 +1638,6 @@
 		84CA66852789D6CE00E46E71 /* ™Whisky On The Rocks® 2020-12-12 11.17.46.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "™Whisky On The Rocks® 2020-12-12 11.17.46.mp4"; sourceTree = "<group>"; };
 		84D764AD2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CasinoGetiOSNewestVersionModel.m; sourceTree = "<group>"; };
 		84D764AE2780924A0003F0E4 /* CasinoGetiOSNewestVersionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CasinoGetiOSNewestVersionModel.h; sourceTree = "<group>"; };
-		84ED5203278C09F5009A22C1 /* 二级标题.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "二级标题.md"; sourceTree = "<group>"; };
 		949FC6F1AF6EDA9D4E27CA8D /* Pods_JobsBaseConfigUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JobsBaseConfigUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C50AFF102865ED7E00BBAE65 /* NSTimerManagerTestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSTimerManagerTestVC.h; sourceTree = "<group>"; };
 		C50AFF112865ED7E00BBAE65 /* NSTimerManagerTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSTimerManagerTestVC.m; sourceTree = "<group>"; };
@@ -4141,31 +4139,29 @@
 		8456257E278BF2780067ABB9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8456257F278BF2780067ABB9 /* TBVCell */,
-				84562584278BF2780067ABB9 /* JobsCommentPopUpViewForTVH */,
+				8456257F278BF2780067ABB9 /* 二级标题 */,
+				84562584278BF2780067ABB9 /* 一级标题 */,
 				84562587278BF2780067ABB9 /* JobsCommentTitleHeaderView */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		8456257F278BF2780067ABB9 /* TBVCell */ = {
+		8456257F278BF2780067ABB9 /* 二级标题 */ = {
 			isa = PBXGroup;
 			children = (
 				84562621278BF7000067ABB9 /* JobsLoadMoreTBVCell */,
 				84562620278BF6F90067ABB9 /* JobsInfoTBVCell */,
-				84ED5203278C09F5009A22C1 /* 二级标题.md */,
 			);
-			path = TBVCell;
+			path = "二级标题";
 			sourceTree = "<group>";
 		};
-		84562584278BF2780067ABB9 /* JobsCommentPopUpViewForTVH */ = {
+		84562584278BF2780067ABB9 /* 一级标题 */ = {
 			isa = PBXGroup;
 			children = (
 				84562586278BF2780067ABB9 /* JobsCommentPopUpView_viewForHeaderInSection.h */,
 				84562585278BF2780067ABB9 /* JobsCommentPopUpView_viewForHeaderInSection.m */,
-				846B8335278C05A3005BCF91 /* 一级标题.md */,
 			);
-			path = JobsCommentPopUpViewForTVH;
+			path = "一级标题";
 			sourceTree = "<group>";
 		};
 		84562587278BF2780067ABB9 /* JobsCommentTitleHeaderView */ = {

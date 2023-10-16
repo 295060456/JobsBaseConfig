@@ -17,7 +17,7 @@ BOOL xhLaunchAdShowFinish;
 - (BOOL)xhLaunchAd:(XHLaunchAd *)launchAd
   clickAtOpenModel:(id)openModel
         clickPoint:(CGPoint)clickPoint{
-    [NSObject openURL:openModel];
+    [self jobsOpenURL:openModel];
     return YES;
 }
 /// 跳过按钮点击回调(注意:自定义跳过按钮不会走此回调)
@@ -81,6 +81,5 @@ launchAdImageView:(UIImageView *)launchAdImageView
               URL:(NSURL *)url{
     
 }
-
 
 @end

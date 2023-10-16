@@ -104,6 +104,7 @@
         btnConfiguration.image = normalImage;
         btnConfiguration.imagePlacement = imagePlacement;
         background.edgesAddingLayoutMarginsToBackgroundInsets = imagePlacement;
+        /// ❤️要设置UIButton.imageView的宽\高\尺寸\坐标，请参阅 BaseButtonProtocol❤️
     }
     /// 富文本 优先级高于普通文本
 #warning 这个方法，同时设置了普通文本和富文本，其实是走富文本的创建路线。富文本4要素：文字信息、文字颜色、段落、字体

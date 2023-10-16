@@ -168,6 +168,7 @@ BaseButtonProtocol_synthesize
 /// 选中状态
 - (void)setSelected:(BOOL)selected{
     [super setSelected:selected];
+    _selected = selected;
     if (selected) {  // 从取消状态到点击状态
         /// 1.隐藏点赞label
         self.countLabel.alpha = 0;

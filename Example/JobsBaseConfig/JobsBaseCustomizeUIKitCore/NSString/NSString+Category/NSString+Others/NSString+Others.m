@@ -17,7 +17,7 @@
 -(NSString *_Nonnull)pasteboard{
     UIPasteboard *pasteboard = UIPasteboard.generalPasteboard;
     pasteboard.string = self;
-    [WHToast jobsToastSuccessMsg:Internationalization(@"Copy success")];
+    [WHToast jobsToastSuccessMsg:Internationalization(@"复制成功")];
     return pasteboard.string;
 }
 /// 根据字符串生成二维码图像
@@ -87,6 +87,10 @@
 -(NSURL *_Nonnull)jobsUrl{
     return [NSURL URLWithString:self];
 }
+///  能否正常打开Url
+-(BOOL)jobsCanOpenUrl{
+    return [UIApplication.sharedApplication canOpenURL:self.jobsUrl];
+}
 /**
  问题：直接其他地方复制过来的中文字进行网页搜索、或者中文字识别排序等情况的，会出现搜索不到的情况。
  解决方法：可能存在复制源里面的文字带了空白url编码%E2%80%8B，空白编码没有宽度，虽然看不到但是会影响结果无法正确匹配对应的中文字。可以把文字重新url编码即可。
@@ -145,10 +149,9 @@
                              withColor:(UIColor *_Nonnull)aColor
                           andDirection:(TransformLayerDirectionType)directionStr{
     // 创建文字路径
-    UIBezierPath *path;
-    path = [UIBezierPath bezierPathWithText:self
-                                       font:aFont
-                           andWithDirection:directionStr];
+    UIBezierPath *path = [UIBezierPath bezierPathWithText:self
+                                                     font:aFont
+                                         andWithDirection:directionStr];
     // 创建路径图层
     CAShapeLayer *pathLayer = CAShapeLayer.layer;
     pathLayer.frame = aRect;

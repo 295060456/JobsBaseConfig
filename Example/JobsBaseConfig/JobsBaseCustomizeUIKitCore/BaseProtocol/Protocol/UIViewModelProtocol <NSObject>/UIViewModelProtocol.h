@@ -164,17 +164,25 @@ NS_ASSUME_NONNULL_END
 @synthesize contentSpacing = _contentSpacing;\
 @synthesize btnWidth = _btnWidth;\
 @synthesize textLabelFrame = _textLabelFrame;\
+@synthesize subTextLabelFrame = _subTextLabelFrame;\
 @synthesize imageViewFrame = _imageViewFrame;\
 @synthesize textLabelSize = _textLabelSize;\
+@synthesize subTextLabelSize = _subTextLabelSize;\
 @synthesize imageViewSize = _imageViewSize;\
 @synthesize textLabelWidth = _textLabelWidth;\
+@synthesize subTextLabelWidth = _subTextLabelWidth;\
 @synthesize imageViewWidth = _imageViewWidth;\
 @synthesize textLabelHeight = _textLabelHeight;\
+@synthesize subTextLabelHeight = _subTextLabelHeight;\
 @synthesize imageViewHeight = _imageViewHeight;\
 @synthesize textLabelFrameOffsetX = _textLabelFrameOffsetX;\
 @synthesize textLabelFrameOffsetY = _textLabelFrameOffsetY;\
 @synthesize textLabelFrameOffsetWidth = _textLabelFrameOffsetWidth;\
 @synthesize textLabelFrameOffsetHeight = _textLabelFrameOffsetHeight;\
+@synthesize subTextLabelFrameOffsetX = _subTextLabelFrameOffsetX;\
+@synthesize subTextLabelFrameOffsetY = _subTextLabelFrameOffsetY;\
+@synthesize subTextLabelFrameOffsetWidth = _subTextLabelFrameOffsetWidth;\
+@synthesize subTextLabelFrameOffsetHeight = _subTextLabelFrameOffsetHeight;\
 @synthesize imageViewFrameOffsetX = _imageViewFrameOffsetX;\
 @synthesize imageViewFrameOffsetY = _imageViewFrameOffsetY;\
 @synthesize imageViewFrameOffsetWidth = _imageViewFrameOffsetWidth;\
@@ -315,17 +323,25 @@ NS_ASSUME_NONNULL_END
 @dynamic lineBreakMode;\
 @dynamic btnWidth;\
 @dynamic textLabelFrame;\
+@dynamic subTextLabelFrame;\
 @dynamic imageViewFrame;\
 @dynamic textLabelSize;\
+@dynamic subTextLabelSize;\
 @dynamic imageViewSize;\
 @dynamic textLabelWidth;\
+@dynamic subTextLabelWidth;\
 @dynamic imageViewWidth;\
 @dynamic textLabelHeight;\
+@dynamic subTextLabelHeight;\
 @dynamic imageViewHeight;\
 @dynamic textLabelFrameOffsetX;\
 @dynamic textLabelFrameOffsetY;\
 @dynamic textLabelFrameOffsetWidth;\
 @dynamic textLabelFrameOffsetHeight;\
+@dynamic subTextLabelFrameOffsetX;\
+@dynamic subTextLabelFrameOffsetY;\
+@dynamic subTextLabelFrameOffsetWidth;\
+@dynamic subTextLabelFrameOffsetHeight;\
 @dynamic imageViewFrameOffsetX;\
 @dynamic imageViewFrameOffsetY;\
 @dynamic imageViewFrameOffsetWidth;\
