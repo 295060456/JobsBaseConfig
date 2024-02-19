@@ -18,7 +18,7 @@
 
 [BBCo - iOS开发入门教程 SwiftUI 微博App项目实战 Lesson 1 (零基础学习Swift编程)](https://www.youtube.com/watch?v=5n0qoRZ8gXA&list=PLotizAeaV0nPM7a7Yy3Uyh4rkgBvT9N_H&index=2)
 
-## 为什么在swift里面新建一个view要用struct，而不用class
+## 为什么在Swift里面新建一个view要用struct，而不用class
 
 ```swift
 在 SwiftUI 中，视图（View）被建议使用结构体（struct）而不是类（class）。
@@ -484,7 +484,7 @@ class MyViewController {
 
 在上面的例子中，`fetchData(completion:)` 函数的参数闭包被标记为 `@escaping`，因为它在异步操作完成后被调用。而 `registerCompletionHandler(completion:)` 函数的参数闭包默认是非逃逸的，因为它被保存在数组中，不会在函数返回后被调用。 `executeCompletionHandlers()` 函数用于执行保存的闭包数组中的所有闭包。
 
-### @inline：
+### @inline
 
 *用于标记函数，表示希望编译器尽可能地将函数内容内联到调用点，以提高性能。*
 
@@ -779,6 +779,47 @@ struct MyView: View {
 
 综上所述，如果您在Swift 5.3及更高版本上进行跨平台开发，推荐使用 `@main`。如果您在较早的Swift版本上仅进行iOS开发，可以使用 `@UIApplicationMain`。在实践中，大多数新的Swift项目会选择使用 `@main`，因为它提供更大的灵活性，并且在未来的Swift版本中可能会成为标准的应用程序入口点标识方式。
 
+### Swift中 Any 和 Anyobject的区别？
+
+**Any:**
+
+- `Any` 可以表示任何类型，包括值类型（如结构体和枚举）和引用类型（如类）。
+- 使用 `Any` 可以存储任何类型的值，但在操作这些值时，你需要进行类型转换。
+- `Any` 是一个协议（protocol），所有类型都实现了 `Any`。因此，可以使用 `Any` 来表示任何值，而不管是值类型还是引用类型。
+
+```swift
+var value: Any
+value = 42
+value = "Hello"
+value = [1, 2, 3]
+
+if let intValue = value as? Int {
+    print("It's an Int: \(intValue)")
+}
+```
+
+**AnyObject:**
+
+- `AnyObject` 是一个协议（protocol），用于表示类类型（class types）。
+- 只有类（class）可以遵循 `AnyObject` 协议，而值类型（value types）不能。
+- 对于使用 `AnyObject` 存储的值，你可以直接调用类的方法和属性，而无需进行类型转换。
+
+```swift
+var object: AnyObject
+object = NSString(string: "Hello, AnyObject!")
+
+// 调用NSString的方法
+let length = object.length
+```
+
+综上所述：
+
+主要区别在于 `Any` 可以表示任何类型，而 `AnyObject` 仅表示类类型。
+
+因此，当你需要处理混合类型的数据时，可以使用 `Any`。当你知道你要处理的是类对象时，可以使用 `AnyObject`。
+
+在实践中，尽量避免使用 `Any` 和 `AnyObject`，而是使用具体的类型，因为这样有助于代码的可读性和类型安全。
+
 ## var body: some View  这里面的some是什么意思？
 
 ```swift
@@ -799,7 +840,7 @@ struct MyView: View {
 在编写 SwiftUI 代码时，你通常不需要知道具体的视图类型，只需要知道它们是 View 协议的实现即可。
 ```
 
-## \#available 和 @available 在swift中有什么区别？
+## \#available 和 @available 在Swift中有什么区别？
 
 *在Swift中，`#available` 和 `@available` 都用于处理平台和版本的可用性检查，但它们在语法上和用途上有一些不同。*
 
@@ -832,7 +873,7 @@ func myFunction() {
 
 `#available` 用于条件编译，而 `@available` 用于标记在运行时检查的实体。在实际编码中，它们经常一起使用，以确保代码在编译和运行时都考虑到平台和版本的差异。
 
-## extension 在swift中什么意思？怎么使用？
+## extension 在Swift中什么意思？怎么使用？
 
 *类似于OC中的分类*
 
@@ -991,7 +1032,275 @@ class MyObject {
 }
 ```
 
+## Swift单例的写法和用法
 
+```swift
+class MySingleton {
+    // 静态常量，用于保存唯一实例
+    static let shared = MySingleton()
+
+    // 私有构造函数，确保只能通过.shared创建实例
+    private init() {
+        // 初始化代码
+    }
+
+    // 其他方法和属性
+    func doSomething() {
+        // 实现功能
+    }
+}
+```
+
+```swift
+let myInstance = MySingleton.shared
+myInstance.doSomething()
+
+这确保了在应用程序中只存在一个MySingleton实例，且可以在任何地方通过.shared访问它。
+```
+
+## Swift网络请求
+
+### 1、URLSession（原生的工具）
+
+```swift
+import Foundation
+// 定义请求的 URL
+let url = URL(string: "https://example.com/api")!
+// 创建请求对象
+var request = URLRequest(url: url)
+request.httpMethod = "POST"
+// 添加自定义的 header 信息
+request.allHTTPHeaderFields = [
+    "Content-Type": "application/json",
+    "Authorization": "Bearer YourAccessToken"
+]
+// 添加需要发送的数据，例如 JSON 数据
+let jsonData = """
+{
+    "key1": "value1",
+    "key2": "value2"
+}
+""".data(using: .utf8)
+request.httpBody = jsonData
+// 创建 URLSession 对象
+let session = URLSession.shared
+// 发送请求
+let task = session.dataTask(with: request) { (data, response, error) in
+    // 处理响应
+    if let error = error {
+        print("Error: \(error)")
+    } else if let data = data {
+        // 处理返回的数据
+        let responseString = String(data: data, encoding: .utf8)
+        print("Response: \(responseString ?? "")")
+    }
+}
+// 启动任务
+task.resume()
+```
+
+**需要特别指出的：**
+
+*发送请求*
+
+* 一般的请求
+
+```swift
+let url = "https://example.com/api"
+// 这里的URL可以为String类型，框架可以接受URLRequest类型和String
+let task = session.dataTask(with: url) { (data, response, error) in
+  // TODO
+}
+```
+
+```swift
+import Foundation
+// 如果不配置httpMethod（不创建URLRequest），则默认为httpMethod.GET方法 
+// 定义请求的 URL
+let url = URL(string: "https://example.com/api")!
+// 创建 URLSession 对象
+let session = URLSession.shared
+// 发送请求
+let task = session.dataTask(with: url) { (data, response, error) in
+    // 处理响应
+    if let error = error {
+        print("Error: \(error)")
+    } else if let data = data {
+        // 处理返回的数据
+        let responseString = String(data: data, encoding: .utf8)
+        print("Response: \(responseString ?? "")")
+    }
+}
+// 启动任务
+task.resume()
+```
+
+* 数据下载
+
+```swift
+let task = session.downloadTask(with: request) { (data, response, error) in
+	// TODO
+}
+```
+
+* 数据上载
+
+```swift
+let task = session.uploadTask(with: request) { (data, response, error) in
+	// TODO
+}
+```
+
+### 2、Alamofire
+
+```Ruby
+pod 'Alamofire'
+```
+
+```swift
+import Alamofire
+
+// 定义请求的 URL
+let url = "https://example.com/api"
+
+// 发送 GET 请求
+AF.request(url, method: .get).responseJSON { response in
+    switch respo`nse.result {
+    case .success(let data):
+        print("Response JSON: \(data)")
+    case .failure(let error):
+        print("Error: \(error)")
+    }
+}
+```
+
+### 3、Moya（基于Alamofire的二次封装）
+
+```ruby
+pod 'Moya'
+```
+
+```swift
+import Moya
+
+// 将你的 API 定义为一个枚举
+enum MyAPIService {
+    case getPosts
+}
+
+// 遵循 TargetType 协议以提供关于你的 API 的详细信息
+extension MyAPIService: TargetType {
+    var baseURL: URL {
+        return URL(string: "https://jsonplaceholder.typicode.com")!
+    }
+
+    var path: String {
+        switch self {
+        case .getPosts:
+            return "/posts"
+        }
+    }
+
+    var method: Method {
+        return .get
+    }
+
+    var sampleData: Data {
+        return Data()
+    }
+
+    var task: Task {
+        return .requestPlain
+    }
+
+    var headers: [String: String]? {
+        return ["Content-Type": "application/json"]
+    }
+}
+
+// 使用你的 API 服务创建一个 Moya 提供者
+let provider = MoyaProvider<MyAPIService>()
+
+// 发送网络请求
+provider.request(.getPosts) { result in
+    switch result {
+    case .success(let response):
+        do {
+            // 使用你喜欢的 JSON 解析方法解析响应数据
+            let posts = try JSONDecoder().decode([Post].self, from: response.data)
+            print(posts)
+        } catch {
+            print("解码响应数据时出错：\(error)")
+        }
+    case .failure(let error):
+        print("网络请求失败：\(error)")
+    }
+}
+```
+
+## Swift的Json数据解析框架
+
+### 1、Codable 协议（原生.简洁.官方推荐首选）
+
+定义你的数据模型➕遵循 `Codable` 协议➕使用 `JSONDecoder` 来解码 JSON 数据
+
+```swift
+struct Post: Codable {
+    let userId: Int
+    let id: Int
+    let title: String
+    let body: String
+}
+
+do {
+    let jsonData = // Your JSON data
+    let post = try JSONDecoder().decode(Post.self, from: jsonData)
+    print(post)
+} catch {
+    print("Error decoding JSON: \(error)")
+}
+```
+
+### 2、SwiftyJSON（第三方.流行）
+
+更灵活➕链式语法
+
+```swift
+import SwiftyJSON
+
+let json = // Your JSON data
+let jsonObject = try? JSON(data: json)
+
+// Accessing values
+let title = jsonObject?["title"].stringValue
+let userId = jsonObject?["userId"].intValue
+```
+
+### 3、ObjectMapper（第三方.常用）
+
+对象到 ==>JSON 和 JSON  ==>对象的映射功能
+
+```swift
+import ObjectMapper
+
+class Post: Mappable {
+    var userId: Int?
+    var id: Int?
+    var title: String?
+    var body: String?
+
+    required init?(map: Map) {}
+
+    func mapping(map: Map) {
+        userId <- map["userId"]
+        id <- map["id"]
+        title <- map["title"]
+        body <- map["body"]
+    }
+}
+
+let post = Mapper<Post>().map(JSONString: jsonString)
+```
 
 
 
