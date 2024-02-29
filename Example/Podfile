@@ -26,7 +26,7 @@ end
 
 # 调试框架
 def debugPods
-# pod 'Bugly' #日志收集
+# pod 'Bugly' # https://github.com/BuglyDevTeam 日志收集
 # pod 'DoraemonKit' # https://github.com/didi/DoraemonKit 滴滴打车出的工具 NO_SMP
 # pod 'CocoaDebug' # https://github.com/CocoaDebug/CocoaDebug NO_SMP
 # pod 'FLEX'  # https://github.com/Flipboard/FLEX 调试界面相关插件 NO_SMP
@@ -100,7 +100,7 @@ def ui
   pod 'LMJDropdownMenu' # https://github.com/JerryLMJ/LMJDropdownMenu 下拉菜单
 #  pod 'WMZBanner' # https://github.com/wwmz/WMZBanner 轻量级轮播图+卡片样式+自定义样式 ⚠️作者停止维护
   pod 'MGSwipeTableCell' # https://github.com/MortimerGoro/MGSwipeTableCell 滑动tableViewCell
-  pod 'Shimmer' # Facebook 推出的一款具有闪烁效果的第三方控件
+  pod 'Shimmer' # https://github.com/facebookarchive/Shimmer⚠️作者停止维护 Facebook 推出的一款具有闪烁效果的第三方控件
   pod 'RQShineLabel'  # https://github.com/zipme/RQShineLabel 一个类似Secret文字渐变效果的开源库
   pod 'SZTextView' # https://github.com/glaszig/SZTextView SZTextView 用于替代内置的 UITextView，实现了 placeholder
   pod 'BRPickerView'  # https://github.com/91renb/BRPickerView 平替UIPickerView 该组件封装的是iOS中常用的选择器组件，主要包括：日期选择器、时间选择器（DatePickerView）、地址选择器（AddressPickerView）、自定义字符串选择器（StringPickerView）。支持自定义主题样式，适配深色模式，支持将选择器组件添加到指定容器视图。
@@ -123,7 +123,7 @@ def ui
   end
 # 视频相关
 def videoFunc
-  pod 'ZFPlayer'
+  pod 'ZFPlayer' # https://github.com/renzifeng/ZFPlayer
   pod 'ZFPlayer/ControlView'
   pod 'ZFPlayer/AVPlayer'
   pod 'ZFPlayer/ijkplayer'
