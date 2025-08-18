@@ -15,9 +15,9 @@ git add .
 git status
 
 # 添加Git子模块
-git submodule add -b main https://github.com/295060456/JobsOCBaseConfigDemo          ./JobsOCBaseConfigDemo
-git submodule add -b main https://github.com/295060456/JobsSwiftBaseConfigDemo       ./JobsSwiftBaseConfigDemo
-git submodule add -b main https://github.com/295060456/JobsFlutterBaseConfigDemo     ./JobsFlutterBaseConfigDemo
+git submodule add -b main https://github.com/295060456/JobsOCBaseConfigDemo          ./JobsBaseConfig@JobsOCBaseConfigDemo
+git submodule add -b main https://github.com/295060456/JobsSwiftBaseConfigDemo       ./JobsBaseConfig@JobsSwiftBaseConfigDemo
+git submodule add -b main https://github.com/295060456/JobsFlutterBaseConfigDemo     ./JobsBaseConfig@JobsFlutterBaseConfigDemo
 
 # 同步子模块记录
 git submodule sync
