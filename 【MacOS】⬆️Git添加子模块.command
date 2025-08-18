@@ -15,15 +15,15 @@ git add .
 git status
 
 # 添加Git子模块
-git submodule add -b main https://github.com/295060456/JobsOCBaseConfigDemo    ./JobsOCBaseConfigDemo
-git submodule add -b main https://github.com/295060456/JobsSwiftBaseConfigDemo ./JobsSwiftBaseConfigDemo
+git submodule add -b main https://github.com/295060456/JobsOCBaseConfigDemo          ./JobsOCBaseConfigDemo
+git submodule add -b main https://github.com/295060456/JobsSwiftBaseConfigDemo       ./JobsSwiftBaseConfigDemo
 git submodule add -b main https://github.com/295060456/JobsFlutterBaseConfigDemo     ./JobsFlutterBaseConfigDemo
 
 # 同步子模块记录
 git submodule sync
 
 # 添加Git暂存区和提交日志
-git add .gitmodules JobsCommand.Flutter JobsCommand.iOS JobsCommand.Gits JobsCommand.Others JobsSh
+git add .gitmodules */ 
 git commit -m "同步：JobsOCBaseConfigDemo/JobsSwiftBaseConfigDemo/JobsFlutterBaseConfigDemo"
 
 # 首次拉取子模块内容（macOS）
