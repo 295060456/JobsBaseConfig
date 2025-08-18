@@ -1,15 +1,3 @@
-[submodule "JobsOCBaseConfigDemo"]
-	path = JobsOCBaseConfigDemo
-	url = https://github.com/295060456/JobsOCBaseConfigDemo
-	branch = main
-[submodule "JobsSwiftBaseConfigDemo"]
-	path = JobsSwiftBaseConfigDemo
-	url = https://github.com/295060456/JobsSwiftBaseConfigDemo
-	branch = main
-[submodule "JobsFlutterBaseConfigDemo"]
-	path = JobsFlutterBaseConfigDemo
-	url = https://github.com/295060456/JobsFlutterBaseConfigDemo
-	branch = main
 [submodule "JobsBaseConfig@JobsOCBaseConfigDemo"]
 	path = JobsBaseConfig@JobsOCBaseConfigDemo
 	url = https://github.com/295060456/JobsOCBaseConfigDemo
