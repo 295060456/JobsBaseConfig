@@ -1,0 +1,21 @@
+# Auto-created by script on 2025-08-23T09:40:15Z
+[submodule "JobsGenesis@JobsCommand.Flutter"]
+	path = JobsGenesis@JobsCommand.Flutter
+	url = https://github.com/295060456/JobsCommand-Flutter.git
+	branch = main
+[submodule "JobsGenesis@JobsCommand.iOS"]
+	path = JobsGenesis@JobsCommand.iOS
+	url = https://github.com/295060456/JobsCommand-iOS.git
+	branch = main
+[submodule "JobsGenesis@JobsCommand.Gits"]
+	path = JobsGenesis@JobsCommand.Gits
+	url = https://github.com/295060456/JobsCommand-Gits.git
+	branch = main
+[submodule "JobsGenesis@JobsCommand.Others"]
+	path = JobsGenesis@JobsCommand.Others
+	url = https://github.com/295060456/JobsCommand-Others.git
+	branch = main
+[submodule "JobsGenesis@JobsSh"]
+	path = JobsGenesis@JobsSh
+	url = https://github.com/295060456/JobsSh.git
+	branch = main
