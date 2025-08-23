@@ -195,9 +195,9 @@ ensure_git_remote() {
   while true; do
     # ✅ 在 zsh 里用 read '?prompt:'，在 bash 里用 read -p
     if [ -n "${ZSH_VERSION:-}" ]; then
-      read "?请输入远程仓库地址 (例如 https://github.com/user/repo.git): " remote_url
+      read "?请输入Git远程仓库地址: " remote_url
     else
-      read -p "请输入远程仓库地址 (例如 https://github.com/user/repo.git): " remote_url
+      read -p "请输入Git远程仓库地址: " remote_url
     fi
 
     if [[ -z "${remote_url:-}" ]]; then
@@ -250,18 +250,18 @@ record_and_normalize_submodules() {
 
 # ================================== main（只调用函数） ==================================
 main() {
-  show_intro_and_wait         # 自述信息 + 等待用户确认
-  cd_to_script_dir            # 切到脚本所在目录
-  ensure_repo_initialized     # 初始化父仓（幂等）
-  purge_all_submodules        # ✅ 运行前：先删除本文件夹下所有子模块（含索引与 .git/modules）
-  ensure_gitmodules_here      # 确保 .gitmodules 在当前目录（且为仓库根），必要时创建/修复
-  add_submodules              # 添加子模块（立即拉取）
-  sync_submodules             # 同步子模块记录
-  commit_gitmodules_and_dirs  # 提交 .gitmodules 及目录占位
-  submodule_init_update       # 首次拉取子模块内容（并发）
-  submodule_ff_remote_merge   # 让全部子模块按“各自的 branch”前移到远端最新
+  show_intro_and_wait              # 自述信息 + 等待用户确认
+  cd_to_script_dir                 # 切到脚本所在目录
+  ensure_repo_initialized          # 初始化父仓（幂等）
+  purge_all_submodules             # ✅ 运行前：先删除本文件夹下所有子模块（含索引与 .git/modules）
+  ensure_gitmodules_here           # 确保 .gitmodules 在当前目录（且为仓库根），必要时创建/修复
+  add_submodules                   # 添加子模块（立即拉取）
+  sync_submodules                  # 同步子模块记录
+  commit_gitmodules_and_dirs       # 提交 .gitmodules 及目录占位
+  submodule_init_update            # 首次拉取子模块内容（并发）
+  submodule_ff_remote_merge        # 让全部子模块按“各自的 branch”前移到远端最新
   record_and_normalize_submodules  # ✅ 固化子模块 SHA 到父仓，并尽量在 main 分支上
-  ensure_git_remote           # 配置 remote（可交互）
+  ensure_git_remote                # 配置 remote（可交互）
 }
 
 main "$@"
